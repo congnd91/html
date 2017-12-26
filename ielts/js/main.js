@@ -305,8 +305,19 @@
 
         $('.step2-choose').click(function () {
 
+            var current = $(this).next(".ts2-item-wrap");
+            $('.ts2-item-wrap').not(current).slideUp();
+            if ($(this).next(".ts2-item-wrap").is(":visible")) {
+
+            } else {
+                $(this).next('.ts2-item-wrap').slideDown();
+            }
+
+
+
             $('.step2-choose').removeClass("active");
             $(this).addClass("active");
+
 
 
 
