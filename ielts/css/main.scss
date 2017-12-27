@@ -2100,6 +2100,12 @@ iframe {
         &.show {
             display: block;
         }
+        textarea {
+            background-color: transparent;
+            border: none;
+            outline: none;
+
+        }
     }
     .sl-caption {
         span {
@@ -2211,11 +2217,14 @@ iframe {
             text-align: center;
             line-height: 30px;
             color: #fff;
+            &.gray {
+                background-color: #aaa !important;
+            }
         }
         p {
-            display: inline-block;
+
             padding: 0px 5px;
-            margin: 0px;
+
         }
         .sl-control {
             display: inline-block;
@@ -2700,6 +2709,10 @@ iframe {
             background-color: $green-dark;
             &.qp-item-unanswered {
                 background-color: $green-light;
+            }
+            &.qp-item-large {
+                width: 60px;
+                border-radius: 20px;
             }
         }
         .qp-note {
@@ -5117,6 +5130,12 @@ iframe {
     padding: 0px 3px;
 }
 
+.hl-translate {
+    background-color: yellow;
+    border-radius: 2px;
+    padding: 0px 3px;
+}
+
 
 /****************login**************/
 
@@ -5385,24 +5404,79 @@ iframe {
 }
 
 
+.translate-pop {
+    position: absolute;
+    z-index: 999;
+    min-height: 100px;
+
+    background-color: $active-color;
+    border-radius: 3px;
+    width: 350px;
+    padding: 10px;
+    &:before {
+        content: "";
+        display: block;
+
+        width: 0px;
+        height: 0px;
+        border: 10px solid transparent;
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        margin: -10px 0px 0px 0px;
+        border-right-color: $active-color;
+    }
+    .tp-top {
+        color: #fff;
+        padding: 10px;
+    }
+
+    .tp-bottom {
+        background-color: #fff;
+        padding: 10px;
+    }
+
+
+}
+
 /****************web control style*******/
 
-.iot-question {
+select.iot-question {
     padding: 0px 5px;
     border-radius: 2px;
     border: 1px solid #aaa;
-    display: inline-block;
     margin: 0px 5px;
     outline: none;
+    max-width: 130px;
     &:focus {
         border: 1px solid #999;
+    }
+
+
+}
+
+input.iot-question {
+    padding: 0px 5px;
+    border-radius: 2px;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    margin: 0px 5px;
+    outline: none;
+    max-width: 130px;
+    &:focus {
+        outline: none;
+        border: none;
+        border-bottom: 2px solid #999;
+
     }
 
 }
 
 .table-responsive {
     border: 1px solid #aaa;
+
     margin: 20px 0px 0px 0px;
+
     .table tbody tr td {
         font-size: 16px;
     }
@@ -5410,5 +5484,86 @@ iframe {
     caption {
         color: #333;
         padding-left: 20px;
+
     }
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    td {
+        padding: 5px;
+    }
+}
+
+.list-question {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    li {
+        margin: 10px 0px;
+    }
+    .lq-number {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+        background-color: #ddd;
+        border-radius: 50%;
+        margin: 0px 7px 0px 5px;
+        font-weight: 600;
+        font-family: $font-family-heading;
+    }
+}
+
+.my-check {
+    position: relative;
+    display: inline-block;
+    padding: 0px 0px 0px 25px;
+    label {
+        cursor: pointer;
+        font-weight: normal;
+    }
+
+    input[type=checkbox] {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    label:before {
+        display: block;
+        position: absolute;
+        background-color: #fff;
+        content: "\f372";
+        font-family: "Ionicons";
+        height: 20px;
+        width: 20px;
+        top: -3px;
+        left: 0px;
+        font-style: normal;
+
+        z-index: 5;
+        font-size: 20px;
+        transition: border .25s linear;
+        -webkit-transition: border .25s linear;
+    }
+    .check::before {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: block;
+
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 20px;
+    }
+    input[type=checkbox]:checked ~ label .check {}
+    input[type=checkbox]:checked ~ label::before {
+        content: "\f374";
+    }
+    input[type=checkbox]:checked ~ label {}
+    input[type=checkbox]:checked ~ span {}
+
 }
