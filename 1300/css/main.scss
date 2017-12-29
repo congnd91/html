@@ -225,6 +225,97 @@ iframe {
     }
 }
 
+.login-box {
+    margin: 0px 0px 0px 20px;
+    float: right;
+    height: 40px;
+    position: relative;
+    &:hover {
+
+        .lb-dropdown {
+            opacity: 1;
+            visibility: visible;
+            z-index: 999;
+        }
+    }
+
+    span {
+        line-height: 25px;
+        display: inline-block;
+        padding: 0px 15px;
+        border: 1px solid #fff;
+        border-radius: 20px;
+        margin: 7px 0px 0px 0px;
+        color: #fff;
+        cursor: pointer;
+
+    }
+    .lb-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0px;
+        width: 320px;
+        z-index: 999;
+
+        background-color: #ffffff;
+        box-shadow: 0px 5px 25px 0 rgba(0, 0, 0, 0.25);
+        padding: 20px 10px;
+        text-align: center;
+        @include transition();
+        opacity: 0;
+        visibility: hidden;
+        z-index: 0;
+        &:before {
+            content: "";
+            display: block;
+            border-style: solid;
+            border-width: 10px 18px;
+            border-color: transparent;
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            top: 0px;
+            right: 15px;
+            border-top-color: $active-color;
+        }
+
+        .lb-left {
+            float: left;
+            padding: 10px 20px;
+            width: 50%;
+        }
+        .lb-right {
+            float: left;
+            padding: 10px 20px;
+            width: 50%;
+            border-left: 1px solid $border-color;
+        }
+        p {
+            font-family: $font-family-heading;
+            font-size: $font-size-h5;
+            font-weight: bold;
+            font-style: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color: $active-color;
+            margin: 0px 0px 30px 0px;
+        }
+        a {
+            display: inline-block;
+            line-height: 25px;
+            padding: 0px 10px;
+            border-radius: 20px;
+            border: 1px solid $active-color;
+            color: $active-color;
+            @include transition();
+            &:hover {
+                color: #fff;
+                background-color: $active-color;
+            }
+        }
+    }
+}
+
 /*==========Header=========*/
 
 .header {
@@ -1689,6 +1780,9 @@ iframe {
                 }
             }
         }
+        &.white {
+            color: #fff;
+        }
     }
     &.section-about-right {
         .sba-img {
@@ -2236,9 +2330,7 @@ iframe {
     }
 }
 
-.section-board {
-    padding-top: 0px;
-}
+.section-board {}
 
 .section-board-bg {
     background-color: $box-color;
@@ -2246,6 +2338,7 @@ iframe {
 
 .section-award {
     text-align: center;
+    background-color: #f5f5f5;
     img {
         margin: 0px auto;
         max-width: 100%;
@@ -2305,14 +2398,14 @@ iframe {
 /*************timeline***********/
 
 .section-timeline {
-    padding-top: 0px;
+    background-color: $box-color;
     overflow: hidden;
     .wrap1200 {
         padding: 0px 50px;
     }
     .tl-line {
         height: 4px;
-        background-color: $box-color;
+        background-color: #EDEADF;
         position: relative;
         margin: 200px 0px;
 
@@ -2426,7 +2519,7 @@ iframe {
             margin: 0px 0px 0px -15px;
         }
         .tl-tooltip {
-            background-color: $box-color;
+            background-color: $active-color-third;
             padding: 10px 15px;
             width: 300px;
             border-radius: 5px;
@@ -2446,14 +2539,14 @@ iframe {
                 border-width: 10px 20px;
                 border-color: transparent;
                 border-style: solid;
-                border-top-color: $box-color;
+                border-top-color: $active-color-third;
                 position: absolute;
                 bottom: -20px;
                 left: 10px;
             }
             h5 {
                 font-size: $font-size-h5;
-                color: $active-color-third;
+                color: #fff;
                 font-weight: 600;
                 margin: 0px;
                 font-family: $font-family-base;
@@ -2462,6 +2555,7 @@ iframe {
             p {
 
                 font-weight: 300;
+                color: #fff;
                 margin: 10px 0px 0px 0px;
             }
         }
@@ -2791,6 +2885,129 @@ iframe {
         color: $active-color;
         &:hover {
             text-decoration: underline;
+        }
+    }
+}
+
+.section-why-choose {
+
+    position: relative;
+    &:before {
+        content: "";
+        display: block;
+        width: 50%;
+        left: 0px;
+        bottom: 0px;
+        top: 0px;
+        background-color: $active-color;
+        position: absolute;
+    }
+
+    .sba-content {
+        padding: 0px 0px 0px 50px !important;
+        @media screen and (max-width: 991px) {
+            padding: 0px !important;
+        }
+
+
+    }
+}
+
+.section-about-1300apprentice {
+
+    p {
+        font-weight: 300;
+        font-size: 1.2rem;
+
+        @media screen and (max-width: 991px) {
+            font-size: 1rem;
+        }
+    }
+}
+
+.section-mv {
+    margin: 40px 0px 0px 0px;
+}
+
+.md-content {
+    h3 {
+        font-size: $font-size-h3;
+        margin-top: 0px;
+        font-weight: 400;
+        margin-bottom: 40px;
+        font-family: $font-family-heading;
+        @media screen and (max-width: 991px) {
+            font-size: $font-size-h4;
+        }
+
+
+
+    }
+    p {
+        font-weight: 300;
+        font-size: 1.2rem;
+        @media screen and (max-width: 991px) {
+            font-size: 1rem;
+        }
+    }
+
+    .md-content-inner {
+        padding: 80px 60px;
+        @media screen and (max-width: 991px) {
+            padding:30px 10px;
+        }
+    }
+    &.md-content-bg {
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #fff;
+    }
+}
+
+.section-mv-fix {
+    margin-bottom: 40px;
+}
+
+.section-area {
+    h3 {
+        font-size: $font-size-h3;
+        margin-top: 0px;
+        font-weight: 400;
+        margin-bottom: 40px;
+        font-family: $font-family-heading;
+        color: $active-color;
+        @media screen and (max-width: 991px) {
+            font-size: $font-size-h4;
+        }
+
+
+
+    }
+    p {
+        font-weight: 300;
+        font-size: 1.2rem;
+        @media screen and (max-width: 991px) {
+            font-size: 1rem;
+        }
+    }
+    .section-area-center {
+        max-width: 800px;
+        margin: 50px auto 0px auto;
+        text-align: center;
+    }
+
+    .sa-social {
+        margin: 40px 0px 30px 0px;
+        a {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            margin: 0px 10px;
+            color: lighten($active-color, 15%);
+            font-size: 40px;
+            &:hover {
+                color: $active-color;
+            }
         }
     }
 }
