@@ -5519,7 +5519,7 @@ table {
         line-height: 25px;
         background-color: #ddd;
         border-radius: 50%;
-        margin: 0px 7px 0px 5px;
+        margin: 0px 7px 0px 0px;
         font-weight: 600;
         font-family: $font-family-heading;
     }
@@ -5527,10 +5527,12 @@ table {
 
 .my-check {
     position: relative;
-    display: inline-block;
+    display: inline;
+
     padding: 0px 0px 0px 25px;
     label {
         cursor: pointer;
+        display: inline;
         font-weight: normal;
     }
 
@@ -5547,7 +5549,7 @@ table {
         font-family: "Ionicons";
         height: 20px;
         width: 20px;
-        top: -3px;
+        top: -5px;
         left: 0px;
         font-style: normal;
 
@@ -5573,5 +5575,73 @@ table {
     }
     input[type=checkbox]:checked ~ label {}
     input[type=checkbox]:checked ~ span {}
+
+}
+
+.my-radio {
+    position: relative;
+    display: inline;
+
+    padding: 0px 0px 0px 25px;
+    label {
+        cursor: pointer;
+        display: inline;
+        font-weight: normal;
+    }
+
+    input[type=radio] {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    label:before {
+        display: block;
+        position: absolute;
+        background-color: #fff;
+        content: "\f401";
+        font-family: "Ionicons";
+        height: 20px;
+        width: 20px;
+        top: -5px;
+        left: 0px;
+        font-style: normal;
+
+        z-index: 5;
+        font-size: 21px;
+        transition: border .25s linear;
+        -webkit-transition: border .25s linear;
+    }
+    .check::before {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: block;
+
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 20px;
+    }
+    input[type=radio]:checked ~ label .check {}
+    input[type=radio]:checked ~ label::before {
+        content: "\f400";
+    }
+    input[type=radio]:checked ~ label {}
+    input[type=radio]:checked ~ span {}
+
+}
+
+.number-wrap-inline {
+    display: inline-block;
+
+    padding: 0px 0px 0px 40px;
+    span.number {
+        float: left;
+        margin: -2px 0px 0px -40px;
+    }
+
+    select {
+        min-width: 100px;
+    }
 
 }
