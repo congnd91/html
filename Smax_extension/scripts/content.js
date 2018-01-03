@@ -150,6 +150,60 @@ $(document).on('click', '._4k8w._5_n1', function () {
 });
 
 
+//page.fm
+$(document).on('click', '.media.conversation-list-item', function () {
+    console.log("page.fm");
+    if ($('#exc-style').length <= 0) {
+        $("head").append(style);
+    }
+
+    setTimeout(function () {
+
+        var linksList = document.querySelector('body');
+        if ($('.exc-box').is(":visible")) {
+            $('.exc-profile p').text($('.chat-menu .copyable-text').html());
+            $('.exc-profile img').attr('src', $('.chat-menu > div > div > a > img').attr('src'));
+            $('.exc-profile a').attr('href', $('.chat-menu > div > div > a').attr('href'));
+            $('.exc-icon-inner img').attr('src', $('.chat-menu > div > div > a > img').attr('src'));
+
+
+
+        } else {
+            var html = `
+ <div class="exc-box">
+        <div class="exc-expand">
+            <em class="exc-close">X</em>
+            <div class="exc-profile">
+                <a href=" ` + $('.chat-menu > div > div > a').attr('href') + `" target="_blank">
+                <img alt="" src=" ` + $('.chat-menu > div > div > a > img').attr('src') + `" />
+</a>
+
+                <p>` + $('.chat-menu .copyable-text').html() + `</p>
+                <span class="exc-btn-sent">Gửi thông tin</span>
+            </div>
+
+        </div>
+        <div class="exc-icon">
+            <div class="exc-icon-inner">
+                <i class="phone-icon">
+                </i>
+                <img alt="" src="` + $('.chat-menu > div > div > a > img').attr('src') + `" />
+            </div>
+        </div>
+    </div>
+
+`;
+
+            // linksList.innerHTML = request.data;
+
+
+            linksList.insertAdjacentHTML('beforeend', html);
+        }
+    }, 400);
+
+});
+
+
 
 
 
