@@ -971,6 +971,29 @@ iframe {
     text-align: center;
 }
 
+.radial.x-small {
+    width: 70px;
+    height: 70px;
+    margin: 0px auto 20px auto;
+    .x-small-text {
+
+        color: $active-color;
+        font-weight: 600;
+        font-style: normal;
+    }
+}
+
+.radial.x-small .overlay {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #FFF;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+}
+
 /* -------------------------------------
  * Mixin for progress-% class
  * ------------------------------------- */
@@ -1242,13 +1265,30 @@ iframe {
     padding: 0px;
     margin: 0px;
     li {
-        margin: 15px 0px 0px 0px;
+        margin: 20px 0px 0px 0px;
+        padding: 0px 0px 0px 40px;
         list-style: none;
+        float: left;
+        width: 50%;
+        @media screen and (max-width: 767px) {
+
+            width: 100%;
+            float: none;
+        }
+
+        p {
+            display: inline;
+            padding: 0px 0px 0px 0px;
+            position: relative;
+            margin: 0px;
+
+        }
         span {
             display: inline-block;
             width: 30px;
             height: 30px;
-            margin: 0px 5px 0px 0px;
+            margin: -3px 0px 0px -40px;
+            float: left;
             text-align: center;
             line-height: 30px;
             font-size: 14px;
@@ -1263,7 +1303,8 @@ iframe {
             background: url("../images/icon_true.png") no-repeat center center;
             width: 14px;
             height: 10px;
-            margin: 0px 0px 0px 5px;
+            margin: -20px -30px 0px 5px;
+
             &.false {
                 background: url("../images/icon_false.png") no-repeat center center;
                 width: 14px;
@@ -1524,12 +1565,87 @@ iframe {
 .om-item {
     text-align: center;
     margin: 20px 0px 0px 0px;
+    position: relative;
+    .complete-icon {
+        color: $green;
+        position: absolute;
+        top: -25px;
+        right: 0px;
+        font-size: 20px;
+        line-height: 25px;
+        display: inline-block;
+
+        width: 25px;
+        height: 25px;
+
+
+        span {
+            display: inline-block;
+            border-radius: 2px;
+            color: #fff;
+            text-transform: uppercase;
+            background-color: $text-color;
+            position: absolute;
+            right: 35px;
+            padding: 0px 5px;
+            white-space: nowrap;
+            top: 0px;
+            font-size: 10px;
+            font-weight: 600;
+            font-family: $font-family-heading;
+            @include transition();
+
+            visibility: hidden;
+            opacity: 0;
+            &:before {
+                content: "";
+                display: block;
+                width: 0px;
+                height: 0px;
+                border: 5px solid transparent;
+                border-left-color: $text-color;
+                position: absolute;
+                top: 7px;
+                right: -10px;
+            }
+
+
+        }
+        &:hover {
+            span {
+                visibility: visible;
+                opacity: 1;
+                right: 30px;
+            }
+        }
+    }
     .om-icon {
         background: url("../images/icon_reading.png") no-repeat center center;
         width: 44px;
         height: 44px;
-        margin: 0px auto;
+        margin: 10px auto 0px auto;
         display: block;
+
+
+    }
+
+    .complete-text {
+        line-height: 18px;
+        height: 18px;
+        margin: -18px auto 0px auto;
+        text-align: center;
+        font-size: $font-size-xs;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        border-radius: 2px;
+        color: #fff;
+
+        font-weight: 700;
+        background-color: $green;
+        display: block;
+        font-family: $font-family-heading;
+
     }
     p,
     strong {
@@ -1579,6 +1695,15 @@ iframe {
                 margin: 0px 5px 0px
             }
         }
+        &.btn-resume {
+
+            background-color: $active-color !important;
+            span {
+                background: url("../images/icon_resume.png") no-repeat center center !important;
+                background-size: 14px 16px !important;
+                top: 7px !important;
+            }
+        }
     }
     &.orange {
         .om-icon {
@@ -1619,6 +1744,51 @@ iframe {
             }
         }
     }
+
+
+    .resume-progress {
+        position: relative;
+
+        .rs-content {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            z-index: 99;
+            background-color: #fff;
+            @include transition();
+
+            height: 120px;
+            margin: -25px 0px 0px 0px;
+            p {
+                text-align: center;
+
+                font-size: $font-size-xs;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-weight: 700;
+                color: $active-color;
+                display: block;
+                font-family: $font-family-heading;
+                margin: -10px 0px 0px 0px;
+            }
+            span {
+                display: block;
+                text-align: center;
+                color: $text-color;
+                font-size: 12px;
+                line-height: 14px;
+            }
+        }
+
+    }
+    &:hover {
+        .resume-progress {
+            .rs-content {}
+        }
+    }
+
 }
 
 .footer {
