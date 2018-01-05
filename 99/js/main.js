@@ -19,6 +19,53 @@
 
         });
 
+        var owl_box4 = $('.owl-box4')
+        $(owl_box4).owlCarousel({
+            loop: true,
+            margin: 0,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            items: 1,
+
+            responsive: {
+                // breakpoint from 0 up
+                0: {
+
+                    nav: false,
+                    dots: false
+                },
+                // breakpoint from 480 up
+                480: {
+
+                    nav: false,
+                    dots: false
+                },
+                // breakpoint from 768 up
+                768: {
+
+                    nav: false,
+                    dots: false
+                },
+                992: {
+
+                    nav: false,
+                    dots: true
+
+                }
+            }
+
+
+
+        });
+
+        var dot = $('.box4-slider .owl-dot');
+        dot.each(function () {
+            var index = $(this).index() + 1;
+
+            $(this).html(index);
+
+        });
+
 
         var owl_cate = $('.owl-cate')
         $(owl_cate).owlCarousel({
