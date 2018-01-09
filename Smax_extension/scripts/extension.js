@@ -50,11 +50,15 @@ function getallfb() {
                 window.open("http://facebook.com");
             };
         }
-        console.log(key);
+        console.log(key + "key la");
         console.log(check_login);
         if (check_login) {
+
+
+            console.log(JSON.parse(xmlhttp.responseText));
             xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
+
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
                     console.log("hihi");
