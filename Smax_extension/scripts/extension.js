@@ -89,26 +89,63 @@ function getallfb() {
     });
 }
 
+var token;
 
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
         console.log(sender.tab ?
             "from a content script:" + sender.tab.url :
             "from the extension");
-        if (request.greeting == "hello") {
 
-            getallfb();
-            console.log("sss");
+
+        console.log(request.status);
+
+        if (request.status == "get") {
             sendResponse({
-                farewell: "goodbye",
-                name: "danhcong",
+                key: token
 
             });
+        } else {
+
+            console.log(request.status + "token");
+            token = request.status;
+
+            sendResponse({
+                key: token
+
+            });
+
+
+            $.ajax({
+                url: "http://falo.vn/api/uidprofile?uid=100002025133664&source=smax",
+                type: "get",
+                headers: {
+                    'authorization': 'Bearer ' + request.status
+                },
+                data: {
+
+                },
+                success: function (data) {
+
+                    console.log(data);
+                }
+            });
+
+
+
         }
+
+
+
+
+
 
     });
 
-chrome.storage.onChanged.addListener(function (changes) {
+chrome.storage.onCha
+
+
+nged.addListener(function (changes) {
 
 })
 

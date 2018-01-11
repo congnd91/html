@@ -19,17 +19,49 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 
 
+var token = "";
+
 
 $(document).on('click', 'body', function () {
+    console.log(token + " tra ve dau");
+    if ($('#token').length) {
+        token = $('#token').html();
+    }
 
-    chrome.runtime.sendMessage({
-        greeting: "hello"
-    }, function (response) {
-        console.log(response.farewell);
-        console.log(response.name);
+    if (token != "" && token != "undefined") {
+        console.log("vaoday1");
+        chrome.runtime.sendMessage({
+            status: token
+        }, function (response) {
+            console.log(response.key + " tra ve");
 
-    });
-    return true;
+            token = response.key;
+
+
+        });
+
+    } else {
+
+
+        console.log("vaoday");
+        chrome.runtime.sendMessage({
+            status: "get"
+        }, function (response) {
+            console.log(response.key);
+            token = response.key;
+
+
+        });
+
+
+
+    }
+
+
+
+
+
+
 
 });
 
