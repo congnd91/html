@@ -194,7 +194,7 @@ iframe {
 
 .intro-fix {
     min-height: 80px;
-    padding-bottom: 10px;
+
 
     @media screen and (max-width: 991px) {
         min-height: 80px;
@@ -329,8 +329,11 @@ iframe {
 
     .menu {
         float: left;
-        margin: 0px 0px 0px 50px;
+        margin: -10px 0px 0px 50px;
 
+        @media screen and (max-width: 580px) {
+            padding-bottom: 10px;
+        }
         @media screen and (max-width: 991px) {
             float: left;
             clear: both;
@@ -349,15 +352,39 @@ iframe {
             padding: 0px;
             display: inline-block;
             list-style: none;
+            position: relative;
+            &.active {
+                &:before {
+                    content: "";
+                    display: block;
+                    width: 0px;
+                    height: 0px;
+                    border: 13px solid transparent;
+                    border-bottom-color: #A6DBD5;
+                    position: absolute;
+                    bottom: -3px;
+
+                    left: 50%;
+                    margin-left: -13px;
+                    @media screen and (max-width: 580px) {
+                        display: none;
+                    }
+                }
+            }
+
 
             a {
                 display: block;
-                line-height: 38px;
+                line-height: 68px;
+
                 color: #fff;
                 opacity: 0.8;
                 font-weight: 400;
                 padding: 0px 30px;
                 @include transition();
+                @media screen and (max-width: 580px) {
+                    line-height: 35px;
+                }
 
                 @media screen and (max-width: 1199px) {
                     padding: 0px 15px;
@@ -2915,5 +2942,29 @@ iframe {
     @media screen and (max-width: 767px) {
         margin-left: -10px;
         margin-right: -10px;
+    }
+}
+
+.sitemap {
+    background-color: #A6DBD5;
+    padding: 20px 0px;
+    @media screen and (max-width: 991px) {
+        padding: 15px 0px;
+    }
+    @media screen and (max-width: 580px) {
+        display: none;
+    }
+
+
+    strong {
+        margin: 0px 10px 0px 0px;
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+    }
+
+    span {
+        display: inline-block;
+        margin: 0px 5px;
     }
 }
