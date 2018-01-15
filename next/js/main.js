@@ -1,4 +1,3 @@
-
 (function ($) {
     $(document).on('ready', function () {
         "use strict";
@@ -13,13 +12,13 @@
             margin: 0,
             nav: false,
             autoplay: true,
-            autoplayTimeout:6000,
+            autoplayTimeout: 6000,
             items: 1,
             animateOut: 'fadeOutDown',
             animateIn: 'fadeInDown',
         });
 
-        $('.open-test-right').click(function(){
+        $('.open-test-right').click(function () {
             $('body').addClass("show-test-right");
         });
         $('.close-test-right').click(function () {
@@ -40,5 +39,17 @@
             $('.user-panel').toggleClass("show-user-menu");
         });
 
+        $('.ss-caption').click(function () {
+            if ($(this).next().is(":visible")) {
+
+                $(this).next().slideUp();
+                $(this).removeClass("active");
+            } else {
+                $(this).next().slideDown();
+                $(this).addClass("active");
+            }
         });
-    })(jQuery);
+
+
+    });
+})(jQuery);

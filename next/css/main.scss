@@ -1541,6 +1541,35 @@ iframe {
     padding: 0px 15px;
     position: relative;
 
+    .tt-left {
+
+        img {
+            width: 40px;
+            margin: 12px 10px 0px 0px;
+            float: left;
+        }
+        i {
+            margin: 0px 10px 0px 0px;
+            line-height: 65px;
+            font-size: 40px;
+            color: #fff;
+            float: left;
+        }
+
+        p {
+            font-weight: 600;
+            font-size: 14px;
+            color: #fff;
+            margin: 0px 0px 0px 0px;
+            padding: 10px 0px 0px 0px;
+        }
+        h3 {
+            color: #fff;
+            font-size: 18px;
+            margin: 0px;
+        }
+    }
+
     h1 {
         line-height: 65px;
         margin: 0px;
@@ -2298,7 +2327,7 @@ iframe {
 
 .box-question {
     min-height: 200px;
-    padding: 15px;
+    padding: 15px 15px 0px 15px;
     background-color: #fff;
     border-radius: 4px;
     max-width: 800px;
@@ -2388,20 +2417,25 @@ iframe {
     }
 }
 
+.answer-wrap {
+    margin: 20px 0px 0px 0px;
+}
+
 .box-answer {
-    padding: 15px;
+    padding: 5px 15px;
     background-color: #fff;
-    border-radius: 4px;
+
     max-width: 800px;
-    margin: 15px auto 0px auto;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    border: 1px solid $border-color-second;
+    margin: 0px auto 0px auto;
+    margin-left: -15px;
+    margin-right: -15px;
+
+
     position: relative;
     overflow: hidden;
 
     &.success {
-        border: 1px solid $success-color;
+
         background-color: lighten($success-color, 50%);
 
         em {
@@ -2422,10 +2456,13 @@ iframe {
             color: #fff;
             background-color: $success-color;
         }
+        p {
+            color: $success-color;
+        }
     }
 
     &.error {
-        border: 1px solid $error-color;
+
         background-color: lighten($error-color, 40%);
 
         em {
@@ -2446,12 +2483,17 @@ iframe {
             color: #fff;
             background-color: $error-color;
         }
+
+        p {
+            color: $error-color;
+        }
     }
 
     p {
         margin: 10px 0px;
         line-height: 30px;
         padding: 0px;
+
     }
 
     .number {
@@ -2467,6 +2509,36 @@ iframe {
         text-align: center;
         @include transition();
         position: relative;
+    }
+}
+
+.see-solution {
+    border-top: 1px solid $border-color;
+    margin: 0px -15px 0px -15px;
+
+    .ss-caption {
+        padding: 10px 15px;
+        color: $active-color;
+        cursor: pointer;
+        &.active {
+            i {
+
+                -moz-transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+        }
+    }
+    .ss-content {
+        padding: 15px;
+        display: none;
+        p.success {
+            color: $success-color;
+            font-weight: 600;
+
+        }
     }
 }
 
@@ -2628,9 +2700,7 @@ iframe {
         position: absolute;
         top: -60px;
         left: -50px;
-        @media screen and (max-width: 767px) {
-            display: none;
-        }
+        @media screen and (max-width: 767px) {}
     }
 
     span {
@@ -3174,4 +3244,201 @@ iframe {
     }
 
 
+
+}
+
+.package {
+    margin: 30px 0px 0px 0px;
+    padding: 20px 170px 20px 20px;
+    background-color: #ffff;
+    border-radius: 3px;
+    .package-left {
+        float: left;
+        width: 100%;
+        padding: 0px 0px 0px 215px;
+        h3 {
+            margin: 0px;
+            padding: 0px 0px 5px 0px;
+        }
+
+        p {
+            margin: 0px 0px 0px;
+        }
+        img {
+
+            width: 200px;
+            float: left;
+            display: block;
+            margin: 0px 0px 0px -215px;
+        }
+    }
+    .package-right {
+        float: right;
+        width: 150px;
+        float: right;
+        margin: 0px -150px 0px 0px;
+        text-align: center;
+        p.price {
+            font-family: $font-family-heading;
+            font-size: 22px;
+            color: $green;
+            font-weight: 600;
+
+
+        }
+        .btn-buynow {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            color: #Fff;
+            background-color: $green;
+            padding: 10px 0px;
+            font-family: $font-family-heading;
+
+            border-radius: 3px;
+            @include transition();
+            font-weight: 600;
+            &:hover {
+                opacity: 0.8;
+            }
+
+
+
+
+        }
+
+    }
+    @media screen and (max-width: 767px) {
+        padding: 15px;
+
+        .package-left {
+            float: none;
+            padding: 0px;
+            img {
+                margin: 0px;
+                float: none;
+                width: 100%;
+                margin: 0px 0px 10px 0px;
+            }
+
+        }
+        .package-right {
+            float: none;
+            padding: 0px;
+
+            text-align: left;
+            margin: 10px 0px 0px 0px;
+        }
+    }
+
+}
+
+.package-detail {
+    margin: 20px 0px 0px 0px;
+    background-color: #ffff;
+    border-radius: 3px;
+
+    .pd-caption {
+        padding: 20px;
+        font-family: $font-family-heading;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .pd-item {
+        border-top: 1px solid $border-color;
+        padding: 20px 170px 20px 80px;
+        position: relative;
+        &:hover {
+            background-color: #fbfbfb;
+        }
+
+        .number {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid $green;
+            border-radius: 50%;
+            margin: 0px 0px 0px -60px;
+            color: $green;
+            font-size: 19px;
+            display: block;
+            font-weight: 500;
+            float: left;
+        }
+        h4 {
+            margin: 0px;
+            padding: 0px;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-block;
+
+        }
+        span.tag {
+            color: #fff;
+            background-color: $error-color;
+            border-radius: 2px;
+            margin: 0px 0px 0px 3px;
+            padding: 1px 5px;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: 600;
+            position: relative;
+            top: -3px;
+
+        }
+        p {
+            font-size: 12px;
+            color: #999;
+            margin: 0px;
+        }
+        .pdi-control {
+
+            width: 150px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            float: right;
+            a {
+                display: inline-block;
+                text-align: center;
+                width: 100%;
+                color: #Fff;
+                background-color: $green;
+                padding: 10px 0px;
+                font-family: $font-family-heading;
+                font-size: 14px;
+
+                border-radius: 3px;
+                @include transition();
+                font-weight: 600;
+                &:hover {
+                    opacity: 0.8;
+                }
+                i {
+                    margin: 0px 5px 0px 0px;
+                }
+                &.lock {
+                    color: $text-color;
+                    background-color: #aaa;
+                }
+            }
+        }
+
+
+        @media screen and (max-width: 767px) {
+            padding: 20px 20px 20px 80px;
+            .pdi-control {
+
+                width: 150px;
+                position: relative;
+                top: unset;
+                right: unset;
+                float: none;
+                margin: 10px 0px 0px 0px;
+
+            }
+        }
+    }
 }
