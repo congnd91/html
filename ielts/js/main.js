@@ -118,6 +118,10 @@
         if ($('.api').length) {
             $('.player-fixed').css("max-width", $('.split-right').outerWidth());
             $(window).bind('resize', function () {
+
+
+
+
                 var width = window.innerWidth;
                 var check = false;
                 if (width <= 768) {
@@ -298,6 +302,8 @@
         $('.btn-show-re').click(function () {
             $('body').addClass("show-review-explanation");
             $(".split-item").getNiceScroll().resize();
+
+            $('.player-fixed').css("max-width", $('.split-right').outerWidth());
         });
         //close-re
         $('.close-rx').click(function () {
