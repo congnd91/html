@@ -340,8 +340,22 @@
 
 
 
+        });
+
+
+
+        $('.sts-item').click(function () {
+            $(this).parent().find('.sts-item').removeClass("active");
+            $(this).addClass("active");
 
         });
+
+        $('.str-item').click(function () {
+            $(this).parent().find('.str-item').removeClass("active");
+            $(this).addClass("active");
+
+        });
+
 
 
     });

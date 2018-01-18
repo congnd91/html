@@ -4292,7 +4292,8 @@ iframe {
 
 .modal-profile {
   max-width: 700px;
-  min-height: 200px; }
+  min-height: 200px;
+  width: 100%; }
 
 .modal-caption {
   text-align: center;
@@ -4304,7 +4305,7 @@ iframe {
 
 .build-profile .bp-step {
   max-width: 450px;
-  margin: 0px auto 20px auto;
+  margin: 20px auto 20px auto;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -4334,7 +4335,7 @@ iframe {
 
 .bo-im {
   font-size: 60px;
-  color: #666; }
+  color: #333; }
   .bo-im span {
     color: #327846;
     font-weight: 700; }
@@ -4342,44 +4343,49 @@ iframe {
     .bo-im {
       font-size: 30px; } }
 
-.pb-choose span {
-  line-height: 30px;
-  padding: 0px 10px 0px 30px;
-  color: #666;
-  font-size: 18px;
-  font-weight: 700;
-  display: inline-block;
-  margin: 10px 10px;
-  position: relative;
-  cursor: pointer; }
-  .pb-choose span:before {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    display: block;
-    content: "\f372";
-    font-family: "Ionicons";
-    width: 30px;
-    height: 30px;
+.pb-choose {
+  min-height: 150px; }
+  .pb-choose span {
     line-height: 30px;
-    font-size: 20px; }
-  .pb-choose span.active {
-    color: #327846; }
-    .pb-choose span.active:before {
-      content: "\f373"; }
+    padding: 0px 10px 0px 30px;
+    color: #666;
+    font-size: 20px;
+    font-weight: 700;
+    display: inline-block;
+    margin: 10px 10px;
+    position: relative;
+    cursor: pointer; }
+    .pb-choose span:before {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      display: block;
+      content: "\f401";
+      font-family: "Ionicons";
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 22px;
+      font-weight: normal; }
+    .pb-choose span.active {
+      color: #327846; }
+      .pb-choose span.active:before {
+        content: "\f400"; }
 
 .bp-control {
-  margin: 40px 0px 0px 0px; }
+  margin: 0px 0px 0px 0px; }
   .bp-control a {
     display: inline-block;
     cursor: pointer;
-    line-height: 50px;
-    padding: 0px 40px;
+    line-height: 45px;
+    padding: 0px 0px;
     border-radius: 5px;
+    text-align: center;
     font-size: 14px;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     color: #fff;
+    width: 110px;
     background-color: #284664;
     -moz-transition: all ease 0.2s;
     -o-transition: all ease 0.2s;
@@ -4387,18 +4393,48 @@ iframe {
     transition: all ease 0.2s; }
     .bp-control a:hover {
       background-color: #2f5376; }
+    .bp-control a.cancel {
+      border: 1px solid #284664;
+      color: #284664;
+      background-color: transparent;
+      margin: 0px 10px 0px 0px; }
+      .bp-control a.cancel:hover {
+        background-color: #fff; }
+    .bp-control a i {
+      margin: 0px 3px; }
 
 .pb-footer {
-  margin: 40px 0px 0px 0px;
-  padding: 20px 0px 0px 0px;
+  margin: 40px -20px -30px -20px;
+  border-radius: 0px 0px 10px 10px;
+  padding: 20px 20px 20px 20px;
   text-align: center;
-  border-top: 1px solid #f5f5f5; }
-  .pb-footer img {
-    max-width: 140px; }
+  border-top: 1px solid #f5f5f5;
+  background-color: #fafafa; }
+  .pb-footer .pbf-left {
+    float: left;
+    padding: 0px 0px 0px 130px; }
+    .pb-footer .pbf-left img {
+      width: 120px;
+      margin: 0px 0px 0px -130px;
+      float: left; }
+    .pb-footer .pbf-left p {
+      font-size: 12px;
+      margin: 8px 0px 0px 0px;
+      color: #666;
+      text-align: left; }
+      @media screen and (max-width: 991px) {
+        .pb-footer .pbf-left p {
+          display: none; } }
+  .pb-footer .pbf-right {
+    float: right; }
+    @media screen and (max-width: 991px) {
+      .pb-footer .pbf-right {
+        float: none;
+        text-align: center; } }
 
 .step2-content {
-  max-width: 500px;
-  margin: 0px auto; }
+  margin: 0px auto;
+  min-height: 230px; }
 
 .step2-choose {
   position: relative;
@@ -4427,25 +4463,135 @@ iframe {
       content: "\f400"; }
 
 .st2-item {
-  margin: 20px 0px 0px 30px; }
-  .st2-item span {
+  margin: 30px 0px 0px 30px; }
+  @media screen and (max-width: 767px) {
+    .st2-item {
+      margin: 10px 0px 0px 20px; } }
+  .st2-item p {
     display: inline-block;
-    min-width: 250px; }
-    @media screen and (max-width: 767px) {
-      .st2-item span {
-        min-width: 40px;
-        margin: 0px 5px 0px 0px; } }
-    .st2-item span.text-long {
+    font-weight: 800;
+    color: #284664;
+    margin: 0px; }
+    .st2-item p.text-long {
       min-width: 320px; }
       @media screen and (max-width: 767px) {
-        .st2-item span.text-long {
+        .st2-item p.text-long {
           min-width: 40px;
           display: block; } }
+  .st2-item .st2-date {
+    display: inline-block;
+    padding: 0px 0px 0px 10px; }
+  .st2-item .st2-score {
+    text-align: center; }
+    .st2-item .st2-score .sts-item {
+      display: inline-block;
+      width: 30px;
+      margin: 0px 3px; }
+      @media screen and (max-width: 767px) {
+        .st2-item .st2-score .sts-item {
+          margin: 0px; } }
+      .st2-item .st2-score .sts-item em {
+        cursor: pointer;
+        display: block;
+        font-style: normal;
+        color: #284664;
+        font-size: 14px;
+        position: relative;
+        padding: 30px 0px 0px 0px; }
+        .st2-item .st2-score .sts-item em:before {
+          position: absolute;
+          top: 0px;
+          left: 50%;
+          margin: 0px 0px 0px -14px;
+          display: block;
+          content: "\f401";
+          font-family: "Ionicons";
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          font-size: 22px;
+          font-weight: normal; }
+      .st2-item .st2-score .sts-item.active em {
+        color: #327846;
+        font-weight: 600; }
+        .st2-item .st2-score .sts-item.active em:before {
+          content: "\f400"; }
   .st2-item select {
     border: 1px solid #284664;
     outline: none;
     border-radius: 3px;
     margin: 0px 10px 0px 0px; }
+
+.step3-content {
+  margin: 0px auto;
+  min-height: 230px; }
+
+.st3-item {
+  margin: 30px 0px 0px 30px; }
+  @media screen and (max-width: 767px) {
+    .st3-item {
+      margin: 10px 0px 0px 20px; } }
+  .st3-item p {
+    display: block;
+    font-size: 16px;
+    font-weight: 800;
+    color: #284664;
+    margin: 0px 0px 5px 0px; }
+  .st3-item .st3-radio {
+    text-align: center; }
+    .st3-item .st3-radio .str-item {
+      float: left;
+      width: 25%;
+      text-align: left;
+      margin: 10px 0px 0px 0px;
+      padding: 0px 0px 0px 10px;
+      cursor: pointer; }
+      @media screen and (max-width: 767px) {
+        .st3-item .st3-radio .str-item {
+          width: 33.33%; } }
+      .st3-item .st3-radio .str-item em {
+        cursor: pointer;
+        display: block;
+        font-style: normal;
+        color: #284664;
+        font-size: 14px;
+        position: relative;
+        padding: 0px 0px 0px 30px; }
+        .st3-item .st3-radio .str-item em:before {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          margin: 0px 0px 0px 0px;
+          display: block;
+          content: "\f401";
+          font-family: "Ionicons";
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+          font-size: 22px;
+          font-weight: normal; }
+      .st3-item .st3-radio .str-item.active em {
+        color: #327846;
+        font-weight: 600; }
+        .st3-item .st3-radio .str-item.active em:before {
+          content: "\f400"; }
+
+.starbox .starbox-item {
+  float: left;
+  width: 50%;
+  margin: 10px 0px 0px 0px;
+  padding: 0px 0px 0px 10px;
+  font-size: 14px; }
+  @media screen and (max-width: 767px) {
+    .starbox .starbox-item {
+      font-size: 12px; } }
+  .starbox .starbox-item i {
+    color: #284664;
+    margin: 0px; }
+  .starbox .starbox-item span {
+    margin: 0px 0px 0px 5px;
+    font-weight: 600;
+    color: #284664; }
 
 .modal-des {
   font-weight: 300;
