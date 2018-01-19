@@ -151,6 +151,25 @@
 
         });
 
+        $('.b57m-icon').click(function () {
+
+            if ($('.b57-popup').is(':visible')) {
+                $(this).parent().removeClass("active");
+            } else {
+                $(this).parent().addClass("active");
+            }
+
+
+        });
+
+        $('.b57-popup ul li a').click(function () {
+
+
+            $('.b57m-bar').removeClass("active");
+
+
+
+        });
 
 
         //slick
@@ -170,6 +189,8 @@
 
             focusOnSelect: true
         });
+
+
 
 
 
