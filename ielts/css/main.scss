@@ -35,7 +35,7 @@ html {
 body {
     background-color: #fff;
     font-family: $font-family-base;
-    min-width: 320px;
+
     font-size: $font-size-base;
     line-height: 1.5;
     @include transition();
@@ -4980,6 +4980,9 @@ iframe {
     max-width: 700px;
     min-height: 200px;
     width: 100%;
+    @media screen and (max-width: 767px) {
+        width: auto;
+    }
 
 }
 
@@ -5204,7 +5207,7 @@ iframe {
 .st2-item {
     margin: 30px 0px 0px 30px;
     @media screen and (max-width: 767px) {
-        margin: 10px 0px 0px 20px;
+        margin: 10px 0px 0px 0px;
     }
     p {
         display: inline-block;
@@ -5296,7 +5299,7 @@ iframe {
 .st3-item {
     margin: 30px 0px 0px 30px;
     @media screen and (max-width: 767px) {
-        margin: 10px 0px 0px 20px;
+        margin: 10px 0px 0px 0px;
     }
 
     p {
@@ -5316,6 +5319,9 @@ iframe {
 
             @media screen and (max-width: 767px) {
                 width: 33.33%;
+            }
+            @media screen and (max-width: 550px) {
+                width: 50%
             }
 
 
@@ -5373,13 +5379,21 @@ iframe {
         margin: 10px 0px 0px 0px;
         padding: 0px 0px 0px 10px;
         font-size: 14px;
-        @media screen and (max-width: 767px) {
-            font-size: 12px;
+        @media screen and (max-width: 767px) {}
+
+        @media screen and (max-width: 550px) {
+            float: none;
+            width: 100%;
         }
 
         i {
             color: $active-color;
             margin: 0px;
+            &.hover {
+                &:before {
+                    content: "\f005";
+                }
+            }
 
         }
         span {
@@ -5387,6 +5401,9 @@ iframe {
             font-weight: 600;
             color: $active-color;
         }
+
+
+
     }
 }
 
