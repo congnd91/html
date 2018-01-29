@@ -172,6 +172,17 @@
         });
 
 
+
+
+        //analytics page
+        if ($('.datetimepicker').length) {
+            $(function () {
+                $('.datetimepicker').datetimepicker({
+                    format: 'DD/MM/YYYY'
+                });
+            });
+        }
+
         //slick
 
         $('.slider-for').slick({
