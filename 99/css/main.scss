@@ -2247,6 +2247,15 @@ iframe {
         &.share {
             background-image: url(../images/share_icon.png);
         }
+        &.social1 {
+            background-image: url(../images/social1.png);
+
+        }
+        &.social2 {
+            background-image: url(../images/social2.png);
+
+
+        }
     }
 }
 
@@ -3433,6 +3442,9 @@ iframe {
         &.orange {
             background-color: $orange;
         }
+        &.red {
+            background-color: $red-l2;
+        }
     }
 
 
@@ -4551,32 +4563,7 @@ iframe {
             }
         }
 
-        .video-thumbs {
-            margin: 0px -1px;
-            @media (max-width: 991px) {
-                float: left;
-                width: 50%;
-            }
-            .vt-item {
-                float: left;
-                width: 33.333%;
-                border: 1px solid $border-color;
-                background-color: #000;
-                padding: 9px 0px;
-                img {
-                    width: 100%;
-                }
 
-                @media (max-width: 991px) {
-                    padding: 25px 0px;
-
-                }
-                @media (max-width: 767px) {
-                    padding: 21px 0px;
-                    background-color: #000;
-                }
-            }
-        }
 
     }
 
@@ -4606,6 +4593,33 @@ iframe {
             width: 100%;
             float: none;
 
+        }
+    }
+}
+
+.video-thumbs {
+    margin: 0px -1px;
+    @media (max-width: 991px) {
+        float: left;
+        width: 50%;
+    }
+    .vt-item {
+        float: left;
+        width: 33.333%;
+        border: 1px solid $border-color;
+        background-color: #000;
+        padding: 9px 0px;
+        img {
+            width: 100%;
+        }
+
+        @media (max-width: 991px) {
+            padding: 25px 0px;
+
+        }
+        @media (max-width: 767px) {
+            padding: 21px 0px;
+            background-color: #000;
         }
     }
 }
@@ -6706,13 +6720,25 @@ p.box26-note {
     }
     .box27-note {
         margin: 20px 0px;
-        color: $red;
+        color: $red-l2;
 
-        font-size: 1.7rem;
+        font-size: 1.8rem;
         font-weight: 600;
     }
     .control-button-wrap {
         max-width: 160px;
+    }
+    .b27-link-under {
+        font-size: 2.4rem;
+        text-align: center;
+        font-weight: 600;
+        margin: -10px 0px 0px 0px;
+        a {
+            color: $cyan;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
 
@@ -7228,13 +7254,60 @@ p.box26-note {
     flex-wrap: wrap;
     padding: 20px 0px;
     border-bottom: 2px dashed $text-color-for;
+    &.active {
+        .b35-img {
+            border: 2px solid $red-l2;
+        }
+    }
     .b35-img {
 
         width: 35%;
+        position: relative;
         img {
             width: 100%;
         }
     }
+
+
+    .wave {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        z-index: 999;
+
+
+        &:before {
+            content: "";
+            display: block;
+            width: 0px;
+            height: 0px;
+            border: 40px solid transparent;
+            border-top-color: $red-l2;
+            border-right-color: $red-l2;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            z-index: 1;
+
+        }
+        &:after {
+            content: "";
+            display: block;
+
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            z-index: 2;
+
+            background-image: url(../images/03_12.png);
+            width: 31px;
+            height: 34px;
+
+
+        }
+
+    }
+
     .b35-des {
         width: 45%;
         padding: 0px 0px 0px 15px;
@@ -7320,6 +7393,52 @@ p.box26-note {
             }
         }
     }
+    .b35c-box {
+        border: 2px solid $text-color;
+        padding: 5px;
+
+        .b35c-box-inner {
+            text-align: center;
+            border: 1px solid $text-color;
+            padding: 15px 0px;
+            text-align: center;
+            p {
+                font-size: 1.9rem;
+                font-weight: 600;
+                margin: 5px 0px;
+                &.old-price {
+                    font-size: 1.5rem;
+                    color: $text-color-for;
+                    text-decoration: line-through;
+                }
+            }
+            strong {
+                font-size: 3.8rem;
+            }
+        }
+        @media (max-width: 991px) {
+            padding: 3px;
+            border: none;
+            margin: 5px 0px 0px;
+
+
+            .b35c-box-inner {
+                padding: 3px 0px;
+                p {
+                    font-size: 1.9rem;
+                    font-weight: 600;
+                    display: inline-block;
+                    &.old-price {
+                        display: none;
+                    }
+                }
+                strong {
+                    font-size: 1.9rem;
+                }
+            }
+        }
+    }
+
 
     @media (max-width: 991px) {
         .b35-img {
@@ -7336,6 +7455,7 @@ p.box26-note {
         .b35-control {
             width: 100%;
         }
+
     }
 }
 
@@ -8185,13 +8305,13 @@ p.box26-note {
 }
 
 
-.box53 {
+.box53a {
     margin: 10px 0px 0px 0px;
     a {
         display: inline-block;
         float: left;
 
-        background-color: $yellow-d2;
+        background-color: $orange;
         margin: 0px 1px 0px 0px;
         color: #fff;
         padding: 0px 4px;
@@ -8203,6 +8323,23 @@ p.box26-note {
         i {
             margin: 0px 2px 0px 0px;
         }
+    }
+    &.gray {
+        div {
+            margin: 5px 0px;
+            padding: 0px 0px 0px 10px;
+        }
+        a {
+
+            background-color: $text-color-for;
+            margin: 0px 0px 10px 0px;
+            float: none;
+            &.active {
+                background-color: $orange;
+            }
+
+        }
+
     }
 }
 
@@ -9291,6 +9428,31 @@ p.box26-note {
     margin: 20px 0px 0px 0px;
 }
 
+.box75-bar-bottom {
+    margin: 20px 0px;
+    span {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin: 0px 10px 0px 0px;
+        display: inline-block;
+        color: $cyan-l1;
+    }
+    .my-checkbox {
+        label {
+            font-size: 2.5rem;
+            color: $text-color-for;
+        }
+
+    }
+    .mf-button {
+        float: right;
+        width: auto;
+        padding: 0px 30px;
+
+    }
+
+}
+
 .box75-caption {
     padding: 5px 0px;
     border-bottom: 2px solid $green-l1;
@@ -9426,6 +9588,19 @@ p.box26-note {
         tbody {}
 
     }
+    &.orange {
+        border: 2px solid $text-color;
+        thead {
+            th {
+                padding: 5px 10px;
+                background-color: $orange;
+                color: #fff;
+
+            }
+        }
+        tbody {}
+
+    }
 }
 
 .t-small {
@@ -9437,6 +9612,18 @@ p.box26-note {
         font-size: 1.7rem;
         margin: 0px;
     }
+    em.new {
+        font-size: 18px;
+        text-transform: uppercase;
+        display: inline-block;
+        margin: 0px 4px 0px 0px;
+        background-color: $red-l1;
+        color: #fff;
+        font-weight: 600;
+        font-style: normal;
+        padding: 0px 2px;
+        text-transform: uppercase;
+    }
     span.orange {
         color: $orange;
     }
@@ -9446,6 +9633,7 @@ p.box26-note {
         display: inline-block;
         padding: 0px 2px;
         color: #fff;
+        min-width: 54px;
         background-color: $red-l2;
     }
     .text-red {
@@ -9774,4 +9962,519 @@ p.box26-note {
         max-width: 630px;
     }
 
+}
+
+
+.box80 {
+    p.b80-des {
+        font-size: 3rem;
+        font-weight: 600;
+        color: $cyan;
+        padding: 10px 0px;
+        margin: 0px;
+    }
+    .b80-left {
+        float: left;
+        width: 45%;
+    }
+    .b80-right {
+        float: right;
+        padding: 0px 0px 0px 20px;
+        width: 55%;
+    }
+
+    .b80-scroll {
+        overflow: auto;
+        max-height: 350px;
+        @media (max-width: 991px) {
+            max-height: 270px;
+        }
+        @media (max-width: 767px) {
+            max-height: 150px;
+        }
+
+        p {
+            color: $text-color-second;
+
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .b80-left {
+            float: none;
+            width: 100%;
+        }
+        .b80-right {
+            float: none;
+            width: 100%;
+            padding: 0px 0px 0px 0px;
+
+        }
+    }
+
+
+}
+
+.box81 {
+    margin: 20px 0px -20px 0px;
+    .b81-left {
+        float: left;
+        a {
+            display: block;
+            border: 2px solid $text-color;
+            font-size: 2.2rem;
+            font-weight: 600;
+            float: left;
+            padding: 0px 10px;
+            margin: 0px -2px 0px 0px;
+            &.black {
+                background-color: $text-color;
+
+                color: #fff;
+            }
+
+            &.red {
+                background-color: $red-l2;
+
+                color: #fff;
+            }
+
+
+        }
+
+    }
+    .b81-right {
+        float: right;
+        position: relative;
+        .b81-search {
+            border: 2px solid $text-color-for;
+            position: relative;
+            input[type="text"] {
+                display: block;
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                padding: 0px 80px 0px 10px;
+                font-size: 1.7rem;
+                font-weight: 600;
+            }
+            button {
+                position: absolute;
+                top: 0px;
+                bottom: 0px;
+                right: 0px;
+                font-size: 1.7rem;
+                background-color: $text-color-for;
+                border: none;
+                padding: 0px 10px;
+                font-weight: 600;
+                color: #fff;
+            }
+
+        }
+    }
+
+}
+
+
+.b82-item {
+
+    border: 1px solid $text-color-for;
+    position: relative;
+    padding: 0px 0px 0px 200px;
+    margin: 20px 0px 0px 0px;
+    .b82i-left {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        text-align: center;
+        padding: 10px;
+        font-weight: 600;
+        width: 200px;
+        color: #fff;
+        background-color: $cyan-l1;
+        font-size: 2.5rem;
+
+        display: flex;
+        align-items: center;
+
+    }
+
+
+    @media (max-width: 991px) {
+        padding: 0px 0px 0px 120px;
+
+        .b82i-left {
+
+            width: 120px;
+
+
+
+        }
+    }
+
+    .b82r-col1 {
+        float: left;
+        text-align: center;
+
+        width: 40%;
+        &.col2 {
+            width: 60%;
+
+        }
+
+        label {
+            text-align: center;
+            border-bottom: 1px solid $text-color-for;
+            padding: 5px 0px;
+            font-weight: 600;
+            display: block;
+            font-size: 1.9rem;
+        }
+        p {
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin: 5px 0px;
+        }
+        a {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 0px 20px;
+            padding: 2px 20px;
+            border-radius: 40px;
+            display: block;
+            background-color: $text-color-for;
+        }
+        .b82-input {
+            margin: 30px auto 0px auto;
+            padding: 0px 20px;
+        }
+        input {
+
+            display: block;
+            width: 100%;
+
+            border: 1px solid $text-color-for;
+            padding: 0px 10px;
+            line-height: 30px;
+            background-color: transparent;
+            outline: none;
+        }
+    }
+
+}
+
+.box82-control {
+    margin: 20px -10px;
+
+    .b82c-col {
+        float: left;
+        width: 50%;
+        padding: 0px 10px;
+    }
+
+    a {
+        font-size: 2.7rem;
+        font-weight: 600;
+        color: #fff;
+
+        padding: 2px 20px;
+        border-radius: 50px;
+        text-align: center;
+        display: block;
+        background-color: $text-color-for;
+    }
+    .note {
+        text-align: right;
+        font-size: 1.6rem;
+        color: $text-color-for;
+        font-weight: 600;
+
+        span {
+            font-size: 2rem;
+        }
+    }
+}
+
+
+.box83 {
+
+    .b83-left {
+        float: left;
+        width: 75%;
+        padding: 0px 20px 0px 0px;
+    }
+    .b83-right {
+        float: right;
+        width: 25%;
+
+    }
+
+    @media (max-width: 991px) {
+        .b83-left {
+            float: none;
+            width: 100%;
+            padding: 0px 0px 0px 0px;
+        }
+        .b83-right {
+            float: none;
+            width: 100%;
+
+        }
+    }
+
+    .b83-item {
+        border: 1px solid $text-color-for;
+        margin: 0px 0px 20px 0px;
+        .b83i-img {
+            position: relative;
+            img {
+                width: 100%;
+                display: block;
+            }
+            span {
+                position: absolute;
+                bottom: 10px;
+                display: inline-block;
+                padding: 3px 10px;
+                background-color: rgba(0, 0, 0, 0.6);
+                color: #fff;
+                z-index: 99;
+                font-size: 1.4rem;
+                font-weight: 600;
+                left: 0px;
+            }
+        }
+        .b83i-des {
+            display: inline-block;
+            padding: 5px 10px;
+            h3 {
+                margin: 0px 0px 5px 0px;
+                padding: 0px;
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+            .old-price {
+                float: left;
+                font-size: 1.6rem;
+                font-weight: 600;
+                color: $text-color-for;
+                text-decoration: line-through;
+                font-weight: 600;
+
+                margin: 12px 0px 0px 0px;
+            }
+            .price {
+                float: right;
+                margin: 0px;
+                font-size: 1.6rem;
+                font-weight: 600;
+                color: $text-color-for;
+                strong {
+                    font-size: 2.7rem;
+                    color: $red-l2;
+                }
+
+            }
+        }
+
+        .b83i-control {
+            a {
+                display: block;
+                padding: 5px 0px;
+                text-align: center;
+                color: #fff;
+                background-color: $text-color;
+                font-size: 1.4rem;
+                font-weight: 600;
+            }
+        }
+
+        .wave {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            z-index: 999;
+
+
+            &:before {
+                content: "";
+                display: block;
+                width: 0px;
+                height: 0px;
+                border: 40px solid transparent;
+                border-top-color: $red-l2;
+                border-right-color: $red-l2;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                z-index: 1;
+
+            }
+            &:after {
+                content: "";
+                display: block;
+
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                z-index: 2;
+
+                background-image: url(../images/03_12.png);
+                width: 31px;
+                height: 34px;
+
+
+            }
+
+        }
+        &.active {
+            border: 1px solid $red-l2;
+            outline: 1px solid $red-l2;
+            .b83i-control {
+                a {
+
+                    background-color: $red-l2;
+
+                }
+            }
+        }
+
+
+    }
+}
+
+.box84 {
+    .video-thumbs {
+        width: 100% !important;
+    }
+
+    @media (max-width: 991px) {
+        width: 50%;
+        float: left;
+    }
+}
+
+
+.box85 {
+    margin: 10px 0px 0px 0px;
+
+    @media (max-width: 991px) {
+        width: 50%;
+        float: right;
+        padding: 0px 0px 0px 15px;
+    }
+
+    .b85-caption {
+        font-size: 2.4rem;
+        font-weight: 600;
+        padding: 5px 0px;
+        border-bottom: 2px solid $text-color;
+
+    }
+    .b85-item {
+        padding: 3px 0px;
+        border-bottom: 1px solid $border-color;
+
+        span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+
+            background-color: #a09c9d;
+            font-size: 1.6rem;
+            line-height: 20px;
+            font-weight: 600;
+            margin: 0px 2px 0px 0px 0px;
+            text-align: center;
+            color: #fff;
+            &.red {
+                background-color: $red-l2;
+            }
+
+        }
+        a {
+            font-size: 1.9rem;
+            font-weight: 600;
+        }
+        em {
+            font-style: normal;
+            color: $text-color-for;
+            font-size: 1.3rem;
+            float: right;
+            margin: 4px 0px 0px 0px;
+            i {
+                margin: 0px 2px 0px 0px;
+            }
+
+
+        }
+        img {
+            width: 100%;
+        }
+
+        @media (max-width: 991px) {
+            padding: 10px 0px;
+            span {
+                font-size: 2rem;
+            }
+            a {
+                font-size: 2rem;
+            }
+
+            em {
+                font-size: 1.9rem;
+            }
+        }
+    }
+}
+
+
+.box86 {
+    border: 1px solid $border-color;
+    padding: 10px;
+    ul {
+        padding: 0px;
+        list-style: none;
+
+        li {
+            margin: 5px 10px;
+            a {
+                display: block;
+                margin: 5px 0px;
+                font-size: 2rem;
+                font-weight: 600;
+                color: $text-color-third;
+
+            }
+            &.active {
+
+                a {
+
+                    color: $orange;
+                }
+            }
+        }
+    }
+}
+
+.box87 {
+    margin: 0px 0px 30px 0px;
+}
+
+.b87-item {
+    float: left;
+    border: 1px solid $text-color-for;
+    width: 25%;
+    p {
+        padding: 10px;
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin: 0px;
+    }
 }
