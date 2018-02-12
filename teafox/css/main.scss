@@ -20,7 +20,7 @@ html {
 body {
     background-color: #fff;
     font-family: $font-family-base;
-    min-width: 320px;
+    min-width: 360px;
     font-size: 1.3rem;
 
     line-height: 1.5;
@@ -561,6 +561,10 @@ iframe {
         font-family: $font-family-heading;
         font-weight: 600;
         color: $text-color;
+        i {
+            margin: 0px 3px 0px 0px;
+            color: $active-color;
+        }
 
     }
 }
@@ -658,12 +662,30 @@ iframe {
     @include gradient( transparent, $active-color, 'horizontal');
     padding: 10px 0px;
     text-align: right;
-
+    @media screen and (max-width: 767px) {
+        text-align: center;
+        @include gradient($active-color, $hover-color, 'horizontal');
+    }
     span {
         font-size: 1.6rem;
         font-family: $font-family-heading;
         font-weight: 600;
         color: #fff;
+    }
+    a {
+        font-size: 1.8rem;
+
+        margin: 0px 0px 0px 15px;
+        color: #fff;
+
+        @media screen and (max-width: 991px) {
+            font-size: 1.6rem;
+            margin: 0px 0px 0px 10px;
+        }
+        &:hover {
+            opacity: 0.9;
+            cursor: pointer;
+        }
     }
 }
 
@@ -673,4 +695,49 @@ iframe {
     background-image: url(../images/footer_bg.png);
     background-repeat: no-repeat;
     background-position: bottom right;
+    padding: 55px 0px 20px 0px;
+
+    @media screen and (max-width: 767px) {
+        text-align: center;
+    }
+
+    .menu-footer {
+
+        @media screen and (max-width: 767px) {
+            display:inline-block;
+            text-align: left;
+
+            min-width: 190px;
+        }
+        ul {
+            list-style: none;
+            text-align: left;
+            padding: 0px;
+            margin: 0px;
+            li {
+                margin: 0px 0px 15px 0px;
+                a {
+                    display: block;
+                    color: #fff;
+                    font-size: 1.3rem;
+                    i {
+                        color: $active-color;
+                        margin: 0px 5px 0px 0px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.allright {
+    margin: 15px 0px 5px 0px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-family: $font-family-thin;
+}
+
+.footer-company {
+    margin: 0px 0px 30px 0px;
 }
