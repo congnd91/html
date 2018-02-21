@@ -5,9 +5,11 @@
         $('.lavamenu').lavalamp({
             easing: 'easeOutBack',
             delayOn: 50,
-            delayOff: 100
-        });
+            delayOff: 100,
 
+        });  
+        var a = $('.lavamenu').children('.lavalamp-item').eq(1);
+        $('.lavamenu').data('lavalampActive', a).lavalamp('update');
         /**Menu**/
 
         $('.menu-icon').on('click', function () {
