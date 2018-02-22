@@ -4950,12 +4950,13 @@ iframe {
 
     background-color: #fff;
     width: 100%;
-    padding: 20px 20px 30px 20px;
+    padding: 30px 30px 30px 30px;
     border-radius: 5px;
     position: relative;
 
     @media screen and (max-width: 991px) {
         width: auto;
+        padding: 20px;
     }
 
     .close-modal {
@@ -4994,56 +4995,83 @@ iframe {
     @media screen and (max-width: 767px) {
         font-size: 20px;
     }
-}
 
-.build-profile {
-
-    .bp-step {
-        max-width: 450px;
-
-        margin: 20px auto 20px auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        span {
-            width: 30px;
-            height: 30px;
-            border: 1px solid #eee;
-            background-color: $box-color;
-            display: block;
+    &.mc-profile {
+        float: left;
+        font-size: 30px;
+        font-weight: 700;
+        margin: 20px 0px 20px 0px;
+        @media screen and (max-width: 767px) {
+            font-size: 20px;
+            float: none;
             text-align: center;
-            line-height: 30px;
-
-            border-radius: 50%;
-            font-weight: 700;
-
-            &.active {
-                background-color: $active-color;
-                color: #fff;
-                border: 1px solid $active-color;
-            }
+            margin: 20px 0px 0px 0px;
         }
-        .line {
-            height: 1px;
-            width: 150px;
-            background-color: #eee;
-            &.active {
-                background-color: $active-color;
-            }
-            @media screen and (max-width: 992px) {
-                width: 70px;
-            }
-        }
+
     }
 }
 
-.bo-im {
-    font-size: 60px;
-    color: #333;
+.bp-step {
+    max-width: 250px;
+    float: right;
+
+    margin: 20px auto 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 767px) {
+        float: none;
+        margin: 10px auto 20px auto;
+    }
+
     span {
-        color: $green;
+        width: 40px;
+        height: 40px;
+        border: 1px solid $active-color;
+
+        display: block;
+        text-align: center;
+        line-height: 40px;
+
+        color: $active-color;
+        border-radius: 50%;
         font-weight: 700;
+        margin: 0px 7px;
+
+        &.active {
+            background-color: $active-color;
+            color: #fff;
+            border: 1px solid $active-color;
+        }
+
+        @media screen and (max-width: 767px) {
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+        }
+    }
+    .line {
+        height: 1px;
+        width: 30px;
+        background-color: $active-color;
+        &.active {
+            background-color: $active-color;
+        }
+
+    }
+}
+
+.build-profile {}
+
+.bo-im {
+    font-size: 22px;
+    color: $active-color;
+    font-weight: 800;
+    padding: 0px 0px 0px 0px;
+    span {
+        color: $active-color;
+
     }
 
     @media screen and (max-width: 991px) {
@@ -5054,16 +5082,18 @@ iframe {
 
 .pb-choose {
     min-height: 150px;
+    padding: 0px 0px 0px 10px;
+
     span {
         line-height: 30px;
 
-
+        display: block;
         padding: 0px 10px 0px 30px;
 
-        color: #666;
-        font-size: 20px;
+        color: $active-color;
+        font-size: 14px;
         font-weight: 700;
-        display: inline-block;
+
         margin: 10px 10px;
         position: relative;
         cursor: pointer;
@@ -5082,7 +5112,7 @@ iframe {
             font-weight: normal;
         }
         &.active {
-            color: $green;
+            color: $active-color;
             &:before {
                 content: "\f400";
             }
@@ -5128,12 +5158,12 @@ iframe {
 }
 
 .pb-footer {
-    margin: 40px -20px -30px -20px;
+    margin: 40px -20px 0px -20px;
     border-radius: 0px 0px 10px 10px;
-    padding: 20px 20px 20px 20px;
+    padding: 20px 20px 0px 20px;
     text-align: center;
-    border-top: 1px solid $box-color;
-    background-color: #fafafa;
+
+
     img {}
 
     .pbf-left {
@@ -5174,111 +5204,42 @@ iframe {
 .step2-choose {
 
     position: relative;
-    margin: 40px 0px 0px 0px;
-    padding: 0px 0px 0px 30px;
+    margin: 20px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+
     cursor: pointer;
     p {
         margin: 0px;
         padding: 0px;
+        font-size: 18px;
+        font-weight: 800;
         font-family: $font-family-heading;
-        font-weight: 700;
+        color: $active-color;
     }
-    &:before {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        display: block;
-        content: "\f401";
-        font-family: "Ionicons";
 
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        font-size: 22px;
-    }
-    &.active {
-        color: $green;
-        &:before {
-            content: "\f400";
-        }
-    }
+
 }
 
 .st2-item {
-    margin: 30px 0px 0px 30px;
+    margin: 15px 0px 0px 20px;
     @media screen and (max-width: 767px) {
         margin: 10px 0px 0px 0px;
     }
     p {
-        display: inline-block;
+        display: block;
 
         font-weight: 800;
-        color: $active-color;
-        margin: 0px;
+        color: $text-color-thrid;
+        margin: 0px 0px 5px 0px;
 
         @media screen and (max-width: 767px) {}
-        &.text-long {
-            min-width: 320px;
-            @media screen and (max-width: 767px) {
-                min-width: 40px;
-                display: block;
-            }
-        }
+
     }
     .st2-date {
         display: inline-block;
-        padding: 0px 0px 0px 10px;
+        padding: 0px 0px 0px 0px;
     }
-    .st2-score {
-        text-align: center;
-        .sts-item {
-            display: inline-block;
 
-            width: 30px;
-            margin: 0px 3px;
-
-            @media screen and (max-width: 767px) {
-                margin: 0px;
-            }
-
-            em {
-                cursor: pointer;
-                display: block;
-                font-style: normal;
-                color: $active-color;
-                font-size: 14px;
-                position: relative;
-                padding: 30px 0px 0px 0px;
-                &:before {
-                    position: absolute;
-                    top: 0px;
-                    left: 50%;
-                    margin: 0px 0px 0px -14px;
-                    display: block;
-                    content: "\f401";
-                    font-family: "Ionicons";
-
-                    width: 30px;
-                    height: 30px;
-                    line-height: 30px;
-                    font-size: 22px;
-                    font-weight: normal;
-                }
-
-
-            }
-            &.active {
-                em {
-                    color: $green;
-                    font-weight: 600;
-                    &:before {
-                        content: "\f400";
-                    }
-                }
-            }
-
-        }
-    }
 
     select {
         border: 1px solid $active-color;
@@ -5290,6 +5251,20 @@ iframe {
 
 
 
+.st2-select {
+    select {
+        border-radius: 3px;
+        padding: 0px 0px 0px 5px;
+        font-size: 14px;
+        font-weight: 600;
+
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid $active-color;
+        color: $active-color;
+    }
+}
+
 .step3-content {
 
     margin: 0px auto;
@@ -5297,14 +5272,14 @@ iframe {
 }
 
 .st3-item {
-    margin: 30px 0px 0px 30px;
+    margin: 30px 0px 0px 0px;
     @media screen and (max-width: 767px) {
         margin: 10px 0px 0px 0px;
     }
 
     p {
         display: block;
-        font-size: 16px;
+        font-size: 18px;
 
         font-weight: 800;
         color: $active-color;
@@ -5314,14 +5289,15 @@ iframe {
         text-align: center;
         .str-item {
             float: left;
-            width: 25%;
+            width: 33.33%;
             text-align: left;
 
             @media screen and (max-width: 767px) {
-                width: 33.33%;
+                width: 50%;
+
             }
             @media screen and (max-width: 550px) {
-                width: 50%
+                width: 100%;
             }
 
 
@@ -5336,6 +5312,7 @@ iframe {
                 display: block;
                 font-style: normal;
                 color: $active-color;
+                font-weight: 700;
                 font-size: 14px;
                 position: relative;
                 padding: 0px 0px 0px 30px;
@@ -5359,8 +5336,8 @@ iframe {
             }
             &.active {
                 em {
-                    color: $green;
-                    font-weight: 600;
+                    color: $active-color;
+                    font-weight: 00;
                     &:before {
                         content: "\f400";
                     }
@@ -5565,9 +5542,6 @@ iframe {
     }
 }
 
-.ts2-item-wrap {
-    display: none;
-}
 
 
 .hl-marked {

@@ -40,39 +40,73 @@
         $('#page-loader').delay(800).fadeOut(600, function () {
             $('body').fadeIn();
         });
+
+
+        $('.user-cart > span').click(function (event) {
+
+            event.stopPropagation();
+            if ($('.box-cart').is(":visible"))
+
+            {
+                $('.box-cart').hide();
+            } else {
+                $('.box-cart').show();
+            }
+
+        });
+
+        $('.box-cart').click(function (event) {
+            event.stopPropagation();
+
+
+        });
+
+        $('body').click(function () {
+            {
+                $('.box-cart').hide();
+
+            }
+        });
+
+        /** **/
+        $(window).bind('resize', function () {
+            if ($(window).width() <= 480) {
+                $('.box-items-scroll').css("max-height", $(window).height() - 150);
+            } else {
+                $('.box-items-scroll').css("max-height", $(window).height() - 200);
+            }
+
+
+        }).trigger('resize');
+
+
+
+        $(".box-items-scroll").niceScroll({
+            cursorcolor: "#00F"
+        });
         /** slider**/
-        var owl_contest = $('.owl-contest')
-        $(owl_contest).owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            autoplay: true,
-            autoplayTimeout: 6000,
-            items: 1,
-            animateOut: 'fadeOutDown',
-            animateIn: 'fadeInDown',
-        });
 
-        $('.open-test-right').click(function () {
-            $('body').addClass("show-test-right");
-        });
-        $('.close-test-right').click(function () {
-            $('body').removeClass("show-test-right");
-        });
+        if ($('.slider-for').length) {
 
-        //show test-button
-        //$('.box-answer').click(function () {
-        //    $('body').addClass("show-test-bottom");
-        //});
-        //$('.close-test-bottom').click(function () {
-        //    $('body').removeClass("show-test-bottom");
-        //});
+            $('.slider-for').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.slider-nav'
+            });
+            $('.slider-nav').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '.slider-for',
+                dots: false,
+                centerMode: false,
+                focusOnSelect: true
+            });
 
-        //menu user
+        }
 
-        $('.user-info').click(function () {
-            $('.user-panel').toggleClass("show-user-menu");
-        });
+
 
     });
 })(jQuery);
