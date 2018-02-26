@@ -16,10 +16,12 @@
     <link href="css/animate.css" rel="stylesheet" />
     <link href="css/owl.carousel.css" rel="stylesheet" />
     <link href="css/jquery.lavalamp.css" rel="stylesheet" />
-
-    <link href="css/slick.css" rel="stylesheet" />
+    <link href="css/jquery.bxslider.css" rel="stylesheet" />
+    <link href="css/jquery.spzoom.css" rel="stylesheet" />
     <!-- Main CSS (SCSS Compile) -->
     <link href="css/main.css" rel="stylesheet" />
+
+
 </head>
 
 <body>
@@ -222,27 +224,45 @@
                 <span><i class="icon icon-arrow-right3"></i></span>
                 <a href="#" class="current">  cốc nguyện san lincup</a>
             </div>
+            <div>
+
+
+
+
+            </div>
             <div class="page-detail">
                 <div class="pd-left">
-                    <div class="slider-detail">
-                        <div class="slider-for">
-                            <div><img alt="" src="images/4.png"> </div>
-                            <div><img alt="" src="images/5.png"> </div>
-                            <div><img alt="" src="images/6.png"> </div>
-                            <div><img alt="" src="images/4.png"> </div>
-                            <div><img alt="" src="images/5.png"> </div>
-                            <div><img alt="" src="images/6.png"> </div>
-                        </div>
-                        <div class="slider-nav">
-                            <div class="nav-item"><img alt="" src="images/4.png"> </div>
-                            <div class="nav-item"><img alt="" src="images/5.png"> </div>
-                            <div class="nav-item"><img alt="" src="images/6.png"> </div>
-                            <div class="nav-item"><img alt="" src="images/4.png"> </div>
-                            <div class="nav-item"><img alt="" src="images/5.png"> </div>
-                            <div class="nav-item"><img alt="" src="images/6.png"> </div>
-                        </div>
 
+
+
+                    <div class="demo">
+                        <a href="images/slider1.png" data-spzoom class="img-zoom">
+                            <img src="images/slider1.png" alt="thumb" class="img-view">
+                        </a>
                     </div>
+
+
+
+
+                    <div class="slider-thumbs">
+                        <ul class="bxslider">
+                            <li data-img="images/slider1.png" class="thumb_img">
+                                <img src="images/slider1.png" />
+                            </li>
+                            <li data-img="images/slider2.png" class="thumb_img">
+                                <img src="images/slider2.png" />
+                            </li>
+                            <li data-img="images/slider3.png" class="thumb_img">
+                                <img src="images/slider3.png" />
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+
+
+
                 </div>
                 <div class="pd-right">
                     <h1>LINCUP: 750.000 VNĐ</h1>
@@ -576,7 +596,47 @@
     <script src="js/owl.carousel.js"></script>
     <script src="js/jquery.lavalamp.js"></script>
     <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/slick.js"></script>
+    <script src="js/jquery.bxslider.js"></script>
+    <script src="js/jquery.spzoom.js"></script>
+
+
+    <script type="text/javascript">
+        $(function() {
+            $('[data-spzoom]').spzoom({
+                width: 550,
+                height: 400,
+            });
+
+            $(document).ready(function() {
+                $('.bxslider').bxSlider({
+                    minSlides: 3,
+                    maxSlides: 3,
+                    slideWidth: 100,
+                    // infiniteLoop:false
+
+                });
+                $('.bxslider li.thumb_img').click(function() {
+                    $('.active-thumb').removeClass("active-thumb");
+                    $(this).addClass("active-thumb");
+                    var img = $(this).attr("data-img");
+                    $('.img-zoom').attr('href', img);
+                    $('.img-view').attr('src', img);
+                    $('.spzoom-image').attr('src', img);
+                    $('[data-spzoom]').spzoom();
+                });
+
+                $('.bxslider li.thumb_img').hover(function() {
+                    var img = $(this).attr("data-img");
+                    $('.img-zoom').attr('href', img);
+                    $('.img-view').attr('src', img);
+                    $('.spzoom-image').attr('src', img);
+                    $('[data-spzoom]').spzoom();
+                });
+            });
+
+        });
+
+    </script>
     <script src="js/main.js"></script>
 </body>
 

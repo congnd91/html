@@ -204,11 +204,16 @@ iframe {
   .topbar .user-cart {
     float: left;
     cursor: pointer;
-    position: relative; }
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    margin: -15px 0px -15px 0px; }
     .topbar .user-cart > span {
       color: #fff; }
       .topbar .user-cart > span i {
         color: #f26e83; }
+    .topbar .user-cart:hover .box-cart {
+      display: block !important; }
   .topbar .nicescroll-rails {
     width: 5px !important;
     background-color: rgba(0, 0, 0, 0.2) !important;
@@ -223,14 +228,15 @@ iframe {
     display: none;
     position: absolute;
     top: 100%;
-    margin: 15px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     right: -100px;
     z-index: 9999;
     background-color: #fff;
     border: 1px solid #f26e83;
     width: 300px;
     min-height: 100px;
-    padding: 0px 20px 0px 20px; }
+    padding: 0px 10px 0px 10px;
+    line-height: 1.3; }
     @media screen and (max-width: 991px) {
       .topbar .box-cart {
         right: 0px;
@@ -247,7 +253,8 @@ iframe {
       font-size: 16px; }
     .topbar .box-cart .box-items-scroll {
       overflow: auto;
-      padding-right: 10px; }
+      padding-right: 10px;
+      max-height: 284px !important; }
     .topbar .box-cart .box-cart-items {
       padding-right: 0px;
       border-top: 1px solid #ebebeb;
@@ -377,6 +384,22 @@ iframe {
       -o-transform: translateX(-280px);
       -ms-transform: translateX(-280px);
       transform: translateX(-280px); }
+    .open-menu .menu-icon i {
+      font-family: 'IcoMoon-Ultimate' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      letter-spacing: 0;
+      -webkit-font-feature-settings: "liga";
+      -ms-font-feature-settings: "liga" 1;
+      -o-font-feature-settings: "liga";
+      font-feature-settings: "liga";
+      -webkit-font-smoothing: antialiased; }
+      .open-menu .menu-icon i:before {
+        content: "\ed6d"; }
   .menu-res {
     width: 280px;
     background-color: #111;
@@ -592,7 +615,8 @@ iframe {
 
 .cate {
   margin: 40px 0px 0px 0px;
-  padding: 0px 0px 20px 0px; }
+  padding: 0px 0px 20px 0px;
+  overflow: hidden; }
   .cate .cate-caption {
     margin: 0px 0px 10px 0px;
     font-size: 1.7rem;
@@ -1237,19 +1261,44 @@ iframe {
 .pd-left {
   float: left;
   width: 280px; }
-  .pd-left .slider-detail {
-    margin: 0px auto; }
-  .pd-left .slider-for {
-    max-width: 240px;
-    margin: 0px auto 10px auto; }
-    .pd-left .slider-for img {
-      width: 100%; }
-  .pd-left .slider-nav {
+  .pd-left .slider-thumbs {
     position: relative;
-    padding: 0px 15px; }
-    .pd-left .slider-nav .nav-item {
-      padding: 5px; }
-    .pd-left .slider-nav .slick-prev {
+    margin: 20px 10px 0px 10px; }
+    .pd-left .slider-thumbs .bx-next {
+      width: 15px;
+      position: absolute;
+      right: -15px;
+      top: 0px;
+      bottom: 0px;
+      text-align: center;
+      line-height: 60px; }
+      .pd-left .slider-thumbs .bx-next span {
+        display: block;
+        line-height: 60px;
+        font-size: 2rem; }
+    .pd-left .slider-thumbs .bx-prev {
+      width: 15px;
+      position: absolute;
+      left: -15px;
+      top: 0px;
+      bottom: 0px;
+      text-align: center;
+      line-height: 100%;
+      font-size: 1.4rem; }
+      .pd-left .slider-thumbs .bx-prev span {
+        display: block;
+        line-height: 60px;
+        font-size: 2rem; }
+    .pd-left .slider-thumbs .bx-pager {
+      display: none; }
+    .pd-left .slider-thumbs .thumb_img {
+      text-align: center;
+      padding: 0px 0px; }
+      .pd-left .slider-thumbs .thumb_img img {
+        width: 80px;
+        margin: 0px auto;
+        display: block; }
+    .pd-left .slider-thumbs .slick-prev {
       width: 15px;
       position: absolute;
       top: 0px;
@@ -1267,7 +1316,7 @@ iframe {
       border: none;
       text-indent: -999px;
       overflow: hidden; }
-    .pd-left .slider-nav .slick-next {
+    .pd-left .slider-thumbs .slick-next {
       width: 15px;
       position: absolute;
       top: 0px;
@@ -1323,5 +1372,40 @@ iframe {
       background-color: #dd4b39; }
     .detail-meta .dm-right a:hover {
       opacity: 0.8; }
+
+img.lazy {
+  width: 150px;
+  height: 150px;
+  border: none;
+  outline: none;
+  display: inline-block;
+  /* optional way, set loading as background */
+  background-image: url("../images/loading.svg");
+  background-size: 100px 100px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%; }
+
+.detail-left {
+  width: 260px;
+  position: relative;
+  z-index: 99; }
+
+.demo {
+  position: relative;
+  z-index: 9;
+  text-align: center; }
+  .demo img {
+    max-width: 2000px !important; }
+  .demo .img-view {
+    margin: 0px auto;
+    max-width: 100% !important; }
+
+@media screen and (max-width: 991px) {
+  .spzoom-tracker {
+    display: none !important; } }
+
+@media screen and (max-width: 991px) {
+  .spzoom-zoom {
+    display: none !important; } }
 
 /*# sourceMappingURL=main.css.map */
