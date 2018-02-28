@@ -310,6 +310,35 @@
             $('body').removeClass("show-review-explanation");
         });
 
+        //show-pallete
+        $('.rf-bar-pallete').click(function () {
+
+
+            if ($(".reading-footer").hasClass("show")) {} else {
+                $(".reading-footer").addClass("show");
+            }
+        });
+
+        //close-pallete
+        $('.close-rf').click(function () {
+            $(".reading-footer").removeClass("show");
+        });
+
+
+
+
+        //sl-control hover
+        $('.sl-control a').hover(function () {
+
+            $(this).find("em").animate({
+                width: 'show'
+            })
+
+        }, function () {
+            $(this).find("em").animate({
+                width: 'hide'
+            })
+        });
 
 
 
@@ -322,6 +351,11 @@
 
 
         });
+
+
+
+
+
 
         /* $('.step2-choose').click(function () {
 
