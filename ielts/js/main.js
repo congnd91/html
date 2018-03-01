@@ -117,11 +117,15 @@
 
         if ($('.api').length) {
             $('.player-fixed').css("max-width", $('.split-right').outerWidth());
+
+            $('.sl-caption-bottom').css("max-width", $('.split-left').outerWidth());
             $(window).bind('resize', function () {
 
+                setTimeout(function () {
+                    $('.sl-caption-bottom ').css("max-width", $('.split-left').outerWidth());
+                }, 300);
 
-
-
+                console.log("s");
                 var width = window.innerWidth;
                 var check = false;
                 if (width <= 768) {
@@ -141,6 +145,7 @@
                             $(".split-item").getNiceScroll().resize();
 
                             $('.player-fixed').css("max-width", $('.split-right').outerWidth());
+                            $('.sl-caption-bottom ').css("max-width", $('.split-right').outerWidth());
 
                         },
                     });
@@ -153,6 +158,7 @@
                         onDrag: function () {
                             $(".split-item").getNiceScroll().resize();
                             $('.player-fixed').css("max-width", $('.split-right').outerWidth());
+                            $('.sl-caption-bottom ').css("max-width", $('.split-right').outerWidth());
 
                         },
                     });
@@ -276,7 +282,8 @@
             slidesPerScroll: 5,
             top: 10,
             hMargin: 0.1,
-            frontWidth: 500,
+            frontWidth: 700,
+            frontHeight: 400,
             autoplayInterval: 3000,
             description: true,
             pauseOnHover: false,
@@ -304,6 +311,7 @@
             $(".split-item").getNiceScroll().resize();
 
             $('.player-fixed').css("max-width", $('.split-right').outerWidth());
+            $('.sl-caption-bottom ').css("max-width", $('.split-right').outerWidth());
         });
         //close-re
         $('.close-rx').click(function () {
@@ -323,6 +331,21 @@
         $('.close-rf').click(function () {
             $(".reading-footer").removeClass("show");
         });
+
+
+        //show-re
+        $('.hide-test-detail').click(function () {
+            $('body').removeClass("show-rx-header");
+
+        });
+        //close-re
+        $('.show-test-detail').click(function () {
+            $('body').addClass("show-rx-header");
+        });
+
+
+
+
 
 
 
@@ -352,7 +375,25 @@
 
         });
 
+        //to-top
+        $(".totop").click(function () {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 1000);
+        });
 
+        $('.om-wrap .arrow').click(function () {
+
+            if ($(this).parent().find(".om-dropdown").is(":visible")) {
+                $(this).parent().find(".om-dropdown").slideUp();
+            } else {
+                $(this).parent().find(".om-dropdown").slideDown();
+
+            }
+
+
+
+        });
 
 
 

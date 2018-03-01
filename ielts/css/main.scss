@@ -443,7 +443,7 @@ iframe {
 .menu-res {
 
     background-color: $active-color;
-    position: absolute;
+    position: fixed;
     top: 128px;
     z-index: 999;
     overflow: auto;
@@ -1255,7 +1255,7 @@ iframe {
     background-color: $box-color;
     font-size: 13px;
     color: $text-color-second;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 .btn {
@@ -1614,6 +1614,79 @@ iframe {
     @media screen and (max-width: 991px) {}
 }
 
+.rx-header {
+
+    position: absolute;
+    z-index: 9999;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    @include transition();
+    top: -200px;
+    .reading-header {
+        position: relative;
+        left: auto;
+        top: auto;
+        right: auto;
+    }
+    .logo-brand {
+        display: block !important;
+        bottom: 70px !important;
+
+    }
+    .hide-test-detail {
+        color: #7e90a2;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-block;
+        font-family: $font-family-heading;
+        margin: 10px 0px 0px 0px;
+        cursor: pointer;
+        em {
+            -moz-transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+
+            background: url(../images/icon_arrow_down.png) no-repeat center center;
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            position: relative;
+            margin: 0px 5px 0px 5px;
+            top: 3px;
+        }
+    }
+}
+
+.show-test-detail {
+    color: #7e90a2;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    font-family: $font-family-heading;
+    margin: 4px 70px 0px 0px;
+    cursor: pointer;
+    float: right;
+
+    em {
+
+        background: url(../images/icon_arrow_down.png) no-repeat center center;
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        position: relative;
+        margin: 0px 5px 0px 5;
+        top: 3px;
+    }
+}
+
+.show-rx-header {
+    .rx-header {
+        top: 0px;
+    }
+}
 
 .show-review-explanation {
     overflow: hidden;
@@ -1804,7 +1877,39 @@ iframe {
     }
 }
 
-.other-module {}
+.other-module {
+
+    margin-bottom: 30px;
+}
+
+.om-wrap {
+    position: relative;
+
+    .arrow {
+        cursor: pointer;
+        display: block;
+        background-image: url(../images/arrow_down_white.png);
+        width: 13px;
+        height: 7px;
+        position: absolute;
+        display: block;
+        top: 20px;
+        right: 15px;
+        z-index: 9;
+
+    }
+    .om-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+
+        display: none;
+        height: 80px;
+        padding: 10px 0px 0px 0px;
+    }
+}
 
 .om-item {
     text-align: center;
@@ -2039,10 +2144,24 @@ iframe {
             }
             span {
                 display: block;
+                margin: 3px 0px 0px 0px;
                 text-align: center;
                 color: $text-color;
                 font-size: 12px;
                 line-height: 14px;
+                em {
+                    display: inline-block;
+                    margin: 0px 4px;
+                }
+            }
+            .view-result {
+                font-size: 11px;
+                font-family: $font-family-heading;
+                font-weight: 600;
+                color: #8393a5;
+                &:hover {
+                    color: $active-color;
+                }
             }
         }
 
@@ -2056,7 +2175,7 @@ iframe {
 }
 
 .footer {
-    margin: 60px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     background-color: $box-color;
     &.footer-fix-margin {
         margin: 0px;
@@ -2359,6 +2478,13 @@ iframe {
                 border: 3px solid $icon-bg;
                 border-radius: 3px;
             }
+            .test-des {
+                @media screen and (max-width: 1191px) {
+                    p {
+                        display: none;
+                    }
+                }
+            }
         }
         .test-caption {
             font-size: $font-size-base;
@@ -2387,8 +2513,8 @@ iframe {
         position: relative;
         padding: 0px 15px;
         .show-test-menu {
-            border: 1px solid $active-color-thrid;
-            color: $active-color-thrid;
+            border: 1px solid #d4dae0;
+            color: #7e90a2;
             font-size: 10px;
             font-family: $font-family-heading;
             height: 25px;
@@ -2425,7 +2551,7 @@ iframe {
                         display: flex;
                         align-items: center;
                         line-height: 50px;
-                        padding: 0px 20px;
+                        padding: 0px 10px;
                         font-size: 13px;
                         font-family: $font-family-heading;
                         font-weight: 700;
@@ -2433,11 +2559,11 @@ iframe {
                         cursor: pointer;
                         @include transition();
                         @media screen and (max-width: 1199px) {
-                            padding: 0px 10px;
-                        }
-                        @media screen and (max-width: 1050px) {
+                            font-size: 11px;
                             padding: 0px 5px;
                         }
+                        @media screen and (max-width: 1050px) {}
+                        @media screen and (max-width: 991px) {}
                         &:hover {
                             color: $active-color;
                         }
@@ -2453,6 +2579,10 @@ iframe {
                             }
                             &.icon-share {
                                 background-image: url(../images/icon_share.png);
+                            }
+
+                            &.icon-report {
+                                background-image: url(../images/icon_report.png);
                             }
                             &.icon-text {
                                 background-image: url(../images/icon_text_size.png);
@@ -2474,13 +2604,62 @@ iframe {
                 }
             }
         }
+
+        .rh-right {
+            float: right;
+            height: 40px;
+
+            position: absolute;
+            bottom: 5px;
+            right: 15px;
+            @media screen and (max-width: 991px) {
+                display: none;
+            }
+
+            .btn-logout {
+                float: left;
+                line-height: 25px;
+                padding: 0px 7px;
+                border-radius: 2px;
+                background-color: $icon-bg;
+                color: $active-color;
+                font-weight: 600;
+                font-family: $font-family-heading;
+                font-size: 12px;
+                margin: 0px 0px 0px 15px;
+                margin-top: 10px;
+
+            }
+            .avatar {
+
+                float: left;
+                margin: 0px 0px 0px 15px;
+                margin-top: 10px;
+                img {
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    display: block;
+                }
+            }
+            .logo-small {
+                float: left;
+                margin: 0px 0px 0px 15px;
+                img {
+                    width: 40px;
+                    height: 40px;
+
+                }
+            }
+        }
     }
     .logo-brand {
         position: absolute;
+        display: none;
         bottom: 10px;
         right: 15px;
         img {
-            height: 35px;
+            height: 75px;
         }
         @media screen and (max-width: 991px) {
             position: absolute;
@@ -2495,6 +2674,7 @@ iframe {
     &.show-test {
         top: 0px;
         .logo-brand {
+            display: block;
             position: absolute;
             bottom: 80px;
             img {
@@ -2622,6 +2802,10 @@ iframe {
             font-weight: 700;
             font-family: $font-family-heading;
             color: $green;
+            @media screen and (max-width: 991px) {
+                font-size: $font-size-h5;
+
+            }
         }
         .sl-caption-right {
             float: right;
@@ -2668,12 +2852,33 @@ iframe {
             }
         }
         &.sl-caption-bottom {
-            margin: 30px -30px -30px -30px;
+            margin: 0px -30px -30px -30px;
             padding: 30px;
             background-color: $box-color;
+
+            position: fixed;
+
+            bottom: 70px;
+
+            left: inherit;
+            right: inherit;
+            width: 100%;
+            top: inherit;
             @media screen and (max-width: 991px) {
-                margin: 15px -15px -15px -15px;
+                margin: 15px -15px -20px -15px;
                 padding: 15px;
+            }
+            &.sl-caption-bottom-fix {
+                bottom: 30px;
+                @media screen and (max-width: 991px) {
+
+                    position: relative;
+                    width: auto;
+
+                    bottom: 10px;
+
+                }
+
             }
             .sl-caption-right {
                 float: right;
@@ -2693,6 +2898,7 @@ iframe {
                         line-height: 40px;
                         padding: 0px 10px;
                         font-size: 10px;
+
                     }
                     &:hover {
                         background-color: $active-color;
@@ -2729,7 +2935,7 @@ iframe {
             display: inline-block;
             margin: 5px 0px 0px 10px;
             position: relative;
-            top: 13px;
+            top: 8px;
             a {
                 display: inline-block;
                 line-height: 25px;
@@ -2740,8 +2946,8 @@ iframe {
 
                 @include transition();
 
-                font-size: 11px;
-                line-height: 15px;
+                font-size: 12px;
+                line-height: 23px;
                 color: $green;
                 font-family: $font-family-heading;
                 white-space: nowrap;
@@ -2749,13 +2955,14 @@ iframe {
                 span {
                     background-repeat: no-repeat;
                     background-position: center center;
-                    width: 16px;
-                    height: 14px;
+                    width: 23px;
+                    height: 23px;
                     display: inline-block;
                     position: relative;
 
                     float: left;
-                    margin: 0px 3px 0px 0px;
+                    margin: 0px 3px 0px 5px;
+                    top: -2px;
 
                     &.icon-ask {
                         background-image: url(../images/icon_ask1.png);
@@ -2766,12 +2973,15 @@ iframe {
                     &.icon-explain {
                         background-image: url(../images/icon_explain.png);
                     }
+                    &.icon-book {
+                        background-image: url(../images/icon_book.png);
+                    }
                 }
                 em {
 
                     font-style: normal;
                     font-family: $font-family-heading;
-                    font-size: 11px;
+                    font-size: 13px;
                     font-weight: 700;
                     float: left;
                     display: none;
@@ -2796,11 +3006,8 @@ iframe {
         }
         .sl-item .sl-control a {
             color: $active-color-five;
-            border: 1px solid $active-color-five;
-            &:hover {
-                background-color: $active-color-five;
-                color: #fff;
-            }
+
+
         }
         .sl-caption h2 {
             color: #268695;
@@ -2811,16 +3018,13 @@ iframe {
         .sl-item .sl-control a span.icon-locale {
             background-image: url(../images/icon_locale1.png);
         }
+
+        .sl-item .sl-control a span.icon-explain {
+            background-image: url(../images/icon_explain1.png);
+        }
         .sl-item .sl-control a span.icon-listen {
             background-image: url(../images/icon_listen1.png);
-            background-position: center center;
-            width: 16px;
-            height: 14px;
-            display: inline-block;
-            position: relative;
-            top: 2px;
-            margin: 0px 3px 0px 0px;
-            background-repeat: no-repeat;
+
         }
     }
 
@@ -2924,10 +3128,10 @@ iframe {
             border-radius: 3px;
             em {
                 float: right;
-                background-image: url(../images/icon_explain1.png);
-                width: 16px;
-                height: 14px;
-                margin: 3px -25px 0px 0px;
+                background-image: url(../images/icon_explain.png);
+                width: 23px;
+                height: 21px;
+                margin: 0px -25px 0px 0px;
             }
         }
         span.number {
@@ -2946,7 +3150,7 @@ iframe {
         }
     }
     &.split-video {
-        background-color: #84d1dd;
+        background-color: #d6f0f4;
     }
 }
 
@@ -2959,6 +3163,7 @@ iframe {
     background-color: #d6f0f4;
     z-index: 999;
     padding: 15px 40px 15px 40px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     &.player-fixed {
         left: inherit;
         right: inherit;
@@ -2972,27 +3177,27 @@ iframe {
             width: 140px;
             margin: 0px 0px 0px -140px;
             .p-prev {
-                background: url("../images/icon_control_prev.png") no-repeat center center;
-                width: 12px;
-                height: 12px;
+                background: url("../images/icon_control_prev5.png") no-repeat center center;
+                width: 20px;
+                height: 22px;
                 float: left;
-                margin: 1px 0px 0px 0px;
+                margin: -5px 0px 0px 0px;
                 cursor: pointer;
             }
             .p-next {
-                background: url("../images/icon_control_next.png") no-repeat center center;
-                width: 12px;
-                height: 12px;
+                background: url("../images/icon_control_next5.png") no-repeat center center;
+                width: 20px;
+                height: 22px;
                 float: left;
-                margin: 1px 0px 0px 30px;
+                margin: -5px 0px 0px 30px;
                 cursor: pointer;
             }
             .p-play {
                 background: url("../images/icon_control_play.png") no-repeat center center;
-                width: 14px;
-                height: 16px;
+                width: 18px;
+                height: 20px;
                 float: left;
-                margin: -1px 0px 0px 30px;
+                margin: -4px 0px 0px 30px;
                 cursor: pointer;
             }
         }
@@ -3053,10 +3258,23 @@ iframe {
 
 .nicescroll-rails {
     opacity: 1 !important;
+
     &.nicescroll-rails-vr {
         width: 3px !important;
+        -webkit-transition: width 0.3s, margin 0.3s;
+        transition: width 0.3s, margin 0.3s;
         .nicescroll-cursors {
             width: 3px !important;
+            cursor: pointer;
+            -webkit-transition: width 0.3s;
+            transition: width 0.3s;
+        }
+        &:hover {
+            margin-left: -4px !important;
+            width: 10px !important;
+            .nicescroll-cursors {
+                width: 10px !important;
+            }
         }
     }
     background-color: $button-bg !important;
@@ -3375,7 +3593,7 @@ iframe {
         line-height: 50px;
         @media screen and (max-width: 1199px) {
             text-align: right;
-            margin: -50px 0px 20px 0px;
+            margin: -40px 0px 20px 0px;
 
             @media screen and (max-width: 767px) {
 
@@ -3476,19 +3694,6 @@ iframe {
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     .rf-time {
@@ -3618,42 +3823,173 @@ iframe {
             background-image: url(../images/icon_submit1.png);
         }
 
+        .bp-control-section {
+
+
+            p {
+                color: $active-color-five
+            }
+
+
+
+
+
+        }
+
+        .rfc-button {
+            text-align: center;
+            a {
+
+
+
+
+                background-color: $active-color-five;
+                color: #fff;
+
+
+
+                @media screen and (max-width: 1199px) {}
+
+                @media screen and (max-width: 767px) {}
+                &:hover {}
+
+
+
+                span {
+                    position: relative;
+                    display: inline-block;
+                    margin: 0px 5px 0px 0px;
+                }
+                &.review {
+                    span {
+
+                        background-image: url(../images/icon_review.png);
+                        width: 20px;
+                        height: 20px;
+                        top: 5px;
+
+                    }
+                }
+                &.solution {
+                    span {
+
+                        background-image: url(../images/icon_lego1.png);
+                        width: 20px;
+                        height: 20px;
+                        top: 5px;
+
+                    }
+                }
+                &.submit {
+                    background-color: #d6f0f4;
+                    color: $active-color-five;
+                    span {
+
+                        background-image: url(../images/icon_submit1.png);
+                        width: 19px;
+                        height: 20px;
+                        top: 5px;
+
+
+
+                    }
+                }
+            }
+        }
+
     }
+}
+
+
+
+
+.reading-footer-right {
+    @media screen and (min-width: 992px) {
+
+
+        .rf-bar {
+            display: none;
+        }
+        .close-rf {
+            display: none !important;
+        }
+        .rf-content {
+            display: block;
+            .rfc-right {
+                float: none;
+                min-width: 100px;
+                max-width: 1000px;
+                text-align: center;
+            }
+            .rfc-left {
+                float: none;
+            }
+        }
+        .bp-control-section {
+            position: relative;
+            top: unset;
+            right: unset;
+            margin: 20px 0px 0px 0px;
+            p {
+                display: block;
+                padding: 0px 0px 0px 5px;
+            }
+        }
+
+        .rfc-time {
+            margin: 30px auto 30px auto;
+        }
+
+        .rfc-button a {
+            display: block;
+            width: 100%;
+            margin: 15px 0px 0px 0px;
+
+        }
+
+    }
+
 }
 
 /***********************listening-page"*************/
 
 .listening-page {
-    padding: 50px 390px 0px 0px;
+    padding: 0px 390px 0px 0px;
     position: relative;
     @media screen and (max-width: 1199px) {}
     @media screen and (max-width: 991px) {
-        padding: 50px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
     }
     .player-listening {
         height: 50px;
         background-color: #d6f0f4;
         position: fixed;
         z-index: 99;
-        top: 50px;
+        top: 175px;
         width: 100%;
-        max-width: 690px;
 
-        @media screen and (max-width: 1199px) {
-
-            max-width: 520px;
-        }
+        left: 0px;
+        right: 0px;
 
         @media screen and (max-width: 1199px) {}
-        @media screen and (max-width: 991px) {
-            left: 0px;
-            right: 0px;
-            max-width: 1000px;
-        }
+
+        @media screen and (max-width: 1199px) {}
+
         .player {
             position: relative;
-            margin: 0px auto;
+            box-shadow: none;
             max-width: 725px;
+
+
+        }
+
+        @media screen and (max-width: 991px) {
+
+            top: 50px;
+            .player {
+
+                max-width: 2000px;
+            }
         }
 
     }
@@ -3721,22 +4057,39 @@ iframe {
             display: inline-block;
             line-height: 25px;
             padding: 0px 20px 0px 20px;
-            background-color: $box-color;
-            border-radius: 20px;
+
+
             margin-bottom: 40px;
+
+
+            color: #d4dae0;
             font-size: 12px;
-            color: $text-color-second;
-            @include transition();
+            font-weight: 600;
+            font-family: $font-family-heading;
+            background-color: transparent;
             &:hover {
-                color: $text-color;
+                color: $text-color-second;
+                ;
             }
+            span {
+                display: inline-block;
+                background-image: url(../images/report_icon.png);
+                width: 12px;
+                height: 12px;
+                display: inline-block;
+                position: relative;
+                margin: 0px 5px 0px 0px;
+
+            }
+
         }
     }
 
     .lp-right {
         width: 390px;
         position: absolute;
-        top: 50px;
+        top: 0px;
+        z-index: 99;
         right: 0px;
         bottom: 0px;
         background-color: $active-color;
@@ -3749,7 +4102,7 @@ iframe {
             margin: 0px;
             float: none;
             width: 100%;
-            padding: 10px;
+            padding: 0px;
             position: fixed;
             top: unset;
             right: 0px;
@@ -3820,7 +4173,7 @@ iframe {
 
         width: 390px;
         position: absolute;
-        top: 50px;
+        top: 0px;
         right: 0px;
         bottom: 0px;
         background-color: $box-color;
@@ -3868,6 +4221,7 @@ iframe {
     .colleft {
         width: 100%;
         min-height: 600px;
+        padding-bottom: 30px;
         @media screen and (max-width: 991px) {
             float: none;
         }
@@ -4189,7 +4543,7 @@ iframe {
     .affix {
         position: fixed !important;
         width: 330px;
-        top: 70px;
+        top: 180px;
 
     }
 }
@@ -4518,13 +4872,17 @@ iframe {
             margin: 0px 0px 5px 10px;
             padding: 0px 10px;
             line-height: 25px;
-            border: 1px solid $active-color;
+
             color: $active-color;
-            font-size: $font-size-xs;
+            font-size: 13px;
             border-radius: 3px;
+            font-family: $font-family-heading;
+            color: $active-color;
+            font-weight: 700;
+            opacity: 0.6;
             &.active {
-                border: 1px solid $icon-bg;
-                background-color: $icon-bg;
+                opacity: 1;
+                color: $active-color;
             }
         }
     }
@@ -4680,6 +5038,9 @@ iframe {
     }
     .box-caption {
         margin-bottom: -10px;
+        p {
+            font-size: 15px;
+        }
     }
 }
 
@@ -4972,12 +5333,23 @@ iframe {
     color: $active-color;
     font-size: 13px;
 
-    &:hover {}
+
+    &:hover1 {
+        background-color: $active-color;
+        color: #fff;
+        span {
+
+            &.icon-resume {
+                background: url("../images/icon_flash.png") no-repeat center center;
+            }
+        }
+    }
+
     span {
 
         background: url("../images/icon_review4.png") no-repeat center center;
         width: 20px;
-        height: 22px;
+        height: 20px;
         position: relative;
         margin: 0px 5px 0px 0px;
         float: left;
@@ -4985,6 +5357,24 @@ iframe {
         top: 3px;
         &.icon-resume {
             background: url("../images/icon_flash1.png") no-repeat center center;
+        }
+    }
+}
+
+.tab-his {
+
+    margin: 0px 0px 20px 0px;
+    span {
+
+        opacity: 0.7;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 700;
+        font-family: $font-family-heading;
+        color: $active-color;
+        margin: 0px 30px 0px 0px;
+        &.active {
+            opacity: 1;
         }
     }
 }
@@ -5120,9 +5510,13 @@ iframe {
 /***************home*************/
 
 .home-hero {
-    padding: 130px 0px;
+    padding: 150px 0px;
     text-align: center;
     background-color: $active-color;
+    background-image: url(../images/hero_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     @media screen and (max-width: 991px) {
         padding: 60px 0px;
     }
@@ -5131,6 +5525,7 @@ iframe {
         color: #fff;
         font-weight: 700;
         margin: 0px;
+        font-size: 40px;
         @media screen and (max-width: 767px) {
             font-size: $font-size-h2;
         }
@@ -5139,7 +5534,7 @@ iframe {
         color: #fff;
         font-weight: 600;
         font-family: $font-family-heading;
-        margin: 5px 0px 0px 0px;
+        margin: 19px 0px 10px 0px;
         @media screen and (max-width: 767px) {
             font-size: 12px;
             font-weight: 500;
@@ -5153,33 +5548,31 @@ iframe {
             line-height: 50px;
             padding: 0px 30px;
             border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #fff;
+            color: #fff;
             cursor: pointer;
-            margin: 5px 5px;
+            margin: 5px 10px;
             font-size: 12px;
+            min-width: 200px;
             font-weight: 700;
+            @include transition();
+            opacity: 0.9;
             font-family: $font-family-heading;
-            color: $text-color-thrid;
-            @media screen and (max-width: 480px) {
-                width: 100%;
-                margin: 5px 0px;
+
+            @media screen and (max-width: 767px) {
+
+                margin: 5px 5px;
+                min-width: 10px;
             }
-            span {
-                display: inline-block;
-                position: relative;
-                background: url("../images/icon_academic.png") no-repeat center center;
-                width: 22px;
-                height: 22px;
-                margin: 0px 5px;
-                top: 6px;
-                &.icon-general {
-                    background: url("../images/icon_genral.png") no-repeat center center;
-                }
-            }
+
             @include transition();
             &:hover {
-                background-color: rgba(255, 255, 255, 1);
-                color: $active-color;
+                opacity: 1;
+            }
+            &.active {
+                color: #fff;
+                border-color: $active-color;
+                background-color: $active-color;
             }
         }
 
@@ -5196,15 +5589,27 @@ iframe {
 
 .section-caption {
     color: $active-color;
-    font-size: 20px;
+    font-size: 24px;
     margin: 0px 0px 20px 0px;
     font-family: $font-family-heading;
     font-weight: 700;
+    text-align: center;
+    @media screen and (max-width: 767px) {
+
+        font-size: 18px;
+    }
     &.white {
         color: #fff;
     }
 }
 
+.section-tip {
+    background-color: $active-color;
+}
+
+.book-home {
+    margin: 20px 0px 0px 0px;
+}
 
 .our-test-item {
     text-align: center;
@@ -5265,22 +5670,29 @@ iframe {
     margin: 30px auto 0px auto;
     .ttd-caption {
         font-family: $font-family-heading;
-        color: $icon-bg;
+        color: #fff;
         letter-spacing: 5px;
         text-transform: uppercase;
         font-weight: 700;
         font-size: 14px;
+        margin: 0px 0px 20px 0px;
     }
     .news-item {
         text-align: left;
     }
 }
 
+.section-say {
+    background-color: #d4dae0;
+    padding-bottom: 120px;
+    overflow: hidden;
+}
 
 .section-support {
     background-color: #d4dae0;
     text-align: center;
     h3 {
+
 
         font-weight: 700;
         color: $active-color;
@@ -5334,7 +5746,7 @@ iframe {
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        background-color: $icon-bg;
+        background-color: #fff;
         margin: 10px auto;
         line-height: 60px;
     }
@@ -5361,7 +5773,7 @@ iframe {
 
 .section-look {
     background-color: $active-color;
-    margin-top: 70px;
+
     padding-bottom: 70px;
     .carousel {
         padding-top: 20px;
@@ -5452,11 +5864,17 @@ iframe {
     }
 }
 
+.section-look {
+    padding-bottom: 150px;
+    .carousel {
+        overflow: inherit;
+    }
+}
 
 .buttonNav {
     position: absolute !important;
     left: 0px;
-    bottom: 0px;
+    bottom: -80px;
     right: 0px;
     text-align: center;
     width: 100% !important;
@@ -5480,8 +5898,9 @@ iframe {
 }
 
 .slides-home {
-    float: left;
-    width: 75% !important;
+    float: none !important;
+
+    margin: 0px auto !important;
 
 
     @media screen and (max-width: 1199px) {
@@ -5499,30 +5918,29 @@ iframe {
         float: none !important;
         width: 100% !important;
 
-        transform: translateX(170px) scale(0.6);
+        transform: translateX(120px) scale(0.4);
         height: 280px !important;
     }
     @media screen and (max-width: 480px) {
         float: none !important;
         width: 100% !important;
 
-        transform: translateX(120px) scale(0.4);
+        transform: translateX(120px) scale(0.3);
         height: 200px !important;
     }
-    img {
-
-        height: auto !important;
-    }
+    img {}
 
 }
 
 .description-home {
-    float: right;
-    text-align: left;
-    width: 25%;
+    max-width: 650px;
+
+
+    text-align: center;
+
     position: relative;
-    margin: 100px 0px 0px 0px;
-    min-height: 100px;
+    margin: 60px auto 20px auto;
+
     color: #fff;
     @media screen and (max-width: 991px) {
         float: none;
@@ -6059,6 +6477,15 @@ iframe {
 
 .modal-time-left {
     max-width: 450px;
+}
+
+.modal-share {
+    max-width: 500px;
+    .modal-share-content {
+        .share-socer {
+            margin: -10px auto 30px auto;
+        }
+    }
 }
 
 
@@ -6703,4 +7130,82 @@ table {
 .table-scroll {
     overflow: auto;
     max-width: 100%;
+}
+
+
+.page-show-test {
+
+    padding-top: 175px;
+
+    @media screen and (max-width: 991px) {
+        padding: 0px;
+    }
+}
+
+.analytics {
+    margin-bottom: 30px;
+}
+
+.menu-board {
+    min-height: 50px;
+    background-color: #1e354b;
+    ul {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+
+        li {
+            display: inline-block;
+            margin: 0px 20px 0px 0px;
+            padding: 0px;
+
+
+            a {
+                display: block;
+                line-height: 50px;
+                font-size: 14px;
+                font-weight: 600;
+                font-family: $font-family-heading;
+                color: #fff;
+
+                opacity: 0.6;
+                span {
+                    float: left;
+                    display: inline-block;
+                    position: relative;
+                    background-repeat: no-repeat;
+                    width: 40px;
+                    height: 50px;
+
+                    background-position: center center;
+
+                    &.mb-icon1 {
+                        background-image: url(../images/icon_analytics.png);
+                    }
+                    &.mb-icon2 {
+                        background-image: url(../images/icon_email.png);
+                    }
+                    &.mb-icon3 {
+                        background-image: url(../images/icon_history.png);
+                    }
+                    &.mb-icon4 {
+                        background-image: url(../images/icon_user1.png);
+                    }
+                    &.mb-icon5 {
+                        background-image: url(../images/icon_cart.png);
+                    }
+                }
+            }
+            &.active {
+                a {
+                    opacity: 1;
+                }
+            }
+            &:hover {
+                a {
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
 }
