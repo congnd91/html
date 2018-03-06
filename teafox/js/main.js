@@ -39,5 +39,19 @@
         $(".box-items-scroll").niceScroll({
             cursorcolor: "#00F"
         });
+        //menuleft
+
+        $('.menu-left > li').on('click', function () {
+
+            var chid = $(this).find("ul");
+            if ($(chid).is(":visible"))
+
+            {
+                $(chid).slideUp();
+            } else {
+                $(chid).slideDown();
+
+            }
+        });
     });
 })(jQuery);

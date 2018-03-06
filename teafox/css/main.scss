@@ -797,9 +797,60 @@ iframe {
         padding: 5px;
         a {}
     }
+
+
 }
 
+.ni-caption-fix {
+    display: block;
+    margin: 10px 0px 0px 0px;
+    font-size: 13px;
+    color: #000;
+
+}
+
+.news-item2 {
+    margin: 0px 0px 30px 0px;
+    position: relative;
+    .ni1-img {
+        position: relative;
+        overflow: hidden;
+        float: left;
+        width: 45%;
+        margin: 0px 20px 0px 0px;
+
+        @media screen and (max-width: 767px) {
+            width: 100%;
+            float: none;
+            margin: 0px 0px 20px 0px;
+
+        }
+    }
+    img {
+        display: block;
+        width: 100%;
+        transition: all ease 0.6s;
+        opacity: 0.9;
+    }
+    h3 {
+        margin: 0px;
+        padding: 0px 0px 15px 0px;
+        a {
+            color: $active-color;
+            font-size: 2.5rem;
+            font-weight: normal;
+        }
+
+    }
+    p {
+        font-size: 1.3rem;
+        color: #000;
+    }
+}
+
+
 .social-bar {
+    margin: 40px 0px 0px 0px;
     @include gradient( transparent, #f64367, 'horizontal');
     padding: 10px 0px;
     text-align: right;
@@ -928,6 +979,7 @@ iframe {
     .colleft {
         width: 150px;
         float: left;
+        overflow: hidden;
         margin: 0px 0px 0px -150px;
         @media screen and (max-width: 991px) {
             width: 100%;
@@ -939,6 +991,7 @@ iframe {
         min-height: 300px;
         border-left: 1px solid $border-color;
         padding: 0px 0px 0px 30px;
+        float: right;
         @media screen and (max-width: 991px) {
             width: 100%;
             border: none;
@@ -1002,13 +1055,29 @@ iframe {
     }
 }
 
+.question-other {
+    display: block;
+    margin: 20px 0px 0px 0px;
+    color: $active-color;
+    text-transform: uppercase;
+    font-weight: 500;
+    &:hover {
+        color: $active-color;
+    }
+
+    i {
+        font-size: 1rem;
+        margin: 0px 5px 0px 0px;
+    }
+}
+
 .menu-left {
     padding: 0px;
     margin: 0px;
     list-style: none;
-    li {
+    > li {
         margin: 20px 0px 0px 0px;
-        a {
+        > a {
             display: block;
             color: #000;
             text-transform: uppercase;
@@ -1020,6 +1089,37 @@ iframe {
             i {
                 font-size: 0.8rem;
                 margin: 0px 5px 0px 0px;
+            }
+        }
+        p {
+            display: block;
+            cursor: pointer;
+            color: #000;
+            text-transform: uppercase;
+            font-weight: 500;
+            &:hover {
+                color: $active-color;
+            }
+
+            i {
+                font-size: 0.8rem;
+                margin: 0px 5px 0px 0px;
+            }
+        }
+        ul {
+            display: none;
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+            li {
+                padding: 0px;
+                margin: 0px;
+                a {
+                    display: block;
+                    padding: 5px 0px 5px 15px;
+                    color: #000;
+                    font-weight: 500;
+                }
             }
         }
     }
@@ -1501,6 +1601,21 @@ iframe {
             }
         }
     }
+    &.tt-check-fix {
+
+        span {
+            display: inline-block;
+
+            color: #000 !important;
+            font-style: italic;
+        }
+        display: inline-block;
+        margin: 0px 20px 0px 0px;
+        color: #000 !important;
+        font-style: italic;
+
+        em {}
+    }
 }
 
 .tt-note {
@@ -1508,6 +1623,22 @@ iframe {
     font-weight: 600;
 }
 
+.tt-info {
+    p {
+        display: inline-block;
+        text-align: right;
+        min-width: 120px;
+        margin: 0px 10px 0px 0px;
+        &.note {
+            color: $active-color;
+            font-style: italic;
+        }
+    }
+
+    .sl-dropdown {
+        margin: 0px 10px 0px 0px;
+    }
+}
 
 .ttr-field {
     float: left;
@@ -1539,6 +1670,13 @@ iframe {
 
 
         outline: none;
+    }
+    &.ttr-field-margin {
+        margin: 5px 0px 5px 15px;
+        SPAN {
+
+            width: 120PX;
+        }
     }
 }
 
@@ -1765,5 +1903,58 @@ img:not([src]) {
 .spzoom-zoom {
     @media screen and (max-width: 991px) {
         display: none !important;
+    }
+}
+
+.article {
+    padding: 0px 0px 40px 0px;
+    border-bottom: 1px solid $border-color;
+    h1 {
+        margin: 10px 0px 10px 0px;
+        font-size: 30px;
+        font-weight: 500;
+        color: $active-color;
+    }
+    p {
+        margin: 0px 0px 20px 0px;
+
+
+
+    }
+    .article-img {
+        margin: 0px 0px 20px 0px;
+        img {
+            width: 100%;
+        }
+    }
+    .article-social {
+        text-align: right;
+        div {
+            display: inline-block;
+            position: relative;
+            a {
+                width: 30px;
+                height: 30px;
+                margin: 0px 0px 0px 10px;
+                border-radius: 50%;
+                line-height: 30px;
+                text-align: center;
+                display: inline-block;
+                color: #fff;
+                @include transition();
+                &:hover {
+                    opacity: 0.9;
+                }
+                &.facebook {
+                    background-color: $brand-facebook;
+
+                }
+                &.google {
+                    background-color: $brand-google;
+
+                }
+            }
+
+        }
     }
 }
