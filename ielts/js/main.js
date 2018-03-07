@@ -353,12 +353,12 @@
         //sl-control hover
         $('.sl-control a').hover(function () {
 
-            $(this).find("em").animate({
+            $(this).find("em").stop(true, true).animate({
                 width: 'show'
             })
 
         }, function () {
-            $(this).find("em").animate({
+            $(this).find("em").stop(true, true).animate({
                 width: 'hide'
             })
         });
@@ -371,6 +371,18 @@
             $('.pb-choose span').removeClass("active");
             $(this).addClass("active");
             $('.bo-im span').html($(this).text());
+
+
+        });
+
+
+
+        //build-pofile
+        $('.step2-choose').click(function () {
+
+            $('.step2-choose').removeClass("active");
+            $(this).addClass("active");
+
 
 
         });
@@ -429,6 +441,16 @@
             $(this).parent().find('.str-item').removeClass("active");
             $(this).addClass("active");
 
+        });
+
+
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() >= 1) {
+                $('.hide-menu-scroll').addClass("scrolling");
+            } else {
+                $('.hide-menu-scroll').removeClass("scrolling");
+            }
         });
 
 

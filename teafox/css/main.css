@@ -345,29 +345,69 @@ iframe {
   @media screen and (max-width: 991px) {
     .header .menu {
       display: none; } }
-  .header .menu ul {
+  .header .menu > ul {
     padding: 0px;
     margin: 0px;
     list-style: none; }
-    .header .menu ul li {
+    .header .menu > ul > li {
       float: left;
-      margin: 0px 0px 0px 45px; }
+      margin: 0px 0px 0px 45px;
+      position: relative; }
       @media screen and (max-width: 1199px) {
-        .header .menu ul li {
+        .header .menu > ul > li {
           margin: 0px 0px 0px 30px; } }
       @media screen and (max-width: 991px) {
-        .header .menu ul li {
+        .header .menu > ul > li {
           margin: 0px 0px 0px 10px; } }
-      .header .menu ul li a {
+      .header .menu > ul > li > a {
         display: block;
         line-height: 85px;
         text-transform: uppercase;
         font-weight: 500;
         color: #000; }
-        .header .menu ul li a:hover {
+        .header .menu > ul > li > a:hover {
           color: #f26e83; }
-      .header .menu ul li.current a {
+      .header .menu > ul > li.current a {
         color: #f26e83; }
+      .header .menu > ul > li .submenu {
+        position: absolute;
+        -moz-transition: all ease 0.2s;
+        -o-transition: all ease 0.2s;
+        -webkit-transition: all ease 0.2s;
+        transition: all ease 0.2s;
+        visibility: hidden;
+        opacity: 0;
+        margin-top: 15px;
+        background-color: #f26e83;
+        top: 100%;
+        left: 0px;
+        width: 200px;
+        list-style: none;
+        padding: 0px; }
+        .header .menu > ul > li .submenu li {
+          display: block;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.7); }
+          .header .menu > ul > li .submenu li a {
+            display: block;
+            padding: 10px 10px;
+            font-weight: 500;
+            color: #fff;
+            font-size: 13px; }
+            .header .menu > ul > li .submenu li a:hover {
+              opacity: 0.8; }
+      .header .menu > ul > li:hover .submenu {
+        opacity: 1;
+        margin-top: 0px;
+        visibility: visible; }
+
+.mega-menu {
+  min-height: 200px;
+  border: 1px solid red;
+  background-color: #fff;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px; }
 
 @media screen and (max-width: 991px) {
   .open-menu {
@@ -1218,6 +1258,21 @@ iframe {
       margin: 0px 3px 0px 0px;
       position: relative;
       top: 1px; }
+  .cart-control button {
+    outline: none;
+    background-color: #f26e83;
+    line-height: 30px;
+    padding: 0px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0px 0px 0px 15px;
+    border: none;
+    color: #fff; }
+    .cart-control button i {
+      margin: 0px 3px 0px 0px;
+      position: relative;
+      top: 1px; }
 
 .cart-feature {
   float: left;
@@ -1330,6 +1385,13 @@ iframe {
   margin: 0px 0px 0px 15px; }
   .ttr-field.margin-top {
     margin-top: 15px; }
+  .ttr-field label {
+    display: block;
+    text-align: right;
+    color: red;
+    font-size: 12px;
+    margin: 2px 0px 0px 0px;
+    font-style: italic; }
   @media screen and (max-width: 991px) {
     .ttr-field {
       margin-top: 15px; } }

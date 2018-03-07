@@ -53,5 +53,10 @@
 
             }
         });
+
+        $('.tt-check span').click(function () {
+            $(this).toggleClass("active");
+
+        });
     });
 })(jQuery);

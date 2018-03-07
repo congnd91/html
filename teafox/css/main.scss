@@ -390,13 +390,14 @@ iframe {
         @media screen and (max-width: 991px) {
             display: none;
         }
-        ul {
+        > ul {
             padding: 0px;
             margin: 0px;
             list-style: none;
-            li {
+            > li {
                 float: left;
                 margin: 0px 0px 0px 45px;
+                position: relative;
 
                 @media screen and (max-width: 1199px) {
                     margin: 0px 0px 0px 30px;
@@ -404,7 +405,7 @@ iframe {
                 @media screen and (max-width: 991px) {
                     margin: 0px 0px 0px 10px;
                 }
-                a {
+                > a {
                     display: block;
                     line-height: 85px;
                     text-transform: uppercase;
@@ -419,9 +420,58 @@ iframe {
                         color: $active-color;
                     }
                 }
+
+                .submenu {
+                    position: absolute;
+                    @include transition();
+                    visibility: hidden;
+                    opacity: 0;
+                    margin-top: 15px;
+
+                    background-color: $active-color;
+                    top: 100%;
+                    left: 0px;
+                    width: 200px;
+                    list-style: none;
+                    padding: 0px;
+                    li {
+                        display: block;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+                        a {
+                            display: block;
+                            padding: 10px 10px;
+                            font-weight: 500;
+                            color: #fff;
+                            font-size: 13px;
+                            &:hover {
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }
+
+                &:hover {
+                    .submenu {
+                        opacity: 1;
+                        margin-top: 0px;
+                        visibility: visible;
+                    }
+                }
             }
+
+
         }
     }
+}
+
+.mega-menu {
+    min-height: 200px;
+    border: 1px solid red;
+    background-color: #fff;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
 }
 
 @media screen and (max-width:991px) {
@@ -1493,6 +1543,24 @@ iframe {
             top: 1px;
         }
     }
+    button {
+        outline: none;
+        background-color: $active-color;
+        line-height: 30px;
+        padding: 0px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: inline-block;
+        margin: 0px 0px 0px 15px;
+        border: none;
+        color: #fff;
+
+        i {
+            margin: 0px 3px 0px 0px;
+            position: relative;
+            top: 1px;
+        }
+    }
 }
 
 .cart-feature {
@@ -1645,6 +1713,14 @@ iframe {
     margin: 0px 0px 0px 15px;
     &.margin-top {
         margin-top: 15px;
+    }
+    label {
+        display: block;
+        text-align: right;
+        color: red;
+        font-size: 12px;
+        margin: 2px 0px 0px 0px;
+        font-style: italic;
     }
 
     @media screen and (max-width: 991px) {
