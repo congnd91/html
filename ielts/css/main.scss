@@ -2992,6 +2992,8 @@ iframe {
             @media screen and (max-width: 991px) {
                 margin: 15px -15px -20px -15px;
                 padding: 15px;
+                position: relative;
+                bottom: unset;
             }
             &.sl-caption-bottom-fix {
                 bottom: 30px;
@@ -3281,6 +3283,36 @@ iframe {
     }
 }
 
+
+.player-loading {
+
+    position: fixed;
+    width: 130px;
+    padding: 10px 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 240px;
+    left: 50%;
+    margin-left: -235px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+    @media screen and (max-width: 991px) {
+        margin-left: -75px;
+        top: 120px;
+    }
+}
+
+.scrolling {
+    @media screen and (max-width: 991px) {
+        .player-loading {
+            margin-left: -75px;
+            top: 70px;
+        }
+    }
+}
+
 .player {
     position: absolute;
     top: 0px;
@@ -3292,8 +3324,76 @@ iframe {
     padding: 15px 40px 15px 40px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 
+    @media screen and (max-width: 767px) {
+        padding: 15px 0px 15px 0px;
+    }
 
+    .change-source {
+        position: absolute;
+        bottom: 0px;
+        right: 70px;
 
+        color: #84d1dd;
+        font-size: 13px;
+        font-style: normal;
+        cursor: pointer;
+
+        i {
+            font-size: 13px;
+        }
+        @media screen and (max-width: 767px) {
+
+            right: 25px;
+        }
+
+        .cs-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0px;
+            width: 130px;
+            padding: 5px 0px;
+            background-color: #d6f0f4;
+            @include transition();
+            visibility: hidden;
+            opacity: 0;
+            margin-top: 10px;
+
+            p {
+
+                display: block;
+                line-height: 20px;
+                margin: 0px;
+                font-size: 13px;
+
+                padding: 3px 10px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                color: darken(#84d1dd, 20%);
+                &:hover {
+                    color: #84d1dd;
+                }
+                i {
+                    font-size: 10px;
+                    opacity: 0;
+                    margin: 0px 2px 0px 0px;
+                }
+                &.active {
+                    i {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        &:hover {
+
+            .cs-dropdown {
+                opacity: 1;
+                visibility: visible;
+                margin-top: 0px;
+            }
+        }
+    }
     &.player-fixed {
         left: inherit;
         right: inherit;
@@ -3304,7 +3404,7 @@ iframe {
         padding: 0px 0px 0px 140px;
 
         @media screen and (max-width: 767px) {
-            padding: 0px 0px 0px 60px;
+            padding: 0px 0px 0px 45px;
         }
         .play-control {
             float: left;
@@ -3350,7 +3450,7 @@ iframe {
             position: relative;
             width: 100%;
             margin: 3px 0px 0px 0px;
-            padding: 4px 37px 0px 37px;
+            padding: 4px 67px 0px 37px;
             span {
                 position: absolute;
                 left: 0px;
@@ -3363,11 +3463,35 @@ iframe {
                 color: #84d1dd;
                 text-align: left;
                 &.time-end {
-                    right: 0px;
+                    right: 30px;
                     left: auto;
+                    top: 0px;
                     text-align: right;
                 }
+                &.refresh {
+                    display: block;
+                    width: 22px;
+                    height: 22px;
+                    right: 0px;
+                    top: -3px;
+                    cursor: pointer;
+                    left: auto;
+
+
+                    i {
+                        display: block;
+                        line-height: 20px;
+                        text-align: center;
+                        font-size: 20px;
+                        width: 20px;
+                        height: 20px;
+                        color: #84d1dd;
+                    }
+                }
+
+
             }
+
             .process-track {
                 height: 5px;
                 border-radius: 4px;

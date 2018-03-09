@@ -2728,7 +2728,9 @@ iframe {
     @media screen and (max-width: 991px) {
       .split-left .sl-caption.sl-caption-bottom {
         margin: 15px -15px -20px -15px;
-        padding: 15px; } }
+        padding: 15px;
+        position: relative;
+        bottom: unset; } }
     .split-left .sl-caption.sl-caption-bottom.sl-caption-bottom-fix {
       bottom: 30px; }
       @media screen and (max-width: 991px) {
@@ -2936,6 +2938,29 @@ iframe {
   .split-right.split-video {
     background-color: #d6f0f4; }
 
+.player-loading {
+  position: fixed;
+  width: 130px;
+  padding: 10px 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 240px;
+  left: 50%;
+  margin-left: -235px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600; }
+  @media screen and (max-width: 991px) {
+    .player-loading {
+      margin-left: -75px;
+      top: 120px; } }
+
+@media screen and (max-width: 991px) {
+  .scrolling .player-loading {
+    margin-left: -75px;
+    top: 70px; } }
+
 .player {
   position: absolute;
   top: 0px;
@@ -2946,6 +2971,58 @@ iframe {
   z-index: 999;
   padding: 15px 40px 15px 40px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); }
+  @media screen and (max-width: 767px) {
+    .player {
+      padding: 15px 0px 15px 0px; } }
+  .player .change-source {
+    position: absolute;
+    bottom: 0px;
+    right: 70px;
+    color: #84d1dd;
+    font-size: 13px;
+    font-style: normal;
+    cursor: pointer; }
+    .player .change-source i {
+      font-size: 13px; }
+    @media screen and (max-width: 767px) {
+      .player .change-source {
+        right: 25px; } }
+    .player .change-source .cs-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0px;
+      width: 130px;
+      padding: 5px 0px;
+      background-color: #d6f0f4;
+      -moz-transition: all ease 0.2s;
+      -o-transition: all ease 0.2s;
+      -webkit-transition: all ease 0.2s;
+      transition: all ease 0.2s;
+      visibility: hidden;
+      opacity: 0;
+      margin-top: 10px; }
+      .player .change-source .cs-dropdown p {
+        display: block;
+        line-height: 20px;
+        margin: 0px;
+        font-size: 13px;
+        padding: 3px 10px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: #36b1c5; }
+        .player .change-source .cs-dropdown p:hover {
+          color: #84d1dd; }
+        .player .change-source .cs-dropdown p i {
+          font-size: 10px;
+          opacity: 0;
+          margin: 0px 2px 0px 0px; }
+        .player .change-source .cs-dropdown p.active i {
+          opacity: 1; }
+    .player .change-source:hover .cs-dropdown {
+      opacity: 1;
+      visibility: visible;
+      margin-top: 0px; }
   .player.player-fixed {
     left: inherit;
     right: inherit;
@@ -2955,7 +3032,7 @@ iframe {
     padding: 0px 0px 0px 140px; }
     @media screen and (max-width: 767px) {
       .player .play-inner {
-        padding: 0px 0px 0px 60px; } }
+        padding: 0px 0px 0px 45px; } }
     .player .play-inner .play-control {
       float: left;
       width: 140px;
@@ -2995,7 +3072,7 @@ iframe {
       position: relative;
       width: 100%;
       margin: 3px 0px 0px 0px;
-      padding: 4px 37px 0px 37px; }
+      padding: 4px 67px 0px 37px; }
       .player .play-inner .play-process span {
         position: absolute;
         left: 0px;
@@ -3008,9 +3085,26 @@ iframe {
         color: #84d1dd;
         text-align: left; }
         .player .play-inner .play-process span.time-end {
-          right: 0px;
+          right: 30px;
           left: auto;
+          top: 0px;
           text-align: right; }
+        .player .play-inner .play-process span.refresh {
+          display: block;
+          width: 22px;
+          height: 22px;
+          right: 0px;
+          top: -3px;
+          cursor: pointer;
+          left: auto; }
+          .player .play-inner .play-process span.refresh i {
+            display: block;
+            line-height: 20px;
+            text-align: center;
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+            color: #84d1dd; }
       .player .play-inner .play-process .process-track {
         height: 5px;
         border-radius: 4px;
