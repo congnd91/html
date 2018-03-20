@@ -33,7 +33,7 @@ body {
     background-attachment: fixed;
 
 
-    padding-bottom: 40px;
+    padding-bottom: 35px;
 
     height: 100%;
 
@@ -199,13 +199,14 @@ iframe {
     position: absolute;
     top: 20px;
     left: 30px;
+    z-index: 999;
 }
 
 .footer {
     padding: 10px 15px;
     background-color: #e5e5e5;
     position: absolute;
-    bottom: -40px;
+    bottom: -35px;
     left: 0px;
     right: 0px;
     p {
@@ -279,6 +280,21 @@ iframe {
         input {
             height: 30px;
             padding: 0px 10px;
+            border: 1px solid #e5e5e5;
+            display: block;
+            width: 100%;
+            box-shadow: none;
+            border-radius: 4px;
+            outline: none;
+            @include transition();
+            &:focus {
+                border: 1px solid #aaa;
+            }
+        }
+
+        select {
+            height: 32px;
+            padding: 0px 0px;
             border: 1px solid #e5e5e5;
             display: block;
             width: 100%;
@@ -404,6 +420,28 @@ iframe {
         margin: 0px auto;
 
 
+    }
+
+    .owl-dots {
+        position: absolute;
+        bottom: -30px;
+        left: 0px;
+        right: 0px;
+        z-index: 99;
+
+        text-align: center;
+        .owl-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0px 3px;
+            border-radius: 50%;
+            background-color: #aaa;
+
+            &.active {
+                background-color: $active-color;
+            }
+        }
     }
     .owl-prev {
         position: absolute;

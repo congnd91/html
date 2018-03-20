@@ -11,7 +11,7 @@
             nav: true,
             items: 1,
             autoplay: true,
-            autoplayTimeout: 4000,
+            autoplayTimeout: 3000,
             autoplayHoverPause: true
 
 

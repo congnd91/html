@@ -5,8 +5,12 @@
             delayOn: 50,
             delayOff: 100,
         });  
-        var a = $('.lavamenu').children('.lavalamp-item').eq(1);
-        $('.lavamenu').data('lavalampActive', a).lavalamp('update');
+
+        setTimeout(function () {
+            var a = $('.lavamenu').children('.lavalamp-item').eq(4);
+            $('.lavamenu').data('lavalampActive', a).lavalamp('update');
+        }, 1000);
+
         /**Menu**/
         $('.menu-icon').on('click', function () {
             $('body').toggleClass("open-menu");
