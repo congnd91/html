@@ -148,19 +148,6 @@ require get_template_directory() . '/woocommerce/hooks.php';
 * @param array $post_templates Array of page templates. Keys are filenames, values are translated names.
 * @return array Filtered array of page templates.
 */
-function mazpage_exclude_page_templates( $post_templates ) {
-	if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
-		unset( $post_templates['template/post-sidebar-left.php'] );
-		unset( $post_templates['template/post-center-content.php'] );
-		unset( $post_templates['template/post-full-width.php'] );
-		unset( $post_templates['template/post-basic.php'] );
-	}
-
-	return $post_templates;
-}
-
-add_filter( 'theme_page_templates', 'mazpage_exclude_page_templates' );
-
 
 
 

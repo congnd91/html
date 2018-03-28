@@ -48,11 +48,27 @@ public function init() {
     add_action( 'wp_enqueue_scripts', array( $this, 'mazpage_enqueue' ) );
 
 // .container wrapper
-    add_action('woocommerce_before_single_product', array( $this, 'mazpage_wrapper_start' ), 10);
+    
+    add_filter( 'woocommerce_checkout_fields' , 'custom_checkout_form' );
+function custom_checkout_form( $fields ) {
+    unset($fields['billing']['billing_postcode']); //Ẩn postCode
+    unset($fields['billing']['billing_state']); //Ẩn bang hạt
+    unset($fields['billing']['billing_address_2']); //Ẩn địa chỉ 2
+    unset($fields['billing']['billing_company']); //Ẩn công ty
+    unset($fields['billing']['billing_country']);// Ẩn quốc gia
+    unset($fields['billing']['billing_first_name']);//Ẩn last name
+    unset($fields['billing']['billing_city']); //Ẩn select box chọn thành phố
+    
+      unset($fields['billing']['billing_email']); 
+    return $fields;
+}
+  
+    
+  
 
 // .product thumnail
     add_action( 'woocommerce_before_shop_loop_item', array( $this, 'mazpage_content_product_thumbnail_open' ), 9 );
-    add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 11 );
+    add_action( ' ', 'woocommerce_template_loop_product_link_close', 11 );
     add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'mazpage_content_product_thumbnail_close' ), 12 );
 
 // Add to cart button
@@ -69,11 +85,11 @@ public function init() {
     add_action( 'woocommerce_shop_loop_item_title', array( $this, 'mazpage_content_product_title' ), 10 );
 
 // single images markup
-    add_filter('loop_shop_columns', function( $column ) { return 3; } , 999);
+    add_filter('loop_shop_columns', function( $column ) { return 4; } , 999);
     add_filter( 'woocommerce_product_thumbnails_columns', function( $column ) { return 2; } ) ;
 
 // cart content count
-    add_filter('add_to_cart_fragments', 'mazpage_woocommerce_header_add_to_cart_fragment');
+ add_filter('add_to_cart_fragments', 'mazpage_woocommerce_header_add_to_cart_fragment');
 
 }
 
@@ -99,11 +115,8 @@ function mazpage_content_product_title() {
 
 }
 
-function mazpage_wrapper_start() {
 
-    echo '<h1 class="page-title">'.  esc_html("Product","mazpage") .'</h1> ';
-
-}
+    
 
 function mazpage_woocommerce_header_add_to_cart_fragment( $fragments )
 {

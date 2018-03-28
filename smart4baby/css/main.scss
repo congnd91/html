@@ -117,7 +117,7 @@ iframe {
 }
 
 #page-loader {
-    background-color: $green;
+    background-color: $cyan;
     position: fixed;
     top: 0;
     left: 0;
@@ -270,7 +270,7 @@ iframe {
 
 .topbar {
     height: 40px;
-    background-color: $green;
+    background-color: $cyan;
     color: #fff;
     .social {
         float: right;
@@ -396,7 +396,7 @@ iframe {
                     position: relative;
                     font-family: $font-family-heading;
                     line-height: 95px;
-                    font-size: 2rem;
+                    font-size: 2.5rem;
                     padding: 0px 0px;
 
                     @include transition();
@@ -411,6 +411,47 @@ iframe {
                     }
 
 
+                }
+
+                &:nth-child(1) {
+                    a {
+                        color: $orange;
+                    }
+                    &.current-menu-item {
+                        a {
+                            border-top: 5px solid $orange;
+                        }
+                    }
+                }
+                &:nth-child(2) {
+                    a {
+                        color: $cyan;
+                    }
+                    &.current-menu-item {
+                        a {
+                            border-top: 5px solid $cyan;
+                        }
+                    }
+                }
+                &:nth-child(3) {
+                    a {
+                        color: $green;
+                    }
+                    &.current-menu-item {
+                        a {
+                            border-top: 5px solid $green;
+                        }
+                    }
+                }
+                &:nth-child(4) {
+                    a {
+                        color: $violet;
+                    }
+                    &.current-menu-item {
+                        a {
+                            border-top: 5px solid $violet;
+                        }
+                    }
                 }
                 &.orange {
                     a {
@@ -554,8 +595,9 @@ iframe {
 
 .box-cate {
     margin: 0px 0px 0px 0px;
+    border-bottom: 1px solid $border-color;
     .box-cate-caption {
-        padding: 30px 0px 30px 0px;
+        padding: 50px 0px 30px 0px;
 
         h2 {
             margin: 0px 0px 0px 0px;
@@ -677,6 +719,19 @@ iframe {
     }
 }
 
+.category-page {
+
+    border-top: 2px dashed $border-color;
+    margin: 11px 0px 30px 0px;
+    padding: 30px 0px 0px 0px;
+    .woocommerce-result-count {
+        display: none;
+    }
+    .woocommerce-ordering {
+        display: none;
+    }
+}
+
 
 /*********************woocommerce************/
 
@@ -692,6 +747,10 @@ iframe {
     text-transform: none;
 }
 
+.woocommerce ul.products li.product .price {
+    padding: 0px 10px 10px 10px;
+}
+
 .woocommerce ul.products li.product .price del {
     color: #999;
     font-family: $font-family-base;
@@ -703,7 +762,7 @@ iframe {
 
         display: inline-block;
         position: relative;
-        top: -3px;
+        top: 0px;
         span {
             float: right;
             top: 0px;
@@ -740,8 +799,305 @@ iframe {
     font-size: 1.4rem;
     font-weight: 600;
     opacity: 0.9;
+    display: none;
     &:hover {
         opacity: 1;
         background-color: $cyan;
     }
+}
+
+.woocommerce nav.woocommerce-pagination ul a,
+.woocommerce nav.woocommerce-pagination ul li a {
+    display: inline-block;
+    margin: 0px 4px;
+    line-height: 30px;
+    font-family: $font-family-base;
+    min-width: 30px;
+
+    font-size: 15px;
+    color: #333;
+    border-radius: 3px;
+    padding: 0px 7px;
+    text-transform: uppercase;
+    border: 1px solid #eee;
+    background-color: #eee;
+    float: left;
+    font-weight: 600;
+
+}
+
+
+.woocommerce nav.woocommerce-pagination ul li span {
+    display: inline-block;
+    margin: 0px 4px;
+    line-height: 30px;
+    font-family: $font-family-base;
+    min-width: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #fff;
+
+    padding: 0px 7px;
+    text-transform: uppercase;
+    border: 1px solid $cyan;
+    background-color: $cyan !important;
+    border-radius: 3px;
+    float: left;
+
+}
+
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+    background-color: #eee;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.woocommerce ul.products li.product h3 {
+    line-height: 1.4;
+
+    padding: 0px 10px 10px 10px;
+}
+
+
+.entry-summary {
+    h1 {
+        font-size: 3.5rem;
+        @media screen and (max-width: 991px) {
+            font-size: 2rem;
+        }
+    }
+    p.price {
+        margin: 0px 0px 15px 0px;
+        del {
+            position: relative;
+
+            top: 3px;
+            span {
+
+                font-family: $font-family-base;
+
+            }
+
+        }
+        ins {
+            span {
+
+                font-family: $font-family-base;
+                color: $orange;
+                font-size: 25px;
+                font-weight: 600;
+            }
+
+        }
+    }
+    .product_meta {
+        display: none;
+    }
+}
+
+.tabs.wc-tabs {
+    height: 40px;
+    overflow: inherit !important;
+    border-bottom: 2px dashed $cyan;
+    &:before {
+        display: none !important;
+    }
+    &:after {
+        display: none !important;
+    }
+    text-align: center;
+
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+    font-family: $font-family-heading;
+    font-size: 3rem;
+    padding: 0px 20px 0px 20px;
+    border: none;
+    margin: 15px 0px 0px 0px;
+    position: relative;
+    color: $cyan !important;
+
+
+
+}
+
+.products.related > h2 {
+    margin: 20px 0px 20px 0px;
+    border-top: 2px solid $cyan;
+    font-family: $font-family-heading;
+    font-size: 3rem;
+    padding: 20px 0px 0px 0px;
+    color: $cyan !important;
+
+
+}
+
+.woocommerce div.quantity,
+.woocommerce-page div.quantity {
+    border: none;
+    width: auto;
+    overflow: inherit;
+
+}
+
+.screen-reader-text {
+    clip: none !important;
+    width: auto;
+    height: auto;
+    font-weight: 600;
+    font-size: 1.8rem;
+    position: relative !important;
+    line-height: 30px;
+    line-height: 25px;
+    margin: 0px 10px 0px 0px !important;
+    float: left;
+}
+
+.woocommerce div.quantity input.qty,
+.woocommerce-page div.quantity input.qty {
+    float: none;
+    width: 40px;
+    height: 25px;
+    border-radius: 3px;
+    border: 1px solid #333;
+}
+
+
+.woocommerce div.product form.cart .button {
+    border-radius: 3px;
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: 1.8rem;
+    background-color: $green;
+    opacity: 0.9;
+    letter-spacing: 0px;
+    &:hover {
+        opacity: 1;
+    }
+
+}
+
+
+.woocommerce .woocommerce-message {
+    font-family: $font-family-base;
+    letter-spacing: 0px;
+    font-weight: 500;
+    text-transform: none;
+}
+
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+    border-radius: 3px;
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: 1.8rem;
+    background-color: $green;
+    letter-spacing: 0px;
+    opacity: 0.9;
+    &:hover {
+        opacity: 1;
+    }
+
+}
+
+.woocommerce table.shop_table td,
+.woocommerce table.shop_table th {
+    font-family: $font-family-base;
+    letter-spacing: 0px;
+    font-weight: 500;
+    text-transform: none;
+}
+
+.woocommerce-cart-form .product-quantity label {
+    display: none;
+}
+
+.actions {
+    display: none;
+}
+
+.cart_totals h2 {
+    font-size: 18px;
+    font-family: $font-family-base;
+    text-transform: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.checkout.woocommerce-checkout {
+    .col-1 {
+        max-width: 100%;
+        padding: 0px;
+    }
+    .col-2 {
+        max-width: 100%;
+        padding: 0px;
+    }
+}
+
+.woocommerce table.shop_table tr th {
+    font-weight: 600;
+}
+
+
+#order_review_heading,
+.woocommerce-billing-fields h3,
+.woocommerce-additional-fields h3 {
+    font-family: $font-family-base;
+    text-transform: none;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0px;
+    margin: 20px 0px 10px 0px;
+}
+
+.form-row label {
+    font-family: $font-family-base;
+    text-transform: none;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0px;
+}
+
+#add_payment_method #payment ul.payment_methods li,
+.woocommerce-cart #payment ul.payment_methods li,
+.woocommerce-checkout #payment ul.payment_methods li {
+    font-weight: 500;
+}
+
+
+.woocommerce-page form .form-row-last {
+    width: 100%;
+}
+
+.wc-bacs-bank-details-heading {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: 15px;
+    margin: 20px 0px 0px 0px;
+}
+
+.wc-bacs-bank-details-account-name {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: 15px;
+    margin: 10px 0px 10px 40px;
+}
+
+.woocommerce-order-details__title {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.woocommerce-column__title {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: 15px;
 }

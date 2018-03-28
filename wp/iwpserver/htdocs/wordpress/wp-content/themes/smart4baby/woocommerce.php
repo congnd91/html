@@ -8,16 +8,17 @@
 */
 get_header(); ?>
 
-<div id="page-wrapper">
+    <div class="woocommerce">
         <?php
         // Start the loop.
-        if ( have_posts() ) :
+      
 
             woocommerce_content();
 
         // End the loop.
-        endif;
+      
         ?>
-</div><!-- #page-wrapper -->
-    
-<?php get_footer();
+    </div>
+    <!-- #page-wrapper -->
+
+    <?php get_footer();

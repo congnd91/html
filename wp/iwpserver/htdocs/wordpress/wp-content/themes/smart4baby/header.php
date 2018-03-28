@@ -8,7 +8,7 @@
  *
  * @package mazpage
  */
-$mazpage_menu_visible = get_theme_mod('menu_visible');
+
 
 ?>
     <!doctype html>
@@ -77,11 +77,22 @@ $mazpage_menu_visible = get_theme_mod('menu_visible');
                         <div class="menu-icon hidden-lg-up">
                             <i class="fas fa-bars"></i>
                         </div>
-                        <div class="cart">
-                            <i class="fas fa-shopping-basket"></i>
-                            <span>5</span>
 
+                        <?php if (class_exists('WooCommerce')) : ?>
+                        <?php global $woocommerce; ?>
+
+
+                        <div class="cart">
+                            <a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'mazpage'); ?>">
+      <i class="fas fa-shopping-basket"></i>
+     <span>
+ <?php echo  $woocommerce->cart->cart_contents_count ?>
+</span>
+</a>
                         </div>
+                        <?php endif; ?>
+
+
                         <!--menu-->
 
                         <?php wp_nav_menu(array(

@@ -19,7 +19,7 @@
         <div class="container">
 
             <div class="box-contact">
-                <h2>Liên hệ đặt hàng</h2>
+                <h2>Liên hệ tư vấn, đặt hàng</h2>
 
                 <p> 096 275 1191 - 096 993 1091</p>
 
