@@ -21,10 +21,10 @@ body {
     background-color: #fff;
     font-family: $font-family-base;
     min-width: 360px;
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #000;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #444;
 }
 
 dt,
@@ -353,7 +353,7 @@ iframe {
         top: 100%;
 
 
-        margin: 0px 0px 0px 0px;
+        margin: 8px 0px 0px 0px;
         z-index: 1;
 
 
@@ -361,12 +361,17 @@ iframe {
         height: 7px;
         background-position: center center;
         right: 0px;
+        @media screen and (max-width: 991px) {
+            margin: -2px 0px 0px 0px;
+        }
     }
     a.logo {
         float: left;
         margin: 20px 0px 0px 0px;
 
-
+        @media screen and (max-width: 991px) {
+            margin: 12px 0px 0px 0px;
+        }
         @media screen and (max-width: 767px) {
             margin: 30px 0px 0px 0px;
             img {
@@ -408,6 +413,10 @@ iframe {
                     }
                     &.active a {
                         border-top: 5px solid $orange;
+                    }
+
+                    @media screen and (max-width: 1199px) {
+                        font-size: 2.1rem;
                     }
 
 
@@ -722,7 +731,7 @@ iframe {
 .category-page {
 
     border-top: 2px dashed $border-color;
-    margin: 11px 0px 30px 0px;
+    margin: 15px 0px 30px 0px;
     padding: 30px 0px 0px 0px;
     .woocommerce-result-count {
         display: none;
@@ -790,6 +799,25 @@ iframe {
 
 }
 
+.woocommerce ul.products li.product .price span {
+    color: $orange;
+    font-size: 1.6rem;
+
+    font-family: $font-family-base;
+
+
+    font-size: 1.8rem;
+    font-weight: 600;
+    display: inline-block;
+    text-decoration: none;
+    span {
+        float: right;
+        font-weight: 300;
+
+    }
+
+}
+
 
 .woocommerce a.product_type_simple.ajax_add_to_cart {
 
@@ -851,12 +879,19 @@ iframe {
     background-color: #eee;
     border-radius: 3px;
     overflow: hidden;
+    border: 1px solid #eee;
+    transition: box-shadow .3s ease-out, transform .3s ease-out, opacity .2s ease-out;
+    transition-delay: .1s;
+    &:hover {
+        box-shadow: rgba(45, 45, 45, 0.05) 0px 2px 2px, rgba(49, 49, 49, 0.05) 0px 4px 4px, rgba(42, 42, 42, 0.05) 0px 8px 8px, rgba(32, 32, 32, 0.05) 0px 16px 16px, rgba(49, 49, 49, 0.05) 0px 32px 32px, rgba(35, 35, 35, 0.05) 0px 64px 64px;
+        transform: translate(0, -4px);
+    }
 }
 
 .woocommerce ul.products li.product h3 {
     line-height: 1.4;
-
-    padding: 0px 10px 10px 10px;
+    padding: 0px 10px 0px 10px;
+    min-height: 46px;
 }
 
 
@@ -1100,4 +1135,95 @@ iframe {
     font-family: $font-family-base;
     font-weight: 600;
     font-size: 15px;
+}
+
+.woocommerce div.product p.price {
+    font-family: "Montserrat", sans-serif;
+    color: #fb6b47;
+    font-size: 25px;
+    font-weight: 600;
+
+}
+
+
+.woocommerce-tabs {
+    max-width: 900px;
+    margin: 0px auto;
+}
+
+.detail {
+    max-width: 900px;
+    margin: 10px auto;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs {
+    margin: 0px -1%;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs li {
+    float: left;
+
+    padding: 1%;
+    img {
+        border: 1px solid #eee;
+        opacity: 1;
+        &.flex-active {
+
+            border: 1px solid $cyan;
+            opacity: 1;
+
+        }
+
+    }
+
+}
+
+.flex-viewport {
+    border: 1px solid #eee;
+}
+
+.product-thumbnail-inner {
+    overflow: hidden;
+
+    img {
+        transition: all ease 0.5s;
+
+    }
+    &:hover {
+
+        img {
+            -moz-transform: scale(1.1) rotate(3deg);
+            -webkit-transform: scale(1.1) rotate(3deg);
+            -o-transform: scale(1.1) rotate(3deg);
+            -ms-transform: scale(1.1) rotate(3deg);
+            transform: scale(1.1) rotate(3deg);
+
+        }
+    }
+}
+
+.woocommerce span.onsale,
+.woocommerce ul.products li.product .onsale {
+
+    animation-name: live;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    font-family: $font-family-base;
+    right: 0px;
+    font-weight: 500;
+    background-color: #c10303;
+}
+
+@keyframes live {
+    0% {
+
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.7;
+
+    }
 }
