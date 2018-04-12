@@ -1,5 +1,10 @@
 (function ($) {
     $(document).on('ready', function () {
+
+
+
+
+
         $('#page-loader').delay(800).fadeOut(600, function () {
             $('body').fadeIn();
         });
@@ -10,6 +15,13 @@
             $('body').toggleClass("open-menu");
             setTimeout(scrollToTop, 0);
         });
+
+        $('.cs-item').on('click', function () {
+            $('.cs-item').removeClass("active");
+            $(this).addClass("active")
+
+        });
+
 
 
 
