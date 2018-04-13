@@ -91,6 +91,11 @@
             });
         }
 
+        $('.caption-scroll').hoverscroll({
+            width: 'auto',
+            width: 'auto'
+        });
+
 
 
     });
