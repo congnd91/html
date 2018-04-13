@@ -21,6 +21,26 @@
             $(this).addClass("active")
 
         });
+        $('.side-arrow').on('click', function () {
+            $('body').toggleClass("open-side");
+
+        });
+        $('.accodion-caption .arr').on('click', function () {
+            var content = $(this).parents('.accodion-caption').next();
+
+            if ($(content).is(":visible")) {
+
+                $(content).slideUp();
+                $(this).parents('.accodion-caption').removeClass("active");
+
+            } else {
+                $(content).slideDown();
+                $(this).parents('.accodion-caption').addClass("active");
+            }
+
+
+        });
+
 
 
 
