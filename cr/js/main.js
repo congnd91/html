@@ -40,7 +40,62 @@
 
 
         });
+        $('.btn-map').on('click', function () {
+            $('.box13').toggleClass("show-map");
+        });
+        $('.close-map').on('click', function () {
+            $('.box13').toggleClass("show-map");
+        });
 
+
+        //box18
+
+
+        $('.box17-control span').on('click', function () {
+            var box18 = $('.box18');
+
+            if ($(box18).is(":visible")) {
+
+                $(box18).slideUp();
+
+
+            } else {
+                $(box18).slideDown();
+
+            }
+
+
+        });
+
+        //box19
+        {
+            $('.box19 .arr-down').on('click', function () {
+                var content = $(this).parents('.parent').next();
+
+                if ($(content).is(":visible")) {
+
+                    $(content).hide();
+                    $(this).removeClass("active");
+
+                } else {
+                    $(content).show();
+                    $(this).addClass("active");
+                }
+
+
+            });
+        }
+        var owl_13 = $('.owl-13');
+        if ($(owl_13).length) {
+            $(owl_13).owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: true,
+                autoplay: true,
+                items: 1,
+
+            });
+        }
 
 
 
