@@ -1,14 +1,3 @@
-$(function () {
-    $('.input-date input').datetimepicker({
-
-    });
-    $('.sb-date input').datetimepicker({
-
-    });
-
-
-
-});
 (function ($) {
     $(document).on('ready', function () {
         $('#page-loader').delay(800).fadeOut(600, function () {
@@ -171,6 +160,22 @@ $(function () {
         });
 
 
+    })
 
-    });
 })(jQuery);
+
+$(function () {
+
+    if ($('.input-date input').length) {
+        $('.input-date input').datetimepicker();
+    }
+
+
+    if ($('.sb-date input').length) {
+        $('.sb-date input').datetimepicker();
+    }
+
+
+
+
+});
