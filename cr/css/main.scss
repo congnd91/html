@@ -667,7 +667,14 @@ iframe {
 
 
 .container1400 {
-    max-width: 1400px;
+
+    @media (min-width: 1200px) {
+
+        width: 1315px;
+
+
+    }
+
 }
 
 
@@ -1860,7 +1867,7 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
             select {
                 padding: 0px 20px 10px 15px;
                 font-size: 2.5rem;
-                min-width: 150px;
+                min-width: 210px;
                 background-color: transparent;
                 border: 2px solid $active-color;
                 border-radius: 40px;
@@ -1915,14 +1922,15 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
         .sb-date {
 
             float: left;
-            max-width: 190px;
-            padding: 0px 30px 0px 0px;
+            max-width: 250px;
+            padding: 0px 0px 0px 0px;
             height: 40px;
             margin: 0px 5px 10px 0px;
             border: 2px solid $active-color;
             border-radius: 40px;
             position: relative;
             display: inline-block;
+
             &:before {
                 background-image: url(../images/icon_date1.png);
                 content: "";
@@ -1932,6 +1940,7 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
                 height: 30px;
                 top: 3px;
                 right: 13px;
+
             }
             input {
                 position: relative;
@@ -3017,6 +3026,8 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        display: none;
     }
 
 }
@@ -3036,6 +3047,10 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
         border-radius: 40px;
         line-height: 36px;
         height: 40px;
+        cursor: pointer;
+        &:not([href]):not([tabindex]) {
+            color: $active-color;
+        }
         &.cyan {
             color: #008dc1;
             border: 2px solid #008dc1;
@@ -3050,11 +3065,17 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
             &.icon1 {
                 background-image: url(../images/box11_bar_icon1.png);
             }
+
             &.icon2 {
                 background-image: url(../images/box11_bar_icon2.png);
             }
             &.icon3 {
                 background-image: url(../images/box11_bar_icon3.png);
+            }
+            &.cyan.icon1 {
+
+                background-image: url(../images/box11_bar_icon1_cyan.png);
+
             }
         }
 
@@ -3067,7 +3088,7 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
         select {
             padding: 0px 0px 10px 15px;
             font-size: 2.6rem;
-            min-width: 200px;
+            min-width: 275px;
             background-color: transparent;
             border: 2px solid $active-color;
             border-radius: 40px;
@@ -3076,6 +3097,13 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
             color: #b5b6b6;
             outline: none;
             font-weight: 600;
+
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url(../images/arr_down1.png);
+            background-repeat: no-repeat;
+            background-position: 93% 12px;
         }
     }
     .sb-search {

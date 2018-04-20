@@ -159,6 +159,11 @@
             width: 'auto'
         });
 
+        $('.show-delete').on('click', function () {
+            $(this).parents('.accodion-content').find(".box12-left").css("display", "flex");
+
+        });
+
 
     })
 
@@ -167,12 +172,17 @@
 $(function () {
 
     if ($('.input-date input').length) {
-        $('.input-date input').datetimepicker();
+        $('.input-date input').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
     }
 
 
     if ($('.sb-date input').length) {
-        $('.sb-date input').datetimepicker();
+        $('.sb-date input').datetimepicker({
+
+            format: 'DD/MM/YYYY'
+        });
     }
 
 
