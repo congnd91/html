@@ -30,19 +30,16 @@
 
         }
 
+        db.menuResponsive = function () {
+            $('.menu-icon').on('click', function () {
+                $('body').toggleClass("open-menu");
+
+            });
+        }
 
 
 
 
-
-
-
-
-        /**Menu**/
-        $('.menu-icon').on('click', function () {
-            $('body').toggleClass("open-menu");
-
-        });
 
 
 
@@ -50,6 +47,7 @@
 
         db.preLoad();
         db.menuAccordion();
+        db.menuResponsive();
 
 
 
