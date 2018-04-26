@@ -17,11 +17,15 @@
         });
 
 
+     
         /**-form**/
         $("#register-form").validate();
 
         $('.answer').on('click', function () {
             $(this).toggleClass("current");
         });
+
+
+
     });
 })(jQuery);

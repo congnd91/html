@@ -17,7 +17,7 @@
     <link href="assets/stylesheets/main.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="page-fixed">
     <!--preload-->
     <div class="loader" id="page-loader">
     </div>
@@ -44,14 +44,18 @@
         <div class="clearfix"></div>
     </header>
     <div class="page">
+        <div class="step4-update fixed">
+            <div class="container">
+                <div class="step4-update-caption">
+                    <h3><strong>30</strong> giây trắc nghiệm</h3>
+                    <h2> Đa trí thông minh</h2>
+                </div>
+            </div>
+        </div>
         <!--middle-->
         <section class="middle middle-fix fix-bottom">
             <div class="container">
                 <div class="step4-update">
-                    <div class="step4-update-caption">
-                        <h3><strong>30</strong> giây trắc nghiệm</h3>
-                        <h2> Đa trí thông minh</h2>
-                    </div>
                     <div class="step4-update-img fix">
                     </div>
                 </div>
@@ -188,12 +192,25 @@
                     </div>
                 </div>
             </div>
-            <div class="control-step2-fixed">
+            <div class="control-step2-fixed fixed">
                 <div class="control-step2 fix">
                     <a href="#" class="hr-btn red animated infinite pulse">Tiếp tục</a>
                 </div>
-
-
+                <!--<div class="step2-update-control">
+    <button>
+                <i class="fa fa-long-arrow-alt-left"></i>quay lại
+                </button>
+    <a href="#">
+                     tiếp tục
+                <i class="fa fa-long-arrow-alt-right"></i>
+                </a>
+    <div class="clearfix"></div>
+</div>-->
+            </div>
+            <div class="control-step2-fixed inpage">
+                <div class="control-step2 fix">
+                    <a href="#" class="hr-btn red animated infinite pulse">Tiếp tục</a>
+                </div>
                 <!--<div class="step2-update-control">
     <button>
                 <i class="fa fa-long-arrow-alt-left"></i>quay lại
@@ -243,10 +260,28 @@
         </a>
     </div>
     <!--scrip file-->
-    <script src="assets/scripts/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="assets/scripts/bootstrap.min.js"></script>
     <script src="assets/scripts/jquery.fullpage.min.js"></script>
     <script src="assets/scripts/jquery.validate.js"></script>
+    <script src="assets/scripts/jquery.pin.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var inPageOffest = $('.control-step2-fixed.inpage').offset().top - $(window).height();
+            console.log(inPageOffest);
+            $(window).scroll(function() {
+                console.log(inPageOffest);
+                var scrollTop = $(this).scrollTop() - $('control-step2-fixed.inpage').outerHeight() - 100;
+                console.log("scrollTop" + scrollTop);
+                if (scrollTop >= inPageOffest) {
+                    $('body').addClass("no-fixed");
+                } else {
+                    $('body').removeClass("no-fixed");
+                }
+            });
+        });
+
+    </script>
     <script src="assets/scripts/main.js"></script>
 </body>
 
