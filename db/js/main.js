@@ -37,7 +37,17 @@
             });
         }
 
+        db.dateRange = function () {
 
+
+            //default date range picker
+            $('#daterange').daterangepicker({
+                autoApply: true,
+                opens: "left"
+            });
+            $('#daterange').val('');
+            $('#daterange').attr("placeholder", "Custom date range");
+        }
 
 
 
@@ -48,6 +58,12 @@
         db.preLoad();
         db.menuAccordion();
         db.menuResponsive();
+        db.dateRange();
+
+
+
+
+
 
 
 
