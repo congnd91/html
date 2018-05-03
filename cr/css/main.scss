@@ -134,6 +134,7 @@ iframe {
     height: 100%;
     @include transition();
     position: relative;
+    padding-bottom: 100px;
     &:before {
         content: "";
         display: block;
@@ -327,26 +328,26 @@ iframe {
                 }
             }
             > ul {
-                padding: 0px 0px 10px 10px;
-                display: none;
+                padding: 0px 0px 0px 0px;
+
                 li {
                     border: none;
-                    border-bottom: 1px solid #111;
-                    &:last-child {
-                        border: none;
-                    }
+                    border-top: 1px solid $text-color-three;
+
                     a {
                         display: block;
                         line-height: 35px;
                         text-transform: none;
-                        color: #666;
-                        padding: 0px 0px;
-                        font-weight: 400;
-                        font-family: $font-family-heading;
-                        @include transition();
-                        text-transform: uppercase;
+                        color: $text-color-three;
+                        font-size: 2rem;
+                        padding: 0px 0px 0px 50px;
+                        line-height: 45px;
+                        font-weight: 600;
+
+
+
                         &:hover {
-                            color: #fff;
+                            background-color: #eee;
                         }
                     }
                     > ul {
@@ -578,14 +579,14 @@ iframe {
     background-color: $gray-dark;
     text-align: right;
     color: #fff;
-    padding: 10px 10px;
+    padding: 2px 10px;
     p {
         margin: 0px;
         padding: 0px;
         color: #fff;
-        font-size: 2.8rem;
+        font-size: 2rem;
         @media screen and (max-width: 1199px) {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
         @media screen and (max-width: 991px) {
             font-size: 1.6rem;
@@ -634,7 +635,7 @@ iframe {
 
 .menu-icon {
     position: absolute;
-    top: 80px;
+    top: 50px;
     left: 20px;
     width: 70px;
     height: 70px;
@@ -646,12 +647,14 @@ iframe {
     background-size: 35px auto;
     background-repeat: no-repeat;
     background-position: center center;
-    @media screen and (max-width: 991px) {
+    @media screen and (max-width: 1199px) {
         width: 40px;
         height: 40px;
         background-size: 25px auto;
+        top: 40px;
         @media screen and (max-width: 575px) {
-            top: 20px;
+
+            top: 10px;
         }
     }
 }
@@ -898,6 +901,17 @@ iframe {
     }
 }
 
+.box2 {
+    .my-checkbox {
+
+
+        input[type=checkbox]:checked ~ label {
+            text-decoration: line-through;
+
+        }
+    }
+}
+
 .my-checkbox {
     display: inline-block;
     margin: 0px 20px 0px 0px;
@@ -1140,6 +1154,56 @@ iframe {
 
 .box17-radios {
     padding: 0px 0px 0px 20px;
+}
+
+
+.my-checkbox5 {
+    display: inline-block;
+    margin: 0px 15px 0px 0px;
+    position: relative;
+    input[type=checkbox] {
+        position: absolute;
+        visibility: hidden;
+    }
+    label {
+        padding: 0px 0px 0px 30px;
+        position: relative;
+        height: 30px;
+        display: block;
+        line-height: 1;
+        cursor: pointer;
+        font-size: 2rem;
+        color: #252525;
+
+        &:before {
+            content: "";
+            display: block;
+            background-image: url(../images/radio.png);
+            width: 26px;
+            height: 26px;
+            position: absolute;
+            top: -2px;
+            left: 0px;
+
+        }
+    }
+    a {
+        color: $cyan;
+    }
+    input[type=checkbox]:checked ~ label {
+
+        &:before {
+            content: "";
+            display: block;
+            background-image: url(../images/radio_check.png);
+
+            position: absolute;
+
+
+        }
+    }
+
+
 }
 
 .my-radio {
@@ -1617,6 +1681,10 @@ iframe {
     text-align: center;
     padding: 10px;
     background-color: #3f3b3a;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
     p {
         color: #fff;
         margin: 5px 0px;
@@ -1835,7 +1903,7 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
         border-left: 10px solid $active-color;
         padding: 0px 0px 0px 20px;
 
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: 1199px) {
             margin: 30px 0px 0px 0px;
         }
         h2 {
@@ -1865,9 +1933,9 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
             float: left;
             margin: 0px 5px 10px 0px;
             select {
-                padding: 0px 20px 0px 15px;
+                padding: 0px 40px 0px 15px;
                 font-size: 2.5rem;
-                min-width: 180px;
+                min-width: 160px;
                 background-color: transparent;
                 border: 2px solid $active-color;
                 border-radius: 40px;
@@ -1882,6 +1950,10 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
                 background-image: url(../images/arr_down1.png);
                 background-repeat: no-repeat;
                 background-position: 93% 12px;
+
+                @media screen and (max-width: 1199px) {
+                    min-width: 60px;
+                }
             }
         }
         .sb-search {
@@ -1961,6 +2033,25 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
             margin: 0px 5px;
             font-size: 2.5rem;
             line-height: 40px;
+        }
+
+        .sb-submit {
+            float: left;
+            button {
+                float: left;
+                height: 40px;
+                padding: 0px 20px;
+                margin: 0px 0px 0px 10px;
+                background-color: $active-color;
+                cursor: pointer;
+                border-radius: 40px;
+                position: relative;
+                font-size: 2.5rem;
+                color: #fff;
+                font-weight: 600;
+                border: none;
+                outline: none;
+            }
         }
     }
 }
@@ -2146,7 +2237,7 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
 
         margin: 0px 0px 0px 10px;
         select {
-            padding: 0px 0px 10px 15px;
+            padding: 0px 0px 0px 15px;
             font-size: 1.7rem;
             min-width: 150px;
             background-color: transparent;
@@ -2410,6 +2501,12 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
                 &.cyan {
                     color: #6ec8e6;
                     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+
+                }
+            }
+            &:hover {
+                .cyan {
+                    opacity: 0.8;
                 }
             }
         }
@@ -3487,7 +3584,7 @@ div.hoverscroll.horizontal.rtl ul.list li.item {
         background-color: transparent;
         color: #b6b2b1;
         border: 1px solid #9d9d9d;
-        width: 50px;
+        width: 110px;
     }
 }
 
