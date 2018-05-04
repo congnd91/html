@@ -112,6 +112,8 @@
             $('body').toggleClass("open-menu");
         });
 
+
+
         $('.menu-res li.menu-item-has-children').on('click', function (event) {
             event.stopPropagation();
             var submenu = $(this).find(" > ul");
@@ -170,7 +172,15 @@
 
 
         });
+        $('.check-tick').click(function () {
 
+
+            $('.check-tick').removeClass("active");
+            $(this).addClass("active");
+
+
+
+        });
 
 
 
