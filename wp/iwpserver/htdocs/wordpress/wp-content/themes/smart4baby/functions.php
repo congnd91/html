@@ -165,8 +165,8 @@ function mazpage_pagination( $custom_query = false ){
 		'current' => max( 1, get_query_var('paged') ),
 		'total' => $custom_query->max_num_pages,
 		'type'			=> 'plain',
-		'prev_text'    =>  esc_html('PREV','mazpage') ,
-		'next_text'    =>  esc_html('NEXT','mazpage') ,
+		'prev_text'    =>  esc_html('<<','mazpage') ,
+		'next_text'    =>  esc_html('>>','mazpage') ,
 	) );
 	
 	if ( $pagination ) {

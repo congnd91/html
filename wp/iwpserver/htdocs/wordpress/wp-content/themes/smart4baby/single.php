@@ -20,9 +20,15 @@ while ( have_posts() ) : the_post();
 
 
 
-        <div class="category-page">
+        <div class="categorypage">
             <div class="container">
                 <article class="detail">
+                    <div class="detail-title">
+                        <h1>
+                            <?php the_title(); ?>
+                        </h1>
+                    </div>
+
                     <?php the_content(); ?>
                     <?php wp_link_pages( array(
           'before' => '<div class="page-links">' . esc_html( 'Pages:', 'mazpage' ),
