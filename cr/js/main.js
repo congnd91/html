@@ -64,6 +64,26 @@
                 }
             });
         }
+
+        //
+
+
+        var owl_public = $('.owl-public');
+        if ($(owl_public).length) {
+            $(owl_public).owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: true,
+                autoplay: true,
+                items: 1,
+                navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+
+
+            });
+        }
+
+
+
         var owl_13 = $('.owl-13');
         if ($(owl_13).length) {
             $(owl_13).owlCarousel({
