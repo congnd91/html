@@ -6,6 +6,7 @@
         /**Menu**/
         $('.menu-icon').on('click', function () {
             $('body').toggleClass("open-menu");
+            $('body').removeClass("open-side");
             setTimeout(scrollToTop, 0);
         });
         $('.cs-item').on('click', function () {
@@ -40,6 +41,16 @@
                 $(box18).slideDown();
             }
         });
+
+        //box14
+
+        $('.box14 li a').on('click', function () {
+
+            $('.box14 li a').removeClass("active");
+            $(this).addClass("active");
+        });
+
+
         //box19
         {
             $('.box19 .arr-down').on('click', function () {
