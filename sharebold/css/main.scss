@@ -143,7 +143,8 @@ iframe {
 }
 
 .header {
-    background-color: $active-color;
+    background-color: $gray;
+    border-bottom: 1px solid $gray-dark;
 
     position: fixed;
     top: 0px;
@@ -151,8 +152,8 @@ iframe {
     right: 0px;
     z-index: 99;
     color: #fff;
-    padding: 10px 0px;
-    height: 60px;
+    padding: 7px 0px 0px 10px;
+    height: 55px;
     @media screen and (max-width: 991px) {}
     .container {
         position: relative;
@@ -287,20 +288,17 @@ iframe {
         .user-control-dropdown {
             border: none;
             box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.3);
-            top: 15px !important;
-            &:before {
-                content: "";
-                display: block;
-                border: 10px solid transparent;
-                border-bottom-color: #fff;
-                position: absolute;
-                top: -20px;
-                right: 20px;
-            }
+            top: 12px !important;
+
             a {
                 display: block;
                 font-size: 1.5rem;
-                padding: 5px 10px;
+                padding: 5px 15px;
+                &:hover {
+
+                    color: #fff;
+                    background-color: $gray;
+                }
             }
         }
     }
@@ -610,15 +608,18 @@ iframe {
 }
 
 .colleft {
+
     position: fixed;
-    top: 60px;
+    top: 55px;
     left: 0px;
     bottom: 0px;
-    overflow: auto;
-    background-color: #fff;
-    width: 300px;
+    bottom: 0px;
+    z-index: 999;
+
+    background-color: $gray-dark;
+    width: 80px;
     padding-top: 20px;
-    border-right: 2px solid $border-color;
+
     @include transition();
 
     @media screen and (max-width: 767px) {
@@ -626,76 +627,53 @@ iframe {
     }
 }
 
-.box-category {
-    margin: 0px 0px 15px 0px;
-    border-bottom: 1px solid $border-color;
-    &.no-border {
-        border: none;
-    }
-    .bc-caption {
-        font-family: $font-family-heading;
-        font-size: 1.6rem;
-        font-weight: 600;
-        padding: 10px 15px 0px 15px;
-        color: $gray;
-    }
-    .bc-content {
-        padding: 15px 0px 15px 15px;
-        a {
-            display: inline-block;
-            margin: 0px 10px 10px 0px;
-            border-radius: 3px;
-            padding: 5px 12px;
-            float: left;
-            border: 1px solid $border-color;
-            font-weight: 600;
-            font-size: 1.2rem;
-            background-color: #fff;
-            color: $text-color-second;
-            transition: box-shadow .3s ease-out, transform .3s ease-out, opacity .2s ease-out;
-            transition-delay: .1s;
-            position: relative;
+
+.list-team {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    li {
+        display: block;
+        position: relative;
+        padding: 0px 10px;
+        margin: 0px 0px 20px 0px;
+        cursor: pointer;
+        border-left: 2px solid transparent;
+
+        .team-item {
+            width: 50px;
+
+            height: 50px;
+            margin: 0px auto;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+
             span {
-                color: $active-color;
-                font-size: 1.1rem;
-                font-style: italic;
-            }
-            &.active {
-                background-color: $active-color;
-                border-color: $active-color;
-                color: #fff;
-                box-shadow: rgba(45, 45, 45, 0.05) 0px 2px 2px, rgba(49, 49, 49, 0.05) 0px 4px 4px, rgba(42, 42, 42, 0.05) 0px 8px 8px, rgba(32, 32, 32, 0.05) 0px 16px 16px, rgba(49, 49, 49, 0.05) 0px 32px 32px, rgba(35, 35, 35, 0.05) 0px 64px 64px;
-                span {
-                    color: #fff;
-                }
-                &:before {
-                    content: "";
-                    width: 7px;
-                    height: 1px;
-                    display: block;
-                    background-color: #fff;
-                    position: absolute;
-                    top: 5px;
-                    right: 2px;
-                    transform: rotate(45deg)
-                }
-                &:after {
-                    content: "";
-                    width: 7px;
-                    height: 1px;
-                    display: block;
-                    background-color: #fff;
-                    position: absolute;
-                    top: 5px;
-                    right: 2px;
-                    transform: rotate(-45deg)
-                }
-            }
-            &:hover {
-                box-shadow: rgba(45, 45, 45, 0.05) 0px 2px 2px, rgba(49, 49, 49, 0.05) 0px 4px 4px, rgba(42, 42, 42, 0.05) 0px 8px 8px, rgba(32, 32, 32, 0.05) 0px 16px 16px, rgba(49, 49, 49, 0.05) 0px 32px 32px, rgba(35, 35, 35, 0.05) 0px 64px 64px;
+
+                width: 48px;
+                height: 48px;
+                display: block;
+                text-align: center;
+                line-height: 48px;
+                background-color: rgba(255, 255, 255, 0.3);
+                font-size: 30px;
+                font-weight: 600;
+                text-transform: uppercase;
+                border-radius: 50%;
             }
         }
+        &.active {
+            border-left: 2px solid $active-color;
+            .team-item {
+                border-color: $active-color;
+            }
+        }
+
     }
+}
+
+.tooltip {
+    font-size: inherit;
 }
 
 .colright {

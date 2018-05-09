@@ -1,6 +1,9 @@
 (function ($) {
 
     $(document).on('ready', function () {
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
 
         "use strict";
         /**Preload**/
@@ -28,6 +31,14 @@
 
         });
 
+
+
+        $('.list-team li').on('click', function () {
+
+            $('.list-team li').removeClass("active");
+            $(this).addClass("active");
+
+        });
 
 
         //collection 

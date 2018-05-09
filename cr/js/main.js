@@ -74,7 +74,7 @@
                 loop: true,
                 margin: 0,
                 nav: true,
-                autoplay: true,
+                autoplay: false,
                 items: 1,
                 navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
 
