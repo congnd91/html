@@ -1,0 +1,547 @@
+.au-box {
+    max-width: 850px;
+    margin: 0px auto;
+
+    padding: 15px 5px;
+    * {
+        font-family: Arial;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    .month-col {
+        float: left;
+        width: 8.3%;
+        padding: 0px 2px;
+        margin: 0px 0px 10px 0px;
+
+
+        @media screen and (max-width: 767px) {
+            width: 16.6%;
+        }
+
+
+
+        .ml-item {
+            min-height: 170px;
+            position: relative;
+        }
+
+        .ml-item-inner {
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            p {
+
+                color: #80B03D;
+
+                text-align: center;
+                margin: 10px 0px;
+                font-size: 12px;
+            }
+            .ml-progess {
+                background-color: #817B6B;
+                border: 1px solid #817B6B;
+                position: relative;
+
+                span {
+                    position: absolute;
+                    bottom: 10px;
+                    left: 0px;
+                    right: 0px;
+                    display: block;
+                    text-align: center;
+                    color: #fff;
+                }
+            }
+        }
+        &.active {
+            .ml-item-inner {
+
+                .ml-progess {
+                    background-color: #fff;
+                    border: 1px solid #666;
+                    span {
+                        color: #333;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+}
+
+.au-table-hover {
+    position: absolute;
+    background-color: #eee;
+    width: 250PX;
+
+    z-index: 999;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    padding: 20px 30px 20px 30px;
+    &:before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        border: 20px solid transparent;
+        position: absolute;
+        border-bottom-color: #eee;
+        left: 50%;
+        margin: 0px 0px 0px -20px;
+        top: -30px;
+        display: block;
+
+    }
+    h4 {
+        text-align: center;
+        margin: 0px 0px 15px 0px;
+        font-size: 17px;
+
+        color: #80B03D;
+    }
+    .aucc-row {
+        margin: 0px 0px 10px 0px;
+        font-size: 13px;
+        color: #222;
+        font-size: 12px;
+        span {
+            display: inline-block;
+            min-width: 80px;
+            font-size: 12px;
+        }
+        .aucc-date {
+            display: inline-block;
+            position: relative;
+            em {
+                position: absolute;
+                top: 2px;
+                right: 2px;
+                display: block;
+                width: 20px;
+                height: 20px;
+
+                background-image: url('https://vemaybay.alotrip.vn/Scripts/jquery-ui-1.10.3.custom/css/smoothness/images/calendar.png');
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+            input {
+
+                border: 1px solid #817B6B;
+                height: 25px;
+                width: 70px;
+
+            }
+        }
+    }
+    .aucc-cols {
+        margin: 0px -5px;
+        .aucc-col {
+            float: left;
+            width: 33.33%;
+            padding: 0px 5px;
+            p {
+                font-size: 12px;
+                color: #222;
+                margin: 10px 0px 10px 0px;
+            }
+            select {
+                height: 25px;
+                width: 100%;
+                border: 1px solid #817B6B;
+            }
+        }
+    }
+
+    .aucc-control {
+        padding: 15px 0px 0px 0px;
+        text-align: center;
+        a {
+            color: #fff;
+
+            display: inline-block;
+            padding: 0px 5px;
+            line-height: 30px;
+            min-width: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            background-color: #000;
+            &:hover {
+                background-color: #111;
+            }
+        }
+    }
+
+
+}
+
+.au-calendar {
+    margin: 90px 0px 0px 0px;
+    position: relative;
+    padding: 0px 100px;
+    @media screen and (max-width: 991px) {
+        padding: 0px 60px;
+    }
+
+    @media screen and (max-width: 767px) {
+        padding: 0px;
+    }
+
+    .au-calendar-control {
+        padding: 20px 0px;
+        text-align: center;
+
+        .au-prev {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            cursor: pointer;
+
+
+            text-align: center;
+            transform: translateY(-50%);
+            width: 80px;
+
+
+            span {
+                background-image: url(../images/prev.png);
+                display: inline-block;
+                width: 71px;
+                height: 52px;
+
+                background-repeat: no-repeat;
+            }
+            p {
+                color: #80B03D;
+                font-weight: 600;
+                font-size: 20px;
+                text-align: center;
+                margin: 10px 0px 0px 0px;
+            }
+
+            @media screen and (max-width: 991px) {
+                width: 50px;
+                left: 0px;
+                span {
+                    width: 50px;
+                    height: 30px;
+                    background-size: cover;
+                }
+                p {
+                    font-size: 15px;
+                }
+            }
+            @media screen and (max-width: 767px) {
+                position: relative;
+                top: unset;
+                left: unset;
+                display: inline-block;
+                margin: 0px 5px;
+                transform: translateY(1%);
+                span {
+                    width: 50px;
+                    height: 35px;
+                    background-size: cover;
+                }
+                p {
+                    font-size: 12px;
+                }
+            }
+
+        }
+
+        .au-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+
+
+            text-align: center;
+            transform: translateY(-50%);
+            width: 80px;
+
+
+            span {
+                background-image: url(../images/next.png);
+                display: inline-block;
+                width: 71px;
+                height: 52px;
+
+                background-repeat: no-repeat;
+            }
+            p {
+                color: #80B03D;
+                font-weight: 600;
+                font-size: 20px;
+                text-align: center;
+                margin: 10px 0px 0px 0px;
+            }
+
+            @media screen and (max-width: 991px) {
+                width: 50px;
+                left: 0px;
+                span {
+                    width: 50px;
+                    height: 30px;
+                    background-size: cover;
+                }
+                p {
+                    font-size: 15px;
+                }
+            }
+            @media screen and (max-width: 767px) {
+                position: relative;
+                right: unset;
+                left: unset;
+                display: inline-block;
+                margin: 0px 5px;
+                transform: translateY(1%);
+                span {
+                    width: 50px;
+                    height: 35px;
+                    background-size: cover;
+                }
+                p {
+                    font-size: 12px;
+                }
+            }
+
+        }
+    }
+
+    h3 {
+        font-size: 20px;
+        margin: 0px 0px 40px 0px;
+        color: #222;
+        text-align: center;
+        span {
+            color: #80B03D;
+            font-size: 20px;
+        }
+    }
+    .au-calendar-table {
+        position: relative;
+
+
+        table {
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            border: 1px solid #333;
+            width: 100%;
+            td {
+                border: 1px solid #333;
+                padding: 10px 5px;
+
+                @media screen and (max-width: 767px) {
+                    padding: 5px 2px;
+                }
+
+                .au-date-item {
+                    padding: 5px;
+                    position: relative;
+
+                    > span {
+                        position: absolute;
+                        top: -2px;
+                        font-size: 11px;
+                        right: 3px;
+                    }
+                    p {
+                        font-size: 12px;
+                        color: #222;
+                        margin: 6px 0px 0px 0px;
+                    }
+                    &.active {
+                        p {
+                            color: #80B03D;
+                        }
+                    }
+                }
+            }
+            th {
+                border: 1px solid #333;
+                text-align: center;
+                color: #80B03D;
+                height: 50px;
+                font-size: 15px;
+                font-weight: 600;
+                padding: 5px;
+                @media screen and (max-width: 767px) {
+                    padding: 5px 2px;
+                }
+
+            }
+
+        }
+    }
+}
+
+.au-table-scroll {
+    overflow: auto;
+}
+
+
+
+
+.au-ticket {
+    margin: 20px 0px 0px 0px;
+    position: relative;
+
+    @media screen and (max-width: 991px) {}
+
+    @media screen and (max-width: 767px) {
+        padding: 0px;
+    }
+
+
+
+    h3 {
+        font-size: 20px;
+        margin: 0px 0px 40px 0px;
+        color: #222;
+        text-align: center;
+        span {
+            color: #80B03D;
+            font-size: 20px;
+        }
+    }
+    .au-ticket-table {
+        position: relative;
+
+
+        table {
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            border: 1px solid #80B03D;
+            width: 100%;
+            td {
+                border: 1px solid #80B03D;
+                padding: 5px 5px;
+                font-size: 12px;
+                text-align: center;
+                color: #222;
+                p {
+                    font-size: 12px;
+                    margin: 2px 0px;
+                    color: #222;
+                }
+                .btn-datve {
+                    font-weight: 600;
+                    font-size: 12px;
+                    display: inline-block;
+                    line-height: 25px;
+                    border-radius: 2px;
+                    color: #fff;
+                    padding: 0px 10px;
+                    background-color: #80B03D;
+                    transition: all ease 0.3s;
+                    &:hover {
+                        cursor: pointer;
+                        opacity: 0.8;
+                    }
+                }
+
+
+
+
+            }
+            thead {
+
+                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            }
+            th {
+                border: 1px solid #80B03D;
+                text-align: center;
+                color: #80B03D;
+                height: 50px;
+                font-size: 12px;
+                font-weight: 600;
+                padding: 5px;
+                @media screen and (max-width: 767px) {
+                    padding: 5px 2px;
+                }
+                select {
+                    height: 25px;
+                    border: 1px solid #817B6B;
+                    width: 100%;
+                    font-size: 12px;
+                    max-width: 95px;
+                    min-width: 70px;
+
+                    color: #80B03D;
+                    font-weight: 600;
+                }
+
+                .au-ticket-date {
+                    display: inline-block;
+                    position: relative;
+                    em {
+                        position: absolute;
+                        top: 2px;
+                        right: 2px;
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+
+                        background-image: url('https://vemaybay.alotrip.vn/Scripts/jquery-ui-1.10.3.custom/css/smoothness/images/calendar.png');
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                    }
+                    input {
+
+                        border: 1px solid #817B6B;
+                        height: 25px;
+                        width: 90px;
+                        font-size: 12px;
+                        padding: 0px 0px 0px 5px;
+                        color: #80B03D;
+                        font-weight: 600;
+
+                    }
+                }
+
+            }
+
+        }
+    }
+}
+
+.au-table-control {
+    text-align: center;
+
+    padding: 15px 0px;
+
+    .autc-btn {
+        margin: 10px 0px 0px 0px;
+        min-width: 150px;
+        background-color: #111;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        display: inline-block;
+        padding: 0px 10px;
+        line-height: 30px;
+        border-radius: 2px;
+        transition: all ease 0.3s;
+        &:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        &.loading {
+
+
+
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 35px 35px;
+        }
+
+
+    }
+}
+
+
+
+.div-clearfix {
+    clear: both;
+}
