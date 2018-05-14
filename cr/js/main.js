@@ -10,7 +10,7 @@
 
         });
 
-
+        $('.menu-res-inner ul ul').hide();
         $('.menu-res-inner > ul > li > a').on('click', function () {
 
             var child = $(this).next();
@@ -202,11 +202,13 @@
                 items: 1,
             });
         }
-        $('.caption-scroll').hoverscroll({
-            width: 'auto',
-            width: 'auto'
-        });
 
+        if ($('.caption-scroll').length) {
+            $('.caption-scroll').hoverscroll({
+                width: 'auto',
+                width: 'auto'
+            });
+        }
         $('.show-delete').on('click', function () {
             $(this).parents('.accodion-content').find(".box12-left").css("display", "flex");
 

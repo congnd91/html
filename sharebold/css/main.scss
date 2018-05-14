@@ -84,6 +84,10 @@ iframe {
     color: #fff;
 }
 
+a {
+    &:active {}
+}
+
 /*==========Components=========*/
 
 .my-btn {
@@ -113,6 +117,45 @@ iframe {
     }
 }
 
+.sb-btn {
+    display: inline-block;
+    line-height: 40px;
+    padding: 0px 30px;
+    font-family: $font-family-heading;
+    color: #fff;
+    background-color: $active-color;
+
+    border-radius: 4px;
+    margin: 0px 0px 0px 0px;
+    font-weight: 600;
+    border: none;
+    @include transition();
+    &:hover {
+        background-color: $active-color;
+        outline: none;
+        color: #fff;
+    }
+    &.active {
+        background-color: $active-color;
+        outline: none;
+        color: #fff;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    &.cancel {
+        background-color: $border-color;
+        margin: 0px 0px 0px 15px;
+        color: $base-color;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    &:active {
+        color: inherit;
+    }
+}
+
 .row-fix {
     margin-left: -10px;
     margin-right: -10px;
@@ -136,7 +179,7 @@ iframe {
 
 
 #page-loader {
-    background-color: $active-color;
+    background-color: $gray;
     position: fixed;
     top: 0;
     left: 0;
@@ -680,6 +723,10 @@ iframe {
 
 }
 
+.dropdown-toggle::after {
+    display: none;
+}
+
 .p-box {
     margin: 20px 0px 0px 0px;
     padding: 0px 15px;
@@ -694,6 +741,33 @@ iframe {
             letter-spacing: 2px;
         }
     }
+}
+
+.changelogs-box {
+
+    .changelog-item {
+
+        margin: 0px 0px 10px 0px;
+        p {
+            margin: 0px 0px 0px 0px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+
+            font-weight: 300;
+
+            a {
+                color: rgba(255, 255, 255, 0.6);
+                font-weight: 600;
+            }
+            span {
+                font-style: italic;
+
+                color: rgba(255, 255, 255, 0.6);
+            }
+        }
+
+    }
+
 }
 
 .p-box-member {
@@ -1013,6 +1087,10 @@ iframe {
 
 /********************modal************/
 
+.modal-content {
+    border: none;
+}
+
 .modal-open {
     overflow: visible !important;
     padding: 0px !important;
@@ -1020,6 +1098,10 @@ iframe {
 
 .modal {
     text-align: center;
+}
+
+.modal-backdrop.show {
+    opacity: 0.8;
 }
 
 .modal:before {
@@ -1096,6 +1178,76 @@ iframe {
     font-style: italic;
     color: $text-color-second;
 }
+
+
+
+.modal-invite {
+    overflow: hidden;
+    max-width: 400px;
+
+    padding: 0px;
+    .mi-caption {
+        height: 50px;
+        background-color: #eee;
+
+        span {
+            float: left;
+            text-align: center;
+
+            width: 50%;
+            height: 50px;
+            font-weight: 600;
+            height: 50px;
+
+            cursor: pointer;
+            line-height: 45px;
+
+            font-family: $font-family-heading;
+            border-top: 5px solid transparent;
+
+            &.active {
+                background-color: #fff;
+                color: $active-color;
+                border-top: 5px solid $active-color;
+            }
+        }
+    }
+    .mi-content {
+        padding: 20px 30px 30px 30px;
+
+    }
+}
+
+.sb-field {
+    margin: 20px 0px 0px 0px;
+    p {
+        margin: 0px 0px 6px 0px;
+        font-size: 1.4rem;
+        color: $base-color-second;
+
+    }
+
+    input {
+        width: 100%;
+        display: block;
+        line-height: 40px;
+        border: 2px solid #ccc;
+        padding: 0px 15px;
+        line-height: 40px;
+        border-radius: 4px;
+        &:focus {
+            outline: none;
+            border: 2px solid #bbb;
+        }
+    }
+}
+
+.sb-control {
+    text-align: center;
+    margin: 30px 0px 0px 0px;
+
+}
+
 
 /****************login**************/
 
