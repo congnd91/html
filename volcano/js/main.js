@@ -134,6 +134,24 @@
 
         }
 
+        db.matchHeight = function () {
+            if ($('.news-item').length) {
+                $('.news-item').matchHeight();
+            }
+
+        }
+
+        db.newsDetail = function () {
+            $('.news-item').on('click', function () {
+                $("body").addClass("show-news-detail");
+            });
+            $('.close-nd').on('click', function () {
+                $("body").removeClass("show-news-detail");
+            });
+
+
+        }
+
 
         db.preLoad();
         db.hoverMenu();
@@ -144,5 +162,7 @@
         db.chat();
         db.accordion();
         db.sliderProduct();
+        db.matchHeight();
+        db.newsDetail();
     });
 })(jQuery);
