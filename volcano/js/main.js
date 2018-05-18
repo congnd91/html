@@ -45,15 +45,22 @@
         }
         db.hoverMenu = function () {
             $('.menu-inner ul li').hover(function () {
-                    var mega = $(this).find(".mega-menu");
-                    setTimeout(function () {
-                        $(mega).stop(true, true).slideDown(400);
-                    }, 200);
 
-                    $('body').addClass("show-overlay");
+                    $(".mega-menu").stop(true, true).slideUp(400);
+
+                    var mega = $(this).find(".mega-menu");
+
+                    if ($(mega).is(":not(:visible)")) {
+
+                        setTimeout(function () {
+                            $(mega).stop(true, true).slideDown(400);
+                        }, 400);
+
+                        $('body').addClass("show-overlay");
+                    }
                 },
                 function () {
-                    $(this).find(".mega-menu").stop(true, true).slideUp(400);
+                    // $(this).find(".mega-menu").stop(true, true).slideUp(400);
                     $('body').removeClass("show-overlay");
                 });
         }
@@ -105,6 +112,29 @@
 
         }
 
+
+        db.sliderProduct = function () {
+            if ($('.slider-for').length) {
+                $('.slider-for').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: '.slider-nav'
+                });
+                $('.slider-nav').slick({
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    asNavFor: '.slider-for',
+
+
+                    focusOnSelect: true
+                });
+            }
+
+        }
+
+
         db.preLoad();
         db.hoverMenu();
         db.search();
@@ -113,5 +143,6 @@
         db.menuResponsive();
         db.chat();
         db.accordion();
+        db.sliderProduct();
     });
 })(jQuery);
