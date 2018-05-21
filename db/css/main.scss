@@ -26,6 +26,11 @@ body {
     line-height: 1.4;
     color: $text-color;
     background-color: #f2f5ff;
+    border-radius: 50px;
+
+
+
+
 }
 
 dt,
@@ -118,6 +123,12 @@ iframe {
     &.small {
         line-height: 40px;
     }
+    &.opacity {
+        opacity: 0.6;
+    }
+    &.db-btn-loading {
+        opacity: 0.6;
+    }
 }
 
 .row-fix {
@@ -131,6 +142,60 @@ iframe {
 
 @media screen and (max-width: 767px) {
     .container {}
+}
+
+.line-loader {
+    height: 4px;
+    position: fixed;
+    z-index: 9999;
+    top: 0px;
+    left: 0px;
+    display: none;
+
+    box-shadow: 2px 2px 15px 0px rgba(0, 153, 254, 0.6);
+
+    background-color: $active-color;
+    animation-name: Load;
+    animation-duration: 2s;
+    animation-delay: 0.2s;
+    animation-play-state: paused;
+    animation-iteration-count: infinite;
+
+
+
+
+
+}
+
+.show-line-loader {
+    .line-loader {
+        display: block;
+
+        animation-play-state: running;
+    }
+}
+
+@keyframes Load {
+    0% {
+        width: 0%;
+    }
+
+    50% {
+        width: 70%;
+    }
+
+    80% {
+        width: 90%;
+
+    }
+    90% {
+
+        opacity: 0.8;
+    }
+    100% {
+        width: 100%;
+        opacity: 0;
+    }
 }
 
 #page-loader {
@@ -491,6 +556,8 @@ iframe {
 .dropdown-menu.db-dropdown-menu {
     font-size: inherit;
     border: 1px solid $border-color !important;
+    transform: none !important;
+    top: 100% !important;
 }
 
 .al-dropdown-menu {
@@ -560,7 +627,7 @@ iframe {
 .user {
     .db-dropdown-menu {
 
-        top: 6px !important;
+        margin-top: 6px;
         left: unset !important;
         right: 0px;
         width: 180px;
@@ -992,6 +1059,9 @@ p.error {
             cursor: pointer;
         }
     }
+    .db-text {
+        padding-right: 40px;
+    }
 }
 
 .app-domain {
@@ -1041,10 +1111,16 @@ p.error {
             opacity: 0.7;
         }
     }
+    p {
+        font-weight: 400;
+        strong {
+            font-weight: 600;
+        }
+    }
 }
 
 .notify-wrap {
-    position: absolute;
+    position: fixed;
     top: 60px;
     right: 10px;
     z-index: 99999;
@@ -1153,5 +1229,157 @@ p.error {
     margin: 10px 0px;
     img {
         width: 150px;
+    }
+}
+
+
+/***********support-page***/
+
+.support-page {
+    h2 {
+        margin: 40px 0px 20px 0px;
+        font-size: 3rem;
+        font-weight: 600;
+    }
+    .support-search {
+        margin: 10px 0px 30px 0px;
+        width: 100%;
+        height: 45px;
+        background-color: $border-color;
+        border-radius: 3px;
+        position: relative;
+        display: block;
+        padding: 0px 0px 0px 40px;
+        input {
+            width: 100%;
+            height: 45px;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            border: none;
+        }
+        i {
+            font-size: 1.6rem;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            width: 40px;
+        }
+    }
+}
+
+.sp-bar {
+    border-bottom: 1px solid $border-color;
+
+    .sp-bar-inner {
+        span {
+            float: left;
+            line-height: 40px;
+            padding: 0px 0px 0px 0px;
+            margin: 0px 30px 0px 0px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            &.active {
+                border-bottom: 2px solid $active-color;
+                color: $active-color;
+            }
+        }
+    }
+}
+
+.sp-box {
+    margin: 0px 0px 30px 0px;
+    max-width: 400px;
+    border-bottom: 1px solid $border-color;
+    h3 {
+        font-weight: 600;
+        font-size: 1.6rem;
+        margin: 0px 0px 0px 0px;
+    }
+    ul {
+        padding: 20px 0px 20px 10px;
+
+        li {
+            margin: 0px 0px 5px 0px;
+
+            list-style: none;
+            padding: 0px 0px 0px 10px;
+            position: relative;
+            &:before {
+                content: "";
+                display: block;
+                width: 4px;
+                height: 4px;
+                position: absolute;
+                border-radius: 50%;
+                background-color: $gray;
+                top: 7px;
+                left: 0px;
+            }
+            a {
+                &:hover {
+                    color: $active-color;
+                }
+            }
+        }
+    }
+}
+
+.box-faq {
+    padding-bottom: 50px;
+    h3 {
+        font-weight: 600;
+        font-size: 1.8rem;
+        margin: 20px 0px 10px 0px;
+    }
+    .faq-acc {
+        border-bottom: 1px solid $border-color;
+        margin: 0px 0px 40px 0px;
+    }
+    .faq-acc-caption {
+        padding: 12px 30px 12px 0px;
+        cursor: pointer;
+        position: relative;
+        border-top: 1px solid $border-color;
+
+        i {
+            position: absolute;
+            top: 14px;
+            opacity: 0.8;
+            right: 5px;
+            font-size: 1.5rem;
+        }
+        p {
+            margin: 0px;
+            padding: 0px;
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+        &:first-child {
+            border: none;
+        }
+        &.active {
+            p {
+                color: $active-color;
+            }
+            i {
+                color: $active-color;
+                transform: rotate(180deg)
+            }
+        }
+    }
+    .faq-acc-content {
+        display: none;
+
+        p {
+            margin: 5px 0px;
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
     }
 }

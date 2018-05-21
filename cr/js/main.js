@@ -7,7 +7,24 @@
         $('.menu-icon').on('click', function () {
             $('body').toggleClass("open-menu");
             $('body').removeClass("open-side");
-            setTimeout(scrollToTop, 0);
+
+        });
+
+        $('.menu-res-inner ul ul').hide();
+        $('.menu-res-inner > ul > li > a').on('click', function () {
+
+            var child = $(this).next();
+
+            if ($(child).is(":visible")) {
+                $(child).slideUp();
+            } else {
+                $(child).slideDown();
+            }
+
+
+            return false;
+
+
         });
         $('.cs-item').on('click', function () {
             $('.cs-item').removeClass("active");
@@ -71,10 +88,10 @@
         var owl_public = $('.owl-public');
         if ($(owl_public).length) {
             $(owl_public).owlCarousel({
-                loop: true,
+                loop: false,
                 margin: 0,
                 nav: true,
-                autoplay: true,
+                autoplay: false,
                 items: 1,
                 navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
 
@@ -185,11 +202,13 @@
                 items: 1,
             });
         }
-        $('.caption-scroll').hoverscroll({
-            width: 'auto',
-            width: 'auto'
-        });
 
+        if ($('.caption-scroll').length) {
+            $('.caption-scroll').hoverscroll({
+                width: 'auto',
+                width: 'auto'
+            });
+        }
         $('.show-delete').on('click', function () {
             $(this).parents('.accodion-content').find(".box12-left").css("display", "flex");
 

@@ -49,6 +49,24 @@
             $('#daterange').attr("placeholder", "Custom date range");
         }
 
+        db.accordion = function () {
+
+
+            $('.faq-acc-caption').on('click', function () {
+                var content = $(this).next();
+                if ($(content).is(":visible")) {
+                    $(content).stop(true, true).slideUp();
+                    $(this).removeClass("active");
+                } else {
+                    $(content).stop(true, true).slideDown();
+                    $(this).addClass("active");
+                }
+
+            });
+        }
+
+
+
 
 
 
@@ -58,6 +76,7 @@
         db.preLoad();
         db.menuAccordion();
         db.menuResponsive();
+        db.accordion();
         db.dateRange();
 
 
