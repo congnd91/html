@@ -4,6 +4,21 @@
         $('#page-loader').delay(800).fadeOut(600, function () {
             $('body').fadeIn();
         });
+
+        $(".o-close").click(function () {
+
+            $("body").removeClass("show-overlay");
+        });
+
+
+
+
+        $(".checkbox input").change(function () {
+            if ($(this).prop('checked') == true) {
+                $("body").addClass("show-overlay");
+            }
+        });
+
         $(".o-content-scroll").niceScroll({
             cursorcolor: "white",
             cursorwidth: "5px",

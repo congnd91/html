@@ -44,7 +44,7 @@
             });
         }
         db.hoverMenu = function () {
-            $('.menu-inner ul li').hover(function () {
+            /*$('.menu-inner ul li').hover(function () {
 
                     $(".mega-menu").stop(true, true).slideUp(400);
 
@@ -62,7 +62,30 @@
                 function () {
                     // $(this).find(".mega-menu").stop(true, true).slideUp(400);
                     $('body').removeClass("show-overlay");
+                });*/
+
+
+
+
+            $('.menu-inner ul li').hover(function () {
+                    var mega = $(this).find(".mega-menu");
+                    if ($(mega).is(":not(:visible)")) {
+                        $(mega).stop().slideDown(400);
+                        $('body').addClass("show-overlay")
+                    }
+
+
+                },
+                function () {
+                    var mega = $(this).find(".mega-menu");
+
+                    $(mega).stop().slideUp(400);
+
+                    $('body').removeClass("show-overlay")
+
                 });
+
+
         }
 
         db.search = function () {
@@ -153,6 +176,44 @@
         }
 
 
+        db.sliderMiles = function () {
+            var owl_miles = $('.owl-miles');
+            if ($(owl_miles).length) {
+                $(owl_miles).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: true,
+                    autoplay: false,
+                    navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+
+                    responsive: {
+
+                        0: {
+                            items: 1,
+                        },
+
+                        576: {
+                            items: 2,
+                        },
+
+                        768: {
+                            items: 3,
+
+                        },
+                        991: {
+                            items: 4,
+
+                        }
+                    }
+
+
+                });
+            }
+
+        }
+
+
+
         db.preLoad();
         db.hoverMenu();
         db.search();
@@ -164,5 +225,6 @@
         db.sliderProduct();
         db.matchHeight();
         db.newsDetail();
+        db.sliderMiles();
     });
 })(jQuery);
