@@ -212,10 +212,62 @@
 
         }
 
+        db.scroll = function () {
+
+
+
+
+
+            $(".detail-bar ul li").click(function () {
+
+                $(".detail-bar ul li").removeClass("active");
+                var that = this;
+                var id = $(that).attr("data-id");
+                $(that).addClass("active");
+
+
+                $('html,body').animate({
+                    scrollTop: $(id).offset().top - 70
+                }, 1000);
+
+
+            });
+        }
+
+        db.scrollFixBar = function () {
+
+
+            $(".detail-bar").stick_in_parent();
+
+        }
+
+        db.homeSlider = function () {
+
+
+            var owl_home = $('.owl-home');
+            if ($(owl_home).length) {
+                $(owl_home).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: false,
+                    navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+                    autoplay: true,
+                    items: 1,
+                    animateOut: 'fadeOut'
+
+                });
+            }
+
+        }
+
+
+
+
 
 
         db.preLoad();
         db.hoverMenu();
+        db.homeSlider();
         db.search();
         db.menuLeft();
         db.menuAccordion();
@@ -226,5 +278,7 @@
         db.matchHeight();
         db.newsDetail();
         db.sliderMiles();
+        db.scroll();
+        db.scrollFixBar();
     });
 })(jQuery);
