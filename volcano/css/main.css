@@ -195,10 +195,14 @@ iframe {
       margin: 6px 0px 0px 0px; } }
 
 .header-right {
-  float: right; }
+  float: right;
+  position: relative;
+  z-index: 11; }
 
 .store-box {
-  float: left; }
+  float: left;
+  position: relative;
+  z-index: 9; }
   .store-box .store-box-inner {
     position: relative; }
     .store-box .store-box-inner span {
@@ -237,7 +241,8 @@ iframe {
   margin: 0px 0px 0px 30px;
   width: 40px;
   height: 40px;
-  position: relative; }
+  position: relative;
+  z-index: 9; }
   @media (max-width: 575px) {
     .search-box {
       margin: 0px 0px 0px 10px; } }
@@ -283,7 +288,9 @@ iframe {
 
 .language-box {
   float: left;
-  margin: 0px 0px 0px 30px; }
+  margin: 0px 0px 0px 30px;
+  position: relative;
+  z-index: 9; }
   @media (max-width: 575px) {
     .language-box {
       margin: 0px 0px 0px 10px; } }
@@ -343,7 +350,7 @@ iframe {
 
 .menu-inner {
   float: right;
-  margin: -60px 0px 0px 0px; }
+  margin: -30px 0px 0px 0px; }
   .menu-inner ul {
     list-style: none;
     margin: 0px;
@@ -686,7 +693,6 @@ iframe {
 
 .product-banner {
   min-height: 450px;
-  background-image: url(../images/product_banner.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1060,6 +1066,13 @@ iframe {
         float: none;
         width: 100%;
         margin: 0px 0px 0px 0px; } }
+  .product-page .pp-right {
+    float: right;
+    width: 100%; }
+    @media screen and (max-width: 991px) {
+      .product-page .pp-right {
+        float: none;
+        width: 100%; } }
 
 .pp-caption {
   margin: 0px 0px 110px 0px; }
@@ -1159,7 +1172,8 @@ iframe {
     padding: 0px;
     margin: 0px; }
     .menu-left > ul > li {
-      border-top: 1px solid #e5e5e5; }
+      border-top: 1px solid #e5e5e5;
+      list-style: none; }
       .menu-left > ul > li > a {
         display: block; }
         .menu-left > ul > li > a > div {
@@ -1185,7 +1199,8 @@ iframe {
         padding: 0px;
         margin: 0px; }
         .menu-left > ul > li > ul.lv2 > li {
-          border-top: 1px solid #e5e5e5; }
+          border-top: 1px solid #e5e5e5;
+          list-style: none; }
           .menu-left > ul > li > ul.lv2 > li > a {
             display: block; }
             .menu-left > ul > li > ul.lv2 > li > a > div {
@@ -1199,7 +1214,8 @@ iframe {
             padding: 0px;
             margin: 0px; }
             .menu-left > ul > li > ul.lv2 > li > ul.lv3 > li {
-              border-top: 1px solid #e5e5e5; }
+              border-top: 1px solid #e5e5e5;
+              list-style: none; }
               .menu-left > ul > li > ul.lv2 > li > ul.lv3 > li > a {
                 display: block; }
                 .menu-left > ul > li > ul.lv2 > li > ul.lv3 > li > a > div {
@@ -1214,7 +1230,8 @@ iframe {
                 margin: 0px; }
                 .menu-left > ul > li > ul.lv2 > li > ul.lv3 > li > ul.lv4 > li {
                   display: block;
-                  border-top: 1px solid #e5e5e5; }
+                  border-top: 1px solid #e5e5e5;
+                  list-style: none; }
                   .menu-left > ul > li > ul.lv2 > li > ul.lv3 > li > ul.lv4 > li > a > div {
                     padding: 0px 10px;
                     line-height: 45px;
@@ -1240,6 +1257,36 @@ iframe {
   .menu-left .lv3 > li > a.active > div {
     background-color: #8b8b8a;
     color: #fff !important; }
+
+.lv2 > li > a > div > span,
+.lv3 > li > a > div > span,
+.lv4 > li > a > div > span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  position: absolute;
+  right: 12px;
+  margin: -10px 0px 0px; }
+  .lv2 > li > a > div > span:before,
+  .lv3 > li > a > div > span:before,
+  .lv4 > li > a > div > span:before {
+    content: "+";
+    display: block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    line-height: 20px;
+    color: #fff;
+    font-size: 16px; }
+
+.lv2 > li > a.active > div > span:before,
+.lv3 > li > a.active > div > span:before,
+.lv4 > li > a.active > div > span:before {
+  content: "-"; }
 
 .product-detail-caption {
   margin: 0px 0px 20px 0px; }
@@ -1282,6 +1329,7 @@ iframe {
         border: none;
         outline: none;
         font-size: 1px;
+        text-indent: -9999px;
         background-color: transparent; }
         .detail-slider .slick-slider .slider-nav .slick-prev:before {
           font-family: 'Font Awesome 5 Free';
@@ -1306,6 +1354,7 @@ iframe {
         border: none;
         outline: none;
         font-size: 1px;
+        text-indent: -9999px;
         background-color: transparent; }
         .detail-slider .slick-slider .slider-nav .slick-next:before {
           font-family: 'Font Awesome 5 Free';

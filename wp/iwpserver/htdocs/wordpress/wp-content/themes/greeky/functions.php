@@ -106,6 +106,30 @@ function greeky_widgets_init() {
 		'before_title'  => '<div class="widget-title col-caption"><span>',
 		'after_title'   => '</span></div>',
 		) );
+    register_sidebar(array(
+		'name' => esc_html__( 'Social Widgets', 'greeky' ),
+		'id'            => 'greeky_social',
+		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
+		'before_widget' => '<section id="%1$s" class="greeky-widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<div class="widget-title col-caption"><span>',
+		'after_title'   => '</span></div>',
+		));
+    
+    register_sidebar(array(
+		'name' => esc_html__( 'Social Footer Widgets', 'greeky' ),
+		'id'            => 'greeky_social_footer',
+		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
+		'before_widget' => '<section id="%1$s" class="greeky-widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<div class="widget-title col-caption"><span>',
+		'after_title'   => '</span></div>',
+		));
+    
+    
+    
+    
+    
 	register_sidebar(array(
 		'name' => esc_html__( 'Home Content Widgets', 'greeky' ),
 		'id'            => 'greeky_home',
@@ -115,6 +139,9 @@ function greeky_widgets_init() {
 		'before_title'  => '<div class="widget-title col-caption"><span>',
 		'after_title'   => '</span></div>',
 		));
+    
+    
+    
 	register_sidebar(array(
 		'name' => esc_html__( 'Social Footer Widgets', 'greeky' ),
 		'id'            => 'greeky_social_footer',

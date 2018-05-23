@@ -22,13 +22,10 @@
     </head>
 
     <body <?php body_class(); ?>>
-
-
         <!--preload-->
         <div class="loader" id="page-loader">
         </div>
         <!--menu mobile-->
-
         <nav class="menu-res hidden-lg hidden-md ">
             <div class="menu-res-inner">
                 <?php wp_nav_menu(array(
@@ -38,27 +35,20 @@
         ); ?>
             </div>
         </nav>
-
-
         <!--page-->
         <div class="page">
             <div class="wrap">
                 <!--topbar-->
                 <div class="topbar">
-                    <div class="social">
-                        <a href="#">
-                        <i class="fa fa-facebook-f"></i>
-                    </a>
-                        <a href="#">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                        <a href="#">
-                        <i class="fa fa-youtube"></i>
-                    </a>
-                        <a href="#">
-                        <i class="fa fa-rss"></i>
-                    </a>
-                    </div>
+
+
+
+                    <?php if(is_active_sidebar('greeky_social'))
+                                {
+                                 dynamic_sidebar("greeky_social"); 
+                                }?>
+
+
                 </div>
                 <!--header-->
                 <header class="header">
@@ -84,16 +74,11 @@
                                 'menu_class'=>'hidden-sm hidden-xs',
                                 'container'=>'')
                                 ); ?>
-
-
                         </nav>
                         <div class="header-right">
-
-
                             <div class="search-box">
                                 <?php get_template_part( 'template/searchform' ); ?>
                             </div>
-
                             <div class="menu-icon hidden-lg hidden-md">
                                 <i class="ion-navicon"></i>
                             </div>

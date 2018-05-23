@@ -182,6 +182,34 @@
 
         });
 
+        $('.btn-link-swith').click(function () {
+
+
+            var text = $(this).text();
+
+
+            if (text == "已回覆")
+
+            {
+                $(this).text("回覆");
+                $(this).addClass("red")
+            } else if (text == "回覆") {
+                $(this).text("已回覆");
+                $(this).removeClass("red")
+            } else if (text == "已聯絡") {
+                $(this).text("未聯絡");
+                $(this).addClass("red")
+            } else if (text == "未聯絡") {
+                $(this).text("已聯絡");
+                $(this).removeClass("red")
+            }
+
+            return false;
+
+        });
+
+
+
 
 
         //analytics page

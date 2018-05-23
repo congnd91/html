@@ -112,6 +112,7 @@
 
 
                 }
+                return false;
             });
 
             $('.ml-caption').on('click', function () {
@@ -236,8 +237,11 @@
 
         db.scrollFixBar = function () {
 
+            if ($(".detail-bar").length) {
 
-            $(".detail-bar").stick_in_parent();
+                $(".detail-bar").stick_in_parent();
+            }
+
 
         }
 
