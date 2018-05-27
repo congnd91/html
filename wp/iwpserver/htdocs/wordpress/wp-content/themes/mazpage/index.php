@@ -14,38 +14,39 @@
 $mazpage_sidebar_position = get_theme_mod('sidebar_position');
 get_header(); ?>
 
-<?php
+    <?php
 if ( is_home() && is_active_sidebar( 'mazpage_home_big'))?>
-<?php dynamic_sidebar('mazpage_home_big'); ?>
-<!--cols-->
-<?php if($mazpage_sidebar_position=="left"):?>
-    <div class="cols sidebar-left">
-    <?php elseif($mazpage_sidebar_position=="none"):?>
-        <div class="cols cols-full">
-        <?php else:?>
-            <div class="cols">
-            <?php endif;?>
+        <?php dynamic_sidebar('mazpage_home_big'); ?>
+        <!--cols-->
 
-            <!--colleft-->
-            <div class="colleft">
-                <?php
+        <?php if($mazpage_sidebar_position=="left"):?>
+        <div class="cols sidebar-left">
+            <?php elseif($mazpage_sidebar_position=="none"):?>
+            <div class="cols cols-full">
+                <?php else:?>
+                <div class="cols">
+                    <?php endif;?>
+
+                    <!--colleft-->
+                    <div class="colleft">
+                        <?php
                 if (is_home() && is_active_sidebar('mazpage_home')){ ?>
-                <?php dynamic_sidebar('mazpage_home'); ?>
-                <?php
+                            <?php dynamic_sidebar('mazpage_home'); ?>
+                            <?php
             }
             else 
             {
                 if ( have_posts() ) { ?>
-              <div class="list-item-category">
+                                <div class="list-item-category">
 
-                <?php
+                                    <?php
                 /* Start the Loop */
                 while ( have_posts() ) : the_post();
                 get_template_part( 'loop/content', get_post_format() );
                 endwhile; ?>
-                 </div>
+                                </div>
 
-                <?php
+                                <?php
                 echo  mazpage_pagination();
             }
             else 
@@ -56,12 +57,12 @@ if ( is_home() && is_active_sidebar( 'mazpage_home_big'))?>
         }
         ?>
 
-    </div>
-    <!--colright-->
-    <div class="colright">
-    <?php get_sidebar(); ?>
-    </div>
-    <div class="clearfix"></div>
-</div>
-<?php
+                    </div>
+                    <!--colright-->
+                    <div class="colright">
+                        <?php get_sidebar(); ?>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <?php
 get_footer();
