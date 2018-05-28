@@ -19,7 +19,7 @@ html {
 
 body {
     font-family: $font-family-base;
-    min-width: 320px;
+    min-width: 360px;
     font-size: 1.4rem;
     color: $base-color-light;
     line-height: 1.5;
@@ -192,16 +192,41 @@ a {
 
 .header {
     background-color: #fff;
-    position: relative;
-    z-index: 9;
-    height: 120px;
-    @media screen and (max-width: 991px) {
-        height: 80px;
-    }
-    padding: 15px 0px 0px 0px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 9999;
+    transition: all ease 0.5s;
+    border-bottom: 1px solid #eee;
+
+
+    @media screen and (max-width: 991px) {}
+    padding: 20px 0px 20px 0px;
     a.logo {
         float: left;
         margin: 10px 0px 0px 0px;
+    }
+
+}
+
+body {
+    padding-top: 125px;
+
+    @media screen and (max-width: 991px) {
+        padding-top: 80px !important;
+        .header {
+            height: 80px !important;
+            padding: 20px 0px 20px 0px !important;
+        }
+
+    }
+}
+
+.body-scrolling {
+    padding-top: 95px;
+    .header {
+        padding: 5px 0px 5px 0px;
     }
 }
 
@@ -220,6 +245,24 @@ a {
     float: right;
     position: relative;
     z-index: 11;
+}
+
+.home-text {
+    float: left;
+    position: relative;
+    z-index: 9;
+    margin: 0px 40px 0px 0px;
+
+    @media screen and (max-width: 767px) {
+        margin: 0px 10px 0px 0px;
+    }
+
+    a {
+        font-size: 1.5rem;
+        line-height: 40px;
+        display: inline-block;
+        cursor: pointer;
+    }
 }
 
 .store-box {
@@ -407,13 +450,13 @@ a {
         padding: 0px;
         > li {
             float: left;
-            height: 60px;
+
             border-top: 2px solid transparent;
             > a {
                 display: block;
                 line-height: 30px;
                 font-family: arial;
-                font-size: 1.5rem;
+                font-size: 1.6rem;
                 line-height: 40px;
                 padding: 0px 30px;
                 font-weight: 500;
@@ -442,11 +485,12 @@ a {
                 // padding: 20px 0px 0px 0px;
                 // @include transition();
                 display: none;
+
                 .mega-row {
                     margin: 0px 7px;
                     .mega-col {
                         float: left;
-                        padding: 0px 7px 50px 0px;
+                        padding: 30px 7px 50px 0px;
                         width: 16.666666%;
                         .mega-item {
                             img {
@@ -459,7 +503,7 @@ a {
                             }
                             h3 {
                                 margin: 40px 0px 10px 0px;
-                                font-size: 2rem;
+                                font-size: 2.1rem;
                                 padding: 0px;
                                 color: #000;
                                 font-weight: normal;
@@ -469,13 +513,25 @@ a {
                                 }
                             }
                             p {
-                                font-size: 1.2rem;
+                                font-size: 1.3rem;
                                 margin: 0px;
                                 color: $base-color-lighter;
+                                padding: 0px 10px 0px 0px;
                                 @media screen and (max-width: 1199px) {
                                     display: none;
                                 }
                             }
+                            p.date {
+                                margin: 0px 0px 10px 0px;
+                                color: #969291;
+                            }
+                        }
+                    }
+                    &.mega-row4 {
+                        .mega-col {
+                            float: left;
+                            padding: 30px 7px 50px 0px;
+                            width: 25%
                         }
                     }
                 }
@@ -568,23 +624,48 @@ a {
     margin: 10px 0px 0px 5px;
 }
 
+.totop {
+    position: fixed;
+    z-index: 999;
+    bottom: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: $red;
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 17px;
+}
+
 @media screen and (max-width:991px) {
     .open-menu {
         overflow: hidden;
         .menu-res {
             transform: translateX(-0px);
         }
-        .page {
-            transform: translateX(-280px);
-            height: 100%;
+        .header .container {
+            left: -280px;
+
         }
+        .page {
+
+            height: 100%;
+            left: -280px;
+        }
+    }
+    .header .container {
+        position: relative;
+        @include transition();
     }
     .menu-res {
         width: 280px;
         background-color: #111;
         position: fixed;
         top: 0px;
-        z-index: 999;
+        z-index: 99999;
         overflow: auto;
         bottom: 0px;
         @include transition();
@@ -592,8 +673,9 @@ a {
         transform: translateX(280px);
     }
     .page {
-        transform: translateX(0px);
+        // transform: translateX(0px);
         @include transition();
+        position: relative;
     }
     .menu-res-inner {
         padding: 30px 20px 20px 20px;
@@ -942,7 +1024,13 @@ a {
                 color: #fff;
                 border: 1px solid $red-light;
             }
+            &.current {
+                background-color: $red-light;
+                color: #fff;
+                border: 1px solid $red-light;
+            }
         }
+
     }
 }
 
@@ -975,7 +1063,7 @@ a {
             }
             p {
                 margin: 20px 0px 0px 0px;
-                font-size: 1.3rem;
+                font-size: 1.4rem;
                 color: #fff;
                 font-family: arial;
             }
@@ -1587,7 +1675,7 @@ a {
                 border: none;
                 outline: none;
                 font-size: 1px;
-                color: transparent;
+                text-indent: -9999px;
                 background-color: transparent;
                 &:before {
                     font-family: 'Font Awesome 5 Free';
@@ -1614,7 +1702,7 @@ a {
                 border: none;
                 outline: none;
                 font-size: 1px;
-                color: transparent;
+                text-indent: -9999px;
                 background-color: transparent;
                 &:before {
                     font-family: 'Font Awesome 5 Free';
@@ -1654,6 +1742,13 @@ a {
     min-height: 60px;
     position: relative;
     z-index: 99;
+    &.is_stuck {
+        top: 90px !important;
+        @media screen and (max-width: 991px) {
+            top: 75px !important;
+        }
+    }
+
     ul {
         padding: 0px;
         margin: 0px;
@@ -2269,7 +2364,7 @@ a {
         }
         p {
             margin: 5px 0px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-family: arial;
         }
         img {
@@ -2311,3 +2406,94 @@ a {
 }
 
 .slider-miles {}
+
+.news-post {
+    padding: 60px 0px;
+    p {
+        margin: 15px 0px;
+        color: #333333;
+        font-size: 1.6rem;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 15px 0px;
+        color: #000000;
+        font-size: 3.2rem;
+        padding-bottom: 60px;
+        @media screen and (max-width: 991px) {
+            font-size: 2rem;
+            padding-bottom: 30px;
+        }
+    }
+}
+
+.news-post-bar {
+    margin-bottom: 60px;
+    @media screen and (max-width: 991px) {
+        margin-bottom: 30px;
+    }
+    text-align: right;
+    .news-post-bar-inner {
+        float: right;
+    }
+    span {
+        display: inline-block;
+        line-height: 30px;
+        color: #fff;
+        padding: 0px 14px;
+        background-color: #666666;
+        font-size: 1.6rem;
+        float: left;
+        margin: 0px 0px 10px 0px;
+
+    }
+    .social-items {
+        display: inline-block;
+        float: left;
+        @media screen and (max-width: 575px) {
+            float: none;
+            display: block;
+        }
+        a {
+            display: inline-block;
+            margin: 0px 0px 0px 10px;
+            @include transition();
+            float: left;
+            &:hover {
+                opacity: 0.9;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.modal.fade.in {
+    padding: 0px;
+}
+
+.news-post-bottom {
+    margin: 60px 0px 10px 0px;
+    padding: 20px 0px;
+    border-bottom: 1px solid $border-color;
+    border-top: 1px solid $border-color;
+    text-align: center;
+    a {
+        i {
+            color: #000;
+            margin: 0px 3px;
+        }
+        font-size: 1.4rem;
+        color: #333333;
+        cursor: pointer;
+        &.left {
+            float: left;
+        }
+        &.right {
+            float: right;
+        }
+        &:hover {
+            color: #000;
+        }
+    }
+}

@@ -228,7 +228,7 @@
 
 
                 $('html,body').animate({
-                    scrollTop: $(id).offset().top - 70
+                    scrollTop: $(id).offset().top - 160
                 }, 1000);
 
 
@@ -265,7 +265,30 @@
         }
 
 
+        db.fixedHeader = function () {
 
+            $('.totop').hide();
+            $(window).scroll(function () {
+                if ($(this).scrollTop() >= 50) {
+                    $('body').addClass("body-scrolling");
+                    $('.totop').fadeIn();
+                } else {
+                    $('body').removeClass("body-scrolling");
+                    $('.totop').fadeOut();
+                }
+            });
+
+            $(".totop").click(function () {
+
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 1000);
+            });
+
+
+
+
+        }
 
 
 
@@ -284,5 +307,6 @@
         db.sliderMiles();
         db.scroll();
         db.scrollFixBar();
+        db.fixedHeader();
     });
 })(jQuery);

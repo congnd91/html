@@ -137,30 +137,12 @@
         }
 
 
-        db.sliderProduct = function () {
-            if ($('.slider-for').length) {
-                $('.slider-for').slick({
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                    fade: true,
-                    asNavFor: '.slider-nav'
-                });
-                $('.slider-nav').slick({
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    asNavFor: '.slider-for',
 
-
-                    focusOnSelect: true
-                });
-            }
-
-        }
 
         db.matchHeight = function () {
             if ($('.news-item').length) {
-                $('.news-item').matchHeight();
+                $('.news-item h3').matchHeight();
+                $('.news-item p').matchHeight();
             }
 
         }
@@ -177,73 +159,6 @@
         }
 
 
-        db.sliderMiles = function () {
-            var owl_miles = $('.owl-miles');
-            if ($(owl_miles).length) {
-                $(owl_miles).owlCarousel({
-                    loop: true,
-                    margin: 0,
-                    nav: true,
-                    autoplay: false,
-                    navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
-
-                    responsive: {
-
-                        0: {
-                            items: 1,
-                        },
-
-                        576: {
-                            items: 2,
-                        },
-
-                        768: {
-                            items: 3,
-
-                        },
-                        991: {
-                            items: 4,
-
-                        }
-                    }
-
-
-                });
-            }
-
-        }
-
-        db.scroll = function () {
-
-
-
-
-
-            $(".detail-bar ul li").click(function () {
-
-                $(".detail-bar ul li").removeClass("active");
-                var that = this;
-                var id = $(that).attr("data-id");
-                $(that).addClass("active");
-
-
-                $('html,body').animate({
-                    scrollTop: $(id).offset().top - 70
-                }, 1000);
-
-
-            });
-        }
-
-        db.scrollFixBar = function () {
-
-            if ($(".detail-bar").length) {
-
-                $(".detail-bar").stick_in_parent();
-            }
-
-
-        }
 
         db.homeSlider = function () {
 
@@ -257,7 +172,25 @@
                     navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
                     autoplay: true,
                     items: 1,
-                    animateOut: 'fadeOut'
+                    smartSpeed: 700
+
+                });
+            }
+
+        }
+        db.applicationSlider = function () {
+
+
+            var owl_application = $('.owl-application');
+            if ($(owl_application).length) {
+                $(owl_application).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: false,
+                    navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+                    autoplay: true,
+                    items: 1,
+                    smartSpeed: 700
 
                 });
             }
@@ -272,13 +205,14 @@
         db.preLoad();
         db.hoverMenu();
         db.homeSlider();
+        db.applicationSlider();
+
         db.search();
         db.menuLeft();
         db.menuAccordion();
         db.menuResponsive();
         db.chat();
         db.accordion();
-        db.sliderProduct();
         db.matchHeight();
         db.newsDetail();
         db.sliderMiles();

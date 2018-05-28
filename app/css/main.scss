@@ -11,7 +11,12 @@ body {}
 
     z-index: 999;
     padding: 0px 15px;
+    display: block !important;
 
+}
+
+.header-content-wrapper {
+    display: block !important;
 }
 
 .header-spacer {
@@ -91,6 +96,10 @@ body {}
 
 .nd-cols {
     padding: 0px 0px 0px 330px;
+
+    @media screen and (max-width: 991px) {
+        padding: 0px;
+    }
     .nd-colleft {
         float: left;
         width: 300px;
@@ -100,6 +109,11 @@ body {}
         border-radius: 5px;
         border: 1px solid #e6ecf5;
         margin-bottom: 15px;
+        @media screen and (max-width: 991px) {
+            float: none;
+            width: 100%;
+            margin: 0px;
+        }
     }
     .nd-right {
         float: left;
@@ -109,6 +123,12 @@ body {}
         border-radius: 5px;
         border: 1px solid #e6ecf5;
         margin-bottom: 15px;
+
+        @media screen and (max-width: 991px) {
+            float: none;
+            width: 100%;
+            margin-top: 15px;
+        }
 
     }
 }
@@ -164,6 +184,23 @@ body {}
         line-height: 28px;
         opacity: 0.6;
 
+    }
+}
+
+.nd-add {
+
+    p {
+        margin: 10px 0px 5px 0px;
+        padding: 0px;
+        font-size: 12px;
+
+    }
+
+    input {
+        padding: 0px 10px 0px 10px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 12px;
     }
 }
 
@@ -228,7 +265,7 @@ body {}
 .nd-result-bar {
     padding-bottom: 15px;
     border-bottom: 1px solid #e6ecf5;
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 0px 0px;
     .nd-search {
         float: left;
         min-width: 300px;
@@ -249,4 +286,130 @@ body {}
 
 .clearfix {
     clear: both;
+}
+
+.nd-result-controls {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e6ecf5;
+    padding: 10px 0px;
+    .nd-check {
+        float: left;
+        margin: 0px 0px 0px 10px;
+    }
+    .ndr-item {
+        float: left;
+        margin: 0px 10px 0px 0px;
+        line-height: 20px;
+        .ndr-icon {
+            line-height: 20px;
+            svg {
+
+                width: 25px;
+
+            }
+            &:hover {
+                cursor: pointer;
+
+                svg {
+                    color: #ff5e3a;
+                }
+            }
+
+
+        }
+        .ndr-tag {
+            line-height: 20px;
+            padding: 0px 10px;
+            font-weight: 600;
+            font-size: 13px;
+            background-color: #9a9fbf;
+            color: #fff;
+            &.active {
+                color: #fff;
+                background-color: #ff5e3a;
+            }
+        }
+    }
+}
+
+.nd-result-scroll {
+    max-height: 500px;
+    overflow: auto;
+}
+
+.nd-table {
+    width: 100%;
+    tr {
+        border-bottom: 1px solid #e6ecf5;
+    }
+    td {
+        padding: 10px;
+        &.text-left {
+            text-align: left;
+        }
+    }
+}
+
+.nd-tag {
+    border-radius: 3px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #E04537;
+    min-width: 50px;
+    padding: 3px 0px;
+    text-align: center;
+    display: inline-block;
+    &.cp {
+        background-color: #333;
+    }
+
+}
+
+.nd-number {
+    border-radius: 20px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #ccc;
+    min-width: 30px;
+    padding: 3px 0px;
+    text-align: center;
+    display: inline-block;
+}
+
+.ndt-info {
+    h4 {
+        font-size: 13px;
+        font-weight: 600;
+        margin: 0px;
+        padding: 0px;
+    }
+    .ndt-info-control {
+        padding: 5px 0px 0px 0px;
+
+
+    }
+}
+
+.ndt-icon {
+    float: left;
+    margin: 0px 10px 0px 0px;
+    height: 20px;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    i {}
+    svg {
+
+        width: 15px;
+        height: auto;
+    }
+    &.large {
+        height: auto;
+        svg {
+            width: 17px;
+            height: auto;
+        }
+    }
 }
