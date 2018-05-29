@@ -98,21 +98,22 @@
             });
         }
         db.menuLeft = function () {
-            $('.ml-ul > li > a').on('click', function () {
+            $('.ml-ul > li > a > span').on('click', function (event) {
+                event.preventDefault()
 
-
-                var child = $(this).next();
+                var child = $(this).parent().next();
                 if ($(child).is(":visible")) {
                     $(child).slideUp();
-                    $(this).removeClass("active");
+                    $(this).parent().removeClass("active");
 
                 } else {
                     $(child).slideDown();
-                    $(this).addClass("active");
+                    $(this).parent().addClass("active");
 
 
                 }
-                return false;
+
+
             });
 
             $('.ml-caption').on('click', function () {
@@ -243,6 +244,38 @@
             }
 
 
+            function isMobileWidth() {
+                return $('#mobile-indicator').is(':visible');
+            }
+
+
+
+            $(window).bind('resize', function () {
+
+
+
+                if (isMobileWidth()) {
+                    console.log("m");
+                    $(".pp-left").trigger("sticky_kit:detach");
+                } else {
+                    console.log("d");
+                    make_sticky();
+                }
+
+            }).trigger('resize');
+
+            function make_sticky() {
+                if ($(".pp-left").length) {
+
+                    $(".pp-left").stick_in_parent({
+
+                        offset_top: 100
+                    });
+                }
+            }
+
+
+
         }
 
         db.homeSlider = function () {
@@ -290,6 +323,14 @@
 
         }
 
+        db.gender = function () {
+            $('.c-text').on('click', function () {
+                $('.c-text').removeClass("active");
+                $(this).addClass("active");
+            });
+
+        }
+
 
 
         db.preLoad();
@@ -308,5 +349,6 @@
         db.scroll();
         db.scrollFixBar();
         db.fixedHeader();
+        db.gender();
     });
 })(jQuery);
