@@ -98,17 +98,19 @@
             });
         }
         db.menuLeft = function () {
-            $('.ml-ul > li > a > span').on('click', function (event) {
-                event.preventDefault()
+            $('.ml-ul > li > a > div >span').on('click', function (event) {
 
-                var child = $(this).parent().next();
+                event.preventDefault();
+
+
+                var child = $(this).parents("a").next();
                 if ($(child).is(":visible")) {
                     $(child).slideUp();
-                    $(this).parent().removeClass("active");
+                    $(this).parents("a").removeClass("active");
 
                 } else {
                     $(child).slideDown();
-                    $(this).parent().addClass("active");
+                    $(this).parents("a").addClass("active");
 
 
                 }
