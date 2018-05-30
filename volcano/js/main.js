@@ -179,6 +179,23 @@
 
         }
 
+        db.videoControl = function () {
+            $('.vb-control a').on('click', function () {
+
+                var id = $(this).attr("data-id");
+                $('.video-box-content').hide();
+                $(id).show();
+                $('.vb-control a').removeClass("current");
+                $(this).addClass("current");
+
+
+                return false;
+            });
+
+
+
+        }
+
 
         db.sliderMiles = function () {
             var owl_miles = $('.owl-miles');
@@ -250,17 +267,28 @@
                 return $('#mobile-indicator').is(':visible');
             }
 
+            var url = window.location.href.split('#')[1];
 
+            if (isMobileWidth()) {
+
+                $("html, body").delay(500).animate({
+                    scrollTop: $("#" + url).offset().top - 100
+                }, 1000);
+            }
 
             $(window).bind('resize', function () {
 
 
 
                 if (isMobileWidth()) {
-                    console.log("m");
+
                     $(".pp-left").trigger("sticky_kit:detach");
+
+
+
+
                 } else {
-                    console.log("d");
+
                     make_sticky();
                 }
 
@@ -337,6 +365,7 @@
 
         db.preLoad();
         db.hoverMenu();
+        db.videoControl();
         db.homeSlider();
         db.search();
         db.menuLeft();
