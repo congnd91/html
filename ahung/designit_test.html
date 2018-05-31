@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DesignIt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div>
+        <div class="db-btn-design-me" data-db-width="400" data-db-height="600" data-db-unit="px" data-db-title="Design IT" data-db-doctype="social-media"> </div>
+    </div>
+
+    <div class="preview-img" id="preview-img">
+    </div>
+
+    <script>
+        window.DBSDK_Cfg = {
+            export_mode: ['publish', 'preview'],
+            export_callback: function(resultUrl, exportTarget) {
+                var img = $('<img id="dynamic">');
+                $(document.createElement('img'))
+                img.attr('src', resultUrl);
+                img.appendTo('#preview-img');
+            }
+        };
+
+    </script>
+
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://sdk.designbold.com/button.js#app_id=08b68556d3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'db-js-sdk'));
+
+    </script>
+    <script src="js/jquery.min.js"></script>
+</body>
+
+</html>
