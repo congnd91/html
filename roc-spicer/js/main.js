@@ -40,7 +40,20 @@
                 });
             }
         }
+        db.menuMobile = function () {
+            $('.menu-icon').click(function () {
+
+                $("body").addClass("show-menu");
+            });
+            $('.mm-close').click(function () {
+
+                $("body").removeClass("show-menu");
+            });
+
+        }
+
         db.preLoad();
+        db.menuMobile();
         db.homeSlider();
         db.applicationSlider();
         db.matchHeight();
