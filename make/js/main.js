@@ -162,8 +162,8 @@
         }
 
         db.matchHeight = function () {
-            if ($('.news-item').length) {
-                $('.news-item').matchHeight();
+            if ($('.post-item').length) {
+                $('.post-item').matchHeight();
             }
 
         }

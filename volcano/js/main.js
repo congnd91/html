@@ -165,6 +165,16 @@
             if ($('.news-item').length) {
                 $('.news-item').matchHeight();
             }
+            if ($('.pp-item').length) {
+                $('.pp-item').matchHeight();
+            }
+
+
+
+
+
+
+
 
         }
 
@@ -201,7 +211,7 @@
             var owl_miles = $('.owl-miles');
             if ($(owl_miles).length) {
                 $(owl_miles).owlCarousel({
-                    loop: true,
+                    loop: false,
                     margin: 0,
                     nav: true,
                     autoplay: false,
@@ -225,10 +235,29 @@
                             items: 4,
 
                         }
-                    }
+                    },
+
+                    onRefreshed: callback
+
+
 
 
                 });
+
+
+            }
+
+            function callback() {
+
+                var maxHeight = 0;
+                $('.mi-box').each(function () {
+                    var thisH = $(this).height();
+                    if (thisH > maxHeight) {
+                        maxHeight = thisH;
+                    }
+                });
+                $('.mi-box').css("min-height", maxHeight + "px");
+                console.log(maxHeight);
             }
 
         }
