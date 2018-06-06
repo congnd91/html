@@ -89,12 +89,18 @@
         }
 
         db.search = function () {
-            $('.search-form input').focus(function () {
+            $('.search-form').click(function (event) {
+                event.stopPropagation();
                 $('.search-box').addClass("show");
             });
 
-            $('.search-form input').blur(function () {
+            $('body').click(function () {
+
                 $('.search-box').removeClass("show");
+            });
+            $('.search-form button').click(function (event) {
+                $('.search-box').removeClass("show");
+
             });
         }
         db.menuLeft = function () {
