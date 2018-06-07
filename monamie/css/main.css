@@ -297,7 +297,40 @@ iframe {
 
 /*==========homepage=========*/
 .home-slider {
-  margin: 0px 0px 40px 0px; }
+  margin: 0px 0px 40px 0px;
+  position: relative; }
+  .home-slider .owl-prev {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: -20px 0px 0px;
+    background-color: rgba(255, 255, 255, 0.4);
+    line-height: 40px;
+    text-align: center;
+    transition: all ease 0.3s;
+    font-size: 20px;
+    color: #000; }
+    .home-slider .owl-prev:hover {
+      background-color: #fff; }
+  .home-slider .owl-next {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: -20px 0px 0px;
+    background-color: rgba(255, 255, 255, 0.7);
+    line-height: 40px;
+    text-align: center;
+    transition: all ease 0.3s;
+    font-size: 20px;
+    color: #000; }
+    .home-slider .owl-next:hover {
+      background-color: #fff; }
 
 body .nicescroll-rails.nicescroll-rails-vr {
   background-color: #ddd !important;
@@ -326,16 +359,16 @@ body .nicescroll-cursors {
 .popular-slider {
   padding: 0px 40px; }
   .popular-slider .owl-prev {
-    width: 30px;
+    width: 20px;
     height: 50px;
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: -40px;
     margin: -25px 0px 0px 0px;
     background-image: url(../images/icon/ico-previous.svg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 30px auto;
+    background-size: 20px auto;
     text-indent: -9999px;
     transition: all ease 0.3s; }
     @media screen and (max-width: 991px) {
@@ -343,27 +376,22 @@ body .nicescroll-cursors {
         width: 20px;
         background-size: 20px auto; } }
   .popular-slider .owl-next {
-    width: 30px;
+    width: 20px;
     height: 50px;
     position: absolute;
-    top: 30%;
+    top: 40%;
     right: -40px;
     margin: -25px 0px 0px 0px;
     background-image: url(../images/icon/ico-next.svg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 30px auto;
+    background-size: 20px auto;
     text-indent: -9999px;
     transition: all ease 0.3s; }
-    @media screen and (max-width: 991px) {
-      .popular-slider .owl-next {
-        width: 20px;
-        background-size: 20px auto; } }
   .popular-slider .disabled {
     opacity: 0.6; }
 
 .popular-item {
-  max-width: 160px;
   margin: 0px auto; }
   .popular-item .pi-img {
     margin: 0px 0px 10px 0px;
@@ -371,20 +399,22 @@ body .nicescroll-cursors {
     overflow: hidden;
     text-align: center; }
     .popular-item .pi-img img {
-      max-width: 100%; }
-    .popular-item .pi-img .add-review {
+      max-width: 100%;
+      transition: all ease 0.5s; }
+    .popular-item .pi-img .add-cart {
       position: absolute;
       bottom: 0px;
       left: 0px;
       right: 0px;
       display: block;
-      line-height: 30px;
-      background-color: rgba(235, 235, 235, 0.7);
+      line-height: 40px;
+      background-color: rgba(0, 0, 0, 0.8);
       text-align: center;
       transition: all ease 0.3s;
-      transform: translateY(100%); }
-      .popular-item .pi-img .add-review:hover {
-        background-color: #ebebeb; }
+      transform: translateY(100%);
+      color: #fff; }
+      .popular-item .pi-img .add-cart:hover {
+        background-color: black; }
   .popular-item .pi-desciption h3 {
     margin: 0px 0px 5px 0px; }
     .popular-item .pi-desciption h3 a {
@@ -421,7 +451,13 @@ body .nicescroll-cursors {
       top: -4px;
       font-style: normal;
       margin: 0px 0px 0px 2px; }
-  .popular-item:hover .pi-img .add-review {
+  .popular-item .pi-desciption p.price {
+    color: #bc6d05;
+    font-size: 1.6rem;
+    font-weight: 700; }
+  .popular-item:hover .pi-img img {
+    transform: scale(1.1); }
+  .popular-item:hover .pi-img .add-cart {
     transform: translateY(0%); }
 
 .product-box {
@@ -582,10 +618,13 @@ body .nicescroll-cursors {
   .news-box h2 {
     text-align: left;
     font-weight: 700;
-    font-size: 2.4rem;
-    margin: 0px 0px 20px 0px;
+    font-size: 2.3rem;
+    margin: 0px 0px 10px 0px;
     text-transform: uppercase;
-    padding: 0px; }
+    color: #000;
+    border-top: 3px solid #000;
+    padding: 10px 0px;
+    border-bottom: 1px dashed #000; }
     @media screen and (max-width: 991px) {
       .news-box h2 {
         font-size: 2rem; } }
@@ -594,135 +633,59 @@ body .nicescroll-cursors {
   border-top: 1px solid #dddddd;
   padding: 30px 0px; }
 
-.recently-item {
-  border-top: 1px solid #dddddd;
-  padding: 30px 0px; }
-  .recently-item .ri-product {
-    text-align: center;
-    margin: 0px 0px 15px 0px; }
-    .recently-item .ri-product h3 {
-      margin: 20px 0px 10px 0px;
-      text-transform: uppercase; }
-      .recently-item .ri-product h3 a {
-        font-weight: 700;
-        font-size: 1.4rem;
-        transition: color ease 0.3s; }
-        .recently-item .ri-product h3 a:hover {
-          color: #bc6d05; }
-    .recently-item .ri-product p {
-      margin: 0px;
-      padding: 0px;
-      font-size: 1.2rem; }
-
-.review-bar .rb-left {
-  float: left;
-  padding: 0px 0px 0px 55px; }
-  .review-bar .rb-left .rb-avatar {
+.news-item {
+  border-bottom: 1px solid #dddddd;
+  padding: 20px 0px 20px 200px; }
+  .news-item .ni-img {
     float: left;
-    width: 40px;
-    height: 40px;
-    margin: 0px 0px 0px -55px;
-    border-radius: 50%;
-    background-color: #939393; }
-  .review-bar .rb-left p {
-    font-size: 1.2rem;
-    font-style: italic;
-    margin: 0px 0px 0px 0px;
-    color: #7e7e7e; }
-    .review-bar .rb-left p a {
-      color: #000;
-      font-size: 1.2rem;
-      font-style: normal;
+    width: 180px;
+    margin: 0px 0px 0px -200px;
+    overflow: hidden; }
+    .news-item .ni-img img {
+      transition: all ease 0.5s; }
+    .news-item .ni-img:hover img {
+      transform: scale(1.1); }
+  .news-item h3 {
+    margin: 0px;
+    padding: 0px; }
+    .news-item h3 a {
+      font-size: 1.6rem;
       font-weight: 700;
-      text-transform: uppercase;
-      transition: color ease 0.3s; }
-      .review-bar .rb-left p a:hover {
+      transition: all ease 0.3s; }
+      .news-item h3 a:hover {
         color: #bc6d05; }
-
-.review-bar .rb-right {
-  float: right; }
-  .review-bar .rb-right .pi-rate {
-    margin: 0px 0px 0px 0px; }
-    .review-bar .rb-right .pi-rate span {
-      display: inline-block;
-      background-image: url(../images/icon/ico-star-pink.svg);
-      width: 18px;
-      height: 18px;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 18px 18px;
-      margin: 0px 1px 0px 0px; }
-      .review-bar .rb-right .pi-rate span.star-gray {
-        background-image: url(../images/icon/ico-star-grey.svg); }
-    .review-bar .rb-right .pi-rate em {
-      color: #7e7e7e;
-      display: inline-block;
-      line-height: 18px;
-      height: 18px;
-      position: relative;
-      top: -4px;
-      font-style: normal;
-      margin: 0px 0px 0px 2px; }
-
-.review-text {
-  margin: 10px 0px 0px 0px; }
-  .review-text p {
-    margin: 0px; }
-  .review-text a {
-    color: #4999d6;
-    text-decoration: underline; }
+  .news-item p {
+    margin: 10px 0px 0px 0px; }
 
 .news-right {
   padding: 0px 0px 0px 40px; }
   @media screen and (max-width: 991px) {
     .news-right {
       padding: 0px; } }
-  .news-right .feature-item {
-    padding: 0px 0px 0px 180px;
-    min-height: 120px;
-    margin: 0px 0px 30px 0px; }
-    .news-right .feature-item img {
-      width: 160px;
-      margin: 0px 0px 0px -180px;
-      float: left; }
-    .news-right .feature-item h3 {
-      font-size: 1.6rem;
-      margin: 0px;
+  .news-right .box-md {
+    padding: 20px;
+    background-color: #000; }
+    .news-right .box-md h3 {
+      margin: 0px 0px 20px 0px;
+      color: #fff;
       padding: 0px;
-      font-weight: 600;
-      transition: color ease 0.3s; }
-    .news-right .feature-item:hover h3 {
-      color: #bc6d05; }
-
-.recent-activities {
-  padding: 30px;
-  background-color: #fff9fb; }
-  .recent-activities h2 {
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 0px;
-    padding: 10px 0px 40px 0px; }
-  .recent-activities .ra-item {
-    padding: 15px 0px;
-    border-top: 1px dotted #dddddd; }
-    .recent-activities .ra-item p {
-      margin: 0px 0px 5px 0px;
-      font-size: 1.2rem; }
-      .recent-activities .ra-item p a {
-        font-weight: 700;
-        transition: color ease 0.3s; }
-        .recent-activities .ra-item p a:hover {
-          color: #bc6d05; }
-    .recent-activities .ra-item em {
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-align: center; }
+  .news-right .box-qc {
+    margin: 20px 0px 0px 0px; }
+    .news-right .box-qc img {
       display: block;
-      font-size: 1.2rem;
-      color: #7e7e7e; }
+      margin: 0px auto 20px auto; }
+    .news-right .box-qc a {
+      transition: all ease 0.3s;
+      display: block; }
+      .news-right .box-qc a:hover {
+        opacity: 0.8; }
 
 /*==========footer=========*/
 .footer {
-  background-color: #fff9fb;
+  background-color: #000;
   padding: 60px 0px;
   text-align: center; }
   .footer .subcribe {
@@ -778,19 +741,25 @@ body .nicescroll-cursors {
           font-size: 1.2rem;
           text-transform: uppercase;
           font-weight: 700;
-          transition: color ease 0.3s; }
+          transition: color ease 0.3s;
+          color: #fff;
+          opacity: 0.8; }
           .footer .menu-footer ul li a:hover {
-            color: #bc6d05; }
+            opacity: 1; }
           @media screen and (max-width: 991px) {
             .footer .menu-footer ul li a {
               padding: 0px 10px; } }
   .footer .social-footer {
-    text-align: center; }
+    text-align: center;
+    margin: 10px 0px 20px 0px; }
     .footer .social-footer a {
-      margin: 0px 10px 0px 0px;
-      transition: opacity ease 0.3s; }
+      margin: 0px 10px 0px 10px;
+      transition: all ease 0.3s;
+      color: #fff;
+      font-size: 16px;
+      opacity: 0.8; }
       .footer .social-footer a:hover {
-        opacity: 0.8; }
+        opacity: 1; }
     .footer .social-footer img {
       width: 40px; }
 

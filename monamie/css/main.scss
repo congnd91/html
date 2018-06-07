@@ -394,6 +394,47 @@ iframe {
 
 .home-slider {
     margin: 0px 0px 40px 0px;
+    position: relative;
+    .owl-prev {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: -20px 0px 0px;
+        background-color: rgba(255, 255, 255, 0.4);
+        line-height: 40px;
+        text-align: center;
+        transition: all ease 0.3s;
+
+        font-size: 20px;
+        color: #000;
+        &:hover {
+            background-color: #fff;
+        }
+
+    }
+    .owl-next {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: -20px 0px 0px;
+        background-color: rgba(255, 255, 255, 0.7);
+        line-height: 40px;
+        text-align: center;
+        transition: all ease 0.3s;
+
+        font-size: 20px;
+        color: #000;
+        &:hover {
+            background-color: #fff;
+        }
+
+    }
 }
 
 body .nicescroll-rails.nicescroll-rails-vr {
@@ -427,16 +468,16 @@ body .nicescroll-cursors {
 .popular-slider {
     padding: 0px 40px;
     .owl-prev {
-        width: 30px;
+        width: 20px;
         height: 50px;
         position: absolute;
-        top: 30%;
+        top: 40%;
         left: -40px;
         margin: -25px 0px 0px 0px;
         background-image: url(../images/icon/ico-previous.svg);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 30px auto;
+        background-size: 20px auto;
         text-indent: -9999px;
         transition: all ease 0.3s;
         @media screen and (max-width: 991px) {
@@ -445,22 +486,19 @@ body .nicescroll-cursors {
         }
     }
     .owl-next {
-        width: 30px;
+        width: 20px;
         height: 50px;
         position: absolute;
-        top: 30%;
+        top: 40%;
         right: -40px;
         margin: -25px 0px 0px 0px;
         background-image: url(../images/icon/ico-next.svg);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 30px auto;
+        background-size: 20px auto;
         text-indent: -9999px;
         transition: all ease 0.3s;
-        @media screen and (max-width: 991px) {
-            width: 20px;
-            background-size: 20px auto;
-        }
+
     }
     .disabled {
         opacity: 0.6;
@@ -468,7 +506,7 @@ body .nicescroll-cursors {
 }
 
 .popular-item {
-    max-width: 160px;
+
     margin: 0px auto;
     .pi-img {
         margin: 0px 0px 10px 0px;
@@ -476,21 +514,28 @@ body .nicescroll-cursors {
         overflow: hidden;
         img {
             max-width: 100%;
+            transition: all ease 0.5s;
+
+
         }
         text-align: center;
-        .add-review {
+        .add-cart {
             position: absolute;
             bottom: 0px;
             left: 0px;
             right: 0px;
             display: block;
-            line-height: 30px;
-            background-color: rgba(#ebebeb, 0.7);
+            line-height: 40px;
+            background-color: rgba(0, 0, 0, 0.8);
             text-align: center;
+
             transition: all ease 0.3s;
             transform: translateY(100%);
+            color: #fff;
+
+
             &:hover {
-                background-color: rgba(#ebebeb, 1);
+                background-color: rgba(0, 0, 0, 1);
             }
         }
     }
@@ -540,10 +585,20 @@ body .nicescroll-cursors {
                 margin: 0px 0px 0px 2px;
             }
         }
+
+        p.price {
+            color: $active-color;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
     }
     &:hover {
         .pi-img {
-            .add-review {
+            img {
+                transform: scale(1.1);
+
+            }
+            .add-cart {
                 transform: translateY(0%);
             }
         }
@@ -748,10 +803,15 @@ body .nicescroll-cursors {
     h2 {
         text-align: left;
         font-weight: 700;
-        font-size: 2.4rem;
-        margin: 0px 0px 20px 0px;
+        font-size: 2.3rem;
+        margin: 0px 0px 10px 0px;
         text-transform: uppercase;
-        padding: 0px;
+        color: #000;
+
+        border-top: 3px solid #000;
+        padding: 10px 0px;
+        border-bottom: 1px dashed #000;
+
         @media screen and (max-width: 991px) {
             font-size: 2rem;
         }
@@ -763,102 +823,43 @@ body .nicescroll-cursors {
     padding: 30px 0px;
 }
 
-.recently-item {
-    border-top: 1px solid $border-color;
-    padding: 30px 0px;
-    .ri-product {
-        text-align: center;
-        margin: 0px 0px 15px 0px;
-        h3 {
-            margin: 20px 0px 10px 0px;
-            text-transform: uppercase;
-            a {
-                font-weight: 700;
-                font-size: 1.4rem;
-                transition: color ease 0.3s;
-                &:hover {
-                    color: $active-color;
-                }
-            }
-        }
-        p {
-            margin: 0px;
-            padding: 0px;
-            font-size: 1.2rem;
-        }
-    }
-}
 
-.review-bar {
-    .rb-left {
+.news-item {
+
+    border-bottom: 1px solid $border-color;
+    padding: 20px 0px 20px 200px;
+    .ni-img {
         float: left;
-        padding: 0px 0px 0px 55px;
-        .rb-avatar {
-            float: left;
-            width: 40px;
-            height: 40px;
-            margin: 0px 0px 0px -55px;
-            border-radius: 50%;
-            background-color: #939393;
-        }
-        p {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin: 0px 0px 0px 0px;
-            color: $text-color;
-            a {
-                color: #000;
-                font-size: 1.2rem;
-                font-style: normal;
-                font-weight: 700;
-                text-transform: uppercase;
-                transition: color ease 0.3s;
-                &:hover {
-                    color: $active-color;
-                }
-            }
-        }
-    }
-    .rb-right {
-        float: right;
-        .pi-rate {
-            margin: 0px 0px 0px 0px;
-            span {
-                display: inline-block;
-                background-image: url(../images/icon/ico-star-pink.svg);
-                width: 18px;
-                height: 18px;
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-size: 18px 18px;
-                margin: 0px 1px 0px 0px;
-                &.star-gray {
-                    background-image: url(../images/icon/ico-star-grey.svg);
-                }
-            }
-            em {
-                color: $text-color;
-                display: inline-block;
-                line-height: 18px;
-                height: 18px;
-                position: relative;
-                top: -4px;
-                font-style: normal;
-                margin: 0px 0px 0px 2px;
-            }
-        }
-    }
-}
+        width: 180px;
+        margin: 0px 0px 0px -200px;
+        overflow: hidden;
+        img {
+            transition: all ease 0.5s;
 
-.review-text {
-    margin: 10px 0px 0px 0px;
-    p {
+        }
+        &:hover {
+            img {
+
+                transform: scale(1.1);
+            }
+        }
+    }
+    h3 {
         margin: 0px;
+        padding: 0px;
+        a {
+            font-size: 1.6rem;
+            font-weight: 700;
+            transition: all ease 0.3s;
+            &:hover {
+                color: $active-color;
+            }
+        }
     }
-    a {
-        color: $active-color-second;
-        text-decoration: underline;
+    p {
+        margin: 10px 0px 0px 0px;
     }
+
 }
 
 .news-right {
@@ -866,67 +867,41 @@ body .nicescroll-cursors {
     @media screen and (max-width: 991px) {
         padding: 0px;
     }
-    .feature-item {
-        padding: 0px 0px 0px 180px;
-        min-height: 120px;
-        margin: 0px 0px 30px 0px;
-        img {
-            width: 160px;
-            margin: 0px 0px 0px -180px;
-            float: left;
-        }
+
+    .box-md {
+        padding: 20px;
+        background-color: #000;
         h3 {
-            font-size: 1.6rem;
-            margin: 0px;
+            margin: 0px 0px 20px 0px;
+            color: #fff;
             padding: 0px;
-            font-weight: 600;
-            transition: color ease 0.3s;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
         }
-        &:hover {
-            h3 {
-                color: $active-color;
+    }
+    .box-qc {
+        margin: 20px 0px 0px 0px;
+        img {
+            display: block;
+            margin: 0px auto 20px auto;
+        }
+        a {
+            transition: all ease 0.3s;
+            display: block;
+            &:hover {
+                opacity: 0.8;
             }
         }
     }
 }
 
-.recent-activities {
-    padding: 30px;
-    background-color: #fff9fb;
-    h2 {
-        text-align: center;
-        font-size: 1.8rem;
-        font-weight: 700;
-        text-align: center;
-        margin: 0px;
-        padding: 10px 0px 40px 0px;
-    }
-    .ra-item {
-        padding: 15px 0px;
-        border-top: 1px dotted $border-color;
-        p {
-            margin: 0px 0px 5px 0px;
-            font-size: 1.2rem;
-            a {
-                font-weight: 700;
-                transition: color ease 0.3s;
-                &:hover {
-                    color: $active-color;
-                }
-            }
-        }
-        em {
-            display: block;
-            font-size: 1.2rem;
-            color: $text-color;
-        }
-    }
-}
+
 
 /*==========footer=========*/
 
 .footer {
-    background-color: #fff9fb;
+    background-color: #000;
     padding: 60px 0px;
     text-align: center;
     .subcribe {
@@ -987,8 +962,10 @@ body .nicescroll-cursors {
                     text-transform: uppercase;
                     font-weight: 700;
                     transition: color ease 0.3s;
+                    color: #fff;
+                    opacity: 0.8;
                     &:hover {
-                        color: $active-color;
+                        opacity: 1;
                     }
                     @media screen and (max-width: 991px) {
                         padding: 0px 10px;
@@ -999,11 +976,16 @@ body .nicescroll-cursors {
     }
     .social-footer {
         text-align: center;
+        margin: 10px 0px 20px 0px;
         a {
-            margin: 0px 10px 0px 0px;
-            transition: opacity ease 0.3s;
+
+            margin: 0px 10px 0px 10px;
+            transition: all ease 0.3s;
+            color: #fff;
+            font-size: 16px;
+            opacity: 0.8;
             &:hover {
-                opacity: 0.8;
+                opacity: 1;
             }
         }
         img {
