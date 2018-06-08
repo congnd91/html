@@ -243,7 +243,9 @@
                         }
                     },
 
-                    onRefreshed: callback
+                    onRefreshed: callback,
+
+                    //onResized: callback
 
 
 

@@ -49,6 +49,13 @@
                     autohidemode: 'leave'
                 });
             }
+            if ($('.acc-brands-scroll').length) {
+                $('.acc-brands-scroll').niceScroll({
+
+                    autohidemode: 'leave'
+                });
+            }
+
 
 
         }
@@ -71,7 +78,30 @@
                 $(".review-search").removeClass("show-suggestion");
             });
         }
+        db.filterAccordion = function () {
+            $('.acc-caption').on('click', function () {
+                var content = $(this).next(".acc-content");
+                if ($(content).is(":visible")) {
+                    $(this).removeClass("open");
+                    $(content).stop(true, true).slideUp(300);
 
+                    $(".acc-brands-scroll").getNiceScroll().hide();
+
+                    setTimeout(function () {
+
+                        $(".acc-brands-scroll").getNiceScroll().resize();
+                    }, 300);
+
+                } else {
+                    $(content).stop(true, true).slideDown(300);
+                    $(this).addClass("open");
+                    $(".acc-brands-scroll").getNiceScroll().hide();
+                    setTimeout(function () {
+                        $(".acc-brands-scroll").getNiceScroll().resize();
+                    }, 300);
+                }
+            });
+        }
 
 
         db.preLoad();
@@ -79,5 +109,6 @@
         db.sliderPopular();
         db.showSuggestion();
         db.niceScroll();
+        db.filterAccordion();
     });
 })(jQuery);
