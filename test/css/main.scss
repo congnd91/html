@@ -109,6 +109,33 @@ iframe {
     z-index: 99999;
 }
 
+.co-rate {
+
+    span {
+        display: inline-block;
+        background-image: url(../images/icon/ico-star-pink.svg);
+        width: 18px;
+        height: 18px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 18px 18px;
+        margin: 0px 0px 0px 0px;
+        &.star-gray {
+            background-image: url(../images/icon/ico-star-grey.svg);
+        }
+    }
+    em {
+        color: $text-color;
+        display: inline-block;
+        line-height: 18px;
+        height: 18px;
+        position: relative;
+        top: -4px;
+        font-style: normal;
+        margin: 0px 0px 0px 2px;
+    }
+}
+
 /*==========topbar=========*/
 
 .topbar {
@@ -236,6 +263,7 @@ iframe {
             font-size: 3rem;
         }
     }
+
     .review-search {
         margin: 0px auto 30px auto;
         max-width: 660px;
@@ -243,6 +271,10 @@ iframe {
         height: 38px;
         position: relative;
         padding: 0px 50px 0px 0px;
+        .rs-inner {
+
+            position: relative;
+        }
         input {
             width: 100%;
             height: 36px;
@@ -270,6 +302,94 @@ iframe {
             transition: all ease 0.3s;
             &:hover {
                 color: #fff;
+            }
+        }
+
+        .rs-close-suggestion {
+            position: absolute;
+            z-index: 99;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            top: 4px;
+            right: 0px;
+            cursor: pointer;
+            background-image: url(../images/icon/ico-search_clear-text.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 20px 20px;
+            transition: all ease 0.3s;
+            opacity: 0;
+            z-index: -1;
+            visibility: hidden;
+
+        }
+
+        .rs-suggestion {
+            position: absolute;
+            top: 100%;
+            left: -1px;
+            right: -1px;
+            background-color: #fff;
+
+            border: 1px solid $border-color;
+            transition: all ease 0.3s;
+            opacity: 0;
+            z-index: -1;
+            visibility: hidden;
+            .rs-suggestion-scroll {
+                max-height: 300px;
+                overflow: auto;
+                ul {
+                    list-style: none;
+                    padding: 5px 12px 5px 5px;
+                    margin: 0px;
+                    li {
+                        padding: 10px;
+                        transition: all ease 0.3s;
+                        &:hover {
+                            background-color: #ebebeb;
+                        }
+                        a {
+                            display: block;
+
+                            cursor: pointer;
+                        }
+
+                        h3 {
+                            font-weight: 400;
+                            cursor: pointer;
+                            margin: 0px 0px 4px 0px;
+                            text-transform: uppercase;
+                            font-size: 1.2rem;
+                            strong {
+                                font-weight: 700;
+                            }
+                        }
+                        p {
+                            cursor: pointer;
+                            margin: 0px 0px 5px 0px;
+                            font-size: 1.2rem;
+                            strong {
+                                font-weight: 700;
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        &.show-suggestion {
+            .rs-suggestion {
+                z-index: 99;
+                opacity: 1;
+                visibility: visible;
+            }
+            .rs-close-suggestion {
+                z-index: 99;
+                opacity: 1;
+                visibility: visible;
             }
         }
     }
@@ -612,6 +732,13 @@ body .nicescroll-cursors {
         }
         p {
             margin: 0px 0px 10px 0px;
+
+            a {
+                transition: color ease 0.3s;
+                &:hover {
+                    color: $active-color;
+                }
+            }
             &.pi-review {
                 color: $text-color;
                 margin: 0px 0px 0px 0px;
@@ -627,7 +754,7 @@ body .nicescroll-cursors {
                 background-repeat: no-repeat;
                 background-position: center center;
                 background-size: 18px 18px;
-                margin: 0px 1px 0px 0px;
+                margin: 0px 0px 0px 0px;
                 &.star-gray {
                     background-image: url(../images/icon/ico-star-grey.svg);
                 }
@@ -808,13 +935,20 @@ body .nicescroll-cursors {
                     text-decoration: underline;
                 }
             }
+
+            a {
+                transition: color ease 0.3s;
+                &:hover {
+                    color: $active-color;
+                }
+            }
         }
     }
 }
 
 .brand-box {
     border-top: 4px solid #ebebeb;
-    padding: 60px 0px 0px 0px;
+    padding: 80px 0px 0px 0px;
     margin: 0px 0px 60px 0px;
     h2 {
         text-align: center;
@@ -835,7 +969,7 @@ body .nicescroll-cursors {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0px 0px 0px 0px;
+        margin: 0px 0px 20px 0px;
         a {
             display: block;
             transition: all ease 0.3s;
@@ -909,6 +1043,10 @@ body .nicescroll-cursors {
             font-style: italic;
             margin: 0px 0px 0px 0px;
             color: $text-color;
+            strong {
+                font-weight: 500;
+                font-style: normal;
+            }
             a {
                 color: #000;
                 font-size: 1.2rem;
@@ -934,7 +1072,7 @@ body .nicescroll-cursors {
                 background-repeat: no-repeat;
                 background-position: center center;
                 background-size: 18px 18px;
-                margin: 0px 1px 0px 0px;
+                margin: 0px 0px 0px 0px;
                 &.star-gray {
                     background-image: url(../images/icon/ico-star-grey.svg);
                 }
@@ -1022,6 +1160,7 @@ body .nicescroll-cursors {
             display: block;
             font-size: 1.2rem;
             color: $text-color;
+            font-style: normal;
         }
     }
 }
@@ -1030,7 +1169,7 @@ body .nicescroll-cursors {
 
 .footer {
     background-color: #fff9fb;
-    padding: 60px 0px;
+    padding: 60px 0px 0px 0px;
     text-align: center;
     .subcribe {
         width: 100%;
@@ -1112,5 +1251,82 @@ body .nicescroll-cursors {
         img {
             width: 40px;
         }
+    }
+    .allright {
+        margin: 80px 0px 0px 0px;
+        padding: 15px 30px 15px 0px;
+
+        min-height: 55px;
+        text-align: left;
+        position: relative;
+
+        border-top: 1px solid $border-color;
+        .totop {
+            width: 25px;
+            height: 25px;
+            border: 1px solid red;
+            position: absolute;
+            top: 15px;
+            right: 0px;
+            cursor: pointer;
+
+        }
+        p {
+            display: inline-block;
+            margin: 0px;
+            font-size: 1.2rem;
+            margin: 0px 30px 0px 0px;
+            a {
+                text-decoration: underline;
+            }
+        }
+        span {
+            display: inline-block;
+            margin: 0px;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+/****************************product page***************/
+
+.sitemap {
+    margin: 0px 0px 20px 0px;
+    &.fix-margin {
+        margin-top: -60px;
+    }
+    a {
+        display: inline-block;
+        &.current {
+            opacity: 0.7;
+        }
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    span {
+        display: inline-block;
+        margin: 0px 5px;
+    }
+}
+
+.product-cols {
+
+    padding: 0px 0px 0px 260px;
+    margin-bottom: 50px;
+    &.fix-margin {
+        margin-top: -60px;
+    }
+    .pb-left {
+        width: 200px;
+        float: left;
+        margin: 0px 0px 0px -260px;
+        border-top: 3px solid #000;
+        padding: 20px 0px 0px 0px;
+    }
+    .pb-right {
+        width: 100%;
+        float: right;
+        margin: 0px 0px 0px 0px;
     }
 }

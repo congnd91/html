@@ -43,9 +43,41 @@
                     autohidemode: 'leave'
                 });
             }
+            if ($('.rs-suggestion-scroll').length) {
+                $('.rs-suggestion-scroll').niceScroll({
+
+                    autohidemode: 'leave'
+                });
+            }
+
+
         }
+        db.topTop = function () {
+
+            $(".totop").click(function () {
+
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 1000);
+            });
+        }
+
+        db.showSuggestion = function () {
+
+            $(".review-search input").click(function () {
+                $(".review-search").addClass("show-suggestion");
+            });
+            $(".rs-close-suggestion").click(function () {
+                $(".review-search").removeClass("show-suggestion");
+            });
+        }
+
+
+
         db.preLoad();
+        db.topTop();
         db.sliderPopular();
+        db.showSuggestion();
         db.niceScroll();
     });
 })(jQuery);

@@ -262,7 +262,7 @@
                         maxHeight = thisH;
                     }
                 });
-                $('.mi-box').css("min-height", maxHeight + "px");
+                $('.mi-box').css("min-height", maxHeight + 30 + "px");
                 console.log(maxHeight);
             }
 
@@ -351,7 +351,7 @@
                 $(owl_home).owlCarousel({
                     loop: true,
                     margin: 0,
-                    nav: false,
+                    nav: true,
                     navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
                     autoplay: true,
                     items: 1,

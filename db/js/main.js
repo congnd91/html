@@ -64,6 +64,17 @@
 
             });
         }
+        db.stickyColleft = function () {
+
+
+            if ($(".col-left").length) {
+
+                $(".col-left").stick_in_parent({
+
+                    offset_top: 30
+                });
+            }
+        }
 
 
 
@@ -76,6 +87,7 @@
         db.preLoad();
         db.menuAccordion();
         db.menuResponsive();
+        db.stickyColleft();
         db.accordion();
         db.dateRange();
 
