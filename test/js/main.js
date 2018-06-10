@@ -35,6 +35,121 @@
             }
         }
 
+        db.sliderPhoto = function () {
+            var owl_photo = $('.owl-photo');
+            if ($(owl_photo).length) {
+                $(owl_photo).owlCarousel({
+                    loop: false,
+                    margin: 30,
+                    nav: true,
+                    autoplay: false,
+                    responsive: {
+                        0: {
+                            items: 2,
+                        },
+                        576: {
+                            items: 2,
+                        },
+                        768: {
+                            items: 3,
+                        },
+                        991: {
+                            items: 4,
+                        },
+                        1199: {
+                            items: 6,
+                        }
+                    }
+                });
+            }
+        }
+
+
+        db.sliderSrnLarge = function () {
+            var owl_srn = $('.owl-srn-large');
+            if ($(owl_srn).length) {
+                $(owl_srn).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: false,
+                    autoplay: false,
+                    items: 1,
+                });
+            }
+        }
+
+
+        db.sliderPostDetail = function () {
+            var owl_pd = $('.owl-pd');
+            if ($(owl_pd).length) {
+                $(owl_pd).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: true,
+                    navText: ['<i></i>', '<i></i>'],
+                    autoplay: false,
+                    items: 1,
+                });
+            }
+        }
+        db.sliderPhotoCri = function () {
+            var owl_photo = $('.owl-photo-cri');
+            if ($(owl_photo).length) {
+                $(owl_photo).owlCarousel({
+                    loop: false,
+                    margin: 20,
+                    nav: true,
+                    autoplay: false,
+                    responsive: {
+                        0: {
+                            items: 2,
+                        },
+                        576: {
+                            items: 2,
+                        },
+                        768: {
+                            items: 3,
+                        },
+                        991: {
+                            items: 4,
+                        },
+                        1199: {
+                            items: 4,
+                        }
+                    }
+                });
+            }
+        }
+
+        db.sliderMyReview = function () {
+            var owl_photo = $('.owl-my-review');
+            if ($(owl_photo).length) {
+                $(owl_photo).owlCarousel({
+                    loop: false,
+                    margin: 20,
+                    nav: true,
+                    autoplay: false,
+                    responsive: {
+                        0: {
+                            items: 2,
+                        },
+                        576: {
+                            items: 2,
+                        },
+                        768: {
+                            items: 3,
+                        },
+                        991: {
+                            items: 5,
+                        },
+                        1199: {
+                            items: 5,
+                        }
+                    }
+                });
+            }
+        }
+
         db.niceScroll = function () {
 
             if ($('.md-brand-group-scroll').length) {
@@ -102,13 +217,51 @@
                 }
             });
         }
+        db.profileAccordion = function () {
+            $('.has-child').on('click', function () {
+                var content = $(this).find(".pm-child");
+                if ($(content).is(":visible")) {
+                    $(this).removeClass("open");
+                    $(content).stop(true, true).slideUp(300);
 
 
+
+                } else {
+                    $(content).stop(true, true).slideDown(300);
+                    $(this).addClass("open");
+
+                }
+            });
+
+        }
+
+        db.nrAccordion = function () {
+            $('.nra-caption').on('click', function () {
+                var content = $(this).next(".nra-content");
+                if ($(content).is(":visible")) {
+                    $(this).removeClass("open");
+                    $(content).stop(true, true).slideUp(300);
+
+
+                } else {
+                    $(content).stop(true, true).slideDown(300);
+                    $(this).addClass("open");
+
+                }
+            });
+        }
         db.preLoad();
         db.topTop();
         db.sliderPopular();
+        db.sliderPhoto();
+        db.sliderPhotoCri();
+        db.sliderMyReview();
+        db.sliderSrnLarge();
+        db.sliderPostDetail();
         db.showSuggestion();
         db.niceScroll();
         db.filterAccordion();
+        db.nrAccordion();
+        db.profileAccordion();
     });
 })(jQuery);
