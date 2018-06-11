@@ -400,6 +400,54 @@ iframe {
     min-height: 40px;
     border-bottom: 1px solid $border-color;
     position: relative;
+
+    .m-search-global {
+        padding: 10px;
+        min-height: 200px;
+        position: absolute;
+        top: 100%;
+        left: 0px;
+        border-bottom: 1px solid $border-color;
+        margin: 1px 0px 0px 0px;
+        right: 0px;
+        z-index: 99;
+        display: none;
+        background-color: #fff;
+        .r-suggestion-mobile {
+            padding: 10px;
+            p {
+                margin: 2px 0px;
+                cursor: pointer;
+            }
+        }
+        .md-brand-group {
+            padding: 0px 0px 0px 10px;
+            margin: -10px 0px 0px 0px;
+
+
+            h3 {
+                font-size: 2rem;
+                font-weight: 700;
+                margin: 10px 0px 2px 0px;
+            }
+            p {
+                margin: 0px 0px 5px 0px;
+                a {
+                    font-size: 1.4rem;
+                    transition: color ease 0.3s;
+                    &:hover {
+                        color: $active-color;
+                    }
+                }
+            }
+
+        }
+    }
+    &.show-search-global {
+        .m-search-global {
+            display: block;
+        }
+    }
     .link-text {
         display: inline-block;
         line-height: 41px;
@@ -483,6 +531,25 @@ iframe {
                 display: none;
             }
         }
+    }
+
+    .search-icon {
+        float: left;
+        cursor: pointer;
+        margin: 0px 0px 0px 10px;
+        line-height: 40px;
+
+        width: 30px;
+        height: 40px;
+        float: left;
+
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 25px auto;
+        background-image: url(../images/icon/ico-search.svg);
+
+
+
     }
 
     .notification-icon {
@@ -2122,6 +2189,23 @@ body .nicescroll-cursors {
         float: right;
         margin: 0px 0px 0px 0px;
     }
+
+    @media screen and (max-width: 991px) {
+        padding: 0px;
+
+        .pc-left {
+            width: 100%;
+            float: none;
+            margin: 0px 0px 20px 0px;
+
+
+        }
+        .pc-right {
+            width: 100%;
+            float: none;
+
+        }
+    }
 }
 
 .filter {
@@ -2613,6 +2697,10 @@ body .nicescroll-cursors {
     @media screen and (max-width: 991px) {
         font-size: 2rem;
     }
+}
+
+.modal-dialog {
+    margin: 0px auto;
 }
 
 .modal-dialog-600 {
@@ -3284,12 +3372,14 @@ body .nicescroll-cursors {
             &:hover {
                 color: $active-color;
             }
+
         }
         p {
             font-size: 1.6rem;
             margin: 0px 0px 20px 0px;
             @media(max-width: 991px) {
                 font-size: 1.4rem;
+                display: none;
             }
         }
     }
@@ -3399,8 +3489,14 @@ body .nicescroll-cursors {
     padding: 30px 0px 0px 0px;
 }
 
+.modal-open .modal {
+    padding: 20px 15px !important;
+}
+
 .modal-prod-content {
     padding: 50px 30px 50px 270px;
+
+
     img {
         float: left;
         width: 220px;
@@ -3416,6 +3512,17 @@ body .nicescroll-cursors {
         font-size: 1.6rem;
         font-weight: 700;
         margin: 0px 0px 10px 0px;
+    }
+
+    @media screen and (max-width: 575px) {
+        padding: 30px 20px;
+
+        img {
+            float: none;
+            display: block;
+            margin: 0px auto 20px auto;
+        }
+
     }
 }
 
@@ -4252,7 +4359,7 @@ body .nicescroll-cursors {
     background-image: url(../images/n1.png);
     height: 130px;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center right;
     background-size: cover;
     position: relative;
     display: flex;
@@ -4264,7 +4371,7 @@ body .nicescroll-cursors {
         font-size: 6rem;
         font-weight: 300;
         @media screen and (max-width: 991px) {
-            font-size: 3px;
+            font-size: 3rem;
             padding: 0px 0px 0px 20px;
         }
     }
@@ -4395,7 +4502,35 @@ body .nicescroll-cursors {
             margin: 0px 0px 10px 0px;
             font-size: 1.8rem;
             font-weight: 700;
+            @media screen and (max-width: 575px) {
+                font-size: 1.4rem;
+            }
 
+        }
+
+        @media screen and (max-width: 767px) {
+
+
+            padding: 0px 0px 0px 220px;
+            margin: 0px 0px 20px 0px;
+
+
+            @media screen and (max-width: 575px) {
+                padding: 0px 0px 0px 150px;
+            }
+            .news-block-img {
+                float: left;
+                margin: 0px 0px 0px -220px;
+                width: 200px;
+                position: relative;
+
+                @media screen and (max-width: 575px) {
+                    width: 130px;
+                    margin: 0px 0px 0px -150px;
+
+                }
+
+            }
 
         }
     }
@@ -4410,8 +4545,15 @@ body .nicescroll-cursors {
             margin: 0px 0px 10px 0px;
             font-size: 1.8rem;
             font-weight: 700;
+            @media screen and (max-width: 991px) {
+                font-size: 1.4rem;
+            }
 
-
+        }
+        .news-block-meta {
+            @media screen and (max-width: 991px) {
+                display: none;
+            }
         }
     }
     &.news-block4 {
@@ -4425,7 +4567,15 @@ body .nicescroll-cursors {
             font-size: 1.8rem;
             font-weight: 700;
 
-
+            @media screen and (max-width: 991px) {
+                font-size: 1.4rem;
+            }
+        }
+        .news-block-meta {
+            font-size: 1.3rem;
+            i {
+                margin: 0px 1px;
+            }
         }
     }
 }
@@ -4947,6 +5097,7 @@ p {
 .term-left {
     padding: 30px;
     border: 1px solid $border-color;
+    margin-bottom: 30px;
 
     h2 {
         font-size: 1.6rem;

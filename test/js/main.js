@@ -218,6 +218,14 @@
                 $(this).parents(".review-search").removeClass("show-suggestion");
             });
         }
+
+        db.showSearchGlobalMobile = function () {
+
+            $(".topbar .search-icon").click(function () {
+                $(".topbar").toggleClass("show-search-global");
+            });
+
+        }
         db.filterAccordion = function () {
             $('.acc-caption').on('click', function () {
                 var content = $(this).next(".acc-content");
@@ -289,5 +297,6 @@
         db.filterAccordion();
         db.nrAccordion();
         db.profileAccordion();
+        db.showSearchGlobalMobile();
     });
 })(jQuery);
