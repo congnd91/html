@@ -184,13 +184,38 @@
             });
         }
 
+        db.menuMobile = function () {
+
+            $(".menu-mobile .lv1 .has-child").click(function () {
+                $(".menu-mobile").addClass("show-lv2");
+
+            });
+            $(".menu-mobile .lv2 .has-child").click(function () {
+                $(".menu-mobile").addClass("show-lv3");
+
+            });
+            $(".menu-mobile .lv2 .back-lv1").click(function () {
+                $(".menu-mobile").removeClass("show-lv2");
+            });
+            $(".menu-mobile .lv3 .back-lv2").click(function () {
+                $(".menu-mobile").removeClass("show-lv3");
+            });
+
+            $('.menu-icon').click(function () {
+                $('body').addClass("show-menu");
+            });
+            $('.menu-overlay').click(function () {
+                $('body').removeClass("show-menu");
+            });
+        }
+
         db.showSuggestion = function () {
 
             $(".review-search input").click(function () {
-                $(".review-search").addClass("show-suggestion");
+                $(this).parents(".review-search").addClass("show-suggestion");
             });
             $(".rs-close-suggestion").click(function () {
-                $(".review-search").removeClass("show-suggestion");
+                $(this).parents(".review-search").removeClass("show-suggestion");
             });
         }
         db.filterAccordion = function () {
@@ -253,6 +278,7 @@
         db.preLoad();
         db.topTop();
         db.sliderPopular();
+        db.menuMobile();
         db.sliderPhoto();
         db.sliderPhotoCri();
         db.sliderMyReview();
