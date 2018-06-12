@@ -97,7 +97,7 @@
             if ($(owl_photo).length) {
                 $(owl_photo).owlCarousel({
                     loop: false,
-                    margin: 20,
+                    margin: 14,
                     nav: true,
                     autoplay: false,
                     responsive: {

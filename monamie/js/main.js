@@ -67,7 +67,26 @@
             }
         }
 
+        db.sliderProduct = function () {
+            if ($('.slider-for').length) {
+                $('.slider-for').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: '.slider-nav'
+                });
+                $('.slider-nav').slick({
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    asNavFor: '.slider-for',
 
+
+                    focusOnSelect: true
+                });
+            }
+
+        }
 
         db.niceScroll = function () {
 
@@ -82,5 +101,6 @@
         db.sliderHome();
         db.sliderFade();
         db.niceScroll();
+        db.sliderProduct();
     });
 })(jQuery);
