@@ -37,6 +37,42 @@
                 });
             }
         }
+
+
+        db.toTop = function () {
+
+            $('.totop').hide();
+            $(window).scroll(function () {
+                if ($(this).scrollTop() >= 50) {
+                    $('body').addClass("body-scrolling");
+                    $('.totop').fadeIn();
+                } else {
+                    $('body').removeClass("body-scrolling");
+                    $('.totop').fadeOut();
+                }
+            });
+
+            $(".totop").click(function () {
+
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 1000);
+            });
+        }
+        db.sliderStar = function () {
+            var owl_fade = $('.owl-star');
+            if ($(owl_fade).length) {
+                $(owl_fade).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: false,
+                    autoplay: true,
+                    margin: 0,
+                    items: 1,
+
+                });
+            }
+        }
         db.sliderPopular = function () {
             var owl_popular = $('.owl-popular');
             if ($(owl_popular).length) {
@@ -61,6 +97,35 @@
                         },
                         1199: {
                             items: 4,
+                        }
+                    }
+                });
+            }
+        }
+        db.sliderVideo = function () {
+            var owl_popular = $('.owl-video');
+            if ($(owl_popular).length) {
+                $(owl_popular).owlCarousel({
+                    loop: false,
+                    margin: 0,
+                    nav: true,
+                    autoplay: false,
+                    margin: 30,
+                    responsive: {
+                        0: {
+                            items: 1,
+                        },
+                        576: {
+                            items: 2,
+                        },
+                        768: {
+                            items: 2,
+                        },
+                        991: {
+                            items: 2,
+                        },
+                        1199: {
+                            items: 3,
                         }
                     }
                 });
@@ -98,9 +163,12 @@
         }
         db.preLoad();
         db.sliderPopular();
+        db.sliderVideo();
         db.sliderHome();
         db.sliderFade();
         db.niceScroll();
         db.sliderProduct();
+        db.sliderStar();
+        db.toTop();
     });
 })(jQuery);
