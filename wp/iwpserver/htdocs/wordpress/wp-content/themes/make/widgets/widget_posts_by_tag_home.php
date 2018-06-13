@@ -37,67 +37,111 @@ function widget($args, $instance)
   $number = $instance['number'];
 	echo $before_widget;
 	?>
-	<?php $mazpage_thumbsposts =  new WP_Query(array(
+    <?php $mazpage_thumbsposts =  new WP_Query(array(
     'showposts' => $number,
     'tag' => $tag,
     'ignore_sticky_posts' => '1',
     ));
+       $count = 1;
     ?>
+    <!--home-hightlight-->
+    <div class="home-hightlight">
+        <?php while ($mazpage_thumbsposts->have_posts()) : $mazpage_thumbsposts->the_post(); ?>
+        <?php if($count==1) { ?>
+        <div class="hh-left">
 
+            <?php if(has_post_thumbnail()){  ?>
+            <?php  $post; $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'mazpage_landscape');  ?>
 
-  <!--hightlight news-->
-                <div class="tag-news-caption">
-                    <p class="fixtext"><?php echo esc_attr($title);?></p>
-                </div>
-                <div class="tags-three">
-                    <div class="row">
-                      <?php while ($mazpage_thumbsposts->have_posts()) : $mazpage_thumbsposts->the_post(); ?>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <article class="ciz-post">
-                                 <?php if(has_post_thumbnail()){  ?>
-							<?php global $post; $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'mazpage_landscape');  ?>
-							       <div class="post-thumb">
-                                   <a href="<?php the_permalink(); ?>">
-                                     <?php if (has_post_format( 'audio' ) ) { ?>
-       <span class="post-format"> <i class="fa fa-music"></i></span>
-      <?php } elseif ( has_post_format( 'video' ) ) { ?>
-       <span class="post-format"> <i class="fa fa-video-camera"></i></span>
-      <?php } elseif ( has_post_format( 'gallery' ) ) { ?>
-        <span class="post-format"> <i class="fa fa-camera"></i></span>
-      <?php } ?>
-                                      <img alt ="" src="<?php echo esc_url($thumb[0]); ?>"  />
-                                    </a>
-                                </div>
-							<?php }  ?>
-
-                                <h3 class="post-title">
-                                   <a href="<?php the_permalink(); ?>">	<?php the_title(); ?>.</a>
-                                </h3>
-                                <div class="post-meta">
-                                   <span class="post-date">
-                                <?php echo get_the_date(get_option('date_format'));?>
-                                </span>
-                                  
-                                   <span class="post-category">
-                                 <?php the_category( '<em>-</em>' ); ?>
-                                </span>
-                                </div>
-                                <div class="post-des">
-                                      <p><?php echo(get_the_excerpt()); ?></p>
-                                </div>
-                            </article>
-                        </div>
-                        <?php endwhile; wp_reset_postdata(); ?>
+            <div class="hh-big" style="background-image: url(<?php echo esc_url($thumb[0]); ?>);">
+                <?php } else  { ?>
+                <div class="hh-big">
+                    <?php } ?>
+                    <div class="post-meta">
+                        <span class="post-category">
+                      <?php the_category( '<em>-</em>' ); ?>
+                        </span>
+                        <?php if (has_post_format( 'audio' ) ) { ?>
+                        <span class="post-format"> <i class="fa fa-music"></i></span>
+                        <?php } elseif ( has_post_format( 'video' ) ) { ?>
+                        <span class="post-format"> <i class="fa fa-video-camera"></i></span>
+                        <?php } elseif ( has_post_format( 'gallery' ) ) { ?>
+                        <span class="post-format"> <i class="fa fa-camera"></i></span>
+                        <?php } ?>
                     </div>
+                    <a href="<?php the_permalink(); ?>" class="link">
+                        <h2>
+                            <?php the_title(); ?>
+                        </h2>
+                    </a>
                 </div>
+            </div>
+            <div class="hh-right">
+                <?php  } else {?>
+
+                <?php if(has_post_thumbnail()){  ?>
+                <?php  $post; $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'mazpage_landscape');  ?>
+
+                <div class="hh-big small" style="background-image: url(<?php echo esc_url($thumb[0]); ?>);">
+                    <?php } else  { ?>
+                    <div class="hh-big small">
+                        <?php } ?>
 
 
-  <!--Latest posts-->
-         
-           
+                        <div class="post-meta">
+                            <span class="post-category">
+                      <?php the_category( '<em>-</em>' ); ?>
+                        </span>
+                            <?php if (has_post_format( 'audio' ) ) { ?>
+                            <span class="post-format"> <i class="fa fa-music"></i></span>
+                            <?php } elseif ( has_post_format( 'video' ) ) { ?>
+                            <span class="post-format"> <i class="fa fa-video-camera"></i></span>
+                            <?php } elseif ( has_post_format( 'gallery' ) ) { ?>
+                            <span class="post-format"> <i class="fa fa-camera"></i></span>
+                            <?php } ?>
+                        </div>
+                        <a href="#" class="link">
+                            <h2>These Students Made A Walking TARS Robot From Interstellar</h2>
+                        </a>
+                    </div>
+                    <div class="hh-big small" style="background-image: url(images/3.png);">
+                        <div class="post-meta">
+                            <span class="post-category">
+                        <a href="#">BUSINESSS</a>
+                        </span>
+                            <span class="post-format">
+                        <a href="#">
+                             <i class="fas fa-video"></i>
+                             </a>
+                        </span>
+                        </div>
+                        <a href="<?php the_permalink(); ?>" class="link">
+                            <h2>
+                                <?php the_title(); ?>
+                            </h2>
+                        </a>
+                    </div>
 
-		<?php  echo $after_widget; ?>
-		<?php
+                    <?php  } ?>
+
+
+                    <?php  $count++;
+                        endwhile; wp_reset_postdata(); ?>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+
+
+
+
+
+            <!--Latest posts-->
+
+
+
+            <?php  echo $after_widget; ?>
+            <?php
 	}
 /**
 * Update the widget settings.
@@ -118,20 +162,20 @@ function form($instance){
 		);
 	$instance = wp_parse_args($instance, $default);
 	?>
-	<p>
-		<label for ="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php echo esc_html("Title ","mazpage"); ?></label>
-		<input type ="text" class="widefat" style="width: 100%;" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" value="<?php echo esc_attr($instance['title']); ?>" />
-	</p>
-  <p>
-    <label for ="<?php echo esc_attr($this->get_field_id('tag')); ?>"> <?php echo esc_html("Tag ","mazpage"); ?></label>
-    <input type ="tag" class="widefat" style="width: 100%;" id="<?php echo esc_attr($this->get_field_id('tag')); ?>" name="<?php echo esc_attr($this->get_field_name('tag')); ?>" value="<?php echo esc_attr($instance['tag']); ?>" />
-  </p>
+                <p>
+                    <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php echo esc_html("Title ","mazpage"); ?></label>
+                    <input type="text" class="widefat" style="width: 100%;" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" value="<?php echo esc_attr($instance['title']); ?>" />
+                </p>
+                <p>
+                    <label for="<?php echo esc_attr($this->get_field_id('tag')); ?>"> <?php echo esc_html("Tag ","mazpage"); ?></label>
+                    <input type="tag" class="widefat" style="width: 100%;" id="<?php echo esc_attr($this->get_field_id('tag')); ?>" name="<?php echo esc_attr($this->get_field_name('tag')); ?>" value="<?php echo esc_attr($instance['tag']); ?>" />
+                </p>
 
-  <p>
-    <label for ="<?php echo esc_attr($this->get_field_id('number')); ?>"> <?php echo esc_html("Number of Posts ","mazpage"); ?></label>
-    <input type ="number" class="widefat" style="width: 100%;" id="<?php echo esc_attr($this->get_field_id('number')); ?>" name="<?php echo esc_attr($this->get_field_name('number')); ?>" value="<?php echo esc_attr($instance['number']); ?>" />
-  </p>
-	<?php
+                <p>
+                    <label for="<?php echo esc_attr($this->get_field_id('number')); ?>"> <?php echo esc_html("Number of Posts ","mazpage"); ?></label>
+                    <input type="number" class="widefat" style="width: 100%;" id="<?php echo esc_attr($this->get_field_id('number')); ?>" name="<?php echo esc_attr($this->get_field_name('number')); ?>" value="<?php echo esc_attr($instance['number']); ?>" />
+                </p>
+                <?php
 }
 }
 ?>

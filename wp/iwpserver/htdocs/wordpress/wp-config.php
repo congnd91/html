@@ -16,6 +16,8 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
+define ( 'WP_ALLOW_REPAIR' , true);
+
 define('DB_NAME', 'wordpress');
 
 /** MySQL database username */

@@ -14,79 +14,22 @@
 $mazpage_sidebar_position = get_theme_mod('sidebar_position');
 get_header(); ?>
 
-    <!--home-hightlight-->
-    <div class="home-hightlight">
-        <div class="hh-left">
-            <div class="hh-big" style="background-image: url(images/1.jpg);">
-                <div class="post-meta">
-                    <span class="post-category">
-                        <a href="#">BUSINESSS</a>
-                        </span>
-                    <span class="post-format">
-                        <a href="#">
-                             <i class="fas fa-video"></i>
-                             </a>
-                        </span>
-                </div>
-                <a href="#" class="link">
-                    <h2>These Students Made A Walking TARS Robot From Interstellar</h2>
-                </a>
-            </div>
-        </div>
-        <div class="hh-right">
-            <div class="hh-big small" style="background-image: url(images/2.png);">
-                <div class="post-meta">
-                    <span class="post-category">
-                        <a href="#">BUSINESSS</a>
-                        </span>
-                    <span class="post-format">
-                        <a href="#">
-                             <i class="fas fa-video"></i>
-                             </a>
-                        </span>
-                </div>
-                <a href="#" class="link">
-                    <h2>These Students Made A Walking TARS Robot From Interstellar</h2>
-                </a>
-            </div>
-            <div class="hh-big small" style="background-image: url(images/3.png);">
-                <div class="post-meta">
-                    <span class="post-category">
-                        <a href="#">BUSINESSS</a>
-                        </span>
-                    <span class="post-format">
-                        <a href="#">
-                             <i class="fas fa-video"></i>
-                             </a>
-                        </span>
-                </div>
-                <a href="#" class="link">
-                    <h2>These Students Made A Walking TARS Robot From Interstellar</h2>
-                </a>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
+
+    <?php if ( is_home() && is_active_sidebar( 'greeky_home'))?>
+    <?php dynamic_sidebar('greeky_home'); ?>
+
     <!--middle-->
     <div class="middle">
         <div class="container">
             <?php if ( have_posts() ) { ?>
-
             <div class="list-post">
                 <div class="row">
-
                     <?php
                 /* Start the Loop */
                 while ( have_posts() ) : the_post();
                 get_template_part( 'loop/content', get_post_format() );
                 endwhile; ?>
-
-
-
-
                 </div>
-
-
             </div>
             <?php
                 echo  greeky_pagination();  }
