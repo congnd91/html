@@ -34,9 +34,7 @@ get_header(); ?>
             <?php
                 echo  greeky_pagination();  }
             ?>
-                <div class="paging-loadmore">
-                    <a href="#">MORE</a>
-                </div>
+
         </div>
     </div>
     <?php

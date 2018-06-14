@@ -7,8 +7,8 @@
  * @package mazpage
  */
 
-if ( ! is_active_sidebar( 'mazpage_sidebar' ) ) {
+if ( ! is_active_sidebar( 'greeky_sidebar' ) ) {
 return;
 }
 ?>
-<?php dynamic_sidebar( 'mazpage_sidebar' ); ?>
+    <?php dynamic_sidebar( 'greeky_sidebar' ); ?>

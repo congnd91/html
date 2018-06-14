@@ -270,8 +270,8 @@ function greeky_pagination( $custom_query = false ){
 		'current' => max( 1, get_query_var('paged') ),
 		'total' => $custom_query->max_num_pages,
 		'type'			=> 'plain',
-		'prev_text'    =>  esc_html('PREV','greeky') ,
-		'next_text'    =>  esc_html('NEXT','greeky') ,
+		'prev_text'    =>  esc_html('<<','greeky') ,
+		'next_text'    =>  esc_html('>>','greeky') ,
 	) );
 	
 	if ( $pagination ) {
