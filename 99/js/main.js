@@ -182,6 +182,19 @@
 
         });
 
+
+
+        $('.btn-scroll').click(function () {
+
+
+            var id = $(this).attr("data-id");
+            $("html, body").delay(2).animate({
+                scrollTop: $(id).offset().top
+            }, 1000);
+            return false;
+
+        });
+
         $('.btn-link-swith').click(function () {
 
 

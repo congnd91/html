@@ -381,28 +381,75 @@ iframe {
     float: left; }
     .topbar .user-control .link-text {
       margin: 0px 0px 0px 30px; }
+  .topbar .user-dropdown {
+    height: 40px;
+    position: relative; }
+    .topbar .user-dropdown .user-dropdown-menu {
+      width: 400px;
+      box-shadow: 2.8px 2.8px 10px 0 rgba(0, 0, 0, 0.3);
+      margin: 7px 0px 0px -200px;
+      border: none;
+      border-radius: 0px;
+      background-color: #fff;
+      left: 50% !important;
+      padding: 10px; }
+      .topbar .user-dropdown .user-dropdown-menu .user-dropdown-menu-scroll {
+        max-height: 350px;
+        overflow: auto; }
+      .topbar .user-dropdown .user-dropdown-menu .list-logs .ll-item {
+        padding: 20px 20px 20px 75px;
+        border-bottom: 1px dashed #dddddd;
+        position: relative; }
+        .topbar .user-dropdown .user-dropdown-menu .list-logs .ll-item:nth-child(2n+1) {
+          background-color: #fff9fb; }
+        .topbar .user-dropdown .user-dropdown-menu .list-logs .ll-item .ll-icon {
+          width: 35px;
+          height: 35px;
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          text-align: center;
+          background-position: center center;
+          background-image: url(../images/icon/ico-profile_earned-points.svg);
+          background-repeat: no-repeat;
+          background-size: 30px auto; }
+          .topbar .user-dropdown .user-dropdown-menu .list-logs .ll-item .ll-icon.ll-icon-news {
+            background-image: url(../images/icon/ico-profile_news.svg); }
+        .topbar .user-dropdown .user-dropdown-menu .list-logs .ll-item p {
+          padding: 0px;
+          color: #000;
+          font-size: 1.3rem;
+          margin: 0px 0px 5px 0px; }
+          .topbar .user-dropdown .user-dropdown-menu .list-logs .ll-item p a {
+            font-weight: 700;
+            transition: all ease 0.3s; }
+            .topbar .user-dropdown .user-dropdown-menu .list-logs .ll-item p a:hover {
+              color: #dc577c; }
+        .topbar .user-dropdown .user-dropdown-menu .list-logs .ll-item i {
+          display: inline-block;
+          font-size: 1.3rem;
+          color: #7e7e7e;
+          font-style: normal;
+          font-size: 1.3rem; }
   .topbar .user-logged {
     float: left;
-    line-height: 40px; }
-    .topbar .user-logged img {
+    position: relative; }
+    .topbar .user-logged .user-dropdown img {
       float: left;
       width: 24px;
       height: 24px;
       border-radius: 50%;
       margin: 7px 5px 0px 0px; }
-    .topbar .user-logged span {
+    .topbar .user-logged .user-dropdown span {
+      line-height: 40px;
       float: left;
       font-size: 1.2rem;
       line-height: 40px; }
-      .topbar .user-logged span em {
+      .topbar .user-logged .user-dropdown span em {
         text-transform: uppercase;
         font-weight: 700;
         font-style: normal; }
-        .topbar .user-logged span em a {
-          transition: all ease 0.3s; }
-          .topbar .user-logged span em a:hover {
-            color: #dc577c; }
-      .topbar .user-logged span i {
+      .topbar .user-logged .user-dropdown span i {
         display: inline-block;
         margin: 0px 5px; }
   .topbar .cart-icon {
@@ -2364,9 +2411,10 @@ body .nicescroll-cursors {
     margin: 0px; }
   .back-to-review a {
     display: inline-block;
+    color: #000;
     text-decoration: underline; }
-  .back-to-review:hover {
-    color: #dc577c; }
+    .back-to-review a:hover {
+      color: #dc577c; }
   .back-to-review span {
     float: left;
     margin: 0px 5px 0px 0px;
@@ -4343,5 +4391,73 @@ p {
   min-height: 400px;
   margin: 0px auto;
   background-color: #f7e7ec; }
+
+.author-box {
+  background-color: #fff9fb;
+  max-width: 726px;
+  margin: 0px auto;
+  border-radius: 5px;
+  padding: 40px 40px 40px 115px;
+  position: relative;
+  min-height: 245px; }
+  .author-box .avatar {
+    width: 165px;
+    height: 165px;
+    position: absolute;
+    top: 40px;
+    left: -82px;
+    border-radius: 50%;
+    border: 1px solid #dddddd; }
+    .author-box .avatar img {
+      width: 163px;
+      border-radius: 50%;
+      height: 163px; }
+  .author-box h3 {
+    font-size: 3.6rem;
+    margin: 0px 0px 10px 0px;
+    font-weight: 700; }
+  .author-box p {
+    font-size: 1.6rem;
+    margin: 0px; }
+  @media screen and (max-width: 991px) {
+    .author-box {
+      padding: 20px 20px 20px 70px;
+      margin: 0px 0px 0px 60px;
+      min-height: 140px; }
+      .author-box .avatar {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 20px;
+        left: -50px;
+        border-radius: 50%;
+        border: 1px solid #dddddd; }
+        .author-box .avatar img {
+          width: 98px;
+          border-radius: 50%;
+          height: 98px; }
+      .author-box h3 {
+        font-size: 3.6rem;
+        margin: 0px 0px 10px 0px;
+        font-weight: 700; } }
+    @media screen and (max-width: 991px) and (max-width: 991px) {
+      .author-box h3 {
+        font-size: 2rem; } }
+  @media screen and (max-width: 991px) {
+      .author-box p {
+        font-size: 1.6rem;
+        margin: 0px; } }
+    @media screen and (max-width: 991px) and (max-width: 991px) {
+      .author-box p {
+        font-size: 1.4rem; } }
+
+.total-post {
+  border-bottom: 2px solid #dddddd;
+  margin: 0px 0px 40px 0px; }
+  .total-post p {
+    padding: 7px 0px;
+    color: #000; }
+  .total-post span {
+    font-weight: 700; }
 
 /*# sourceMappingURL=main.css.map */

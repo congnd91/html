@@ -22,6 +22,24 @@
             }
         }
 
+        db.accordion = function () {
+            $(".accordion-caption").click(function () {
+
+                var content = $(this).next(".accordion-content");
+
+
+                if ($(content).is(":visible")) {
+                    $(content).slideUp();
+                    $(this).removeClass("active");
+                } else {
+                    $(content).slideDown();
+                    $(this).addClass("active");
+                }
+
+
+            });
+        }
+
         db.sliderFade = function () {
             var owl_fade = $('.owl-fade');
             if ($(owl_fade).length) {
@@ -170,5 +188,6 @@
         db.sliderProduct();
         db.sliderStar();
         db.toTop();
+        db.accordion();
     });
 })(jQuery);

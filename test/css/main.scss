@@ -467,34 +467,110 @@ iframe {
         }
 
     }
-    .user-logged {
-        float: left;
-        line-height: 40px;
-        img {
-            float: left;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            margin: 7px 5px 0px 0px;
-        }
-        span {
-            float: left;
-            font-size: 1.2rem;
-            line-height: 40px;
-            em {
-                text-transform: uppercase;
-                font-weight: 700;
-                font-style: normal;
-                a {
-                    transition: all ease 0.3s;
-                    &:hover {
-                        color: $active-color;
+    .user-dropdown {
+        height: 40px;
+        position: relative;
+
+
+        .user-dropdown-menu {
+            width: 400px;
+            box-shadow: 2.8px 2.8px 10px 0 rgba(0, 0, 0, 0.3);
+
+            margin: 7px 0px 0px -200px;
+            border: none;
+            border-radius: 0px;
+            background-color: #fff;
+            left: 50% !important;
+            padding: 10px;
+
+
+            .user-dropdown-menu-scroll {
+                max-height: 350px;
+                overflow: auto;
+            }
+            .list-logs {
+                .ll-item {
+                    padding: 20px 20px 20px 75px;
+                    border-bottom: 1px dashed $border-color;
+                    position: relative;
+                    &:nth-child(2n+1) {
+                        background-color: #fff9fb;
+
                     }
+
+                    .ll-icon {
+                        width: 35px;
+                        height: 35px;
+                        position: absolute;
+                        top: 20px;
+                        left: 20px;
+                        text-align: center;
+                        background-position: center center;
+                        background-image: url(../images/icon/ico-profile_earned-points.svg);
+                        background-repeat: no-repeat;
+                        background-size: 30px auto;
+                        &.ll-icon-news {
+                            background-image: url(../images/icon/ico-profile_news.svg);
+                        }
+                    }
+                    p {
+                        padding: 0px;
+                        color: #000;
+                        font-size: 1.3rem;
+                        margin: 0px 0px 5px 0px;
+                        a {
+                            font-weight: 700;
+                            transition: all ease 0.3s;
+                            &:hover {
+                                color: $active-color;
+                            }
+
+                        }
+
+                    }
+                    i {
+                        display: inline-block;
+                        font-size: 1.3rem;
+                        color: $text-color;
+                        font-style: normal;
+                        font-size: 1.3rem;
+                    }
+
                 }
             }
-            i {
-                display: inline-block;
-                margin: 0px 5px;
+
+        }
+    }
+    .user-logged {
+
+        float: left;
+
+        position: relative;
+        .user-dropdown {
+
+            img {
+                float: left;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                margin: 7px 5px 0px 0px;
+            }
+            span {
+                line-height: 40px;
+                float: left;
+                font-size: 1.2rem;
+                line-height: 40px;
+                em {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    font-style: normal;
+
+                }
+                i {
+                    display: inline-block;
+                    margin: 0px 5px;
+
+                }
             }
         }
     }
@@ -2933,11 +3009,13 @@ body .nicescroll-cursors {
     }
     a {
         display: inline-block;
+        color: #000;
         text-decoration: underline;
+        &:hover {
+            color: $active-color;
+        }
     }
-    &:hover {
-        color: $active-color;
-    }
+
     span {
         float: left;
         margin: 0px 5px 0px 0px;
@@ -2948,6 +3026,7 @@ body .nicescroll-cursors {
         background-size: 12px auto;
         background-image: url(../images/icon/ico-back.svg);
         opacity: 0.7;
+
     }
 }
 
@@ -5544,4 +5623,94 @@ p {
     min-height: 400px;
     margin: 0px auto;
     background-color: #f7e7ec;
+}
+
+.author-box {
+    background-color: #fff9fb;
+    max-width: 726px;
+    margin: 0px auto;
+    border-radius: 5px;
+    padding: 40px 40px 40px 115px;
+    position: relative;
+    min-height: 245px;
+    .avatar {
+        width: 165px;
+        height: 165px;
+        position: absolute;
+        top: 40px;
+        left: -82px;
+        border-radius: 50%;
+        border: 1px solid $border-color;
+        img {
+
+            width: 163px;
+            border-radius: 50%;
+            height: 163px;
+        }
+    }
+
+
+    h3 {
+        font-size: 3.6rem;
+        margin: 0px 0px 10px 0px;
+        font-weight: 700;
+    }
+    p {
+        font-size: 1.6rem;
+        margin: 0px;
+    }
+
+    @media screen and (max-width: 991px) {
+        padding: 20px 20px 20px 70px;
+        margin: 0px 0px 0px 60px;
+        min-height: 140px;
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 20px;
+            left: -50px;
+            border-radius: 50%;
+            border: 1px solid $border-color;
+            img {
+
+                width: 98px;
+                border-radius: 50%;
+                height: 98px;
+            }
+        }
+
+
+        h3 {
+            font-size: 3.6rem;
+            margin: 0px 0px 10px 0px;
+            font-weight: 700;
+            @media screen and (max-width: 991px) {
+
+                font-size: 2rem;
+            }
+        }
+        p {
+            font-size: 1.6rem;
+            margin: 0px;
+            @media screen and (max-width: 991px) {
+
+                font-size: 1.4rem;
+            }
+        }
+
+    }
+}
+
+.total-post {
+    border-bottom: 2px solid $border-color;
+    margin: 0px 0px 40px 0px;
+    p {
+        padding: 7px 0px;
+        color: #000;
+    }
+    span {
+        font-weight: 700;
+    }
 }

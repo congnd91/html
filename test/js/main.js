@@ -170,6 +170,20 @@
                     autohidemode: 'leave'
                 });
             }
+            if ($('.user-dropdown-menu-scroll').length) {
+                $('.user-dropdown-menu-scroll').niceScroll({
+
+                    autohidemode: 'leave'
+                });
+            }
+
+            $(".user-dropdown").click(function () {
+                setTimeout(function () {
+                    $(".user-dropdown-menu-scroll").getNiceScroll().resize();
+                }, 100);
+
+            });
+
 
 
 
