@@ -74,9 +74,38 @@ public function init() {
 
 // cart content count
     add_filter('add_to_cart_fragments', 'mazpage_woocommerce_header_add_to_cart_fragment');
+    
+    
+     
+add_action('woocommerce_after_shop_loop_item_title', 'description_in_shop_loop_item', 3 );
+    
 
 }
 
+
+function description_in_shop_loop_item() {
+    global $product;
+
+    // HERE define the number of words
+    $limit = 10;
+
+    $description = $product->get_description(); // Product description
+    // or
+    // $description = $product->get_short_description(); // Product short description
+
+    // Limit the words length
+    if (str_word_count($description, 0) > $limit) {
+        $words = str_word_count($description, 2);
+        $pos = array_keys($words);
+        $excerpt = substr($description, 0, $pos[$limit]) . '...';
+    } else {
+        $excerpt = $description;
+    }
+
+    echo '<p class="description">'.$excerpt.'</p>';
+}
+
+    
 function mazpage_enqueue() {
 
     wp_enqueue_style( 'mazpage-woocommerce', get_template_directory_uri() . '/css/woocommerce.css');
@@ -115,17 +144,27 @@ function mazpage_woocommerce_header_add_to_cart_fragment( $fragments )
     if($woocommerce->cart->cart_contents_count==0)
         { ?>
 
-    <a class="cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'mazpage'); ?>"><p> <?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'mazpage'), $woocommerce->cart->cart_contents_count);?> - <?php echo $woocommerce->cart->get_cart_total(); ?></p></a>
+    <a class="cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'mazpage'); ?>">
+        <p>
+            <?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'mazpage'), $woocommerce->cart->cart_contents_count);?> -
+            <?php echo $woocommerce->cart->get_cart_total(); ?>
+        </p>
+    </a>
     <?php
 }
 else
 {
     ?>
-    <a class="cart-contents cart-contents-show" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'mazpage'); ?>"><p><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'mazpage'), $woocommerce->cart->cart_contents_count);?> - <?php echo $woocommerce->cart->get_cart_total(); ?></p></a>
-    <?php
+        <a class="cart-contents cart-contents-show" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'mazpage'); ?>">
+            <p>
+                <?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'mazpage'), $woocommerce->cart->cart_contents_count);?> -
+                <?php echo $woocommerce->cart->get_cart_total(); ?>
+            </p>
+        </a>
+        <?php
 }
 ?>
-<?php 
+        <?php 
 $fragments['a.cart-contents'] = ob_get_clean();
 return $fragments; 
 }

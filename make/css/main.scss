@@ -338,17 +338,19 @@ body {
 .menu-inner {
     float: right;
     margin: 0px 0px 0px 0px;
-    ul {
+    > ul {
         list-style: none;
         margin: 0px;
         padding: 0px;
         > li {
             float: left;
-            padding: 0px 20px;
+
+            position: relative;
             @media screen and (max-width: 1199px) {
                 padding: 0px 10px;
             }
             > a {
+                padding: 0px 20px;
                 border-top: 4px solid transparent;
                 display: block;
                 line-height: 30px;
@@ -366,9 +368,54 @@ body {
             }
             &.active,
             &:hover {
-                a {
+                > a {
                     border-bottom: 4px solid $red;
                 }
+            }
+            &.menu-item-has-children {
+
+                &:hover {
+                    .sub-menu {
+                        z-index: 999;
+                        visibility: visible;
+                        opacity: 1;
+                        margin-top: 0px;
+
+                    }
+                }
+            }
+            .sub-menu {
+                background-color: #111;
+                position: absolute;
+                top: 100%;
+                left: 0px;
+                width: 250px;
+                transition: all ease 0.3s;
+                visibility: hidden;
+                opacity: 0;
+                z-index: -1;
+                list-style: none;
+                padding: 0px;
+                margin-top: 10px;
+                li {
+                    display: block;
+                    a {
+                        display: block;
+                        color: #fff;
+                        padding: 10px 10px;
+                        font-weight: 600;
+                        font-size: 15px;
+                        transition: color ease 0.4s;
+                    }
+                    border-bottom: 1px solid #222;
+                    &:hover {
+                        a {
+                            background-color: #222;
+                        }
+                    }
+                }
+
+
             }
             &:last-child {
                 a {
@@ -1208,4 +1255,116 @@ body {
     padding: 50px 0px;
     max-width: 1000px;
     margin: 0px auto;
+}
+
+
+.greeky-widget {
+    background-color: #fff;
+    margin-bottom: 20px;
+    .widget-title {
+        padding: 12px 10px;
+        background-color: $red;
+        font-size: 18px;
+        text-align: center;
+        color: #fff;
+        font-weight: 700;
+    }
+    .tagcloud {
+        padding: 10px;
+        a {
+            display: inline-block;
+            margin: 0px 5px 5px 0px;
+            line-height: 25px;
+            padding: 0px 10px;
+            color: #fff;
+            font-size: 12px !important;
+            background-color: $red;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+.search-caption {
+    margin: 0px 0px 10px 0px;
+    font-size: 20px;
+    font-weight: 600;
+
+    span {
+        color: $red;
+        font-weight: 700;
+    }
+}
+
+.no-results {
+    p {
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
+
+
+.product-category.product {
+
+    text-align: center;
+    .woocommerce-loop-category__title {
+        display: inline-block;
+        padding: 0px 20px !important;
+        line-height: 40px;
+        background-color: $red;
+        border-radius: 2px;
+        color: #Fff;
+        font-size: 14px;
+        font-weight: 700;
+        margin: 20px auto !important;
+        mark {
+            display: none;
+        }
+    }
+}
+
+.woocommerce-result-count {
+    display: none;
+}
+
+.orderby {
+    display: none;
+}
+
+.product-thumbnail-inner {
+    .add_to_cart_button {
+        display: none !important;
+
+    }
+}
+
+.woocommerce ul.products li.product h3 a {
+    font-family: $font-family;
+    letter-spacing: 0px;
+    color: #111;
+    font-weight: 600;
+    font-size: 16px;
+    display: block;
+}
+
+.woocommerce ul.products li.product .price {
+    font-family: $font-family;
+    letter-spacing: 0px;
+    color: #111;
+    font-weight: 600;
+    font-size: 20px;
+
+    ins span {
+        color: $red;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    del span {
+
+        font-weight: 600;
+        font-size: 15px;
+    }
+
 }
