@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,7 +18,9 @@
     <link href="css/owl.carousel.min.css" rel="stylesheet" />
     <link href="css/jquery.bxslider.css" rel="stylesheet" />
     <link href="css/ionicons.css" rel="stylesheet" />
+    <link href="css/bootstrap-slider.css" rel="stylesheet" />
     <link href="css/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <link href="css/jquery-ui.css" rel="stylesheet" />
     <!-- Main CSS (SCSS Compile) -->
     <link href="css/main.css" rel="stylesheet" />
     <!-- JavaScripts -->
@@ -31,16 +33,154 @@
     <![endif]-->
     <!--scrip file-->
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <script src="js/moment.js"></script>
     <script src="js/bootstrap-datetimepicker.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.bxslider.js"></script>
-    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.sync.bootstrap.min.js" async></script>
+    <script src="js/bootstrap-slider.js"></script>
     <script src="js/main.js"></script>
 </head>
 
-<body class="home-page">
+<body>
+    <div class="mask">
+    </div>
+    <div class="filter-mobile">
+        <div class="bar-close">
+            <span class="close-filter">Done</span>
+        </div>
+        <div>
+            <div class="filter">
+                <p class="caption">Nunber of stops</p>
+                <div class="filter-check-row">
+                    <div class="checkbox-control">
+                        <input id="abox1" type="checkbox" checked />
+                        <label for="abox1">Direct</label>
+                    </div>
+                    <div class="checkbox-control">
+                        <input id="abox2" type="checkbox" />
+                        <label for="abox2">1-stop</label>
+                    </div>
+                    <div class="checkbox-control">
+                        <input id="abox3" type="checkbox" />
+                        <label for="abox3">2-stop</label>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <p class="caption">Operating carrier</p>
+                <div class="group">
+                    <div class="air-line">
+                        <div class="checkbox-control">
+                            <input id="abox4" type="checkbox" checked />
+                            <label for="abox4">Jetstar Airways</label>
+                        </div>
+                    </div>
+                    <div class="air-line">
+                        <div class="checkbox-control">
+                            <input id="abox5" type="checkbox" />
+                            <label for="abox5">Vietjet Air</label>
+                        </div>
+                    </div>
+                    <div class="air-line">
+                        <div class="checkbox-control">
+                            <input id="abox6" type="checkbox" />
+                            <label for="abox6">Vietnam Airlines</label>
+                        </div>
+                    </div>
+                    <div class="air-line">
+                        <div class="checkbox-control">
+                            <input id="abox61" type="checkbox" />
+                            <label for="abox61">Vietnam Airlines</label>
+                        </div>
+                    </div>
+                    <div class="air-line">
+                        <div class="checkbox-control">
+                            <input id="abox62" type="checkbox" />
+                            <label for="abox62">Vietnam Airlines</label>
+                        </div>
+                    </div>
+                    <div class="air-line">
+                        <div class="checkbox-control">
+                            <input id="abox63" type="checkbox" />
+                            <label for="abox63">Vietnam Airlines</label>
+                        </div>
+                    </div>
+                </div>
+                <p class="caption">Class</p>
+                <div class="filter-check-row">
+                    <div class="checkbox-control">
+                        <input id="box7" type="checkbox" checked />
+                        <label for="box7">Bussiness</label>
+                    </div>
+                    <div class="checkbox-control">
+                        <input id="box8" type="checkbox" />
+                        <label for="box8">Economy</label>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <p class="caption">Price</p>
+                <div class="price-range">
+                    <div class="sliders_step1">
+                        <div id="price-range1"></div>
+                    </div>
+                    <p class="price-value">48.5 - 156 USD </p>
+                </div>
+                <p class="caption">Duration</p>
+                <div class="duration-range">
+                    <div class="sliders_step1">
+                        <div id="duration-range1"></div>
+                    </div>
+                    <p class="duration-value text-center">
+                        <span class="slider-time">1 h 20 min </span> - <span class="slider-time2">1 h 30 min </span>
+                    </p>
+                </div>
+                <p class="caption">Take-of time</p>
+                <div class="take-range">
+                    <p class="duration-value">
+                        <span class="take-range-time">8:10  </span> <span class="take-range-time2">20:10</span>
+                    </p>
+                    <div class="sliders_step1">
+                        <div id="take-range1"></div>
+                    </div>
+                    <p class="duration-date"> <span>08.06.2017</span> <span class="right">08.06.2017</span></p>
+                </div>
+                <p class="caption">Landing time</p>
+                <div class="landing-range">
+                    <p class="duration-value">
+                        <span class="landing-range-time">8:10 </span> <span class="landing-range-time2">23:10 </span>
+                    </p>
+                    <div class="sliders_step1">
+                        <div id="landing-range1"></div>
+                    </div>
+                    <p class="duration-date"> <span>08.06.2017</span> <span class="right">08.06.2017</span></p>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+    <div class="order-mobile">
+        <div class="bar-close">
+            <span class="close-order">Done</span>
+        </div>
+        <div>
+            <div class="ow-caption-mobile">
+                <div class="ow-item active">
+                    <a href="#">Cheapest</a>
+                </div>
+                <div class="ow-item">
+                    <a href="#">Quickest</a>
+                </div>
+                <div class="ow-item">
+                    <a href="#">Take-off time</a>
+                </div>
+                <div class="ow-item">
+                    <a href="#">Landing time</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
     <!--preload-->
     <div class="loader" id="page-loader">
         <div class="loading-wrapper">
@@ -65,14 +205,14 @@
         <div class="topbar">
             <div class="container">
                 <span class="global-nav-icon hidden-xs">
-                  <i class="fa fa-navicon">
-                  </i>
-                  Menu
-              </span>
+                    <i class="fa fa-navicon">
+                    </i>
+                    Menu
+                </span>
                 <div class="topbar-right">
                     <a href="https://www.facebook.com/AloTrip.travel/">
-                     <i class="fa fa-facebook-square"></i>
-                 </a>
+                        <i class="fa fa-facebook-square"></i>
+                    </a>
                     <a href="https://www.instagram.com/alotrip/">
                         <i class="fa fa-instagram"></i>
                     </a>
@@ -199,110 +339,53 @@
                 <div class="clearfix"></div>
             </div>
         </nav>
-        <!--intro-search-->
-        <!--vl-site-->
-        <section class="vl-site">
-            <div class="search-summary">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <span class="text-uppercase clearfix">Destinations&nbsp;</span><strong class="clearfix">Da Nang, Vietnam</strong></div>
-                        <div class="col-sm-3"><span class="text-uppercase clearfix">Stay dates&nbsp;</span>
-                            <strong class="clearfix">18 Jun, 2018 - 20 Jun, 2018</strong></div>
-                        <div class="col-sm-3">
-                            <span class="text-uppercase clearfix">Room Total&nbsp;</span><strong class="clearfix">1</strong></div>
-                        <div class="col-sm-2">
-                            <button type="button" class="change-search btn btn-primary btn-block mt5" data-loading-text="Loading...">Modify</button></div>
-                    </div>
+        <!--collumns-->
+        <div class="container">
+            <div class="step step-fix hidden-xs hidden-sm active2">
+                <div class="step-item active">
+                    <p><span>1</span> Search</p>
+                </div>
+                <div class="step-item step-item2 active">
+                    <p><span>2</span> Results</p>
+                </div>
+                <div class="step-item step-item3">
+                    <p><span>3</span>Select </p>
+                </div>
+                <div class="step-item step-item4">
+                    <p><span>4</span> Booking</p>
+                </div>
+                <div class="step-item step-item5">
+                    <p><span>5</span> Payment</p>
                 </div>
             </div>
-            <div class="container">
-                <section id="result-search" class="filter-page">
-                    <div class="header-found-container clearfix">
-                        <h3>Found 463 hotels are available in <strong>Da Nang, Vietnam</strong> on <strong>18 Jun, 2018 to 20 Jun, 2018</strong></h3>
-                    </div>
-                    <div class="row">
-                        <div class="list-container col-md-9 col-md-push-3">
-                            <div class="sort-view clearfix">
-                                <ul class="price-sort sort-by list list-inline">
-                                    <li style="background-color:#feba02"><strong>Sort:</strong></li>
+            <div class="vl-search-result">
+                <div class="vl-sr-caption">
+                    Found 281 hotels are available in <span>Da Nang, Vietnam</span> on <span>20 Jun, 2018</span> to <span>22 Jun, 2018</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 col-sm-12">
+                        <div class="vl-result-left">
+                            <div class="vl-result-sort">
+                                <ul>
+                                    <li><strong>Sort:</strong></li>
                                     <li class="selected"><span>Price [Low to High]</span></li>
-                                    <li><a rel="desc" class="sort-link" href="javascript:void(0)">Price [High to Low]</a></li>
+                                    <li><span>Price [High to Low]</span></li>
                                 </ul>
+                                <div class="clearfix"></div>
                             </div>
-                            <section class="item-lists">
-                                <div class="clearfix">
+                            <div class="vl-list-result">
+                                <article class="vl-result-item">
                                     <a href="#" title="" target="_blank">
                                         <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/24000000/23340000/23333100/23333006/ef3bcf53_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>The Mirror Danang Hostel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star-half-empty"></i></div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;166 Cao Xuan Duc</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">30.44<br>3.64<br>874637<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">163,300<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">326,600VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/24000000/23410000/23401200/23401131/a18b778a_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Mariposa Hostel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star-half-empty"></i></div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;Lo 9 Dinh Thi Hoa, An Hai Bac</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">34.36<br>4.08<br>879758<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">184,575<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">369,150VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/21000000/20220000/20218800/20218725/70adaa4f_b.jpg" alt="" class="img-responsive"></div>
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl1.jpg" alt="" class="img-responsive"></div>
                                             </div>
                                             <div class="col-md-5 col-sm-7">
                                                 <div class="item-body">
                                                     <div class="item-title">
                                                         <h2>Rose Home - Hostel</h2>
                                                     </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;</div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
                                                     <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
                                                     <div class="item-address">Region: Da Nang</div>
                                                 </div>
@@ -311,242 +394,35 @@
                                                 </div>
                                                 <div class="hidden">
                                                     <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">39.56<br>4.72<br>761211<br></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">212,405<span>VND</span></span>
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
                                                 </div>
                                                 <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">424,810VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/24000000/23140000/23138800/23138705/e8e1e075_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Whale Hotel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;</div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;1001 Nguyen Tat Thanh</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">41.32<br>4.98<br>862387<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">221,490<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">442,980VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/22000000/21960000/21956000/21955981/4ffd0870_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Fedora Hostel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;</div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;294/9 Dien Bien Phu</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">43<br>5.12<br>807450<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">230,920<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">461,840VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/20000000/19990000/19983500/19983491/a743f0c4_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Danang Center 2 Hotel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;</div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;25 Phan Châu Trinh, Hai CHau</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">43.04<br>5.16<br>750101<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">230,920<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">461,840VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/19000000/18030000/18029900/18029801/203dec84_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Meraki Villa Hostel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star-half-empty"></i></div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;115 Le Lai Street</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">47.48<br>5.68<br>684864<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">254,725<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">509,450VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/16000000/15020000/15014800/15014702/bc451147_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Lucky Bee Homestay</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;</div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;453 Kinh Duong Vuong</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">46.4<br>5.5<br>588829<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">249,320<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">498,640VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/20000000/19380000/19371600/19371589/83ff346f_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Bac Nam Motel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;</div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;27 Dam Van Le</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">46.52<br>5.54<br>722051<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">249,780<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">499,560VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/20000000/19710000/19700500/19700460/9ddd91b1_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Bookaholic Beach Hostel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star-half-empty"></i></div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;53-55 An Thuong 3, My An, Ngu Hanh Son</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">47.04<br>5.6<br>736196<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">252,540<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">505,080VND/2 nights</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
                                                 <div class="promotion-container text-center">
-                                                    <div class="alert alert-danger" style="margin:0px">Book early and save 15%</div>
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
                                     <a href="#" title="" target="_blank">
                                         <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/10000000/9630000/9626700/9626634/19d897e8_b.jpg" alt="" class="img-responsive"></div>
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl2.jpg" alt="" class="img-responsive"></div>
                                             </div>
                                             <div class="col-md-5 col-sm-7">
                                                 <div class="item-body">
                                                     <div class="item-title">
-                                                        <h2>Kara Beachside Guest House</h2>
+                                                        <h2>Rose Home - Hostel</h2>
                                                     </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;</div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;Sao Bien Beach, Vo Nguyen Giap</div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
                                                     <div class="item-address">Region: Da Nang</div>
                                                 </div>
                                                 <div class="item-footer">
@@ -554,122 +430,35 @@
                                                 </div>
                                                 <div class="hidden">
                                                     <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">48.12<br>5.74<br>504914<br></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">258,290<span>VND</span></span>
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
                                                 </div>
                                                 <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">516,580VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/12000000/11570000/11567500/11567418/4a1ff280_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Danang Backpackers Hostel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;</div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;106 Nguyen Chi Thanh St</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">48.88<br>5.86<br>532283<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">262,200<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">524,400VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/21000000/20190000/20189000/20188971/c743859b_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Honey Hotel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;</div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;1064 Ngo Quyen</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">51.64<br>6.7<br>760640<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">273,930<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">547,860VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/20000000/19550000/19541300/19541298/7b924a82_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>DaNa Home Hotel - Apartment</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;<i class="fa fa-star-half-empty"></i></div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;119 Nguyen Du</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">51.2<br>6.16<br>730854<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">274,505<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">549,010VND/2 nights</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
                                                 <div class="promotion-container text-center">
-                                                    <div class="alert alert-danger" style="margin:0px">Save 15%</div>
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
                                     <a href="#" title="" target="_blank">
                                         <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/12000000/12000000/11998700/11998656/11998656_1_b.jpg" alt="" class="img-responsive"></div>
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl1.jpg" alt="" class="img-responsive"></div>
                                             </div>
                                             <div class="col-md-5 col-sm-7">
                                                 <div class="item-body">
                                                     <div class="item-title">
-                                                        <h2>Salina Hotel</h2>
+                                                        <h2>Rose Home - Hostel</h2>
                                                     </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;</div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;662 Nui Thanh Str.</div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
                                                     <div class="item-address">Region: Da Nang</div>
                                                 </div>
                                                 <div class="item-footer">
@@ -677,152 +466,35 @@
                                                 </div>
                                                 <div class="hidden">
                                                     <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">51.6<br>6.14<br>542014<br></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">277,035<span>VND</span></span>
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
                                                 </div>
                                                 <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">554,070VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/24000000/23550000/23540900/23540868/76f81cb7_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>La Risa Hotel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;<i class="fa fa-star-half-empty"></i></div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;237 Ngo Quyen, Son Tra</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">51.6<br>6.14<br>886045<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">277,035<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">554,070VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/22000000/21200000/21194700/21194647/105fb6e9_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Trip House Hostel &amp; Bistro</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star-half-empty"></i></div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;123 Tran Hung Dao</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">51.6<br>6.14<br>784367<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">277,035<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">554,070VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/22000000/21170000/21166000/21165987/85a1bc2a_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Zi Coffee &amp; Hostel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star-half-empty"></i></div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;41 Ly Tu Trong</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">54.72<br>6.58<br>782666<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">293,365<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">586,730VND/2 nights</small></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" title="" target="_blank">
-                                        <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/21000000/20390000/20382600/20382533/018fc21a_b.jpg" alt="" class="img-responsive"></div>
-                                            </div>
-                                            <div class="col-md-5 col-sm-7">
-                                                <div class="item-body">
-                                                    <div class="item-title">
-                                                        <h2>Loseby Hotel</h2>
-                                                    </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;<i class="fa fa-star-half-empty"></i></div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;86 Loseby, Son Tra district</div>
-                                                    <div class="item-address">Region: Da Nang</div>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
-                                                </div>
-                                                <div class="hidden">
-                                                    <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">61.92<br>13.6<br>766610<br></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">294,515<span>VND</span></span>
-                                                </div>
-                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">589,030VND/2 nights</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
                                                 <div class="promotion-container text-center">
-                                                    <div class="alert alert-danger" style="margin:0px">Save 10%</div>
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
                                     <a href="#" title="" target="_blank">
                                         <div class="row item-list ">
-                                            <div class="col-md-3 item-media" style="margin:0px;padding:0px">
-                                                <div class="image-cover"><img src="https://i.travelapi.com/hotels/14000000/13380000/13373700/13373692/c91c8fa5_b.jpg" alt="" class="img-responsive"></div>
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl2.jpg" alt="" class="img-responsive"></div>
                                             </div>
                                             <div class="col-md-5 col-sm-7">
                                                 <div class="item-body">
                                                     <div class="item-title">
-                                                        <h2>Vien Dong 2 Hotel</h2>
+                                                        <h2>Rose Home - Hostel</h2>
                                                     </div>
-                                                    <div class="star"><i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;</div>
-                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;21 Yen Bai, Hai Chau</div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
                                                     <div class="item-address">Region: Da Nang</div>
                                                 </div>
                                                 <div class="item-footer">
@@ -830,248 +502,568 @@
                                                 </div>
                                                 <div class="hidden">
                                                     <div class="item-rate"><span>7.5 Good</span></div>
-                                                    <div class="item-icon">55.04<br>6.56<br>569719<br></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-sm-5 item-price-more">
-                                                <div class="price"><span class="amount">295,435<span>VND</span></span>
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
                                                 </div>
                                                 <div class="price-quote"><small>Rate is based on per room per night</small></div>
-                                                <div class="hidden price"><small class="text-danger">590,870VND/2 nights</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
+                                                <div class="promotion-container text-center">
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </a>
-                                </div>
-                                <div class="clearfix">
-                                    <div>
-                                        <ul class="pagination">
-                                            <!-- Previous page link -->
-                                            <li class="disabled">
-                                                <span>&lt;&lt;</span>
-                                            </li>
-                                            <!-- Numbered page links -->
-                                            <li class="active">
-                                                <span>1</span>
-                                            </li>
-                                            <li>
-                                                <a rel="2" href="#"><span data-page-number="2">2</span></a>
-                                            </li>
-                                            <li>
-                                                <a rel="3" href="#"><span data-page-number="3">3</span></a>
-                                            </li>
-                                            <li>
-                                                <a rel="4" href="#"><span data-page-number="4">4</span></a>
-                                            </li>
-                                            <li>
-                                                <a rel="5" href="#"><span data-page-number="5">5</span></a>
-                                            </li>
-                                            <li>
-                                                <a rel="6" href="#"><span data-page-number="6">6</span></a>
-                                            </li>
-                                            <li>
-                                                <a rel="7" href="#"><span data-page-number="7">7</span></a>
-                                            </li>
-                                            <li>
-                                                <a rel="8" href="#"><span data-page-number="8">8</span></a>
-                                            </li>
-                                            <li>
-                                                <a rel="9" href="#"><span data-page-number="9">9</span></a>
-                                            </li>
-                                            <li>
-                                                <a rel="10" href="#"><span data-page-number="10">10</span></a>
-                                            </li>
-                                            <!-- Next page link -->
-                                            <li>
-                                                <a rel="2" href="#"><span data-page-number="2">&gt;&gt;</span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="col-md-3 col-md-pull-9">
-                            <div class="page-sidebar">
-                                <div class="widget widget_map">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61349.62126469619!2d108.17168630312572!3d16.04724839503633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219c792252a13%3A0xfc14e3a044436487!2zRGEgTmFuZywgSOG6o2kgQ2jDonUsIERhIE5hbmcsIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1529158947756" width="100%" height="340" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                </div>
-                                <div class="widget white-container clearfix">
-                                    <div class="gap-small"></div>
-                                    <div class="page-header">
-                                        <h3>Your Favorite Hotel</h3>
-                                    </div>
-                                    <form>
-                                        <div class="form-group clearfix">
-                                            <input type="text" class="form-control input-lg tt-hint" placeholder="Hotel name" tabindex="-1">
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
+                                    <a href="#" title="" target="_blank">
+                                        <div class="row item-list ">
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl1.jpg" alt="" class="img-responsive"></div>
+                                            </div>
+                                            <div class="col-md-5 col-sm-7">
+                                                <div class="item-body">
+                                                    <div class="item-title">
+                                                        <h2>Rose Home - Hostel</h2>
+                                                    </div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
+                                                    <div class="item-address">Region: Da Nang</div>
+                                                </div>
+                                                <div class="item-footer">
+                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
+                                                </div>
+                                                <div class="hidden">
+                                                    <div class="item-rate"><span>7.5 Good</span></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-5 item-price-more">
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
+                                                </div>
+                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
+                                                <div class="promotion-container text-center">
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <a href="#" class="clear-search"><span class="pull-right">Clear Search</span></a>
-                                    </form>
-                                    <div class="gap-small"></div>
-                                </div>
-                                <div class="price-filter widget white-container clearfix">
-                                    <div class="gap-small"></div>
-                                    <div class="page-header">
-                                        <h3>Your Favorite Price</h3>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <div class="checkbox">
-                                                <label>
-								<input type="checkbox" value="0|41.63"> Lower 507,495<span>VND</span>							</label>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
+                                    <a href="#" title="" target="_blank">
+                                        <div class="row item-list ">
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl2.jpg" alt="" class="img-responsive"></div>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox">
-                                                <label>
-									<input type="checkbox" value="41.63|48">
-									507,495 to 585,120<span>VND</span>
-								</label>
+                                            <div class="col-md-5 col-sm-7">
+                                                <div class="item-body">
+                                                    <div class="item-title">
+                                                        <h2>Rose Home - Hostel</h2>
+                                                    </div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
+                                                    <div class="item-address">Region: Da Nang</div>
+                                                </div>
+                                                <div class="item-footer">
+                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
+                                                </div>
+                                                <div class="hidden">
+                                                    <div class="item-rate"><span>7.5 Good</span></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox">
-                                                <label>
-									<input type="checkbox" value="48.00|55">
-									585,120 to 670,450<span>VND</span>
-								</label>
+                                            <div class="col-md-4 col-sm-5 item-price-more">
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
+                                                </div>
+                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
+                                                <div class="promotion-container text-center">
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox">
-                                                <label>
-									<input type="checkbox" value="55.00|62.55">
-									670,450 to 762,450<span>VND</span>
-								</label>
+                                        </div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
+                                    <a href="#" title="" target="_blank">
+                                        <div class="row item-list ">
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl1.jpg" alt="" class="img-responsive"></div>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox">
-                                                <label>
-									<input type="checkbox" value="62.55|69.38">
-									762,450 to 845,710<span>VND</span>
-								</label>
+                                            <div class="col-md-5 col-sm-7">
+                                                <div class="item-body">
+                                                    <div class="item-title">
+                                                        <h2>Rose Home - Hostel</h2>
+                                                    </div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
+                                                    <div class="item-address">Region: Da Nang</div>
+                                                </div>
+                                                <div class="item-footer">
+                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
+                                                </div>
+                                                <div class="hidden">
+                                                    <div class="item-rate"><span>7.5 Good</span></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox">
-                                                <label>
-									<input type="checkbox" value="69.38|80.61">
-									845,710 to 982,675<span>VND</span>
-								</label>
+                                            <div class="col-md-4 col-sm-5 item-price-more">
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
+                                                </div>
+                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
+                                                <div class="promotion-container text-center">
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox">
-                                                <label>
-									<input type="checkbox" value="80.61|93">
-									982,675 to 1,133,670<span>VND</span>
-								</label>
+                                        </div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
+                                    <a href="#" title="" target="_blank">
+                                        <div class="row item-list ">
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl2.jpg" alt="" class="img-responsive"></div>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox">
-                                                <label>
-									<input type="checkbox" value="93.00|116.55">
-									1,133,670 to 1,420,710<span>VND</span>
-								</label>
+                                            <div class="col-md-5 col-sm-7">
+                                                <div class="item-body">
+                                                    <div class="item-title">
+                                                        <h2>Rose Home - Hostel</h2>
+                                                    </div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
+                                                    <div class="item-address">Region: Da Nang</div>
+                                                </div>
+                                                <div class="item-footer">
+                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
+                                                </div>
+                                                <div class="hidden">
+                                                    <div class="item-rate"><span>7.5 Good</span></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox">
-                                                <label>
-									<input type="checkbox" value="116.55|146.9">
-									1,420,710 to 1,790,665<span>VND</span>
-								</label>
+                                            <div class="col-md-4 col-sm-5 item-price-more">
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
+                                                </div>
+                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
+                                                <div class="promotion-container text-center">
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox">
-                                                <label>
-									<input type="checkbox" value="146.90|188.18">
-									1,790,665 to 2,293,905<span>VND</span>
-								</label>
+                                        </div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
+                                    <a href="#" title="" target="_blank">
+                                        <div class="row item-list ">
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl1.jpg" alt="" class="img-responsive"></div>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox"><label><input type="checkbox" value="188.18|0"> Higher 2,293,905<span>VND</span></label></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="star-filter widget white-container clearfix">
-                                    <div class="gap-small"></div>
-                                    <div class="page-header">
-                                        <h3>By Star Rating?</h3>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <div class="checkbox"><label><input type="checkbox" value="5.0|5.5"><span class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span></label></div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox"><label><input type="checkbox" value="4.0|4.5"><span class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span></label></div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox"><label><input type="checkbox" value="3.0|3.5"><span class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span></label></div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox"><label><input type="checkbox" value="2.0|2.5"><span class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i></span></label></div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox"><label><input type="checkbox" value="1.0|1.5"><span class="rating"><i class="fa fa-star"></i></span></label></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="promotion-filter widget white-container clearfix">
-                                    <div class="gap-small"></div>
-                                    <div class="page-header">
-                                        <h3>By Promotion</h3>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <div class="checkbox"><label><input type="checkbox" value="1"> Promotion?</label></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="region-filter widget white-container clearfix">
-                                    <div class="gap-small"></div>
-                                    <div class="page-header">
-                                        <h3>Your Favorite Region</h3>
-                                    </div>
-                                    <ul class="filter-list collapsed">
-                                        <li class="filter-label-wrapper">
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" value="da-nang"> Da Nang</label>
+                                            <div class="col-md-5 col-sm-7">
+                                                <div class="item-body">
+                                                    <div class="item-title">
+                                                        <h2>Rose Home - Hostel</h2>
+                                                    </div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
+                                                    <div class="item-address">Region: Da Nang</div>
+                                                </div>
+                                                <div class="item-footer">
+                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
+                                                </div>
+                                                <div class="hidden">
+                                                    <div class="item-rate"><span>7.5 Good</span></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li class="filter-label-wrapper">
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" value="dien-ban"> Dien Ban</label>
+                                            <div class="col-md-4 col-sm-5 item-price-more">
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
+                                                </div>
+                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
+                                                <div class="promotion-container text-center">
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li class="filter-label-wrapper">
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" value="danang"> Danang</label>
+                                        </div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
+                                    <a href="#" title="" target="_blank">
+                                        <div class="row item-list ">
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl2.jpg" alt="" class="img-responsive"></div>
                                             </div>
-                                        </li>
-                                        <li class="filter-label-wrapper">
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" value="hoi-an-danang-central"> Hoi An - Danang - Central</label>
+                                            <div class="col-md-5 col-sm-7">
+                                                <div class="item-body">
+                                                    <div class="item-title">
+                                                        <h2>Rose Home - Hostel</h2>
+                                                    </div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
+                                                    <div class="item-address">Region: Da Nang</div>
+                                                </div>
+                                                <div class="item-footer">
+                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
+                                                </div>
+                                                <div class="hidden">
+                                                    <div class="item-rate"><span>7.5 Good</span></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li class="filter-label-wrapper">
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" value="hoa-vang"> Hoa Vang</label>
+                                            <div class="col-md-4 col-sm-5 item-price-more">
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
+                                                </div>
+                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
+                                                <div class="promotion-container text-center">
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
+                                                </div>
                                             </div>
-                                        </li>
-                                    </ul>
-                                    <a class="toggleFilters text-right">
-          <span class="more" aria-hidden="true">Show more</span>
-        </a>
-                                </div>
+                                        </div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
+                                    <a href="#" title="" target="_blank">
+                                        <div class="row item-list ">
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl1.jpg" alt="" class="img-responsive"></div>
+                                            </div>
+                                            <div class="col-md-5 col-sm-7">
+                                                <div class="item-body">
+                                                    <div class="item-title">
+                                                        <h2>Rose Home - Hostel</h2>
+                                                    </div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
+                                                    <div class="item-address">Region: Da Nang</div>
+                                                </div>
+                                                <div class="item-footer">
+                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
+                                                </div>
+                                                <div class="hidden">
+                                                    <div class="item-rate"><span>7.5 Good</span></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-5 item-price-more">
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
+                                                </div>
+                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
+                                                <div class="promotion-container text-center">
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
+                                    <a href="#" title="" target="_blank">
+                                        <div class="row item-list ">
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl2.jpg" alt="" class="img-responsive"></div>
+                                            </div>
+                                            <div class="col-md-5 col-sm-7">
+                                                <div class="item-body">
+                                                    <div class="item-title">
+                                                        <h2>Rose Home - Hostel</h2>
+                                                    </div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
+                                                    <div class="item-address">Region: Da Nang</div>
+                                                </div>
+                                                <div class="item-footer">
+                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
+                                                </div>
+                                                <div class="hidden">
+                                                    <div class="item-rate"><span>7.5 Good</span></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-5 item-price-more">
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
+                                                </div>
+                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
+                                                <div class="promotion-container text-center">
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
+                                    <a href="#" title="" target="_blank">
+                                        <div class="row item-list ">
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl1.jpg" alt="" class="img-responsive"></div>
+                                            </div>
+                                            <div class="col-md-5 col-sm-7">
+                                                <div class="item-body">
+                                                    <div class="item-title">
+                                                        <h2>Rose Home - Hostel</h2>
+                                                    </div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
+                                                    <div class="item-address">Region: Da Nang</div>
+                                                </div>
+                                                <div class="item-footer">
+                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
+                                                </div>
+                                                <div class="hidden">
+                                                    <div class="item-rate"><span>7.5 Good</span></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-5 item-price-more">
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
+                                                </div>
+                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
+                                                <div class="promotion-container text-center">
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                                <article class="vl-result-item">
+                                    <a href="#" title="" target="_blank">
+                                        <div class="row item-list ">
+                                            <div class="col-md-3 item-media">
+                                                <div class="image-cover"><img src="images/vl2.jpg" alt="" class="img-responsive"></div>
+                                            </div>
+                                            <div class="col-md-5 col-sm-7">
+                                                <div class="item-body">
+                                                    <div class="item-title">
+                                                        <h2>Rose Home - Hostel</h2>
+                                                    </div>
+                                                    <div class="star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                                    <div class="item-address"><i class="fa fa-map-marker"></i>&nbsp;30/7 Ha Bong</div>
+                                                    <div class="item-address">Region: Da Nang</div>
+                                                </div>
+                                                <div class="item-footer">
+                                                    <div class="item-rate"><span>Supplier: </span>SG_SIN_1_000007</div>
+                                                </div>
+                                                <div class="hidden">
+                                                    <div class="item-rate"><span>7.5 Good</span></div>
+                                                    <div class="item-icon">75.12<br>8.9<br>761211<br></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-5 item-price-more">
+                                                <div class="price"><span class="amount">201,825<span>VND</span></span>
+                                                </div>
+                                                <div class="price-quote"><small>Rate is based on per room per night</small></div>
+                                                <div class="hidden price"><small class="text-danger">807,300VND/2 nights</small></div>
+                                                <div class="promotion-container text-center">
+                                                    <div class="alert alert-danger" style="margin:0px">Private sale: save 5%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </article>
+                            </div>
+                            <div class="pager-cate">
+                                <a href="#"><i class="fa fa-angle-left"></i></a>
+                                <a href="#">1</a>
+                                <a href="#" class="current">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#"><i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
-                </section>
+                    <div class="col-md-3 col-sm-12">
+                        <div class="vl-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61349.62126469619!2d108.17168630312572!3d16.04724839503633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219c792252a13%3A0xfc14e3a044436487!2zRGEgTmFuZywgSOG6o2kgQ2jDonUsIERhIE5hbmcsIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1529158947756" width="100%" height="340" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </div>
+                        <!--vl-box-->
+                        <div class="vl-box">
+                            <div class="vl-box-caption">YOUR FAVORITE HOTEL</div>
+                            <div class="b-search">
+                                <input type="text" placeholder="Search...">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <div class="vl-box-clear">
+                                <a href="#">Clear search</a>
+                            </div>
+                        </div>
+                        <!--vl-box-->
+                        <div class="vl-box">
+                            <div class="vl-box-caption">YOUR FAVORITE PRICE</div>
+                            <ul class="vl-box-list">
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>  Lower 449,765VND</span>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>449,765 to 539,925VND</span>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>539,925 to 624,105VND</span>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>624,105 to 712,770VND</span>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>712,770 to 789,130VND</span>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>789,130 to 901,255VND</span>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>901,255 to 1,059,725VND</span>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>1,059,725 to 1,267,760VND</span>
+                                 </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--vl-box-->
+                        <div class="vl-box">
+                            <div class="vl-box-caption">BY STAR RATING?</div>
+                            <ul class="vl-box-list">
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                   <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                   <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                   <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                   <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                   <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                 </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--vl-box-->
+                        <div class="vl-box">
+                            <div class="vl-box-caption">BY PROMOTION</div>
+                            <ul class="vl-box-list">
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>  Promotion?</span>
+                                 </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--vl-box-->
+                        <div class="vl-box">
+                            <div class="vl-box-caption">YOUR FAVORITE REGION</div>
+                            <ul class="vl-box-list">
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>   Da Nang</span>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>Dien Ban</span>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>Hoi An - Danang - Central</span>
+                                 </label>
+                                </li>
+                                <li>
+                                    <label>
+                                 <input type="checkbox">
+                                    <span>Hoa Vang</span>
+                                 </label>
+                                </li>
+                            </ul>
+                            <div class="vl-box-clear">
+                                <a href="#">Show more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
         <!--footer-->
         <footer class="footer">
             <div class="footer-nav">
@@ -1153,6 +1145,16 @@
         </footer>
         <div class="back-top"></div>
     </div>
+    <!-- End WebsiteAlive AliveTracker v3.0 Code -->
+    <!--<div id="fb-root"></div>
+        <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>-->
 </body>
 
 </html>

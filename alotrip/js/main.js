@@ -1,6 +1,20 @@
 (function ($) {
     $(document).on('ready', function () {
 
+
+
+        $(window).bind('resize', function () {
+            setHeightSlider();
+        }).trigger('resize');
+
+        function setHeightSlider() {
+
+            $('.slider-item').css("min-height", $(".vl-form-search").outerHeight() + 100 + "px");
+
+
+        }
+
+
         if ($('#price-range').length) {
 
             $("#price-range").slider({
@@ -366,6 +380,15 @@
             $('html, body').animate({
                 scrollTop: $(".trust-box").offset().top
             }, 2000);
+        });
+
+        $(".lv-search-location input").click(function (e) {
+            e.stopPropagation();
+            $('.lv-search-location').addClass("show");
+        });
+
+        $("body").click(function () {
+            $('.lv-search-location').removeClass("show");
         });
 
 
