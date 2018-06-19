@@ -75,35 +75,18 @@ public function init() {
 // cart content count
     add_filter('add_to_cart_fragments', 'mazpage_woocommerce_header_add_to_cart_fragment');
     
-    
-     
-add_action('woocommerce_after_shop_loop_item_title', 'description_in_shop_loop_item', 3 );
-    
+ add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_single_excerpt', 5);
 
 }
 
 
-function description_in_shop_loop_item() {
-    global $product;
 
-    // HERE define the number of words
-    $limit = 10;
-
-    $description = $product->get_description(); // Product description
-    // or
-    // $description = $product->get_short_description(); // Product short description
-
-    // Limit the words length
-    if (str_word_count($description, 0) > $limit) {
-        $words = str_word_count($description, 2);
-        $pos = array_keys($words);
-        $excerpt = substr($description, 0, $pos[$limit]) . '...';
-    } else {
-        $excerpt = $description;
-    }
-
-    echo '<p class="description">'.$excerpt.'</p>';
-}
+     function lk_woocommerce_product_excerpt()  
+     { 
+     echo '<span class="excerpt">'; 
+     the_excerpt(); 
+     echo '</span>'; 
+     } 
 
     
 function mazpage_enqueue() {
