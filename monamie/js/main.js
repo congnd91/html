@@ -6,6 +6,11 @@
                 $('body').fadeIn();
             });
         }
+        db.menuResponsive = function () {
+            $('.menu-icon').on('click', function () {
+                $('body').toggleClass("open-menu");
+            });
+        }
         db.sliderHome = function () {
             var owl_home = $('.owl-home');
             if ($(owl_home).length) {
@@ -179,7 +184,15 @@
                 });
             }
         }
+        db.Scroll = function () {
+
+
+            $(".main-menu").stick_in_parent();
+
+        }
+
         db.preLoad();
+        db.menuResponsive();
         db.sliderPopular();
         db.sliderVideo();
         db.sliderHome();
@@ -189,5 +202,6 @@
         db.sliderStar();
         db.toTop();
         db.accordion();
+        db.Scroll();
     });
 })(jQuery);
