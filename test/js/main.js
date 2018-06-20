@@ -184,6 +184,19 @@
 
             });
 
+            if ($('.modal-prod-content-scroll').length) {
+                $('.modal-prod-content-scroll').niceScroll({
+
+                    autohidemode: 'leave'
+                });
+            }
+
+            $('#modal-prod').on('show.bs.modal', function () {
+                setTimeout(function () {
+                    $(".modal-prod-content-scroll").getNiceScroll().resize();
+                }, 500);
+            });
+
 
 
 
@@ -197,6 +210,13 @@
                 }, 1000);
             });
         }
+        db.matchHeight = function () {
+
+            $(".pid-equal").matchHeight();
+
+
+        }
+
 
         db.menuMobile = function () {
 
@@ -312,5 +332,6 @@
         db.nrAccordion();
         db.profileAccordion();
         db.showSearchGlobalMobile();
+        db.matchHeight();
     });
 })(jQuery);

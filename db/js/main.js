@@ -74,6 +74,13 @@
                     offset_top: 30
                 });
             }
+            if ($(".docleft").length) {
+
+                $(".docleft").stick_in_parent({
+
+                    offset_top: 30
+                });
+            }
         }
 
 
