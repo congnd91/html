@@ -983,6 +983,9 @@ iframe {
 .review-box {
     max-width: 1000px;
     margin: 0px auto 120px auto;
+    &.margin-b-80 {
+        margin-bottom: 80px;
+    }
     h1 {
         font-size: 6rem;
         font-weight: 700;
@@ -1799,6 +1802,7 @@ body .nicescroll-cursors {
         &.margin-left {
             margin: 0px 0px 0px 10px;
         }
+
     }
     .dropdown {
         width: 200px;
@@ -1862,6 +1866,23 @@ body .nicescroll-cursors {
             &:hover {
                 color: $base-color;
                 background-color: $border-color;
+            }
+        }
+        ul {
+            list-style: none;
+
+            padding: 0px;
+            margin: 0px;
+            li {
+                margin: 0px;
+                padding: 0px;
+                ul {
+                    li {
+                        a {
+                            padding: 0px 0px 0px 20px;
+                        }
+                    }
+                }
             }
         }
     }
@@ -3067,6 +3088,7 @@ body .nicescroll-cursors {
 
     transition: all ease 0.3s;
     line-height: 15px;
+
     &.no-margin {
         margin: 0px;
     }
@@ -3079,6 +3101,17 @@ body .nicescroll-cursors {
         }
     }
 
+
+    &.gray {
+        a {
+            display: inline-block;
+            color: $text-color;
+            text-decoration: none;
+            &:hover {
+                color: $active-color;
+            }
+        }
+    }
     span {
         float: left;
         margin: 0px 5px 0px 0px;
@@ -3119,7 +3152,7 @@ body .nicescroll-cursors {
         padding: 0px 25px;
         border-radius: 30px;
         color: #fff;
-        font-size: 1.6rem;
+        font-size: 1.3rem;
         background-color: $active-color;
         transition: all ease 0.3s;
         &:hover {
@@ -3170,6 +3203,9 @@ body .nicescroll-cursors {
     }
     .co-radio {
         margin: 0px 0px 10px 0px;
+        label {
+            font-size: 1.3rem;
+        }
     }
     .dropdown-toggle {
         font-weight: 500 !important;
@@ -3283,6 +3319,15 @@ body .nicescroll-cursors {
     margin: 0px 0px 100px 0px;
     &.no-margin {
         margin: 0px;
+        @media(max-width: 991px) {
+            margin: 0px;
+        }
+    }
+    &.margin-b-30 {
+        margin-bottom: 30px;
+        @media(max-width: 991px) {
+            margin: 0px;
+        }
     }
     @media(max-width: 991px) {
         margin: 0px 0px 60px 0px;
@@ -3349,6 +3394,7 @@ body .nicescroll-cursors {
         }
         img {
             width: 100%;
+            max-height: 341px;
         }
         @media(max-width: 991px) {
             border-bottom: 2px solid #fff;
@@ -3551,6 +3597,7 @@ body .nicescroll-cursors {
 
 .featured-content {
     overflow: hidden;
+    padding: 10px 0px 0px 0px;
 }
 
 .featured-large {
@@ -3670,6 +3717,7 @@ body .nicescroll-cursors {
             color: #000;
             transition: all ease 0.3s;
             text-transform: uppercase;
+            font-weight: 700;
             &:hover {
                 opacity: 0.8;
             }
@@ -3723,6 +3771,7 @@ body .nicescroll-cursors {
             left: 5px;
             &:hover {
                 opacity: 0.8;
+                color: #fff;
             }
         }
     }
@@ -4071,6 +4120,7 @@ body .nicescroll-cursors {
             font-weight: 700;
         }
         .profile-meta {
+            font-size: 1.3rem;
             span {
                 display: inline-block;
                 margin: 0px 20px 0px 0px;
@@ -4163,13 +4213,17 @@ body .nicescroll-cursors {
         &.active {
             > a {
 
-                color: #000;
+                color: $active-color;
+
             }
         }
         &.has-child {
             position: relative;
             padding: 15px 0px 15px 0px;
             cursor: pointer;
+            > a {
+                color: $active-color;
+            }
             span {
                 position: absolute;
                 top: 17px;
@@ -4210,6 +4264,9 @@ body .nicescroll-cursors {
                     color: $text-color;
                     text-transform: uppercase;
                     transition: all ease 0.3s;
+                    &.active {
+                        color: $active-color;
+                    }
                     &:hover {
                         color: $active-color;
                         text-decoration: underline;
@@ -4239,7 +4296,7 @@ body .nicescroll-cursors {
     margin: 0px 0px 20px 0px;
     font-size: 1.6rem;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
     span {
         font-weight: 500;
     }
@@ -4269,7 +4326,7 @@ body .nicescroll-cursors {
             }
         }
         p {
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             margin: 0px 0px 5px 0px;
             a {
                 font-weight: 600;
@@ -4388,6 +4445,9 @@ body .nicescroll-cursors {
 .lmr-item {
     padding: 30px 0px 30px 180px;
     border-bottom: 1px solid $border-color;
+    .slider-photo {
+        padding: 0px 30px;
+    }
     &:last-child {
         border: none;
     }
@@ -4399,7 +4459,7 @@ body .nicescroll-cursors {
             display: block;
             margin: 30px 0px 0px 0px;
             text-align: center;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: $active-color;
             text-transform: uppercase;
@@ -4496,6 +4556,25 @@ body .nicescroll-cursors {
                         font-size: 1.6rem;
                         text-transform: uppercase;
                     }
+                    .date {
+                        height: 30px;
+                        font-weight: 800;
+                        font-size: 1.6rem;
+                        display: inline-block;
+                        position: relative;
+                        padding: 0px 15px 0px 0px;
+                        i {
+                            position: relative;
+                            top: 2px;
+                            display: inline-block;
+                            background-image: url(../images/icon/ico-dropdown-arrow.svg);
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            background-size: 20px auto;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
 
                 }
             }
@@ -4556,6 +4635,9 @@ body .nicescroll-cursors {
                     font-weight: 800;
                     padding: 0px 0px 0px 0px;
                     font-size: 1.6rem;
+                    &.long-title {
+                        min-width: 120px;
+                    }
 
                     select {
                         border: 1px solid $border-color;
@@ -4732,6 +4814,7 @@ body .nicescroll-cursors {
         }
     }
     h3 {
+
         margin: 0px 0px 10px 0px;
         font-size: 2.4rem;
         font-weight: 700;
@@ -4984,6 +5067,13 @@ body .nicescroll-cursors {
     p {
         color: #000;
         margin: 0px 0px 10px 0px;
+
+    }
+    a {
+        color: $active-color;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
@@ -5056,12 +5146,12 @@ p {
     }
     a {
         display: inline-block;
-        width: 30px;
-        height: 30px;
-        margin: 0px 0px 10px 0px;
+        width: 25px;
+        height: 25px;
+        margin: 0px 0px 7px 0px;
         background-repeat: no-repeat;
         background-position: center center;
-        background-size: 30px 30px;
+        background-size: 25px 25px;
         &.facebook {
             background-image: url(../images/icon/ico-share-fb-line.svg);
             &:hover {
@@ -5135,7 +5225,7 @@ p {
     }
 
     h1 {
-        margin: 0px 0px 10px 0px;
+        margin: 0px 0px 30px 0px;
         font-size: 3rem;
         font-weight: 700;
         @media screen and (max-width: 991px) {
@@ -5168,12 +5258,21 @@ p {
         color: $text-color;
         margin: 0px 0px 15px 0px;
     }
+    ul,
+    span,
+    strong,
+    em,
+    figcaption {
+        color: $text-color;
+
+    }
+
 }
 
 .pd-author-shot {
     display: flex;
     align-items: center;
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 50px 0px;
     img {
         width: 40px;
         height: 40px;
@@ -5410,20 +5509,20 @@ p {
                 display: block;
                 font-size: 1.2rem;
                 font-weight: 600;
-                color: $text-color;
+                color: #7c7c7c;
                 text-transform: uppercase;
 
             }
 
             &:hover {
                 a {
-                    color: #000;
+                    color: $text-color;
                 }
             }
 
             &.active {
                 a {
-                    color: #000;
+                    color: $text-color;
                 }
             }
         }
@@ -5824,6 +5923,11 @@ p {
 
     p {
 
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
+}
+
+.text-top {
+    vertical-align: text-top;
+
 }
