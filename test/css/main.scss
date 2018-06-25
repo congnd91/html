@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    min-width: 360px;
+    min-width: 320px;
     font-size: 1.4rem;
     font-family: $font-family;
     line-height: 1.5;
@@ -581,6 +581,7 @@ iframe {
         float: left;
         margin: 0px 0px 0px 15px;
         line-height: 40px;
+        position: relative;
         span {
             width: 30px;
             height: 30px;
@@ -607,7 +608,14 @@ iframe {
             font-size: 1.3rem;
             line-height: 20px;
             @media screen and (max-width: 767px) {
-                display: none;
+                background-color: $active-color;
+                height: 15px;
+                width: 15px;
+                line-height: 15px;
+                position: absolute;
+                top: 2px;
+                left: 16px;
+                font-size: 1.2rem;
             }
         }
     }
@@ -615,7 +623,7 @@ iframe {
     .search-icon {
         float: left;
         cursor: pointer;
-        margin: 0px 0px 0px 10px;
+        margin: 0px 0px 0px 0px;
         line-height: 40px;
 
         width: 30px;
@@ -727,6 +735,16 @@ iframe {
         }
         @media screen and (max-width: 767px) {
             padding: 40px 0px 0px 0px;
+        }
+    }
+    &.header-board {
+        @media screen and (max-width: 767px) {
+            padding: 0px 0px 0px 0px;
+        }
+    }
+    &.header-profile {
+        @media screen and (max-width: 767px) {
+            padding: 0px 0px 0px 0px;
         }
     }
 
@@ -987,6 +1005,11 @@ iframe {
     &.margin-b-80 {
         margin-bottom: 80px;
     }
+
+    @media screen and (max-width: 991px) {
+        margin-bottom: 60px;
+
+    }
     h1 {
         font-size: 6rem;
         font-weight: 700;
@@ -994,10 +1017,10 @@ iframe {
         padding: 0px;
         margin: 0px 0px 10px 0px;
         @media screen and (max-width: 991px) {
-            font-size: 4rem;
+            font-size: 5rem;
         }
         @media screen and (max-width: 767px) {
-            font-size: 3rem;
+            // font-size: 3rem;
         }
     }
 
@@ -1378,7 +1401,7 @@ body .nicescroll-cursors {
         text-transform: uppercase;
         padding: 0px;
         @media screen and (max-width: 991px) {
-            font-size: 2rem;
+            font-size: 2.2rem;
         }
     }
 }
@@ -1387,6 +1410,10 @@ body .nicescroll-cursors {
     padding: 0px 40px;
     position: relative;
     @media screen and (max-width: 767px) {
+        padding: 0px;
+        .owl-nav {
+            display: none;
+        }
         .owl-dots {
             position: absolute;
             bottom: -40px;
@@ -1395,14 +1422,15 @@ body .nicescroll-cursors {
             text-align: center;
             .owl-dot {
                 display: inline-block;
-                width: 7px;
-                height: 7px;
+                width: 10px;
+                height: 10px;
+
                 border-radius: 50%;
-                margin: 0px 5px;
-                background-color: #555;
+                margin: 0px 8px;
+                background-color: rgb(221, 221, 221);
 
                 &.active {
-                    background-color: #111;
+                    background-color: rgb(77, 77, 77);
                 }
             }
         }
@@ -1585,6 +1613,9 @@ body .nicescroll-cursors {
             line-height: 32px;
             border-width: 1px;
             font-size: 1.2rem;
+            @media screen and (max-width: 575px) {
+                width: auto;
+            }
         }
         .add-to-cart {
             width: 100%;
@@ -1593,6 +1624,10 @@ body .nicescroll-cursors {
             height: 36px;
             line-height: 32px;
             border-width: 1px;
+            @media screen and (max-width: 575px) {
+                width: auto;
+                padding: 0px 20px;
+            }
         }
     }
     &:hover {
@@ -2000,6 +2035,17 @@ body .nicescroll-cursors {
             }
         }
     }
+
+    @media screen and (max-width: 991px) {
+
+
+        .row {
+
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            .col-6 {}
+        }
+    }
 }
 
 .news-box {
@@ -2128,6 +2174,7 @@ body .nicescroll-cursors {
     padding: 0px 0px 0px 40px;
     @media screen and (max-width: 991px) {
         padding: 0px;
+        margin: 40px 0px 0px 0px;
     }
     .feature-item {
         padding: 0px 0px 0px 180px;
@@ -2137,6 +2184,9 @@ body .nicescroll-cursors {
             width: 160px;
             margin: 0px 0px 0px -180px;
             float: left;
+            @media screen and (max-width: 991px) {
+                max-width: 160px;
+            }
         }
         h3 {
             font-size: 1.6rem;
@@ -2150,6 +2200,29 @@ body .nicescroll-cursors {
                 color: $active-color;
             }
         }
+    }
+
+    .news-insiders {
+
+        @media screen and (max-width: 991px) {
+
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            display: flex;
+
+            .insider-item {
+
+                margin: 0px 20px;
+                display: block;
+                text-align: center;
+                .ii-img {
+                    min-width: 110px;
+                    margin: 0px auto 10px auto;
+                }
+            }
+        }
+
+
     }
 }
 
@@ -2263,6 +2336,35 @@ body .nicescroll-cursors {
                 }
             }
         }
+
+        @media screen and (max-width: 991px) {
+            text-align: left;
+            float: left;
+            width: 50%;
+
+            ul {
+                text-align: left;
+                li {
+                    display: block;
+                    margin: 0px 0px 10px 0px;
+
+                }
+            }
+        }
+
+
+    }
+    .support-right {
+        display: none;
+        @media screen and (max-width: 991px) {
+            display: block;
+            float: right;
+            width: 50%;
+            img {
+                margin: 20px 0px 0px 0px;
+
+            }
+        }
     }
     .social-footer {
         text-align: center;
@@ -2276,6 +2378,13 @@ body .nicescroll-cursors {
         img {
             width: 40px;
         }
+        @media screen and (max-width: 991px) {
+            text-align: right;
+            a {
+                margin: 0px 0px 0px 0px;
+
+            }
+        }
     }
     .allright {
         margin: 80px 0px 0px 0px;
@@ -2284,6 +2393,9 @@ body .nicescroll-cursors {
         text-align: left;
         position: relative;
         border-top: 1px solid $border-color;
+        @media screen and (max-width: 991px) {
+            margin: 30px 0px 0px 0px;
+        }
         .totop {
             width: 25px;
             height: 25px;
@@ -2298,6 +2410,7 @@ body .nicescroll-cursors {
             &:hover {
                 opacity: 0.9;
             }
+
         }
         p {
             display: inline-block;
@@ -2307,6 +2420,7 @@ body .nicescroll-cursors {
             a {
                 text-decoration: underline;
             }
+            @media screen and (max-width: 991px) {}
         }
         span {
             display: inline-block;
@@ -3362,6 +3476,17 @@ body .nicescroll-cursors {
                 text-align: left;
             }
         }
+        &.section-caption-news {
+            @media screen and (max-width: 767px) {
+
+                border: none !important;
+                margin: 0px 0px 20px 0px;
+                text-align: center;
+                h2 {
+                    text-align: center;
+                }
+            }
+        }
     }
 }
 
@@ -3374,6 +3499,7 @@ body .nicescroll-cursors {
         width: 54%;
         overflow: hidden;
         position: relative;
+
         .srn-large-item {
             position: relative;
             .srn-large-caption {
@@ -3404,6 +3530,8 @@ body .nicescroll-cursors {
             border-bottom: 2px solid #fff;
             width: 100%;
             float: none;
+            margin: 0px -15px;
+            width: auto;
         }
         .owl-dots {
             position: absolute;
@@ -3487,6 +3615,9 @@ body .nicescroll-cursors {
 }
 
 .mp-col {
+    @media screen and (max-width: 991px) {
+        margin-bottom: 30px;
+    }
     &.mp-left {
         padding: 0px 30px 0px 0px;
     }
@@ -3564,6 +3695,66 @@ body .nicescroll-cursors {
             &.pi-review {
                 color: $text-color;
                 margin: 0px 0px 0px 0px;
+            }
+        }
+        @media screen and (max-width: 991px) {
+            padding: 5px 0px 5px 150px;
+
+            .mpi-left {
+                position: absolute;
+                top: 5px;
+                left: 0px;
+                bottom: 5px;
+                width: 70px;
+                background-color: #f3f3f3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                strong {
+                    line-height: 1;
+                    font-size: 2.4rem;
+                    font-weight: 700;
+                }
+                p {
+                    font-size: 1.2rem;
+                    color: $text-color;
+                    margin: 0px;
+                }
+            }
+            img {
+                position: absolute;
+                left: 75px;
+                top: 5px;
+                max-width: 70px;
+
+            }
+            h3 {
+                margin: 0px 0px 5px 0px;
+                a {
+                    font-weight: 700;
+                    font-size: 1.4rem;
+                    transition: color ease 0.3s;
+                    text-transform: uppercase;
+                    &:hover {
+                        color: $active-color;
+                    }
+                }
+            }
+            p {
+                margin: 0px 0px 10px 0px;
+                font-size: 1.3rem;
+                margin: 0px 0px 5px 0px;
+
+                a {
+                    transition: color ease 0.3s;
+                    &:hover {
+                        color: $active-color;
+                    }
+                }
+                &.pi-review {
+                    color: $text-color;
+                    margin: 0px 0px 0px 0px;
+                }
             }
         }
     }
@@ -3875,7 +4066,9 @@ body .nicescroll-cursors {
 }
 
 .table-checkout {
+    overflow: auto;
     table {
+        min-width: 700px;
         width: 100%;
         thead {
             tr {
@@ -3988,7 +4181,9 @@ body .nicescroll-cursors {
 }
 
 .table-comfirm-order {
+    overflow: auto;
     table {
+        min-width: 350px;
         width: 100%;
         border-bottom: 2px solid $border-color;
         margin: 0px 0px 20px 0px;
@@ -4092,6 +4287,81 @@ body .nicescroll-cursors {
 
 /***************profile**********/
 
+.profile-menu-mobile {
+    min-height: 50px;
+
+    margin: 0px 0px 40px 0px;
+    @media screen and (max-width: 991px) {
+        margin: 0px 0px 20px 0px;
+    }
+    ul {
+        list-style: none;
+        padding: 0px;
+        margin: 0px 0px -2px 0px;
+        li {
+            display: inline-block;
+            margin: 0px 40px 0px 0px;
+            @media screen and (max-width: 991px) {
+                margin: 0px 20px 0px 0px;
+            }
+            @media screen and (max-width: 767px) {
+                margin: 0px 10px 0px 0px;
+                font-size: 1.2rem;
+            }
+            a {
+                display: block;
+                line-height: 50px;
+                color: $text-color;
+
+                transition: all ease 0.3s;
+                font-weight: 700;
+                text-transform: uppercase;
+                &:hover {
+                    color: #000;
+                }
+
+            }
+            &.active {
+                a {
+                    color: #000;
+
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 767px) {
+
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+
+        ul {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+
+            li {
+                margin: 0px 10px;
+                a {
+                    white-space: nowrap;
+                    color: #000;
+                    text-transform: none;
+                    font-size: 1.3rem;
+                }
+                &.active {
+                    a {
+                        color: $active-color;
+
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
 .profile-cover {
     height: 300px;
     background-image: url(../images/i1.png);
@@ -4100,6 +4370,9 @@ body .nicescroll-cursors {
     background-size: cover;
     margin: -30px 0px 80px 0px;
     position: relative;
+    @media screen and (max-width: 767px) {
+        margin: 0px 0px 20px 0px;
+    }
     .profile-bar {
         position: absolute;
         left: 0px;
@@ -4156,12 +4429,83 @@ body .nicescroll-cursors {
             }
         }
     }
+    @media screen and (max-width: 767px) {
+        .profile-bar {
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            z-index: 999;
+            height: auto;
+            top: 0px;
+
+            padding: 50px 10px 20px 10px;
+            background-color: rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .profile-bar-inner {
+            padding: 0px 0px 0px 0px;
+            .profile-avatar {
+                width: 120px;
+                height: 120px;
+                float: none;
+                margin: 0px auto 0px auto;
+                border-radius: 50%;
+                img {
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                }
+                @media screen and (max-width: 575px) {
+                    margin: 0px auto 20px auto;
+                }
+            }
+            h3 {
+                font-size: 1.8rem;
+                color: #fff;
+                font-weight: 700;
+            }
+            .profile-meta {
+                font-size: 1.3rem;
+                span {
+                    display: inline-block;
+                    margin: 0px 20px 0px 0px;
+                    color: #fff;
+                    filter: #fff;
+                    em {
+                        font-style: normal;
+                        font-weight: 700;
+                    }
+                    @media screen and (max-width: 767px) {
+                        display: none;
+                    }
+                }
+                .social {
+                    display: block;
+                    text-align: center;
+                    position: relative;
+                    top: 2px;
+                    img {
+                        height: 25px;
+                        color: #fff;
+                        path {
+                            color: #fff;
+                            fill: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .profile-col {
     padding: 0px 0px 0px 290px;
     @media screen and (max-width: 991px) {
         padding: 0px 0px 0px 240px;
+    }
+    @media screen and (max-width: 767px) {
+        padding: 0px 0px 0px 0px;
     }
     .profile-colleft {
         float: left;
@@ -4170,10 +4514,20 @@ body .nicescroll-cursors {
         @media screen and (max-width: 991px) {
             margin: 0px 0px 0px -240px;
         }
+        @media screen and (max-width: 767px) {
+            float: none;
+            margin: 0px auto 30px auto;
+
+        }
     }
     .profile-colright {
         float: right;
         width: 100%;
+        @media screen and (max-width: 767px) {
+            float: none;
+            margin: 0px auto;
+
+        }
     }
 }
 
@@ -4182,6 +4536,12 @@ body .nicescroll-cursors {
     background-color: #f3f3f3;
     margin: 0px 0px 40px 0px;
     text-align: center;
+    padding: 10px 10px;
+
+    @media screen and (max-width: 767px) {
+        background-color: transparent;
+        border: 1px solid $border-color;
+    }
     p {
         margin: 0px 0px 5px 0px;
     }
@@ -4201,6 +4561,34 @@ body .nicescroll-cursors {
         color: $active-color;
         display: block;
         font-size: 3rem;
+    }
+}
+
+.profile-follow {
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+    @media screen and (max-width: 575px) {
+        margin: 0px -15px 20px -15px;
+    }
+    .profile-follow-item {
+        display: inline-block;
+        margin: 0px 20px;
+        text-align: center;
+        @media screen and (max-width: 575px) {
+            margin: 0px 5px;
+        }
+        strong {
+            font-weight: 800;
+            color: #000;
+            display: block;
+
+            font-size: 1.6rem;
+
+        }
+        p {
+            margin: 0px 0px 0px 0px;
+            color: $text-color;
+        }
     }
 }
 
@@ -4548,7 +4936,9 @@ body .nicescroll-cursors {
 .table-my-reward {
     border-top: 1px solid #000;
     padding: 20px 0px;
+    overflow: auto;
     table {
+        min-width: 500px;
         width: 100%;
         thead {
             tr {
@@ -4611,10 +5001,15 @@ body .nicescroll-cursors {
 .my-reward-detail {
     padding: 20px 20px 0px 190px;
     border-top: 1px solid #000;
+    @media screen and (max-width: 991px) {
+        padding: 20px 20px 0px 20px;
+    }
     .mrd-left {
         float: left;
         width: 140px;
         margin: 0px 0px 0px -190px;
+
+
 
         h3 {
             text-transform: uppercase;
@@ -4626,6 +5021,20 @@ body .nicescroll-cursors {
             margin: 0px 0px 15px 0px;
             font-size: 1.6rem;
         }
+
+        @media screen and (max-width: 991px) {
+            width: 100%;
+            float: none;
+            margin: 0px 0px 20px 0px;
+            background-color: $border-color;
+            padding: 20px;
+            h3 {
+                font-size: 1.4rem;
+            }
+            p {
+                font-size: 1.3rem;
+            }
+        }
     }
     .mrd-right {
         float: right;
@@ -4634,9 +5043,10 @@ body .nicescroll-cursors {
 }
 
 .mrd-table {
-
+    overflow: auto;
     table {
         width: 100%;
+        min-width: 500px;
         thead {
             tr {
 
@@ -4722,6 +5132,7 @@ body .nicescroll-cursors {
 .mrd-total {
     padding: 20px 0px 0px 0px;
     text-align: right;
+    min-width: 500px;
     p {
         font-size: 1.6rem;
         margin: 0px;
@@ -4757,6 +5168,9 @@ body .nicescroll-cursors {
             padding: 0px 0px 0px 20px;
         }
     }
+    @media screen and (max-width: 767px) {
+        display: NONE;
+    }
 
 }
 
@@ -4764,6 +5178,9 @@ body .nicescroll-cursors {
     min-height: 50px;
     border-bottom: 2px solid $border-color;
     margin: 0px 0px 40px 0px;
+    @media screen and (max-width: 991px) {
+        margin: 0px 0px 20px 0px;
+    }
     ul {
         list-style: none;
         padding: 0px;
@@ -4799,6 +5216,35 @@ body .nicescroll-cursors {
             }
         }
     }
+    @media screen and (max-width: 767px) {
+
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-top: 0px;
+
+        ul {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+
+            li {
+                margin: 0px 20px;
+                a {
+                    white-space: nowrap;
+                    color: #000;
+                    text-transform: none;
+                    font-size: 1.3rem;
+                }
+                &.active {
+                    a {
+                        color: $active-color;
+                        border-bottom-color: transparent;
+                    }
+                }
+            }
+        }
+
+    }
 }
 
 
@@ -4821,6 +5267,11 @@ body .nicescroll-cursors {
             bottom: 10px;
             background-color: rgba(0, 0, 0, 0.7);
             right: 10px;
+            @media screen and (max-width: 767px) {
+                right: 5px;
+                bottom: 5px;
+                font-size: 1.3rem;
+            }
         }
     }
     h3 {
@@ -4960,6 +5411,32 @@ body .nicescroll-cursors {
                 margin: 0px 1px;
             }
         }
+        @media screen and (max-width: 767px) {
+
+
+            padding: 0px 0px 0px 160px;
+            .news-block-img {
+                margin: 0px 0px 30px -160px;
+                float: left;
+                width: 140px;
+
+            }
+        }
+        @media screen and (max-width: 575px) {
+            padding: 0px 0px 0px 130px;
+            .news-block-img {
+                margin: 0px 0px 30px -130px;
+                float: left;
+                width: 120px;
+
+            }
+            .news-block-meta {
+                font-size: 1.1rem;
+                i {
+                    margin: 0px 1px;
+                }
+            }
+        }
     }
 }
 
@@ -4979,6 +5456,23 @@ body .nicescroll-cursors {
             width: 25%;
         }
     }
+    @media screen and (max-width: 991px) {
+
+
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+
+        .pi-item {
+            float: left;
+            width: 125px;
+            min-width: 125px;
+            img {
+                width: 100%;
+            }
+
+        }
+    }
 }
 
 .section-space {
@@ -4987,6 +5481,7 @@ body .nicescroll-cursors {
 
 .video-detail-left {
     padding: 0px 10px 30px 0px;
+    margin: 0px 0px 30px 0px;
     @media screen and (max-width: 991px) {
 
         padding: 0px;
@@ -5207,6 +5702,14 @@ p {
             }
         }
     }
+    .row {
+
+        @media screen and (max-width: 991px) {
+            overflow-x: auto;
+            flex-wrap: nowrap;
+
+        }
+    }
 }
 
 .post-detail {
@@ -5293,6 +5796,9 @@ p {
     display: flex;
     align-items: center;
     margin: 0px 0px 50px 0px;
+    @media screen and (max-width: 991px) {
+        margin: 0px 0px 20px 0px;
+    }
     img {
         width: 40px;
         height: 40px;
@@ -5306,13 +5812,28 @@ p {
         span {
             display: inline-block;
             margin: 0px 5px;
+
+        }
+        b {
+            font-weight: 500;
         }
         a {
             color: #000;
             font-weight: 700;
             text-transform: uppercase;
+            @media screen and (max-width: 991px) {
+                display: block;
+            }
+        }
+        @media screen and (max-width: 991px) {
+            font-size: 1.2rem;
         }
 
+        .hide-sm {
+            @media screen and (max-width: 991px) {
+                display: none;
+            }
+        }
     }
 }
 
@@ -5347,6 +5868,25 @@ p {
         margin: 0px 0px 0px 0px;
         color: $text-color;
     }
+    @media screen and (max-width: 767px) {
+        display: block;
+        text-align: center;
+
+        .author-avatar {
+            float: none;
+            width: 110px;
+            height: 110px;
+            min-width: 110px;
+            display: block;
+            margin: 0px auto 20px auto;
+            img {
+                width: 110px;
+                height: 110px;
+                display: block;
+                border-radius: 50%;
+            }
+        }
+    }
 }
 
 
@@ -5367,12 +5907,20 @@ p {
     padding: 0px 0px 30px 0px;
     position: relative;
     overflow: hidden;
+    @media screen and (max-width: 991px) {
+        padding: 0px;
+        overflow: inherit;
+    }
     .owl-dots {
         position: absolute;
         bottom: -10px;
         left: 10px;
         right: 10px;
         text-align: center;
+        @media screen and (max-width: 991px) {
+            bottom: -30px;
+        }
+
         .owl-dot {
             display: inline-block;
             width: 10px;
@@ -5414,6 +5962,9 @@ p {
             text-indent: -9999px;
             transition: all ease 0.3s;
         }
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
 
     }
     .owl-next {
@@ -5442,6 +5993,9 @@ p {
             background-size: 25px auto;
             text-indent: -9999px;
             transition: all ease 0.3s;
+        }
+        @media screen and (max-width: 767px) {
+            display: none;
         }
 
     }
@@ -5501,6 +6055,17 @@ p {
 .list-product-reward {
     .popular-item {
         margin-bottom: 20px !important;
+    }
+    .row {
+        @media screen and (max-width: 991px) {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            justify-content: flex-start !important;
+
+            .popular-item {
+                min-width: 150px;
+            }
+        }
     }
 }
 
