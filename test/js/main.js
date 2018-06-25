@@ -317,7 +317,18 @@
                 }
             });
         }
+        db.mobileControl = function () {
+
+            $(".fm-bar .back").click(function () {
+                $("body").removeClass("show-filter-review");
+            });
+            $(".my-review-bar-mobile-inner .btn-filter").click(function () {
+                $("body").addClass("show-filter-review");
+            });
+
+        }
         db.preLoad();
+        db.mobileControl();
         db.topTop();
         db.sliderPopular();
         db.menuMobile();
@@ -333,5 +344,6 @@
         db.profileAccordion();
         db.showSearchGlobalMobile();
         db.matchHeight();
+        db.mobileControl();
     });
 })(jQuery);
