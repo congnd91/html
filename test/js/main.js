@@ -326,6 +326,11 @@
                 $("body").addClass("show-filter-review");
             });
 
+
+            $(".pcr-mobile-col .show-filter").click(function () {
+                $("body").addClass("show-filter-review");
+            });
+
         }
         db.preLoad();
         db.mobileControl();
