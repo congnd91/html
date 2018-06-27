@@ -46,9 +46,24 @@
                 $("body").addClass("show-menu");
             });
             $('.mm-close').click(function () {
-
                 $("body").removeClass("show-menu");
             });
+
+            $('.menu-mobile ul li.has-child a').click(function (e) {
+                var subMenu = $(this).parent().find(".sub-menu");
+
+                if ($(subMenu).is(":visible")) {
+                    $(subMenu).slideUp();
+                    $(this).parent().removeClass("active");
+                } else {
+                    $(subMenu).slideDown();
+                    $(this).parent().addClass("active");
+                }
+                return false;
+
+
+            });
+
 
         }
 

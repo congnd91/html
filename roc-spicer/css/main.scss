@@ -287,14 +287,7 @@ a {
                 .mi-icon {
                     background-image: url(../images/menu_icon5.png);
                 }
-                &:hover {
-                    .mi-icon {
-                        background-image: url(../images/menu_icon5_hover.png);
-                    }
-                    .language {
-                        opacity: 1 !important;
-                    }
-                }
+
                 .language {
                     margin: 10px 0px 0px 0px;
                     transition: all ease 0.2s;
@@ -334,6 +327,104 @@ a {
                         }
                     }
                 }
+                &:hover {
+                    .mi-icon {
+                        background-image: url(../images/menu_icon5_hover.png);
+                    }
+                    .language {
+                        opacity: 1 !important;
+                    }
+
+                }
+
+            }
+            .sub-menu-caption {
+                font-size: 2rem;
+                color: #fff;
+
+                position: relative;
+                display: block;
+                width: 100%;
+                padding: 0px 25px;
+                line-height: 60px;
+                font-weight: 600;
+                background-color: $active-color;
+                @media screen and (max-width: 1199px) {
+                    line-height: 40px;
+                }
+            }
+
+            .sub-menu {
+                position: absolute;
+                overflow: auto;
+                top: 0px;
+                left: 100%;
+                bottom: 0px;
+                width: 430px;
+                z-index: 99;
+                text-align: left;
+                background-color: #313131;
+
+                transition: all ease 0.3s;
+                visibility: hidden;
+                opacity: 0;
+                z-index: -1;
+                .sub-menu-item {
+                    a {
+                        font-size: 17px;
+                        color: #fff;
+
+                        position: relative;
+                        display: block;
+                        width: 100%;
+                        padding: 0px 25px;
+                        line-height: 60px;
+                        font-weight: 600;
+
+                        transition: all ease 0.2s;
+                        @media screen and (max-width: 1199px) {
+                            line-height: 40px;
+                        }
+                        @media screen and (max-width: 991px) {}
+                        span {
+                            position: relative;
+                            z-index: 2;
+                        }
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            display: block;
+                            z-index: 1;
+                            width: 0px;
+                            left: 0px;
+                            top: 0px;
+                            bottom: 0px;
+                            transition: all ease 0.4s;
+                            background-color: $active-color-second;
+                        }
+                        &:hover {
+                            background-color: #666666;
+                            &:before {
+                                transition-delay: 0.2s;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            &:hover {
+                > a {
+                    cursor: pointer;
+                    p {
+                        cursor: pointer;
+                    }
+                }
+                .sub-menu {
+                    opacity: 1;
+                    z-index: 99;
+                    visibility: visible;
+                }
+
             }
         }
     }
@@ -394,11 +485,65 @@ a {
                 display: block;
                 line-height: 50px;
                 padding: 0px 20px;
-                font-size: 15px;
+                font-size: 20px;
                 color: #fff;
                 font-weight: bold;
 
             }
+
+            .sub-menu {
+
+                display: none;
+
+
+                z-index: 99;
+                text-align: left;
+                background-color: #666666;
+
+
+
+                .sub-menu-item {
+                    a {
+                        font-size: 17px;
+                        color: #fff;
+
+                        position: relative;
+                        display: block;
+                        width: 100%;
+                        padding: 0px 20px;
+                        line-height: 45px;
+                        font-weight: 600;
+                        transition: all ease 0.2s;
+                        @media screen and (max-width: 1199px) {}
+                        @media screen and (max-width: 991px) {}
+                        span {
+                            position: relative;
+                            z-index: 2;
+                        }
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            display: block;
+                            z-index: 1;
+                            width: 0px;
+                            left: 0px;
+                            top: 0px;
+                            bottom: 0px;
+                            transition: all ease 0.4s;
+                            background-color: $active-color-second;
+                        }
+                        &:hover {
+                            background-color: #666666;
+                            &:before {
+                                transition-delay: 0.2s;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+
             &:hover {
                 > a {
                     background-color: $active-color;
@@ -406,6 +551,13 @@ a {
                 }
                 .mm-language {
                     opacity: 1;
+                }
+
+            }
+            &.active {
+                > a {
+                    background-color: $active-color;
+                    color: #fff;
                 }
             }
 
