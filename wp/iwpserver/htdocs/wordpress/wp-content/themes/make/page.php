@@ -12,16 +12,17 @@
 get_header(); ?>
     <?php
 while ( have_posts() ) : the_post();?>
-        <div class="middle">
+        <div class="middle middle-page">
 
 
             <div class="container">
-           
-            <div class="page-content">
+
+                <div class="page-content">
 
 
-                <?php the_content(); ?>
-            </div> </div>
+                    <?php the_content(); ?>
+                </div>
+            </div>
             <?php
 endwhile; // End of the loop.
 ?>
