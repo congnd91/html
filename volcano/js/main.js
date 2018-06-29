@@ -145,18 +145,41 @@
 
         }
 
+        //
+        //        db.sliderProduct = function () {
+        //            if ($('.slider-for').length) {
+        //                $('.slider-for').slick({
+        //
+        //                    arrows: false,
+        //                    fade: true,
+        //                    asNavFor: '.slider-nav',
+        //                    infinite: true,
+        //                });
+        //                $('.slider-nav').slick({
+        //
+        //                    asNavFor: '.slider-for',
+        //                    focusOnSelect: true,
+        //                    infinite: true,
+        //
+        //                });
+        //            }
+        //
+        //        }
+
 
         db.sliderProduct = function () {
             if ($('.slider-for').length) {
                 $('.slider-for').slick({
-
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
                     arrows: false,
                     fade: true,
                     asNavFor: '.slider-nav',
                     infinite: true,
                 });
                 $('.slider-nav').slick({
-
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
                     asNavFor: '.slider-for',
                     focusOnSelect: true,
                     infinite: true,
@@ -165,29 +188,6 @@
             }
 
         }
-
-        /*   
-           db.sliderProduct = function () {
-               if ($('.slider-for').length) {
-                   $('.slider-for').slick({
-                       slidesToShow: 1,
-                       slidesToScroll: 1,
-                       arrows: false,
-                       fade: true,
-                       asNavFor: '.slider-nav',
-                       infinite: true,
-                   });
-                   $('.slider-nav').slick({
-                       slidesToShow: 2,
-                       slidesToScroll: 1,
-                       asNavFor: '.slider-for',
-                       focusOnSelect: true,
-                       infinite: true,
-
-                   });
-               }
-
-           }*/
 
         db.matchHeight = function () {
             if ($('.news-item').length) {
