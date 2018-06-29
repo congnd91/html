@@ -104,23 +104,7 @@ function widget($args, $instance)
                             <h2>These Students Made A Walking TARS Robot From Interstellar</h2>
                         </a>
                     </div>
-                    <div class="hh-big small" style="background-image: url(images/3.png);">
-                        <div class="post-meta">
-                            <span class="post-category">
-                        <a href="#">BUSINESSS</a>
-                        </span>
-                            <span class="post-format">
-                        <a href="#">
-                             <i class="fas fa-video"></i>
-                             </a>
-                        </span>
-                        </div>
-                        <a href="<?php the_permalink(); ?>" class="link">
-                            <h2>
-                                <?php the_title(); ?>
-                            </h2>
-                        </a>
-                    </div>
+
 
                     <?php  } ?>
 
