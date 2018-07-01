@@ -376,6 +376,20 @@
             autoControls: true
         });
 
+
+        $(".aa-t-col").hover(function () {
+            $(this).parents(".ago-item").find('.aa-hover').show();
+
+            var src = $(this).find('img').attr('src');
+            $(this).parents(".ago-item").find('.aa-hover img').attr('src', src);
+
+        }, function () {
+            $(this).parents(".ago-item").find('.aa-hover').hide();
+
+        });
+
+
+
         $(".scroll-testimonial").click(function () {
             $('html, body').animate({
                 scrollTop: $(".trust-box").offset().top
