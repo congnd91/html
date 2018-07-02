@@ -41,14 +41,8 @@ while ( have_posts() ) : the_post();?>
 
                                 <div class="sb-bar">
                                     <span><?php echo get_the_date(); ?></span>
-                                    <div class="post-like">
-
-                                        <a href="#" class="facebook">
-                                    <i class="fab fa-facebook-f"></i>100
-                                    </a>
-                                        <a href="#" class="twitter">
-                                    <i class="fab fa-twitter"></i>100
-                                    </a>
+                                    <div class="pull-right" style="float:right;margin-top:-15px;width:92px;height:50px;">
+                                        <?php echo DISPLAY_ULTIMATE_PLUS(); ?>
 
                                     </div>
                                     <div class="clearfix"></div>
