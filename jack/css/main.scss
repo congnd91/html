@@ -1176,6 +1176,8 @@ iframe {
         text-transform: uppercase;
         color: $base-color;
         margin: 0px 0px 15px 0px;
+        position: relative;
+        z-index: 2;
         @media screen and (max-width: 991px) {
             font-size: 20px;
         }
@@ -1199,13 +1201,113 @@ iframe {
         @media screen and (max-width: 991px) {
             font-size: 16px;
         }
+        position: relative;
+        z-index: 2;
+    }
+
+    .chart {
+        z-index: 1;
+        padding: 0px 20px;
+        max-width: 980px;
+        margin: 0px auto;
+        position: relative;
+        margin-top: -100px;
+
+        @media screen and (max-width: 991px) {
+            padding: 0px 5px;
+            margin: 0px -10px;
+            margin-top: -30px;
+        }
+        &:before {
+            content: "";
+            display: block;
+            height: 10px;
+            left: 0px;
+            right: 0px;
+
+            bottom: 40px;
+            position: absolute;
+            background-color: $active-color-second;
+        }
+
+
+    }
+
+    .chart-flex {
+        display: flex;
+
+        justify-content: space-between;
+
+        .chart-col-inner {
+
+            width: 50px;
+            @media screen and (max-width: 991px) {
+                width: 40px;
+
+            }
+            @media screen and (max-width: 767px) {
+                width: 30px;
+            }
+            @media screen and (max-width: 575px) {
+                width: 20px;
+            }
+
+            .c-value-wrap {
+                min-height: 300px;
+                position: relative;
+                @media screen and (max-width: 767px) {
+                    min-height: 200px;
+                }
+                .c-value {
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    right: 0px;
+                    background-color: $active-color-second;
+                    &.red {
+                        background-color: $active-color;
+                    }
+
+                }
+                .c-text {
+                    position: absolute;
+                    top: -30px;
+                    left: 0px;
+                    right: 0px;
+                    text-align: center;
+                    font-family: $font-family-caption;
+                    font-size: 16px;
+                    color: $text-color;
+                    @media screen and (max-width: 767px) {
+                        font-family: $font-family;
+                        font-size: 12px;
+
+                    }
+
+
+
+                }
+            }
+            .c-bottom {
+                height: 50px;
+                text-align: center;
+                font-size: 20px;
+                font-family: $font-family-caption;
+                color: $base-color;
+                padding: 20px 0px 0px 0px;
+
+                @media screen and (max-width: 767px) {
+                    font-family: $font-family;
+                    font-size: 13px;
+                }
+
+            }
+        }
     }
     img {
-        margin: -100px auto 0px auto;
+
         display: block;
-        @media screen and (max-width: 991px) {
-            margin: -30px auto 0px auto;
-        }
+        @media screen and (max-width: 991px) {}
     }
 }
 
