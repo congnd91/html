@@ -81,10 +81,50 @@
             }
         }
 
+        db.gallery = function () {
+
+            var openPhotoSwipe = function () {
+                var pswpElement = document.querySelectorAll('.pswp')[0];
+
+                // build items array
+                var items = [{
+                        src: 'images/16.png',
+                        w: 1000,
+                        h: 600
+                },
+                    {
+                        src: 'images/17.png',
+                        w: 1000,
+                        h: 600
+                }
+            ];
+
+                // define options (if needed)
+                var options = {
+                    // history & focus options are disabled on CodePen        
+                    history: false,
+                    focus: false,
+
+                    showAnimationDuration: 0,
+                    hideAnimationDuration: 0
+
+                };
+
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+                gallery.init();
+            };
+
+            $('.news-article img').click(function () {
+                openPhotoSwipe();
+
+            });
+        }
+
 
         db.preLoad();
         db.menuResponsive();
         db.sliderHome();
         db.sliderPartner();
+        db.gallery();
     });
 })(jQuery);
