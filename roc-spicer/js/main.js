@@ -60,6 +60,63 @@
             }
         }
 
+        db.sliderMiles = function () {
+            var owl_miles = $('.owl-miles');
+            if ($(owl_miles).length) {
+                $(owl_miles).owlCarousel({
+                    loop: false,
+                    margin: 0,
+                    nav: true,
+                    autoplay: false,
+                    navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+
+                    responsive: {
+
+                        0: {
+                            items: 1,
+                        },
+
+                        576: {
+                            items: 2,
+                        },
+
+                        768: {
+                            items: 3,
+
+                        },
+                        991: {
+                            items: 4,
+
+                        }
+                    },
+
+                    onRefreshed: callback,
+
+                    //onResized: callback
+
+
+
+
+                });
+
+
+            }
+
+            function callback() {
+
+                var maxHeight = 0;
+                $('.mi-box').each(function () {
+                    var thisH = $(this).height();
+                    if (thisH > maxHeight) {
+                        maxHeight = thisH;
+                    }
+                });
+                $('.mi-box').css("min-height", maxHeight + 30 + "px");
+                console.log(maxHeight);
+            }
+
+        }
+
 
         db.applicationSlider = function () {
             var owl_application = $('.owl-application');
@@ -126,13 +183,35 @@
 
 
         }
+        db.sliderProduct = function () {
+            if ($('.slider-for').length) {
+                $('.slider-for').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: '.slider-nav',
+                    infinite: true,
+                });
+                $('.slider-nav').slick({
+                    slidesToShow: 5,
+                    slidesToScroll: 1,
+                    asNavFor: '.slider-for',
+                    focusOnSelect: true,
+                    infinite: true,
 
+                });
+            }
+
+        }
         db.preLoad();
         db.menuMobile();
         db.homeSlider();
         db.relatedSlider();
         db.applicationSlider();
         db.matchHeight();
+        db.sliderMiles();
+        db.sliderProduct();
         db.toTop();
     });
 })(jQuery);
