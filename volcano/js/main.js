@@ -236,59 +236,64 @@
 
 
         db.sliderMiles = function () {
-            var owl_miles = $('.owl-miles');
-            if ($(owl_miles).length) {
-                $(owl_miles).owlCarousel({
-                    loop: false,
-                    margin: 0,
-                    nav: true,
-                    autoplay: false,
-                    navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
 
-                    responsive: {
+            setTimeout(function () {
+                var owl_miles = $('.owl-miles');
+                if ($(owl_miles).length) {
+                    $(owl_miles).owlCarousel({
+                        loop: false,
+                        margin: 0,
+                        nav: true,
+                        autoplay: false,
+                        navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
 
-                        0: {
-                            items: 1,
+                        responsive: {
+
+                            0: {
+                                items: 1,
+                            },
+
+                            576: {
+                                items: 2,
+                            },
+
+                            768: {
+                                items: 3,
+
+                            },
+                            991: {
+                                items: 4,
+
+                            }
                         },
 
-                        576: {
-                            items: 2,
-                        },
+                        onRefreshed: callback,
 
-                        768: {
-                            items: 3,
+                        //onResized: callback
 
-                        },
-                        991: {
-                            items: 4,
 
+
+
+                    });
+
+
+                }
+
+                function callback() {
+
+                    var maxHeight = 0;
+                    $('.mi-box').each(function () {
+                        var thisH = $(this).height();
+                        if (thisH > maxHeight) {
+                            maxHeight = thisH;
                         }
-                    },
+                    });
+                    $('.mi-box').css("min-height", maxHeight + 30 + "px");
+                    console.log(maxHeight);
+                }
 
-                    onRefreshed: callback,
+            }, 1000);
 
-                    //onResized: callback
-
-
-
-
-                });
-
-
-            }
-
-            function callback() {
-
-                var maxHeight = 0;
-                $('.mi-box').each(function () {
-                    var thisH = $(this).height();
-                    if (thisH > maxHeight) {
-                        maxHeight = thisH;
-                    }
-                });
-                $('.mi-box').css("min-height", maxHeight + 30 + "px");
-                console.log(maxHeight);
-            }
 
         }
 
