@@ -9,22 +9,42 @@
         db.homeSlider = function () {
 
 
-            var owl_home = $('.owl-home');
-            if ($(owl_home).length) {
-                $(owl_home).owlCarousel({
-                    loop: true,
-                    margin: 0,
-                    nav: true,
-                    navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
-                    autoplay: true,
-                    items: 1,
-                    animateOut: 'fadeOut'
+            var owl_three = $('.owl-three');
+            if ($(owl_three).length) {
+                $(owl_three).owlCarousel({
+                    loop: false,
+                    nav: false,
+                    margin: 15,
+                    autoplay: false,
+                    responsive: {
+
+                        0: {
+                            items: 2,
+
+                        },
+
+                        576: {
+                            items: 2,
+
+                        },
+
+                        768: {
+                            items: 2,
+
+
+                        },
+                        991: {
+                            items: 3,
+
+
+                        }
+                    },
+
 
                 });
             }
 
         }
-
 
         db.homeSlider();
 
