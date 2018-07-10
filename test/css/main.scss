@@ -232,6 +232,43 @@ iframe {
                 }
             }
         }
+        @media screen and (max-width: 767px) {
+            label {
+                cursor: pointer;
+                display: block;
+                font-size: 1.4rem;
+                padding: 0px 0px 0px 20px;
+                position: relative;
+                line-height: 22px;
+                input {
+                    display: none;
+                    & + span:before {
+                        content: "";
+                        display: block;
+                        height: 15px;
+                        width: 15px;
+                        position: absolute;
+                        top: 4px;
+                        left: 0px;
+                        border: 1px solid #aaa;
+                        border-radius: 50%;
+                    }
+                    &:checked + span:after {
+                        content: "";
+                        display: block;
+                        height: 11px;
+                        width: 11px;
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        border-radius: 50%;
+                        background-color: #000;
+                        top: 6px;
+                        left: 2px;
+                    }
+                }
+            }
+        }
     }
     &.medium {
         label {
@@ -403,6 +440,12 @@ iframe {
     min-height: 40px;
     border-bottom: 1px solid $border-color;
     position: relative;
+    @media screen and (max-width: 767px) {
+        border-bottom: 1px solid transparent;
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.05);
+        height: 55px;
+        padding: 8px 0px 0px 0px;
+    }
 
     .m-search-global {
         padding: 10px;
@@ -709,7 +752,7 @@ iframe {
     .logo-mobile {
         width: 120px;
         position: absolute;
-        top: 7px;
+        top: 15px;
         left: 50%;
         margin: 0px 0px 0px -60px;
     }
@@ -837,7 +880,7 @@ iframe {
                     position: relative;
                     > a {
                         display: block;
-                        padding: 10px 15px;
+                        padding: 20px 15px;
                         font-size: 1.4rem;
                         font-weight: 700;
 
@@ -881,6 +924,7 @@ iframe {
                         padding: 10px 10px 10px 80px;
                         min-height: 80px;
                         background-color: #FDEDE6;
+                        position: relative;
                         img {
                             float: left;
                             width: 60px;
@@ -897,6 +941,53 @@ iframe {
                         p {
                             margin: 0px;
                         }
+
+                        .cart-icon {
+
+
+                            line-height: 40px;
+                            position: relative;
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            span {
+                                width: 30px;
+                                height: 30px;
+                                float: left;
+                                margin: 5px 2px 0px 0px;
+                                background-repeat: no-repeat;
+                                background-position: center center;
+                                background-size: 20px auto;
+                                background-image: url(../images/icon/ico-cart.svg);
+
+                            }
+                            em {
+                                width: 20px;
+                                font-weight: 700;
+                                font-style: normal;
+                                height: 20px;
+                                display: block;
+                                float: left;
+                                margin: 10px 0px 0px 0px;
+                                border-radius: 50%;
+                                background-color: #000;
+                                text-align: center;
+                                color: #fff;
+                                font-size: 1.3rem;
+                                line-height: 20px;
+                                @media screen and (max-width: 767px) {
+                                    background-color: $active-color;
+                                    height: 15px;
+                                    width: 15px;
+                                    line-height: 15px;
+                                    position: absolute;
+                                    top: 2px;
+                                    left: 16px;
+                                    font-size: 1.2rem;
+                                }
+                            }
+                        }
+
                     }
                 }
             }
@@ -1406,6 +1497,9 @@ body .nicescroll-cursors {
         @media screen and (max-width: 991px) {
             font-size: 2.2rem;
         }
+        @media screen and (max-width: 767px) {
+            margin: 0px 0px 20px 0px;
+        }
     }
 }
 
@@ -1775,10 +1869,16 @@ body .nicescroll-cursors {
     @media screen and (max-width: 767px) {
         border: none;
         padding: 0px;
+        margin: 0px -15px;
+
+        .product-bar {
+            padding-top: 20px;
+        }
         .product-filter {
             border-top: 2px solid #ebebeb;
             width: 100%;
             float: none;
+
             .pf-item {
                 width: 50%;
                 margin: 0px;
@@ -1794,6 +1894,19 @@ body .nicescroll-cursors {
             }
 
         }
+        .list-product-small {
+            padding: 0px 15px;
+        }
+
+        .pf-dropdown {
+            text-align: center;
+
+            .dropdown-toggle {
+                width: auto;
+                display: inline-block;
+            }
+        }
+
 
     }
     h2 {
@@ -2063,17 +2176,26 @@ body .nicescroll-cursors {
         @media screen and (max-width: 991px) {
             font-size: 2rem;
         }
+        @media screen and (max-width: 767px) {
+            text-align: center;
+        }
     }
 }
 
 .recently-more {
     border-top: 1px solid $border-color;
     padding: 30px 0px;
+    @media screen and (max-width: 767px) {
+        border: none;
+    }
 }
+
+
 
 .recently-item {
     border-top: 1px solid $border-color;
     padding: 30px 0px;
+
     .ri-product {
         text-align: center;
         margin: 0px 0px 15px 0px;
@@ -2093,9 +2215,13 @@ body .nicescroll-cursors {
             margin: 0px;
             padding: 0px;
             font-size: 1.2rem;
+            @media screen and (max-width: 991px) {
+                font-size: 1.4rem;
+            }
         }
     }
 }
+
 
 .review-bar {
     .rb-left {
@@ -2234,6 +2360,11 @@ body .nicescroll-cursors {
     background-color: #fff9fb;
     @media screen and (max-width: 991px) {
         padding: 15px;
+        margin-top: 40px;
+    }
+    @media screen and (max-width: 767px) {
+        margin: 0px -15px;
+
     }
     h2 {
         text-align: center;
@@ -2242,6 +2373,9 @@ body .nicescroll-cursors {
         text-align: center;
         margin: 0px;
         padding: 10px 0px 40px 0px;
+        @media screen and (max-width: 991px) {
+            padding: 10px 0px 20px 0px;
+        }
     }
     .ra-item {
         padding: 15px 0px;
@@ -2272,6 +2406,13 @@ body .nicescroll-cursors {
     background-color: #fff9fb;
     padding: 60px 0px 0px 0px;
     text-align: center;
+    @media screen and (max-width: 767px) {
+        .logo-footer {
+            img {
+                width: 200px;
+            }
+        }
+    }
     .subcribe {
         width: 100%;
         max-width: 300px;
@@ -2285,6 +2426,12 @@ body .nicescroll-cursors {
         @media screen and (max-width: 991px) {
             display: block;
             margin: 30px auto;
+        }
+        @media screen and (max-width: 767px) {
+            max-width: 100%;
+            width: auto;
+            margin: 30px 10px;
+
         }
         input {
             width: 100%;
@@ -2407,15 +2554,18 @@ body .nicescroll-cursors {
         }
         @media screen and (max-width: 991px) {
             text-align: right;
+            padding: 0px 20px 0px 0px;
             a {
                 margin: 0px 0px 0px 0px;
-
+                img {
+                    width: 25px;
+                }
             }
         }
     }
     .allright {
         margin: 80px 0px 0px 0px;
-        padding: 15px 30px 15px 0px;
+        padding: 15px 30px 25px 0px;
         min-height: 55px;
         text-align: left;
         position: relative;
@@ -2692,6 +2842,7 @@ body .nicescroll-cursors {
 
 .pcr-mobile-control {
     height: 33px;
+    margin: 0px -15px;
 
     .pcr-mobile-col {
         float: left;
@@ -2757,6 +2908,7 @@ body .nicescroll-cursors {
     }
     .product-bar {
         padding: 0px 0px 0px 40px;
+
         .result-text {
             font-weight: 700;
             margin: 10px 0px 0px 0px;
@@ -2773,6 +2925,9 @@ body .nicescroll-cursors {
     }
     .pcr-list-produts {
         padding: 0px 0px 0px 40px;
+        @media screen and (max-width: 991px) {
+            padding: 0px;
+        }
     }
     .pcr-product-item {
         margin: 0px 0px 30px 0px;
@@ -2783,21 +2938,22 @@ body .nicescroll-cursors {
 }
 
 .pcr-search-result {
+
     p {
         font-size: 2rem;
         margin: 0px 0px 10px 0px;
     }
     @media screen and (max-width: 991px) {
-        padding: 20px 0px 0px 0px;
+        padding: 60px 0px 0px 0px;
     }
 }
 
 .notfound-box {
     padding: 20px 0px 0px 40px;
-    margin: 0px 0px 40px 0px;
+    margin: 0px 0px 70px 0px;
     @media screen and (max-width: 991px) {
         padding: 0px 0px 0px 0px;
-        margin: -20px 0px 40px 0px;
+        margin: -20px 0px 70px 0px;
     }
     strong {
         font-weight: 700;
@@ -3007,12 +3163,27 @@ body .nicescroll-cursors {
     @media screen and (max-width: 991px) {
         padding: 0px;
     }
+
+    .pcr-mobile-control {
+        margin-bottom: 20px;
+    }
+}
+
+.community-colright {
+    @media screen and (max-width: 991px) {
+        padding: 40px 0px 0px 0px;
+    }
 }
 
 .cc-caption {
     padding: 0px 0px 10px 0px;
     border-bottom: 1px solid $border-color;
     margin: 0px 0px 10px 0px;
+    @media screen and (max-width: 767px) {
+        text-align: center;
+        border-bottom: none;
+
+    }
     h2 {
         margin: 0px 0px 0px 0px;
         font-weight: 700;
@@ -3023,11 +3194,18 @@ body .nicescroll-cursors {
         @media screen and (max-width: 991px) {
             font-size: 2rem;
         }
+        @media screen and (max-width: 767px) {
+            text-align: center;
+            display: block;
+        }
     }
     span {
         float: right;
         color: $text-color;
         margin: 5px 0px 0px 0px;
+        @media screen and (max-width: 767px) {
+            float: none;
+        }
     }
 }
 
@@ -3561,6 +3739,9 @@ body .nicescroll-cursors {
     }
     .section-caption {
         margin: 0px 0px 40px 0px;
+        @media screen and (max-width: 767px) {
+            margin: 0px 0px 20px 0px;
+        }
         h2 {
             text-align: center;
             font-weight: 700;
@@ -3579,10 +3760,15 @@ body .nicescroll-cursors {
                 padding: 0px 0px 10px 0px;
             }
             margin: 0px 0px 30px 0px;
+
         }
         &.text-left {
             h2 {
                 text-align: left;
+
+                @media screen and (max-width: 767px) {
+                    text-align: center;
+                }
             }
         }
         &.section-caption-news {
@@ -3871,6 +4057,9 @@ body .nicescroll-cursors {
 
 .mp-control {
     margin: 40px 0px 0px 0px;
+    @media screen and (max-width: 767px) {
+        margin: 0px 0px 0px 0px;
+    }
 }
 
 .section-more {
@@ -3906,6 +4095,10 @@ body .nicescroll-cursors {
 
 .featured-large {
     margin: 0px 0px 50px 0px;
+    position: relative;
+    .col-md-8 {
+        position: static;
+    }
 
     &.featured-large-border {
         padding: 40px 0px;
@@ -3935,6 +4128,12 @@ body .nicescroll-cursors {
             &:hover {
                 opacity: 0.8;
             }
+            @media screen and (max-width: 767px) {
+                position: absolute;
+                top: -10px;
+                left: 5px;
+
+            }
         }
         h3 {
             font-size: 2.4rem;
@@ -3954,7 +4153,7 @@ body .nicescroll-cursors {
             margin: 0px 0px 20px 0px;
             @media(max-width: 991px) {
                 font-size: 1.4rem;
-                display: none;
+
             }
         }
     }
@@ -4025,6 +4224,10 @@ body .nicescroll-cursors {
             &:hover {
                 opacity: 0.8;
             }
+            @media screen and (max-width: 575px) {
+                font-size: 1.1rem;
+                text-transform: none;
+            }
         }
     }
     a.share {
@@ -4049,7 +4252,7 @@ body .nicescroll-cursors {
     margin: 0px 0px 50px 0px;
 
     @media screen and (max-width: 575px) {
-        padding: 0px 0px 0px 150px;
+        padding: 0px 0px 0px 135px;
     }
     .fi-img {
         float: left;
@@ -4058,8 +4261,8 @@ body .nicescroll-cursors {
         position: relative;
 
         @media screen and (max-width: 575px) {
-            width: 130px;
-            margin: 0px 0px 0px -150px;
+            width: 120px;
+            margin: 0px 0px 0px -135px;
 
         }
         .category {
@@ -4073,6 +4276,9 @@ body .nicescroll-cursors {
             position: absolute;
             top: -5px;
             left: 5px;
+            @media screen and (max-width: 575px) {
+                font-size: 1.2rem;
+            }
             &:hover {
                 opacity: 0.8;
                 color: #fff;
@@ -4108,6 +4314,12 @@ body .nicescroll-cursors {
     .fi-meta {
         .share {
             float: right;
+            margin: 0px;
+            @media screen and (max-width: 575px) {
+                width: 16px;
+                height: 16px;
+                background-size: 16px auto;
+            }
         }
     }
 }
@@ -4166,18 +4378,43 @@ body .nicescroll-cursors {
     margin: 0px 0px 30px 0px;
     border: 1px solid $border-color;
     padding: 30px;
+    @media screen and (max-width: 767px) {
+        padding: 20px;
+    }
     .bc-block-caption {
         margin: 0px 0px 30px 0px;
         font-size: 1.6rem;
         text-transform: uppercase;
         font-weight: 800;
+        position: relative;
+        .bc-block-caption-arr {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: -2px;
+            right: 10px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 20px auto;
+            background-image: url(../images/icon/ico-dropdown-arrow.svg);
+        }
+        @media screen and (max-width: 767px) {
+            font-size: 1.4rem;
+            margin: 0px 0px 15px 0px;
+        }
+    }
+    &.bc-block-no-border-mobile {
+        @media screen and (max-width: 767px) {
+            border: none;
+            padding: 0px;
+        }
     }
 }
 
 .table-checkout {
     overflow: auto;
     table {
-        min-width: 700px;
+
         width: 100%;
         thead {
             tr {
@@ -4192,6 +4429,11 @@ body .nicescroll-cursors {
                     }
                     &.min200 {
                         min-width: 200px;
+                    }
+                    &.hide-mobile {
+                        @media screen and (max-width: 575px) {
+                            display: none;
+                        }
                     }
                 }
 
@@ -4219,11 +4461,19 @@ body .nicescroll-cursors {
                             text-transform: uppercase;
                             font-weight: 700;
                             font-size: 1.6rem;
+                            @media screen and (max-width: 767px) {
+                                font-size: 1.4rem;
+
+                            }
                         }
                         h3 {
                             margin: 0px 0px 5px 0px;
                             font-weight: 700;
                             font-size: 1.6rem;
+                            @media screen and (max-width: 767px) {
+                                font-weight: 500;
+                                font-size: 1.3rem;
+                            }
                         }
                         p {
 
@@ -4241,6 +4491,27 @@ body .nicescroll-cursors {
                         font-weight: 600;
                         margin: 0px;
                         text-align: right;
+                    }
+                    &.col1 {
+                        @media screen and (max-width: 575px) {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+                    &.col2 {
+                        @media screen and (max-width: 575px) {
+                            display: block;
+                            float: left;
+                            margin: 0px 0px 0px 100px;
+                            padding: 0px 0px 20px 0px;
+                        }
+                    }
+                    &.col3 {
+                        @media screen and (max-width: 575px) {
+                            display: block;
+                            float: right;
+                            padding: 0px 0px 20px 0px;
+                        }
                     }
                 }
             }
@@ -4263,12 +4534,43 @@ body .nicescroll-cursors {
                 font-size: 1.8rem;
                 font-weight: 600;
                 text-transform: none;
+                @media screen and (max-width: 767px) {
+                    font-size: 1.4rem;
+                }
             }
         }
     }
     .os-note {
         font-size: 1.2rem;
         margin: 30px 0px 40px 0px;
+    }
+}
+
+.so-control-mobile {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 999;
+    padding: 10px;
+    background-color: #fff;
+
+    box-shadow: -5px 0px 5px 0px rgba(0, 0, 0, 0.1);
+    div {
+        font-size: 1.3rem;
+        font-weight: 600;
+        span {
+            float: right;
+        }
+    }
+    .co-btn {
+
+
+        margin: 5px 0px 0px 0px;
+
+        display: block;
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -4292,7 +4594,7 @@ body .nicescroll-cursors {
 .table-comfirm-order {
     overflow: auto;
     table {
-        min-width: 350px;
+
         width: 100%;
         border-bottom: 2px solid $border-color;
         margin: 0px 0px 20px 0px;
@@ -4307,6 +4609,12 @@ body .nicescroll-cursors {
                     font-size: 1.2rem;
                     &.min200 {
                         min-width: 200px;
+                    }
+
+                    &.hide-mobile {
+                        @media screen and (max-width: 575px) {
+                            display: none;
+                        }
                     }
                 }
             }
@@ -4350,6 +4658,28 @@ body .nicescroll-cursors {
                             font-weight: 600;
                         }
                     }
+
+                    &.col1 {
+                        @media screen and (max-width: 575px) {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+                    &.col2 {
+                        @media screen and (max-width: 575px) {
+                            display: block;
+                            float: left;
+                            margin: 0px 0px 0px 0px;
+                            padding: 0px 0px 20px 0px;
+                        }
+                    }
+                    &.col3 {
+                        @media screen and (max-width: 575px) {
+                            display: block;
+                            float: right;
+                            padding: 0px 0px 20px 0px;
+                        }
+                    }
                 }
             }
         }
@@ -4369,6 +4699,9 @@ body .nicescroll-cursors {
 .modal-congratulations {
     padding: 15px;
     text-align: center;
+    @media screen and (max-width: 575px) {
+        padding: 10px;
+    }
     img {
         width: 100px;
         display: inline-block;
@@ -4379,6 +4712,9 @@ body .nicescroll-cursors {
         padding: 70px 60px;
         @media screen and (max-width: 767px) {
             padding: 30px 20px;
+        }
+        @media screen and (max-width: 575px) {
+            padding: 20px 10px;
         }
     }
     h3 {
@@ -4391,6 +4727,12 @@ body .nicescroll-cursors {
     }
     p {
         margin: 0px 0px 40px 0px;
+    }
+    .co-btn {
+        @media screen and (max-width: 767px) {
+            padding: 0px 5px;
+            font-size: 1.1rem;
+        }
     }
 }
 
@@ -5168,6 +5510,11 @@ body .nicescroll-cursors {
 .list-my-review {
     border-top: 1px solid #000;
     padding: 10px 0px;
+    @media screen and (max-width: 767px) {
+        border: none;
+        padding: 0px;
+        margin: -20px 0px 0px 0px;
+    }
 }
 
 .lmr-item {
@@ -5286,7 +5633,7 @@ body .nicescroll-cursors {
     padding: 20px 0px;
     overflow: auto;
     table {
-        min-width: 500px;
+        min-width: 300px;
         width: 100%;
         thead {
             tr {
@@ -5296,6 +5643,10 @@ body .nicescroll-cursors {
                     font-weight: 800;
                     padding: 0px 0px 20px 0px;
                     font-size: 1.6rem;
+                    @media screen and (max-width: 767px) {
+                        font-size: 1.2rem;
+                        padding: 0px;
+                    }
 
                     select {
                         border: 1px solid $border-color;
@@ -5311,6 +5662,9 @@ body .nicescroll-cursors {
                         display: inline-block;
                         position: relative;
                         padding: 0px 15px 0px 0px;
+                        @media screen and (max-width: 767px) {
+                            font-size: 1.2rem;
+                        }
                         i {
                             position: relative;
                             top: 2px;
@@ -5321,6 +5675,10 @@ body .nicescroll-cursors {
                             background-size: 20px auto;
                             width: 20px;
                             height: 20px;
+                            @media screen and (max-width: 767px) {
+                                top: 5px;
+                            }
+
                         }
                     }
 
@@ -5336,6 +5694,9 @@ body .nicescroll-cursors {
                 td {
                     padding: 5px 0px;
                     font-size: 1.6rem;
+                    @media screen and (max-width: 767px) {
+                        font-size: 1.2rem;
+                    }
                     a {
                         color: $active-color;
                         text-decoration: underline;
@@ -5397,7 +5758,7 @@ body .nicescroll-cursors {
     overflow: auto;
     table {
         width: 100%;
-        min-width: 400px;
+
         thead {
             tr {
 
@@ -5411,6 +5772,11 @@ body .nicescroll-cursors {
                     }
                     &.long-title {
                         min-width: 120px;
+                    }
+                    &.hide-mobile {
+                        @media screen and (max-width: 575px) {
+                            display: none;
+                        }
                     }
 
                     select {
@@ -5480,6 +5846,26 @@ body .nicescroll-cursors {
                             color: $active-color;
                         }
                     }
+                    &.col1 {
+                        @media screen and (max-width: 575px) {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+                    &.col2 {
+                        @media screen and (max-width: 575px) {
+                            display: block;
+                            float: left;
+                            padding: 0px 0px 20px 120px;
+                        }
+                    }
+                    &.col3 {
+                        @media screen and (max-width: 575px) {
+                            display: block;
+                            float: right;
+                            padding: 0px 0px 20px 0px;
+                        }
+                    }
                 }
             }
         }
@@ -5487,13 +5873,17 @@ body .nicescroll-cursors {
 }
 
 .mrd-total {
-    padding: 20px 0px 0px 0px;
+    padding: 20px 0px 30px 0px;
     text-align: right;
-    min-width: 500px;
+
+
     p {
         font-size: 1.6rem;
         margin: 0px;
         text-transform: uppercase;
+        @media screen and (max-width: 767px) {
+            font-size: 1.4rem;
+        }
     }
     span {
         display: inline-block;
@@ -5812,8 +6202,11 @@ body .nicescroll-cursors {
 
             width: 25%;
         }
+        @media screen and (max-width: 767px) {
+            width: 33.33%;
+        }
     }
-    @media screen and (max-width: 991px) {
+    @media screen and (max-width: 1px) {
 
 
         display: flex;
@@ -6001,6 +6394,20 @@ p {
     margin: -20px 0px 0px 0px;
     width: 30px;
     z-index: 999;
+    &.social-inline {
+        position: relative;
+        left: unset;
+        top: unset;
+        margin: 50px 0px -30px 0px;
+        width: 100%;
+        text-align: center;
+        display: none;
+        @media screen and (max-width: 991px) {
+
+            display: block;
+
+        }
+    }
     @media screen and (max-width: 991px) {
 
         display: none;
@@ -6039,6 +6446,10 @@ p {
     padding: 0px 0px 20px 0px;
     border-bottom: 1px solid $border-color;
     margin: 0px 0px 30px 0px;
+    @media screen and (max-width: 767px) {
+        border: none;
+        padding: 0px 0px 0px 0px;
+    }
     .ns-item {
         padding: 0px 0px 0px 100px;
         margin: 0px 0px 10px 0px;
@@ -6373,6 +6784,10 @@ p {
     align-items: center;
     justify-content: center;
     margin: 0px 0px 40px 0px;
+    @media screen and (max-width: 767px) {
+        margin: 0px -15px 40px -15px;
+        height: 170px;
+    }
     h2 {
 
         font-weight: 300;
@@ -6642,6 +7057,9 @@ p {
 
         height: 55px;
         border-bottom: 1px solid $border-color;
+        @media screen and (max-width: 991px) {
+            border: none;
+        }
         li {
             float: left;
             width: 25%;
