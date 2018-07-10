@@ -335,7 +335,7 @@ iframe {
                 }
                 .submenu {
                     position: absolute;
-                    @include transition();
+                    transition: all ease 0.5s;
                     visibility: hidden;
                     opacity: 0;
                     margin-top: 15px;
@@ -377,8 +377,90 @@ iframe {
                         }
                     }
                 }
+                .mega-menu {
+                    position: absolute;
+                    transition: all ease 0.5s;
+                    visibility: hidden;
+                    opacity: 0;
+                    margin-top: 15px;
+                    background-color: #f7f6f6;
+                    top: 100%;
+                    left: 0px;
+                    right: 0px;
+                    list-style: none;
+                    padding: 40px 0px;
+
+
+                    @media screen and (max-width: 1599px) {
+                        padding: 20px 0px;
+                    }
+                    .mega-left {
+                        float: left;
+                        width: 25%;
+                        min-height: 100px;
+
+
+                        ul {
+                            padding: 0px;
+
+
+                            li {
+                                display: block;
+                                margin: 0px 0px 5px 0px;
+                                a {
+                                    display: block;
+                                    padding: 10px 25px;
+                                    font-weight: 500;
+                                    transition: all ease 0.4s;
+
+                                    font-size: 20px;
+                                    &:hover {
+                                        color: $active-color;
+                                    }
+                                    i {
+                                        font-size: 13px;
+                                    }
+                                    @media screen and (max-width: 1599px) {
+                                        font-size: 16px;
+                                        padding: 5px 15px;
+                                        i {
+                                            font-size: 10px;
+                                        }
+                                    }
+                                    @media screen and (max-width: 1199px) {
+                                        font-size: 14px;
+                                        padding: 5px 10px;
+                                        i {
+                                            font-size: 11px;
+                                        }
+                                    }
+                                }
+                                &.active {
+                                    a {
+                                        color: $active-color;
+                                        font-weight: 600;
+                                    }
+
+
+                                }
+                            }
+                        }
+
+                    }
+                    .mega-right {
+                        float: right;
+                        width: 75%;
+                        min-height: 100px;
+
+                    }
+                }
                 &:hover {
                     .submenu {
+                        opacity: 1;
+                        margin-top: 0px;
+                        visibility: visible;
+                    }
+                    .mega-menu {
                         opacity: 1;
                         margin-top: 0px;
                         visibility: visible;
@@ -389,15 +471,6 @@ iframe {
     }
 }
 
-.mega-menu {
-    min-height: 200px;
-    border: 1px solid red;
-    background-color: #fff;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-}
 
 .menu-icon {
     float: right;
@@ -475,6 +548,7 @@ iframe {
                     color: #999;
                     display: block;
                     line-height: 40px;
+                    font-size: 16px;
                     @include transition();
                     &:hover {
                         color: #fff;
@@ -521,6 +595,7 @@ iframe {
                             color: #666;
                             padding: 0px 0px;
                             font-weight: 400;
+                            font-size: 14px;
                             @include transition();
                             text-transform: uppercase;
                             &:hover {
@@ -1212,6 +1287,15 @@ iframe {
                 font-size: 16px;
             }
         }
+        &.left {
+            padding: 70px 0px 70px 60px;
+            @media screen and (max-width: 1599px) {
+                padding: 40px 0px 40px 40px;
+            }
+            @media screen and (max-width: 1199px) {
+                padding: 30px 0px 30px 10px;
+            }
+        }
     }
     .nf-img {
         position: absolute;
@@ -1230,6 +1314,115 @@ iframe {
             bottom: unset;
             top: unset;
             padding: 20px 0px 0px 0px;
+        }
+        &.left {
+
+            left: 0px;
+            right: 50%;
+            @media screen and (max-width: 991px) {
+                position: relative;
+                left: unset;
+                right: unset;
+                bottom: unset;
+                top: unset;
+                padding: 20px 0px 0px 0px;
+            }
+        }
+    }
+
+    .nf-map {
+        position: absolute;
+        left: 50%;
+        right: 0px;
+        bottom: 0px;
+        top: 0px;
+
+
+        @media screen and (max-width: 991px) {
+            position: relative;
+            left: unset;
+            right: unset;
+            bottom: unset;
+            top: unset;
+            padding: 0px 0px 0px 0px;
+            height: 300px;
+            margin: 0px -15px;
+
+        }
+
+
+    }
+
+    .nf-map-info {
+        padding: 160px 60px 160px 0px;
+        @media screen and (max-width: 1599px) {
+            padding: 100px 40px 100px 0px;
+        }
+        @media screen and (max-width: 1199px) {
+            padding: 50px 10px 50px 0px;
+        }
+        @media screen and (max-width: 991px) {
+            padding: 20px 0px 20px 0px;
+        }
+        h2 {
+            margin: 0px 0px 30px 0px;
+            padding: 0px;
+            color: $active-color;
+            font-size: 25px;
+            @media screen and (max-width: 1599px) {
+                font-size: 20px;
+                margin: 0px 0px 20px 0px;
+            }
+            @media screen and (max-width: 1199px) {
+                font-size: 20px;
+            }
+            @media screen and (max-width: 991px) {
+                font-size: 20px;
+                margin: 0px 0px 10px 0px;
+            }
+        }
+        p {
+            font-size: 24px;
+            margin: 0px 0px 20px 0px;
+            i {
+                min-width: 30px;
+            }
+            @media screen and (max-width: 1599px) {
+                font-size: 20px;
+            }
+            @media screen and (max-width: 1199px) {
+                font-size: 18px;
+            }
+            @media screen and (max-width: 991px) {
+                font-size: 16px;
+            }
+        }
+
+    }
+    &.fix {
+
+        .nf-des {
+
+            h2 {
+
+                color: $base-color;
+
+
+            }
+
+            .my-btn {
+
+                background-color: #0a4fa0;
+                &:hover {
+                    background-color: #fc8324;
+                }
+
+                @media screen and (max-width: 991px) {
+                    line-height: 40px;
+                    font-size: 16px;
+                }
+            }
+
         }
     }
 }
@@ -1413,4 +1606,405 @@ iframe {
         }
     }
     color: #fff;
+}
+
+
+.company-caption {
+    text-align: center;
+
+    h2 {
+
+        padding: 60px 0px;
+        color: $active-color;
+        font-size: 35px;
+        @media screen and (max-width: 1599px) {
+            font-size: 30px;
+            padding: 30px 0px;
+
+        }
+        @media screen and (max-width: 1199px) {
+            font-size: 25px;
+            padding: 20px 0px;
+        }
+        @media screen and (max-width: 991px) {
+            font-size: 20px;
+            padding: 15px 0px;
+
+        }
+    }
+}
+
+
+.about-banner {
+    background-image: url(../images/hs_banner.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    &.tn-banner {
+        background-image: url(../images/tn_banner.png);
+    }
+    &.hd-banner {
+        background-image: url(../images/hd_banner.png);
+    }
+    &.bdh-banner {
+        background-image: url(../images/bdh_banner.png);
+    }
+    &.cs-banner {
+        background-image: url(../images/cs_banner.png);
+    }
+    &.cd-banner {
+        background-image: url(../images/cd_banner.png);
+    }
+
+    h2 {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 35px;
+        margin: 0px;
+
+        @media screen and (max-width: 1599px) {
+
+            font-size: 30px;
+        }
+        @media screen and (max-width: 1199px) {
+            font-variant-caps: 20px;
+        }
+        @media screen and (max-width: 991px) {
+            font-size: 18px;
+
+        }
+        @media screen and (max-width: 767px) {}
+    }
+    .about-banner-inner {
+        display: flex;
+        align-items: center;
+        min-height: 570px;
+        padding: 30px 0px;
+
+        @media screen and (max-width: 1599px) {
+
+            min-height: 450px;
+        }
+
+        @media screen and (max-width: 1199px) {
+            min-height: 300px;
+        }
+
+        @media screen and (max-width: 991px) {
+            min-height: 200px;
+
+        }
+        @media screen and (max-width: 767px) {
+            min-height: 150px;
+
+        }
+
+    }
+}
+
+.about-content {
+    padding: 60px 0px;
+    background-color: #f7f6f6;
+    @media screen and (max-width: 1599px) {
+
+        padding: 40px 0px;
+
+    }
+    @media screen and (max-width: 991px) {
+        padding: 30px 0px;
+
+    }
+
+    .about-caption {
+        margin: 0px 0px 60px 0px;
+        @media screen and (max-width: 1599px) {
+
+            margin: 0px 0px 40px 0px;
+
+        }
+        @media screen and (max-width: 991px) {
+            margin: 0px 0px 30px 0px;
+
+        }
+
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0px;
+            padding: 0px;
+            color: $active-color;
+            font-size: 35px;
+            @media screen and (max-width: 1199px) {
+                font-size: 25px;
+            }
+            @media screen and (max-width: 991px) {
+                font-size: 20px;
+
+            }
+        }
+
+    }
+    p {
+        margin: 0px 0px 50px 0px;
+        font-size: 24px;
+        @media screen and (max-width: 1599px) {
+
+            margin: 0px 0px 40px 0px;
+            font-size: 20px;
+
+
+        }
+        @media screen and (max-width: 1199px) {
+            font-size: 18px;
+
+
+
+        }
+        @media screen and (max-width: 991px) {
+            font-size: 16px;
+            margin: 0px 0px 20px 0px;
+
+
+        }
+
+
+    }
+    h4 {
+        margin: 0px 0px 5px 0px;
+        color: $active-color;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 24px;
+        @media screen and (max-width: 1599px) {
+
+
+            font-size: 20px;
+
+
+        }
+        @media screen and (max-width: 1199px) {
+            font-size: 18px;
+
+
+
+        }
+        @media screen and (max-width: 991px) {
+            font-size: 16px;
+
+
+
+        }
+    }
+}
+
+.people-item {
+    padding: 0px 0px 0px 440px;
+    margin: 0px 0px 60px 0px;
+    @media screen and (max-width: 991px) {
+        padding: 0px 0px 0px 230px;
+
+    }
+    @media screen and (max-width: 767px) {
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 30px 0px;
+
+    }
+
+    .pu-des {
+        min-height: 380px;
+        border-bottom: 1px solid $border-color;
+        @media screen and (max-width: 991px) {
+            min-height: 200px;
+
+
+
+        }
+        @media screen and (max-width: 767px) {
+            border: none;
+
+        }
+        p {
+            font-size: 24px;
+            margin: 0px 0px 30px 0px;
+            @media screen and (max-width: 1599px) {
+
+
+                font-size: 20px;
+
+
+            }
+            @media screen and (max-width: 1199px) {
+                font-size: 18px;
+
+
+
+            }
+            @media screen and (max-width: 991px) {
+                font-size: 14px;
+                margin: 0px 0px 10px 0px;
+
+
+
+            }
+        }
+        h3 {
+            margin: 0px;
+            padding: 0px;
+            text-transform: uppercase;
+            font-size: 24px;
+            color: $active-color;
+            @media screen and (max-width: 1599px) {
+
+
+                font-size: 20px;
+
+
+            }
+            @media screen and (max-width: 1199px) {
+                font-size: 18px;
+
+
+
+            }
+            @media screen and (max-width: 991px) {
+                font-size: 16px;
+
+
+
+            }
+
+        }
+
+    }
+    .pu-avatar {
+        float: left;
+        width: 380px;
+        margin: 0px 0px 0px -440px;
+        height: 380px;
+        position: relative;
+        img {
+            width: 100%;
+        }
+        @media screen and (max-width: 991px) {
+            width: 200px;
+            height: 200px;
+            margin: 0px 0px 0px -230px;
+
+
+
+        }
+
+        @media screen and (max-width: 767px) {
+            float: none;
+            width: 100%;
+            height: auto;
+            margin: 0px 0px 20px 0px;
+
+        }
+
+
+        .pu-overlay {
+
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            z-index: 10;
+            top: 0px;
+            background-image: url(../images/gradient.png);
+            background-position: bottom left;
+            background-repeat: repeat-x;
+            border-bottom: 10px solid $active-color;
+            p {
+                position: absolute;
+                bottom: 20px;
+                left: 10px;
+                right: 10px;
+                text-transform: uppercase;
+                color: #fff;
+                margin: 0px;
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+
+                @media screen and (max-width: 1599px) {
+                    font-size: 20px;
+
+                }
+                @media screen and (max-width: 1199px) {
+                    font-size: 16px;
+                    bottom: 10px;
+
+                }
+                @media screen and (max-width: 767px) {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+
+.contact-form {
+    .c-field {
+        margin: 0px 0px 25px 0px;
+
+        p {
+            margin: 0px 0px 5px 0px;
+            font-size: 24px;
+            @media screen and (max-width: 1599px) {
+                font-size: 20px;
+
+            }
+            @media screen and (max-width: 1199px) {
+                font-size: 16px;
+                bottom: 10px;
+
+            }
+            span {
+                color: $active-color;
+            }
+        }
+        .c-text {
+            display: block;
+            height: 50px;
+            padding: 0px 15px;
+            border: 1px solid $border-color;
+            outline: none;
+            width: 100%;
+            box-shadow: none;
+            border-radius: 4px;
+            transform: all ease 0.4s;
+            &:focus {
+                border: 1px solid darken($border-color, 10%);
+            }
+            @media screen and (max-width: 991px) {
+                height: 40px;
+                padding: 0px 15px;
+            }
+        }
+        .c-textarea {
+            display: block;
+            height: 160px;
+            padding: 10px 15px;
+
+            border: 1px solid $border-color;
+            outline: none;
+            width: 100%;
+            box-shadow: none;
+            border-radius: 4px;
+            transform: all ease 0.4s;
+            &:focus {
+                border: 1px solid darken($border-color, 10%);
+            }
+            @media screen and (max-width: 991px) {
+                height: 110px;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+.cf-control {
+    text-align: right;
 }
