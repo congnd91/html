@@ -26,16 +26,16 @@
             <a href="<?php the_permalink(); ?>">
 
                 <?php if(has_post_thumbnail()){  ?>
-                <?php  $post; $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'mazpage_landscape');  ?>
+                <?php  $post; $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'greeky_landscape');  ?>
 
                 <div class="post-img">
                     <img alt="" src="<?php echo esc_url($thumb[0]); ?>" />
                     <div class="pi-overlay">
                     </div>
                     <div class="pi-des">
-                        <p>
-                            <?php echo(get_the_excerpt()); ?>
-                        </p>
+                        <!-- <p>
+                         
+                        </p>-->
                     </div>
                 </div>
                 <?php } ?>

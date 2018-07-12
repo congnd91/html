@@ -43,6 +43,8 @@ function greeky_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'greeky_landscape', 1000, 600, true );
+    add_image_size( 'greeky_medium', 500, 300, true );
+    
 	add_image_size( 'greeky_small', 80, 60, true );
 	add_image_size( 'greeky_nocrop', 1000, 9999, false );  // medium thumbnail no crop
 	add_theme_support('post-formats', array( 'video', 'audio', 'gallery' ) );
