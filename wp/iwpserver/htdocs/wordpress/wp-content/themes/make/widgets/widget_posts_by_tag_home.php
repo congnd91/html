@@ -100,8 +100,10 @@ function widget($args, $instance)
                             <span class="post-format"> <i class="fa fa-camera"></i></span>
                             <?php } ?>
                         </div>
-                        <a href="#" class="link">
-                            <h2>These Students Made A Walking TARS Robot From Interstellar</h2>
+                        <a href="<?php the_permalink(); ?>" class="link">
+                            <h2>
+                                <?php the_title(); ?>
+                            </h2>
                         </a>
                     </div>
 

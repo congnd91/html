@@ -61,7 +61,11 @@ while ( have_posts() ) : the_post();?>
 
                             <div class="sb-right">
 
-                                <?php if( has_tag() ) {  ?>
+                                <?php get_sidebar(); ?>
+
+
+
+                                <!--  <?php if( has_tag() ) {  ?>
 
 
 
@@ -75,7 +79,7 @@ while ( have_posts() ) : the_post();?>
 
 
 
-                                <?php }  ?>
+                                <?php }  ?>-->
 
 
                             </div>

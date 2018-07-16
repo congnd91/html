@@ -1,6 +1,31 @@
 (function ($) {
     $(document).on('ready', function () {
 
+
+        $('.global-nav-icon').on('click', function () {
+
+            if ($(".global-nav-hidden").is(":visible")) {
+
+                $(this).removeClass("active");
+                $(".global-nav-hidden").slideUp();
+                // $(this).removeClass("show-searchbox");
+            } else {
+
+                $(this).addClass("active");
+                $(".global-nav-hidden").slideDown();
+                //  $(this).addClass("show-searchbox");
+
+                var carousel = $('#owl-demo').data('owlCarousel');
+                carousel._width = $('#owl-demo').width();
+                carousel.invalidate('width');
+                carousel.refresh();
+            }
+
+        });
+
+
+
+
         $(function () {
             $('#datetimepicker_start').datetimepicker();
         });
@@ -34,30 +59,31 @@
         $('.menu-icon').on('click', function () {
             $('body').toggleClass("open-menu");
         });
-     
-     
-        $('.back-top').fadeOut();
-            $(window).scroll(function() {
-                if ($(this).scrollTop()) {
-                    $('.back-top').fadeIn();
-                } else {
-                    $('.back-top').fadeOut();
-                }
-            });
 
-            $(".back-top").click(function () {
-            $("html, body").animate({scrollTop: 0}, 1000);
+
+        $('.back-top').fadeOut();
+        $(window).scroll(function () {
+            if ($(this).scrollTop()) {
+                $('.back-top').fadeIn();
+            } else {
+                $('.back-top').fadeOut();
+            }
+        });
+
+        $(".back-top").click(function () {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 1000);
         });
 
 
         $('.menu-res li.menu-item-has-children').on('click', function () {
-        
+
             var submenu = $(this).find("ul");
             if ($(submenu).is(":visible")) {
                 $(submenu).slideUp();
                 $(this).removeClass("open-submenu-active");
-            }
-            else {
+            } else {
                 $(submenu).slideDown();
                 $(this).addClass("open-submenu-active");
             }
@@ -75,29 +101,26 @@
             }
         });
         $('.icon-search').on('click', function () {
-      
+
             if ($(".searchbox").is(":visible")) {
-             
+
                 $(".searchbox").stop(true, true).slideUp();
                 $(this).removeClass("show-searchbox");
-            }
-            else
-            {
-             
-               
+            } else {
+
+
                 $(".searchbox").stop(true, true).slideDown();
                 $(this).addClass("show-searchbox");
             }
-          
+
         });
-        if ($('.bx-homeslider').length)       
-        {
+        if ($('.bx-homeslider').length) {
             $('.bx-homeslider').bxSlider({
                 mode: 'fade',
                 captions: true,
             });
         }
-     
+
 
         /**Sportlight slider**/
         $('#owl-demo').owlCarousel({
@@ -132,8 +155,8 @@
             nav: true,
             items: 1,
             navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-            navSpeed:1500
-          
+            navSpeed: 1500
+
         })
 
         /**Sportlight slider**/
@@ -144,7 +167,7 @@
             mouseDrag: false,
             navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         });
-        
+
         /**Review slider**/
         $('.owl-review').owlCarousel({
             loop: true,
@@ -175,15 +198,13 @@
             if ($(this).hasClass("acc-active")) {
                 $(this).removeClass("acc-active");
                 $(this).next().hide();
-            }
-            else
-            {
+            } else {
 
-        
-            $('acc-active').removeClass('acc-active');
-            $(this).addClass("acc-active");
-            $('.faq-content').hide();
-            $(this).next().show();
+
+                $('acc-active').removeClass('acc-active');
+                $(this).addClass("acc-active");
+                $('.faq-content').hide();
+                $(this).next().show();
             }
 
         });
