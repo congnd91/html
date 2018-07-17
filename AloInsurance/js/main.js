@@ -1,5 +1,8 @@
 (function ($) {
     $(document).on('ready', function () {
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
 
 
         $('.global-nav-icon').on('click', function () {

@@ -1,45 +1,56 @@
 <?php
 /*
-* Template Name: About Page
+* Template Name:  All Post
 *
 *
 *
-* @package mazpage
+* @package greeky
 */
 
 get_header(); ?>
 
- <div class="about-me">
+    <!--middle-->
+    <div class="middle">
+        <div class="container">
+            <div class="row">
+                <?php $mazpage_thumbsposts =  new WP_Query(array(
+            'post_status' => 'publish',
+            'ignore_sticky_posts' => '1',
+            'paged' =>  is_front_page() ? get_query_var('page') : get_query_var('paged'),
+            ));
+            ?>
 
-<?php  while ( have_posts() ) : the_post(); ?> <!--Because the_content() works only inside a WP Loop -->
-     <div class="about-img">
-                      <?php if( has_post_thumbnail () ) :
-the_post_thumbnail();
-endif; ?> 
+                <div class="col-lg-9 col-sm-12">
+                    <div class="list-post">
+                        <div class="row">
+                            <?php
+                /* Start the Loop */
+                while ( $mazpage_thumbsposts -> have_posts() ) : $mazpage_thumbsposts-> the_post();
+                get_template_part( 'loop/content', get_post_format() );
+                endwhile; ?>
+                        </div>
                     </div>
+                    <?php
+               
+                    
+                    
+                         echo  greeky_pagination($mazpage_thumbsposts);
+            ?>
+                </div>
+                <div class="col-lg-3 col-sm-12">
+                    <?php get_sidebar(); ?>
 
-                  <h2><?php the_title(); ?></h2>
-                    <p>
-                    <?php  the_content();  ?>
-                    </p>
+                </div>
 
 
-<?php
-                endwhile; //resetting the page loop ?>
+            </div>
 
 
-  
-        <?php if(is_active_sidebar('mazpage_about'))
-        {
-            dynamic_sidebar("mazpage_about"); 
-        }
-        ?>
-  
-                   
-             
+
+
+
+        </div>
     </div>
+
     <?php
-    get_footer();
-
-
-    
+get_footer();
