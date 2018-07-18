@@ -27,6 +27,14 @@
         });
 
 
+        $('.cp-short label').on('click', function () {
+
+            $('.cp-detail').hide();
+            $(this).next().show();
+
+        });
+
+
 
 
         $(function () {

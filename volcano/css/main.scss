@@ -52,7 +52,8 @@ a:focus {
 }
 
 img {
-    max-width: 100%;
+    max-width: 100% !important;
+    height: auto !important;
 }
 
 h1,
@@ -377,7 +378,7 @@ body {
 
 .language-box {
     float: left;
-    margin: 0px 0px 0px 30px;
+    margin: 0px 0px 0px 15px;
     position: relative;
     z-index: 9;
     @media (max-width: 575px) {
@@ -541,8 +542,6 @@ body {
                                 @media screen and (max-height: 750px) {
                                     display: none;
                                 }
-
-
                             }
                             p.date {
                                 margin: 0px 0px 10px 0px;
@@ -1087,6 +1086,13 @@ body {
         font-size: 3rem;
         padding: 30px 0px;
     }
+    table {
+        width: 100% !important;
+        text-align: left;
+        @media screen and (min-width: 767px) {
+            width: 70% !important;
+        }
+    }
 }
 
 .product-box {
@@ -1270,6 +1276,71 @@ body {
                 .footer-social {
                     margin: -50px 0px 20px 0px;
                     height: 30px;
+                    .qq {
+
+                        float: left;
+                        margin: 0px 20px 0px 0px;
+                        width: 30px;
+                        height: 30px;
+                        position: relative;
+                        cursor: pointer;
+                        > img {
+                            width: 30px;
+                        }
+
+                        .qq-modal {
+
+                            z-index: -1;
+                            visibility: visible;
+                            opacity: 0;
+                            transition: all ease 0.4s;
+
+                            width: 150px;
+                            padding: 10px;
+                            background-color: $border-color;
+
+                            position: absolute;
+                            bottom: 40px;
+                            left: -60px;
+                            @media screen and (max-width: 700px) {
+                                left: 0px;
+                            }
+
+                            &:before {
+
+                                position: absolute;
+                                content: "";
+                                display: block;
+                                width: 0px;
+                                height: 0px;
+                                border: 10px solid transparent;
+                                border-top-color: $border-color;
+
+                                bottom: -20px;
+                                left: 50%;
+                                margin: 0px 0px 0px -10px;
+                                @media screen and (max-width: 700px) {
+                                    left: 10px;
+                                    margin: 0px;
+                                }
+                            }
+                            p {
+                                margin: 0px 0px 0px 0px;
+                                text-align: center;
+                                font-size: 14px;
+                                color: #222;
+                            }
+
+                        }
+                        &.show {
+                            .qq-modal {
+                                opacity: 1;
+                                z-index: 99;
+                                visibility: visible;
+                                bottom: 50px;
+                            }
+                        }
+                    }
                     a {
                         float: left;
                         width: 30px;
@@ -1534,7 +1605,7 @@ body {
             display: block;
         }
         .ppi-img {
-            //  margin: -1px -1px 0px -1px;
+            //margin: -1px -1px 0px -1px;
             margin: 0px;
             img {
                 display: block;
@@ -1546,13 +1617,16 @@ body {
             @media screen and (max-width: 767px) {
                 padding: 15px 15px 30px 15px;
             }
+            .title-product {
+                height: 50px;
+                margin: 0px 0px 15px 0px;
+            }
             h3 {
                 font-size: 2rem;
                 color: #000;
-                margin: 0px 0px 15px 0px;
             }
             p {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 color: $base-color-lighter;
                 margin: 0px 0px 10px 0px;
             }
@@ -1573,13 +1647,14 @@ body {
                 z-index: -1;
                 background-color: #000;
                 padding: 30px;
+                overflow: auto;
                 h3 {
                     font-size: 2rem;
                     color: $red;
                     margin: 0px 0px 15px 0px;
                 }
                 p {
-                    font-size: 1.2rem;
+                    font-size: 1.5rem;
                     color: #fff;
                     margin: 0px 0px 10px 0px;
                 }
@@ -1625,8 +1700,8 @@ body {
             > a {
                 display: block;
                 > div {
-                    padding: 0px 10px;
-                    line-height: 45px;
+                    padding: 10px 10px;
+                    line-height: 25px;
                     font-size: 1.6rem;
                     color: #000;
                     position: relative;
@@ -1659,8 +1734,8 @@ body {
                     > a {
                         display: block;
                         > div {
-                            padding: 0px 10px;
-                            line-height: 45px;
+                            padding: 10px 10px;
+                            line-height: 25px;
                             font-size: 1.4rem;
                             color: #000;
                             position: relative;
@@ -1722,9 +1797,17 @@ body {
     .lv2 {
 
         > li > a > div {
-            background-color: #f29303;
+            background-color: #575554;
             color: #fff !important;
 
+        }
+        > li > a:hover > div {
+            background-color: #f29303 !important;
+            color: #fff !important;
+        }
+        > li > a.active > div {
+            background-color: #f29303;
+            color: #fff !important;
         }
     }
     .lv3 {
@@ -1778,9 +1861,7 @@ body {
                 color: #fff;
                 font-size: 16px;
             }
-
         }
-
     }
 
     > li > a.active > div {
@@ -1833,7 +1914,7 @@ body {
         .slider-nav {
             position: relative;
             max-width: 300px;
-            padding: 0px 30px;
+            padding: 5px 30px;
             margin: 0px auto;
             .slick-prev {
                 cursor: pointer;
@@ -1845,15 +1926,11 @@ body {
                 border: none;
                 outline: none;
                 font-size: 1px;
-
                 background-color: transparent;
                 background-image: url(../images/prev.png);
                 background-repeat: no-repeat;
                 background-position: center center;
                 background-size: 20px 20px;
-
-
-
             }
             .slick-next {
                 cursor: pointer;
@@ -1866,17 +1943,13 @@ body {
                 outline: none;
                 font-size: 1px;
                 color: transparent;
-
-                background-color: transparent;
                 background-color: transparent;
                 background-image: url(../images/next.png);
                 background-repeat: no-repeat;
                 background-position: center center;
                 background-size: 20px 20px;
-
             }
             .slick-slide {
-
                 outline: none;
                 padding: 0px 5px;
                 img {
@@ -2004,9 +2077,9 @@ body {
 }
 
 .detail-content-media {
-    text-align: center;
     img {
-        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
 }
 
@@ -2133,7 +2206,6 @@ body {
             @include transition();
         }
     }
-
     &:hover {
         box-shadow: 5px 0px 35px 0px rgba(0, 0, 0, 0.3);
         border: 1px solid darken($border-color, 10%);
@@ -2174,7 +2246,7 @@ body {
             }
         }
         p {
-            font-size: 1.3rem;
+            font-size: 16px;
             color: $base-color-lighter;
             margin: 0px;
             margin: 0px;
@@ -2473,6 +2545,15 @@ body {
         font-size: 40px;
         right: -55px;
         text-align: center;
+        span {
+            display: block;
+            text-decoration: none;
+            color: $base-color;
+            font-size: 18px;
+            margin: -5px 0px 0px -5px;
+
+            white-space: nowrap;
+        }
 
 
     }
@@ -2480,7 +2561,6 @@ body {
         color: $red;
         height: 30px;
         width: 20px;
-
         line-height: 30px;
         position: absolute;
         top: 50%;
@@ -2488,6 +2568,15 @@ body {
         font-size: 40px;
         left: -55px;
         text-align: center;
+
+        span {
+            display: block;
+            text-decoration: none;
+            color: $base-color;
+            font-size: 18px;
+            margin: -5px 0px 0px -5px;
+            white-space: nowrap;
+        }
 
     }
     .owl-item {
@@ -2534,8 +2623,7 @@ body {
         }
 
         .mi-box-content {
-            padding: 0px 0px 0px 0px;
-
+            padding: 0px 0px;
         }
         h3 {
             font-size: 14px;
@@ -2553,9 +2641,7 @@ body {
         p {
             margin: 0px 0px 0px 0px;
             font-size: 1.4rem;
-
             font-family: arial;
-
         }
         img {
             max-width: 200px;
