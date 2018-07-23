@@ -27,10 +27,14 @@
         });
 
 
-        $('.cp-short label').on('click', function () {
+
+        $('.covered-plan span').on('click', function () {
+            $('.covered-plan span').removeClass("active");
+            $(this).addClass("active");
+            var id = $(this).attr("data-id");
 
             $('.cp-detail').hide();
-            $(this).next().show();
+            $(id).show();
 
         });
 
@@ -38,14 +42,20 @@
 
 
         $(function () {
-            $('#datetimepicker_start').datetimepicker();
+            $('#datetimepicker_start').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
         });
         $(function () {
-            $('#datetimepicker_end').datetimepicker();
+            $('#datetimepicker_end').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
         });
 
         $(function () {
-            $('.datetimepicker_birthday').datetimepicker();
+            $('.datetimepicker_birthday').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
         });
 
 
