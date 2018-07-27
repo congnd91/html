@@ -130,6 +130,9 @@ iframe {
     height: 30px;
     float: left;
     margin: 0px 0px 0px 95px;
+    @media screen and (max-width: 991px) {
+        margin: 0px;
+    }
 }
 
 .page-container .page-content-wrapper .content {
@@ -139,12 +142,30 @@ iframe {
 .section-one {
     padding: 25px 0px 0px 0px;
     margin: 60px 0px 0px 0px;
+    @media screen and (max-width: 767px) {
+        margin: 45px 0px 0px 0px;
+
+    }
     .filter-box {
         min-height: 384px;
         background-image: url(../images/bg.jpg);
         background-repeat: no-repeat;
         background-position: 10% center;
-        padding: 70px 40px 0px 40px;
+        padding: 70px 40px 30px 40px;
+        @media screen and (max-width: 1599px) {
+            min-height: 300px;
+        }
+
+        @media screen and (max-width: 1400px) {
+            padding: 30px 40px 30px 40px;
+        }
+        @media screen and (max-width: 1200px) {
+            padding: 10px 40px 10px 40px;
+            min-height: 200px;
+        }
+        @media screen and (max-width: 991px) {
+            padding: 50px 30px;
+        }
     }
 }
 
@@ -203,13 +224,13 @@ iframe {
 .section-two {
     .ui-hb {
         background-color: #fff;
-        padding: 10px;
+
     }
     .ui-hb-caption {
-        padding: 10px 0px 20px 0px;
+        padding: 10px 20px 20px 20px;
         h2 {
             color: $active-color;
-            font-size: 35px;
+            font-size: 30px;
             margin: 5px 0px;
             &.red {
                 color: $red;
@@ -221,8 +242,9 @@ iframe {
         }
         strong {
             float: right;
-            font-size: 40px;
+            font-size: 30px;
             font-weight: 500;
+            margin: 15px 0px 0px 0px;
         }
     }
     .ui-hb-content {
@@ -233,17 +255,19 @@ iframe {
             border: 1px solid #f3f3f3;
             thead {
                 tr {
-                    background-color: #f3f3f3;
+
                     th {
-                        padding: 10px 5px !important;
+                        padding: 10px 10px !important;
                         color: #333;
+                        border-right: 1px dashed #e6e6e6;
                     }
                 }
             }
             tbody {
                 tr {
                     td {
-                        padding: 10px 5px;
+                        padding: 10px 10px;
+                        border-right: 1px dashed #e6e6e6;
                     }
                 }
             }
@@ -252,9 +276,12 @@ iframe {
 }
 
 .ui-hb-more {
-    margin: 20px 0px 20px;
+    margin: 20px 0px 20px 20px;
+    padding: 0px 0px 20px 0px;
+
     a {
         color: $active-color;
+        font-size: 20px;
         i {
             margin: 0px 3px 0px 0px;
         }
@@ -311,7 +338,8 @@ iframe {
         }
         a.more {
             float: right;
-            margin: 10px 0px 0px 0px;
+            font-size: 20px;
+            margin: 0px 0px 0px 0px;
             color: $active-color;
             &:hover {
                 text-decoration: underline;
@@ -369,12 +397,13 @@ iframe {
         bottom: 0px;
         left: 0px;
         right: 0px;
-        padding: 20px;
+        padding: 15px;
         z-index: 99;
         h3 {
             font-size: 20px;
             color: #fff;
             margin: 0px;
+            line-height: 1.3;
         }
         p {
             margin: 0px;
@@ -538,8 +567,16 @@ iframe {
 
 .ui-tips {}
 
+.zone-box {
+    .ui-news-box {
+        margin: 0px 0px 10px 0px;
+
+    }
+}
+
 .ui-news-box {
     position: relative;
+
     &:before {
         content: "";
         display: block;
@@ -556,6 +593,13 @@ iframe {
         &:before {
             background-color: rgba(0, 0, 0, 0.2);
         }
+
+        .ui-country-caption {
+            background-color: #fff;
+        }
+    }
+    img {
+        width: 100%;
     }
     .view-all {
         position: absolute;
@@ -564,7 +608,37 @@ iframe {
         color: #fff;
         cursor: pointer;
         z-index: 999;
+
     }
+}
+
+.ui-country-caption {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    z-index: 99;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.3s;
+
+    p {
+        text-align: center;
+        margin: 0px;
+        text-transform: uppercase;
+        line-height: 1.4;
+
+        font-size: 30px;
+        span {
+            font-weight: 600;
+            font-size: 40px;
+            color: $active-color;
+        }
+    }
+
 }
 
 .ui-news-box-caption {
@@ -572,8 +646,11 @@ iframe {
     bottom: 0px;
     left: 0px;
     right: 0px;
-    z-index: 999;
+    z-index: 99;
     padding: 20px;
+    @media screen and (max-width: 767px) {
+        padding: 10px;
+    }
     label {
         display: inline-block;
         padding: 0px 5px;
@@ -588,6 +665,9 @@ iframe {
         font-size: 40px;
         line-height: 1.2;
         margin: 0px 0px 10px 0px;
+        @media screen and (max-width: 767px) {
+            font-size: 20px;
+        }
     }
     p {
         color: #fff;
@@ -595,6 +675,7 @@ iframe {
     .ui-news-box-meta {
         a {
             color: #fff;
+            font-size: 20px;
             i {
                 margin: 0px 4px 0px 0px;
             }
@@ -631,7 +712,20 @@ iframe {
 
 .school-hot {
     position: relative;
-    background-color: $active-color;
+    .readmore {
+        position: absolute;
+        bottom: 15px;
+        left: 120px;
+        z-index: 99;
+        color: $active-color;
+        font-size: 20px;
+        i {
+            margin: 0px 5px 0px 0px;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
     .owl-prev {
         position: absolute;
         bottom: 0;
@@ -639,15 +733,15 @@ iframe {
         left: 0px;
         width: 50px;
         height: 50px;
-        background-color: rgba(255, 255, 255, 0.7);
+        background-color: $active-color;
         line-height: 50px;
         font-size: 16px;
         transition: all ease 0.3s;
         cursor: pointer;
-        color: #333;
+        color: #fff;
         &:hover {
             color: #fff;
-            background-color: #fff;
+            background-color: lighten($active-color, 10%);
         }
     }
     .owl-next {
@@ -657,14 +751,14 @@ iframe {
         left: 51px;
         width: 50px;
         height: 50px;
-        background-color: rgba(255, 255, 255, 0.7);
+        background-color: $active-color;
         line-height: 50px;
         font-size: 16px;
         transition: all ease 0.3s;
         cursor: pointer;
-        color: #333;
+        color: #fff;
         &:hover {
-            background-color: #fff;
+            background-color: lighten($active-color, 10%);
         }
     }
     .shool-item {
@@ -672,32 +766,52 @@ iframe {
         .img {
             float: right;
             width: 60%;
+            @media screen and (max-width: 991px) {
+                float: none;
+                width: 100%;
+            }
         }
         .si-des {
             float: left;
-            color: #fff;
+
             width: 40%;
             padding: 20px 20px 20px 40px;
             @media screen and (max-width: 991px) {
                 float: none;
                 width: 100%;
-                padding: 0px;
+                padding: 20px;
             }
+
+
             label {
+
+                text-transform: uppercase;
+                font-size: 11px;
+                padding: 0px 10px;
+                border-radius: 2px;
+                background-color: $orange;
                 color: #fff;
             }
             .flag {
                 margin: 0px 0px 20px 0px;
                 width: 40px;
+                @media screen and (max-width: 1199px) {
+                    margin: 0px 0px 10px 0px;
+
+                }
             }
             h2 {
                 margin: 0px 0px 35px 0px;
-                color: #fff;
+
+                @media screen and (max-width: 1199px) {
+                    margin: 0px 0px 10px 0px;
+
+                }
             }
             .si-meta {
                 margin: 0px 0px 15px 0px;
                 span {
-                    color: #fff;
+
                     display: inline-block;
                     margin: 0px 20px 0px 0px;
                     i {
@@ -708,14 +822,17 @@ iframe {
             }
             .rate-item {
                 margin: 0px 0px 40px 0px;
+                @media screen and (max-width: 1199px) {
+                    margin: 0px 0px 15px 0px;
+                }
                 p {
-                    color: #fff;
+
                     margin: 0px 0px 10px 0px;
                 }
                 strong {
                     font-size: 18px;
                     font-weight: 500;
-                    color: #fff;
+                    color: $active-color;
                     &.yellow {
                         color: $yellow;
                     }
@@ -880,12 +997,12 @@ iframe {
 .ui-footer {
     padding: 20px 0px;
     margin: 50px 0px 0px 0px;
-    background-color: #21252d;
+    border-top: 1px solid #ddd;
     .allright {
         float: left;
         line-height: 30px;
         font-size: 13px;
-        color: #fff;
+        color: $text-color-second;
     }
     .social-ft {
         float: right;
@@ -894,13 +1011,14 @@ iframe {
             border-radius: 50%;
             width: 30px;
             height: 30px;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: #ddd;
             transition: all ease 0.4s;
             line-height: 30px;
             text-align: center;
             margin: 0px 0px 0px 10px;
             &:hover {
-                background-color: #fff;
+                background-color: #ccc;
+
             }
         }
         i {
@@ -915,4 +1033,59 @@ iframe {
 
 .page-sidebar .sidebar-menu .menu-items > li > a > .title {
     width: 100%;
+}
+
+.container-fluid {
+    @media screen and (max-width: 767px) {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+
+.zone-detail {
+    margin-bottom: 50px;
+    .zone-detail-des {
+        padding: 0px 0px 0px 50px;
+
+        h3 {
+            margin: 0px 0px 20px 0px;
+
+        }
+        @media screen and (max-width: 1199px) {
+            padding: 0px 0px 0px 20px;
+        }
+        @media screen and (max-width: 991px) {
+            padding: 0px;
+            margin: 20px 0px;
+        }
+    }
+}
+
+.breadcrumb {
+    padding-top: 0px;
+}
+
+
+.table-country {
+    &.margin-t {
+        margin-top: 20px;
+    }
+
+    background-color: #fff;
+    .flag {
+        img {
+            width: 30px;
+        }
+    }
+    .col-sm-5 {
+        text-align: left;
+        flex-direction: column !important;
+
+    }
+    .v-logo {
+        img {
+            height: 40px;
+        }
+
+    }
 }

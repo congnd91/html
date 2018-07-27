@@ -4,20 +4,26 @@
  * jQuery DataTables plugin
  * For DEMO purposes only. Extract what you need.
  * ============================================================ */
-(function($) {
+(function ($) {
 
     'use strict';
 
     // Initialize a basic dataTable with row selection option
-    var initBasicTable = function() {
+    var initBasicTable = function () {
 
         var table = $('#basicTable');
 
         var settings = {
-            "sDom": "t",
+            //  "sDom": "t",
             "destroy": true,
-            "paging": false,
-            "scrollCollapse": true,
+            "paging": true,
+            "info": false,
+
+            "scrollCollapse": false,
+            "searching": false,
+            "bFilter": false,
+            "bLengthChange": false,
+
             "aoColumnDefs": [{
                 'bSortable': false,
                 'aTargets': [0]
@@ -30,7 +36,7 @@
 
         table.dataTable(settings);
 
-        $('#basicTable input[type=checkbox]').click(function() {
+        $('#basicTable input[type=checkbox]').click(function () {
             if ($(this).is(':checked')) {
                 $(this).closest('tr').addClass('selected');
             } else {
@@ -42,7 +48,7 @@
     }
 
     // Initialize a dataTable having bootstrap's stripes style
-    var initStripedTable = function() {
+    var initStripedTable = function () {
 
         var table = $('#stripedTable');
 
@@ -50,7 +56,9 @@
             "sDom": "t",
             "destroy": true,
             "paging": false,
-            "scrollCollapse": true
+            "scrollCollapse": true,
+
+
 
         };
         table.dataTable(settings);
@@ -58,9 +66,9 @@
     }
 
     // Initialize a dataTable with collapsible rows to show more details
-    var initDetailedViewTable = function() {
+    var initDetailedViewTable = function () {
 
-        var _format = function(d) {
+        var _format = function (d) {
             // `d` is the original data object for the row
             return '<table class="table table-inline">' +
                 '<tr>' +
@@ -89,7 +97,7 @@
         });
 
         // Add event listener for opening and closing details
-        $('#detailedTable tbody').on('click', 'tr', function() {
+        $('#detailedTable tbody').on('click', 'tr', function () {
             //var row = $(this).parent()
             if ($(this).hasClass('shown') && $(this).next().hasClass('row-details')) {
                 $(this).removeClass('shown');
@@ -111,7 +119,7 @@
 
     // Initialize a condensed table which will truncate the content 
     // if they exceed the cell width
-    var initCondensedTable = function() {
+    var initCondensedTable = function () {
         var table = $('#condensedTable');
 
         var settings = {
