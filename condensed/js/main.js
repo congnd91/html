@@ -93,5 +93,56 @@ $(document).ready(function () {
     }
 
 
+    var owl_dd = $('.owl-dd');
+    if ($(owl_dd).length) {
+        $(owl_dd).owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            margin: 0,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            autoplay: false,
+            responsive: {
+
+                0: {
+                    items: 2,
+                },
+
+                576: {
+                    items: 2,
+                },
+
+                768: {
+                    items: 3,
+
+                },
+                992: {
+                    items: 3,
+
+                },
+                1200: {
+                    items: 4,
+
+                },
+                1400: {
+                    items: 5,
+
+                }
+            },
+
+
+        });
+    }
+
+
+    $('.dropdown-more p').click(function () {
+
+        $('.dropdown-more').toggleClass("show");
+    });
+
+    $('.rate-detail em').click(function () {
+
+        $('.rate-detail').toggleClass("show");
+    });
 
 });
