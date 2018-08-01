@@ -92,6 +92,23 @@ $(document).ready(function () {
         });
     }
 
+    var owl_co = $('.owl-co');
+    if ($(owl_co).length) {
+        $(owl_co).owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: true,
+            margin: 0,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            autoplay: false,
+            items: 1,
+
+
+
+        });
+    }
+
+
 
     var owl_dd = $('.owl-dd');
     if ($(owl_dd).length) {
@@ -129,7 +146,6 @@ $(document).ready(function () {
 
                 }
             },
-
 
         });
     }
