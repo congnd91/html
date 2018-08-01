@@ -62,5 +62,75 @@
             $(this).toggleClass("active");
 
         });
+
+        var owl_home = $('.owl-home');
+        if ($(owl_home).length) {
+            $(owl_home).owlCarousel({
+                loop: true,
+                animateOut: 'fadeOut',
+
+                margin: 0,
+                nav: false,
+                margin: 0,
+                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                autoplay: true,
+
+                items: 1,
+
+            });
+        }
+        var owl_trend = $('.owl-trend');
+        if ($(owl_trend).length) {
+            $(owl_trend).owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: true,
+                margin: 0,
+                navText: ['<i class="icon icon-arrow-left3"></i>', '<i class="icon icon-arrow-right3"></i>'],
+                autoplay: true,
+
+                items: 1,
+
+            });
+        }
+
+
+
+        var owl_spkm = $('.owl-spkm');
+        if ($(owl_spkm).length) {
+            $(owl_spkm).owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: false,
+                margin: 20,
+                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                autoplay: false,
+                responsive: {
+
+                    0: {
+                        items: 2,
+                    },
+
+                    576: {
+                        items: 2,
+                    },
+
+                    768: {
+                        items: 3,
+
+                    },
+                    992: {
+                        items: 3,
+
+                    },
+                    1200: {
+                        items: 4,
+
+                    },
+
+                },
+
+            });
+        }
     });
 })(jQuery);
