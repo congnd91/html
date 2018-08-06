@@ -59,10 +59,43 @@
             });
 
         }
+
+
+        db.chooseMN = function () {
+
+            var arr = new Array();
+            $(".my-table-mn").find('.bold').each(function () {
+                arr.push($(this).text());
+            });
+
+            $('.my-table-mn .ct-item input').change(function () {
+                var option = $(this).filter(':checked').val();
+                $(this).parents(".my-table-mn").find('.bold').each(function (i) {
+                    rootValue = arr[i];
+                    switch (option) {
+                        case "two":
+                            value = rootValue.slice(-2);
+                            $(this).text(value);
+                            break;
+                        case "three":
+                            value = rootValue.slice(-3);
+                            $(this).text(value);
+                            break;
+                        case "full":
+                            $(this).text(rootValue);
+                            break;
+                        default:
+                            break;
+                    }
+                });
+            });
+
+        }
         db.preLoad();
         db.menuResponsive();
 
         db.chooseDisplay();
+        db.chooseMN();
 
     });
 })(jQuery);

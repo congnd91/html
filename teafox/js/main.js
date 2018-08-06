@@ -58,6 +58,15 @@
             }
         });
 
+        $('.db-trend-bar a').on('click', function (e) {
+            $('.db-trend-bar a').removeClass("active");
+            $(this).addClass("active");
+            return false;
+        });
+
+
+
+
         $('.tt-check span').click(function () {
             $(this).toggleClass("active");
 
@@ -67,14 +76,12 @@
         if ($(owl_home).length) {
             $(owl_home).owlCarousel({
                 loop: true,
-                animateOut: 'fadeOut',
-
+                //  animateOut: 'fadeOut',
                 margin: 0,
                 nav: false,
                 margin: 0,
                 navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
                 autoplay: true,
-
                 items: 1,
 
             });
@@ -90,6 +97,44 @@
                 autoplay: true,
 
                 items: 1,
+
+            });
+        }
+
+        var owl_trend_small = $('.owl-trend-small');
+        if ($(owl_trend_small).length) {
+            $(owl_trend_small).owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                navText: ['<i class="icon icon-arrow-left3"></i>', '<i class="icon icon-arrow-right3"></i>'],
+                autoplay: true,
+
+                responsive: {
+
+                    0: {
+                        items: 2,
+                    },
+
+                    576: {
+                        items: 2,
+                    },
+
+                    768: {
+                        items: 3,
+
+                    },
+                    992: {
+                        items: 3,
+
+                    },
+                    1200: {
+                        items: 3,
+
+                    },
+
+                },
+
 
             });
         }

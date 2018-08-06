@@ -13,14 +13,14 @@
 /*==========Setting=========*/
 
 html {
-    font-size: 10px;
+    font-size: 14px;
 }
 
 body {
     background-color: #fff;
     font-family: $f-base;
     min-width: 340px;
-    font-size: 1.4rem;
+    font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
     color: $text-color;
@@ -28,6 +28,11 @@ body {
     @media screen and (max-width: 991px) {
         padding: 50px 0px 0px 0px;
     }
+}
+
+.bootstrap-datetimepicker-widget table td {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 dt,
@@ -136,7 +141,8 @@ iframe {
 }
 
 #page-loader {
-    background-color: $green;
+    background-color: $active-color;
+
     position: fixed;
     top: 0;
     left: 0;
@@ -1083,7 +1089,7 @@ iframe {
         width: 100%;
     }
     .cb-content {
-        padding: 30px 80px 50px 50px;
+        padding: 30px 80px 20px 50px;
         position: relative;
     }
     .cb-social {
@@ -1135,6 +1141,16 @@ iframe {
             display: inline-block;
             width: 25px;
             color: $active-color-second;
+        }
+    }
+    .dl {
+        a {
+            font-family: $f-bold;
+            color: $active-color-second;
+            i {
+
+                margin: 0px 9px 0px 0px;
+            }
         }
     }
 }
@@ -1409,7 +1425,7 @@ iframe {
         margin: 0px 0px 10px 0px;
         position: relative;
         .date-icon {
-            z-index: 1;
+
             position: absolute;
             top: 5px;
             right: 10px;
@@ -1417,16 +1433,24 @@ iframe {
             line-height: 30px;
             display: inline-block;
             cursor: pointer;
+            z-index: 2;
+            &:hover {
+                color: #aaa;
+            }
+
         }
         input {
             width: 100%;
             display: block;
             border: 1px solid #e5e5e5;
+            background-color: transparent;
             height: 40px;
             padding: 0px 10px;
             font-size: 13px;
             transition: all ease 0.3s;
             outline: none;
+            position: relative;
+
             &:focus {
                 border: 1px solid #ddd;
             }
@@ -1529,6 +1553,9 @@ iframe {
             &:hover {
                 color: $active-color-second;
             }
+        }
+        .dl {
+            padding: 10px 0px 0px 0px;
         }
     }
     &.show {

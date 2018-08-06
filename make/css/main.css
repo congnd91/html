@@ -301,17 +301,18 @@ body {
 .menu-inner {
   float: right;
   margin: 0px 0px 0px 0px; }
-  .menu-inner ul {
+  .menu-inner > ul {
     list-style: none;
     margin: 0px;
     padding: 0px; }
-    .menu-inner ul > li {
+    .menu-inner > ul > li {
       float: left;
-      padding: 0px 20px; }
+      position: relative; }
       @media screen and (max-width: 1199px) {
-        .menu-inner ul > li {
-          padding: 0px 10px; } }
-      .menu-inner ul > li > a {
+        .menu-inner > ul > li {
+          padding: 0px 0px; } }
+      .menu-inner > ul > li > a {
+        padding: 0px 20px;
         border-top: 4px solid transparent;
         display: block;
         line-height: 30px;
@@ -321,93 +322,124 @@ body {
         font-weight: 600;
         transition: color ease 0.4s; }
         @media screen and (max-width: 1199px) {
-          .menu-inner ul > li > a {
-            font-size: 1.3rem; } }
-        .menu-inner ul > li > a:hover {
+          .menu-inner > ul > li > a {
+            font-size: 1.3rem;
+            padding: 0px 10px; } }
+        .menu-inner > ul > li > a:hover {
           color: #000; }
-      .menu-inner ul > li.active a, .menu-inner ul > li:hover a {
+      .menu-inner > ul > li.active > a, .menu-inner > ul > li:hover > a {
         border-bottom: 4px solid #DE0821; }
-      .menu-inner ul > li:last-child a {
+      .menu-inner > ul > li.menu-item-has-children:hover .sub-menu {
+        z-index: 999;
+        visibility: visible;
+        opacity: 1;
+        margin-top: 0px; }
+      .menu-inner > ul > li .sub-menu {
+        background-color: #111;
+        position: absolute;
+        top: 100%;
+        left: 0px;
+        width: 250px;
+        transition: all ease 0.3s;
+        visibility: hidden;
+        opacity: 0;
+        z-index: -1;
+        list-style: none;
+        padding: 0px;
+        margin-top: 10px; }
+        .menu-inner > ul > li .sub-menu li {
+          display: block;
+          border-bottom: 1px solid #222; }
+          .menu-inner > ul > li .sub-menu li a {
+            display: block;
+            color: #fff;
+            padding: 10px 10px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color ease 0.4s; }
+          .menu-inner > ul > li .sub-menu li:hover a {
+            background-color: #222; }
+      .menu-inner > ul > li:last-child a {
         padding-right: 0px; }
-      .menu-inner ul > li .mega-menu {
+      .menu-inner > ul > li .mega-menu {
         position: absolute;
         top: 100%;
         left: 0px;
         right: 0px;
         background-color: #fff;
         display: none; }
-        .menu-inner ul > li .mega-menu .mega-row {
+        .menu-inner > ul > li .mega-menu .mega-row {
           margin: 0px 7px; }
-          .menu-inner ul > li .mega-menu .mega-row .mega-col {
+          .menu-inner > ul > li .mega-menu .mega-row .mega-col {
             float: left;
             padding: 30px 7px 50px 0px;
             width: 16.666666%; }
-            .menu-inner ul > li .mega-menu .mega-row .mega-col .mega-item img {
+            .menu-inner > ul > li .mega-menu .mega-row .mega-col .mega-item img {
               width: 100%;
               display: block;
               transition: opacity ease 0.3s; }
-              .menu-inner ul > li .mega-menu .mega-row .mega-col .mega-item img:hover {
+              .menu-inner > ul > li .mega-menu .mega-row .mega-col .mega-item img:hover {
                 opacity: 0.9; }
-            .menu-inner ul > li .mega-menu .mega-row .mega-col .mega-item h3 {
+            .menu-inner > ul > li .mega-menu .mega-row .mega-col .mega-item h3 {
               margin: 40px 0px 10px 0px;
               font-size: 2.1rem;
               padding: 0px;
               color: #000;
               font-weight: normal; }
               @media screen and (max-width: 1199px) {
-                .menu-inner ul > li .mega-menu .mega-row .mega-col .mega-item h3 {
+                .menu-inner > ul > li .mega-menu .mega-row .mega-col .mega-item h3 {
                   margin: 20px 0px 10px 0px;
                   font-size: 1.5rem; } }
-            .menu-inner ul > li .mega-menu .mega-row .mega-col .mega-item p {
+            .menu-inner > ul > li .mega-menu .mega-row .mega-col .mega-item p {
               font-size: 1.3rem;
               margin: 0px;
               color: #666666;
               padding: 0px 10px 0px 0px; }
               @media screen and (max-width: 1199px) {
-                .menu-inner ul > li .mega-menu .mega-row .mega-col .mega-item p {
+                .menu-inner > ul > li .mega-menu .mega-row .mega-col .mega-item p {
                   display: none; } }
-            .menu-inner ul > li .mega-menu .mega-row .mega-col .mega-item p.date {
+            .menu-inner > ul > li .mega-menu .mega-row .mega-col .mega-item p.date {
               margin: 0px 0px 10px 0px;
               color: #969291; }
-          .menu-inner ul > li .mega-menu .mega-row.mega-row4 .mega-col {
+          .menu-inner > ul > li .mega-menu .mega-row.mega-row4 .mega-col {
             float: left;
             padding: 30px 7px 50px 0px;
             width: 25%; }
-        .menu-inner ul > li .mega-menu .mega-bottom {
+        .menu-inner > ul > li .mega-menu .mega-bottom {
           background-color: #b8b8b7;
           text-align: center;
           padding: 20px 0px; }
-          .menu-inner ul > li .mega-menu .mega-bottom a {
+          .menu-inner > ul > li .mega-menu .mega-bottom a {
             display: inline-block;
             line-height: 40px;
             margin: 0px 20px;
             font-family: arial;
             color: #fff;
             font-size: 1.6rem; }
-            .menu-inner ul > li .mega-menu .mega-bottom a:hover {
+            .menu-inner > ul > li .mega-menu .mega-bottom a:hover {
               opacity: 0.8; }
-            .menu-inner ul > li .mega-menu .mega-bottom a.more {
+            .menu-inner > ul > li .mega-menu .mega-bottom a.more {
               font-size: 1.3rem;
               color: #fff;
               border: 1px solid #fff;
               padding: 0px 20px;
               border-radius: 5px; }
-        .menu-inner ul > li .mega-menu .mega-company {
+        .menu-inner > ul > li .mega-menu .mega-company {
           padding: 30px 10px; }
-          .menu-inner ul > li .mega-menu .mega-company .mc-img {
+          .menu-inner > ul > li .mega-menu .mega-company .mc-img {
             padding: 20px 0px 20px 0px;
             float: left; }
-          .menu-inner ul > li .mega-menu .mega-company .mc-col {
+          .menu-inner > ul > li .mega-menu .mega-company .mc-col {
             min-height: 300px;
             padding: 30px 0px 100px 70px;
             margin: 0px 0px 0px 70px;
             float: left;
             border-left: 1px solid #e5e5e5; }
-            .menu-inner ul > li .mega-menu .mega-company .mc-col p {
+            .menu-inner > ul > li .mega-menu .mega-company .mc-col p {
               margin: 0px 0px 15px 0px; }
-              .menu-inner ul > li .mega-menu .mega-company .mc-col p a {
+              .menu-inner > ul > li .mega-menu .mega-company .mc-col p a {
                 font-size: 2rem; }
-                .menu-inner ul > li .mega-menu .mega-company .mc-col p a:hover {
+                .menu-inner > ul > li .mega-menu .mega-company .mc-col p a:hover {
                   color: #000; }
 
 .overlay-menu {
@@ -636,28 +668,56 @@ body {
       margin: 0px;
       width: 49.5%;
       margin: 0px 0.5% 0px 0px; } }
+  @media screen and (max-width: 767px) and (max-width: 575px) {
+    .hh-right .small:first-child {
+      width: 100%;
+      float: none;
+      padding: 0px;
+      margin: 0px 0px 1px 0px; } }
+
+@media screen and (max-width: 575px) {
+  .hh-right .small {
+    width: 100%;
+    float: none;
+    padding: 0px;
+    margin: 0px 0px 1px 0px; } }
 
 .post-meta {
   position: absolute;
-  z-index: 2;
+  z-index: 99;
   top: 20px;
   left: 20px; }
   .post-meta .post-category {
     float: left;
-    display: inline-block; }
+    display: inline-block;
+    padding: 0px 10px;
+    max-height: 40px;
+    overflow: hidden;
+    background-color: #DE0821; }
     .post-meta .post-category a {
-      display: block;
+      display: inline-block;
       line-height: 25px;
       height: 25px;
-      padding: 0px 10px;
+      padding: 0px 0px;
       background-color: #DE0821;
       color: #fff;
       font-size: 1.4rem; }
       .post-meta .post-category a:hover {
         text-decoration: underline; }
+      .post-meta .post-category a:nth-child(n+4) {
+        display: none; }
+    .post-meta .post-category em {
+      color: #fff;
+      display: inline-block;
+      margin: 0px 2px; }
+      .post-meta .post-category em:nth-child(n+4) {
+        display: none; }
   .post-meta .post-format {
     float: left;
-    display: inline-block; }
+    display: inline-block;
+    background-color: #fff;
+    width: 25px;
+    text-align: center; }
     .post-meta .post-format a {
       display: block;
       line-height: 25px;
@@ -670,6 +730,9 @@ body {
 .middle {
   background-color: #F0F0F0;
   padding: 30px 0px; }
+  .middle.middle-page {
+    background-color: #fff;
+    padding: 40px 0px 70px 0px; }
 
 .post-item {
   position: relative;
@@ -741,9 +804,18 @@ body {
       cursor: pointer; }
 
 .footer {
-  background-color: #fff;
-  padding: 40px 0px;
-  border-top: 5px solid #3FAFED; }
+  background-color: #111;
+  padding: 60px 0px; }
+  .footer .footer-bottom {
+    text-align: center;
+    margin: 0px 0px 20px 0px; }
+    .footer .footer-bottom p {
+      color: #aaa;
+      font-size: 14px; }
+      .footer .footer-bottom p a {
+        color: #fff; }
+        .footer .footer-bottom p a:hover {
+          text-decoration: underline; }
   .footer .logo-footer {
     width: 200px; }
   .footer .footer-col {
@@ -771,10 +843,10 @@ body {
   text-align: center; }
   .allright p {
     margin: 0px 0px;
-    font-size: 12px;
-    opacity: 0.6; }
+    font-size: 14px;
+    color: #aaa; }
     .allright p a {
-      color: #3FAFED; }
+      color: #fff; }
       .allright p a:hover {
         text-decoration: underline; }
 
@@ -798,6 +870,50 @@ body {
     background-color: #cb2027; }
   .box-social a.instagram:hover {
     background-color: #fb3958; }
+
+.paging-outer {
+  text-align: center; }
+  .paging-outer a {
+    display: inline-block;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 30px;
+    padding: 0px 5px;
+    background-color: #999;
+    color: #fff;
+    margin: 0px 3px; }
+    .paging-outer a:hover {
+      background-color: #3FAFED; }
+  .paging-outer span.current {
+    display: inline-block;
+    min-width: 33px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 30px;
+    background-color: #3FAFED;
+    color: #fff;
+    margin: 0px 3px;
+    padding: 0px 5px; }
+    .paging-outer span.current:hover {
+      background-color: #3FAFED; }
+  .paging-outer span.dot {
+    display: inline-block;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 30px;
+    padding: 0px 5px;
+    margin: 0px 3px; }
 
 .single-box h1 {
   padding: 0px 0px 10px 0px;
@@ -842,14 +958,25 @@ body {
   background-color: #fff;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
   padding: 10px 350px 10px 10px; }
+  @media screen and (max-width: 991px) {
+    .sb-content {
+      padding: 10px; } }
   .sb-content .sb-left {
     float: left;
     width: 100%;
     padding: 10px; }
+    @media screen and (max-width: 991px) {
+      .sb-content .sb-left {
+        float: none; } }
   .sb-content .sb-right {
     width: 300px;
     margin: 0px -340px 0px 0px;
     float: right; }
+    @media screen and (max-width: 991px) {
+      .sb-content .sb-right {
+        float: none;
+        margin: 0px;
+        width: 100%; } }
 
 .box-tags h2 {
   margin: 20px 0px 20px 0px;
@@ -916,5 +1043,192 @@ body {
         font-size: 1.8rem; }
         .sb-relate .relate-item h3 a:hover {
           color: #000; }
+
+.page-content {
+  padding: 50px 0px;
+  max-width: 1000px;
+  margin: 0px auto; }
+
+.widget_recent_entries ul,
+.widget_archive ul,
+.widget_categories ul,
+.widget_meta ul {
+  margin: 20px 0px;
+  padding-bottom: 30px; }
+  .widget_recent_entries ul li,
+  .widget_archive ul li,
+  .widget_categories ul li,
+  .widget_meta ul li {
+    margin: 5px 0px; }
+    .widget_recent_entries ul li a:hover,
+    .widget_archive ul li a:hover,
+    .widget_categories ul li a:hover,
+    .widget_meta ul li a:hover {
+      color: #3FAFED; }
+
+.greeky-widget {
+  background-color: #fff;
+  margin-bottom: 20px; }
+  .greeky-widget .widget-title {
+    padding: 12px 10px;
+    background-color: #DE0821;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700; }
+  .greeky-widget .tagcloud {
+    padding: 10px; }
+    .greeky-widget .tagcloud a {
+      display: inline-block;
+      margin: 0px 5px 5px 0px;
+      line-height: 25px;
+      padding: 0px 10px;
+      color: #fff;
+      font-size: 12px !important;
+      background-color: #DE0821; }
+      .greeky-widget .tagcloud a:hover {
+        opacity: 0.8; }
+
+.search-caption {
+  margin: 0px 0px 10px 0px;
+  font-size: 20px;
+  font-weight: 600; }
+  .search-caption span {
+    color: #DE0821;
+    font-weight: 700; }
+
+.no-results p {
+  font-size: 20px;
+  font-weight: 600; }
+
+.product-category.product {
+  text-align: center; }
+  .product-category.product .woocommerce-loop-category__title {
+    display: inline-block;
+    padding: 0px 20px !important;
+    line-height: 40px;
+    background-color: #DE0821;
+    border-radius: 2px;
+    color: #Fff;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 20px auto !important; }
+    .product-category.product .woocommerce-loop-category__title mark {
+      display: none; }
+
+.woocommerce-result-count {
+  display: none; }
+
+.orderby {
+  display: none; }
+
+.product-thumbnail-inner .add_to_cart_button {
+  display: none !important; }
+
+.woocommerce ul.products li.product h3 a {
+  font-family: Microsoft JhengHei, sans-serif;
+  letter-spacing: 0px;
+  color: #111;
+  font-weight: 600;
+  font-size: 16px;
+  display: block; }
+
+.woocommerce ul.products li.product .price {
+  font-family: Microsoft JhengHei, sans-serif;
+  letter-spacing: 0px;
+  color: #111;
+  font-weight: 600;
+  font-size: 20px; }
+  .woocommerce ul.products li.product .price ins span {
+    color: #DE0821;
+    font-weight: 600;
+    font-size: 20px; }
+  .woocommerce ul.products li.product .price del span {
+    font-weight: 600;
+    font-size: 15px; }
+
+.woocommerce ul.products li.product.type-product {
+  width: 100%;
+  float: none;
+  margin: 0px 0px 30px 0px;
+  clear: both; }
+  .woocommerce ul.products li.product.type-product .onsale {
+    display: none; }
+  .woocommerce ul.products li.product.type-product .product-thumbnail {
+    float: left;
+    width: 25%;
+    margin: 0px 30px 50px 0px; }
+  .woocommerce ul.products li.product.type-product h3 {
+    margin: 0px 0px 20px 0px;
+    padding: 0px; }
+    .woocommerce ul.products li.product.type-product h3 a {
+      color: #3FAFED;
+      font-size: 35px;
+      font-weight: 700; }
+  .woocommerce ul.products li.product.type-product p {
+    font-size: 20px;
+    margin: 0px 0px 10px 0px; }
+  .woocommerce ul.products li.product.type-product .price ins span {
+    font-size: 30px; }
+  .woocommerce ul.products li.product.type-product .price del span {
+    font-size: 30px; }
+
+.wpcf7 {
+  max-width: 600px;
+  margin: 0px 0px 30px 0px; }
+  .wpcf7 h2 {
+    font-size: 40px;
+    font-weight: 600;
+    margin: -30px 0px 30px 0px; }
+  .wpcf7 br {
+    display: none; }
+  .wpcf7 label {
+    display: block;
+    margin: 0px 0px 20px 0px;
+    font-weight: 18px;
+    font-weight: bold; }
+    .wpcf7 label .wpcf7-text,
+    .wpcf7 label .wpcf7-tel {
+      width: 100%;
+      display: block;
+      padding: 0px 10px;
+      height: 35px;
+      margin: 5px 0px 0px 0px;
+      border: 1px solid #000; }
+    .wpcf7 label textarea {
+      margin: 5px 0px 0px 0px;
+      border: 1px solid #000;
+      padding: 10px;
+      height: 200px;
+      display: block;
+      width: 100%; }
+    .wpcf7 label .wpcf7-file {
+      display: block;
+      width: 100%; }
+  .wpcf7 .wpcf7-submit {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 45px;
+    padding: 0px 40px;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+    transition: all ease 0.3s; }
+    .wpcf7 .wpcf7-submit:hover {
+      background-color: #111; }
+
+.contact-link {
+  text-align: center;
+  margin: 0px 0px 20px 0px; }
+  .contact-link a {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600; }
+    .contact-link a:hover {
+      text-decoration: underline; }
+
+.sfsiplus_footerLnk {
+  display: none !important; }
 
 /*# sourceMappingURL=main.css.map */

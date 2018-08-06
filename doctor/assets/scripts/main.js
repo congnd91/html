@@ -38,8 +38,11 @@
             $("#register-form").validate();
         }
 
-
-
+        $(function () {
+            $('#datepicker').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
 
     });
 })(jQuery);
