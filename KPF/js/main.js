@@ -83,27 +83,56 @@
 
         db.gallery = function () {
 
-            var openPhotoSwipe = function () {
+            var openPhotoSwipe = function (index) {
+                console.log(index + "ss");
                 var pswpElement = document.querySelectorAll('.pswp')[0];
 
                 // build items array
-                var items = [{
-                        src: 'images/16.png',
+                /* var items = [{
+                         src: 'images/16.png',
+                         w: 1000,
+                         h: 600
+                 },
+                     {
+                         src: 'images/17.png',
+                         w: 1000,
+                         h: 600
+                 } ];*/
+
+
+                var imgs = $('.news-article img');
+
+
+
+
+
+                var items = new Array();
+
+
+
+                for (i = 0; i < imgs.length; i++) {
+
+
+                    items[i] = {
+                        src: $(imgs[i]).attr("src"),
                         w: 1000,
                         h: 600
-                },
-                    {
-                        src: 'images/17.png',
-                        w: 1000,
-                        h: 600
+                    };
+
+
                 }
-            ];
+
+
+
+
+                console.log(items);
 
                 // define options (if needed)
                 var options = {
                     // history & focus options are disabled on CodePen        
                     history: false,
                     focus: false,
+                    index: parseInt(index, 10),
 
                     showAnimationDuration: 0,
                     hideAnimationDuration: 0
@@ -115,7 +144,13 @@
             };
 
             $('.news-article img').click(function () {
-                openPhotoSwipe();
+
+
+
+
+                openPhotoSwipe($(this).attr("data-index"));
+                console.log($(this).attr("data-index"));
+
 
             });
         }

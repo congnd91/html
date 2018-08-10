@@ -78,7 +78,7 @@
                 loop: true,
                 //  animateOut: 'fadeOut',
                 margin: 0,
-                nav: false,
+                nav: true,
                 margin: 0,
                 navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
                 autoplay: true,

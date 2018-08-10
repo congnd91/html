@@ -777,6 +777,23 @@ iframe {
         color: $gray;
         border-bottom: 1px solid $border-color;
     }
+    .box-tab {
+        border-bottom: 1px solid $border-color;
+        a {
+            padding: 10px 15px;
+
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 600;
+
+
+            color: $gray;
+            &.active {
+                color: $active-color;
+                background-color: #fff;
+            }
+        }
+    }
 }
 
 .box-content {
@@ -1214,6 +1231,13 @@ p.error {
         font-weight: 400;
         strong {
             font-weight: 600;
+        }
+
+        a {
+            color: $active-color;
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 }
@@ -2642,4 +2666,72 @@ p.error {
 .ci-table-scroll {
     min-width: 600px;
 
+}
+
+
+.list-rules {
+    .lr-item {
+        padding: 10px 10px 10px 30px;
+
+        &:nth-child(2n) {
+            background-color: #eee;
+        }
+        .alert {
+            margin: 0px;
+        }
+        h3 {
+            font-weight: 600;
+            font-size: 1.6rem;
+            margin: 0px 0px 10px 0px;
+            position: relative;
+            &:before {
+                content: "";
+                display: block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: $success-color;
+                position: absolute;
+                top: 5px;
+                left: -16px;
+
+            }
+        }
+        p {
+            font-weight: 400;
+            margin: 0px 0px 4px 0px;
+        }
+
+        .lr-control {
+            a {
+
+
+                color: $active-color;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        &.current {
+            h3 {
+
+                &:before {
+
+                    background-color: #999;
+
+                }
+            }
+        }
+
+        &.cancel {
+            h3 {
+
+                &:before {
+
+                    background-color: $yellow;
+
+                }
+            }
+        }
+    }
 }

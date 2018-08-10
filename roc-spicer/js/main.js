@@ -204,6 +204,18 @@
             }
 
         }
+
+        db.scrollFixBar = function () {
+
+            if ($(".about-bar").length) {
+
+                $(".about-bar").stick_in_parent();
+            }
+
+
+
+
+        }
         db.preLoad();
         db.menuMobile();
         db.homeSlider();
@@ -212,6 +224,7 @@
         db.matchHeight();
         db.sliderMiles();
         db.sliderProduct();
+        db.scrollFixBar();
         db.toTop();
     });
 })(jQuery);
