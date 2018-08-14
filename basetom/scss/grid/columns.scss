@@ -1,0 +1,86 @@
+$column-gap: 30px !default;
+
+
+$media-breakpoints: ( 576px,
+768px,
+992px,
+1200px) !default;
+
+$container-max-widths: ( 540px,
+720px,
+960px,
+1140px) !default;
+
+$container-breakpoints: zip($media-breakpoints, $container-max-widths);
+
+.container {
+    width: 100%;
+    padding-left: $column-gap/2;
+    padding-right: $column-gap/2;
+    margin: 0px auto;
+    @each $container-breakpoint in $container-breakpoints {
+        @media (min-width: nth($container-breakpoint, 1)) {
+            max-width: nth($container-breakpoint, 2);
+        }
+    }
+}
+
+.container-full {
+    padding-left: $column-gap/2;
+    padding-right: $column-gap/2;
+}
+
+.cols {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -($column-gap/2);
+    margin-right: -($column-gap/2);
+
+}
+
+.col {
+
+    padding-right: $column-gap/2;
+    padding-left: $column-gap/2;
+
+}
+
+@for $i from 1 to 13 {
+    .col-#{$i} {
+        width: 100/(12/$i) + %;
+
+        padding-right: $column-gap/2;
+        padding-left: $column-gap/2;
+    }
+}
+
+
+
+
+$breakpoint-names: ( mobile,
+tablet,
+desktop,
+desktop-large) !default;
+$column-breakpoints: zip($media-breakpoints, $breakpoint-names);
+@each $breakpoint-item in $column-breakpoints {
+    @media (min-width: nth($breakpoint-item, 1)) {
+
+
+        @for $i from 1 to 13 {
+            .col-#{nth($breakpoint-item,2)}-#{$i} {
+                width: 100/(12/$i) + %;
+
+                padding-right: $column-gap/2;
+
+                padding-left: $column-gap/2;
+            }
+        }
+
+
+
+    }
+}
+
+.padding-left-50 {
+    padding-left: 50px;
+}
