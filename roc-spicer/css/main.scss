@@ -194,7 +194,7 @@ a {
     top: 0px;
     left: 0px;
     bottom: 0px;
-    z-index: 999;
+    z-index: 99991;
     border-right: 1px solid #e8e8e8;
     @media screen and (max-width: 991px) {
         width: 70px;
@@ -216,6 +216,8 @@ a {
                 background-repeat: no-repeat;
                 height: 40px;
                 width: 100%;
+                transition: all ease 0.3s;
+
                 @media screen and (max-width: 767px) {
                     height: 30px;
                     background-size: auto 30px;
@@ -227,6 +229,17 @@ a {
                 margin: 5px 0px 0px 0px;
                 @media screen and (max-width: 767px) {
                     font-size: 11px;
+                }
+                transition: all ease 0.3s;
+            }
+            &:hover {
+                .mi-icon {
+
+                    transform: scale(1.2);
+
+                }
+                p {
+                    color: $active-color;
                 }
             }
             &.menu-item1 {
@@ -1020,6 +1033,11 @@ a {
     justify-content: center;
     background-color: #0099d8;
     color: #fff;
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
     background-image: linear-gradient(to left, #1057c7 0%, #0099d8 100%);
     @media screen and (max-width: 1599px) {
         min-height: 400px;
@@ -1029,6 +1047,20 @@ a {
     }
     @media screen and (max-width: 991px) {
         min-height: 200px;
+    }
+    &:before {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+
+    }
+    div {
+        position: relative;
+        z-index: 2;
     }
     h2 {
         margin: 0px 0px 5px 0px;
@@ -1411,13 +1443,14 @@ a {
         margin: 0px;
         li {
             display: inline-block;
+            cursor: pointer;
             a {
                 display: block;
                 line-height: 70px;
                 height: 75px;
                 padding: 0px 70px;
                 font-family: $font-family;
-                color: #eee;
+                color: #eee !important;
                 font-size: 2rem;
                 @media screen and (max-width: 1599px) {
                     padding: 0px 40px;
@@ -1848,6 +1881,43 @@ a {
                 img {
                     width: 100%;
                 }
+            }
+        }
+    }
+}
+
+
+
+.db-table {
+    overflow: auto;
+    .db-table-scroll {
+        min-width: 900px;
+
+    }
+    table {
+        border: 1px solid $border-color;
+        width: 100%;
+        tr {
+            td {
+                border: 1px solid $border-color;
+                text-align: center;
+
+                padding: 14px 10px;
+                width: 50%;
+                @media screen and (max-width: 767px) {}
+                .table-arrow {
+                    display: inline-block;
+                    background-image: url(../images/icon_long_arrow_down.png);
+                    width: 23px;
+                    height: 28px;
+                    position: relative;
+                    &:hover {
+                        background-image: url(../images/icon_long_arrow_down_active.png);
+                    }
+                }
+            }
+            &:nth-child(even) {
+                background-color: #f2f2f2;
             }
         }
     }

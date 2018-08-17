@@ -216,6 +216,36 @@
 
 
         }
+        db.gender = function () {
+            $('.c-text').on('click', function () {
+                $('.c-text').removeClass("active");
+                $(this).addClass("active");
+                var gender = $(this).attr('data-gender');
+                $("#gender").val(gender);
+            });
+
+        }
+
+        db.scroll = function () {
+
+
+            $(".about-bar ul li").click(function () {
+
+                $(".about-bar ul li").removeClass("active");
+                var that = this;
+                var id = $(that).attr("data-id");
+                $(that).addClass("active");
+
+
+                $('html,body').animate({
+                    scrollTop: $(id).offset().top - 160
+                }, 1000);
+
+
+            });
+        }
+
+
         db.preLoad();
         db.menuMobile();
         db.homeSlider();
@@ -226,5 +256,7 @@
         db.sliderProduct();
         db.scrollFixBar();
         db.toTop();
+        db.gender();
+        db.scroll();
     });
 })(jQuery);

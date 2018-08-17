@@ -57,14 +57,13 @@ $container-breakpoints: zip($media-breakpoints, $container-max-widths);
 
 
 
-$breakpoint-names: ( mobile,
-tablet,
-desktop,
-desktop-large) !default;
+$breakpoint-names: ( m,
+t,
+d,
+dl) !default;
 $column-breakpoints: zip($media-breakpoints, $breakpoint-names);
 @each $breakpoint-item in $column-breakpoints {
     @media (min-width: nth($breakpoint-item, 1)) {
-
 
         @for $i from 1 to 13 {
             .col-#{nth($breakpoint-item,2)}-#{$i} {
@@ -83,4 +82,45 @@ $column-breakpoints: zip($media-breakpoints, $breakpoint-names);
 
 .padding-left-50 {
     padding-left: 50px;
+}
+
+
+
+//***************hidden class***************/
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-inline-flex {
+    display: inline-flex;
+}
+
+@each $breakpoint-item in $column-breakpoints {
+    @media (min-width: nth($breakpoint-item, 1)) {
+
+
+        .d-#{nth($breakpoint-item,2)}-none {
+            display: none;
+        }
+
+        .d-#{nth($breakpoint-item,2)}-block {
+            display: block;
+        }
+
+
+
+
+    }
 }
