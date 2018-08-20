@@ -4,26 +4,23 @@
 
         db.menuResponsive = function () {
             $('.menu-icon').on('click', function () {
-                $('body').toggleClass("open-menu");
-                setTimeout(scrollToTop, 0);
-            });
-
-
-            $('.menu-res li.menu-item-has-children').on('click', function (event) {
-                event.stopPropagation();
-                var submenu = $(this).find(" > ul");
-                if ($(submenu).is(":visible")) {
-                    $(submenu).slideUp();
-                    $(this).removeClass("open-submenu-active");
+                var menu = $('.menu-res');
+                if ($(menu).is(":visible")) {
+                    $(menu).slideUp();
                 } else {
-                    $(submenu).slideDown();
-                    $(this).addClass("open-submenu-active");
+                    $(menu).slideDown();
                 }
             });
-            $('.menu-res li.menu-item-has-children > a').on('click', function () {
-                //  return false;
-            });
+        }
 
+        db.scrollMenu = function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() >= 50) {
+                    $('body').addClass("is-scroll");
+                } else {
+                    $('body').removeClass("is-scroll");
+                }
+            });
         }
 
         db.sliderHome = function () {
@@ -154,8 +151,10 @@
 
 
         db.menuResponsive();
+        db.scrollMenu();
         db.sliderHome();
         db.sliderPartner();
         db.gallery();
+
     });
 })(jQuery);
