@@ -18,11 +18,12 @@
             "destroy": true,
             "paging": true,
             "info": false,
+            "dom": '<"top"i>rt<"bottom"flp><"clear">',
 
             "scrollCollapse": false,
             "searching": false,
             "bFilter": false,
-            "bLengthChange": false,
+            "bLengthChange": true,
 
             "aoColumnDefs": [{
                 'bSortable': false,

@@ -281,9 +281,10 @@ iframe {
 
     a {
         color: $active-color;
-        font-size: 20px;
+        font-size: 16px;
         i {
             margin: 0px 3px 0px 0px;
+            font-size: 20px;
         }
     }
     &.red {
@@ -338,9 +339,12 @@ iframe {
         }
         a.more {
             float: right;
-            font-size: 20px;
+            font-size: 16px;
             margin: 0px 0px 0px 0px;
             color: $active-color;
+            i {
+                font-size: 20px;
+            }
             &:hover {
                 text-decoration: underline;
             }
@@ -678,6 +682,12 @@ iframe {
         line-height: 1.4;
 
         font-size: 30px;
+        @media screen and (max-width: 991px) {
+            font-size: 20px;
+        }
+        @media screen and (max-width: 767px) {
+            font-size: 17px;
+        }
         span {
             font-weight: 600;
             font-size: 40px;
@@ -765,9 +775,10 @@ iframe {
         left: 120px;
         z-index: 99;
         color: $active-color;
-        font-size: 20px;
+        font-size: 16px;
         i {
             margin: 0px 5px 0px 0px;
+            font-size: 20px;
         }
         &:hover {
             text-decoration: underline;
@@ -1050,22 +1061,37 @@ iframe {
         line-height: 30px;
         font-size: 13px;
         color: $text-color-second;
+
+        @media screen and (max-width: 991px) {
+            float: none;
+            text-align: center;
+        }
     }
     .social-ft {
         float: right;
+        @media screen and (max-width: 991px) {
+            float: none;
+            text-align: center;
+
+        }
         a {
             float: left;
             border-radius: 50%;
             width: 30px;
             height: 30px;
-            background-color: #ddd;
             transition: all ease 0.4s;
             line-height: 30px;
             text-align: center;
-            margin: 0px 0px 0px 10px;
-            &:hover {
-                background-color: #ccc;
+            margin: 0px 0px 0px 0px;
+            opacity: 0.9;
+            @media screen and (max-width: 991px) {
+                float: none;
+                display: inline-block;
 
+            }
+
+            &:hover {
+                opacity: 1;
             }
         }
         i {
@@ -1582,7 +1608,7 @@ iframe {
 
 .country-overview {
     margin: 0px 0px 20px 0px;
-    padding: 50px 20px;
+    padding: 50px 0px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -1596,6 +1622,13 @@ iframe {
         position: absolute;
         bottom: 20px;
         left: 20px;
+
+        &.block {
+
+            position: relative;
+            bottom: unset;
+            left: unset;
+        }
         @media screen and (max-width: 991px) {
             position: relative;
             bottom: unset;
@@ -1705,27 +1738,43 @@ iframe {
     display: inline-block;
     @media screen and (max-width: 991px) {
         margin: 50px 0px 0px 0px;
+        padding: 20px 10px;
+
     }
     .co-rate-item {
         display: inline-block;
         text-align: center;
         padding: 0px 20px;
+        @media screen and (max-width: 991px) {
+            padding: 0px 10px;
+
+        }
         p {
             font-size: 13px;
             text-align: center;
             margin: 0px 0px 10px 0px;
             text-transform: uppercase;
+            @media screen and (max-width: 991px) {
+                font-size: 11px;
+            }
         }
         strong {
             font-size: 30px;
             font-weight: 600;
             color: $active-color;
+            @media screen and (max-width: 991px) {
+                font-size: 20px;
+            }
         }
     }
 }
 
 .co-slider {
     position: relative;
+    @media screen and (max-width: 991px) {
+        margin: 0px 0px 10px 0px;
+
+    }
 
     .co-item {
         background-color: #fff;
@@ -1747,7 +1796,7 @@ iframe {
             padding: 20px 20px 50px 20px;
             overflow: auto;
             @media screen and (max-width: 767px) {
-                padding: 20px 20px 60px 0px;
+                padding: 20px 20px 60px 20px;
 
                 position: relative;
                 top: unset;
@@ -1798,6 +1847,11 @@ iframe {
     padding: 20px 20px 0px 20px;
     margin: 0px 0px 20px 0px;
     background-color: #fff;
+    .ri-img {
+        @media screen and (max-width: 991px) {
+            margin: 0px 0px 20px 0px;
+        }
+    }
     .ui-box-caption {
         padding: 0px 20px;
     }
@@ -1860,8 +1914,11 @@ iframe {
 
             .lri-item {
                 display: inline-block;
-                padding: 0px 10px;
+                padding: 5px 10px;
                 text-align: center;
+                @media screen and (max-width: 767px) {
+                    padding: 5px 5px;
+                }
                 strong {
 
                     font-size: 18px;
@@ -1869,12 +1926,18 @@ iframe {
                     margin: 0px;
                     text-transform: uppercase;
                     display: block;
+                    @media screen and (max-width: 767px) {
+                        font-size: 11px;
+                    }
                 }
                 p {
                     font-weight: 600;
                     font-size: 25px;
                     padding: 10px 0px;
                     color: $active-color;
+                    @media screen and (max-width: 767px) {
+                        font-size: 15px;
+                    }
                 }
             }
         }
@@ -2019,11 +2082,23 @@ iframe {
 
         @media screen and (max-width: 991px) {
             padding: 10px;
+            width: 100%;
+            margin: 0px 0px 10px 0px;
+
 
         }
         &.fix {
             display: inline-block;
             margin: 0px 0px 10px 20px;
+
+            @media screen and (max-width: 991px) {
+                padding: 10px;
+                width: 100%;
+                margin: 0px 0px 10px 0px;
+
+
+
+            }
         }
         p {
             font-size: 13px;
@@ -2154,11 +2229,20 @@ iframe {
             width: 100%;
             float: none;
             margin: 0px 0px 10px 0px;
+            justify-content: space-between;
         }
 
         &.center {
             border-left: 1px solid $border-color;
             border-right: 1px solid $border-color;
+            @media screen and (max-width: 767px) {
+                border: none;
+                border-top: 1px solid $border-color;
+                border-bottom: 1px solid $border-color;
+                margin: 10px 0px;
+                padding: 10px 0px;
+
+            }
         }
 
         .dh-box2-value {
@@ -2215,9 +2299,18 @@ iframe {
     background-color: rgba($active-color, 0.1);
 
     transition: all ease 0.4s;
+    @media screen and (max-width: 767px) {
+        padding: 20px;
+    }
+
 
     &:hover {
         background-color: rgba($active-color, 0.2);
+    }
+    p {
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
     }
     h3 {
         font-size: 20px;
@@ -2231,10 +2324,21 @@ iframe {
         right: 20px;
         width: 150px;
         text-align: center;
+        @media screen and (max-width: 767px) {
+            position: relative;
+            top: unset;
+            left: unset;
+            width: 100%;
+            margin: 20px 0px 0px 0px;
+        }
         p {
             font-size: 12px;
             text-transform: uppercase;
             margin: 0px 0px 0px 0px;
+            @media screen and (max-width: 767px) {
+                display: block;
+            }
+
         }
         strong {
             display: block;
@@ -2494,6 +2598,10 @@ br {
     .er-bar {
         padding: 20px;
         background-color: rgba($active-color, 0.2);
+        @media screen and (max-width: 767px) {
+            padding: 20px 100px 20px 20px;
+            position: relative;
+        }
         .date {
             float: right;
             width: 70px;
@@ -2502,6 +2610,11 @@ br {
             background-color: #fff;
             text-align: center;
             padding: 5px 0px;
+            @media screen and (max-width: 767px) {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
             p {
                 margin: 0px 0px 0px 0px;
                 padding: 0px;
@@ -2723,4 +2836,13 @@ br {
             text-decoration: underline;
         }
     }
+}
+
+.selet-new-bar {
+    margin: 0px 0px 10px 0px;
+}
+
+.dataTables_length {
+    float: left;
+    margin: 10px 0px 0px 20px;
 }
