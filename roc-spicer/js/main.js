@@ -141,7 +141,7 @@
                 $("body").removeClass("show-menu");
             });
 
-            $('.menu-mobile ul li.has-child a').click(function (e) {
+            $('.menu-mobile ul li.has-child > a').click(function (e) {
                 var subMenu = $(this).parent().find(".sub-menu");
 
                 if ($(subMenu).is(":visible")) {
