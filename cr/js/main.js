@@ -77,6 +77,7 @@
                     $(this).removeClass("active");
                 } else {
                     $(content).show();
+
                     $(this).addClass("active");
                 }
             });
