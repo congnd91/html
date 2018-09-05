@@ -3,13 +3,9 @@
         var db = new Object();
 
         db.menuResponsive = function () {
-            $('.menu-icon').on('click', function () {
-                var menu = $('.menu-res');
-                if ($(menu).is(":visible")) {
-                    $(menu).slideUp();
-                } else {
-                    $(menu).slideDown();
-                }
+            $('.icon-menu').on('click', function () {
+
+                $("body").toggleClass("open-menu");
             });
         }
 
@@ -23,33 +19,31 @@
             });
         }
 
-        db.sliderHome = function () {
-            var owl_home = $('.owl-home');
-            if ($(owl_home).length) {
-                $(owl_home).owlCarousel({
+        db.sliderHotmom = function () {
+            var owl_hotmom = $('.owl-hotmom');
+            if ($(owl_hotmom).length) {
+                $(owl_hotmom).owlCarousel({
                     loop: true,
                     margin: 0,
-                    animateOut: 'fadeOut',
 
                     nav: true,
                     autoplay: false,
-                    navText: ['<i class="icon icon-circle-left2"></i>', '<i class="icon icon-circle-right2"></i>'],
+                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
                     items: 1
 
                 });
             }
         }
-        db.sliderPartner = function () {
-            var owl_partner = $('.owl-partner');
-            if ($(owl_partner).length) {
-                $(owl_partner).owlCarousel({
+        db.sliderNews = function () {
+            var owl_news = $('.owl-news');
+            if ($(owl_news).length) {
+                $(owl_news).owlCarousel({
                     loop: true,
-                    margin: 0,
-
+                    margin: 30,
 
                     nav: true,
                     autoplay: false,
-                    navText: ['<i class="icon icon-circle-left2"></i>', '<i class="icon icon-circle-right2"></i>'],
+                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
                     responsive: {
 
                         0: {
@@ -65,7 +59,7 @@
 
                         },
                         991: {
-                            items: 4,
+                            items: 3,
 
                         }
                     },
@@ -152,8 +146,8 @@
 
         db.menuResponsive();
         db.scrollMenu();
-        db.sliderHome();
-        db.sliderPartner();
+        db.sliderNews();
+        db.sliderHotmom();
         db.gallery();
 
     });
