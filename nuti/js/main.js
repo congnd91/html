@@ -9,6 +9,16 @@
             });
         }
 
+
+        db.playVideo = function () {
+            $('.img6').on('click', function () {
+                $("body").toggleClass("open-video");
+            });
+            $('.close-video').on('click', function () {
+                $("body").toggleClass("open-video");
+            });
+        }
+
         db.scrollMenu = function () {
             $(window).scroll(function () {
                 if ($(this).scrollTop() >= 50) {
@@ -145,6 +155,7 @@
 
 
         db.menuResponsive();
+        db.playVideo();
         db.scrollMenu();
         db.sliderNews();
         db.sliderHotmom();
