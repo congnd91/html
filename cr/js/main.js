@@ -10,6 +10,12 @@
 
         });
 
+        $('.menu-icon.fix').on('click', function (e) {
+            $('body').removeClass("open-menu");
+            $('body').removeClass("open-side");
+
+        });
+
         $('.menu-res-inner ul ul').hide();
         $('.menu-res-inner > ul > li > a').on('click', function () {
 
@@ -216,7 +222,22 @@
         });
 
 
-    })
+    });
+
+
+    $('.check-parrent input').click(function () {
+        var isChecked = $(this).prop("checked");
+
+        $('.check-childs').find('input[type="checkbox"]').prop('checked', isChecked);
+    });
+
+    $('.box19 table thead input').click(function () {
+        var isChecked = $(this).prop("checked");
+
+        $('.box19 table tbody').find('input[type="checkbox"]').prop('checked', isChecked);
+    });
+
+
 
 })(jQuery);
 
