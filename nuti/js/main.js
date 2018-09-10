@@ -1,7 +1,11 @@
 (function ($) {
     $(document).on('ready', function () {
         var db = new Object();
-
+        db.preLoad = function () {
+            $('#page-loader').delay(800).fadeOut(600, function () {
+                $('body').fadeIn();
+            });
+        }
         db.menuResponsive = function () {
             $('.icon-menu').on('click', function () {
 
@@ -11,7 +15,7 @@
 
 
         db.playVideo = function () {
-            $('.img6').on('click', function () {
+            $('.video-icon').on('click', function () {
                 $("body").toggleClass("open-video");
             });
             $('.close-video').on('click', function () {
@@ -78,88 +82,156 @@
             }
         }
 
-        db.gallery = function () {
+        db.sliderBaby = function () {
+            var owl_baby = $('.owl-baby');
+            if ($(owl_baby).length) {
+                $(owl_baby).owlCarousel({
+                    loop: true,
+                    margin: 30,
 
-            var openPhotoSwipe = function (index) {
-                console.log(index + "ss");
-                var pswpElement = document.querySelectorAll('.pswp')[0];
+                    nav: true,
+                    autoplay: false,
+                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                    responsive: {
 
-                // build items array
-                /* var items = [{
-                         src: 'images/16.png',
-                         w: 1000,
-                         h: 600
-                 },
-                     {
-                         src: 'images/17.png',
-                         w: 1000,
-                         h: 600
-                 } ];*/
+                        0: {
+                            items: 1,
+                        },
 
+                        576: {
+                            items: 2,
+                        },
 
-                var imgs = $('.news-article img');
+                        768: {
+                            items: 3,
 
+                        },
+                        991: {
+                            items: 4,
 
+                        }
+                    },
 
+                });
+            }
+        }
 
+        db.sliderThree = function () {
+            var owl_three = $('.owl-three');
+            if ($(owl_three).length) {
+                $(owl_three).owlCarousel({
+                    loop: true,
+                    margin: 30,
 
-                var items = new Array();
+                    nav: false,
+                    autoplay: false,
+                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                    responsive: {
 
+                        0: {
+                            items: 1,
+                        },
 
+                        576: {
+                            items: 2,
+                        },
 
-                for (i = 0; i < imgs.length; i++) {
+                        768: {
+                            items: 2,
 
+                        },
+                        991: {
+                            items: 3,
 
-                    items[i] = {
-                        src: $(imgs[i]).attr("src"),
-                        w: 1000,
-                        h: 600
-                    };
+                        }
+                    },
 
+                });
+            }
+        }
+        db.sliderFive = function () {
+            var owl_five = $('.owl-five');
+            if ($(owl_five).length) {
+                $(owl_five).owlCarousel({
+                    loop: false,
+                    margin: 30,
+                    nav: true,
+                    autoplay: false,
+                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                    responsive: {
 
-                }
+                        0: {
+                            items: 1,
+                        },
 
+                        576: {
+                            items: 2,
+                        },
 
+                        768: {
+                            items: 3,
 
+                        },
+                        991: {
+                            items: 4,
 
-                console.log(items);
+                        }
+                    },
 
-                // define options (if needed)
-                var options = {
-                    // history & focus options are disabled on CodePen        
-                    history: false,
-                    focus: false,
-                    index: parseInt(index, 10),
+                });
+            }
+        }
+        db.sliderTrustme = function () {
+            var owl_trustme = $('.owl-trustme');
+            if ($(owl_trustme).length) {
+                $(owl_trustme).owlCarousel({
+                    loop: false,
+                    margin: 30,
+                    nav: true,
+                    autoplay: false,
+                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                    responsive: {
 
-                    showAnimationDuration: 0,
-                    hideAnimationDuration: 0
+                        0: {
+                            items: 1,
+                        },
 
-                };
+                        576: {
+                            items: 2,
+                        },
 
-                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-                gallery.init();
-            };
+                        768: {
+                            items: 3,
 
-            $('.news-article img').click(function () {
+                        },
+                        991: {
+                            items: 4,
 
+                        }
+                    },
 
+                });
+            }
+        }
 
-
-                openPhotoSwipe($(this).attr("data-index"));
-                console.log($(this).attr("data-index"));
-
-
-            });
+        db.niceScroll = function () {
+            $('.ss-tab-content').niceScroll();
         }
 
 
-
+        db.preLoad();
         db.menuResponsive();
         db.playVideo();
         db.scrollMenu();
         db.sliderNews();
         db.sliderHotmom();
-        db.gallery();
+        db.sliderBaby();
+        db.sliderThree();
+        db.sliderFive();
+        db.sliderTrustme();
+
+        db.niceScroll();
+
 
     });
 })(jQuery);
