@@ -216,6 +216,8 @@
 
         db.niceScroll = function () {
             $('.ss-tab-content').niceScroll();
+            $('.question-content').niceScroll();
+
         }
 
 
@@ -231,6 +233,8 @@
         db.sliderTrustme();
 
         db.niceScroll();
+
+
 
 
     });
