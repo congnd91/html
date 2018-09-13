@@ -21,6 +21,10 @@
             $('.close-video').on('click', function () {
                 $("body").toggleClass("open-video");
             });
+
+            $('.video-box').on('click', function () {
+                alert("ss");
+            });
         }
 
         db.scrollMenu = function () {
@@ -54,26 +58,30 @@
                 $(owl_news).owlCarousel({
                     loop: true,
                     margin: 30,
-
                     nav: true,
                     autoplay: false,
                     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
                     responsive: {
 
                         0: {
-                            items: 1,
+                            items: 2,
+                            nav: false,
+
                         },
 
                         576: {
                             items: 2,
+                            nav: false,
                         },
 
                         768: {
                             items: 2,
+                            nav: false,
 
                         },
                         991: {
                             items: 3,
+                            nav: true,
 
                         }
                     },
@@ -161,7 +169,7 @@
                     responsive: {
 
                         0: {
-                            items: 1,
+                            items: 2,
                         },
 
                         576: {
