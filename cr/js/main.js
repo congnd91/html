@@ -17,7 +17,24 @@
         });
 
         $('.menu-res-inner ul ul').hide();
+        $('.menu-res-inner ul ul ul').hide();
         $('.menu-res-inner > ul > li > a').on('click', function () {
+
+            var child = $(this).next();
+
+            if ($(child).is(":visible")) {
+                $(child).slideUp();
+            } else {
+                $(child).slideDown();
+            }
+
+
+            return false;
+
+
+        });
+
+        $('.menu-res-inner > ul > li >ul>li > a.has-child').on('click', function () {
 
             var child = $(this).next();
 
