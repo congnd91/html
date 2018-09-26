@@ -103,13 +103,15 @@
             slidesToShow: 3,
             slidesToScroll: 1,
             asNavFor: '.slider-for',
-            arrows: false,
+            arrows: true,
             dots: false,
             centerMode: false,
             focusOnSelect: true,
             autoplay: false,
             autoplaySpeed: 6000,
-            vertical: true
+            vertical: false,
+            prevArrow: "<div class='slick-prev'> <i class='fa fa-angle-left'></i></div>",
+            nextArrow: "<div class='slick-next'> <i class='fa fa-angle-right'></i></div>",
         });
 
 
