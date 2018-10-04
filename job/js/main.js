@@ -25,10 +25,47 @@ $(document).ready(function () {
                     $('body').removeClass("is-scroll");
                 }
             });
+
+            $('.backtotop').hide();
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('.backtotop').fadeIn();
+                } else {
+                    $('.backtotop').fadeOut();
+                }
+            });
+
+
+            $(".backtotop").click(function () {
+
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 1000);
+            });
+        }
+        db.homeSlider = function () {
+
+
+            var owl_home = $('.owl-hero');
+            if ($(owl_home).length) {
+                $(owl_home).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: false,
+                    navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+                    autoplay: true,
+                    items: 1,
+                    animateOut: 'fadeOut',
+                    mouseDrag: false
+
+                });
+            }
+
         }
 
         db.scrollMenu();
         db.menuResponsive();
+        db.homeSlider();
 
 
 

@@ -377,6 +377,34 @@ iframe {
     }
     .header-right {
         float: right;
+
+        .td-area {
+            float: left;
+            margin: 0px 20px 0px 0px;
+            a {
+                cursor: pointer;
+                i {
+                    font-size: 16px;
+                    margin: 0px 5px 0px 0px;
+                }
+                display: inline-block;
+                line-height: 35px;
+                color: #fff;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .dropdown-menu {
+                font-size: 1.4rem;
+                a {
+                    color: $active-color;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
         .td-link {
             float: left;
             margin: 0px 20px 0px 0px;
@@ -508,6 +536,17 @@ iframe {
                     color: $active-color;
                 }
             }
+
+            .td-area {
+
+                a {
+
+                    color: $active-color;
+
+                }
+            }
+
+
             .user-control {
                 float: left;
                 a {
@@ -526,8 +565,46 @@ iframe {
     }
 }
 
+.res-area {
+    padding: 20px 20px 0px 20px;
+    .td-area {
+
+        margin: 0px 20px 0px 0px;
+        a {
+            border: 1px solid #fff;
+            border-radius: 2px;
+            padding: 0px 20px 0px 20px;
+            cursor: pointer;
+            i {
+                font-size: 16px;
+                margin: 0px 5px 0px 0px;
+            }
+            display: inline-block;
+            line-height: 35px;
+            color: #fff;
+            &:hover {
+                text-decoration: underline;
+                color: #fff;
+            }
+        }
+
+        .dropdown-menu {
+            font-size: 1.4rem;
+            a {
+                color: $active-color;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
 .res-control {
     padding: 20px 20px 0px 20px;
+
+
+
     a {
         display: block;
         width: 100%;
@@ -632,23 +709,67 @@ iframe {
 }
 
 .home-hero {
-    background-image: url(../images/banner.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    position: relative;
-    min-height: 650px;
+
+
+
     padding: 100px 0px 50px 0px;
-    &:before {
-        content: "";
+    min-height: 650px;
+    position: relative;
+
+    .owl-dots {
+        position: absolute;
+        z-index: 3;
+        bottom: 20px;
+        left: 0px;
+        right: 0px;
+        text-align: center;
+        .owl-dot {
+            display: inline-block;
+            width: 11px;
+            height: 11px;
+            margin: 5px 8px;
+            border-radius: 50%;
+            background-color: #fff;
+            opacity: 0.6;
+            &.active {
+                opacity: 1;
+            }
+
+        }
+    }
+    .hero-item {
+
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+
+        min-height: 650px;
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #282C32;
+            opacity: 0.64;
+            z-index: 1;
+        }
+
+
+    }
+
+    .hero-slider {
         display: block;
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #282C32;
-        opacity: 0.64;
+
+
         z-index: 1;
     }
     .container {
@@ -1572,5 +1693,32 @@ iframe {
             letter-spacing: 2px;
             margin: 0px;
         }
+    }
+}
+
+.backtotop {
+    position: fixed;
+    bottom: 20px;
+
+    right: 20px;
+    background-color: #F17560;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+
+    font-size: 25px;
+    color: #fff;
+    transition: all ease 0.3s;
+
+    i {
+        font-size: 25px;
+    }
+
+    &:hover {
+        background-color: lighten(#F17560, 10%);
     }
 }
