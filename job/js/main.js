@@ -68,6 +68,17 @@ $(document).ready(function () {
         db.homeSlider();
 
 
+        $('select').select2({
+            minimumResultsForSearch: -1,
+            placeholder: function () {
+                $(this).data('placeholder');
+            }
+        });
+
+
+
+
+
 
 
     });
