@@ -14,15 +14,6 @@
         }
 
 
-        db.playVideo = function () {
-            $('.video-icon').on('click', function () {
-                $("body").toggleClass("open-video");
-            });
-            $('.close-video').on('click', function () {
-                $("body").toggleClass("open-video");
-            });
-        }
-
         db.scrollMenu = function () {
             $(window).scroll(function () {
                 if ($(this).scrollTop() >= 50) {
@@ -33,14 +24,13 @@
             });
         }
 
-        db.sliderHotmom = function () {
-            var owl_hotmom = $('.owl-hotmom');
-            if ($(owl_hotmom).length) {
-                $(owl_hotmom).owlCarousel({
+        db.sliderHero = function () {
+            var owl_hero = $('.owl-hero');
+            if ($(owl_hero).length) {
+                $(owl_hero).owlCarousel({
                     loop: true,
                     margin: 0,
-
-                    nav: true,
+                    nav: false,
                     autoplay: false,
                     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
                     items: 1
@@ -48,119 +38,11 @@
                 });
             }
         }
-        db.sliderNews = function () {
-            var owl_news = $('.owl-news');
-            if ($(owl_news).length) {
-                $(owl_news).owlCarousel({
-                    loop: true,
-                    margin: 30,
 
-                    nav: true,
-                    autoplay: false,
-                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                    responsive: {
-
-                        0: {
-                            items: 1,
-                        },
-
-                        576: {
-                            items: 2,
-                        },
-
-                        768: {
-                            items: 2,
-
-                        },
-                        991: {
-                            items: 3,
-
-                        }
-                    },
-
-                });
-            }
-        }
-
-        db.sliderBaby = function () {
-            var owl_baby = $('.owl-baby');
-            if ($(owl_baby).length) {
-                $(owl_baby).owlCarousel({
-                    loop: true,
-                    margin: 30,
-
-                    nav: true,
-                    autoplay: false,
-                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                    responsive: {
-
-                        0: {
-                            items: 1,
-                        },
-
-                        576: {
-                            items: 2,
-                        },
-
-                        768: {
-                            items: 3,
-
-                        },
-                        991: {
-                            items: 4,
-
-                        }
-                    },
-
-                });
-            }
-        }
-
-        db.sliderThree = function () {
-            var owl_three = $('.owl-three');
-            if ($(owl_three).length) {
-                $(owl_three).owlCarousel({
-                    loop: true,
-                    margin: 0,
-
-                    nav: true,
-                    autoplay: false,
-                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                    responsive: {
-
-                        0: {
-                            items: 1,
-                            nav: true,
-                            margin: 0,
-                        },
-
-                        576: {
-                            items: 2,
-                            nav: true,
-                            margin: 30,
-                        },
-
-                        768: {
-                            items: 2,
-                            nav: false,
-                            margin: 30,
-
-                        },
-                        991: {
-                            items: 3,
-                            nav: false,
-                            margin: 30,
-
-                        }
-                    },
-
-                });
-            }
-        }
-        db.sliderFive = function () {
-            var owl_five = $('.owl-five');
-            if ($(owl_five).length) {
-                $(owl_five).owlCarousel({
+        db.sliderPartner = function () {
+            var owl_partner = $('.owl-partner');
+            if ($(owl_partner).length) {
+                $(owl_partner).owlCarousel({
                     loop: false,
                     margin: 30,
                     nav: true,
@@ -169,51 +51,12 @@
                     responsive: {
 
                         0: {
-                            items: 1,
-                        },
-
-                        576: {
-                            items: 2,
-                        },
-
-                        768: {
-                            items: 3,
-
-                        },
-                        991: {
                             items: 4,
-
-                        }
-                    },
-
-                });
-            }
-        }
-        db.sliderTrustme = function () {
-            var owl_trustme = $('.owl-trustme');
-            if ($(owl_trustme).length) {
-                $(owl_trustme).owlCarousel({
-                    loop: false,
-                    margin: 30,
-                    nav: true,
-                    autoplay: false,
-                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                    responsive: {
-
-                        0: {
-                            items: 1,
                         },
 
-                        576: {
-                            items: 2,
-                        },
 
-                        768: {
-                            items: 3,
-
-                        },
-                        991: {
-                            items: 4,
+                        1191: {
+                            items: 5,
 
                         }
                     },
@@ -231,14 +74,11 @@
 
         db.preLoad();
         db.menuResponsive();
-        db.playVideo();
         db.scrollMenu();
-        db.sliderNews();
-        db.sliderHotmom();
-        db.sliderBaby();
-        db.sliderThree();
-        db.sliderFive();
-        db.sliderTrustme();
+
+        db.sliderHero();
+
+        db.sliderPartner();
 
         db.niceScroll();
 
