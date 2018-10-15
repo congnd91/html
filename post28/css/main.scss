@@ -98,14 +98,14 @@ a {
 }
 
 .my-btn {
-    line-height: 35px;
+    line-height: 36px;
     padding: 0px 20px;
     background-color: $active-color;
     display: inline-block;
     color: #fff;
     font-weight: 700;
+    position: relative;
     text-transform: uppercase;
-
 
     i {
         margin: 0px 4px 0px 0px;
@@ -114,6 +114,13 @@ a {
     &:hover {
         background-color: lighten($active-color, 10%);
         color: #fff;
+    }
+    &.cancel {
+        color: #fff;
+        background-color: $text-color-second;
+        &:hover {
+            background-color: lighten($text-color-second, 10%);
+        }
     }
 }
 
@@ -1142,7 +1149,7 @@ a {
 
 
 
-        margin: 0px 0px 15px 0px;
+        margin: 0px 0px 20px 0px;
         &.no-margin {
             margin: 0px;
         }
@@ -1162,10 +1169,177 @@ a {
 
 
     }
+    .lf-value {
+        font-weight: 600;
+        font-size: $fs14;
+        p.time {
+            span {
+                color: $active-color;
+                font-weight: 700;
+            }
+        }
+
+    }
+
+    .datetimepicker {
+        position: relative;
+        .date-icon {
+            width: 30px;
+            height: 25px;
+            position: absolute;
+            top: 9px;
+            right: 5px;
+            cursor: pointer;
+            text-align: center;
+            z-index: 2;
+        }
+    }
 
 }
 
+
+.add-url-video {
+    text-align: right;
+    a {
+        color: $active-color;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.lfp-item {
+    float: left;
+    width: 80px;
+    margin: 0px 10px 10px 0px;
+    height: 80px;
+    img {
+        width: 80px;
+        height: 80px;
+
+    }
+}
+
+.refresh-captcha {
+    display: inline-block;
+    margin: 0px 0px 0px 10px;
+    line-height: 30px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.have-coupon {
+    margin: 0px 0px 20px 0px;
+    a {
+        color: $active-color;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.avatar-zone {
+    width: 80px;
+    height: 80px;
+    float: left;
+    border: 1px dashed $border-color;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    transition: all ease 0.2s;
+    color: $border-color;
+    font-size: 30px;
+    background-color: #fafafa;
+    line-height: 80px;
+    &:hover {
+        border-color: $active-color;
+        color: $active-color;
+        cursor: pointer;
+    }
+    &.company {
+        width: 100%;
+    }
+
+}
+
+.file-note {
+    float: left;
+    margin: 0px 0px 0px 20px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    color: $text-color-meta;
+    font-style: italic;
+}
+
 .txt-text {
+    height: 35px;
+    border: 1px solid $border-color;
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    transition: all ease 0.3s;
+    outline: none;
+    padding: 0px 0px 0px 15px;
+    &:focus {
+        border: 1px solid darken($border-color,
+        10%);
+    }
+
+
+}
+
+.log-tags {
+    border: 1px solid $border-color;
+    width: 100%;
+    padding: 10px 10px 5px 10px;
+
+    span {
+        display: inline-block;
+        font-size: 12px;
+        padding: 2px 13px 2px 5px;
+
+        border-radius: 2px;
+        background-color: #ccc;
+        margin: 0px 5px 5px 0px;
+        position: relative;
+        .close {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 2px;
+            right: 0px;
+            opacity: 1;
+            line-height: 10px;
+            font-size: 11px;
+            color: #333;
+            &:hover {
+                color: $red;
+                cursor: pointer;
+            }
+        }
+
+    }
+    &.view-mode {
+        padding: 0px;
+        border: none;
+        span {
+            padding: 2px 5px;
+        }
+    }
+    input {
+        width: auto;
+        border: none;
+        background-color: transparent;
+        padding: 0px 5px;
+        display: inline-block;
+        line-height: 25px;
+
+        outline: none;
+    }
+}
+
+.select {
     height: 35px;
     border: 1px solid $border-color;
     background-color: #fff;
@@ -1179,6 +1353,29 @@ a {
         10%);
     }
 
+
+}
+
+
+.area-text {
+    height: 135px;
+    border: 1px solid $border-color;
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    transition: all ease 0.3s;
+    outline: none;
+    padding: 10px 15px;
+    &:focus {
+        border: 1px solid darken($border-color,
+        10%);
+    }
+
+
+}
+
+.bootstrap-datetimepicker-widget {
+    font-size: 1.3rem;
 
 }
 
@@ -1251,7 +1448,7 @@ a {
 
 
 .btn-login {
-    padding: 0px 35px;
+    padding: 0px 30px;
 
 }
 
@@ -1342,9 +1539,9 @@ a {
 
 
 
-my-radio {
+.my-radio {
     display: inline-block;
-    margin: 3px 15px 0px 0px;
+    margin: 0px 15px 0px 0px;
     position: relative;
     input[type=radio] {
         position: absolute;
@@ -1352,6 +1549,7 @@ my-radio {
     }
     label {
         cursor: pointer;
+
 
         span {
             padding: 0px 0px 0px 27px;
@@ -1362,7 +1560,7 @@ my-radio {
             cursor: pointer;
             line-height: 30px;
             font-size: 13px;
-            color: #252525;
+            color: $text-color-second;
             &:before {
                 content: "";
                 display: block;
@@ -1457,4 +1655,248 @@ my-radio {
     }
 
 
+}
+
+
+
+.us-cols {
+    padding: 40px 0px 100px 280px;
+
+    .us-left {
+        width: 200px;
+        float: left;
+        margin: 0px 0px 0px -280px;
+    }
+    .us-right {
+        width: 100%;
+        float: left;
+
+
+    }
+
+    .box500 {}
+}
+
+.menu-us {
+    padding: 40px 0px 0px 0px;
+    ul {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        li {
+            border-top: 1px solid $border-color;
+            a {
+                display: block;
+                line-height: 45px;
+                font-weight: 600;
+                color: $text-color-second;
+                text-transform: uppercase;
+                transition: all ease 0.3s;
+                &:hover {
+                    color: $active-color;
+                }
+            }
+            &.active {
+                a {
+                    color: $active-color;
+                }
+            }
+        }
+    }
+}
+
+.us-caption {
+    line-height: 40px;
+    border-bottom: 1px solid $text-color;
+    margin: 0px 0px 20px 0px;
+
+
+    span {
+        font-size: $fs16;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        color: $text-color;
+    }
+}
+
+
+.us-content {
+    padding: 0px 0px 0px 0px;
+}
+
+.box400 {
+    max-width: 400px;
+}
+
+.box500 {
+    max-width: 500px;
+}
+
+.box600 {
+    max-width: 600px;
+}
+
+.my-table {
+    border: 1px solid $border-color;
+    padding: 10px 20px 20px 20px;
+    table {
+        width: 100%;
+        thead {
+            border-bottom: 2px solid $text-color;
+
+            th {
+                padding: 10px;
+                color: $text-color;
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 1.4rem;
+
+            }
+
+
+        }
+        tbody {
+            tr {
+                border-bottom: 1px solid $border-color;
+
+                td {
+                    padding: 14px 10px;
+                    a {
+                        &:hover {
+                            color: $active-color;
+                            text-decoration: underline;
+                        }
+                    }
+                    span {
+                        &.in-progress {
+                            display: inline-block;
+                            font-size: 11px;
+                            text-transform: uppercase;
+                            color: #fff;
+                            padding: 0px 5px;
+                            border-radius: 2px;
+                            background-color: $active-color;
+                        }
+                        &.complete {
+                            display: inline-block;
+                            font-size: 11px;
+                            text-transform: uppercase;
+                            color: #fff;
+                            padding: 0px 5px;
+                            border-radius: 2px;
+                            background-color: $green;
+                        }
+                        &.stopped {
+                            display: inline-block;
+                            font-size: 11px;
+                            text-transform: uppercase;
+                            color: #fff;
+                            padding: 0px 5px;
+                            border-radius: 2px;
+                            background-color: $red;
+                        }
+                        &.in-draft {
+                            display: inline-block;
+                            font-size: 11px;
+                            text-transform: uppercase;
+                            color: #fff;
+                            padding: 0px 5px;
+                            border-radius: 2px;
+                            background-color: $text-color-second;
+                        }
+                    }
+
+
+                }
+                &:hover {
+                    td {
+                        background-color: #eee;
+                    }
+
+                }
+            }
+        }
+
+
+
+    }
+}
+
+
+.paging {
+    text-align: center;
+    padding: 20px 0px 0px 0px;
+    a {
+        display: inline-block;
+        line-height: 20px;
+        width: 20px;
+        margin: 5px 5px;
+        font-size: 1.4rem;
+        font-weight: 600;
+
+
+        cursor: pointer;
+        &.current {
+            color: $active-color;
+        }
+        &:hover {
+            color: $active-color;
+        }
+    }
+}
+
+.post-ad-control {
+    .my-btn {
+        margin: 0px 15px 0px 0px;
+    }
+    .next {
+        position: relative;
+
+        &:before {
+            content: "";
+            width: 0px;
+            height: 0px;
+            border: 18px solid transparent;
+            border-left-color: $active-color;
+            display: block;
+            position: absolute;
+            top: 0px;
+            right: -36px;
+            transition: all ease 0.3s;
+
+        }
+        &:hover {
+            &:before {
+                border-left-color: lighten($active-color, 10%);
+            }
+        }
+
+    }
+
+    .prev {
+        position: relative;
+        margin-left: 20px;
+
+
+        &:before {
+            content: "";
+            width: 0px;
+            height: 0px;
+            border: 18px solid transparent;
+            border-right-color: $text-color-second;
+            display: block;
+            position: absolute;
+            top: 0px;
+            left: -36px;
+            transition: all ease 0.3s;
+
+        }
+        &:hover {
+            &:before {
+                border-right-color: lighten($text-color-second, 10%);
+            }
+        }
+
+    }
 }

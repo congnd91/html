@@ -68,7 +68,7 @@ $(document).ready(function () {
         db.homeSlider();
 
 
-        $('select').select2({
+        $('select111').select2({
             minimumResultsForSearch: -1,
             placeholder: function () {
                 $(this).data('placeholder');

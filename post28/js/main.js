@@ -1,5 +1,11 @@
 (function ($) {
+
     $(document).on('ready', function () {
+
+
+
+
+
         var db = new Object();
         db.preLoad = function () {
             $('#page-loader').delay(800).fadeOut(600, function () {
@@ -11,6 +17,14 @@
 
                 $("body").toggleClass("open-menu");
             });
+        }
+
+        db.datePicker = function () {
+            if ($("#birthday").length) {
+                $('#birthday').datetimepicker({
+                    format: 'DD/MM/YYYY',
+                });
+            }
         }
 
 
@@ -72,6 +86,8 @@
         }
 
 
+
+
         db.preLoad();
         db.menuResponsive();
         db.scrollMenu();
@@ -79,8 +95,10 @@
         db.sliderHero();
 
         db.sliderPartner();
+        db.datePicker();
 
         db.niceScroll();
+
 
 
 
