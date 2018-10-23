@@ -7,9 +7,17 @@
             });
         }
         db.menuResponsive = function () {
-            $('.icon-menu').on('click', function () {
+            $('.menu-icon').on('click', function () {
                 $("body").toggleClass("open-menu");
             });
+            $('.search-icon').on('click', function () {
+                $("body").toggleClass("show-search");
+            });
+            $('.search-control span').on('click', function () {
+                $("body").toggleClass("show-search");
+            });
+
+
         }
         db.datePicker = function () {
             if ($("#birthday").length) {
@@ -34,12 +42,59 @@
                     loop: true,
                     margin: 0,
                     nav: false,
-                    autoplay: false,
+                    autoplay: true,
                     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                    items: 1
+                    items: 1,
+                    smartSpeed: 500,
                 });
             }
+
+
+            owl_hero.on('changed.owl.carousel', function (property) {
+                var current = property.item.index;
+                var prev = $(property.target).find(".owl-item").eq(current).prev().find(".hero-item").attr("data-src");
+
+                var next = $(property.target).find(".owl-item").eq(current).next().find(".hero-item").attr("data-src");
+
+                $('.navPrev').find('img').attr('src', prev);
+                $('.navNext').find('img').attr('src', next);
+            });
+
+
+
+            $('.navNext').on('click', function () {
+                owl_hero.trigger('next.owl.carousel', [300]);
+                return false;
+            });
+
+            $('.navPrev').on('click', function () {
+                owl_hero.trigger('prev.owl.carousel', [300]);
+                return false;
+            });
+
         }
+
+
+        db.sliderIntro = function () {
+            var owl_intro = $('.owl-intro');
+            if ($(owl_intro).length) {
+                $(owl_intro).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: false,
+                    autoplay: true,
+
+                    items: 1,
+                    smartSpeed: 500,
+                });
+            }
+
+
+
+
+        }
+
+
         db.sliderPartner = function () {
             var owl_partner = $('.owl-partner');
             if ($(owl_partner).length) {
@@ -140,12 +195,11 @@
         }
 
 
-
-
         db.preLoad();
         db.menuResponsive();
         db.scrollMenu();
         db.sliderHero();
+        db.sliderIntro();
         db.sliderPartner();
         db.datePicker();
         db.sliderAd();
