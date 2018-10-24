@@ -7,7 +7,10 @@
             });
         }
         db.menuResponsive = function () {
-            $('.icon-menu').on('click', function () {
+            $('.menu-icon').on('click', function () {
+                $("body").toggleClass("open-menu");
+            });
+            $('.close-menu').on('click', function () {
                 $("body").toggleClass("open-menu");
             });
         }
@@ -51,6 +54,12 @@
                     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
                     responsive: {
                         0: {
+                            items: 2,
+                        },
+                        768: {
+                            items: 3,
+                        },
+                        991: {
                             items: 4,
                         },
                         1191: {
@@ -82,6 +91,32 @@
                     focusOnSelect: true,
                     centerMode: true,
                     arrows: false,
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 8,
+
+                            }
+    },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 7,
+
+                            }
+    },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 4,
+
+                            }
+    }
+
+  ]
+
+
                 });
             }
         }

@@ -23,12 +23,10 @@ body {
 
     line-height: 1.5;
     color: $text-color-second;
-    min-width: 960px;
+
 }
 
-.container {
-    min-width: 960px;
-}
+.container {}
 
 dt,
 dd {
@@ -63,6 +61,7 @@ img {
 
     margin-left: -10px;
     margin-right: -10px;
+
     .col-fix {
         padding-left: 10px;
         padding-right: 10px;
@@ -110,14 +109,18 @@ a {
     i {
         margin: 0px 4px 0px 0px;
     }
+
     transition: all ease 0.3s;
+
     &:hover {
         background-color: lighten($active-color, 10%);
         color: #fff;
     }
+
     &.cancel {
         color: #fff;
         background-color: $text-color-second;
+
         &:hover {
             background-color: lighten($text-color-second, 10%);
         }
@@ -145,12 +148,97 @@ a {
     border-bottom: 2px solid $active-color;
 }
 
+.menu-res {
+    display: none;
+
+    @media screen and (max-width: 991px) {
+        display: block;
+    }
+
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: $border-color;
+    z-index: 999;
+    transition: all ease 0.6s;
+    overflow: auto;
+
+    transform: translateX(-100%);
+
+    .menu-left {
+        margin: 30px 0px 0px 0px;
+
+        li {
+            border-bottom: 1px solid #bbb;
+
+            a {
+                &:hover {}
+
+            }
+        }
+    }
+
+    .close-menu {
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        line-height: 25px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+
+        i {
+            line-height: 25px;
+            font-size: 20px;
+            position: relative;
+            top: 3px;
+            margin: 0px 5px 0px 0px;
+            display: inline-block;
+        }
+    }
+
+}
+
+.open-menu {
+    overflow: hidden;
+
+    .menu-res {
+        transform: translateX(0%);
+    }
+}
+
 .topbar {
     height: 35px;
 
 
     background-color: $box-color;
     border-bottom: 1px solid #eee;
+
+    .menu-icon {
+        float: left;
+
+        height: 34px;
+        line-height: 34px;
+        text-transform: uppercase;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        display: none;
+
+        @media screen and (max-width: 991px) {
+            display: block;
+        }
+
+
+        i {
+            font-size: 17px;
+            margin: 0px 5px 0px 0px;
+        }
+    }
+
     .hotline {
         float: left;
         line-height: 34px;
@@ -159,20 +247,25 @@ a {
         i {
             margin: 0px 4px 0px 0px;
         }
-        @media screen and (max-width: 400px) {
+
+        @media screen and (max-width: 991px) {
             display: none;
         }
 
     }
+
     .user-control {
         float: right;
+
         .user-link {
             float: left;
             line-height: 34px;
             margin: 0px 0px 0px 20px;
+
             &:hover {
                 color: $active-color;
             }
+
             i {
                 margin: 0px 4px 0px 0px;
             }
@@ -186,8 +279,10 @@ a {
 
         float: right;
         margin: 2px 0px 0px 0px;
+
         .dropdown-toggle {
             cursor: pointer;
+
             img {
                 width: 30px;
                 height: 30px;
@@ -197,6 +292,7 @@ a {
 
 
             }
+
             span {
                 line-height: 30px;
                 font-weight: 600;
@@ -214,10 +310,12 @@ a {
             border: none;
             border-radius: 0px;
             box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+
             ul {
                 margin: 0px;
                 list-style: none;
                 padding: 0px;
+
                 li {
                     a {
                         display: block;
@@ -226,6 +324,7 @@ a {
                         transition: all ease 0.3s;
 
                     }
+
                     &:hover {
                         a {
                             background-color: #f3f3f3;
@@ -246,9 +345,15 @@ a {
 
 .header {
     padding: 25px 0px;
+
+    @media screen and (max-width: 991px) {
+        border-bottom: 1px solid $border-color;
+    }
+
     .header-inner {
         //border: 1px solid red;
         position: relative;
+
         a.logo {
             float: left;
             margin: 0px 0px 0px 0px;
@@ -260,23 +365,28 @@ a {
                 }
             }
         }
+
         .post-now {
             float: right;
+
             @media screen and (max-width: 400px) {
                 padding: 0px 10px;
             }
         }
+
         .search-wrap {
             float: left;
             margin: 0px 0px 0px 100px;
 
             width: 600px;
+
             @media screen and (max-width: 1199px) {
                 width: 500px;
                 margin: 0px 0px 0px 50px;
             }
+
             @media screen and (max-width: 991px) {
-                //display: none;
+                display: none;
             }
 
         }
@@ -305,6 +415,7 @@ a {
                     margin-top: 0px;
                     margin-left: -1px;
                     min-width: 101%;
+
                     a {
 
                         display: block;
@@ -320,11 +431,13 @@ a {
                     }
                 }
             }
+
             .search-form {
 
 
                 width: 100%;
                 position: relative;
+
                 input {
                     height: 38px;
                     border: none;
@@ -334,6 +447,7 @@ a {
                     outline: none;
                     width: 100%;
                 }
+
                 button {
                     position: absolute;
                     top: 0px;
@@ -369,11 +483,13 @@ a {
 
             a {
                 display: inline-block;
+
                 &:hover {
                     cursor: pointer;
                     color: $active-color;
                 }
             }
+
             span {
                 display: inline-block;
                 margin: 0px 3px 0px 0px;
@@ -387,15 +503,23 @@ a {
     border-bottom: 2px solid $active-color;
     height: 42px;
     overflow: hidden;
+
+    @media screen and (max-width: 991px) {
+        display: none;
+    }
+
     .menu-inner {
         padding: 0px 0px 0px 250px;
+
         ul {
             list-style: none;
             margin: 0px;
             padding: 0px;
+
             li {
                 float: left;
                 margin: 0px 20px 0px 0px;
+
                 a {
                     display: block;
                     line-height: 40px;
@@ -404,9 +528,11 @@ a {
                     font-weight: 600;
                     color: $text-color;
                     text-transform: uppercase;
+
                     &:hover {
                         color: $active-color;
                     }
+
                     @media screen and (max-width: 1199px) {
                         padding: 0px 0px;
 
@@ -427,12 +553,19 @@ a {
 .hero-cols {
     padding: 20px 0px 0px 240px;
     position: relative;
+
+    @media screen and (max-width: 991px) {
+        padding: 20px 0px 0px 0px;
+    }
+
     .hero-left {
         float: left;
         width: 220px;
         margin: 0px 0px 0px -240px;
 
-
+        @media screen and (max-width: 991px) {
+            display: none;
+        }
 
         .mega-menu {
             position: absolute;
@@ -452,20 +585,25 @@ a {
 
                 margin: 0px 0px 20px 0px;
                 float: left;
+
                 h3 {
                     color: $text-color;
                     font-size: 1.4rem;
                     margin: 0px 0px 15px 0px;
                     font-weight: 600;
                 }
+
                 ol {
                     margin: 0px;
                     padding: 0px;
                     list-style: none;
+
                     li {
                         margin: 0px 0px 10px 0px;
+
                         a {
                             font-size: 1.3rem;
+
                             &:hover {
                                 color: $active-color;
                             }
@@ -473,17 +611,21 @@ a {
                     }
                 }
             }
+
             .mega-col-wrap {}
         }
+
         .category {
 
             min-height: 300px;
             margin: -60px 0px 0px 0px;
             background-color: $box-color;
+
             .category-caption {
                 height: 40px;
                 position: relative;
                 background-color: $active-color;
+
                 span {
                     line-height: 40px;
                     font-size: 1.4rem;
@@ -492,6 +634,7 @@ a {
                     text-transform: uppercase;
                     color: #fff;
                 }
+
                 i {
                     width: 30px;
                     height: 30px;
@@ -506,92 +649,20 @@ a {
 
             }
 
-            .menu-left {
-                margin: 0px;
-                padding: 5px 0px;
-                list-style: none;
 
-                > li {
-                    display: block;
-
-
-                    > a {
-                        line-height: 40px;
-
-                        padding: 0px 10px;
-
-                        font-size: 1.3rem;
-                        font-weight: 600;
-                        display: block;
-                        position: relative;
-                        z-index: 11;
-                        @media screen and (max-width: 991px) {
-                            line-height: 44px;
-                        }
-                        .cate-icon {
-                            float: left;
-                            width: 30px;
-
-                            height: 40px;
-                            margin: 0px 5px 0px 0px;
-
-                            background-repeat: no-repeat;
-                            background-position: center center;
-                            background-size: 18px 18px;
-
-                            opacity: 0.6;
-                            &.cate-icon1 {
-                                background-image: url(../images/cate_icon/1.png);
-                            }
-                            &.cate-icon2 {
-                                background-image: url(../images/cate_icon/2.png);
-                            }
-                            &.cate-icon3 {
-                                background-image: url(../images/cate_icon/3.png);
-                            }
-                            &.cate-icon4 {
-                                background-image: url(../images/cate_icon/4.png);
-                            }
-                            &.cate-icon5 {
-                                background-image: url(../images/cate_icon/5.png);
-                            }
-                            &.cate-icon6 {
-                                background-image: url(../images/cate_icon/6.png);
-                            }
-                            &.cate-icon7 {
-                                background-image: url(../images/cate_icon/7.png);
-                            }
-                            &.cate-icon8 {
-                                background-image: url(../images/cate_icon/8.png);
-                            }
-                            &.cate-icon9 {
-                                background-image: url(../images/cate_icon/9.png);
-                            }
-                        }
-                    }
-                    &:hover {
-                        background-color: $border-color;
-                        > a {}
-                        .mega-menu {
-                            z-index: 10;
-                            visibility: visible;
-                            opacity: 1;
-                        }
-                    }
-
-
-                }
-            }
 
         }
     }
+
     .hero-right {
         float: left;
         width: 100%;
         padding: 0px 240px 0px 0px;
+
         @media screen and (max-width: 1199px) {
             padding: 0px;
         }
+
         .hero-slider {
             float: left;
             width: 100%;
@@ -617,6 +688,7 @@ a {
                     margin: 0px 5px;
                     border-radius: 50%;
                     border: 2px solid #fff;
+
                     &.active {
                         background-color: $active-color;
                     }
@@ -624,10 +696,12 @@ a {
 
             }
         }
+
         .hero-ads {
             float: right;
             margin: 0px -240px 0px 0px;
             width: 220px;
+
             @media screen and (max-width: 1199px) {
                 display: none;
             }
@@ -635,9 +709,11 @@ a {
             a {
                 display: block;
                 margin: 0px 0px 20px 0px;
+
                 &:last-child {
                     margin: 0px;
                 }
+
                 &:hover {
                     opacity: 0.9;
                 }
@@ -648,9 +724,100 @@ a {
     }
 }
 
+.menu-left {
+    margin: 0px;
+    padding: 5px 0px;
+    list-style: none;
+
+    > li {
+        display: block;
+
+
+        > a {
+            line-height: 40px;
+
+            padding: 0px 10px;
+
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: block;
+            position: relative;
+            z-index: 11;
+
+            @media screen and (max-width: 991px) {
+                line-height: 44px;
+            }
+
+            .cate-icon {
+                float: left;
+                width: 30px;
+
+                height: 40px;
+                margin: 0px 5px 0px 0px;
+
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 18px 18px;
+
+                opacity: 0.6;
+
+                &.cate-icon1 {
+                    background-image: url(../images/cate_icon/1.png);
+                }
+
+                &.cate-icon2 {
+                    background-image: url(../images/cate_icon/2.png);
+                }
+
+                &.cate-icon3 {
+                    background-image: url(../images/cate_icon/3.png);
+                }
+
+                &.cate-icon4 {
+                    background-image: url(../images/cate_icon/4.png);
+                }
+
+                &.cate-icon5 {
+                    background-image: url(../images/cate_icon/5.png);
+                }
+
+                &.cate-icon6 {
+                    background-image: url(../images/cate_icon/6.png);
+                }
+
+                &.cate-icon7 {
+                    background-image: url(../images/cate_icon/7.png);
+                }
+
+                &.cate-icon8 {
+                    background-image: url(../images/cate_icon/8.png);
+                }
+
+                &.cate-icon9 {
+                    background-image: url(../images/cate_icon/9.png);
+                }
+            }
+        }
+
+        &:hover {
+            background-color: $border-color;
+
+            > a {}
+
+            .mega-menu {
+                z-index: 10;
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+
+    }
+}
 
 .cate {
     margin: 0px 0px 30px 0px;
+
     .cate-caption {
         height: 42px;
         border-bottom: 2px solid $red;
@@ -667,10 +834,13 @@ a {
             float: left;
             font-weight: 600;
             text-transform: uppercase;
+
             i {
                 margin: 0px 5px 0px 0px;
             }
+
             position: relative;
+
             &:before {
                 content: "";
                 display: block;
@@ -685,14 +855,17 @@ a {
                 border-bottom-color: $red;
             }
         }
+
         .readmore {
             float: right;
             color: $red;
             line-height: 40px;
+
             &:hover {
                 text-decoration: underline;
             }
         }
+
         .cc-filter {
             display: inline-block;
             margin: 0px 0px 0px 60px;
@@ -700,10 +873,15 @@ a {
             float: left;
             list-style: none;
 
+            @media screen and (max-width: 991px) {
+                display: none;
+            }
+
 
             li {
                 float: left;
                 margin: 0px 40px 0px 0px;
+
                 @media screen and (max-width: 1199px) {
                     margin: 0px 20px 0px 0px;
 
@@ -716,6 +894,7 @@ a {
                     &:hover {
                         color: $red;
                     }
+
                     &.active {
                         color: $red;
                     }
@@ -723,6 +902,7 @@ a {
 
             }
         }
+
         &.blue {
 
             border-bottom: 2px solid $blue;
@@ -740,11 +920,13 @@ a {
                     border-bottom-color: $blue;
                 }
             }
+
             .readmore {
 
                 color: $blue;
 
             }
+
             .cc-filter {
 
                 li {
@@ -755,6 +937,7 @@ a {
                         &:hover {
                             color: $blue;
                         }
+
                         &.active {
                             color: $blue;
                         }
@@ -763,6 +946,7 @@ a {
                 }
             }
         }
+
         &.orange {
 
             border-bottom: 2px solid $active-color;
@@ -780,11 +964,13 @@ a {
                     border-bottom-color: $active-color;
                 }
             }
+
             .readmore {
 
                 color: $active-color;
 
             }
+
             .cc-filter {
 
                 li {
@@ -795,6 +981,7 @@ a {
                         &:hover {
                             color: $active-color;
                         }
+
                         &.active {
                             color: $active-color;
                         }
@@ -814,12 +1001,15 @@ a {
     background-color: $box-color;
     border: 1px solid transparent;
     transition: all ease 0.3s;
+
     &:hover {
         border: 1px solid $active-color;
         box-shadow: 0px 0px 5px 0px rgba($active-color, 0.6);
     }
+
     .pi-img {
         position: relative;
+
         .pi-chatnow {
             position: absolute;
             top: 0px;
@@ -846,11 +1036,13 @@ a {
             }
 
         }
+
         .pi-state {
             position: absolute;
             top: 10px;
             left: 10px;
             z-index: 1;
+
             .sale {
                 margin: 0px 5px 0px 0px;
                 line-height: 20px;
@@ -860,6 +1052,7 @@ a {
                 text-transform: uppercase;
                 font-size: 1.1rem;
             }
+
             .time {
                 margin: 0px 5px 0px 0px;
                 line-height: 20px;
@@ -876,12 +1069,14 @@ a {
         img {
             width: 100%;
         }
+
         &:hover {
 
             .pi-chatnow {
                 visibility: visible;
                 opacity: 1;
                 z-index: 10;
+
                 a.btn-chatnow {
                     transform: scale(1);
                 }
@@ -889,6 +1084,7 @@ a {
             }
         }
     }
+
     .pi-des {
         padding: 10px;
 
@@ -899,19 +1095,31 @@ a {
                 font-size: 1.4rem;
                 font-weight: 600;
                 transition: all ease 0.3s;
+
                 &:hover {
                     color: $active-color;
                 }
             }
         }
+
         p {
             font-size: 1.3rem;
             margin: 0px 0px 20px 0px;
+
+            @media screen and (max-width: 767px) {
+                display: none;
+            }
         }
+
         .pi-bar {
             span {
                 display: inline-block;
                 margin: 0px 20px 0px 0px;
+
+                &:last-child {
+                    margin: 0px;
+                }
+
                 i {
                     margin: 0px 4px 0px 0px;
                 }
@@ -928,15 +1136,30 @@ a {
 .cols {
     padding: 0px 280px 0px 0px;
 
+    @media screen and (max-width: 991px) {
+        padding: 0px;
+    }
+
     .colright {
 
         float: right;
         width: 260px;
         margin: 0px -280px 0px 0px;
+
+        @media screen and (max-width: 991px) {
+            float: none;
+            width: 100%;
+            margin: 20px 0px 0px 0px;
+        }
     }
+
     .colleft {
         float: left;
         width: 100%;
+
+        @media screen and (max-width: 991px) {
+            float: none;
+        }
     }
 }
 
@@ -944,6 +1167,10 @@ a {
 .qc-right {
     margin: 0px 0px 30px 0px;
     text-align: center;
+
+    @media screen and (max-width: 991px) {
+        display: none;
+    }
 }
 
 .qc-bottom {
@@ -956,6 +1183,7 @@ a {
     margin: 0px 0px 30px 0px;
 
     padding: 20px 40px 40px 40px;
+
     .partner-caption {
         margin: 0px 0px 20px 0px;
         text-align: center;
@@ -964,9 +1192,11 @@ a {
         font-weight: 400;
         color: #fff;
     }
+
     .partner-slider {
         position: relative;
         padding: 0px 20px;
+
         .owl-prev {
             width: 30px;
             height: 30px;
@@ -983,6 +1213,7 @@ a {
             cursor: pointer;
 
         }
+
         .owl-next {
             width: 30px;
             height: 30px;
@@ -1023,7 +1254,9 @@ a {
     padding: 60px 0px 0px 0px;
     background-color: $text-color;
     min-height: 200px;
+
     .company {
+        margin: 0px 0px 20px 0px;
 
         p {
             color: #ccc;
@@ -1033,12 +1266,23 @@ a {
 
     .footer-col {
         padding: 0px 0px 0px 25px;
+
+        @media screen and (max-width: 991px) {
+            padding: 0px 0px 0px 0px;
+        }
+
         &.fix {
             padding-left: 70px;
+
             @media screen and (max-width: 1199px) {
                 padding-left: 40px;
             }
+
+            @media screen and (max-width: 991px) {
+                padding-left: 0px;
+            }
         }
+
         h3 {
             text-transform: uppercase;
             font-size: 14px;
@@ -1046,15 +1290,18 @@ a {
             color: #fff;
             margin: 0px 0px 15px 0px;
         }
+
         ul {
             margin: 0px;
             padding: 0px;
             list-style: none;
+
             li {
                 margin: 0px 0px 10px 0px;
 
                 a {
                     color: #ccc;
+
                     &:hover {
                         color: #fff;
                     }
@@ -1074,6 +1321,7 @@ a {
         color: #fff;
         margin: 0px 0px 15px 0px;
     }
+
     .social-icons {
 
         a {
@@ -1086,6 +1334,7 @@ a {
             line-height: 35px;
             color: #fff;
             background-color: $text-color-second;
+
             @media screen and (max-width: 1199px) {
                 width: 30px;
                 height: 30px;
@@ -1093,7 +1342,7 @@ a {
             }
 
             &:hover {
-                background-color: lighten( $text-color-second, 10%);
+                background-color: lighten($text-color-second, 10%);
             }
         }
     }
@@ -1109,6 +1358,7 @@ a {
         color: #fff;
         margin: 0px 0px 15px 0px;
     }
+
     .subcribe-form {
 
         max-width: 230px;
@@ -1116,6 +1366,7 @@ a {
         height: 40px;
         padding: 0px 40px 0px 0px;
         background-color: $text-color-second;
+
         input {
             width: 100%;
             height: 40px;
@@ -1125,6 +1376,7 @@ a {
             outline: none;
             color: #fff;
         }
+
         button {
             width: 40px;
             height: 40px;
@@ -1138,6 +1390,7 @@ a {
             color: #fff;
             font-size: 16px;
             transition: all ease 0.3s;
+
             &:hover {
                 background-color: lighten($active-color, 10%);
             }
@@ -1152,6 +1405,7 @@ a {
 
     color: #bbb;
     text-transform: uppercase;
+
     p {
         font-size: 1.2rem;
     }
@@ -1163,15 +1417,22 @@ a {
     border-top: 1px solid $border-color;
     min-height: 200px;
 
+
     .log-box {
         max-width: 500px;
         margin: 50px auto 50px auto;
+
+        @media screen and (max-width: 575px) {
+            margin: 0px 15px;
+            max-width: 100%;
+        }
     }
 
     .log-caption {
         height: 40px;
         margin: 0px 0px -1px 0px;
         text-align: center;
+
         a {
             display: inline-block;
             height: 40px;
@@ -1182,6 +1443,7 @@ a {
             font-weight: 700;
             margin: 0px 20px;
             border-bottom: 2px solid transparent;
+
             &.active {
                 color: $active-color;
                 border-bottom: 2px solid $active-color;
@@ -1190,17 +1452,22 @@ a {
 
         }
     }
+
     .log-back-to-login {
         margin: 10px 0px 10px 0px;
         text-align: center;
+
         p {
 
             font-size: 1.4rem;
+
             a {
                 i {
                     margin: 0px 5px;
                 }
+
                 color: $active-color;
+
                 &:hover {
                     text-decoration: underline;
                     color: $active-color;
@@ -1208,11 +1475,17 @@ a {
             }
         }
     }
+
     .log-content {
         background-color: $box-color;
         border: 1px solid $border-color;
         min-height: 100px;
         padding: 50px 70px 50px 70px;
+
+        @media screen and (max-width: 767px) {
+            padding: 40px 20px;
+
+        }
     }
 
     .log-field {
@@ -1220,6 +1493,7 @@ a {
 
 
         margin: 0px 0px 20px 0px;
+
         &.no-margin {
             margin: 0px;
         }
@@ -1230,6 +1504,7 @@ a {
         margin: 0px 0px 5px 0px;
 
         text-align: left;
+
         span {
             font-size: 1.2rem;
             font-weight: 600;
@@ -1239,9 +1514,11 @@ a {
 
 
     }
+
     .lf-value {
         font-weight: 600;
         font-size: $fs14;
+
         p.time {
             span {
                 color: $active-color;
@@ -1253,6 +1530,7 @@ a {
 
     .datetimepicker {
         position: relative;
+
         .date-icon {
             width: 30px;
             height: 25px;
@@ -1270,8 +1548,10 @@ a {
 
 .add-url-video {
     text-align: right;
+
     a {
         color: $active-color;
+
         &:hover {
             text-decoration: underline;
         }
@@ -1283,6 +1563,7 @@ a {
     width: 80px;
     margin: 0px 10px 10px 0px;
     height: 80px;
+
     img {
         width: 80px;
         height: 80px;
@@ -1300,8 +1581,10 @@ a {
 
 .have-coupon {
     margin: 0px 0px 20px 0px;
+
     a {
         color: $active-color;
+
         &:hover {
             text-decoration: underline;
         }
@@ -1321,11 +1604,13 @@ a {
     font-size: 30px;
     background-color: #fafafa;
     line-height: 80px;
+
     &:hover {
         border-color: $active-color;
         color: $active-color;
         cursor: pointer;
     }
+
     &.company {
         width: 100%;
     }
@@ -1351,9 +1636,10 @@ a {
     transition: all ease 0.3s;
     outline: none;
     padding: 0px 0px 0px 15px;
+
     &:focus {
         border: 1px solid darken($border-color,
-        10%);
+            10%);
     }
 
 
@@ -1373,6 +1659,7 @@ a {
         background-color: #ccc;
         margin: 0px 5px 5px 0px;
         position: relative;
+
         .close {
             width: 10px;
             height: 10px;
@@ -1383,6 +1670,7 @@ a {
             line-height: 10px;
             font-size: 11px;
             color: #333;
+
             &:hover {
                 color: $red;
                 cursor: pointer;
@@ -1390,13 +1678,16 @@ a {
         }
 
     }
+
     &.view-mode {
         padding: 0px;
         border: none;
+
         span {
             padding: 2px 5px;
         }
     }
+
     input {
         width: auto;
         border: none;
@@ -1418,9 +1709,10 @@ a {
     transition: all ease 0.3s;
     outline: none;
     padding: 0px 15px;
+
     &:focus {
         border: 1px solid darken($border-color,
-        10%);
+            10%);
     }
 
 
@@ -1436,9 +1728,10 @@ a {
     transition: all ease 0.3s;
     outline: none;
     padding: 10px 15px;
+
     &:focus {
         border: 1px solid darken($border-color,
-        10%);
+            10%);
     }
 
 
@@ -1451,6 +1744,7 @@ a {
 
 .error-box {
     margin: -10px 0px 20px 0px;
+
     p {
         color: $red;
         font-size: 1.3rem;
@@ -1469,8 +1763,10 @@ a {
     span {
         font-size: 12px !important;
         white-space: nowrap;
+
         a {
             color: $active-color;
+
             &:hover {
                 text-decoration: underline;
                 color: $active-color;
@@ -1485,6 +1781,7 @@ a {
     float: right;
     line-height: 30px;
     color: $active-color;
+
     &:hover {
         text-decoration: underline;
         color: $active-color;
@@ -1494,6 +1791,7 @@ a {
 .log-sapo {
 
     text-align: center;
+
     p {
         font-style: italic;
 
@@ -1506,10 +1804,12 @@ a {
     float: right;
     line-height: 30px;
     color: $active-color;
+
     &:hover {
         text-decoration: underline;
         color: $active-color;
     }
+
     i {
         margin: 0px 5px;
 
@@ -1526,10 +1826,15 @@ a {
 .social-login {
     margin: 40px -40px 0px -40px;
 
+    @media screen and (max-width: 767px) {
+        margin: 40px 0px 0px 0px;
+    }
+
     .sl-caption {
         border-bottom: 1px solid $border-color;
         height: 10px;
         text-align: center;
+
         span {
             display: inline-block;
             line-height: 15px;
@@ -1549,12 +1854,20 @@ a {
 .sl-content {
     overflow: hidden;
     margin: 30px -10px 0px -10px;
+
     .sl-col {
         float: left;
         width: 50%;
         padding: 0px 10px;
 
+        @media screen and (max-width: 767px) {
+            width: 100%;
+            float: none;
+            margin: 0px 0px 15px 0px;
+
+        }
     }
+
     .facebook {
         display: block;
         line-height: 40px;
@@ -1565,14 +1878,17 @@ a {
         text-transform: uppercase;
         font-weight: 600;
         transition: all ease 0.3s;
+
         i {
             margin: 0px 5px 0px 0px;
         }
+
         &:hover {
             cursor: pointer;
             background-color: lighten($brand-facebook, 10%);
         }
     }
+
     .google {
         display: block;
         line-height: 40px;
@@ -1583,9 +1899,11 @@ a {
         text-transform: uppercase;
         font-weight: 600;
         transition: all ease 0.3s;
+
         i {
             margin: 0px 5px 0px 0px;
         }
+
         &:hover {
             cursor: pointer;
             background-color: lighten($brand-google, 10%);
@@ -1613,10 +1931,12 @@ a {
     display: inline-block;
     margin: 0px 15px 0px 0px;
     position: relative;
+
     input[type=radio] {
         position: absolute;
         visibility: hidden;
     }
+
     label {
         cursor: pointer;
 
@@ -1631,6 +1951,7 @@ a {
             line-height: 30px;
             font-size: 13px;
             color: $text-color-second;
+
             &:before {
                 content: "";
                 display: block;
@@ -1675,10 +1996,12 @@ a {
     display: inline-block;
     margin: 0px 10px 0px 0px;
     position: relative;
+
     input[type=checkbox] {
         position: absolute;
         visibility: hidden;
     }
+
     label {
         cursor: pointer;
 
@@ -1692,6 +2015,7 @@ a {
             line-height: 30px;
             font-size: 1.3rem;
             color: $text-color-second;
+
             &:before {
                 content: "\f380";
                 display: block;
@@ -1732,14 +2056,28 @@ a {
 .us-cols {
     padding: 40px 0px 100px 280px;
 
+    @media screen and (max-width: 991px) {
+        padding: 20px 0px 100px 0px;
+    }
+
     .us-left {
         width: 200px;
         float: left;
         margin: 0px 0px 0px -280px;
+
+        @media screen and (max-width: 991px) {
+            width: 100%;
+            margin: 0px 0px 20px 0px;
+        }
     }
+
     .us-right {
         width: 100%;
         float: left;
+
+        @media screen and (max-width: 991px) {
+            float: none;
+        }
 
 
     }
@@ -1749,12 +2087,19 @@ a {
 
 .menu-us {
     padding: 40px 0px 0px 0px;
+
+    @media screen and (max-width: 991px) {
+        padding: 0px 0px 0px 0px;
+    }
+
     ul {
         list-style: none;
         margin: 0px;
         padding: 0px;
+
         li {
             border-top: 1px solid $border-color;
+
             a {
                 display: block;
                 line-height: 45px;
@@ -1762,10 +2107,12 @@ a {
                 color: $text-color-second;
                 text-transform: uppercase;
                 transition: all ease 0.3s;
+
                 &:hover {
                     color: $active-color;
                 }
             }
+
             &.active {
                 a {
                     color: $active-color;
@@ -1810,8 +2157,12 @@ a {
 .my-table {
     border: 1px solid $border-color;
     padding: 10px 20px 20px 20px;
+    overflow: auto;
+
     table {
         width: 100%;
+        min-width: 600px;
+
         thead {
             border-bottom: 2px solid $text-color;
 
@@ -1826,18 +2177,21 @@ a {
 
 
         }
+
         tbody {
             tr {
                 border-bottom: 1px solid $border-color;
 
                 td {
                     padding: 14px 10px;
+
                     a {
                         &:hover {
                             color: $active-color;
                             text-decoration: underline;
                         }
                     }
+
                     span {
                         &.in-progress {
                             display: inline-block;
@@ -1848,6 +2202,7 @@ a {
                             border-radius: 2px;
                             background-color: $active-color;
                         }
+
                         &.complete {
                             display: inline-block;
                             font-size: 11px;
@@ -1857,6 +2212,7 @@ a {
                             border-radius: 2px;
                             background-color: $green;
                         }
+
                         &.stopped {
                             display: inline-block;
                             font-size: 11px;
@@ -1866,6 +2222,7 @@ a {
                             border-radius: 2px;
                             background-color: $red;
                         }
+
                         &.in-draft {
                             display: inline-block;
                             font-size: 11px;
@@ -1879,6 +2236,7 @@ a {
 
 
                 }
+
                 &:hover {
                     td {
                         background-color: #eee;
@@ -1897,6 +2255,7 @@ a {
 .paging {
     text-align: center;
     padding: 20px 0px 0px 0px;
+
     a {
         display: inline-block;
         line-height: 20px;
@@ -1907,9 +2266,11 @@ a {
 
 
         cursor: pointer;
+
         &.current {
             color: $active-color;
         }
+
         &:hover {
             color: $active-color;
         }
@@ -1920,6 +2281,7 @@ a {
     .my-btn {
         margin: 0px 15px 0px 0px;
     }
+
     .next {
         position: relative;
 
@@ -1936,6 +2298,7 @@ a {
             transition: all ease 0.3s;
 
         }
+
         &:hover {
             &:before {
                 border-left-color: lighten($active-color, 10%);
@@ -1962,6 +2325,7 @@ a {
             transition: all ease 0.3s;
 
         }
+
         &:hover {
             &:before {
                 border-right-color: lighten($text-color-second, 10%);
@@ -1981,21 +2345,27 @@ a {
     max-width: 1000px;
     position: relative;
     border-radius: 0px;
+
     &.db-modal-700 {
         max-width: 700px;
     }
+
     &.db-modal-600 {
         max-width: 600px;
     }
+
     &.db-modal-500 {
         max-width: 500px;
     }
+
     &.db-modal-450 {
         max-width: 450px;
     }
+
     &.db-modal-400 {
         max-width: 400px;
     }
+
     .db-modal-close {
         position: absolute;
         top: 10px;
@@ -2010,15 +2380,19 @@ a {
 
         @include transition();
         cursor: pointer;
+
         &:hover {
             opacity: 1;
         }
     }
+
     .db-modal-caption {
         padding: 30px 20px 20px 20px;
+
         h2 {
             text-align: center;
             font-size: 3rem;
+
             &.small {
                 font-size: 2rem;
             }
@@ -2027,7 +2401,7 @@ a {
 }
 
 .modal-content {
-    padding: 0px;
+    padding: 10px;
     margin: 0px;
     border: none;
 }
@@ -2041,24 +2415,33 @@ a {
     padding: 50px 0px;
 
     img {}
+
     h3 {
         margin: 20px auto 10px auto;
         font-weight: 700;
         text-transform: uppercase;
         font-size: $fs20;
+
+        @media screen and (max-width: 991px) {
+            font-size: 1.5rem;
+        }
     }
+
     p {
         font-weight: 600;
         margin: 0px 0px 40px 0px;
     }
+
     .nb-control {
         text-align: center;
+
         .link {
             line-height: 40px;
             margin: 0px 0px 0px 20px;
             display: inline-block;
             color: $active-color;
             text-transform: uppercase;
+
             &:hover {
                 text-decoration: underline;
             }
@@ -2083,6 +2466,7 @@ a {
     border-bottom: 1px solid #eee;
 
     background-color: #fff;
+
     &.sitemap {
         margin: 0px;
         background-color: #eee;
@@ -2099,6 +2483,7 @@ a {
         color: #fff;
         font-size: 15px;
         cursor: pointer;
+
         &.active {
             i {
 
@@ -2111,9 +2496,11 @@ a {
         line-height: 34px;
         display: inline-block;
         text-transform: uppercase;
+
         &.current {
             color: $active-color;
         }
+
         &:hover {
             color: $active-color;
         }
@@ -2127,6 +2514,7 @@ a {
 
 .ad-content {
     padding: 30px 0px;
+
     a.logo {
         float: left;
 
@@ -2135,6 +2523,7 @@ a {
 
 
     }
+
     h1 {
         font-size: 2rem;
         font-weight: 600;
@@ -2144,6 +2533,14 @@ a {
 
         display: flex;
         align-items: center;
+
+        @media screen and (max-width: 991px) {
+            font-size: 1.3rem;
+        }
+
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
     }
 }
 
@@ -2151,19 +2548,40 @@ a {
     background-color: $text-color;
     margin: 0px 0px 30px 0px;
 
+    @media screen and (max-width: 991px) {
+        height: 1px;
+        background-color: $border-color;
+    }
+
     &.is_stuck {
         bottom: unset !important;
         position: fixed !important;
         top: 0px !important;
         z-index: 999;
+
+        @media screen and (max-width: 991px) {
+            bottom: unset !important;
+            position: relative !important;
+            top: unset !important;
+        }
     }
+
     ul {
         margin: 0px;
         padding: 0px;
         list-style: none;
+
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+
         li {
             display: inline-block;
             margin: 0px 60px 0px 0px;
+
+            @media screen and (max-width: 1199px) {
+                margin: 0px 20px 0px 0px;
+            }
 
 
             a {
@@ -2178,9 +2596,15 @@ a {
                 color: #fff !important;
                 border-bottom: 4px solid transparent;
 
+                @media screen and (max-width: 1199px) {
+                    font-size: 1.3rem;
+                }
+
+
 
 
             }
+
             &.active {
                 a {
                     border-bottom: 4px solid $active-color;
@@ -2203,8 +2627,10 @@ a {
 .ad-slider {
 
     margin: 0px auto 50px auto;
+
     .slick-slider {
         position: relative;
+
         .slider-for {
             position: relative;
 
@@ -2212,6 +2638,7 @@ a {
                 width: 100%;
                 display: block;
             }
+
             .slick-prev {
                 cursor: pointer;
                 width: 40px;
@@ -2226,6 +2653,7 @@ a {
                 font-size: 1px;
                 background-color: rgba(0, 0, 0, 0.8);
                 color: #fff;
+
                 i {
                     color: #fff;
                     width: 40px;
@@ -2239,6 +2667,7 @@ a {
 
 
             }
+
             .slick-next {
                 cursor: pointer;
                 width: 40px;
@@ -2253,6 +2682,7 @@ a {
                 font-size: 1px;
                 background-color: rgba(0, 0, 0, 0.8);
                 color: #fff;
+
                 i {
                     color: #fff;
                     width: 40px;
@@ -2267,6 +2697,7 @@ a {
 
             }
         }
+
         .slider-nav {
             position: relative;
             max-width: 100%;
@@ -2278,18 +2709,22 @@ a {
             .slick-slide {
                 outline: none;
                 padding: 0px 5px;
+
                 img {
                     border: 1px solid #ccc;
                 }
+
                 &.slick-current {
                     img {
                         border: 1px solid $active-color;
                     }
                 }
             }
+
             .nav-item {
                 border: 1px solid #fff;
                 cursor: pointer;
+
                 img {
                     width: 100%;
                 }
@@ -2303,6 +2738,7 @@ a {
 
     .db-caption {
         margin: 0px 0px 15px 0px;
+
         span {
             display: inline-block;
             border-left: 5px solid $active-color;
@@ -2323,6 +2759,7 @@ a {
 
 
     }
+
     h5 {
         margin: 0px 0px 20px 0px;
         font-weight: 700;
@@ -2333,6 +2770,7 @@ a {
     p {
         margin: 0px 0px 10px 0px;
         font-weight: 600;
+
         i {
             display: inline-block;
             width: 30px;
@@ -2361,8 +2799,10 @@ a {
         padding: 15px 0px;
 
     }
+
     .dbc-head {
         margin: 0px 0px 10px 0px;
+
         img {
             width: 40px;
             height: 40px;
@@ -2376,9 +2816,11 @@ a {
             font-style: italic;
             color: $text-color-meta;
         }
+
         p {
             color: $text-color-meta;
             margin: 0px;
+
             a {
                 color: $text-color;
                 text-transform: uppercase;
@@ -2392,6 +2834,7 @@ a {
         p {
             a {
                 color: $active-color;
+
                 &:hover {
                     text-decoration: underline;
                 }
@@ -2410,10 +2853,12 @@ a {
     border: 1px solid $border-color;
     padding: 15px;
     margin: 0px 0px 30px 0px;
+
     .ad-contact {
 
         p {
             margin: 0px 0px 10px 0px;
+
             i {
                 display: inline-block;
                 width: 20px;
@@ -2434,6 +2879,7 @@ a {
     text-align: center;
     border-bottom: 1px solid $border-color;
     padding: 0px 0px 15px 0px;
+
     h2 {
         margin: 0px 0px 15px 0px;
         font-size: 1.4rem;
@@ -2456,6 +2902,7 @@ a {
         font-size: 12px;
         font-weight: 600;
         display: inline-block;
+
         i {
             margin: 0px 2px 0px 0px;
         }
@@ -2463,9 +2910,11 @@ a {
         &.facebook {
             color: $brand-facebook;
         }
+
         &.wechat {
             color: $brand-wechat;
         }
+
         &.whatsapp {
             color: $brand-whatsapp;
         }
@@ -2484,10 +2933,12 @@ a {
         width: 100%;
         line-height: 45px;
         text-align: center;
+
         i {
             margin: 0px 5px;
             font-size: 16px;
         }
+
         &:hover {
             background-color: lighten($blue, 10%);
             cursor: pointer;
@@ -2506,6 +2957,7 @@ a {
         font-weight: 600;
         text-transform: uppercase;
     }
+
     img {
         max-width: 100%;
     }
@@ -2520,6 +2972,7 @@ a {
     background-position: center center;
     background-size: cover;
     position: relative;
+
     .overlay {
         position: absolute;
         bottom: 0px;
@@ -2529,10 +2982,12 @@ a {
         background-color: rgba(0, 0, 0, 0.5);
 
     }
+
     .cover-inner {
         position: relative;
         padding: 10px 0px;
         height: 70px;
+
         .avatar {
             float: left;
             width: 110px;
@@ -2542,6 +2997,13 @@ a {
 
             margin: -30px 20px 0px 0px;
             box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5);
+
+            @media screen and (max-width: 767px) {
+                width: 60px;
+                height: 60px;
+                margin: -3px 10px 0px 0px;
+            }
+
             img {
                 width: 100%;
                 height: 100%;
@@ -2549,6 +3011,7 @@ a {
                 display: block;
             }
         }
+
         .c-info {
             h2 {
                 font-size: 1.6rem;
@@ -2558,14 +3021,28 @@ a {
 
                 padding: 5px 0px 0px 0px;
                 font-weight: 700;
+
+                @media screen and (max-width: 991px) {
+                    font-size: 1.4rem;
+                }
             }
 
             p {
                 margin: 0px;
+
+                @media screen and (max-width: 991px) {
+                    font-size: 1.3rem;
+                }
+
                 span {
                     display: inline-block;
                     margin: 0px 20px 0px 0px;
                     color: #eee;
+
+                    @media screen and (max-width: 991px) {
+                        margin: 0px 10px 0px 0px;
+                    }
+
                     b {
                         font-weight: 700;
                         color: #fff;
@@ -2583,9 +3060,15 @@ a {
     min-height: 100px;
     border-radius: 3px;
     width: 400px;
+    z-index: 999;
+
+    @media screen and (max-width: 767px) {
+        width: 300px;
+    }
 
     background-color: #fff;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+
     .chatbox-head {
         border-radius: 3px 3px 0px 0px;
         padding: 10px 100px 10px 15px;
@@ -2604,6 +3087,7 @@ a {
             font-size: 35px;
             cursor: pointer;
             opacity: 0.8;
+
             &:hover {
                 opacity: 1;
             }
@@ -2625,6 +3109,7 @@ a {
 
             }
         }
+
         h3 {
             font-weight: 700;
             text-transform: uppercase;
@@ -2633,9 +3118,11 @@ a {
             margin: 0px 0px 3px 0px;
             padding: 4px 0px 0px 0px;
         }
+
         p {
             color: #fff;
             margin: 0px;
+
             .dot {
                 width: 11px;
 
@@ -2720,10 +3207,12 @@ a {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
+
                 i {
                     font-size: 16px;
                     margin: 0px 4px 0px 0px;
                 }
+
                 &:hover {
                     background-color: lighten($active-color, 10%);
                 }
@@ -2739,12 +3228,14 @@ a {
         position: relative;
         min-height: 40px;
         margin: 0px 0px 20px 0px;
+
         .ci-avatar {
             position: absolute;
             top: 0px;
             left: 0px;
             width: 40px;
             height: 40px;
+
             img {
                 width: 40px;
                 height: 40px;
@@ -2753,6 +3244,7 @@ a {
                 box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
             }
         }
+
         .ci-content {
             .ci-text {
                 margin: 0px 0px 3px 0px;
@@ -2765,8 +3257,10 @@ a {
                 }
             }
         }
+
         &.right {
             padding: 0px 60px 0px 0px;
+
             .ci-avatar {
                 left: unset;
                 right: 0px;
@@ -2774,6 +3268,7 @@ a {
 
             .ci-content {
                 text-align: right;
+
                 .ci-text {
                     margin: 0px 0px 3px 0px;
                     text-align: left;
@@ -2799,19 +3294,24 @@ a {
         margin: 0px 0px 20px 0px;
         line-height: 1.6;
         font-size: 1.4rem;
+
         a {
             color: $active-color;
+
             &:hover {
                 text-decoration: underline;
             }
         }
     }
+
     h4 {
         font-weight: 700;
         margin: 0px 0px 15px 0px;
         font-size: 1.4rem;
+
         a {
             color: $active-color;
+
             &:hover {
                 text-decoration: underline;
             }
@@ -2827,6 +3327,7 @@ a {
         padding: 15px 50px 15px 5px;
 
         position: relative;
+
         &:first-child {
             border: none;
         }
@@ -2843,15 +3344,18 @@ a {
             text-align: center;
             font-size: 20px;
             cursor: pointer;
+
             &:hover {
                 color: $active-color;
             }
         }
+
         p {
             margin: 0px;
             font-size: 1.4rem;
             font-weight: 700;
         }
+
         &.active {
             .fa-angle-down {
                 color: $active-color;
@@ -2859,9 +3363,11 @@ a {
             }
         }
     }
+
     .faq-content {
         padding: 10px 10px;
         display: none;
+
         p {
             font-size: 1.4rem;
             font-weight: 500;
@@ -2869,7 +3375,6 @@ a {
         }
     }
 }
-
 
 .pricing {
     overflow: hidden;
@@ -2879,14 +3384,18 @@ a {
     .pricing-row {
         margin: 0px -10px;
     }
+
     .pricing-col {
         float: left;
         width: 25%;
         padding: 0px 10px;
 
-
-
+        @media screen and (max-width: 767px) {
+            width: 50%;
+            margin: 0px 0px 20px 0px;
+        }
     }
+
     .pricing-item {
         border: 1px solid $border-color;
         position: relative;
@@ -2909,15 +3418,18 @@ a {
             letter-spacing: 2px;
             margin: 0px;
         }
+
         &.special {
             margin: -0px -10px 0px -10px;
             border: 1px solid $active-color;
+
             .pi-caption {
                 background-color: $active-color;
                 color: #fff;
 
             }
         }
+
         .pi-caption {
             padding: 5px 0px;
 
@@ -2928,6 +3440,7 @@ a {
             background-color: $border-color;
             margin: -1px -1px 0px -1px;
         }
+
         .pi-price {
             text-align: center;
             padding: 40px 0px 40px 0px;
@@ -2938,6 +3451,7 @@ a {
                 display: inline-block;
                 position: relative;
                 line-height: 1;
+
                 em {
                     position: absolute;
                     bottom: -15px;
@@ -2950,18 +3464,23 @@ a {
                 }
             }
         }
+
         .pi-feature {
 
             border-bottom: 1px solid lighten($border-color, 8%);
+
             ul {
                 list-style: none;
                 margin: 0px;
                 padding: 0px;
+
                 li {
                     background-color: lighten($border-color, 8%);
+
                     &:nth-child(2n) {
                         background-color: lighten($border-color, 12%);
                     }
+
                     p {
                         padding: 10px 4px;
                         margin: 0px;
@@ -2970,11 +3489,132 @@ a {
                 }
             }
         }
+
         .pi-control {
 
             text-align: center;
             padding: 25px 0px 25px 0px;
 
         }
+    }
+}
+
+
+.pa-item {
+    border: 1px solid $border-color;
+    margin: 0px 0px 20px 0px;
+    padding: 0px 0px;
+
+    .my-checkbox {
+        padding: 5px 10px;
+
+        label {
+            span {
+                font-weight: 700;
+
+                &:before {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    &.active {
+        border: 1px solid $active-color;
+        background-color: #eee;
+
+
+        .my-checkbox {
+            label {
+                span {
+                    color: $active-color;
+
+                    &:before {
+                        font-weight: 500;
+                        color: $active-color;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+}
+
+.pa-content {
+    padding: 0px 400px 0px 5px;
+    border-top: 1px solid $active-color;
+
+    @media screen and (max-width: 991px) {
+        padding: 0px 5px;
+
+    }
+
+
+
+
+    .pac-left {
+        float: left;
+        padding: 15px;
+        width: 100%;
+
+        @media screen and (max-width: 991px) {
+            float: none;
+            white-space: 100%;
+        }
+    }
+
+    .pac-right {
+        width: 350px;
+        float: right;
+        margin: 0px -400px 0px 0px;
+
+        padding: 20px;
+
+        @media screen and (max-width: 991px) {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+
+
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+
+}
+
+
+.transaction-control {
+    .my-btn {
+        height: 25px;
+        line-height: 25px;
+        font-size: 1.1rem;
+        font-weight: 600;
+
+        border-radius: 3px;
+        padding: 0px 10px;
+        margin-bottom: 5px;
+
+        &:hover {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        &.cancel {
+            margin: 0px 0px 0px 10px;
+            background-color: #333;
+
+
+            &:hover {
+                background-color: #444;
+                color: #fff;
+            }
+        }
+
     }
 }
