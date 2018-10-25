@@ -158,7 +158,7 @@ iframe {
   top: 0px;
   left: 0px;
   right: 0px;
-  z-index: 10;
+  z-index: 100;
   transition: all ease 0.5s;
   background-color: rgba(255, 255, 255, 0.2); }
   .header .header-inner .logo {
@@ -213,6 +213,45 @@ iframe {
     .menu ul li:hover a:before {
       left: 0px;
       right: 0px; }
+    .menu ul li:hover .mega-menu {
+      visibility: visible;
+      opacity: 1;
+      margin: 0px; }
+
+.mega-menu {
+  left: 0px;
+  right: 0px;
+  top: 115px;
+  z-index: 999;
+  position: absolute;
+  padding: 32px 0px 0px 0px;
+  transition: all ease 0.6s;
+  visibility: hidden;
+  opacity: 0;
+  margin: -15px 0px 0px 0px; }
+  .mega-menu .mega-inner {
+    min-height: 300px;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+    padding: 50px 0px; }
+    .mega-menu .mega-inner .mega-box {
+      text-align: center; }
+      .mega-menu .mega-inner .mega-box .mb-item {
+        display: inline-block;
+        margin: 0px 15px;
+        text-align: center; }
+        .mega-menu .mega-inner .mega-box .mb-item img {
+          max-width: 350px; }
+        .mega-menu .mega-inner .mega-box .mb-item h3 {
+          color: #222;
+          text-align: center;
+          text-transform: uppercase;
+          font-size: 1.4rem;
+          font-weight: 600;
+          padding: 10px 0px;
+          margin: 0px; }
+          .mega-menu .mega-inner .mega-box .mb-item h3:hover {
+            color: #bc131a; }
 
 @media screen and (max-width: 1199px) {
   .menu ul li {
@@ -368,6 +407,9 @@ iframe {
   .is-scroll .header .header-inner .logo {
     top: 50px; }
 
+.is-scroll .mega-menu {
+  top: 95px; }
+
 .is-scroll .menu ul li a {
   color: #222; }
   .is-scroll .menu ul li a:before {
@@ -387,7 +429,7 @@ iframe {
     background-size: cover;
     background-position: top center; }
   .hero-slider .hero-box {
-    min-height: 900px;
+    min-height: 850px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -406,15 +448,15 @@ iframe {
 
 @media screen and (max-width: 1599px) {
   .hero-slider .hero-box {
-    min-height: 800px; } }
+    min-height: 750px; } }
 
 @media screen and (max-width: 1199px) {
   .hero-slider .hero-box {
-    min-height: 600px; } }
+    min-height: 550px; } }
 
 @media screen and (max-width: 767px) {
   .hero-slider .hero-box {
-    min-height: 450px; } }
+    min-height: 400px; } }
 
 @media screen and (max-width: 767px) {
   .hero-slider .hero-box .hb-text p {
@@ -821,16 +863,19 @@ iframe {
   background-position: top center; }
   .products .products-tab {
     margin: 0px 0px 20px 0px;
-    text-align: center; }
-    .products .products-tab span {
-      display: inline-block;
-      color: #222;
-      font-size: 1.8rem;
-      font-weight: 300;
-      margin: 0px 20px;
-      cursor: pointer; }
-      .products .products-tab span.active {
-        color: #bc131a; }
+    text-align: center;
+    display: block; }
+    .products .products-tab li {
+      display: inline-block; }
+      .products .products-tab li a {
+        display: inline-block;
+        color: #222;
+        font-size: 1.8rem;
+        font-weight: 300;
+        margin: 0px 20px;
+        cursor: pointer; }
+        .products .products-tab li a.active {
+          color: #bc131a; }
 
 .product-item {
   background-color: #fff;
@@ -1237,17 +1282,41 @@ iframe {
   display: inline-block;
   border-radius: 30px;
   padding: 1px;
-  margin: 5px 0px 0px 0px; }
+  margin: 5px 0px 0px 0px;
+  position: relative; }
+  .f-switch .fs-move {
+    z-index: 1;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    bottom: 1px;
+    width: 120px;
+    background-color: #fff;
+    border-radius: 30px;
+    transition: all ease 0.4s; }
   .f-switch span {
     display: inline-block;
     padding: 0px 30px;
+    cursor: pointer;
     font-weight: 600;
     border-radius: 30px;
     line-height: 30px;
-    color: #fff; }
+    transition: all ease 0.4s;
+    position: relative;
+    z-index: 2; }
     .f-switch span.active {
       background-color: #fff;
       color: #222; }
+  .f-switch .fs1 {
+    color: #222; }
+  .f-switch .fs2 {
+    color: #fff; }
+  .f-switch.active-fs2 .fs-move {
+    left: 114px; }
+  .f-switch.active-fs2 .fs1 {
+    color: #fff; }
+  .f-switch.active-fs2 .fs2 {
+    color: #222; }
 
 .subcribe {
   max-width: 770px;
@@ -1364,7 +1433,7 @@ iframe {
   text-align: center; }
   .allright p {
     line-height: 40px;
-    color: #444;
+    color: #fff;
     font-weight: 300;
     margin: 0px 20px;
     display: inline-block; }

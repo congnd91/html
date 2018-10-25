@@ -28,6 +28,14 @@
                     $('body').removeClass("is-scroll");
                 }
             });
+
+            $('.btn-discover').on('click', function () {
+
+                $("html, body").delay(2).animate({
+                    scrollTop: $('.intro-first').offset().top
+                }, 1000)
+            });
+
         }
         db.sliderHero = function () {
             var owl_hero = $('.owl-hero');
@@ -118,6 +126,20 @@
             });
         }
 
+        db.switch = function () {
+            $(".f-switch .fs1").click(function () {
+                $(".f-switch").removeClass("active-fs2");
+            });
+            $(".f-switch .fs2").click(function () {
+                $(".f-switch").addClass("active-fs2");
+            });
+        }
+        db.fancybox = function () {
+            $('.fancybox').fancybox();
+        }
+
+
+
 
 
 
@@ -127,6 +149,8 @@
         db.sliderHero();
         db.sliderIntro();
         db.countDown();
+        db.switch();
+        db.fancybox();
 
 
 
