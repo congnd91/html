@@ -13,6 +13,23 @@
             $('.close-menu').on('click', function () {
                 $("body").toggleClass("open-menu");
             });
+
+            $('.menu-res li.has-child em').on('click', function (event) {
+                event.stopPropagation();
+                var submenu = $(this).parent().find(" > ul");
+                if ($(submenu).is(":visible")) {
+                    $(submenu).slideUp();
+                    $(this).parent().removeClass("open-submenu-active");
+                } else {
+                    $(submenu).slideDown();
+                    $(this).parent().addClass("open-submenu-active");
+                }
+            });
+
+            $('.menu-res li.menu-item-has-children > a').on('click', function () {
+                //  return false;
+            });
+
         }
         db.datePicker = function () {
             if ($("#birthday").length) {
@@ -147,14 +164,40 @@
         }
 
         db.hideChatBox = function () {
-            $(".close-chatbox").click(function () {
-                if ($(".chatbox").is(":visible")) {
-                    $(".chatbox").hide();
+            $(".chatbox .chatbox-head").on('click', function (event) {
+
+                if ($('.chatbox').hasClass("show-content")) {
 
                 } else {
+                    $(".chatbox").addClass("show-content");
 
                 }
+
             });
+
+
+            $(".close-chatbox").click(function (e) {
+                e.stopPropagation();
+
+                $(".chatbox").removeClass("show-content");
+
+
+            });
+            $(".btn-chat").click(function (e) {
+
+                $(".chatbox").addClass("show-content");
+
+                return false;
+
+
+            });
+
+
+
+
+
+
+
         }
 
         db.faq = function () {
@@ -174,6 +217,19 @@
             });
         }
 
+        db.buyAdv = function () {
+            $(".pa-item input").click(function () {
+
+                if ($(this).is(':checked')) {
+                    $(this).parents(".pa-item").addClass("active");
+
+                } else {
+                    $(this).parents(".pa-item").removeClass("active");
+                }
+            });
+        }
+
+
 
 
 
@@ -188,6 +244,7 @@
         db.showHeader();
         db.hideChatBox();
         db.faq();
+        db.buyAdv();
         db.niceScroll();
     });
 })(jQuery);
