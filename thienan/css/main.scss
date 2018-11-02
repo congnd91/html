@@ -273,18 +273,20 @@ iframe {
     li {
         display: block;
         float: left;
-        margin: 0px 25px 0px 0px;
+        padding: 0px 25px 0px 0px;
 
 
 
 
-        a {
+        > a {
             text-transform: uppercase;
             color: #fff;
             font-weight: 600;
             line-height: 70px;
             transition: all ease 0.5s;
             position: relative;
+            display: block;
+            z-index: 9999;
 
             &:before {
                 content: "";
@@ -294,7 +296,8 @@ iframe {
                 position: absolute;
                 left: 50%;
                 right: 50%;
-                bottom: -10px;
+
+                bottom: 20px;
                 background-color: #fff;
             }
 
@@ -317,6 +320,7 @@ iframe {
                 visibility: visible;
                 opacity: 1;
                 margin: 0px;
+                z-index: 10;
 
                 &:before {
                     //  display: block;
@@ -340,10 +344,10 @@ iframe {
     left: 0px;
     right: 0px;
     top: 115px;
-    z-index: 999;
+    z-index: -1;
     position: absolute;
     padding: 32px 0px 0px 0px;
-    transition: all ease 0.6s;
+    transition: all ease 0.2s;
     visibility: hidden;
     opacity: 0;
     margin: -15px 0px 0px 0px;
@@ -412,13 +416,13 @@ iframe {
     float: right;
 
     ul li {
-        margin: 0px 30px 0px 0px;
+        padding: 0px 30px 0px 0px;
     }
 }
 
 @media screen and (max-width: 1199px) {
     .menu-right ul li {
-        margin: 0px 20px 0px 0px;
+        padding: 0px 20px 0px 0px;
     }
 }
 
@@ -619,6 +623,22 @@ iframe {
 
     }
 
+    .menu ul li.active a {
+        color: $text-color;
+
+        &:before {
+            background-color: #f7ad19;
+            right: 0px;
+            left: 0px;
+        }
+
+    }
+
+    .menu > ul > li.active > a {
+        color: #f7ad19;
+
+    }
+
     .menu-res,
     .search-overlay {
         top: 91px;
@@ -634,6 +654,7 @@ iframe {
 
     .topbar {
         position: fixed;
+
     }
 
     .search-overlay {
@@ -666,6 +687,23 @@ iframe {
         }
 
         .menu > ul > li:hover > a {
+            color: #f7ad19;
+
+        }
+
+        .menu ul li.active a {
+            color: $text-color;
+
+            &:before {
+                background-color: #f7ad19;
+                right: 0px;
+                left: 0px;
+
+            }
+
+        }
+
+        .menu > ul > li.active > a {
             color: #f7ad19;
 
         }
@@ -2353,13 +2391,14 @@ iframe {
 
 .gt-book {
     padding: 50px 0px;
+    overflow: hidden;
 }
 
 .gt-box-inner {
-    max-width: 700px;
-    margin: 40px auto 0px auto;
+    max-width: 748px;
+    margin: 0px auto 0px auto;
     min-height: 100px;
-    border: 1px solid red;
+
     position: relative;
 
 }
@@ -2381,7 +2420,49 @@ iframe {
     width: 996px;
     height: 545px;
     margin: 0px auto;
-    border: 1px solid red;
+
+    @media screen and (max-width: 991px) {
+        transform: scale(0.7);
+        margin-left: -25%;
+    }
+
+    @media screen and (max-width: 767px) {
+        transform: scale(0.5);
+        margin-left: -55%;
+
+    }
+
+    @media screen and (max-width: 500px) {
+        transform: scale(0.4);
+        margin-left: -60%;
+
+    }
+
 }
+
+.page-content {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    right: 30px;
+    bottom: 50px;
+
+
+
+
+
+    img {
+        border: none !important;
+        padding: 0px !important;
+        box-shadow: none !important;
+        width: 100% !important;
+        margin: 0px !important;
+    }
+}
+
+.b-counter {
+    display: none !important;
+}
+
 
 /*# sourceMappingURL=main.css.map */

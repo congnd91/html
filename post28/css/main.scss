@@ -200,7 +200,7 @@ a {
             }
 
             &.open-submenu-active {
-                em {
+                > em {
 
                     transform: rotate(180deg);
                 }
@@ -220,6 +220,32 @@ a {
                     list-style: none;
                     margin: 0px;
                     padding: 0px;
+                    position: relative;
+
+                    > em {
+                        display: block;
+                        z-index: 12;
+                        position: absolute;
+                        top: 0px;
+                        right: 0px;
+                        font-size: 18px;
+                        cursor: pointer;
+
+                        width: 45px;
+
+                        text-align: center;
+
+
+                        height: 35px;
+                        line-height: 35px;
+                    }
+
+                    &.open-submenu-active {
+                        > em {
+
+                            transform: rotate(180deg);
+                        }
+                    }
 
                     > a {
 
@@ -234,6 +260,14 @@ a {
 
                         > a {
                             background-color: #ccc;
+                        }
+                    }
+
+                    > ul {
+                        > li {
+                            > a {
+                                padding: 0px 0px 0px 40px;
+                            }
                         }
                     }
                 }
@@ -567,6 +601,14 @@ a {
 
     @media screen and (max-width: 991px) {
         display: none;
+    }
+
+    &.fix {
+        .menu-inner {
+
+            padding: 0px;
+
+        }
     }
 
     .menu-inner {
@@ -3701,4 +3743,55 @@ a {
         }
 
     }
+}
+
+
+.product-category {
+    padding: 30px 0px 0px 0px;
+}
+
+.cr-trend {
+
+
+
+
+    margin: 0px 0px 30px 0px;
+
+    .cr-trend-content {
+        border: 1px solid $border-color;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-top: none;
+    }
+
+    h3 {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 10px 0px 10px 10px;
+        margin: 0px;
+        background-color: $active-color;
+        color: #fff;
+    }
+
+    a {
+        display: inline-block;
+        background-color: $border-color;
+        line-height: 30px;
+        padding: 0px 10px;
+        border-radius: 2px;
+        font-weight: 600;
+        font-size: 13px;
+
+        transition: all ease 0.3s;
+        margin: 0px 7px 7px 0px;
+
+        &:hover {
+            color: #fff;
+            background-color: $active-color;
+        }
+
+
+    }
+
 }

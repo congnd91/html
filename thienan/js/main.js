@@ -18,11 +18,11 @@
             });
 
             $('.menu li.has-child').hover(function () {
-                $('.menu-overlay').addClass("active");
+                $('.menu-overlay').stop(true, true).addClass("active");
 
             }, function () {
 
-                $('.menu-overlay').removeClass("active");
+                $('.menu-overlay').stop(true, true).removeClass("active");
             });
 
         }
