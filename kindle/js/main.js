@@ -94,6 +94,21 @@
             }
         }
 
+        db.sliderPost = function () {
+            var owl_post = $('.owl-post');
+            if ($(owl_post).length) {
+                $(owl_post).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: true,
+                    autoplay: true,
+                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                    items: 1,
+
+                });
+            }
+        }
+
 
 
 
@@ -112,6 +127,7 @@
         db.search();
         db.sliderNP();
         db.sliderBook();
+        db.sliderPost();
 
 
 

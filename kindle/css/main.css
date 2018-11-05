@@ -120,7 +120,8 @@ html {
     text-decoration: none;
     color: inherit; }
   html img {
-    max-width: 100%; }
+    max-width: 100%;
+    border: 1px solid #000; }
   html h1,
   html h2,
   html h3,
@@ -133,7 +134,7 @@ html {
   html .h4,
   html .h5,
   html .h6 {
-    line-height: 1.3;
+    line-height: 1.1;
     font-family: "Gentium Book Basic", serif;
     font-weight: 700;
     color: #000; }
@@ -698,19 +699,17 @@ html {
       -webkit-filter: grayscale(30%);
       filter: grayscale(30%); }
   html .post-meta {
-    font-size: 12px;
-    margin: 5px 0px 10px 0px;
+    font-size: 11px;
+    margin: 0px 0px 10px 0px;
     color: #999; }
     html .post-meta a {
-      -moz-transition: all ease 0.5s;
-      -o-transition: all ease 0.5s;
-      -webkit-transition: all ease 0.5s;
-      transition: all ease 0.5s;
       letter-spacing: 1px;
       font-weight: 600;
-      color: #444; }
+      color: #000; }
       html .post-meta a:hover {
-        color: #512406; }
+        color: #000;
+        text-decoration: none;
+        border-bottom: 1px dashed #000; }
     html .post-meta em {
       margin: 0px 6px;
       text-transform: none;
@@ -719,22 +718,14 @@ html {
       position: relative;
       padding: 0px 0px 0px 0px; }
       html .post-meta .post-category a {
-        -moz-transition: all ease 0.5s;
-        -o-transition: all ease 0.5s;
-        -webkit-transition: all ease 0.5s;
-        transition: all ease 0.5s;
         letter-spacing: 1px; }
         html .post-meta .post-category a:hover {
-          text-decoration: underline;
-          color: #000; }
-    html .post-meta .post-author a {
-      -moz-transition: all ease 0.5s;
-      -o-transition: all ease 0.5s;
-      -webkit-transition: all ease 0.5s;
-      transition: all ease 0.5s; }
-      html .post-meta .post-author a:hover {
-        text-decoration: underline;
-        color: #000; }
+          text-decoration: none;
+          border-bottom: 1px dashed #000; }
+    html .post-meta .post-author a:hover {
+      color: #000;
+      text-decoration: none;
+      border-bottom: 1px dashed #000; }
   html .post-des p {
     font-size: 16px;
     margin: 10px 0px; }
@@ -978,8 +969,10 @@ html {
             font-size: 2.2rem; }
         html .news-popular .np-list ul li .post-meta {
           font-size: 1.1rem; }
-  html .np-item h3 {
-    margin: 15px 0px 0px 0px; }
+  html .np-item {
+    padding: 0px 1px; }
+    html .np-item h3 {
+      margin: 15px 0px 0px 0px; }
   html .np-slider {
     position: relative; }
     html .np-slider .owl-prev {
@@ -1041,6 +1034,44 @@ html {
     border-bottom: 15px solid #eeeeee; }
   html .book-slider {
     position: relative; }
+    html .book-slider .owl-prev {
+      position: absolute;
+      top: -40px;
+      right: 40px;
+      width: 30px;
+      height: 30px;
+      line-height: 28px;
+      z-index: 999;
+      border: 1px solid #000;
+      color: #000;
+      font-size: 20px;
+      margin: -15px 0px 0px 0px;
+      text-align: center;
+      box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
+      html .book-slider .owl-prev:hover {
+        background-color: #000;
+        color: #fff; }
+      html .book-slider .owl-prev:active {
+        box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); }
+    html .book-slider .owl-next {
+      position: absolute;
+      top: -40px;
+      right: 0px;
+      width: 30px;
+      height: 30px;
+      line-height: 28px;
+      z-index: 999;
+      border: 1px solid #000;
+      color: #000;
+      text-align: center;
+      font-size: 20px;
+      margin: -15px 0px 0px 0px;
+      box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
+      html .book-slider .owl-next:hover {
+        background-color: #000;
+        color: #fff; }
+      html .book-slider .owl-next:active {
+        box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); }
     html .book-slider .book-item {
       position: relative;
       overflow: hidden;
@@ -1064,14 +1095,36 @@ html {
   html .special-news {
     margin: 0px 0px 40px 0px;
     background-color: #000;
-    padding: 20px; }
+    padding: 20px 20px 0px 20px; }
     html .special-news .sn-caption {
-      padding: 20px 10px;
+      padding: 0px 10px 20px 10px;
       text-align: center;
       color: #fff;
       overflow: hidden; }
-      html .special-news .sn-caption span {
+      html .special-news .sn-caption div {
         display: inline-block;
+        position: relative; }
+        html .special-news .sn-caption div:before {
+          content: "";
+          display: block;
+          width: 1000px;
+          height: 2px;
+          background-color: rgba(255, 255, 255, 0.7);
+          right: 100%;
+          position: absolute;
+          top: 15px; }
+        html .special-news .sn-caption div:after {
+          content: "";
+          display: block;
+          width: 1000px;
+          height: 1px;
+          background-color: rgba(255, 255, 255, 0.4);
+          right: 100%;
+          position: absolute;
+          top: 22px; }
+      html .special-news .sn-caption span {
+        display: block;
+        padding: 0px 15px;
         text-transform: uppercase;
         letter-spacing: 2px;
         position: relative;
@@ -1079,6 +1132,24 @@ html {
         font-size: 2.6rem;
         font-weight: 700;
         text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.4); }
+        html .special-news .sn-caption span:before {
+          content: "";
+          display: block;
+          width: 1000px;
+          height: 2px;
+          background-color: rgba(255, 255, 255, 0.7);
+          left: 100%;
+          position: absolute;
+          top: 15px; }
+        html .special-news .sn-caption span:after {
+          content: "";
+          display: block;
+          width: 1000px;
+          height: 1px;
+          background-color: rgba(255, 255, 255, 0.4);
+          left: 100%;
+          position: absolute;
+          top: 22px; }
       html .special-news .sn-caption h1 {
         font-weight: 700;
         color: #fff; }
@@ -1088,90 +1159,16 @@ html {
       color: #ddd; }
     html .special-news .post-meta a {
       color: #fff; }
-  html .box-category.box-category-fix {
-    margin-bottom: 0px; }
-  html .category-mid-post .post-thumb {
-    margin-bottom: 10px; }
-  html .category-mid-post h2 {
-    padding: 5px 0px;
-    margin: 0px 0px 0px 0px;
-    border-bottom: 2px solid #000; }
-    @media screen and (max-width: 991px) {
-      html .category-mid-post h2 {
-        font-size: 2.5rem; } }
-  html .category-mid-post-two h2 {
-    padding: 5px 0px;
-    margin: 0px 0px 0px 0px;
-    border-bottom: 2px solid #000; }
-    @media screen and (max-width: 991px) {
-      html .category-mid-post-two h2 {
-        font-size: 2.5rem; } }
-  html .category-mid-post-two h3 {
-    padding: 5px 0px;
-    margin: 0px 0px 0px 0px;
-    border-bottom: 2px solid #000; }
-  html .category-list-post {
-    padding: 0px; }
-    @media screen and (max-width: 991px) {
-      html .category-list-post {
-        margin-top: 10px; } }
-    html .category-list-post li {
-      min-height: 110px;
-      padding: 20px 0px;
-      border-top: 1px solid #eeeeee;
-      list-style: none; }
-      html .category-list-post li:first-child {
-        border: none;
-        padding-top: 0px;
-        min-height: 95px; }
-      html .category-list-post li .post-thumb {
-        float: left;
-        width: 100px;
-        margin: 0px 15px 0px 0px; }
-        html .category-list-post li .post-thumb img {
-          width: 100px;
-          height: 70px; }
-      html .category-list-post li h3 {
-        font-size: 20px;
-        margin: 0px;
-        font-weight: 400;
-        min-height: 70px;
-        align-content: center;
-        align-items: center;
-        display: flex;
-        -moz-transition: all ease 0.5s;
-        -o-transition: all ease 0.5s;
-        -webkit-transition: all ease 0.5s;
-        transition: all ease 0.5s; }
-        html .category-list-post li h3:hover {
-          border: none !important; }
-    html .category-list-post.category-list-post-two {
-      margin: 0px -15px; }
-      html .category-list-post.category-list-post-two li {
-        border: none;
-        float: left;
-        width: 50%;
-        padding: 0px 15px;
-        min-height: 50px; }
-        html .category-list-post.category-list-post-two li > div {
-          border-top: 1px solid #eeeeee;
-          padding: 20px 0px; }
-        html .category-list-post.category-list-post-two li:nth-child(2) > div {
-          border: none; }
-        html .category-list-post.category-list-post-two li:nth-child(1) > div {
-          border: none; }
-        @media screen and (max-width: 767px) {
-          html .category-list-post.category-list-post-two li {
-            float: none;
-            width: 100%; }
-            html .category-list-post.category-list-post-two li:nth-child(2) > div {
-              border-top: 1px solid #eeeeee; } }
+  html .box-category {
+    margin: 0px 0px 40px 0px; }
+    html .box-category.box-category-fix {
+      margin-bottom: 0px; }
   html .category-big-post .post-thumb {
     margin-bottom: 10px; }
   html .category-big-post h2 {
     font-size: 3rem;
-    padding: 5px 0px;
-    margin: 0px 0px 0px 0px; }
+    padding: 0px 0px;
+    margin: 0px 0px 10px 0px; }
     @media screen and (max-width: 991px) {
       html .category-big-post h2 {
         font-size: 2.5rem; } }
@@ -1180,7 +1177,6 @@ html {
     html .three-articles h3 {
       font-size: 18px;
       margin: 0px;
-      font-weight: 400;
       margin: 10px 0px 0px 0px;
       -moz-transition: all ease 0.5s;
       -o-transition: all ease 0.5s;
@@ -1204,85 +1200,51 @@ html {
           align-items: center;
           margin: 0px;
           display: flex; } }
-  html .box-review {
-    position: relative;
-    margin-bottom: 70px; }
-    html .box-review .bx-prev {
+  html .post-slider {
+    position: relative; }
+    html .post-slider .owl-prev {
       position: absolute;
-      top: 50%;
+      top: 160px;
       left: 10px;
-      width: 35px;
-      height: 35px;
-      line-height: 35px;
+      width: 30px;
+      height: 30px;
+      line-height: 28px;
+      z-index: 999;
+      border: 1px solid #000;
       color: #000;
-      background-color: #fff;
-      margin-top: -20px;
+      font-size: 20px;
+      margin: -15px 0px 0px 0px;
       text-align: center;
-      border: 1px solid #fff;
-      -moz-transition: all ease 0.5s;
-      -o-transition: all ease 0.5s;
-      -webkit-transition: all ease 0.5s;
-      transition: all ease 0.5s; }
-      html .box-review .bx-prev:hover {
-        background-color: transparent;
+      box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
+      html .post-slider .owl-prev:hover {
+        background-color: #000;
         color: #fff; }
-    html .box-review .bx-next {
+      html .post-slider .owl-prev:active {
+        box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); }
+    html .post-slider .owl-next {
       position: absolute;
-      top: 50%;
+      top: 160px;
       right: 10px;
-      width: 35px;
-      height: 35px;
-      line-height: 35px;
+      width: 30px;
+      height: 30px;
+      line-height: 28px;
+      z-index: 999;
+      border: 1px solid #000;
       color: #000;
-      background-color: #fff;
-      margin-top: -20px;
       text-align: center;
-      border: 1px solid #fff;
-      -moz-transition: all ease 0.5s;
-      -o-transition: all ease 0.5s;
-      -webkit-transition: all ease 0.5s;
-      transition: all ease 0.5s; }
-      html .box-review .bx-next:hover {
-        background-color: transparent;
+      font-size: 20px;
+      margin: -15px 0px 0px 0px;
+      box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
+      html .post-slider .owl-next:hover {
+        background-color: #000;
         color: #fff; }
-    html .box-review .bx-pager {
-      position: absolute;
-      bottom: -40px;
-      left: 0px;
-      right: 0px;
-      text-align: center;
-      z-index: 99; }
-      html .box-review .bx-pager .bx-pager-item {
-        display: inline-block;
-        margin: 0px 5px; }
-        html .box-review .bx-pager .bx-pager-item a {
-          display: block;
-          width: 10px;
-          height: 10px;
-          border: 1px solid #000;
-          border-radius: 0px;
-          -moz-transform: rotate(45deg);
-          -webkit-transform: rotate(45deg);
-          -o-transform: rotate(45deg);
-          -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-          background-color: #fff;
-          -moz-transition: all ease 0.5s;
-          -o-transition: all ease 0.5s;
-          -webkit-transition: all ease 0.5s;
-          transition: all ease 0.5s; }
-          html .box-review .bx-pager .bx-pager-item a.active {
-            background-color: #000; }
-  html .swiper-review {
-    position: relative;
-    overflow: hidden; }
-    html .swiper-review .swiper-slide {
-      width: 90%; }
-    html .swiper-review .review-item {
+      html .post-slider .owl-next:active {
+        box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); }
+    html .post-slider .ps-item {
       position: relative; }
-      html .swiper-review .review-item img {
+      html .post-slider .ps-item img {
         width: 100%; }
-      html .swiper-review .review-item .review-des {
+      html .post-slider .ps-item .review-des {
         position: absolute;
         bottom: 0px;
         left: 0px;
@@ -1299,42 +1261,17 @@ html {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#000000', GradientType=0);
         /* IE6-9 */ }
         @media screen and (max-width: 767px) {
-          html .swiper-review .review-item .review-des {
+          html .post-slider .ps-item .review-des {
             padding: 20px 10px 20px 10px; } }
-      html .swiper-review .review-item .post-category a:hover {
-        color: #fff; }
-      html .swiper-review .review-item h2 {
+      html .post-slider .ps-item h2 {
         margin: 10px 0px; }
         @media screen and (max-width: 991px) {
-          html .swiper-review .review-item h2 {
+          html .post-slider .ps-item h2 {
             font-size: 2.5rem; } }
         @media screen and (max-width: 767px) {
-          html .swiper-review .review-item h2 {
+          html .post-slider .ps-item h2 {
             font-size: 2rem;
             font-weight: normal; } }
-      @media screen and (max-width: 767px) {
-        html .swiper-review .review-item .post-meta {
-          display: none; } }
-  html .swiper-pagination .swiper-pagination-bullet {
-    opacity: 1;
-    background-color: #fff;
-    width: 8px;
-    height: 8px;
-    margin: 0px 6px !important;
-    border: 1px solid #000;
-    border-radius: 0px;
-    -moz-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-    background-color: #fff;
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s; }
-    html .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-      border: 1px solid #fff; }
   html .big-page-caption {
     border-bottom: 10px solid #000;
     position: relative;
@@ -1578,14 +1515,14 @@ html {
         float: none;
         width: 100%; } }
   html .box-trending {
-    padding: 0px; }
+    padding: 0px;
+    margin-bottom: 40px; }
     html .box-trending .trending-item {
       margin-bottom: 10px; }
     html .box-trending h3 {
       font-size: 20px;
       padding: 10px 0px;
-      margin: 0px;
-      font-weight: normal; }
+      margin: 0px; }
       html .box-trending h3 a {
         -moz-transition: all ease 0.5s;
         -o-transition: all ease 0.5s;
@@ -1597,7 +1534,7 @@ html {
     padding: 0px; }
     html .list-trending li {
       padding: 15px 0px;
-      border-top: 1px solid #eeeeee;
+      border-top: 1px dashed #000;
       list-style: none; }
       html .list-trending li .post-thumb {
         float: left;
@@ -1624,10 +1561,8 @@ html {
     html .list-trending.list-tab li {
       min-height: 85px;
       padding: 15px 0px;
-      border-top: 1px solid #eeeeee;
+      border-top: 1px dashed #000;
       list-style: none; }
-      html .list-trending.list-tab li .post-meta {
-        margin: 5px 0px 5px 0px; }
       html .list-trending.list-tab li:first-child {
         border: none; }
       html .list-trending.list-tab li .post-thumb {
@@ -1687,6 +1622,8 @@ html {
       transition: all ease 0.5s; }
       html .box-search-sidebar button:hover {
         background-color: #512406; }
+  html .box-social {
+    margin-bottom: 40px; }
   html .social {
     text-align: center;
     padding: 0px 0px 0px 0px;
@@ -1809,7 +1746,8 @@ html {
     text-align: center;
     padding: 20px;
     border: 2px dashed #ccc;
-    background-color: #f3f3f3; }
+    background-color: #f3f3f3;
+    margin-bottom: 40px; }
     html .subcribe-box h3 {
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -1856,68 +1794,78 @@ html {
       margin: 15px 0px 0px 0px; }
       html .subcribe-box .mc4wp-alert.mc4wp-success p {
         color: #0099fe; }
+  html .box-facebook {
+    margin-bottom: 40px; }
   html .box-ads {
-    text-align: center; }
+    text-align: center;
+    margin-bottom: 40px; }
     html .box-ads img {
       max-width: 100%; }
   html .box-scroll-fix {
     position: relative; }
+  html .box-tab {
+    margin-bottom: 40px; }
   html .tab-caption {
-    height: 22px;
-    background-color: #000; }
+    margin: 0px 0px 10px 0px; }
     html .tab-caption ul {
       list-style: none;
       padding: 0px;
       margin: 0px; }
       html .tab-caption ul li {
-        float: left;
-        width: 33.33333333%;
-        text-align: center;
-        height: 22px; }
+        float: none;
+        display: inline-block;
+        margin: 0px 40px 0px 0px; }
+        html .tab-caption ul li:last-child {
+          margin: 0px; }
         html .tab-caption ul li a {
           display: block;
+          line-height: 40px;
           font-family: "Gentium Book Basic", serif;
-          color: #fff;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          padding: 0px 10px; }
+          padding: 0px;
+          font-weight: 700;
+          font-size: 2.6rem;
+          padding: 5px 0px;
+          border-bottom: 3px solid transparent; }
         html .tab-caption ul li.active a {
-          background-color: #512406; }
+          border-bottom: 3px solid #000;
+          text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2); }
   @media screen and (min-width: 992px) and (min-height: 620px) {
     html .affix {
       position: fixed !important;
       top: 20px;
       width: 300px; } }
-  html .box-news-by-tags ul {
-    list-style: none;
-    padding: 0px; }
-    html .box-news-by-tags ul li {
-      border-bottom: 1px solid #eeeeee;
-      padding: 10px 0px 10px 20px;
-      position: relative; }
-      html .box-news-by-tags ul li:before {
-        content: "";
-        display: block;
-        width: 5px;
-        height: 5px;
-        position: absolute;
-        top: 20px;
-        left: 4px;
-        background-color: #000; }
-      html .box-news-by-tags ul li:last-child {
-        border: none; }
-    html .box-news-by-tags ul p {
-      margin: 0px;
-      font-size: 18px; }
-      html .box-news-by-tags ul p a {
-        font-family: "Gentium Book Basic", serif;
-        font-weight: 400;
-        -moz-transition: all ease 0.5s;
-        -o-transition: all ease 0.5s;
-        -webkit-transition: all ease 0.5s;
-        transition: all ease 0.5s; }
-        html .box-news-by-tags ul p a:hover {
-          color: #512406; }
+  html .box-news-by-tags {
+    margin-bottom: 40px; }
+    html .box-news-by-tags ul {
+      list-style: none;
+      padding: 0px; }
+      html .box-news-by-tags ul li {
+        border-bottom: 1px dashed #000;
+        padding: 10px 0px 10px 20px;
+        position: relative; }
+        html .box-news-by-tags ul li:before {
+          content: "";
+          display: block;
+          width: 5px;
+          height: 5px;
+          position: absolute;
+          top: 20px;
+          left: 4px;
+          background-color: #000; }
+        html .box-news-by-tags ul li:last-child {
+          border: none; }
+      html .box-news-by-tags ul p {
+        margin: 0px;
+        font-size: 18px; }
+        html .box-news-by-tags ul p a {
+          font-family: "Gentium Book Basic", serif;
+          font-weight: 400;
+          -moz-transition: all ease 0.5s;
+          -o-transition: all ease 0.5s;
+          -webkit-transition: all ease 0.5s;
+          transition: all ease 0.5s; }
+          html .box-news-by-tags ul p a:hover {
+            color: #512406; }
   html .bottom {
     margin: 50px 0px 20px 0px;
     border-top: 10px solid #000;
@@ -1939,8 +1887,8 @@ html {
           html .bottom .bottom-col:nth-child(2) {
             border: none !important; } }
       html .bottom .bottom-col:nth-child(2) {
-        border-left: 2px solid #000;
-        border-right: 2px solid #000; }
+        border-left: 10px solid #eeeeee;
+        border-right: 10px solid #eeeeee; }
   html .col-caption {
     text-transform: uppercase;
     margin: 0px 0px 20px 0px;
@@ -3678,16 +3626,19 @@ html {
       height: 40px;
       border-bottom: 1px solid #000; }
       html .shop-tab .shop-tab-caption ul li {
-        float: left; }
+        float: left;
+        margin: 0px 20px 0px 0px; }
         html .shop-tab .shop-tab-caption ul li a {
           display: block;
           line-height: 40px;
           font-family: "Gentium Book Basic", serif;
-          font-size: 14px;
-          padding: 0px 20px; }
+          padding: 0px;
+          font-size: 2.6rem;
+          padding: 5px 0px;
+          border-bottom: 3px solid transparent; }
         html .shop-tab .shop-tab-caption ul li.active a {
           background-color: #000;
-          color: #fff; }
+          border-bottom: 3px solid #000; }
     html .shop-tab .tab-content {
       padding: 20px; }
       html .shop-tab .tab-content .table tr {
