@@ -45,7 +45,8 @@ html {
         font-family: $font-family-base;
         min-width: 320px;
         font-size: $fs14;
-        line-height: 1.4;
+        line-height: 1.6;
+
         color: $base-color;
         @include transition();
 
@@ -272,10 +273,12 @@ html {
 
         .logo {
             float: left;
-            height: 40px;
+
+            margin: 5px 0px 0px 0px;
 
             img {
-                height: 20px;
+                height: 30px;
+                border: none;
             }
         }
 
@@ -406,7 +409,8 @@ html {
 
         border: 1px solid $base-color;
         margin: 0px auto;
-        padding: 30px;
+        padding: 30px 30px;
+
         background-color: #fff;
         box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2);
 
@@ -896,6 +900,13 @@ html {
         margin-top: 0px;
         display: inline-block;
 
+        a {
+
+            &:hover {
+                border-bottom: 1px dashed #000;
+            }
+        }
+
 
 
     }
@@ -938,8 +949,9 @@ html {
                 top: 5px;
                 right: 0px;
                 text-align: center;
-                color: #fff;
+                color: #000;
                 font-size: 11px;
+
             }
 
             &:before {
@@ -948,21 +960,13 @@ html {
                 width: 0px;
                 height: 0px;
                 border: 20px solid transparent;
-                border-top-color: rgba(0, 0, 0, 0.9);
-                border-right-color: rgba(0, 0, 0, 0.9);
+                //  border-top-color: rgba(0, 0, 0, 0.9);
+                //  border-right-color: rgba(0, 0, 0, 0.9);
                 @include transition();
             }
         }
 
-        &:hover {
-            .post-format {
 
-                &:before {
-                    border-top-color: $active-color;
-                    border-right-color: $active-color;
-                }
-            }
-        }
 
         img {
             -webkit-filter: grayscale(70%);
@@ -1434,8 +1438,11 @@ html {
 
         h3 {
             margin: 15px 0px 0px 0px;
+            display: inline-block;
 
-            &:hover {}
+            &:hover {
+                border-bottom: 1px dashed #000;
+            }
         }
     }
 
@@ -2279,6 +2286,8 @@ html {
     }
 
     /*==========Sidebar=========*/
+
+
     .box-trending {
         padding: 0px;
         margin-bottom: 40px;
@@ -2295,11 +2304,9 @@ html {
 
 
             a {
-                @include transition();
 
-                &:hover {
-                    color: $active-color;
-                }
+
+                &:hover {}
             }
         }
     }
@@ -2309,7 +2316,7 @@ html {
 
         li {
             padding: 15px 0px;
-            border-top: 1px dashed #000;
+            border-top: 1px solid #000;
             list-style: none;
 
             &:first-child {}
@@ -2346,7 +2353,7 @@ html {
             li {
                 min-height: 85px;
                 padding: 15px 0px;
-                border-top: 1px dashed #000;
+                border-top: 1px solid #000;
                 list-style: none;
 
 
@@ -2623,8 +2630,8 @@ html {
 
         text-align: center;
         padding: 20px;
-        border: 2px dashed #ccc;
-        background-color: #f3f3f3;
+
+        background-color: #000;
         margin-bottom: 40px;
 
         h3 {
@@ -2639,6 +2646,7 @@ html {
         p {
             font-size: 15px;
             margin: 0px;
+            color: #fff;
 
             label {
                 display: none;
@@ -2655,7 +2663,7 @@ html {
             margin: 20px 0px 20px 0px;
             display: block;
             color: $text-color;
-            border: 1px solid #999;
+            border: none;
             outline: none;
         }
 
@@ -2673,9 +2681,11 @@ html {
             width: 100%;
             border: none;
             @include transition();
+            border: 1px solid #fff;
 
             &:hover {
-                background-color: $active-color;
+                background-color: #fff;
+                color: #000;
             }
         }
 
@@ -2743,14 +2753,16 @@ html {
                     padding: 5px 0px;
                     border-bottom: 3px solid transparent;
 
-                }
+                    &.active {
 
-                &.active {
-                    a {
                         border-bottom: 3px solid #000;
                         text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+
                     }
+
                 }
+
+
             }
 
         }
@@ -2773,7 +2785,7 @@ html {
             padding: 0px;
 
             li {
-                border-bottom: 1px dashed #000;
+                border-bottom: 1px solid #000;
                 padding: 10px 0px 10px 20px;
                 position: relative;
 
@@ -2805,7 +2817,8 @@ html {
                     @include transition();
 
                     &:hover {
-                        color: $active-color;
+
+                        border-bottom: 1px dashed #000;
                     }
                 }
             }
@@ -2867,10 +2880,11 @@ html {
         counter-reset: count;
         list-style: none;
         padding: 0px;
+        margin-top: -15px;
 
         li {
-            border-bottom: 1px solid $border-color;
-            padding: 10px 0px 10px 30px;
+            border-bottom: 1px solid #000;
+            padding: 15px 0px 15px 45px;
             position: relative;
 
             &:before {
@@ -2879,20 +2893,24 @@ html {
                 counter-increment: count;
                 position: absolute;
                 top: 50%;
-                text-align: center;
-                height: 25px;
-                width: 20px;
-                font-size: 25px;
-                line-height: 25px;
-                margin-top: -13px;
-                left: 0;
-                font-style: italic;
+                left: 0px;
                 font-family: serif;
+                width: 30px;
+                height: 30px;
+                line-height: 28px;
+                font-style: italic;
+                z-index: 999;
+                border: 1px solid #000;
+                color: #000;
+                font-weight: 700;
+
+                text-align: center;
+                font-size: 20px;
+                margin: -16px 0px 0px 0px;
+                box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.3);
             }
 
-            &:first-child {
-                padding-top: 0px;
-            }
+
 
             &:last-child {
                 border: none;
@@ -2904,11 +2922,13 @@ html {
             margin: 0px;
 
             a {
+                font-weight: 600;
                 font-family: $font-family-heading;
-                font-weight: 400;
+                font-size: $fs18;
+
 
                 &:hover {
-                    text-decoration: underline;
+                    border-bottom: 1px dashed #000;
                 }
             }
         }
@@ -2974,14 +2994,17 @@ html {
     .list-tags {
         a {
             display: inline-block;
-            line-height: 30px;
-            padding: 0px 10px;
-            font-family: $font-family-heading;
-            margin: 5px 0px 0px 0px;
+            position: relative;
+            border: 1px solid #000;
+            line-height: 25px;
+            padding: 0px 7px;
+            font-weight: 600;
             text-transform: uppercase;
-            background-color: $border-color;
-            font-size: 12px;
-            font-weight: 300;
+            color: #000;
+            font-size: $fs10;
+
+            margin: 0px 10px 10px 0px;
+            box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.3);
 
             &:hover {
                 background-color: $base-color;
@@ -2993,14 +3016,16 @@ html {
     .tagcloud {
         a {
             display: inline-block;
-            line-height: 30px;
-            padding: 0px 10px;
-            font-family: $font-family-heading;
-            margin: 5px 0px 0px 0px;
+            position: relative;
+            border: 1px solid #000;
+            line-height: 25px;
+            padding: 0px 7px;
+            font-weight: 600;
             text-transform: uppercase;
-            background-color: $border-color;
-            font-size: 12px !important;
-            font-weight: 300 !important;
+            color: #000;
+            font-size: $fs10;
+            margin: 0px 10px 10px 0px;
+            box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.3);
 
             &:hover {
                 background-color: $base-color;
@@ -3036,16 +3061,17 @@ html {
     /*==========Footer=========*/
     .footer {
         text-align: center;
-        padding: 50px 0px 50px 0px;
+        padding: 20px 0px 20px 0px;
         margin: 0px 15px 0px 15px;
-        @include transition();
+
 
         a.logo {
             display: inline-block;
-            max-width: 300px;
-            padding: 10px 10px;
+            max-width: 100px;
 
-            img {}
+            img {
+                border: none;
+            }
         }
 
         .footer-bar {
@@ -3054,140 +3080,39 @@ html {
 
         .allright {
             text-align: center;
-            padding: 20px 0px;
+            padding: 10px 0px 0px 0px;
 
             p {
                 margin: 0px;
                 text-transform: uppercase;
-                font-weight: 300;
-                font-size: 12px;
+                font-weight: 600;
+
+                font-size: 10px;
                 letter-spacing: 2px;
             }
-        }
 
-        .social-footer {
-            padding: 20px 0px;
-            text-align: center;
-
-            a {
+            em {
                 display: inline-block;
-                height: 35px;
-                line-height: 35px;
-                width: 35px;
-                margin: 0px 9px 0px 9px;
-                text-align: center;
-                font-size: 15px;
-                transform: rotate(-45deg);
-                color: $text-color;
-                position: relative;
-                @include transition();
+                margin: 0px 5px;
+            }
 
-                i {
-                    transform: rotate(45deg);
-                }
+            span {
 
-                &:before {
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    top: -3px;
-                    left: -3px;
-                    right: -3px;
-                    bottom: -3px;
-                    border: 1px solid $text-color;
-                    opacity: 1;
-                    @include transition();
-                }
+                cursor: pointer;
+                color: $text-color-second;
+                font-weight: 300;
+                letter-spacing: 0px;
 
                 &:hover {
-                    background-color: $active-color;
-                    color: #fff;
-
-                    &:before {
-                        -moz-transform: scale(1.1);
-                        -ms-transform: scale(1.1);
-                        -o-transform: scale(1.1);
-                        -webkit-transform: scale(1.1);
-                        transform: scale(1.1);
-                        opacity: 0;
-                    }
-                }
-
-                &.facebook {
-                    &:hover {
-                        background-color: $brand-facebook;
-                    }
-                }
-
-                &.twitter {
-                    &:hover {
-                        background-color: $brand-twitter;
-                    }
-                }
-
-                &.google {
-                    &:hover {
-                        background-color: $brand-google;
-                    }
-                }
-
-                &.pinterest {
-                    &:hover {
-                        background-color: $brand-pinterest;
-                    }
-                }
-
-                &.youtube {
-                    &:hover {
-                        background-color: $brand-youtube;
-                    }
+                    color: #000;
                 }
             }
         }
+
+
     }
 
-    .totop {
-        border: 2px solid $base-color;
-        width: 65px;
-        height: 55px;
-        border-bottom: none;
-        text-align: center;
-        font-family: $font-family-heading;
-        text-transform: uppercase;
-        font-weight: 300;
-        padding: 5px 0px;
-        display: block;
-        position: fixed;
-        bottom: -100px;
-        right: 20px;
-        font-size: 13px;
-        line-height: 20px;
-        background-color: #fff;
-        cursor: pointer;
-        @include transition();
 
-        @media screen and (max-width: 1199px) {
-            display: none !important;
-        }
-
-        &:hover {
-            em {}
-        }
-
-        @include transition();
-
-        em {
-            font-style: normal;
-            display: block;
-            font-weight: 700;
-            font-size: 22px;
-            line-height: 20px;
-        }
-
-        &.show {
-            bottom: 0px;
-        }
-    }
 
     /*==========Page Category=========*/
     .sitemap {
@@ -3491,124 +3416,113 @@ html {
 
     /**formast*/
     .detail-bottom {
-        border-top: 5px solid $base-color;
-        margin: 50px 0px 0px 0px;
+        border-top: 15px solid $border-color;
+        margin: 30px 0px 40px 0px;
         position: relative;
-        padding: 20px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
 
-        &:before {
-            content: "";
+
+    }
+
+    .single-tag {
+
+        position: relative;
+
+        .caption {
+            font-family: $font-family-heading;
+
+            line-height: 30px;
             display: block;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            right: 0px;
-            height: 1px;
-            background-color: $base-color;
+            line-height: 30px;
+            letter-spacing: 2px;
+            padding: 0px 10px 0px 0px;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            background-color: #fff;
+            font-weight: 700;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+    }
+
+    .tags {
+        display: inline-block;
+
+
+
+
+        a {
+            display: inline-block;
+            position: relative;
+            border: 1px solid #000;
+            line-height: 25px;
+            padding: 0px 7px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #000;
+            font-size: $fs10;
+
+            margin: 0px 10px 10px 0px;
+            box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.3);
+
+            &:hover {
+                background-color: $base-color;
+                color: #fff;
+            }
         }
     }
 
     .single-info {
-        border: 1px solid $border-color;
-        position: relative;
-        padding: 20px 20px;
-        margin: 50px 0px 0px 0px;
 
-        .caption {
-            font-family: $font-family-heading;
-            padding: 2px 10px;
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            line-height: 30px;
-            margin: 0px;
-            top: -20px;
-            text-align: center;
-            width: 100%;
+        border-bottom: 1px solid #000;
+        padding: 5px 0px;
+        margin: 0px 0px 20px 0px;
 
-            span {
-                display: inline-block;
-                line-height: 30px;
-                letter-spacing: 2px;
-                padding: 0px 10px;
-                text-transform: uppercase;
-                background-color: #fff;
-            }
-        }
-    }
-
-    .tags {
-        text-align: center;
-
-        a {
-            display: inline-block;
-            line-height: 30px;
-            padding: 0px 10px;
-            font-family: $font-family-heading;
-            margin: 3px 2px 3px 2px;
-            text-transform: uppercase;
-            border: 1px solid $base-color;
-            font-size: 12px;
-            font-weight: 300;
-            background-color: $base-color;
-            color: #fff;
-
-            &:hover {
-                opacity: 0.8;
-            }
-        }
     }
 
     .single-rating {
-        height: 60px;
-        position: relative;
 
-        &:before {
-            content: "";
-            display: block;
-            width: 1px;
-            height: 60px;
-            position: absolute;
-            top: 0px;
-            left: 50%;
-            border-left: 1px solid $border-color;
-        }
+        position: relative;
+        float: left;
+
 
         .rating-item {
             float: left;
-            text-align: center;
-            width: 50%;
+            margin: 0px 20px 0px 0px;
 
             strong {
                 font-weight: 600;
                 font-family: $font-family-heading;
-                font-size: 25px;
-                display: block;
+                font-size: 1.8rem;
+                line-height: 30px;
+                display: inline-block;
                 text-align: center;
             }
 
             span {
                 font-family: $font-family-heading;
                 font-weight: 300;
-                font-family: 12px;
+                line-height: 30px;
+                display: inline-block;
             }
         }
     }
 
     .single-share {
-        height: 60px;
-        text-align: center;
-        padding: 15px 0px 0px 0px;
+        float: right;
 
         a {
             display: inline-block;
             text-align: center;
             line-height: 30px;
             cursor: pointer;
-            width: 30px;
-            margin: 0px 0px;
-            font-size: 20px;
-            @include transition();
+
+            float: left;
+            margin: 0px 0px 0px 15px;
+
+            font-size: 18px;
 
             &.facebook {
                 &:hover {
@@ -3642,29 +3556,23 @@ html {
         }
     }
 
-    .related-post {
-        margin: 50px 0px 0px 0px;
-
-        .post-title {
-            font-size: 20px;
-        }
-    }
+    .related-post {}
 
     .box-detail-caption {
-        border-top: 2px solid $base-color;
-        text-align: center;
-        padding: 10px 0px 20px 0px;
-        margin-bottom: 20px;
-        font-size: 25px;
 
-        @media screen and (max-width: 991px) {
-            font-size: 18px;
-        }
+
+        text-transform: uppercase;
+
+        margin: 0px 0px 20px 0px;
+        font-size: $fs26;
+        font-weight: 700;
 
         span {
-            font-family: $font-family-heading;
-            letter-spacing: 2px;
+            border-bottom: 3px solid $base-color;
+            display: inline-block;
+            padding: 5px 0px;
             text-transform: uppercase;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
         }
     }
 
@@ -3739,35 +3647,42 @@ html {
             padding: 0px;
         }
 
-        margin-top: 50px;
+        margin: 0px 0px 40px 0px;
 
         .detail-caption {
-            border-top: 2px solid $base-color;
-            text-align: center;
-            padding: 10px 0px 20px 0px;
-            font-size: 25px;
 
-            @media screen and (max-width: 991px) {
-                font-size: 18px;
-            }
+            text-transform: uppercase;
+
+            margin: 0px 0px 20px 0px;
+            font-size: $fs26;
+            font-weight: 700;
 
             span {
-                font-family: $font-family-heading;
-                letter-spacing: 2px;
+                border-bottom: 3px solid $base-color;
+                display: inline-block;
+                padding: 5px 0px;
                 text-transform: uppercase;
-                font-size: 25px;
+                text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
             }
         }
     }
 
     .comment-reply-title {
-        text-align: center;
-        font-family: $font-family-heading;
-        letter-spacing: 2px;
-        font-size: 20px;
-        font-weight: 400;
+
+
         text-transform: uppercase;
-        margin: 50px 0px 0px 0px;
+
+        margin: 0px 0px 20px 0px;
+        font-size: $fs26;
+        font-weight: 700;
+
+        span {
+            border-bottom: 3px solid $base-color;
+            display: inline-block;
+            padding: 5px 0px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+        }
     }
 
     .author-info {
@@ -3855,7 +3770,7 @@ html {
             list-style: none;
             padding: 10px 0px 10px 70px;
             margin: 10px 0px;
-            border-bottom: 1px dashed $border-color;
+            border-bottom: 1px solid $border-color;
 
             @media screen and (max-width: 1199px) {
                 .comment {
@@ -3865,7 +3780,7 @@ html {
             }
 
             .comment-body {
-                border-left: 4px solid $border-color;
+                border-left: 4px solid #000;
                 padding: 0px 0px 0px 15px;
             }
         }
@@ -3896,11 +3811,10 @@ html {
                 font-family: $font-family-heading;
 
                 a {
-                    @include transition();
+                    font-family: $font-family-heading;
+                    font-weight: 700;
 
-                    &:hover {
-                        color: $active-color;
-                    }
+
                 }
             }
 
@@ -4180,6 +4094,69 @@ html {
     }
 
     /***detail news*/
+
+
+    .post-meta-special {
+        display: inline-block;
+        margin: 0px auto 30px auto;
+
+        position: relative;
+        width: 300px;
+        text-align: left;
+
+
+        &:before {
+            content: "";
+            width: 1px;
+            display: block;
+            background-color: #000;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+        }
+
+        &:after {
+            content: "";
+            height: 1px;
+            display: block;
+            background-color: #000;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+        }
+
+        .pms-col {
+            float: left;
+            width: 50%;
+            padding: 10px 0px;
+
+            .post-link {
+                display: inline-block;
+                padding: 0px 15px;
+                white-space: nowrap;
+                font-size: 11px;
+                color: $text-color-second;
+
+                a {
+
+                    letter-spacing: 1px;
+                    font-weight: 600;
+                    color: #000;
+
+                    &:hover {
+                        color: #000;
+                        text-decoration: none;
+                        border-bottom: 1px dashed #000;
+                    }
+                }
+            }
+        }
+
+
+    }
+
     .article-bar {
         border-bottom: 1px solid $base-color;
         min-height: 40px;
@@ -4224,29 +4201,44 @@ html {
         margin-bottom: 30px;
 
         h1 {
-            font-size: 100px;
-            font-weight: 700;
-            line-height: 1.2;
             text-align: center;
-            margin: 0px 0px 20px 0px;
-            padding: 0px;
+            font-size: $font-size-large;
+            margin: 20px 0px 20px 0px;
+            text-transform: uppercase;
+            line-height: 1.1;
 
-            @media screen and (max-width: 991px) {
-                font-size: 50px;
+
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+
+            &:hover {
+                color: $active-color;
             }
 
-            @media screen and (max-width:767px) {
-                font-size: 30px;
+            @media screen and (max-width: 767) {
+                font-size: $fs30;
+
             }
         }
 
+        .post-meta {
+            margin: 0px 0px 20px 0px;
+            text-align: center;
+        }
+
+
         .sapo {
+            border-bottom: 1px solid #000;
+            padding: 0px 0px 30px 0px;
+
+            &.no-border {
+                border: none;
+            }
 
             p {
                 text-align: center;
-                font-size: 25px;
+                font-size: 1.8rem;
                 font-style: italic;
-                max-width: 900px;
+                max-width: 600px;
                 margin: 0px auto;
                 font-weight: 300;
 
@@ -4258,13 +4250,9 @@ html {
         }
 
         .post-content {
-            -moz-columns: 2;
-            -webkit-columns: 2;
-            columns: 2;
-            margin: 80px 0px 50px 0px;
-            -moz-column-gap: 60px;
-            -webkit-column-gap: 60px;
-            column-gap: 60px;
+
+            margin: 30px 0px 50px 0px;
+
             color: $text-color;
             position: relative;
 
@@ -4295,29 +4283,44 @@ html {
             }
 
 
-            &:before {
-                content: "";
-                display: block;
-                position: absolute;
-                bottom: 0px;
-                top: 0px;
-                left: 50%;
-                width: 1px;
-                background-color: $border-color;
+            .two-column {
+                position: relative;
+
+                columns: 2;
+
+                column-gap: 30px;
 
                 @media screen and (max-width: 767px) {
-                    display: block;
-                    left: 0px;
-                    width: 0px;
+                    columns: 1;
+
+                    column-gap: 0px;
                 }
+
+                &.three-column {
+                    position: relative;
+
+                    columns: 3;
+
+                    column-gap: 30px;
+
+                    @media screen and (max-width: 767px) {
+                        columns: 1;
+
+                        column-gap: 0px;
+                    }
+
+                }
+
             }
 
+
+
             p {
-                font-size: 20px;
+                font-size: 1.8rem;
                 margin: 0px 0px 30px 0px;
 
                 @media screen and (max-width: 991px) {
-                    font-size: 16px;
+                    font-size: 1.6rem;
                 }
             }
 
@@ -4470,9 +4473,23 @@ html {
             margin-bottom: 20px;
         }
 
+        .post-meta {
+            a:hover {
+                color: #fff !important;
+                border-bottom: 1px dashed #fff !important;
+            }
+        }
+
         .post-title {
-            margin: 0px;
+            margin: 0px 0px 0px 0px;
+
             padding: 5px 0px;
+
+            a {
+                &:hover {
+                    border-bottom: 1px dashed #fff;
+                }
+            }
 
 
 
@@ -5355,14 +5372,16 @@ html {
                         padding: 5px 0px;
                         border-bottom: 3px solid transparent;
 
-                    }
+                        &.active {
 
-                    &.active {
-                        a {
                             background-color: $base-color;
                             border-bottom: 3px solid #000;
+
                         }
+
                     }
+
+
                 }
             }
         }
