@@ -189,7 +189,7 @@
 
                         },
                         992: {
-                            items: 3,
+                            items: 2,
 
                         }
                     }
@@ -197,6 +197,24 @@
                 });
             }
 
+
+        }
+        db.GtText = function () {
+
+
+            $(".gt-more a").on('click', function () {
+
+
+                if ($(".gt-hidden").is(":visible")) {
+                    $(".gt-hidden").slideUp();
+                    $(".gt-more a").text("Xem thêm")
+
+                } else {
+                    $(".gt-hidden").slideDown();
+                    $(".gt-more a").text("Đóng")
+                }
+
+            });
 
         }
         db.sliderProduct = function () {
@@ -276,6 +294,7 @@
 
         db.fancybox();
         db.niceScroll();
+        db.GtText();
 
 
     });

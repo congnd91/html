@@ -2,6 +2,10 @@
 
 @import "variables";
 
+.container {
+    position: relative;
+
+}
 
 .db-header {
     background-color: #fff;
@@ -9,6 +13,10 @@
     font-weight: 400;
     font-size: $fs14;
     color: $text-color;
+    min-height: 50px;
+
+
+
 
     a {
 
@@ -23,6 +31,9 @@
 
 
 .db-header {
+    .float-right {
+        padding: 10px 0px 0px 0px;
+    }
 
     background-color: #fff;
     position: fixed;
@@ -33,7 +44,7 @@
 
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
 
-    padding: 10px 0px;
+
     transition: all ease 0.4s;
 
     .pull-left {
@@ -41,12 +52,13 @@
         min-width: 120px;
         min-height: 30px;
 
+
     }
 
 
     a.logo {
         position: absolute;
-        top: 0px;
+        top: 10px;
         left: 0px;
         margin: 2px 0px 0px 0px;
 
@@ -57,12 +69,13 @@
 
     a.logo-white {
         position: absolute;
-        top: 0px;
+        top: 10px;
         left: 0px;
         margin: 2px 0px 0px 0px;
 
         img {
             height: 30px;
+
 
         }
     }
@@ -71,22 +84,34 @@
         float: left;
         margin: 0px 0px 0px 140px;
 
-        ul {
+        > ul {
 
             margin: 0px;
             padding: 0px;
 
             list-style: none;
 
-            li {
+            > li {
                 float: left;
-                margin: 0px 0px 0px 20px;
+                margin: 0px 0px 0px 10px;
+                position: relative;
 
-                a {
-                    line-height: 30px;
+                &:hover {
+                    ul {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+
+
+
+                > a {
+                    line-height: 50px;
                     color: $text-color;
                     transition: all ease 0.4s;
                     font-weight: 600;
+                    padding: 0px 15px;
+
 
                     &:hover {
                         color: $active-color;
@@ -100,6 +125,41 @@
                         transform: all ease 0.4s;
                     }
 
+                }
+
+                ul {
+                    background-color: #fff;
+                    position: absolute;
+                    top: 100%;
+                    left: 0px;
+                    width: 200px;
+                    list-style: none;
+                    padding: 0px;
+                    margin: 0px;
+                    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+                    transition: all ease 0.4s;
+                    visibility: hidden;
+                    opacity: 0;
+
+
+
+                    li {
+                        display: block;
+
+                        a {
+                            display: block;
+                            padding: 7px 15px;
+
+
+                            color: $text-color;
+                            transition: all ease 0.4s;
+                            font-weight: 600;
+
+                            &:hover {
+                                color: $active-color;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -211,6 +271,22 @@
             background-color: $pro-color;
         }
 
+    }
+
+    .user-language {
+        float: left;
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 20px;
+
+
+        a {
+            margin: 0px 0px 0px 10px;
+
+            img {
+                height: 20px;
+                cursor: pointer;
+            }
+        }
     }
 
 
