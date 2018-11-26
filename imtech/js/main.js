@@ -55,6 +55,28 @@
 
         }
 
+        db.scrollIntro = function () {
+
+
+            $(window).scroll(function () {
+
+                if ($(this).scrollTop() >= 150) {
+
+                    $('.intro.fixed').addClass("hide-intro");
+
+                } else {
+                    // $('.intro.fixed').removeClass("hide-intro");
+                }
+            });
+
+
+
+
+        }
+
+
+
+
 
         db.accordion = function () {
             $('.faq-acc-caption').on('click', function () {
@@ -392,8 +414,12 @@
 
         db.preLoad();
         db.hoverMenu();
-        db.videoControl();
+
         db.homeSlider();
+        db.scrollIntro();
+
+
+
         db.search();
         db.menuLeft();
         db.menuAccordion();
