@@ -29,20 +29,27 @@
                     $(".mega-sub").hide();
                     $(this).addClass("active");
                     $(this).find(".mega-sub").show();
-
                 },
-
-
                 function () {});
 
 
+            $('.menu > ul > li.has-mega').hover(function () {
+                    $("body").addClass("show-overlay");
+                },
+                function () {
+                    $("body").removeClass("show-overlay");
+                });
+
         }
+
+
         db.homeSlider = function () {
             var owl_home = $('.owl-home');
             if ($(owl_home).length) {
                 $(owl_home).owlCarousel({
                     loop: true,
                     margin: 0,
+                    mouseDrag: false,
                     nav: true,
                     autoplay: true,
                     items: 1,
@@ -57,8 +64,8 @@
                     loop: true,
                     margin: 0,
                     nav: false,
-
-                    autoplay: false,
+                    autoplay: true,
+                    mouseDrag: false,
                     items: 1,
                     animateOut: 'fadeOut'
                 });
@@ -72,6 +79,55 @@
             });
         }
 
+
+        db.sliderMiles = function () {
+            setTimeout(function () {
+                var owl_miles = $('.owl-miles');
+                if ($(owl_miles).length) {
+                    $(owl_miles).owlCarousel({
+                        loop: false,
+                        margin: 0,
+                        nav: true,
+                        autoplay: false,
+                        navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+
+                        responsive: {
+
+                            0: {
+                                items: 1,
+                            },
+
+                            576: {
+                                items: 2,
+                            },
+
+                            768: {
+                                items: 3,
+
+                            },
+                            991: {
+                                items: 4,
+
+                            }
+                        },
+                        onRefreshed: callback
+                    });
+                }
+
+                function callback() {
+
+                    var maxHeight = 0;
+                    $('.mi-box').each(function () {
+                        var thisH = $(this).height();
+                        if (thisH > maxHeight) {
+                            maxHeight = thisH;
+                        }
+                    });
+                    $('.mi-box').css("min-height", maxHeight + 30 + "px");
+                    console.log(maxHeight);
+                }
+            }, 1000);
+        }
 
 
 
@@ -255,54 +311,7 @@
         }
 
 
-        db.sliderMiles = function () {
-            setTimeout(function () {
-                var owl_miles = $('.owl-miles');
-                if ($(owl_miles).length) {
-                    $(owl_miles).owlCarousel({
-                        loop: false,
-                        margin: 0,
-                        nav: true,
-                        autoplay: false,
-                        navText: ['<i class="fas fa-angle-left"></i> <span>往前</span>', '<i class="fas fa-angle-right"></i><span>往後</span>'],
 
-                        responsive: {
-
-                            0: {
-                                items: 1,
-                            },
-
-                            576: {
-                                items: 2,
-                            },
-
-                            768: {
-                                items: 3,
-
-                            },
-                            991: {
-                                items: 4,
-
-                            }
-                        },
-                        onRefreshed: callback
-                    });
-                }
-
-                function callback() {
-
-                    var maxHeight = 0;
-                    $('.mi-box').each(function () {
-                        var thisH = $(this).height();
-                        if (thisH > maxHeight) {
-                            maxHeight = thisH;
-                        }
-                    });
-                    $('.mi-box').css("min-height", maxHeight + 30 + "px");
-                    console.log(maxHeight);
-                }
-            }, 1000);
-        }
 
         db.scroll = function () {
 
@@ -389,6 +398,13 @@
             });
 
             $(".totop").click(function () {
+
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 1000);
+            });
+
+            $(".nd-top span").click(function () {
 
                 $("html, body").animate({
                     scrollTop: 0
