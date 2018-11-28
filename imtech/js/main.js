@@ -74,6 +74,18 @@
 
         }
 
+        db.showSearch = function () {
+            $('.search-icon').on('click', function () {
+                $('.search-wrap').toggleClass("show");
+            });
+            $('.close-search').on('click', function () {
+                $('.search-wrap').toggleClass("show");
+            });
+        }
+
+
+
+
 
 
 
@@ -417,6 +429,7 @@
 
         db.homeSlider();
         db.scrollIntro();
+        db.showSearch();
 
 
 
