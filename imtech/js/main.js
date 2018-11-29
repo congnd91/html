@@ -102,14 +102,7 @@
                 }
             });
         }
-        db.chat = function () {
-            $('.chatbox-caption-show').on('click', function () {
-                $('.chatbox').addClass("show");
-            });
-            $('.chatbox-caption-hide').on('click', function () {
-                $('.chatbox').removeClass("show");
-            });
-        }
+
         db.hoverMenu = function () {
             /*$('.menu-inner ul li').hover(function () {
 
@@ -153,21 +146,7 @@
 
         }
 
-        db.search = function () {
-            $('.search-form').click(function (event) {
-                event.stopPropagation();
-                $('.search-box').addClass("show");
-            });
 
-            $('body').click(function () {
-
-                $('.search-box').removeClass("show");
-            });
-            $('.search-form button').click(function (event) {
-                $('.search-box').removeClass("show");
-
-            });
-        }
         db.menuLeft = function () {
             $('.ml-ul > li > a > div >span').on('click', function (event) {
 
@@ -231,8 +210,8 @@
 
 
                     focusOnSelect: true,
-                    prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="display: block;"></button>',
-                    nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: block;"></button>'
+                    prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button"> <i class="icon ion-ios-arrow-back"></i></button>',
+                    nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button"> <i class="icon ion-ios-arrow-forward"></i></button>'
                 });
             }
 
@@ -248,22 +227,19 @@
             $('.mega-col').matchHeight();
         }
 
-        db.videoControl = function () {
-            $('.vb-control a').on('click', function () {
-
-                var id = $(this).attr("data-id");
-                $('.video-box-content').hide();
-                $(id).show();
-                $('.vb-control a').removeClass("current");
-                $(this).addClass("current");
 
 
-                return false;
+
+        db.tabProductDetail = function () {
+            $(".detail-nav li").click(function () {
+                var value = $(this).attr("data-tab");
+
+                $(".detail-nav li").removeClass("active");
+                $(this).addClass("active");
+                $('.pd-content').removeClass("active");
+                $(value).addClass("active");
             });
-
-
         }
-
 
         db.sliderMiles = function () {
             setTimeout(function () {
@@ -407,7 +383,6 @@
 
 
         }
-
         db.gender = function () {
             $('.c-text').on('click', function () {
                 $('.c-text').removeClass("active");
@@ -417,35 +392,38 @@
             });
 
         }
-        db.qq = function () {
-            $('.qq').on('click', function () {
-                $(this).toggleClass("show");
-            });
 
-        }
+
+
+
 
         db.preLoad();
         db.hoverMenu();
-
+        db.menuResponsive();
         db.homeSlider();
         db.scrollIntro();
         db.showSearch();
-
-
-
-        db.search();
-        db.menuLeft();
-        db.menuAccordion();
-        db.menuResponsive();
-        db.chat();
-        db.accordion();
+        db.tabProductDetail();
         db.sliderProduct();
-        db.matchHeight();
-        db.sliderMiles();
-        db.scroll();
-        db.scrollFixBar();
-        db.fixedHeader();
         db.gender();
-        db.qq();
+        db.matchHeight();
+        db.scrollFixBar();
+
+
+
+
+
+
+        //   db.menuLeft();
+        //  db.menuAccordion();
+        // db.menuResponsive();;
+        //  db.accordion();
+
+        //  db.sliderMiles();
+        //  db.scroll();
+        // db.scrollFixBar();
+        //  db.fixedHeader();
+
+
     });
 })(jQuery);
