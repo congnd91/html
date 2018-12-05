@@ -131,6 +131,11 @@
             if ($('.sr-item').length) {
                 $('.sr-item').matchHeight();
             }
+            if ($('.product-item').length) {
+                $('.product-item').matchHeight();
+            }
+
+
             $('.mega-col').matchHeight();
         }
         db.gender = function () {

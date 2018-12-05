@@ -205,13 +205,13 @@
             $(".gt-more a").on('click', function () {
 
 
-                if ($(".gt-hidden").is(":visible")) {
-                    $(".gt-hidden").slideUp();
-                    $(".gt-more a").text("Xem thêm")
+                if ($(this).parents(".gt-text-sp").find(".gt-hidden").is(":visible")) {
+                    $(this).parents(".gt-text-sp").find(".gt-hidden").slideUp();
+                    $(this).text("Xem thêm")
 
                 } else {
-                    $(".gt-hidden").slideDown();
-                    $(".gt-more a").text("Đóng")
+                    $(this).parents(".gt-text-sp").find(".gt-hidden").slideDown();
+                    $(this).text("Đóng")
                 }
 
             });

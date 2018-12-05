@@ -23,6 +23,7 @@ body {
     font-size: 1.4rem;
     color: $text-color;
     line-height: 1.5;
+    padding: 120px 0px 0px 0px;
 
 }
 
@@ -207,8 +208,12 @@ a {
 
 .topbar {
     height: 40px;
-    position: relative;
-    z-index: 999;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 9999;
+
 
     background-color: $active-color-second;
 
@@ -286,9 +291,18 @@ a {
 
 .header {
     height: 80px;
-    position: relative;
-    z-index: 10;
-    z-index: 99;
+    position: fixed;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    top: 40px;
+    right: 0px;
+    width: 100%;
+    left: 0px;
+    background-color: #fff;
+    transition: all ease 0.4s;
+
+
+
 
 
 
@@ -858,8 +872,9 @@ a {
             transform: translateX(-0px);
         }
 
-        .header .container {
+        .header {
             left: -280px;
+
 
         }
 
@@ -4196,6 +4211,121 @@ a {
         &.active {
             color: #fff;
             background-color: $active-color;
+        }
+    }
+}
+
+.product-compare {
+    padding: 0px 0px 30px 0px;
+    margin: 0px 0px 40px 0px;
+
+    .pc-content {
+        min-width: 500px;
+    }
+
+    .pc-scroll {
+        overflow: auto;
+    }
+
+    .pc-product {
+
+        padding: 0px 0px 15px 0px;
+        display: inline-block;
+
+        .pc-delete {
+            width: 40px;
+            height: 40px;
+            margin: 0px auto;
+            text-align: center;
+
+
+
+
+
+            i {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                color: #666;
+
+                cursor: pointer;
+                font-size: 28px;
+
+
+                &:hover {
+                    color: #000;
+                }
+            }
+        }
+
+
+        img {
+            width: 100%;
+            max-width: 140px;
+
+        }
+    }
+
+    .pc-row {
+
+        &.head {
+
+            background-color: $active-color;
+
+            strong {
+                color: #fff;
+                font-size: 1.6rem;
+                font-weight: 600;
+                display: block;
+                padding: 5px 0px;
+
+                @media screen and (max-width: 991px) {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+
+        &.item {
+            &:hover {
+                background-color: #f2f2f2;
+            }
+
+            span {
+                display: inline-block;
+                font-size: 1.6rem;
+                color: $text-color-second;
+                padding: 3px 0px;
+
+                @media screen and (max-width: 991px) {
+                    font-size: 1.4rem;
+                }
+
+            }
+        }
+    }
+
+    .pc-col {
+        float: left;
+        width: 16.6666%;
+        padding: 5px 5px;
+
+        @media screen and (max-width: 991px) {
+            width: 20%;
+        }
+
+        &.col1 {
+            padding-left: 30px;
+
+            @media screen and (max-width: 991px) {
+                padding-left: 5px;
+            }
+        }
+
+        &.col4 {
+            @media screen and (max-width: 991px) {
+                display: none;
+            }
+
         }
     }
 }
