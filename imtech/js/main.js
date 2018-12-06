@@ -19,9 +19,15 @@
             });
         }
         db.menuResponsive = function () {
-            $('.menu-icon').on('click', function () {
+            $('.menu-icon').on('click', function (e) {
+                e.stopPropagation();
                 $('body').toggleClass("open-menu");
             });
+            $('.page').on('click', function () {
+                $('body').removeClass("open-menu");
+            });
+
+
 
             $('.mega-menu ul li:first-child').find(".mega-sub").show();
             $('.mega-menu ul li').hover(function () {
