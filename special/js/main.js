@@ -78,6 +78,14 @@
             }
         }
 
+
+
+
+
+
+
+
+
         db.sliderBook = function () {
             var owl_book = $('.owl-book');
             if ($(owl_book).length) {
@@ -185,7 +193,7 @@
 
 
         /**Match height  item**/
-        var grids_item = $('.grids-item');
+        var grids_item = $('.col-item');
         if ($(grids_item).length) {
             $(grids_item).matchHeight();
         }

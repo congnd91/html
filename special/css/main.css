@@ -36,7 +36,7 @@ h2,
 
 h3,
 .h3 {
-  font-size: 2.5rem; }
+  font-size: 2rem; }
 
 h4,
 .h4 {
@@ -63,7 +63,7 @@ body {
   font-family: "Montserrat", sans-serif;
   min-width: 320px;
   font-size: 1.4rem;
-  line-height: 1.6;
+  line-height: 1.3;
   color: #000;
   font-weight: 400; }
   body.layout-white {
@@ -234,7 +234,7 @@ span.type {
   z-index: 999;
   padding: 20px 0px;
   margin: 0px 0px 40px 0px;
-  background-color: #fff; }
+  border-bottom: 1px solid #000; }
   .header a.logo img {
     height: 35px; }
   .header .header-right {
@@ -513,20 +513,32 @@ span.type {
   padding: 0px 300px 0px 0px; }
   .col-wrap .colleft {
     float: left;
-    width: 100%; }
+    width: 100%;
+    border-right: 1px solid #000; }
+    .col-wrap .colleft .box:last-child {
+      border-bottom: none; }
+    .col-wrap .colleft .box:first-child {
+      padding-top: 30px;
+      margin-bottom: 0px; }
   .col-wrap .colright {
-    width: 250px;
+    width: 300px;
     float: right;
     margin: 0px -300px 0px 0px;
-    border-left: 1px solid #000;
-    padding: 0px 0px 0px 50px;
     min-height: 400px; }
+    .col-wrap .colright .box {
+      padding-right: 0px;
+      padding-left: 50px; }
+      .col-wrap .colright .box:last-child {
+        border-bottom: none; }
+      .col-wrap .colright .box:first-child {
+        padding-top: 30px; }
   @media screen and (max-width: 991px) {
     .col-wrap {
       padding: 0px; }
       .col-wrap .colleft {
         float: none;
-        width: 100%; }
+        width: 100%;
+        border: none; }
       .col-wrap .colright {
         width: 100%;
         float: none;
@@ -535,11 +547,26 @@ span.type {
         padding: 0px; } }
 
 .box {
-  margin: 0px 0px 30px 0px; }
+  margin: 0px 0px 40px 0px;
+  border-bottom: 1px solid #000;
+  padding: 0px 50px 30px 0px; }
+  @media screen and (max-width: 991px) {
+    .box {
+      padding: 0px 0px 30px 0px; } }
+  .box.no-margin {
+    margin-bottom: 0px; }
+  .box.padding-top {
+    padding-top: 30px; }
   .box .box-caption {
     margin: 0px 0px 20px 0px;
-    font-size: 3rem;
+    font-size: 3.5rem;
     padding: 0px; }
+    @media screen and (max-width: 991px) {
+      .box .box-caption {
+        font-size: 3rem; } }
+    @media screen and (max-width: 767px) {
+      .box .box-caption {
+        font-size: 2.5rem; } }
     .box .box-caption span {
       letter-spacing: -1px;
       font-family: "Chonburi", cursive;
@@ -562,7 +589,7 @@ span.type {
   list-style: none; }
   .list-news-other li {
     padding: 15px 0px 15px 0px;
-    border-top: 1px solid #000; }
+    border-top: 1px solid #eeeeee; }
     .list-news-other li:first-child {
       border: none;
       padding-top: 0px; }
@@ -599,10 +626,10 @@ span.type {
 .tag-cloud a {
   display: inline-block;
   margin: 0px 5px 5px 0px;
-  padding: 3px 10px;
+  padding: 5px 10px;
   border: 1px solid #000;
-  font-weight: 300;
-  font-size: 1.3rem;
+  font-weight: 600;
+  font-size: 1.4rem;
   color: #000;
   position: relative; }
   .tag-cloud a:before {
@@ -621,12 +648,94 @@ span.type {
     .tag-cloud a:hover:before {
       width: 100%; }
 
+.social-network {
+  overflow: hidden; }
+  .social-network .sn-item {
+    padding: 1px 1px 1px 67px;
+    height: 50px;
+    margin: 0px 0px 10px 0px;
+    cursor: pointer;
+    background-color: #000; }
+    .social-network .sn-item .sn-icon {
+      float: left;
+      margin: 0px 0px 0px -66px;
+      height: 48px;
+      width: 48px;
+      color: #000;
+      text-align: center;
+      font-size: 20px;
+      line-height: 48px;
+      background-color: #fff; }
+      .social-network .sn-item .sn-icon i {
+        -moz-transition: all ease 0.5s;
+        -o-transition: all ease 0.5s;
+        -webkit-transition: all ease 0.5s;
+        transition: all ease 0.5s; }
+    .social-network .sn-item p {
+      margin: 0px;
+      font-family: "Chonburi", cursive;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 4px 0px 0px 0px;
+      font-size: 18px;
+      -moz-transition: all ease 0.5s;
+      -o-transition: all ease 0.5s;
+      -webkit-transition: all ease 0.5s;
+      transition: all ease 0.5s; }
+    .social-network .sn-item span {
+      display: block;
+      margin: 0px;
+      font-size: 11px;
+      color: #eee;
+      font-family: "Chonburi", cursive;
+      letter-spacing: 1px;
+      font-weight: 300; }
+    .social-network .sn-item:hover p {
+      color: #3b5998; }
+    .social-network .sn-item:hover .sn-icon {
+      color: #3b5998; }
+    .social-network .sn-item.twitter:hover p {
+      color: #3a92c8; }
+    .social-network .sn-item.twitter:hover .sn-icon {
+      color: #3a92c8; }
+    .social-network .sn-item.pinterest:hover p {
+      color: #cb2027; }
+    .social-network .sn-item.pinterest:hover .sn-icon {
+      color: #cb2027; }
+    .social-network .sn-item.youtube:hover p {
+      color: #b00; }
+    .social-network .sn-item.youtube:hover .sn-icon {
+      color: #b00; }
+
+.popular-news {
+  list-style: none;
+  padding: 0px; }
+  .popular-news li {
+    padding: 15px 0px 15px 25px;
+    border-bottom: 1px solid #eeeeee;
+    position: relative; }
+    .popular-news li:before {
+      content: "";
+      display: block;
+      width: 17px;
+      height: 1px;
+      background-color: #000;
+      position: absolute;
+      top: 25px;
+      left: 0px; }
+    .popular-news li h3 {
+      font-size: 1.6rem; }
+    .popular-news li a {
+      font-family: "Chonburi", cursive;
+      position: relative; }
+
 .about-us img {
   display: block;
   margin: 0px 0px 15px 0px; }
 
 .page-caption {
-  margin: 0px 0px 30px 0px; }
+  margin: 0px 0px 0px 0px;
+  border-bottom: 1px solid #000; }
   .page-caption h2 {
     margin: 0px;
     font-size: 6.5rem; }
@@ -718,13 +827,12 @@ span.type {
 
 .news-categories .nc-item {
   padding: 20px 0px 20px 0px;
-  border-top: 1px solid #000; }
+  border-top: 1px solid #eeeeee; }
   .news-categories .nc-item:first-child {
     border: none;
     padding-top: 0px; }
   .news-categories .nc-item h3 {
-    margin: 0px 0px 5px 0px;
-    font-size: 3rem; }
+    margin: 0px 0px 5px 0px; }
   .news-categories .nc-item .date {
     color: #333;
     font-weight: 300;
@@ -738,10 +846,54 @@ span.type {
     .news-categories .nc-item .readmore:hover {
       border-bottom: 1px solid #000; }
 
+.paging {
+  margin: 30px auto 0px auto;
+  text-align: center; }
+  .paging a {
+    display: inline-block;
+    margin: 0px 4px;
+    line-height: 30px;
+    font-family: "Chonburi", cursive;
+    font-size: 20px;
+    color: #000;
+    padding: 0px 5px;
+    text-transform: uppercase;
+    min-width: 25px; }
+    .paging a:hover {
+      background-color: #000;
+      color: #fff; }
+    .paging a.next, .paging a.prev {
+      font-size: 30px;
+      position: relative;
+      top: 2px; }
+  .paging span {
+    display: inline-block;
+    margin: 0px 4px;
+    line-height: 30px;
+    font-weight: 700;
+    font-family: "Chonburi", cursive;
+    font-size: 20px;
+    font-weight: normal;
+    min-width: 25px;
+    padding: 0px 5px;
+    text-transform: uppercase;
+    position: relative; }
+    .paging span:before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 5px;
+      left: 0px;
+      right: 0px;
+      z-index: -1;
+      height: 5px;
+      background-color: #fd190b; }
+
 /*==========Footer=========*/
 .footer {
   margin: 150px 0px 0px 0px;
-  padding: 30px 0px 30px 0px; }
+  padding: 30px 0px 30px 0px;
+  border-top: 1px solid #000; }
   .footer .allright {
     text-align: center; }
     .footer .allright p {
@@ -756,6 +908,178 @@ span.type {
     .footer .allright a {
       color: #000;
       font-weight: 500; }
+
+/****************post*************/
+.post-title {
+  margin: 0px 0px 5px 0px; }
+
+.post-thumbnail {
+  margin: 0px 0px 10px 0px; }
+
+.post-meta {
+  margin: 0px 0px 10px 0px;
+  color: #333; }
+  .post-meta a {
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #000; }
+    .post-meta a:hover {
+      color: #000;
+      text-decoration: none;
+      border-bottom: 1px dashed #000; }
+  .post-meta em {
+    margin: 0px 6px;
+    text-transform: none;
+    font-style: normal; }
+  .post-meta .post-category {
+    position: relative;
+    padding: 0px 0px 0px 0px; }
+    .post-meta .post-category a {
+      letter-spacing: 1px; }
+      .post-meta .post-category a:hover {
+        text-decoration: none;
+        border-bottom: 1px dashed #000; }
+  .post-meta .post-author a:hover {
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px dashed #000; }
+  .post-meta .post-date {
+    color: #333;
+    font-weight: 300;
+    display: block;
+    font-size: 1.2rem;
+    margin: 0px 0px 5px 0px; }
+
+.post-des p {
+  margin: 0px 0px 10px 0px;
+  font-weight: 300; }
+
+.post-readmore a {
+  color: #000;
+  border-bottom: 1px dotted #000;
+  font-size: 1.2rem; }
+  .post-readmore a:hover {
+    border-bottom: 1px solid #000; }
+
+/**************home******************/
+.big-sticky-post {
+  position: relative;
+  text-align: center;
+  margin: 0px 0px 0px 0px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #000; }
+  .big-sticky-post img {
+    width: 100%; }
+  .big-sticky-post h1 {
+    text-align: center;
+    font-size: 60px;
+    margin: 40px 0px 20px 0px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    display: inline-block; }
+  .big-sticky-post .post-meta {
+    margin: 0px 0px 20px 0px;
+    text-align: center; }
+  .big-sticky-post .post-des {
+    margin-bottom: 50px; }
+    .big-sticky-post .post-des p {
+      margin: 10px 20px;
+      text-align: center;
+      font-size: 1.8rem; }
+      @media screen and (max-width: 767px) {
+        .big-sticky-post .post-des p {
+          font-size: 16px;
+          margin: 10px 10px; } }
+  .big-sticky-post .readmore {
+    text-align: center;
+    margin: 0px 0px 40px 0px; }
+    .big-sticky-post .readmore a {
+      display: inline-block;
+      position: relative;
+      padding: 0px 0px;
+      font-family: "Chonburi", cursive;
+      padding: 0px 0px;
+      font-size: 2rem;
+      transition: all ease 0.3s;
+      border-bottom: 1px dashed #000; }
+      .big-sticky-post .readmore a:hover {
+        border-bottom: 1px solid #000; }
+      .big-sticky-post .readmore a:before {
+        content: "";
+        display: block;
+        height: 5px;
+        left: 0px;
+        right: 0px;
+        bottom: 12px;
+        position: absolute;
+        z-index: -1; }
+
+.np-slider {
+  position: relative; }
+  .np-slider .owl-prev {
+    position: absolute;
+    top: 40%;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    z-index: 999;
+    border: 1px solid #000;
+    color: #000;
+    font-size: 20px;
+    margin: -15px 0px 0px 0px;
+    text-align: center;
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
+    .np-slider .owl-prev:hover {
+      background-color: #000;
+      color: #fff; }
+    .np-slider .owl-prev:active {
+      box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); }
+  .np-slider .owl-next {
+    position: absolute;
+    top: 40%;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    z-index: 999;
+    border: 1px solid #000;
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    margin: -15px 0px 0px 0px;
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
+    .np-slider .owl-next:hover {
+      background-color: #000;
+      color: #fff; }
+    .np-slider .owl-next:active {
+      box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); }
+  .np-slider .owl-dots {
+    display: none;
+    position: absolute;
+    border: -10px;
+    left: 0px;
+    right: 0px;
+    text-align: center; }
+    .np-slider .owl-dots .owl-dot {
+      width: 7px;
+      height: 3px;
+      display: inline-block;
+      margin: 0px 5px;
+      background-color: #000; }
+      .np-slider .owl-dots .owl-dot:hover, .np-slider .owl-dots .owl-dot.active {
+        background-color: #000; }
+
+.news-item {
+  padding: 20px 0px 20px 0px;
+  border-top: 1px solid #eeeeee; }
+  .news-item:first-child {
+    border: none;
+    padding-top: 0px; }
+  .news-item .post-thumbnail {
+    float: left;
+    width: 250px;
+    margin: 0px 20px 0px 0px; }
 
 /*==========Menu=========*/
 .menu-main-inner {
@@ -939,112 +1263,6 @@ span.type {
     .middle {
       padding: 50px 0px 0px 0px; } }
 
-.ciz-post .post-title {
-  padding: 5px 0px; }
-
-.post-title {
-  -moz-transition: all ease 0.5s;
-  -o-transition: all ease 0.5s;
-  -webkit-transition: all ease 0.5s;
-  transition: all ease 0.5s;
-  margin-top: 0px;
-  display: inline-block; }
-  .post-title a:hover {
-    border-bottom: 1px dashed #000; }
-
-.post-thumbnail img {
-  -webkit-filter: grayscale(70%);
-  filter: grayscale(70%);
-  -moz-transition: all ease 0.5s;
-  -o-transition: all ease 0.5s;
-  -webkit-transition: all ease 0.5s;
-  transition: all ease 0.5s;
-  height: auto; }
-
-.post-thumbnail:hover img {
-  -webkit-filter: grayscale(30%);
-  filter: grayscale(30%); }
-
-.post-thumb {
-  position: relative; }
-  .post-thumb .post-format {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    z-index: 999; }
-    .post-thumb .post-format i {
-      display: block;
-      text-align: center;
-      line-height: 20px;
-      width: 20px;
-      height: 20px;
-      position: absolute;
-      top: 5px;
-      right: 0px;
-      text-align: center;
-      color: #000;
-      font-size: 11px; }
-    .post-thumb .post-format:before {
-      content: "";
-      display: block;
-      width: 0px;
-      height: 0px;
-      border: 20px solid transparent;
-      -moz-transition: all ease 0.5s;
-      -o-transition: all ease 0.5s;
-      -webkit-transition: all ease 0.5s;
-      transition: all ease 0.5s; }
-  .post-thumb img {
-    -webkit-filter: grayscale(70%);
-    filter: grayscale(70%);
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s; }
-  .post-thumb:hover img {
-    -webkit-filter: grayscale(30%);
-    filter: grayscale(30%); }
-
-.post-meta {
-  font-size: 11px;
-  margin: 0px 0px 10px 0px;
-  color: #333; }
-  .post-meta a {
-    letter-spacing: 1px;
-    font-weight: 600;
-    color: #000; }
-    .post-meta a:hover {
-      color: #000;
-      text-decoration: none;
-      border-bottom: 1px dashed #000; }
-  .post-meta em {
-    margin: 0px 6px;
-    text-transform: none;
-    font-style: normal; }
-  .post-meta .post-category {
-    position: relative;
-    padding: 0px 0px 0px 0px; }
-    .post-meta .post-category a {
-      letter-spacing: 1px; }
-      .post-meta .post-category a:hover {
-        text-decoration: none;
-        border-bottom: 1px dashed #000; }
-  .post-meta .post-author a:hover {
-    color: #000;
-    text-decoration: none;
-    border-bottom: 1px dashed #000; }
-
-.post-des p {
-  font-size: 16px;
-  margin: 10px 0px; }
-  @media screen and (max-width: 767px) {
-    .post-des p {
-      font-size: 16px; } }
-  .post-des p a {
-    font-family: "Chonburi", cursive; }
-
 .sidebar-left.cols {
   padding: 0px 0px 0px 350px;
   position: relative; }
@@ -1160,60 +1378,6 @@ span.type {
     margin: 0px;
     list-style: none; }
 
-.big-sticky-post {
-  position: relative;
-  text-align: center;
-  margin: 0px 0px 40px 0px;
-  border-bottom: 15px solid #eeeeee; }
-  .big-sticky-post img {
-    width: 100%; }
-  .big-sticky-post h1 {
-    text-align: center;
-    font-size: 60px;
-    margin: 40px 0px 20px 0px;
-    text-transform: uppercase;
-    line-height: 1.1;
-    display: inline-block;
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s;
-    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1); }
-    .big-sticky-post h1:hover {
-      color: #fd190b; }
-  .big-sticky-post .post-meta {
-    margin: 0px 0px 20px 0px;
-    text-align: center; }
-  .big-sticky-post .post-des {
-    margin-bottom: 30px; }
-    .big-sticky-post .post-des p {
-      margin: 10px 20px;
-      text-align: center;
-      font-size: 1.8rem; }
-      @media screen and (max-width: 767px) {
-        .big-sticky-post .post-des p {
-          font-size: 16px;
-          margin: 10px 10px; } }
-  .big-sticky-post .readmore {
-    text-align: center;
-    margin: 0px 0px 40px 0px; }
-    .big-sticky-post .readmore a {
-      display: inline-block;
-      position: relative;
-      border: 2px solid #000;
-      line-height: 40px;
-      padding: 0px 30px;
-      font-weight: 700;
-      color: #000;
-      font-family: "Chonburi", cursive;
-      text-transform: uppercase;
-      box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
-      .big-sticky-post .readmore a:hover {
-        background-color: #000;
-        color: #fff; }
-      .big-sticky-post .readmore a:active {
-        box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.6); }
-
 .news-popular {
   margin: 0px 0px 40px 0px; }
   .news-popular .np-list ul {
@@ -1240,70 +1404,6 @@ span.type {
           font-size: 2.2rem; }
       .news-popular .np-list ul li .post-meta {
         font-size: 1.1rem; }
-
-.np-item {
-  padding: 0px 1px; }
-  .np-item h3 {
-    margin: 15px 0px 0px 0px;
-    display: inline-block; }
-    .np-item h3:hover {
-      border-bottom: 1px dashed #000; }
-
-.np-slider {
-  position: relative; }
-  .np-slider .owl-prev {
-    position: absolute;
-    top: 40%;
-    left: 10px;
-    width: 30px;
-    height: 30px;
-    line-height: 28px;
-    z-index: 999;
-    border: 1px solid #000;
-    color: #000;
-    font-size: 20px;
-    margin: -15px 0px 0px 0px;
-    text-align: center;
-    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
-    .np-slider .owl-prev:hover {
-      background-color: #000;
-      color: #fff; }
-    .np-slider .owl-prev:active {
-      box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); }
-  .np-slider .owl-next {
-    position: absolute;
-    top: 40%;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    line-height: 28px;
-    z-index: 999;
-    border: 1px solid #000;
-    color: #000;
-    text-align: center;
-    font-size: 20px;
-    margin: -15px 0px 0px 0px;
-    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
-    .np-slider .owl-next:hover {
-      background-color: #000;
-      color: #fff; }
-    .np-slider .owl-next:active {
-      box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); }
-  .np-slider .owl-dots {
-    display: none;
-    position: absolute;
-    border: -10px;
-    left: 0px;
-    right: 0px;
-    text-align: center; }
-    .np-slider .owl-dots .owl-dot {
-      width: 7px;
-      height: 3px;
-      display: inline-block;
-      margin: 0px 5px;
-      background-color: #000; }
-      .np-slider .owl-dots .owl-dot:hover, .np-slider .owl-dots .owl-dot.active {
-        background-color: #000; }
 
 .want-read {
   margin: 0px 0px 40px 0px;
@@ -1453,7 +1553,7 @@ span.type {
   margin: 0px 0px 10px 0px; }
   @media screen and (max-width: 991px) {
     .category-big-post h2 {
-      font-size: 2.5rem; } }
+      font-size: 2rem; } }
 
 .three-articles {
   margin: 30px 0px 10px 0px; }
@@ -1551,7 +1651,7 @@ span.type {
       margin: 10px 0px; }
       @media screen and (max-width: 991px) {
         .post-slider .ps-item h2 {
-          font-size: 2.5rem; } }
+          font-size: 2rem; } }
       @media screen and (max-width: 767px) {
         .post-slider .ps-item h2 {
           font-size: 2rem;
@@ -1708,42 +1808,6 @@ span.type {
 
 .paging-outer {
   text-align: center; }
-
-.paging {
-  margin: 30px auto 50px auto;
-  display: inline-block;
-  text-align: center;
-  padding: 2px 5px; }
-  .paging a {
-    display: inline-block;
-    margin: 0px 4px;
-    line-height: 30px;
-    font-family: "Chonburi", cursive;
-    font-size: 15px;
-    color: #000;
-    min-width: 25px;
-    padding: 0px 7px;
-    text-transform: uppercase;
-    border: 1px solid #000;
-    float: left; }
-    .paging a:hover {
-      background-color: #000;
-      color: #fff; }
-  .paging span {
-    display: inline-block;
-    margin: 0px 4px;
-    line-height: 30px;
-    font-weight: 700;
-    background-color: #fd190b;
-    font-family: "Chonburi", cursive;
-    border: 1px solid #fd190b;
-    font-size: 15px;
-    color: #fff;
-    font-weight: normal;
-    min-width: 25px;
-    padding: 0px 7px;
-    text-transform: uppercase;
-    float: left; }
 
 .grid-masonry {
   margin: 50px 0px;
@@ -1919,9 +1983,6 @@ span.type {
     .box-search-sidebar button:hover {
       background-color: #fd190b; }
 
-.box-social {
-  margin-bottom: 40px; }
-
 .social {
   text-align: center;
   padding: 0px 0px 0px 0px;
@@ -1977,71 +2038,6 @@ span.type {
       background-color: #cb2027; }
     .social a.youtube:hover {
       background-color: #b00; }
-
-.social-network {
-  overflow: hidden; }
-  .social-network .sn-row {
-    margin: 0px -5px; }
-    .social-network .sn-row .sn-col {
-      float: left;
-      width: 50%;
-      padding: 0px 5px; }
-
-.sn-item {
-  padding: 2px 2px 2px 67px;
-  height: 50px;
-  margin: 0px 0px 10px 0px;
-  cursor: pointer;
-  background-color: #000; }
-  .sn-item .sn-icon {
-    float: left;
-    margin: 0px 0px 0px -65px;
-    height: 46px;
-    width: 46px;
-    color: #000;
-    text-align: center;
-    font-size: 20px;
-    line-height: 46px;
-    background-color: #fff; }
-    .sn-item .sn-icon i {
-      -moz-transition: all ease 0.5s;
-      -o-transition: all ease 0.5s;
-      -webkit-transition: all ease 0.5s;
-      transition: all ease 0.5s; }
-  .sn-item p {
-    margin: 0px;
-    font-family: "Chonburi", cursive;
-    text-transform: uppercase;
-    color: #fff;
-    padding: 0px 0px 0px 0px;
-    font-size: 22px;
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s; }
-  .sn-item span {
-    display: block;
-    margin: 0px;
-    font-size: 11px;
-    color: #eee;
-    font-family: "Chonburi", cursive;
-    letter-spacing: 1px; }
-  .sn-item:hover p {
-    color: #3b5998; }
-  .sn-item:hover .sn-icon {
-    color: #3b5998; }
-  .sn-item.twitter:hover p {
-    color: #3a92c8; }
-  .sn-item.twitter:hover .sn-icon {
-    color: #3a92c8; }
-  .sn-item.pinterest:hover p {
-    color: #cb2027; }
-  .sn-item.pinterest:hover .sn-icon {
-    color: #cb2027; }
-  .sn-item.youtube:hover p {
-    color: #b00; }
-  .sn-item.youtube:hover .sn-icon {
-    color: #b00; }
 
 .subcribe-box {
   text-align: center;
