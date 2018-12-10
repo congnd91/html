@@ -25,6 +25,21 @@
                 $('.menu-overlay').stop(true, true).removeClass("active");
             });
 
+            $('.menu-res ul li.has-child a').on('click', function (e) {
+                var menu = $(this).parent().find("ul");
+                if ($(menu).is(":visible")) {
+                    $(menu).slideUp();
+                    $(this).removeClass("active");
+
+
+                } else {
+                    $(menu).slideDown();
+                    $(this).addClass("active");
+
+                }
+                return false;
+            });
+
         }
 
         db.scrollMenu = function () {
@@ -95,10 +110,7 @@
                     smartSpeed: 500,
                 });
             }
-
-
         }
-
         db.niceScroll = function () {
             var scroll = $('.cf-policy');
             if ($(scroll).length) {

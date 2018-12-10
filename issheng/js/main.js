@@ -60,9 +60,21 @@
             }
         }
         db.showSearch = function () {
-            $('.search-icon').on('click', function () {
+
+            $('.page').on('click', function () {
+                $('.search-wrap').removeClass("show");
+            });
+
+            $('.search-icon').on('click', function (e) {
+
+                e.stopPropagation();
                 $('.search-wrap').toggleClass("show");
             });
+
+            $('.search-wrap .search-box').on('click', function (e) {
+                e.stopPropagation();
+            });
+
         }
         db.sliderAbout = function () {
             setTimeout(function () {

@@ -413,21 +413,49 @@ iframe {
   border-top: 1px solid #ddd;
   transform: translateX(100%);
   z-index: 999; }
-  .menu-res ul {
+  .menu-res > ul {
     list-style: none;
     margin: 0px;
     padding: 0px; }
-    .menu-res ul li {
-      border-bottom: 1px solid #ddd; }
-      .menu-res ul li a {
+    .menu-res > ul > li {
+      border-bottom: 1px solid #ddd;
+      position: relative; }
+      .menu-res > ul > li > a {
         display: block;
         font-size: 1.4rem;
         text-transform: uppercase;
         font-weight: 500;
         padding: 10px 0px 10px 15px;
         transition: all ease 0.3s; }
-        .menu-res ul li a:hover {
+        .menu-res > ul > li > a:hover {
           background-color: #eee; }
+        .menu-res > ul > li > a.active i {
+          transform: rotate(180deg); }
+        .menu-res > ul > li > a i {
+          position: absolute;
+          height: 20px;
+          width: 20px;
+          text-align: center;
+          line-height: 20px;
+          position: absolute;
+          top: 10px;
+          font-size: 15px;
+          right: 5px; }
+      .menu-res > ul > li > ul {
+        list-style: none;
+        margin: 0px;
+        display: none;
+        padding: 0px 0px 0px 15px; }
+        .menu-res > ul > li > ul li {
+          border-bottom: 1px solid #ddd; }
+          .menu-res > ul > li > ul li:last-child {
+            border: none; }
+          .menu-res > ul > li > ul li a {
+            display: block;
+            padding: 10px 10px 10px 10px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            font-weight: 500; }
 
 .show-search .search-overlay {
   visibility: visible;

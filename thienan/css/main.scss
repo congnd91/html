@@ -564,15 +564,16 @@ iframe {
     transform: translateX(100%);
     z-index: 999;
 
-    ul {
+    > ul {
         list-style: none;
         margin: 0px;
         padding: 0px;
 
-        li {
+        > li {
             border-bottom: 1px solid #ddd;
+            position: relative;
 
-            a {
+            > a {
                 display: block;
                 font-size: $fs14;
                 text-transform: uppercase;
@@ -583,6 +584,49 @@ iframe {
                 &:hover {
                     background-color: #eee;
                 }
+
+                &.active {
+                    i {
+                        transform: rotate(180deg);
+                    }
+                }
+
+                i {
+                    position: absolute;
+                    height: 20px;
+                    width: 20px;
+                    text-align: center;
+                    line-height: 20px;
+                    position: absolute;
+                    top: 10px;
+                    font-size: 15px;
+                    right: 5px;
+                }
+            }
+
+            > ul {
+                list-style: none;
+                margin: 0px;
+                display: none;
+                padding: 0px 0px 0px 15px;
+
+                li {
+                    border-bottom: 1px solid #ddd;
+
+                    &:last-child {
+                        border: none;
+                    }
+
+                    a {
+                        display: block;
+                        padding: 10px 10px 10px 10px;
+                        font-size: $fs14;
+                        cursor: pointer;
+                        font-weight: 500;
+
+                    }
+                }
+
             }
         }
     }
