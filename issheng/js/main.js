@@ -158,13 +158,19 @@
             if ($('.pp-item').length) {
                 $('.pp-item').matchHeight();
             }
-            if ($('.sr-item').length) {
-                $('.sr-item').matchHeight();
-            }
+            //  if ($('.sr-item').length) {
+            // $('.sr-item').matchHeight();
+            // }
+
+
+
             if ($('.product-item').length) {
                 $('.product-item').matchHeight();
             }
 
+            if ($('.sr-des').length) {
+                $('.sr-des ').niceScroll();
+            }
 
             $('.mega-col').matchHeight();
         }

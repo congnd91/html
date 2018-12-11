@@ -1611,13 +1611,29 @@ iframe {
     .sr-item:hover .sr-img img {
       transform: scale(1.1); }
   .sr-item .sr-img {
-    overflow: hidden; }
+    overflow: hidden;
+    position: relative; }
     .sr-item .sr-img img {
       display: block;
       transition: all ease 0.4s;
       width: 100%; }
+    .sr-item .sr-img:before {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      z-index: 10;
+      background-image: url(../images/zoom.png);
+      background-size: 30px 30px;
+      background-repeat: no-repeat; }
   .sr-item .sr-des {
-    padding: 0px 15px 30px 15px; }
+    padding: 0px 15px 30px 15px;
+    max-height: 210px;
+    min-height: 210px;
+    overflow: auto; }
   .sr-item span {
     display: block;
     font-size: 1.6rem;
@@ -1999,5 +2015,9 @@ iframe {
           width: 20px;
           height: 20px;
           background-size: 20px 20px; } }
+
+.nicescroll-cursors {
+  border: none !important;
+  opacity: 0.3 !important; }
 
 /*# sourceMappingURL=main.css.map */
