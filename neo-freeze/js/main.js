@@ -46,17 +46,17 @@
                 });
             }
         }
-        db.homeProductSlider = function () {
-            var owl_home = $('.owl-product-home');
+        db.productSlider = function () {
+            var owl_home = $('.owl-product');
             if ($(owl_home).length) {
                 $(owl_home).owlCarousel({
                     loop: true,
                     margin: 0,
-                    nav: false,
+                    nav: true,
                     autoplay: true,
-                    mouseDrag: false,
+                    mouseDrag: true,
                     items: 1,
-                    animateOut: 'fadeOut'
+                    navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
                 });
             }
         }
@@ -77,6 +77,58 @@
             });
 
         }
+
+        db.showApp = function () {
+
+            $('.app-item').on('click', function () {
+                $('body').toggleClass("show-app-detail");
+            });
+            $('.app-close').on('click', function () {
+                $('body').toggleClass("show-app-detail");
+            });
+
+
+
+        }
+
+        db.fAQ = function () {
+
+            $('.faq-item .fi-caption').on('click', function () {
+
+                var content = $(this).next();
+                if ($(content).is(":visible")) {
+
+
+                    $(content).slideUp();
+                    $(this).parent().removeClass("active");
+
+                } else {
+                    $(content).slideDown();
+                    $(this).parent().addClass("active");
+
+                }
+
+            });
+
+        }
+
+        db.gender = function () {
+            $('.c-text').on('click', function () {
+                $('.c-text').removeClass("active");
+                $(this).addClass("active");
+                var gender = $(this).attr('data-gender');
+                $("#gender").val(gender);
+            });
+        }
+
+
+
+
+
+
+
+
+
         db.sliderAbout = function () {
             setTimeout(function () {
                 var owl_miles = $('.owl-miles');
@@ -169,22 +221,22 @@
 
             $('.mega-col').matchHeight();
         }
-        db.gender = function () {
-            $('.c-text').on('click', function () {
-                $('.c-text').removeClass("active");
-                $(this).addClass("active");
-                var gender = $(this).attr('data-gender');
-                $("#gender").val(gender);
-            });
-        }
+
         db.preLoad();
         db.homeSlider();
-        db.homeProductSlider();
+        db.productSlider();
         db.showSearch();
+        db.fAQ();
+        db.gender();
+        db.showApp();
+
+
+
+
         db.menuLeft();
         db.sliderAbout();
         db.menuResponsive();
         db.matchHeight();
-        db.gender();
+
     });
 })(jQuery);
