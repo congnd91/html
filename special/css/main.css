@@ -22,7 +22,7 @@
     10. Page 404 
     11. Page Gallery 
     12. Page About 
-    13. Page Shop 
+    13. box-captionop 
     14. Page Contact 
 
 -------------------------------------------------------------------*/
@@ -573,6 +573,8 @@ span.type {
     @media screen and (max-width: 767px) {
       .box .box-caption {
         font-size: 2.5rem; } }
+    .box .box-caption.small {
+      font-size: 2.5rem; }
     .box .box-caption span {
       letter-spacing: -1px;
       font-family: "Chonburi", cursive;
@@ -809,6 +811,28 @@ span.type {
       color: #333;
       font-family: "Chonburi", cursive;
       display: block; }
+  .single-detail .sd-content .sdc-650 > p:first-child {
+    min-height: 50px; }
+    .single-detail .sd-content .sdc-650 > p:first-child:first-letter {
+      font-size: 40px;
+      line-height: 30px;
+      font-weight: 500;
+      text-align: center;
+      width: 30px;
+      height: 30px;
+      text-transform: uppercase;
+      float: left;
+      margin: 10px 10px 0px 5px;
+      color: #333;
+      font-family: "Chonburi", cursive;
+      display: block; }
+
+.single-detail .sdc-650 {
+  max-width: 650px;
+  margin: 0px auto; }
+
+.single-detail .sdc-image {
+  margin: 20px auto; }
 
 .sd-share {
   text-align: right; }
@@ -1090,6 +1114,8 @@ span.type {
 .grids-outer {
   overflow: hidden;
   margin-top: -40px; }
+  .grids-outer.no-margin-top {
+    margin-top: 0px; }
 
 .grids {
   margin: 0px -20px;
@@ -1144,14 +1170,27 @@ span.type {
         width: 100%; } }
 
 .grids-large .grid-item {
-  margin-bottom: 50px;
-  float: left;
-  width: 50%;
-  padding: 0px 20px; }
+  width: 50%; }
   @media screen and (max-width: 767px) {
     .grids-large .grid-item {
       float: none;
       width: 100%; } }
+
+.grids-large:before {
+  content: "";
+  display: block;
+  top: 0px;
+  position: absolute;
+  width: 1px;
+  bottom: 0px;
+  background-color: #000;
+  left: 50%; }
+  @media screen and (max-width: 767px) {
+    .grids-large:before {
+      display: none; } }
+
+.grids-large:after {
+  display: none; }
 
 .grids-small .grid-item {
   margin-bottom: 50px;
@@ -1182,6 +1221,541 @@ span.type {
     .colleft .grids .grids-item {
       float: none;
       width: 100%; } }
+
+/*==========Page Shop =========*/
+.shop-item {
+  position: relative;
+  margin-bottom: 40px; }
+  .shop-item .shop-img {
+    position: relative;
+    overflow: hidden; }
+    .shop-item .shop-img img {
+      width: 100%; }
+    .shop-item .shop-img .sale {
+      position: absolute;
+      top: 10px;
+      left: 0px;
+      display: inline-block;
+      padding: 1px 10px;
+      z-index: 9;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      font-size: 1.4rem;
+      font-family: "Chonburi", cursive;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 300;
+      line-height: 20px; }
+    .shop-item .shop-img .add-to-cart {
+      position: absolute;
+      bottom: -40px;
+      left: 0px;
+      right: 0px;
+      line-height: 40px;
+      text-transform: uppercase;
+      font-size: 12px;
+      z-index: 9;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      font-family: "Chonburi", cursive;
+      -moz-transition: all ease 0.5s;
+      -o-transition: all ease 0.5s;
+      -webkit-transition: all ease 0.5s;
+      transition: all ease 0.5s; }
+      .shop-item .shop-img .add-to-cart:hover {
+        background-color: #fd190b; }
+    .shop-item .shop-img .like {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      line-height: 40px;
+      font-size: 12px;
+      width: 30px;
+      height: 30px;
+      -moz-transform: scale(0.2);
+      -ms-transform: scale(0.2);
+      -o-transform: scale(0.2);
+      -webkit-transform: scale(0.2);
+      transform: scale(0.2);
+      opacity: 0;
+      z-index: 9;
+      color: #000;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+      font-family: "Chonburi", cursive;
+      -moz-transition: all ease 0.5s;
+      -o-transition: all ease 0.5s;
+      -webkit-transition: all ease 0.5s;
+      transition: all ease 0.5s; }
+      .shop-item .shop-img .like:hover {
+        color: #c0392b;
+        cursor: pointer; }
+        .shop-item .shop-img .like:hover i:before {
+          content: "\f004"; }
+    .shop-item .shop-img:hover .add-to-cart {
+      bottom: 0px; }
+    .shop-item .shop-img:hover .like {
+      -moz-transform: scale(1);
+      -ms-transform: scale(1);
+      -o-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1; }
+  .shop-item h3 {
+    margin: 10px 0px;
+    font-weight: 400;
+    font-size: 1.8rem; }
+    .shop-item h3 a {
+      -moz-transition: all ease 0.5s;
+      -o-transition: all ease 0.5s;
+      -webkit-transition: all ease 0.5s;
+      transition: all ease 0.5s; }
+      .shop-item h3 a:hover {
+        color: #fd190b; }
+  .shop-item .price {
+    margin: 5px 0px; }
+    .shop-item .price span {
+      font-family: "Chonburi", cursive;
+      margin: 0px 20px 0px 0px;
+      color: #fd190b;
+      font-size: 1.4rem; }
+      .shop-item .price span.old {
+        color: #666;
+        text-decoration: line-through; }
+  .shop-item .votes i {
+    font-size: 13px;
+    margin: 0px 3px 0px 0px;
+    color: #f1c40f; }
+
+.loadmore-prouduct {
+  text-align: center;
+  margin: 0px 0px 50px 0px; }
+  .loadmore-prouduct a {
+    font-family: "Chonburi", cursive;
+    letter-spacing: 2px;
+    font-size: 14px;
+    border: 1px solid #000;
+    line-height: 35px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0px 30px;
+    -moz-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s; }
+    .loadmore-prouduct a:hover {
+      background-color: #000;
+      color: #fff; }
+
+.shopbar {
+  margin: 0px 0px 20px 0px; }
+  .shopbar h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    float: left;
+    margin: 0px 0px 10px 0px;
+    padding: 0px;
+    line-height: 25px; }
+    @media screen and (max-width: 991px) {
+      .shopbar h3 {
+        float: none; } }
+  .shopbar .sortby {
+    float: right;
+    position: relative;
+    border: 1px solid #000;
+    min-width: 200px; }
+    @media screen and (max-width: 991px) {
+      .shopbar .sortby {
+        float: none;
+        width: 100%; } }
+    .shopbar .sortby p {
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      padding: 0px 10px;
+      line-height: 25px;
+      margin: 0px; }
+      .shopbar .sortby p i {
+        float: right;
+        line-height: 25px;
+        margin: 0px 0px 0px 5px; }
+    .shopbar .sortby .dropdown-menu {
+      border: none;
+      border-radius: 0px;
+      left: auto;
+      right: -1px;
+      background-color: #000;
+      padding: 0px; }
+      .shopbar .sortby .dropdown-menu li {
+        border-bottom: 1px solid #333; }
+        .shopbar .sortby .dropdown-menu li a {
+          display: block;
+          color: #fff;
+          font-size: 13px;
+          color: #fff;
+          font-weight: 300;
+          padding: 5px 10px;
+          text-align: right;
+          white-space: nowrap; }
+          .shopbar .sortby .dropdown-menu li a:hover {
+            background-color: #333; }
+        .shopbar .sortby .dropdown-menu li.current a {
+          color: #fd190b; }
+
+.list-popular-product {
+  margin-bottom: 50px; }
+
+.pp-item {
+  padding: 15px 0px;
+  border-bottom: 1px solid #eee;
+  min-height: 110px; }
+  .pp-item:first-child {
+    padding-top: 0px;
+    min-height: 95px; }
+  .pp-item:last-child {
+    border: none; }
+  .pp-item .shop-img {
+    float: left;
+    width: 70px;
+    border: 1px solid #000;
+    padding: 3px;
+    margin: 0px 15px 0px 0px; }
+  .pp-item h3 {
+    margin: 0px;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 0px 0px 0px; }
+    .pp-item h3 a {
+      -moz-transition: all ease 0.5s;
+      -o-transition: all ease 0.5s;
+      -webkit-transition: all ease 0.5s;
+      transition: all ease 0.5s; }
+      .pp-item h3 a:hover {
+        color: #fd190b; }
+  .pp-item .price {
+    margin: 5px 0px; }
+    .pp-item .price span {
+      margin: 0px 20px 0px 0px;
+      color: #fd190b;
+      font-size: 14px;
+      font-weight: 400; }
+      .pp-item .price span.old {
+        color: #666;
+        text-decoration: line-through; }
+
+.box-shopping-cart {
+  margin-bottom: 50px;
+  min-height: 100px; }
+  .box-shopping-cart .sc-item {
+    padding: 20px 0px;
+    border-bottom: 1px solid #eee; }
+    .box-shopping-cart .sc-item:first-child {
+      padding-top: 0px; }
+    .box-shopping-cart .sc-item h4 {
+      font-size: 16px;
+      font-weight: 400;
+      margin: 0px; }
+    .box-shopping-cart .sc-item p {
+      color: #666;
+      text-transform: uppercase;
+      margin: 5px 0px 0px 0px;
+      font-weight: 500; }
+  .box-shopping-cart h5 {
+    margin: 20px 0px;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700; }
+    .box-shopping-cart h5 span {
+      color: #fd190b; }
+  .box-shopping-cart .my-btn {
+    display: block;
+    width: 100%;
+    color: #fff;
+    margin: 10px 0px 0px 0px;
+    background-color: #000;
+    text-align: center; }
+    .box-shopping-cart .my-btn:hover {
+      background-color: #000;
+      opacity: 0.8; }
+    .box-shopping-cart .my-btn.btn-view-cart {
+      border: none;
+      color: #000;
+      background-color: transparent; }
+      .box-shopping-cart .my-btn.btn-view-cart:hover {
+        text-decoration: underline;
+        background-color: navajowhite; }
+
+.woocommerce .woocommerce-result-count {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 14px;
+  float: left;
+  margin: 0px 0px 10px 0px;
+  padding: 0px !important;
+  line-height: 25px;
+  font-family: "Chonburi", cursive; }
+  @media screen and (max-width: 991px) {
+    .woocommerce .woocommerce-result-count {
+      float: none; } }
+
+.woocommerce .woocommerce-ordering {
+  float: right;
+  position: relative; }
+  .woocommerce .woocommerce-ordering select {
+    border: 1px solid #000;
+    text-transform: uppercase;
+    font-family: "Chonburi", cursive;
+    font-size: 14px;
+    float: right; }
+  @media screen and (max-width: 991px) {
+    .woocommerce .woocommerce-ordering {
+      float: none;
+      width: 100%; } }
+
+.products-wrapper {
+  overflow: hidden;
+  clear: both; }
+
+.woocommerce ul.products {
+  margin: 0px -15px;
+  list-style: none;
+  padding: 0px; }
+  .woocommerce ul.products li.product {
+    float: left !important;
+    width: 33.333% !important;
+    padding: 0px 15px !important;
+    margin: 0px 0px 40px 0px !important; }
+    @media screen and (max-width: 991px) {
+      .woocommerce ul.products li.product {
+        float: left !important;
+        width: 50% !important; } }
+    @media screen and (max-width: 767px) {
+      .woocommerce ul.products li.product {
+        float: none !important;
+        width: 100% !important; } }
+    .woocommerce ul.products li.product .product-thumbnail {
+      position: relative;
+      overflow: hidden; }
+      .woocommerce ul.products li.product .product-thumbnail a img {
+        width: 100%;
+        height: auto;
+        margin: 0px; }
+      .woocommerce ul.products li.product .product-thumbnail .button {
+        position: absolute;
+        bottom: -40px;
+        left: 0px;
+        right: 0px;
+        line-height: 40px;
+        font-size: 12px;
+        letter-spacing: 3px;
+        z-index: 9;
+        margin: 0px;
+        background-color: #000;
+        color: #fff;
+        padding: 0px;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: "Chonburi", cursive;
+        -moz-transition: all ease 0.5s;
+        -o-transition: all ease 0.5s;
+        -webkit-transition: all ease 0.5s;
+        transition: all ease 0.5s;
+        border-radius: 0px;
+        font-weight: 300; }
+        .woocommerce ul.products li.product .product-thumbnail .button:hover {
+          background-color: #fd190b; }
+    .woocommerce ul.products li.product h3 {
+      margin: 10px 0px;
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: 1px; }
+      .woocommerce ul.products li.product h3 a {
+        -moz-transition: all ease 0.5s;
+        -o-transition: all ease 0.5s;
+        -webkit-transition: all ease 0.5s;
+        transition: all ease 0.5s; }
+        .woocommerce ul.products li.product h3 a:hover {
+          color: #fd190b; }
+    .woocommerce ul.products li.product .price {
+      margin: 5px 0px; }
+      .woocommerce ul.products li.product .price del {
+        display: inline-block;
+        margin: 0px 20px 0px 0px; }
+        .woocommerce ul.products li.product .price del span {
+          color: #666;
+          text-decoration: line-through; }
+      .woocommerce ul.products li.product .price .ins {
+        display: block; }
+      .woocommerce ul.products li.product .price span {
+        font-family: "Chonburi", cursive;
+        color: #fd190b;
+        font-size: 16px; }
+    .woocommerce ul.products li.product:hover .product-thumbnail .button {
+      bottom: 0px; }
+
+.swiper-product {
+  overflow: hidden;
+  position: relative; }
+  .swiper-product .swiper-slide {
+    width: 100%; }
+
+.product-des h1 {
+  margin: 10px 0px;
+  font-weight: 400;
+  font-size: 25px;
+  letter-spacing: 1px; }
+  .product-des h1 a {
+    -moz-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s; }
+    .product-des h1 a:hover {
+      color: #fd190b; }
+
+.product-des .price {
+  margin: 5px 0px; }
+  .product-des .price span {
+    font-family: "Chonburi", cursive;
+    margin: 0px 20px 0px 0px;
+    color: #fd190b;
+    font-size: 16px; }
+    .product-des .price span.old {
+      color: #666;
+      text-decoration: line-through; }
+
+.product-des .votes i {
+  font-size: 13px;
+  margin: 0px 3px 0px 0px;
+  color: #f1c40f; }
+
+.product-des .product-sapo {
+  margin: 10px 0px 0px 0px;
+  padding: 10px 0px 0px;
+  border-top: 2px solid #000; }
+
+.product-des .my-btn {
+  margin-top: 25px; }
+
+.quantity {
+  margin-top: 19px;
+  width: 90px;
+  height: 30px; }
+  .quantity input[type="button"] {
+    float: left;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    color: #fff;
+    line-height: 25px;
+    font-size: 15px;
+    outline: none;
+    -moz-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    font-family: "Chonburi", cursive;
+    font-size: 20px;
+    border: none; }
+    .quantity input[type="button"]:hover {
+      background-color: #fd190b; }
+  .quantity input[type="text"] {
+    font-family: "Chonburi", cursive;
+    float: left;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: none;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    font-size: 15px;
+    outline: none; }
+
+.shop-tab {
+  margin-top: 30px;
+  border: 1px solid #000; }
+  .shop-tab .shop-tab-caption ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    height: 40px;
+    border-bottom: 1px solid #000; }
+    .shop-tab .shop-tab-caption ul li {
+      float: left;
+      margin: 0px 20px 0px 0px; }
+      .shop-tab .shop-tab-caption ul li a {
+        display: block;
+        line-height: 40px;
+        font-family: "Chonburi", cursive;
+        padding: 0px;
+        font-size: 2.6rem;
+        padding: 5px 0px;
+        border-bottom: 3px solid transparent; }
+        .shop-tab .shop-tab-caption ul li a.active {
+          background-color: #000;
+          border-bottom: 3px solid #000; }
+  .shop-tab .tab-content {
+    padding: 20px; }
+    .shop-tab .tab-content .table tr {
+      border: none; }
+      .shop-tab .tab-content .table tr td {
+        border: none; }
+      .shop-tab .tab-content .table tr:nth-child(odd) {
+        background-color: #eeeeee; }
+
+.cart-table {
+  border: 1px solid #000;
+  min-width: 767px; }
+  .cart-table thead tr {
+    background-color: #000;
+    border: none !important; }
+    .cart-table thead tr th {
+      border: none !important;
+      color: #fff;
+      font-family: "Chonburi", cursive;
+      text-transform: uppercase;
+      font-weight: 400;
+      padding: 10px !important; }
+  .cart-table tr {
+    border-bottom: 1px solid #000 !important; }
+    .cart-table tr td {
+      border: none !important;
+      padding: 10px !important;
+      vertical-align: middle !important;
+      font-family: "Chonburi", cursive;
+      text-transform: uppercase; }
+      .cart-table tr td .quantity {
+        margin: 0px !important; }
+      .cart-table tr td .amount {
+        color: #fd190b; }
+      .cart-table tr td .total {
+        color: #fd190b; }
+
+.cart-tab-wrap {
+  overflow: auto;
+  margin-bottom: 20px; }
+
+.cart-totals {
+  margin: 30px 0px 30px 0px; }
+  .cart-totals table tr td {
+    border: 1px solid #000;
+    font-family: "Chonburi", cursive;
+    text-transform: uppercase;
+    padding: 10px;
+    font-weight: 400; }
+    .cart-totals table tr td strong {
+      color: #fd190b; }
+  .cart-totals table tr th {
+    border: 1px solid #000;
+    font-family: "Chonburi", cursive;
+    text-transform: uppercase;
+    padding: 10px;
+    font-weight: 400;
+    background-color: #eeeeee; }
 
 /*==========Menu=========*/
 .menu-main-inner {
@@ -3364,604 +3938,6 @@ span.type {
     .about-social a:hover {
       background-color: #000;
       color: #fff; }
-
-/*==========Page Shop =========*/
-.shop-item {
-  position: relative;
-  margin-bottom: 40px; }
-  .shop-item .shop-img {
-    position: relative;
-    overflow: hidden; }
-    .shop-item .shop-img img {
-      width: 100%; }
-    .shop-item .shop-img .sale {
-      position: absolute;
-      top: 10px;
-      left: 0px;
-      display: inline-block;
-      padding: 1px 10px;
-      z-index: 9;
-      background-color: #fd190b;
-      color: #fff;
-      text-align: center;
-      font-size: 17px;
-      font-family: "Chonburi", cursive;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 300;
-      line-height: 20px; }
-    .shop-item .shop-img .add-to-cart {
-      position: absolute;
-      bottom: -40px;
-      left: 0px;
-      right: 0px;
-      line-height: 40px;
-      font-size: 12px;
-      letter-spacing: 3px;
-      z-index: 9;
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-      font-family: "Chonburi", cursive;
-      -moz-transition: all ease 0.5s;
-      -o-transition: all ease 0.5s;
-      -webkit-transition: all ease 0.5s;
-      transition: all ease 0.5s; }
-      .shop-item .shop-img .add-to-cart:hover {
-        background-color: #fd190b; }
-    .shop-item .shop-img .like {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      line-height: 40px;
-      font-size: 12px;
-      width: 30px;
-      height: 30px;
-      -moz-transform: scale(0.2);
-      -ms-transform: scale(0.2);
-      -o-transform: scale(0.2);
-      -webkit-transform: scale(0.2);
-      transform: scale(0.2);
-      opacity: 0;
-      z-index: 9;
-      color: #000;
-      font-size: 20px;
-      line-height: 30px;
-      text-align: center;
-      font-family: "Chonburi", cursive;
-      -moz-transition: all ease 0.5s;
-      -o-transition: all ease 0.5s;
-      -webkit-transition: all ease 0.5s;
-      transition: all ease 0.5s; }
-      .shop-item .shop-img .like:hover {
-        color: #c0392b;
-        cursor: pointer; }
-        .shop-item .shop-img .like:hover i:before {
-          content: "\f004"; }
-    .shop-item .shop-img:hover .add-to-cart {
-      bottom: 0px; }
-    .shop-item .shop-img:hover .like {
-      -moz-transform: scale(1);
-      -ms-transform: scale(1);
-      -o-transform: scale(1);
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      opacity: 1; }
-  .shop-item h3 {
-    margin: 10px 0px;
-    font-weight: 400;
-    font-size: 18px;
-    letter-spacing: 1px; }
-    .shop-item h3 a {
-      -moz-transition: all ease 0.5s;
-      -o-transition: all ease 0.5s;
-      -webkit-transition: all ease 0.5s;
-      transition: all ease 0.5s; }
-      .shop-item h3 a:hover {
-        color: #fd190b; }
-  .shop-item .price {
-    margin: 5px 0px; }
-    .shop-item .price span {
-      font-family: "Chonburi", cursive;
-      margin: 0px 20px 0px 0px;
-      color: #fd190b;
-      font-size: 16px; }
-      .shop-item .price span.old {
-        color: #666;
-        text-decoration: line-through; }
-  .shop-item .votes i {
-    font-size: 13px;
-    margin: 0px 3px 0px 0px;
-    color: #f1c40f; }
-
-.loadmore-prouduct {
-  text-align: center;
-  margin: 0px 0px 50px 0px; }
-  .loadmore-prouduct a {
-    font-family: "Chonburi", cursive;
-    letter-spacing: 2px;
-    font-size: 14px;
-    border: 1px solid #000;
-    line-height: 35px;
-    text-transform: uppercase;
-    display: inline-block;
-    padding: 0px 30px;
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s; }
-    .loadmore-prouduct a:hover {
-      background-color: #000;
-      color: #fff; }
-
-.shopbar {
-  margin: 0px 0px 20px 0px; }
-  .shopbar h3 {
-    font-weight: 400;
-    text-transform: uppercase;
-    font-size: 14px;
-    float: left;
-    margin: 0px 0px 10px 0px;
-    padding: 0px;
-    line-height: 25px; }
-    @media screen and (max-width: 991px) {
-      .shopbar h3 {
-        float: none; } }
-  .shopbar .sortby {
-    float: right;
-    position: relative;
-    border: 1px solid #000; }
-    @media screen and (max-width: 991px) {
-      .shopbar .sortby {
-        float: none;
-        width: 100%; } }
-    .shopbar .sortby p {
-      font-family: "Chonburi", cursive;
-      font-size: 14px;
-      text-transform: uppercase;
-      padding: 0px 10px;
-      line-height: 25px;
-      margin: 0px; }
-      .shopbar .sortby p i {
-        float: right;
-        line-height: 25px;
-        margin: 0px 0px 0px 5px; }
-    .shopbar .sortby .dropdown-menu {
-      border: none;
-      border-radius: 0px;
-      left: auto;
-      right: -1px;
-      background-color: #000;
-      padding: 0px; }
-      .shopbar .sortby .dropdown-menu li {
-        border-bottom: 1px solid #333; }
-        .shopbar .sortby .dropdown-menu li a {
-          display: block;
-          color: #fff;
-          font-family: "Chonburi", cursive;
-          font-size: 13px;
-          color: #fff;
-          text-transform: uppercase;
-          font-weight: 300;
-          padding: 5px 10px;
-          text-align: right; }
-          .shopbar .sortby .dropdown-menu li a:hover {
-            background-color: #333; }
-        .shopbar .sortby .dropdown-menu li.current a {
-          color: #fd190b; }
-
-h1.page-title {
-  border-bottom: 10px solid #000;
-  position: relative;
-  padding: 10px 0px;
-  text-align: center;
-  margin: 0px 0px 60px 0px !important;
-  font-size: 110px;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: 2px;
-  text-align: center;
-  margin: 0px;
-  font-family: "Chonburi", cursive;
-  color: #000;
-  text-transform: uppercase; }
-  @media screen and (max-width: 991px) {
-    h1.page-title {
-      border-bottom: 5px solid #000;
-      margin: 0px 0px 30px 0px !important; } }
-  @media screen and (max-width: 1191px) {
-    h1.page-title {
-      font-size: 100px; } }
-  @media screen and (max-width: 991px) {
-    h1.page-title {
-      font-size: 80px; } }
-  @media screen and (max-width: 767px) {
-    h1.page-title {
-      font-size: 25px; } }
-
-.woocommerce .woocommerce-result-count {
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: 14px;
-  float: left;
-  margin: 0px 0px 10px 0px;
-  padding: 0px !important;
-  line-height: 25px;
-  font-family: "Chonburi", cursive; }
-  @media screen and (max-width: 991px) {
-    .woocommerce .woocommerce-result-count {
-      float: none; } }
-
-.woocommerce .woocommerce-ordering {
-  float: right;
-  position: relative; }
-  .woocommerce .woocommerce-ordering select {
-    border: 1px solid #000;
-    text-transform: uppercase;
-    font-family: "Chonburi", cursive;
-    font-size: 14px;
-    float: right; }
-  @media screen and (max-width: 991px) {
-    .woocommerce .woocommerce-ordering {
-      float: none;
-      width: 100%; } }
-
-.products-wrapper {
-  overflow: hidden;
-  clear: both; }
-
-.woocommerce ul.products {
-  margin: 0px -15px;
-  list-style: none;
-  padding: 0px; }
-  .woocommerce ul.products li.product {
-    float: left !important;
-    width: 33.333% !important;
-    padding: 0px 15px !important;
-    margin: 0px 0px 40px 0px !important; }
-    @media screen and (max-width: 991px) {
-      .woocommerce ul.products li.product {
-        float: left !important;
-        width: 50% !important; } }
-    @media screen and (max-width: 767px) {
-      .woocommerce ul.products li.product {
-        float: none !important;
-        width: 100% !important; } }
-    .woocommerce ul.products li.product .product-thumbnail {
-      position: relative;
-      overflow: hidden; }
-      .woocommerce ul.products li.product .product-thumbnail a img {
-        width: 100%;
-        height: auto;
-        margin: 0px; }
-      .woocommerce ul.products li.product .product-thumbnail .button {
-        position: absolute;
-        bottom: -40px;
-        left: 0px;
-        right: 0px;
-        line-height: 40px;
-        font-size: 12px;
-        letter-spacing: 3px;
-        z-index: 9;
-        margin: 0px;
-        background-color: #000;
-        color: #fff;
-        padding: 0px;
-        text-transform: uppercase;
-        text-align: center;
-        font-family: "Chonburi", cursive;
-        -moz-transition: all ease 0.5s;
-        -o-transition: all ease 0.5s;
-        -webkit-transition: all ease 0.5s;
-        transition: all ease 0.5s;
-        border-radius: 0px;
-        font-weight: 300; }
-        .woocommerce ul.products li.product .product-thumbnail .button:hover {
-          background-color: #fd190b; }
-    .woocommerce ul.products li.product h3 {
-      margin: 10px 0px;
-      font-weight: 400;
-      font-size: 18px;
-      letter-spacing: 1px; }
-      .woocommerce ul.products li.product h3 a {
-        -moz-transition: all ease 0.5s;
-        -o-transition: all ease 0.5s;
-        -webkit-transition: all ease 0.5s;
-        transition: all ease 0.5s; }
-        .woocommerce ul.products li.product h3 a:hover {
-          color: #fd190b; }
-    .woocommerce ul.products li.product .price {
-      margin: 5px 0px; }
-      .woocommerce ul.products li.product .price del {
-        display: inline-block;
-        margin: 0px 20px 0px 0px; }
-        .woocommerce ul.products li.product .price del span {
-          color: #666;
-          text-decoration: line-through; }
-      .woocommerce ul.products li.product .price .ins {
-        display: block; }
-      .woocommerce ul.products li.product .price span {
-        font-family: "Chonburi", cursive;
-        color: #fd190b;
-        font-size: 16px; }
-    .woocommerce ul.products li.product:hover .product-thumbnail .button {
-      bottom: 0px; }
-
-.list-popular-product {
-  margin-bottom: 50px; }
-
-.pp-item {
-  padding: 15px 0px;
-  border-bottom: 1px solid #eeeeee;
-  min-height: 110px; }
-  .pp-item:first-child {
-    padding-top: 0px;
-    min-height: 95px; }
-  .pp-item .shop-img {
-    float: left;
-    width: 70px;
-    border: 1px solid #000;
-    padding: 3px;
-    margin: 0px 15px 0px 0px; }
-  .pp-item h3 {
-    margin: 0px;
-    font-size: 16px;
-    font-weight: 400;
-    text-transform: uppercase;
-    padding: 10px 0px 0px 0px; }
-    .pp-item h3 a {
-      -moz-transition: all ease 0.5s;
-      -o-transition: all ease 0.5s;
-      -webkit-transition: all ease 0.5s;
-      transition: all ease 0.5s; }
-      .pp-item h3 a:hover {
-        color: #fd190b; }
-  .pp-item .price {
-    margin: 5px 0px; }
-    .pp-item .price span {
-      font-family: "Chonburi", cursive;
-      margin: 0px 20px 0px 0px;
-      color: #fd190b;
-      font-size: 16px; }
-      .pp-item .price span.old {
-        color: #666;
-        text-decoration: line-through; }
-
-.box-shopping-cart {
-  margin-bottom: 50px;
-  border: 1px solid #000;
-  min-height: 100px;
-  padding: 0px 20px 20px 20px; }
-  .box-shopping-cart .sc-item {
-    padding: 20px 0px;
-    border-bottom: 1px solid #eeeeee; }
-    .box-shopping-cart .sc-item h4 {
-      font-size: 16px;
-      font-weight: 400;
-      text-transform: uppercase;
-      margin: 0px; }
-    .box-shopping-cart .sc-item p {
-      color: #666;
-      font-family: "Chonburi", cursive;
-      text-transform: uppercase;
-      margin: 5px 0px 0px 0px;
-      font-size: 13px; }
-  .box-shopping-cart h5 {
-    margin: 20px 0px;
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 2px; }
-    .box-shopping-cart h5 span {
-      color: #fd190b; }
-  .box-shopping-cart .my-btn {
-    display: block;
-    width: 100%;
-    text-transform: uppercase;
-    margin: 10px 0px 0px 0px;
-    background-color: #fd190b;
-    text-align: center; }
-    .box-shopping-cart .my-btn:hover {
-      background-color: #fd190b;
-      color: #fff;
-      opacity: 0.8; }
-    .box-shopping-cart .my-btn.btn-view-cart {
-      border: 1px solid #000;
-      color: #000;
-      background-color: transparent; }
-      .box-shopping-cart .my-btn.btn-view-cart:hover {
-        background-color: #fd190b;
-        color: #fff;
-        border: 1px solid #fd190b; }
-
-.box-filter {
-  margin-bottom: 50px; }
-  .box-filter .slider-budget {
-    margin: 30px 0px 0px 0px; }
-    .box-filter .slider-budget .slider.slider-horizontal {
-      width: 100%; }
-    .box-filter .slider-budget .slider-track {
-      height: 5px;
-      background-color: #eeeeee;
-      background-image: none !important;
-      border-radius: 0px !important;
-      box-shadow: none !important; }
-    .box-filter .slider-budget .slider-selection {
-      background-color: #000 !important;
-      background-image: none !important; }
-  .box-filter .slider-handle {
-    border: 2px solid #fff !important;
-    cursor: pointer;
-    margin-top: -2px; }
-  .box-filter p {
-    margin: 10px 0px;
-    font-family: "Chonburi", cursive;
-    text-transform: uppercase; }
-    .box-filter p span {
-      margin: 0px 5px;
-      color: #fd190b; }
-      .box-filter p span em {
-        font-style: normal;
-        color: #fd190b; }
-
-.swiper-product {
-  overflow: hidden;
-  position: relative; }
-  .swiper-product .swiper-slide {
-    width: 100%; }
-
-.product-des h1 {
-  margin: 10px 0px;
-  font-weight: 400;
-  font-size: 25px;
-  letter-spacing: 1px; }
-  .product-des h1 a {
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s; }
-    .product-des h1 a:hover {
-      color: #fd190b; }
-
-.product-des .price {
-  margin: 5px 0px; }
-  .product-des .price span {
-    font-family: "Chonburi", cursive;
-    margin: 0px 20px 0px 0px;
-    color: #fd190b;
-    font-size: 16px; }
-    .product-des .price span.old {
-      color: #666;
-      text-decoration: line-through; }
-
-.product-des .votes i {
-  font-size: 13px;
-  margin: 0px 3px 0px 0px;
-  color: #f1c40f; }
-
-.product-des .product-sapo {
-  margin: 10px 0px 0px 0px;
-  padding: 10px 0px 0px;
-  border-top: 2px solid #000; }
-
-.product-des .my-btn {
-  margin-top: 25px; }
-
-.quantity {
-  margin-top: 19px;
-  width: 90px;
-  height: 30px; }
-  .quantity input[type="button"] {
-    float: left;
-    width: 30px;
-    height: 30px;
-    background-color: #000;
-    color: #fff;
-    line-height: 25px;
-    font-size: 15px;
-    outline: none;
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s;
-    font-family: "Chonburi", cursive;
-    font-size: 20px;
-    border: none; }
-    .quantity input[type="button"]:hover {
-      background-color: #fd190b; }
-  .quantity input[type="text"] {
-    font-family: "Chonburi", cursive;
-    float: left;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    border: none;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    font-size: 15px;
-    outline: none; }
-
-.shop-tab {
-  margin-top: 30px;
-  border: 1px solid #000; }
-  .shop-tab .shop-tab-caption ul {
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
-    height: 40px;
-    border-bottom: 1px solid #000; }
-    .shop-tab .shop-tab-caption ul li {
-      float: left;
-      margin: 0px 20px 0px 0px; }
-      .shop-tab .shop-tab-caption ul li a {
-        display: block;
-        line-height: 40px;
-        font-family: "Chonburi", cursive;
-        padding: 0px;
-        font-size: 2.6rem;
-        padding: 5px 0px;
-        border-bottom: 3px solid transparent; }
-        .shop-tab .shop-tab-caption ul li a.active {
-          background-color: #000;
-          border-bottom: 3px solid #000; }
-  .shop-tab .tab-content {
-    padding: 20px; }
-    .shop-tab .tab-content .table tr {
-      border: none; }
-      .shop-tab .tab-content .table tr td {
-        border: none; }
-      .shop-tab .tab-content .table tr:nth-child(odd) {
-        background-color: #eeeeee; }
-
-.cart-table {
-  border: 1px solid #000;
-  min-width: 767px; }
-  .cart-table thead tr {
-    background-color: #000;
-    border: none !important; }
-    .cart-table thead tr th {
-      border: none !important;
-      color: #fff;
-      font-family: "Chonburi", cursive;
-      text-transform: uppercase;
-      font-weight: 400;
-      padding: 10px !important; }
-  .cart-table tr {
-    border-bottom: 1px solid #000 !important; }
-    .cart-table tr td {
-      border: none !important;
-      padding: 10px !important;
-      vertical-align: middle !important;
-      font-family: "Chonburi", cursive;
-      text-transform: uppercase; }
-      .cart-table tr td .quantity {
-        margin: 0px !important; }
-      .cart-table tr td .amount {
-        color: #fd190b; }
-      .cart-table tr td .total {
-        color: #fd190b; }
-
-.cart-tab-wrap {
-  overflow: auto;
-  margin-bottom: 20px; }
-
-.cart-totals {
-  margin: 30px 0px 30px 0px; }
-  .cart-totals table tr td {
-    border: 1px solid #000;
-    font-family: "Chonburi", cursive;
-    text-transform: uppercase;
-    padding: 10px;
-    font-weight: 400; }
-    .cart-totals table tr td strong {
-      color: #fd190b; }
-  .cart-totals table tr th {
-    border: 1px solid #000;
-    font-family: "Chonburi", cursive;
-    text-transform: uppercase;
-    padding: 10px;
-    font-weight: 400;
-    background-color: #eeeeee; }
 
 /*==========Page Contact =========*/
 .page-contact h3 {
