@@ -78,6 +78,21 @@
             }
         }
 
+        db.sliderProduct = function () {
+            var owl_product = $('.owl-product');
+            if ($(owl_product).length) {
+                $(owl_product).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: true,
+                    autoplay: true,
+                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                    items: 1,
+
+                });
+            }
+        }
+
 
 
 
@@ -146,6 +161,7 @@
         db.menu();
         db.search();
         db.sliderNP();
+        db.sliderProduct();
         db.sliderBook();
         db.sliderPost();
 

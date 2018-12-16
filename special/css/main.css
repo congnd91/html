@@ -1464,10 +1464,6 @@ span.type {
       font-weight: 500; }
   .box-shopping-cart h5 {
     margin: 20px 0px;
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 2px;
-    font-family: "Montserrat", sans-serif;
     font-weight: 700; }
     .box-shopping-cart h5 span {
       color: #fd190b; }
@@ -1597,17 +1593,66 @@ span.type {
     .woocommerce ul.products li.product:hover .product-thumbnail .button {
       bottom: 0px; }
 
-.swiper-product {
-  overflow: hidden;
+.product-slider {
   position: relative; }
-  .swiper-product .swiper-slide {
-    width: 100%; }
+  .product-slider .owl-prev {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    z-index: 999;
+    border: 1px solid #000;
+    color: #000;
+    font-size: 20px;
+    margin: -15px 0px 0px 0px;
+    text-align: center;
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
+    .product-slider .owl-prev:hover {
+      background-color: #000;
+      color: #fff; }
+    .product-slider .owl-prev:active {
+      box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); }
+  .product-slider .owl-next {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    z-index: 999;
+    border: 1px solid #000;
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    margin: -15px 0px 0px 0px;
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
+    .product-slider .owl-next:hover {
+      background-color: #000;
+      color: #fff; }
+    .product-slider .owl-next:active {
+      box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); }
+  .product-slider .owl-dots {
+    display: none;
+    position: absolute;
+    border: -10px;
+    left: 0px;
+    right: 0px;
+    text-align: center; }
+    .product-slider .owl-dots .owl-dot {
+      width: 7px;
+      height: 3px;
+      display: inline-block;
+      margin: 0px 5px;
+      background-color: #000; }
+      .product-slider .owl-dots .owl-dot:hover, .product-slider .owl-dots .owl-dot.active {
+        background-color: #000; }
 
 .product-des h1 {
   margin: 10px 0px;
   font-weight: 400;
-  font-size: 25px;
-  letter-spacing: 1px; }
+  font-size: 3rem; }
   .product-des h1 a {
     -moz-transition: all ease 0.5s;
     -o-transition: all ease 0.5s;
@@ -1635,7 +1680,7 @@ span.type {
 .product-des .product-sapo {
   margin: 10px 0px 0px 0px;
   padding: 10px 0px 0px;
-  border-top: 2px solid #000; }
+  border-top: 1px solid #000; }
 
 .product-des .my-btn {
   margin-top: 25px; }
@@ -1677,29 +1722,38 @@ span.type {
 
 .shop-tab {
   margin-top: 30px;
-  border: 1px solid #000; }
+  border-bottom: 1px solid #000; }
   .shop-tab .shop-tab-caption ul {
     list-style: none;
     padding: 0px;
     margin: 0px;
-    height: 40px;
-    border-bottom: 1px solid #000; }
+    height: 40px; }
     .shop-tab .shop-tab-caption ul li {
       float: left;
       margin: 0px 20px 0px 0px; }
       .shop-tab .shop-tab-caption ul li a {
         display: block;
         line-height: 40px;
+        position: relative;
         font-family: "Chonburi", cursive;
         padding: 0px;
-        font-size: 2.6rem;
-        padding: 5px 0px;
-        border-bottom: 3px solid transparent; }
-        .shop-tab .shop-tab-caption ul li a.active {
-          background-color: #000;
-          border-bottom: 3px solid #000; }
+        font-size: 3rem;
+        padding: 5px 0px; }
+        @media screen and (max-width: 991px) {
+          .shop-tab .shop-tab-caption ul li a {
+            font-size: 2.5rem; } }
+        .shop-tab .shop-tab-caption ul li a.active:before {
+          content: "";
+          display: block;
+          height: 10px;
+          left: 0px;
+          right: 10px;
+          bottom: 10px;
+          position: absolute;
+          z-index: -1;
+          background-color: #fd190b; }
   .shop-tab .tab-content {
-    padding: 20px; }
+    padding: 20px 0px; }
     .shop-tab .tab-content .table tr {
       border: none; }
       .shop-tab .tab-content .table tr td {
@@ -1712,24 +1766,22 @@ span.type {
   min-width: 767px; }
   .cart-table thead tr {
     background-color: #000;
-    border: none !important; }
+    border: none; }
     .cart-table thead tr th {
-      border: none !important;
+      border: none;
       color: #fff;
       font-family: "Chonburi", cursive;
-      text-transform: uppercase;
       font-weight: 400;
-      padding: 10px !important; }
+      padding: 10px; }
   .cart-table tr {
-    border-bottom: 1px solid #000 !important; }
+    border-bottom: 1px solid #000; }
     .cart-table tr td {
-      border: none !important;
-      padding: 10px !important;
-      vertical-align: middle !important;
-      font-family: "Chonburi", cursive;
-      text-transform: uppercase; }
+      border: none;
+      padding: 10px;
+      vertical-align: middle;
+      font-family: "Chonburi", cursive; }
       .cart-table tr td .quantity {
-        margin: 0px !important; }
+        margin: 0px; }
       .cart-table tr td .amount {
         color: #fd190b; }
       .cart-table tr td .total {
@@ -1744,7 +1796,6 @@ span.type {
   .cart-totals table tr td {
     border: 1px solid #000;
     font-family: "Chonburi", cursive;
-    text-transform: uppercase;
     padding: 10px;
     font-weight: 400; }
     .cart-totals table tr td strong {
@@ -1752,10 +1803,251 @@ span.type {
   .cart-totals table tr th {
     border: 1px solid #000;
     font-family: "Chonburi", cursive;
-    text-transform: uppercase;
     padding: 10px;
     font-weight: 400;
     background-color: #eeeeee; }
+
+/*==========Page 404=========*/
+.bottom-fix {
+  border: none !important; }
+
+.page-404 {
+  text-align: center;
+  padding: 100px 0px; }
+  @media screen and (max-width: 1400px) {
+    .page-404 {
+      padding: 50px 0px; } }
+  @media screen and (max-width: 991px) {
+    .page-404 {
+      padding: 20px 0px; } }
+  .page-404 h1 {
+    font-size: 200px;
+    letter-spacing: 2px;
+    margin: 0px;
+    font-weight: 700; }
+    @media screen and (max-width: 1400px) {
+      .page-404 h1 {
+        font-size: 150px; } }
+    @media screen and (max-width: 991px) {
+      .page-404 h1 {
+        font-size: 100px; } }
+  .page-404 h3 {
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 0px; }
+    @media screen and (max-width: 1400px) {
+      .page-404 h3 {
+        font-size: 35px; } }
+    @media screen and (max-width: 991px) {
+      .page-404 h3 {
+        font-size: 25px; } }
+  .page-404 p {
+    font-size: 18px;
+    margin: 30px 0px; }
+  .page-404 .back-to-page {
+    margin: 0px 0px 0px 10px; }
+    .page-404 .back-to-page a {
+      font-size: 9px;
+      text-transform: uppercase;
+      color: #333; }
+      .page-404 .back-to-page a:hover {
+        text-decoration: underline; }
+      .page-404 .back-to-page a i {
+        font-size: 20px;
+        position: relative;
+        top: 4px;
+        display: inline-block;
+        margin: 0px 5px 0px 0px; }
+
+/*==========Page Gallery=========*/
+.gallery-page {
+  margin: 50px 0px 0px 0px; }
+
+.gallery-album {
+  margin-bottom: 30px;
+  background-color: #000; }
+  .gallery-album h3 {
+    margin: 0px;
+    text-align: center;
+    padding: 10px 5px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase; }
+  .gallery-album img {
+    -moz-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s; }
+    .gallery-album img:hover {
+      opacity: 0.8; }
+
+/*==========Page About =========*/
+.about-me {
+  text-align: center; }
+  .about-me .about-img {
+    margin: -20px -40px 0px -40px; }
+    @media screen and (max-width: 991px) {
+      .about-me .about-img {
+        margin: -20px -15px 0px -15px; } }
+  .about-me h2 {
+    font-family: "Chonburi", cursive;
+    font-size: 30px;
+    margin: 20px auto;
+    letter-spacing: 2px;
+    font-weight: normal; }
+
+.about-social {
+  margin: 20px 0px 100px 0px; }
+  .about-social a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-color: #eeeeee;
+    line-height: 35px;
+    margin: 10px 3px;
+    line-height: 35px;
+    font-size: 15px;
+    color: #000;
+    border-radius: 50%;
+    -moz-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s; }
+    .about-social a:hover {
+      background-color: #000;
+      color: #fff; }
+
+/*==========Page Contact =========*/
+.page-contact h3 {
+  font-family: "Chonburi", cursive;
+  font-weight: 400;
+  font-size: 25px;
+  margin: 10px 0px 20px 0px; }
+
+.page-contact .my-btn {
+  margin-top: 15px; }
+
+#map {
+  width: 100%;
+  border: 1px solid #000;
+  margin: 30px 0px 0px 0px; }
+  #map p {
+    margin: 0px;
+    padding: 0px; }
+
+.list-infomation {
+  padding: 20px 0px;
+  list-style: none; }
+  .list-infomation li {
+    margin: 10px 0px; }
+    .list-infomation li i {
+      float: left;
+      width: 30px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      color: #555;
+      margin: -2px 0px 0px 0px; }
+
+.form-submit {
+  margin-top: 10px; }
+
+.field-item {
+  margin: 10px 0px; }
+  .field-item .field-caption {
+    font-family: "Chonburi", cursive;
+    margin: 10px 0px;
+    font-size: 13px;
+    letter-spacing: 2px; }
+    .field-item .field-caption span {
+      color: #fd190b; }
+  .field-item input {
+    width: 100%;
+    height: 40px;
+    padding: 0px 10px;
+    line-height: 40px;
+    color: #000;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    -moz-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    border-bottom: 1px solid #000; }
+  .field-item textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px 10px;
+    font-size: 15px;
+    display: block;
+    margin: 0px;
+    color: #000;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #666;
+    -moz-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s; }
+
+.wpcf7-form p {
+  margin: 10px 0px; }
+  .wpcf7-form p input {
+    width: 100%;
+    height: 40px;
+    padding: 0px 10px;
+    line-height: 40px;
+    color: #000;
+    font-size: 15px;
+    outline: none;
+    -moz-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    border: 1px solid #777; }
+    .wpcf7-form p input:hover {
+      border: 1px solid #000; }
+  .wpcf7-form p textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px 10px;
+    font-size: 15px;
+    color: #000;
+    outline: none;
+    border: 1px solid #777;
+    display: block;
+    margin: 0px;
+    -moz-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s; }
+    .wpcf7-form p textarea:hover {
+      border: 1px solid #000; }
+
+.wpcf7-form .wpcf7-submit {
+  height: 40px;
+  padding: 0px 20px;
+  line-height: 40px;
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none !important;
+  background-color: #fd190b;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  width: auto;
+  background-color: #000; }
+  .wpcf7-form .wpcf7-submit:focus {
+    outline: none;
+    color: #fff; }
+  .wpcf7-form .wpcf7-submit:hover {
+    background-color: #fd190b; }
 
 /*==========Menu=========*/
 .menu-main-inner {
@@ -3370,111 +3662,6 @@ span.type {
     padding: 0px 0px 0px 0px;
     font-weight: 300; }
 
-.form-submit {
-  margin-top: 10px; }
-
-.field-item {
-  margin: 10px 0px; }
-  .field-item .field-caption {
-    font-family: "Chonburi", cursive;
-    text-transform: uppercase;
-    margin: 10px 0px;
-    font-size: 13px;
-    letter-spacing: 2px; }
-    .field-item .field-caption span {
-      color: #fd190b; }
-  .field-item input {
-    width: 100%;
-    height: 40px;
-    padding: 0px 10px;
-    line-height: 40px;
-    color: #000;
-    font-size: 15px;
-    outline: none;
-    text-transform: uppercase;
-    font-family: "Chonburi", cursive;
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s;
-    border: 1px solid #000; }
-    .field-item input:hover {
-      border: 1px solid #000; }
-  .field-item textarea {
-    text-transform: uppercase;
-    font-family: "Chonburi", cursive;
-    width: 100%;
-    height: 150px;
-    padding: 10px 10px;
-    font-size: 15px;
-    display: block;
-    margin: 0px;
-    color: #000;
-    outline: none;
-    border: 1px solid #666;
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s; }
-    .field-item textarea:hover {
-      border: 1px solid #000; }
-
-.wpcf7-form p {
-  margin: 10px 0px; }
-  .wpcf7-form p input {
-    width: 100%;
-    height: 40px;
-    padding: 0px 10px;
-    line-height: 40px;
-    color: #000;
-    font-size: 15px;
-    outline: none;
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s;
-    border: 1px solid #777; }
-    .wpcf7-form p input:hover {
-      border: 1px solid #000; }
-  .wpcf7-form p textarea {
-    width: 100%;
-    height: 120px;
-    padding: 10px 10px;
-    font-size: 15px;
-    color: #000;
-    outline: none;
-    border: 1px solid #777;
-    display: block;
-    margin: 0px;
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s; }
-    .wpcf7-form p textarea:hover {
-      border: 1px solid #000; }
-
-.wpcf7-form .wpcf7-submit {
-  height: 40px;
-  padding: 0px 20px;
-  line-height: 40px;
-  display: inline-block;
-  color: #fff;
-  font-size: 16px;
-  text-transform: uppercase;
-  border: none !important;
-  background-color: #fd190b;
-  -moz-transition: all ease 0.5s;
-  -o-transition: all ease 0.5s;
-  -webkit-transition: all ease 0.5s;
-  transition: all ease 0.5s;
-  width: auto;
-  background-color: #000; }
-  .wpcf7-form .wpcf7-submit:focus {
-    outline: none;
-    color: #fff; }
-  .wpcf7-form .wpcf7-submit:hover {
-    background-color: #fd190b; }
-
 /**gallery format*/
 .swiper-prev {
   width: 45px;
@@ -3828,150 +4015,6 @@ span.type {
     padding: 5px 0px; }
     .tags-three .post-title a:hover {
       border-bottom: 1px dashed #fff; }
-
-/*==========Page 404=========*/
-.bottom-fix {
-  border: none !important; }
-
-.page-404 {
-  text-align: center;
-  padding: 100px 0px; }
-  @media screen and (max-width: 1400px) {
-    .page-404 {
-      padding: 50px 0px; } }
-  @media screen and (max-width: 991px) {
-    .page-404 {
-      padding: 20px 0px; } }
-  .page-404 h1 {
-    font-size: 200px;
-    letter-spacing: 2px;
-    margin: 0px;
-    font-weight: 700; }
-    @media screen and (max-width: 1400px) {
-      .page-404 h1 {
-        font-size: 150px; } }
-    @media screen and (max-width: 991px) {
-      .page-404 h1 {
-        font-size: 100px; } }
-  .page-404 h3 {
-    text-transform: uppercase;
-    font-size: 50px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin: 0px; }
-    @media screen and (max-width: 1400px) {
-      .page-404 h3 {
-        font-size: 35px; } }
-    @media screen and (max-width: 991px) {
-      .page-404 h3 {
-        font-size: 25px; } }
-  .page-404 p {
-    font-size: 18px;
-    margin: 30px 0px; }
-  .page-404 .my-btn {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s; }
-    .page-404 .my-btn:hover {
-      background-color: #000;
-      color: #fff;
-      opacity: 0.8; }
-
-/*==========Page Gallery=========*/
-.gallery-page {
-  margin: 50px 0px 0px 0px; }
-
-.gallery-album {
-  margin-bottom: 30px;
-  background-color: #000; }
-  .gallery-album h3 {
-    margin: 0px;
-    text-align: center;
-    padding: 10px 5px;
-    font-size: 15px;
-    font-weight: 400;
-    color: #fff;
-    text-transform: uppercase; }
-  .gallery-album img {
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s; }
-    .gallery-album img:hover {
-      opacity: 0.8; }
-
-/*==========Page About =========*/
-.about-me {
-  text-align: center; }
-  .about-me .about-img {
-    margin: -20px -40px 0px -40px; }
-    @media screen and (max-width: 991px) {
-      .about-me .about-img {
-        margin: -20px -15px 0px -15px; } }
-  .about-me h2 {
-    font-family: "Chonburi", cursive;
-    font-size: 30px;
-    margin: 20px auto;
-    letter-spacing: 2px;
-    font-weight: normal; }
-
-.about-social {
-  margin: 20px 0px 100px 0px; }
-  .about-social a {
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    background-color: #eeeeee;
-    line-height: 35px;
-    margin: 10px 3px;
-    line-height: 35px;
-    font-size: 15px;
-    color: #000;
-    border-radius: 50%;
-    -moz-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-    transition: all ease 0.5s; }
-    .about-social a:hover {
-      background-color: #000;
-      color: #fff; }
-
-/*==========Page Contact =========*/
-.page-contact h3 {
-  font-family: "Chonburi", cursive;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 25px;
-  letter-spacing: 2px;
-  margin: 10px 0px 20px 0px; }
-
-.page-contact .my-btn {
-  margin-top: 15px; }
-
-#map {
-  width: 100%;
-  border: 1px solid #000;
-  margin: 30px 0px 0px 0px; }
-  #map p {
-    margin: 0px;
-    padding: 0px; }
-
-.list-infomation {
-  padding: 20px 0px;
-  list-style: none; }
-  .list-infomation li {
-    margin: 10px 0px; }
-    .list-infomation li i {
-      float: left;
-      width: 30px;
-      height: 25px;
-      line-height: 25px;
-      text-align: center;
-      color: #555;
-      margin: -2px 0px 0px 0px; }
 
 /*********************format*/
 blockquote {

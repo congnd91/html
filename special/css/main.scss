@@ -2259,10 +2259,9 @@ span.type {
 
     h5 {
         margin: 20px 0px;
-        text-transform: uppercase;
-        font-weight: 400;
-        letter-spacing: 2px;
-        font-family: $font-family;
+
+
+
         font-weight: 700;
 
         span {
@@ -2463,21 +2462,98 @@ span.type {
     }
 }
 
-.swiper-product {
-    overflow: hidden;
+.product-slider {
+
     position: relative;
 
-    .swiper-slide {
-        width: 100%;
+
+    .owl-prev {
+
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        width: 30px;
+        height: 30px;
+        line-height: 28px;
+        z-index: 999;
+        border: 1px solid #000;
+        color: #000;
+        font-size: 20px;
+        margin: -15px 0px 0px 0px;
+        text-align: center;
+
+        box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3);
+
+        &:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        &:active {
+            box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6);
+        }
+
+
     }
+
+    .owl-next {
+
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        line-height: 28px;
+        z-index: 999;
+        border: 1px solid #000;
+        color: #000;
+        text-align: center;
+        font-size: 20px;
+        margin: -15px 0px 0px 0px;
+        box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3);
+
+        &:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        &:active {
+            box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6);
+        }
+
+
+    }
+
+    .owl-dots {
+        display: none;
+        position: absolute;
+        border: -10px;
+        left: 0px;
+        right: 0px;
+        text-align: center;
+
+        .owl-dot {
+            width: 7px;
+            height: 3px;
+            display: inline-block;
+            margin: 0px 5px;
+            background-color: $text-color;
+
+            &:hover,
+            &.active {
+                background-color: $base-color;
+            }
+        }
+    }
+
 }
 
 .product-des {
     h1 {
         margin: 10px 0px;
         font-weight: 400;
-        font-size: 25px;
-        letter-spacing: 1px;
+        font-size: 3rem;
+
 
         a {
             @include transition();
@@ -2515,7 +2591,7 @@ span.type {
     .product-sapo {
         margin: 10px 0px 0px 0px;
         padding: 10px 0px 0px;
-        border-top: 2px solid $base-color;
+        border-top: 1px solid $base-color;
     }
 
 
@@ -2565,7 +2641,7 @@ span.type {
 
 .shop-tab {
     margin-top: 30px;
-    border: 1px solid $base-color;
+    border-bottom: 1px solid $base-color;
 
     .shop-tab-caption {
         ul {
@@ -2573,7 +2649,7 @@ span.type {
             padding: 0px;
             margin: 0px;
             height: 40px;
-            border-bottom: 1px solid $base-color;
+
 
             li {
                 float: left;
@@ -2582,18 +2658,31 @@ span.type {
                 a {
                     display: block;
                     line-height: 40px;
+                    position: relative;
                     font-family: $font-family-heading;
                     padding: 0px;
 
-                    font-size: $fs26;
+                    font-size: 3rem;
                     padding: 5px 0px;
-                    border-bottom: 3px solid transparent;
+                    @media screen and (max-width: 991px) {
+                        font-size: 2.5rem;
+
+                    }
+
 
                     &.active {
+                        &:before {
+                            content: "";
+                            display: block;
+                            height: 10px;
+                            left: 0px;
+                            right: 10px;
+                            bottom: 10px;
+                            position: absolute;
+                            z-index: -1;
+                            background-color: $active-color;
 
-                        background-color: $base-color;
-                        border-bottom: 3px solid #000;
-
+                        }
                     }
 
                 }
@@ -2604,7 +2693,7 @@ span.type {
     }
 
     .tab-content {
-        padding: 20px;
+        padding: 20px 0px;
 
         .table {
             tr {
@@ -2629,31 +2718,30 @@ span.type {
     thead {
         tr {
             background-color: $base-color;
-            border: none !important;
+            border: none;
 
             th {
-                border: none !important;
+                border: none;
                 color: #fff;
                 font-family: $font-family-heading;
-                text-transform: uppercase;
+
                 font-weight: 400;
-                padding: 10px !important;
+                padding: 10px;
             }
         }
     }
 
     tr {
-        border-bottom: 1px solid $base-color !important;
+        border-bottom: 1px solid $base-color;
 
         td {
-            border: none !important;
-            padding: 10px !important;
-            vertical-align: middle !important;
+            border: none;
+            padding: 10px;
+            vertical-align: middle;
             font-family: $font-family-heading;
-            text-transform: uppercase;
 
             .quantity {
-                margin: 0px !important;
+                margin: 0px;
             }
 
             .amount {
@@ -2681,7 +2769,7 @@ span.type {
             td {
                 border: 1px solid $base-color;
                 font-family: $font-family-heading;
-                text-transform: uppercase;
+
                 padding: 10px;
                 font-weight: 400;
 
@@ -2693,11 +2781,333 @@ span.type {
             th {
                 border: 1px solid $base-color;
                 font-family: $font-family-heading;
-                text-transform: uppercase;
+
                 padding: 10px;
                 font-weight: 400;
                 background-color: $border-color;
             }
+        }
+    }
+}
+
+
+
+/*==========Page 404=========*/
+
+.bottom-fix {
+    border: none !important;
+}
+
+.page-404 {
+    text-align: center;
+    padding: 100px 0px;
+
+    @media screen and (max-width: 1400px) {
+        padding: 50px 0px;
+    }
+
+    @media screen and (max-width:991px) {
+        padding: 20px 0px;
+    }
+
+    h1 {
+        font-size: 200px;
+        letter-spacing: 2px;
+        margin: 0px;
+        font-weight: 700;
+
+        @media screen and (max-width: 1400px) {
+            font-size: 150px;
+        }
+
+        @media screen and (max-width:991px) {
+            font-size: 100px;
+        }
+    }
+
+    h3 {
+
+        font-size: 50px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin: 0px;
+
+        @media screen and (max-width: 1400px) {
+            font-size: 35px;
+        }
+
+        @media screen and (max-width:991px) {
+            font-size: 25px;
+        }
+    }
+
+    p {
+        font-size: 18px;
+        margin: 30px 0px;
+    }
+
+    .back-to-page {
+        margin: 0px 0px 0px 10px;
+
+        a {
+            font-size: 9px;
+            text-transform: uppercase;
+            color: $text-color-second;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            i {
+                font-size: 20px;
+                position: relative;
+                top: 4px;
+
+                display: inline-block;
+                margin: 0px 5px 0px 0px;
+            }
+        }
+    }
+}
+
+/*==========Page Gallery=========*/
+
+.gallery-page {
+    margin: 50px 0px 0px 0px;
+}
+
+.gallery-album {
+    margin-bottom: 30px;
+    background-color: $base-color;
+
+    h3 {
+        margin: 0px;
+        text-align: center;
+        padding: 10px 5px;
+        font-size: 15px;
+        font-weight: 400;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    img {
+        @include transition();
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+/*==========Page About =========*/
+
+.about-me {
+    text-align: center;
+
+    .about-img {
+        margin: -20px -40px 0px -40px;
+
+        @media screen and (max-width: 991px) {
+            margin: -20px -15px 0px -15px;
+        }
+    }
+
+    h2 {
+        font-family: $font-family-heading;
+        font-size: 30px;
+        margin: 20px auto;
+        letter-spacing: 2px;
+        font-weight: normal;
+    }
+}
+
+.about-social {
+    margin: 20px 0px 100px 0px;
+
+    a {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        background-color: $border-color;
+        line-height: 35px;
+        margin: 10px 3px;
+        line-height: 35px;
+        font-size: 15px;
+        color: $base-color;
+        border-radius: 50%;
+        @include transition();
+
+        &:hover {
+            background-color: $base-color;
+            color: #fff;
+        }
+    }
+}
+
+/*==========Page Contact =========*/
+
+.page-contact {
+    h3 {
+        font-family: $font-family-heading;
+        font-weight: 400;
+        font-size: 25px;
+        margin: 10px 0px 20px 0px;
+    }
+
+    .my-btn {
+        margin-top: 15px;
+    }
+}
+
+#map {
+    width: 100%;
+
+    border: 1px solid $base-color;
+    margin: 30px 0px 0px 0px;
+
+    p {
+        margin: 0px;
+        padding: 0px;
+    }
+}
+
+.list-infomation {
+    padding: 20px 0px;
+    list-style: none;
+
+    li {
+        margin: 10px 0px;
+
+        i {
+            float: left;
+            width: 30px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            color: #555;
+            margin: -2px 0px 0px 0px;
+        }
+    }
+}
+
+.form-submit {
+    margin-top: 10px;
+}
+
+.field-item {
+    .field-caption {
+        font-family: $font-family-heading;
+
+        margin: 10px 0px;
+        font-size: 13px;
+        letter-spacing: 2px;
+
+        span {
+            color: $active-color;
+        }
+    }
+
+    margin: 10px 0px;
+
+    input {
+        width: 100%;
+        height: 40px;
+        padding: 0px 10px;
+        line-height: 40px;
+        color: $base-color;
+        font-size: 15px;
+        outline: none;
+        border: none;
+
+
+        @include transition();
+        border-bottom: 1px solid $base-color;
+
+        &:hover {}
+    }
+
+    textarea {
+
+        width: 100%;
+        height: 150px;
+        padding: 10px 10px;
+        font-size: 15px;
+        display: block;
+        margin: 0px;
+        color: $text-color;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #666;
+        @include transition();
+
+        &:hover {}
+    }
+}
+
+.wpcf7-form {
+
+
+    p {
+        margin: 10px 0px;
+
+        input {
+            width: 100%;
+            height: 40px;
+            padding: 0px 10px;
+            line-height: 40px;
+            color: $text-color;
+            font-size: 15px;
+            outline: none;
+            @include transition();
+            border: 1px solid #777;
+
+            &:hover {
+                border: 1px solid $base-color;
+            }
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px 10px;
+            font-size: 15px;
+            color: $text-color;
+            outline: none;
+            border: 1px solid #777;
+            display: block;
+            margin: 0px;
+            @include transition();
+
+            &:hover {
+                border: 1px solid $base-color;
+            }
+        }
+    }
+
+    .wpcf7-submit {
+        height: 40px;
+        padding: 0px 20px;
+        line-height: 40px;
+        display: inline-block;
+        color: #fff;
+        font-size: 16px;
+        text-transform: uppercase;
+        border: none !important;
+        background-color: $active-color;
+        @include transition();
+        width: auto;
+
+
+
+        &:focus {
+            outline: none;
+            color: #fff;
+        }
+
+        background-color: $base-color;
+
+        &:hover {
+            background-color: $active-color;
         }
     }
 }
@@ -5251,130 +5661,6 @@ span.type {
     }
 }
 
-.form-submit {
-    margin-top: 10px;
-}
-
-.field-item {
-    .field-caption {
-        font-family: $font-family-heading;
-        text-transform: uppercase;
-        margin: 10px 0px;
-        font-size: 13px;
-        letter-spacing: 2px;
-
-        span {
-            color: $active-color;
-        }
-    }
-
-    margin: 10px 0px;
-
-    input {
-        width: 100%;
-        height: 40px;
-        padding: 0px 10px;
-        line-height: 40px;
-        color: $base-color;
-        font-size: 15px;
-        outline: none;
-        text-transform: uppercase;
-        font-family: $font-family-heading;
-        @include transition();
-        border: 1px solid $base-color;
-
-        &:hover {
-            border: 1px solid $base-color;
-        }
-    }
-
-    textarea {
-        text-transform: uppercase;
-        font-family: $font-family-heading;
-        width: 100%;
-        height: 150px;
-        padding: 10px 10px;
-        font-size: 15px;
-        display: block;
-        margin: 0px;
-        color: $text-color;
-        outline: none;
-        border: 1px solid #666;
-        @include transition();
-
-        &:hover {
-            border: 1px solid $base-color;
-        }
-    }
-}
-
-.wpcf7-form {
-
-
-    p {
-        margin: 10px 0px;
-
-        input {
-            width: 100%;
-            height: 40px;
-            padding: 0px 10px;
-            line-height: 40px;
-            color: $text-color;
-            font-size: 15px;
-            outline: none;
-            @include transition();
-            border: 1px solid #777;
-
-            &:hover {
-                border: 1px solid $base-color;
-            }
-        }
-
-        textarea {
-            width: 100%;
-            height: 120px;
-            padding: 10px 10px;
-            font-size: 15px;
-            color: $text-color;
-            outline: none;
-            border: 1px solid #777;
-            display: block;
-            margin: 0px;
-            @include transition();
-
-            &:hover {
-                border: 1px solid $base-color;
-            }
-        }
-    }
-
-    .wpcf7-submit {
-        height: 40px;
-        padding: 0px 20px;
-        line-height: 40px;
-        display: inline-block;
-        color: #fff;
-        font-size: 16px;
-        text-transform: uppercase;
-        border: none !important;
-        background-color: $active-color;
-        @include transition();
-        width: auto;
-
-
-
-        &:focus {
-            outline: none;
-            color: #fff;
-        }
-
-        background-color: $base-color;
-
-        &:hover {
-            background-color: $active-color;
-        }
-    }
-}
 
 /**gallery format*/
 
@@ -5874,194 +6160,6 @@ span.type {
     }
 }
 
-/*==========Page 404=========*/
-
-.bottom-fix {
-    border: none !important;
-}
-
-.page-404 {
-    text-align: center;
-    padding: 100px 0px;
-
-    @media screen and (max-width: 1400px) {
-        padding: 50px 0px;
-    }
-
-    @media screen and (max-width:991px) {
-        padding: 20px 0px;
-    }
-
-    h1 {
-        font-size: 200px;
-        letter-spacing: 2px;
-        margin: 0px;
-        font-weight: 700;
-
-        @media screen and (max-width: 1400px) {
-            font-size: 150px;
-        }
-
-        @media screen and (max-width:991px) {
-            font-size: 100px;
-        }
-    }
-
-    h3 {
-        text-transform: uppercase;
-        font-size: 50px;
-        font-weight: bold;
-        letter-spacing: 2px;
-        margin: 0px;
-
-        @media screen and (max-width: 1400px) {
-            font-size: 35px;
-        }
-
-        @media screen and (max-width:991px) {
-            font-size: 25px;
-        }
-    }
-
-    p {
-        font-size: 18px;
-        margin: 30px 0px;
-    }
-
-    .my-btn {
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        @include transition();
-
-        &:hover {
-            background-color: $base-color;
-            color: #fff;
-            opacity: 0.8;
-        }
-    }
-}
-
-/*==========Page Gallery=========*/
-
-.gallery-page {
-    margin: 50px 0px 0px 0px;
-}
-
-.gallery-album {
-    margin-bottom: 30px;
-    background-color: $base-color;
-
-    h3 {
-        margin: 0px;
-        text-align: center;
-        padding: 10px 5px;
-        font-size: 15px;
-        font-weight: 400;
-        color: #fff;
-        text-transform: uppercase;
-    }
-
-    img {
-        @include transition();
-
-        &:hover {
-            opacity: 0.8;
-        }
-    }
-}
-
-/*==========Page About =========*/
-
-.about-me {
-    text-align: center;
-
-    .about-img {
-        margin: -20px -40px 0px -40px;
-
-        @media screen and (max-width: 991px) {
-            margin: -20px -15px 0px -15px;
-        }
-    }
-
-    h2 {
-        font-family: $font-family-heading;
-        font-size: 30px;
-        margin: 20px auto;
-        letter-spacing: 2px;
-        font-weight: normal;
-    }
-}
-
-.about-social {
-    margin: 20px 0px 100px 0px;
-
-    a {
-        display: inline-block;
-        width: 35px;
-        height: 35px;
-        background-color: $border-color;
-        line-height: 35px;
-        margin: 10px 3px;
-        line-height: 35px;
-        font-size: 15px;
-        color: $base-color;
-        border-radius: 50%;
-        @include transition();
-
-        &:hover {
-            background-color: $base-color;
-            color: #fff;
-        }
-    }
-}
-
-/*==========Page Contact =========*/
-
-.page-contact {
-    h3 {
-        font-family: $font-family-heading;
-        text-transform: uppercase;
-        font-weight: 400;
-        font-size: 25px;
-        letter-spacing: 2px;
-        margin: 10px 0px 20px 0px;
-    }
-
-    .my-btn {
-        margin-top: 15px;
-    }
-}
-
-#map {
-    width: 100%;
-
-    border: 1px solid $base-color;
-    margin: 30px 0px 0px 0px;
-
-    p {
-        margin: 0px;
-        padding: 0px;
-    }
-}
-
-.list-infomation {
-    padding: 20px 0px;
-    list-style: none;
-
-    li {
-        margin: 10px 0px;
-
-        i {
-            float: left;
-            width: 30px;
-            height: 25px;
-            line-height: 25px;
-            text-align: center;
-            color: #555;
-            margin: -2px 0px 0px 0px;
-        }
-    }
-}
 
 /*********************format*/
 
