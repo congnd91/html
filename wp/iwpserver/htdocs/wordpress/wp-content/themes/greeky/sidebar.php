@@ -4,11 +4,11 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package mazpage
+ * @package greeky
  */
 
-if ( ! is_active_sidebar( 'mazpage_sidebar' ) ) {
+if ( ! is_active_sidebar( 'greeky_sidebar' ) ) {
 return;
 }
 ?>
-<?php dynamic_sidebar( 'mazpage_sidebar' ); ?>
+<?php dynamic_sidebar( 'greeky_sidebar' ); ?>

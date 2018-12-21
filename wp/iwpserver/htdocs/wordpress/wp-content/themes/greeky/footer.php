@@ -14,75 +14,72 @@
 
 
 
-    </div>
-    <!--footer-->
-    <footer class="footer">
-        <div class="wrap">
-            <div class="box-site-info">
-                <a href="#" class="logo">
-                        <img alt="" src="images/logo.png" />
-                    </a>
-                <ul class="social-company">
-                    <li>
-                        <a href="#"><i class="fa fa-facebook-f"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-rss"></i></a>
-                    </li>
-                </ul>
-                <ul class="menu-footer">
-                    <li>
-                        <a href="index.html"> Home </a>
-                    </li>
-                    <li>
-                        <a href="category.html">Category<span></span></a>
-                    </li>
-                    <li>
-                        <a href="single.html">Single<span></span></a>
-                    </li>
-                    <li>
-                        <a href="shop.html">Shop<span></span></a>
-                    </li>
-                    <li>
-                        <a href="gallery.html">Gallery<span></span></a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact<span></span></a>
-                    </li>
-                </ul>
-            </div>
+</div>
+<!--footer-->
+<footer class="footer">
+    <div class="wrap">
+        <div class="box-site-info">
+            <?php $site_logo = mazpage_get_theme_option('site_logo'); ?>
+            <?php if($site_logo):?>
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="logo">
+                <img alt="Logo" src="<?php echo esc_url($site_logo);?>" title="<?php bloginfo('name'); ?>" />
+            </a>
+            <?php else:?>
+            <h1>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="logo">
+                    <?php bloginfo( 'name' ); ?>
+                </a>
+            </h1>
+            <?php endif;?>
+
+            <?php if(is_active_sidebar('greeky_social_footer')){ dynamic_sidebar("greeky_social_footer");  }?>
+
+
+            <?php wp_nav_menu(array(
+                                'theme_location'=>'footer-menu',
+                                'menu_class'=>'menu-footer',
+                                'container'=>'')
+                                ); ?>
+
+
+            <!-- <ul class="menu-footer">
+                <li>
+                    <a href="index.html"> Home </a>
+                </li>
+                <li>
+                    <a href="category.html">Category<span></span></a>
+                </li>
+                <li>
+                    <a href="single.html">Single<span></span></a>
+                </li>
+                <li>
+                    <a href="shop.html">Shop<span></span></a>
+                </li>
+                <li>
+                    <a href="gallery.html">Gallery<span></span></a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact<span></span></a>
+                </li>
+            </ul>-->
         </div>
-        <div class="allright">
-            <?php if (!get_theme_mod('copyrights')):?>
-            <p>
-                <?php echo  html_entity_decode(esc_html('ALL RIGHTS RESERVED. Designed by <a href="https://themeforest.net/user/cizthemes" target="_blank"> CIZ THEMES </a>','mazpage')); ?>
-            </p>
-            <?php else: ?>
-            <p>
-                <?php echo html_entity_decode(esc_html(get_theme_mod('copyrights'),'mazpage'));?>
-            </p>
-            <?php endif; ?>
-        </div>
-    </footer>
     </div>
+    <div class="allright">
+        <?php if (!get_theme_mod('copyrights')):?>
+        <p>
+            <?php echo  html_entity_decode(esc_html('ALL RIGHTS RESERVED. Designed by <a href="https://themeforest.net/user/cizthemes" target="_blank"> CIZ THEMES </a>','mazpage')); ?>
+        </p>
+        <?php else: ?>
+        <p>
+            <?php echo html_entity_decode(esc_html(get_theme_mod('copyrights'),'mazpage'));?>
+        </p>
+        <?php endif; ?>
+    </div>
+</footer>
+</div>
 
 
-    <?php wp_footer(); ?>
-    </body>
+<?php wp_footer(); ?>
+</body>
 
-    </html>
+</html>

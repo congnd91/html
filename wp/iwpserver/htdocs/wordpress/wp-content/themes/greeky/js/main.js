@@ -1,4 +1,3 @@
-
 (function ($) {
     $(document).on('ready', function () {
         "use strict";
@@ -13,7 +12,9 @@
 
         /**Scroll to top**/
         function scrollToTop() {
-            $("html, body").animate({ scrollTop: 0 }, 0);
+            $("html, body").animate({
+                scrollTop: 0
+            }, 0);
         }
         /**Menu**/
         $('.menu-icon-mobile').on('click', function () {
@@ -29,15 +30,14 @@
             if ($(submenu).is(":visible")) {
                 $(submenu).slideUp();
                 $(this).removeClass("open-submenu-active");
-            }
-            else {
+            } else {
                 $(submenu).slideDown();
                 $(this).addClass("open-submenu-active");
             }
         });
 
         $('.menu-res li.menu-item-has-children > a').on('click', function () {
-          //  return false;
+            //  return false;
         });
 
 
@@ -47,23 +47,23 @@
         win.on('scroll', function () {
             if ($(this).scrollTop() >= 300) {
                 $(totop).addClass("show");
-            }
-            else {
+            } else {
                 $(totop).removeClass("show");
             }
         });
         $(totop).on('click', function () {
-            $("html, body").animate({ scrollTop: 0 }, 1500);
+            $("html, body").animate({
+                scrollTop: 0
+            }, 1500);
         });
 
 
         /**Search Box**/
         var header_right = $('.header-right');
-        $('.search-icon').on('click', function () {
+        $('.search-toogle').on('click', function () {
             if ($(header_right).hasClass("show-search")) {
                 $(header_right).removeClass("show-search");
-            }
-            else {
+            } else {
                 $(header_right).addClass("show-search");
             }
         });
@@ -72,10 +72,11 @@
         $('.search-icon-mobile').on('click', function () {
             if ($(mobile_bar).hasClass("show-search-mobile")) {
                 $(mobile_bar).removeClass("show-search-mobile");
-            }
-            else {
+            } else {
                 $(mobile_bar).addClass("show-search-mobile");
-                setTimeout(function () { $('.txt-search').focus(); }, 300);
+                setTimeout(function () {
+                    $('.txt-search').focus();
+                }, 300);
             }
         });
 
@@ -86,7 +87,7 @@
         }
 
         /**review slider**/
-        var owl_breaking=$('.owl-breaking')
+        var owl_breaking = $('.owl-breaking')
         $(owl_breaking).owlCarousel({
             loop: true,
             margin: 0,
@@ -96,7 +97,7 @@
             items: 1,
             animateOut: 'fadeOutDown',
             animateIn: 'fadeInDown',
-           
+
         });
 
         /**top-review slider**/
@@ -141,7 +142,7 @@
             autoplay: true,
             autoplayTimeout: 4000,
             items: 1,
-           
+
         });
         var owl_shop = $('.owl-shop')
         $(owl_shop).owlCarousel({
