@@ -23,7 +23,8 @@ body {
     font-size: 1.4rem;
     color: $text-color;
     line-height: 1.5;
-    padding: 120px 0px 0px 0px;
+    padding: 100px 0px 0px 0px;
+
 
 }
 
@@ -159,6 +160,11 @@ a {
     &:active {
         color: inherit;
     }
+}
+
+.page {
+    overflow: hidden;
+
 }
 
 .row-fix {
@@ -1067,16 +1073,35 @@ a {
             transition: all ease 0.3s;
             border-radius: 2px;
 
+            .pd-des-control {
+                margin: 0px 0px 0px 0px;
+                padding: 0px;
+                text-align: left;
+            }
+
+            .pi-img {
+                overflow: hidden;
+            }
 
             img {
                 width: 100%;
                 display: block;
+                transition: all ease 0.5s;
+
+
             }
 
             &:hover {
                 z-index: 2;
                 background-color: #fff;
                 box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+
+                .pi-img {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+
             }
 
             h3 {
@@ -1086,6 +1111,16 @@ a {
 
                 @media screen and (max-width: 767px) {
                     font-size: 1.5rem;
+                }
+            }
+
+            h2 {
+                padding: 15px 10px;
+                text-align: center;
+                font-size: 2.3rem;
+
+                @media screen and (max-width: 767px) {
+                    font-size: 1.8rem;
                 }
             }
         }
@@ -1154,6 +1189,11 @@ a {
             img {
                 width: 100%;
                 display: block;
+                transition: all ease 0.5s;
+            }
+
+            .ni-img {
+                overflow: hidden;
             }
 
             &:hover {
@@ -1164,6 +1204,12 @@ a {
 
                 .date {
                     background-color: #50c743;
+                }
+
+                .ni-img {
+                    img {
+                        transform: scale(1.1);
+                    }
                 }
             }
 
@@ -1509,6 +1555,10 @@ a {
 
     &.product {
         background-image: url(../images/product_banner.png);
+    }
+
+    &.product-list {
+        background-image: url(../images/product_list_banner.png);
     }
 
     &.search {
@@ -1967,7 +2017,7 @@ a {
 
 
 .detail-bar {
-    margin: 0px 0px 0px 0px;
+    margin: 20px 0px 0px 0px;
     min-height: 40px;
     background-color: $active-color;
     min-height: 60px;
@@ -2105,6 +2155,18 @@ a {
             &.active {
                 a {
                     opacity: 1;
+                }
+            }
+
+            &.big {
+                a {
+
+                    font-size: 2.2rem;
+
+                    @media screen and (max-width: 991px) {
+                        font-size: 1.7rem;
+
+                    }
                 }
             }
         }
@@ -3073,6 +3135,15 @@ a {
         &:hover {
             box-shadow: 5px 0px 35px 0px rgba(0, 0, 0, 0.3);
             border: 1px solid darken($border-color, 10%);
+
+            .ppi-img {
+                //margin: -1px -1px 0px -1px;
+
+
+                img {
+                    transform: scale(1.1);
+                }
+            }
         }
 
         a {
@@ -3082,10 +3153,12 @@ a {
         .ppi-img {
             //margin: -1px -1px 0px -1px;
             margin: 0px;
+            overflow: hidden;
 
             img {
                 display: block;
                 width: 100%;
+                transition: all ease 0.4s;
             }
         }
 
@@ -4220,7 +4293,8 @@ a {
     margin: 0px 0px 40px 0px;
 
     .pc-content {
-        min-width: 500px;
+        min-width: 600px;
+
     }
 
     .pc-scroll {
@@ -4270,7 +4344,23 @@ a {
 
         &.head {
 
-            background-color: $active-color;
+            background-color: #177cda;
+
+            &.is_stuck {
+
+
+                top: 120px !important;
+
+                @media screen and (max-width: 767px) {
+                    top: unset !important;
+                    position: relative !important;
+
+
+                }
+
+
+            }
+
 
             strong {
                 color: #fff;
@@ -4310,7 +4400,7 @@ a {
         padding: 5px 5px;
 
         @media screen and (max-width: 991px) {
-            width: 20%;
+            width: 16.6666%;
         }
 
         &.col1 {
@@ -4321,11 +4411,6 @@ a {
             }
         }
 
-        &.col4 {
-            @media screen and (max-width: 991px) {
-                display: none;
-            }
-
-        }
+        &.col4 {}
     }
 }

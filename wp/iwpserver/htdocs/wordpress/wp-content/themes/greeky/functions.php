@@ -54,7 +54,6 @@ function greeky_setup() {
 		'main-menu' => esc_html__( 'Primary', 'greeky' ),
 	) );
     
-    
     register_nav_menus( array(
 		'footer-menu' => esc_html__( 'Footer Menu', 'greeky' ),
 	) );
@@ -106,7 +105,7 @@ function greeky_widgets_init() {
 		'name'          => esc_html__( 'Sidebar', 'greeky' ),
 		'id'            => 'greeky_sidebar',
 		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
-		'before_widget' => '<div id="%1$s" class="box">',
+		'before_widget' => '<div id="%1$s" class="box box-widget %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<div class="box-caption"><h2><span>',
 		'after_title'   => '</span></h2></div>',
@@ -158,78 +157,16 @@ function greeky_widgets_init() {
 		'after_title'   => '</span></div>',
 		));
          
-         
-         
-         
-         
-         
-         
-         
-    
-    
-    
-    
    
-    
-
-    
-	register_sidebar(array(
-		'name' => esc_html__( 'Social Footer Widgets', 'greeky' ),
-		'id'            => 'greeky_social_footer',
-		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
-		'before_widget' => '<section id="%1$s" class="greeky-widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<div class="widget-title col-caption"><span>',
-		'after_title'   => '</span></div>',
-		));
-
-	
-
-	register_sidebar(array(
-		'name' => esc_html__( 'Footer Widgets Column 1', 'greeky' ),
-		'id'            => 'greeky_footer_column_1',
-		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
-		'before_widget' => '<section id="%1$s" class="greeky-widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<div class="widget-title col-caption"><span>',
-		'after_title'   => '</span></div>',
-		));
-	register_sidebar(array(
-		'name' => esc_html__( 'Footer Widgets Column 2', 'greeky' ),
-		'id'            => 'greeky_footer_column_2',
-		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
-		'before_widget' => '<section id="%1$s" class="greeky-widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<div class="widget-title col-caption"><span>',
-		'after_title'   => '</span></div>',
-		));
-	register_sidebar(array(
-		'name' => esc_html__( 'Footer Widgets Column 3', 'greeky' ),
-		'id'            => 'greeky_footer_column_3',
-		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
-		'before_widget' => '<section id="%1$s" class="greeky-widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<div class="widget-title col-caption"><span>',
-		'after_title'   => '</span></div>',
-		));
-
-	register_sidebar(array(
-		'name' => esc_html__( 'About Social Widgets', 'greeky' ),
-		'id'            => 'greeky_about',
-		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
-		'before_widget' => '<section id="%1$s" class="greeky-widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<div class="widget-title col-caption"><span>',
-		'after_title'   => '</span></div>',
-		));
+   
 	register_sidebar(array(
 		'name' => esc_html__( 'Contact Page Widgets', 'greeky' ),
 		'id'            => 'greeky_contact',
 		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
-		'before_widget' => '<section id="%1$s" class="greeky-widget %2$s col-md-6 col-sm-12">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<div class="widget-title col-caption"><span>',
-		'after_title'   => '</span></div>',
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => '',
 		));
 	
 	
@@ -247,23 +184,10 @@ require get_template_directory() . '/widgets/widget_popular_posts_sidebar.php';
 require get_template_directory() . '/widgets/widget_advertisement_sidebar.php';
 require get_template_directory() . '/widgets/widget_tab_posts_sidebar.php';
 require get_template_directory() . '/widgets/widget_twitter_timeline_sidebar.php';
+require get_template_directory() . '/widgets/widget_form_contact.php';
+require get_template_directory() . '/widgets/widget_information_contact.php';
 
 
-
-
-
-
-require get_template_directory() . '/widgets/widget_posts_by_tag.php';
-require get_template_directory() . '/widgets/widget_sticky_post.php';
-require get_template_directory() . '/widgets/widget_posts_by_tag_home.php';
-require get_template_directory() . '/widgets/widget_subscribe.php';
-require get_template_directory() . '/widgets/widget_trending_posts.php';
-require get_template_directory() . '/widgets/widget_instagram.php';
-
-require get_template_directory() . '/widgets/widget_social_about_page.php';
-require get_template_directory() . '/widgets/widget_contact_form.php';
-require get_template_directory() . '/widgets/widget_contact_information.php';
-require get_template_directory() . '/woocommerce/hooks.php';
 
 
 
@@ -464,6 +388,32 @@ function greeky_excerpt_length($length) {
 	return 25;
 }
 add_filter('excerpt_length', 'greeky_excerpt_length');
+
+/**
+ * Breadcrumb
+ */
+function greeky_breadcrumbs() {
+    $delimiter = '<span><i class="fa fa-angle-right"></i></span>';
+    $home = 'Home'; 
+    $before = ''; 
+    $after = '';
+    if ( !is_home() && !is_front_page() || is_paged() ) {
+        echo '<div class="sitemap">';
+        global $post;
+        $homeLink = get_bloginfo('home_url');
+        echo '<a href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
+        
+        if ( is_single()) {
+            
+                $cat = get_the_category(); $cat = $cat[0];
+                echo get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
+             
+           
+        } 
+        echo '</div>';
+    }
+} // end dimox_breadcrumbs()
+
 
 // Post Views Counter
 function greeky_setpostviews($postID) {

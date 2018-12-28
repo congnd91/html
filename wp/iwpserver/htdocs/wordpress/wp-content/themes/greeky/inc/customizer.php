@@ -1,23 +1,23 @@
 <?php
-function mazpage_customize_register( $wp_customize ) {
+function greeky_customize_register( $wp_customize ) {
 
 	$wp_customize->remove_section('colors');
 
-	$wp_customize->add_setting( 'mazpage_theme_options[site_logo]', array(
+	$wp_customize->add_setting( 'greeky_theme_options[site_logo]', array(
 		'capability' => 'edit_theme_options',
 		'type' => 'option',
 		'sanitize_callback' => 'esc_url_raw',
 	));
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'site_logo', array(
-		'label' => esc_html( 'Site Logo', 'mazpage' ),
+		'label' => esc_html( 'Site Logo', 'greeky' ),
 		'section' => 'title_tagline',
-		'settings' => 'mazpage_theme_options[site_logo]',
+		'settings' => 'greeky_theme_options[site_logo]',
 	)));
 
 	// General Settings Section
 	$wp_customize->add_section( 'general_section' , array(
-    'title'       => esc_html__( 'General layout', 'mazpage' ),
+    'title'       => esc_html__( 'General layout', 'greeky' ),
     'priority'    => 30,
     'description' =>'Customize layout for main posts stream on front page',
 	) );
@@ -30,14 +30,14 @@ function mazpage_customize_register( $wp_customize ) {
 
         $wp_customize->add_control( 'sidebar_position', array(
     	'type'     => 'radio',
-        'label'    => esc_html__( 'Sidebar Position', 'mazpage' ),
+        'label'    => esc_html__( 'Sidebar Position', 'greeky' ),
         'section'  => 'general_section',
         'settings' => 'sidebar_position',
         'priority' => 1,
         'choices'  => array(
-        	'right' => esc_html__( 'Right', 'mazpage' ),
-        	'left' => esc_html__( 'Left', 'mazpage' ),
-        	'none' => esc_html__( 'No Sidebar', 'mazpage' ),
+        	'right' => esc_html__( 'Right', 'greeky' ),
+        	'left' => esc_html__( 'Left', 'greeky' ),
+        	'none' => esc_html__( 'No Sidebar', 'greeky' ),
 	        ),
         ) );
 
@@ -49,20 +49,20 @@ function mazpage_customize_register( $wp_customize ) {
 
         $wp_customize->add_control('menu_visible', array(
     	'type'     => 'radio',
-        'label'    => esc_html__( 'Menu Visible ?', 'mazpage' ),
+        'label'    => esc_html__( 'Menu Visible ?', 'greeky' ),
         'section'  => 'general_section',
         'settings' => 'menu_visible',
         'priority' => 3,
         'choices'  => array(
-        	'no' => esc_html__( 'No', 'mazpage' ),
-        	'yes' => esc_html__( 'Yes', 'mazpage' ),
+        	'no' => esc_html__( 'No', 'greeky' ),
+        	'yes' => esc_html__( 'Yes', 'greeky' ),
 	        ),
         ) );
 
 
     // Copyrights Settings Section
     $wp_customize->add_section( 'copyrights_settings' , array(
-    'title'       => esc_html__( 'Copyrights', 'mazpage' ),
+    'title'       => esc_html__( 'Copyrights', 'greeky' ),
     'priority'    => 35,
     ) );
 
@@ -73,7 +73,7 @@ function mazpage_customize_register( $wp_customize ) {
         ) );
 
         $wp_customize->add_control( 'copyrights', array(
-        'label'     => esc_html__( 'Copyrights', 'mazpage' ),
+        'label'     => esc_html__( 'Copyrights', 'greeky' ),
         'section'   => 'copyrights_settings',
         'type'      => 'textarea',
         'priority'  => 1,
@@ -81,7 +81,7 @@ function mazpage_customize_register( $wp_customize ) {
 
     // Single Page Section
     $wp_customize->add_section( 'single_section' , array(
-    'title'       => esc_html__( 'Single Page', 'mazpage' ),
+    'title'       => esc_html__( 'Single Page', 'greeky' ),
     'priority'    => 30,
     'description' =>'Customize layout for main posts stream on front page',
     ) );
@@ -94,13 +94,13 @@ function mazpage_customize_register( $wp_customize ) {
 
         $wp_customize->add_control( 'author_visible', array(
         'type'     => 'radio',
-        'label'    => esc_html__( 'Author Info Visible', 'mazpage' ),
+        'label'    => esc_html__( 'Author Info Visible', 'greeky' ),
         'section'  => 'single_section',
         'settings' => 'author_visible',
         'priority' => 1,
         'choices'  => array(
-            'no' => esc_html__( 'No', 'mazpage' ),
-            'yes' => esc_html__( 'Yes', 'mazpage' ),
+            'no' => esc_html__( 'No', 'greeky' ),
+            'yes' => esc_html__( 'Yes', 'greeky' ),
             ),
         ) );
 
@@ -112,13 +112,13 @@ function mazpage_customize_register( $wp_customize ) {
 
         $wp_customize->add_control('social_visible', array(
         'type'     => 'radio',
-        'label'    => esc_html__( 'Social Share Visible ?', 'mazpage' ),
+        'label'    => esc_html__( 'Social Share Visible ?', 'greeky' ),
         'section'  => 'single_section',
         'settings' => 'social_visible',
         'priority' => 3,
         'choices'  => array(
-            'no' => esc_html__( 'No', 'mazpage' ),
-            'yes' => esc_html__( 'Yes', 'mazpage' ),
+            'no' => esc_html__( 'No', 'greeky' ),
+            'yes' => esc_html__( 'Yes', 'greeky' ),
             ),
         ) );
 
@@ -130,34 +130,33 @@ function mazpage_customize_register( $wp_customize ) {
 
         $wp_customize->add_control('counter_visible', array(
         'type'     => 'radio',
-        'label'    => esc_html__( 'Couter View, Comment Visible ?', 'mazpage' ),
+        'label'    => esc_html__( 'Couter View, Comment Visible ?', 'greeky' ),
         'section'  => 'single_section',
         'settings' => 'counter_visible',
         'priority' => 3,
         'choices'  => array(
-            'no' => esc_html__( 'No', 'mazpage' ),
-            'yes' => esc_html__( 'Yes', 'mazpage' ),
+            'no' => esc_html__( 'No', 'greeky' ),
+            'yes' => esc_html__( 'Yes', 'greeky' ),
             ),
         ) );
 
 
 
 }
-add_action( 'customize_register', 'mazpage_customize_register' );
+add_action( 'customize_register', 'greeky_customize_register' );
 
-function mazpage_get_theme_option( $option_name, $default = '' ) {
-  $options = get_option('mazpage_theme_options' );
+function greeky_get_theme_option( $option_name, $default = '' ) {
+  $options = get_option('greeky_theme_options' );
   if( isset($options[$option_name]) ) {
     return $options[$option_name];
   }
   return $default;
 }
 
-function mazpage_return_value( $value ) {
+function greeky_return_value( $value ) {
 	if ( '' != $value ) {
 		return $value;
 	} else {
 		return '';
 	}
 }
-

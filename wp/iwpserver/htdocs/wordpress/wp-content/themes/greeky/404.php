@@ -4,19 +4,32 @@
 *
 * @link https://codex.wordpress.org/Creating_an_Error_404_Page
 *
-* @package mazpage
+* @package greeky
 */
 
 get_header(); ?>
-<div class="page-404">
-	<h1><?php echo esc_html("404","mazpage"); ?></h1>
-	<h3><?php echo esc_html("Page Not Found","mazpage"); ?></h3>
-	<p>
-		<?php echo esc_html("The page requested couldn't be found.","mazpage");?><br />
-		<?php echo esc_html(" This could a spelling error in the URL or a removed page.","mazpage");?>
-	</p>
-	<a href="<?php echo esc_url(home_url( '/' ) ); ?>" class="my-btn my-btn-dark btn-go-home">
-		<?php  echo esc_html("GO HOME","mazpage"); ?> </a>
-	</div>
-	<?php
+
+<div class="cols cols-full">
+    <!--colleft-->
+    <div class="colleft">
+        <!--detail -->
+        <div class="page-404 box">
+            <h1>
+                <span>
+                    <?php echo esc_html("4","greeky"); ?></span>
+                <i class="fa fa-frown-o"></i>
+                <span>
+                    <?php echo esc_html("4","greeky"); ?></span>
+            </h1>
+            <p>
+                <?php echo esc_html("Oops! Sorry this page doesn't exist. Back to home?","greeky");?>
+            </p>
+
+            <a href="<?php echo esc_url(home_url( '/' ) ); ?>" class="my-btn my-btn-dark btn-go-home">
+                <?php  echo esc_html("TAKE ME HOME","greeky"); ?> </a>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<?php
 get_footer();

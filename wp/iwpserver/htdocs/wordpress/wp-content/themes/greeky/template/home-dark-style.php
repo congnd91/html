@@ -46,7 +46,7 @@ $greeky_sidebar_position = get_theme_mod('sidebar_position');
             <header class="header">
                 <div class="header-inner">
                     <div class="logo-wrap">
-                        <?php $site_logo = mazpage_get_theme_option('site_logo'); ?>
+                        <?php $site_logo = greeky_get_theme_option('site_logo'); ?>
                         <?php if($site_logo):?>
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="logo">
                             <img alt="Logo" src="<?php echo esc_url($site_logo);?>" title="<?php bloginfo('name'); ?>" />

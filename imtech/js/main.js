@@ -321,6 +321,17 @@
 
                 $(".detail-bar").stick_in_parent();
             }
+            if ($(".pc-row.head").length) {
+
+                $(".pc-row.head").stick_in_parent({
+
+                    offset_top: 120,
+
+                });
+            }
+
+
+
 
 
             function isMobileWidth() {
@@ -415,7 +426,7 @@
         db.matchHeight();
         db.scrollFixBar();
 
-
+        new WOW().init();
 
 
 

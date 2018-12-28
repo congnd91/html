@@ -6,9 +6,9 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package mazpage
+ * @package greeky
  */
-    $mazpage_menu_visible = get_theme_mod('menu_visible');
+    $greeky_menu_visible = get_theme_mod('menu_visible');
         ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -46,7 +46,7 @@
             <header class="header">
                 <div class="header-inner">
                     <div class="logo-wrap">
-                        <?php $site_logo = mazpage_get_theme_option('site_logo'); ?>
+                        <?php $site_logo = greeky_get_theme_option('site_logo'); ?>
                         <?php if($site_logo):?>
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="logo">
                             <img alt="Logo" src="<?php echo esc_url($site_logo);?>" title="<?php bloginfo('name'); ?>" />

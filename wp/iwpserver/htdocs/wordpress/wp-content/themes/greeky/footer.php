@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package mazpage
+ * @package greeky
  */
 
 ?>
@@ -19,7 +19,7 @@
 <footer class="footer">
     <div class="wrap">
         <div class="box-site-info">
-            <?php $site_logo = mazpage_get_theme_option('site_logo'); ?>
+            <?php $site_logo = greeky_get_theme_option('site_logo'); ?>
             <?php if($site_logo):?>
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="logo">
                 <img alt="Logo" src="<?php echo esc_url($site_logo);?>" title="<?php bloginfo('name'); ?>" />
@@ -41,37 +41,16 @@
                                 'container'=>'')
                                 ); ?>
 
-
-            <!-- <ul class="menu-footer">
-                <li>
-                    <a href="index.html"> Home </a>
-                </li>
-                <li>
-                    <a href="category.html">Category<span></span></a>
-                </li>
-                <li>
-                    <a href="single.html">Single<span></span></a>
-                </li>
-                <li>
-                    <a href="shop.html">Shop<span></span></a>
-                </li>
-                <li>
-                    <a href="gallery.html">Gallery<span></span></a>
-                </li>
-                <li>
-                    <a href="contact.html">Contact<span></span></a>
-                </li>
-            </ul>-->
         </div>
     </div>
     <div class="allright">
         <?php if (!get_theme_mod('copyrights')):?>
         <p>
-            <?php echo  html_entity_decode(esc_html('ALL RIGHTS RESERVED. Designed by <a href="https://themeforest.net/user/cizthemes" target="_blank"> CIZ THEMES </a>','mazpage')); ?>
+            <?php echo  html_entity_decode(esc_html('ALL RIGHTS RESERVED. Designed by <a href="https://themeforest.net/user/cizthemes" target="_blank"> CIZ THEMES </a>','greeky')); ?>
         </p>
         <?php else: ?>
         <p>
-            <?php echo html_entity_decode(esc_html(get_theme_mod('copyrights'),'mazpage'));?>
+            <?php echo html_entity_decode(esc_html(get_theme_mod('copyrights'),'greeky'));?>
         </p>
         <?php endif; ?>
     </div>

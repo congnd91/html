@@ -7,7 +7,7 @@
 *
 * @link https://codex.wordpress.org/Template_Hierarchy
 *
-* @package mazpage
+* @package greeky
 */
 
 /*
@@ -21,52 +21,57 @@ if ( post_password_required() ) {
 }
 ?>
 <div id="comments" class="comments-area">
-	<?php
+    <?php
 // You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
 
-	<div class="detail-caption">
-		<span> <?php comments_number( esc_html( '0 comments', 'mazpage' ),  esc_html( '1 comments', 'mazpage' ), esc_html( '% comments', 'mazpage' ) ); ?>  </span>
-	</div>
-	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-	<?php endif; // Check for comment navigation. ?>
+    <div class="detail-caption">
+        <span>
+            <?php comments_number( esc_html( '0 comments', 'greeky' ),  esc_html( '1 comments', 'greeky' ), esc_html( '% comments', 'greeky' ) ); ?> </span>
+    </div>
+    <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+    <?php endif; // Check for comment navigation. ?>
 
-	<ol class="comment-list">
-		<?php
+    <ol class="comment-list">
+        <?php
 		wp_list_comments( array(
 			'style'      => 'ol',
 			'short_ping' => true,
 			) );
 			?>
-		</ol><!-- .comment-list -->
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-			<div class="paging"> <?php 
+    </ol><!-- .comment-list -->
+    <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+    <div class="paging">
+        <?php 
 //Create pagination links for the comments on the current post, with single arrow heads for previous/next
 				paginate_comments_links( array('prev_text' => 'Prev', 'next_text' => 'Next')); 
-				?></div>
-				<?php
+				?>
+    </div>
+    <?php
 endif; // Check for comment navigation.
 endif; // Check for have_comments().
 // If comments are closed and there are comments, let's leave a little note, shall we?
 if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'mazpage' ); ?></p>
-<?php
+    <p class="no-comments">
+        <?php esc_html_e( 'Comments are closed.', 'greeky' ); ?>
+    </p>
+    <?php
 endif;
 //comment_form();
 ?>
-<?php
+    <?php
 $comment_form = array( 
 	'fields' => apply_filters( 'comment_form_default_fields', array(
 		'author' => '<div class="row"> <div class="col-md-6 col-sm-6 col-xs-12">' .
 		'<div class="field-item">'.	
-		'<p class="field-caption">'.esc_html("Name","mazpage").' <span>*</span></p>'.
+		'<p class="field-caption">'.esc_html("Name","greeky").' <span>*</span></p>'.
 		'<input id="author" name="author" placeholder=" " type="text" value="' .
 		esc_attr( $commenter['comment_author']) . '" tabindex="1" />' .
 		'</div>' .
 		'</div>',
 		'email'  => '<div class="col-md-6 col-sm-6 col-xs-12">' .
 		'<div class="field-item">'.
-		'<p class="field-caption">'.esc_html("Email","mazpage").' <span>*</span></p>'.
+		'<p class="field-caption">'.esc_html("Email","greeky").' <span>*</span></p>'.
 		'<input id="email" name="email" placeholder="" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" tabindex="2" />' .
 		'</div>' .
 		'</div>' .
@@ -74,13 +79,13 @@ $comment_form = array(
 		) ),
 
 	'comment_field' => ' <div class="field-item">' .
-	'<p class="field-caption">'.esc_html("Comment","mazpage").' <span>*</span></p>'.
+	'<p class="field-caption">'.esc_html("Comment","greeky").' <span>*</span></p>'.
 	'<textarea id="comment" name="comment" aria-required="true" placeholder=""></textarea>' .
 	'</div>',
 	'comment_notes_before' => '',
 	'comment_notes_after' => '',
-	'title_reply' => '<span>'.esc_html("Leave a reply","mazpage").'</span>' ,
-	'label_submit' => esc_html("SUBMIT","mazpage"),
+	'title_reply' => '<span>'.esc_html("Leave a reply","greeky").'</span>' ,
+	'label_submit' => esc_html("SUBMIT","greeky"),
 	'class_submit'=>'my-btn my-btn-dark',
 	'logged_in_as' => '',
 	);
