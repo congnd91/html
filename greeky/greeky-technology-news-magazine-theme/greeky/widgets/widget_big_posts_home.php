@@ -50,7 +50,7 @@ function widget($args, $instance)
         <?php while ($greeky_thumbsposts->have_posts()) : $greeky_thumbsposts->the_post(); ?>
         <?php if($count==1) { ?>
 
-        <div class="gn-col">
+        <div class="gn-col gn-col1">
             <article class="gn-item">
                 <div class="post-meta">
                     <span class="post-category">

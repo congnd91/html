@@ -32,6 +32,11 @@
                 return false;
             });
         }
+        db.closeCookie = function () {
+            $('.close-cookie').on('click', function () {
+                $('.cookie-notify').hide();
+            });
+        }
         db.homeSlider = function () {
             var owl_home = $('.owl-home');
             if ($(owl_home).length) {
@@ -237,6 +242,7 @@
         db.sliderAbout();
         db.menuResponsive();
         db.matchHeight();
+        db.closeCookie();
 
     });
 })(jQuery);

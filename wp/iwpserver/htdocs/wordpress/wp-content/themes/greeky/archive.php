@@ -20,11 +20,12 @@ get_header(); ?>
             <!--colleft-->
             <div class="colleft">
                 <div class="box">
-                    <div class="box-caption box-caption-no-background">
-                        <h2>
-                            <span>
-                                <?php the_archive_title(); ?></span>
-                        </h2>
+                    <div class="box-detail-caption">
+
+                        <p>
+                            <?php the_archive_title(); ?>
+                        </p>
+
                     </div>
                     <?php if ( have_posts() ) { ?>
 
