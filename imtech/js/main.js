@@ -95,6 +95,26 @@
                 $('.search-wrap').toggleClass("show");
             });
         }
+        db.addCompare = function () {
+
+            $('body').on('click', function () {
+                $('.pd-button-wrap').removeClass("show");
+
+            });
+
+            $('.pd-button-wrap').on('click', function (e) {
+                alert("sss");
+            });
+
+            $('a.pd-btn').on('click', function (e) {
+                e.stopPropagation();
+                $('.pd-button-wrap').removeClass("show");
+                $(this).parent().addClass("show");
+                return false;
+            });
+
+
+        }
 
 
 
@@ -420,8 +440,9 @@
 
 
 
-
         db.preLoad();
+
+
         db.hoverMenu();
         db.menuResponsive();
         db.homeSlider();
@@ -434,9 +455,10 @@
         db.scrollFixBar();
         db.closeCookie();
 
+
         new WOW().init();
 
-
+        db.addCompare();
 
 
         //   db.menuLeft();

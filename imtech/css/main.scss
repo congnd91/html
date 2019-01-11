@@ -1058,18 +1058,26 @@ a {
 
 
         .product-item {
-            padding: 8px;
+
             text-align: center;
-            margin: 0px -8px 20px -8px;
-            position: relative;
-            z-index: 1;
+            margin: 0px 0px 20px 0px;
+
             transition: all ease 0.3s;
             border-radius: 2px;
+
+            pi-inner {
+                position: relative;
+                z-index: 1;
+                padding: 8px;
+            }
 
             .pd-des-control {
                 margin: 0px 0px 0px 0px;
                 padding: 0px;
                 text-align: left;
+                padding: 0px 8px 8px 8px;
+
+
             }
 
             .pi-img {
@@ -1085,8 +1093,15 @@ a {
             }
 
             &:hover {
-                z-index: 2;
                 background-color: #fff;
+                z-index: 1;
+
+                .pi-inner {
+                    z-index: 2;
+                    background-color: #fff;
+                }
+
+
                 box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
 
                 .pi-img {
@@ -1095,7 +1110,13 @@ a {
                     }
                 }
 
+                .pd-button-wrap {
+                    z-index: 1;
+                }
+
             }
+
+
 
             h3 {
                 padding: 15px 10px;
@@ -2300,6 +2321,11 @@ a {
 
     }
 
+    .pd-button-wrap {
+        z-index: 2 !important;
+
+    }
+
     .pd-tootip {
         width: 370px;
         padding: 15px 20px;
@@ -2342,7 +2368,7 @@ a {
         display: inline-block;
         margin: 0px 15px 0px 0px;
         position: relative;
-        z-index: 100;
+        z-index: -1;
 
         .pd-btn {
             font-size: 1.5rem;
@@ -2362,11 +2388,14 @@ a {
             }
         }
 
-        &:hover {
+        &.show {
+            z-index: 1;
+
             .pd-tootip {
                 visibility: visible;
                 opacity: 1;
-                z-index: 100;
+                z-index: 200;
+
             }
         }
 

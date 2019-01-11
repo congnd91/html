@@ -25,28 +25,58 @@
         }
 
 
+        $(window).bind('resize', function () {
+            $('.menu-res').css("max-height", $(window).height() - 20);
+        }).trigger('resize');
+
         db.menuResponsive = function () {
-            $('.menu-icon').on('click', function (e) {
-                e.stopPropagation();
-                $('body').toggleClass("open-menu");
+
+
+
+            $('.menu-icon').click(function () {
+
+                var menu = $('.menu-res');
+                if ($(menu).is(":visible")) {
+                    $(menu).slideUp();
+                    $('body').removeClass("open-menu");
+                } else {
+                    $(menu).slideDown();
+                    $('body').addClass("open-menu");
+                }
+
             });
-            $('.page').on('click', function () {
-                $('body').removeClass("open-menu");
+
+            $('.menu-res-inner ul li.has-child > a').click(function () {
+
+                var child = $(this).parent().find(" > ul");
+
+                if ($(child).is(":visible")) {
+                    $(child).slideUp();
+                    $(this).parent().removeClass("active");
+                } else {
+                    $(child).slideDown();
+                    $(this).parent().addClass("active");
+                }
+                return false;
+
             });
 
 
+            $('.ml-content ul li.has-child > a').click(function () {
 
-            $('.mega-menu ul li:first-child').find(".mega-sub").show();
-            $('.mega-menu ul li').hover(function () {
-                    $('.mega-menu ul li').removeClass("active");
-                    $(".mega-sub").hide();
-                    $(this).addClass("active");
-                    $(this).find(".mega-sub").show();
+                var child = $(this).parent().find(" > ul");
 
-                },
+                if ($(child).is(":visible")) {
+                    $(child).slideUp();
+                    $(this).parent().removeClass("active");
+                } else {
+                    $(child).slideDown();
+                    $(this).parent().addClass("active");
+                }
+                return false;
 
 
-                function () {});
+            });
 
 
         }
