@@ -6,6 +6,7 @@
                 $('body').fadeIn();
             });
         }
+
         db.menuAccordion = function () {
             $('.acc-caption').on('click', function () {
                 var content = $(this).next(".acc-content");
@@ -30,8 +31,6 @@
         }).trigger('resize');
 
         db.menuResponsive = function () {
-
-
 
             $('.menu-icon').click(function () {
 
@@ -78,11 +77,23 @@
 
             });
 
+            $('.menu-left-caption').on('click', function () {
+                var menu = $('.menu-left');
+                if ($(menu).is(":visible")) {
+                    $(menu).slideUp();
+                    $(this).removeClass("active");
+                } else {
+                    $(menu).slideDown();
+                    $(this).addClass("active");
+
+                }
+            });
+
 
         }
+
+
         db.homeSlider = function () {
-
-
             var owl_home = $('.owl-home');
             if ($(owl_home).length) {
                 $(owl_home).owlCarousel({
@@ -97,6 +108,73 @@
             }
 
         }
+        db.homeCate = function () {
+            var owl_cate = $('.owl-cate');
+            if ($(owl_cate).length) {
+                $(owl_cate).owlCarousel({
+                    loop: false,
+                    margin: 0,
+                    nav: true,
+                    autoplay: false,
+                    navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+
+                    responsive: {
+
+                        0: {
+                            items: 1,
+                        },
+
+                        576: {
+                            items: 1,
+                        },
+
+                        768: {
+                            items: 2,
+
+                        },
+                        991: {
+                            items: 3,
+
+                        }
+                    },
+
+                });
+            }
+
+        }
+
+
+
+
+        db.showSearch = function () {
+            $('.search-icon').on('click', function () {
+                $('.search-wrap').toggleClass("show");
+            });
+            $('.close-search').on('click', function () {
+                $('.search-wrap').toggleClass("show");
+            });
+        }
+
+        db.matchHeight = function () {
+            if ($('.product-item').length) {
+                $('.product-item').matchHeight();
+            }
+            if ($('.hf-item').length) {
+                $('.hf-item').matchHeight();
+            }
+            if ($('.nh-item').length) {
+                $('.nh-item').matchHeight();
+            }
+
+        }
+
+
+
+
+
+
+
+
 
         db.scrollIntro = function () {
 
@@ -117,14 +195,6 @@
 
         }
 
-        db.showSearch = function () {
-            $('.search-icon').on('click', function () {
-                $('.search-wrap').toggleClass("show");
-            });
-            $('.close-search').on('click', function () {
-                $('.search-wrap').toggleClass("show");
-            });
-        }
 
 
 
@@ -260,29 +330,24 @@
 
         }
 
-        db.matchHeight = function () {
-            if ($('.news-item').length) {
-                $('.news-item').matchHeight();
-            }
-            if ($('.pp-item').length) {
-                $('.pp-item').matchHeight();
-            }
-            $('.mega-col').matchHeight();
-        }
-
-
-
 
         db.tabProductDetail = function () {
-            $(".detail-nav li").click(function () {
+            $(".detail-tab-nav li").click(function () {
                 var value = $(this).attr("data-tab");
 
-                $(".detail-nav li").removeClass("active");
+                $(".detail-tab-nav li").removeClass("active");
                 $(this).addClass("active");
-                $('.pd-content').removeClass("active");
+                $('.detail-tab-content').removeClass("active");
                 $(value).addClass("active");
             });
         }
+
+
+
+
+
+
+
 
         db.sliderMiles = function () {
             setTimeout(function () {
@@ -412,9 +477,6 @@
 
         }
 
-
-
-
         db.fixedHeader = function () {
 
             $('.totop').hide();
@@ -455,15 +517,16 @@
         db.hoverMenu();
         db.menuResponsive();
         db.homeSlider();
-        db.scrollIntro();
+        db.homeCate();
         db.showSearch();
+        db.matchHeight();
         db.tabProductDetail();
+
+        db.scrollIntro();
         db.sliderProduct();
         db.gender();
-        db.matchHeight();
         db.scrollFixBar();
         db.closeCookie();
-
         new WOW().init();
 
 

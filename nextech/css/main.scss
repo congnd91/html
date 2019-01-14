@@ -207,7 +207,8 @@ a {
 }
 
 #page-loader {
-    background-color: $gray;
+    background-color: #fff;
+
     position: fixed;
     top: 0;
     left: 0;
@@ -1459,6 +1460,10 @@ a {
                 @media screen and (max-width: 991px) {
                     font-size: 3rem;
                 }
+
+                @media screen and (max-width: 575px) {
+                    font-size: 2.5rem;
+                }
             }
 
             p {
@@ -1476,6 +1481,12 @@ a {
     &.product-list {
         background-image: url(../images/product_list_banner.png);
     }
+
+    &.product {
+        background-image: url(../images/product_banner.png);
+    }
+
+
 
 
     &.about {
@@ -1498,9 +1509,6 @@ a {
         background-image: url(../images/news_banner.png);
     }
 
-    &.product {
-        background-image: url(../images/product_banner.png);
-    }
 
 
 
@@ -1553,6 +1561,14 @@ a {
 .page-caption {
     margin: 0px 0px 30px 0px;
 
+    &.fix {
+        padding-left: 260px;
+
+        @media screen and (max-width: 991px) {
+            padding: 0px;
+        }
+    }
+
     h2 {
         margin: 0px;
         padding: 0px;
@@ -1580,8 +1596,43 @@ a {
     }
 }
 
+.menu-left-caption {
+    display: none;
+    background-color: $active-color;
+    cursor: pointer;
+    color: #fff;
+    line-height: 40px;
+    padding: 0px 10px;
+    margin: 0px 0px 5px 0px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    i {
+        float: right;
+        height: 40px;
+        line-height: 40px;
+        font-size: 15px;
+        color: #fff;
+    }
+
+    @media screen and (max-width: 991px) {
+        display: block;
+    }
+}
 
 .menu-left {
+    margin: 50px 0px 0px 0px;
+
+    @media screen and (max-width: 991px) {
+        margin: 0px;
+    }
+
+    display: none;
+
+    @media screen and (min-width: 992px) {
+        display: block !important;
+    }
 
     .ml-content {
 
@@ -1593,17 +1644,24 @@ a {
 
             > li {
                 position: relative;
+                margin: 0px 0px 5px 0px;
 
 
 
 
-                a {
+
+
+
+                > a {
                     color: #000000;
                     display: block;
-                    line-height: 40px;
-                    padding: 0px 10px;
+                    line-height: 1.4;
+
                     font-size: 16px;
+
                     background-image: linear-gradient(to top, #f6f6f6 0%, #fff 100%);
+                    border-left: 3px solid $active-color;
+                    padding: 10px 0px 10px 30px;
 
                     span {
                         width: 18px;
@@ -1611,8 +1669,9 @@ a {
                         border-radius: 50%;
                         background-color: #fff;
                         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
-                        margin: 10px 10px 0px 0px;
+                        margin: 3px 0px 0px -25px;
                         line-height: 18px;
+
                         text-align: center;
                         font-size: 12px;
                         color: #333;
@@ -1625,20 +1684,30 @@ a {
 
                 &.active {
                     > a {
-                        background-color: $active-color;
-                        color: #fff;
+                        color: $active-color;
+
+                    }
+
+                    > ul {
+                        display: block;
                     }
                 }
 
                 > .sub-menu {
+                    border-left: 3px solid #93b0fa;
+
                     > li {
-                        > a {
-                            border-bottom: 1px solid #E4E4E4;
-                        }
+                        > a {}
 
                         &:last-child {
                             > a {
                                 border: none;
+                            }
+                        }
+
+                        &.active {
+                            > ul {
+                                display: block;
                             }
                         }
                     }
@@ -1652,13 +1721,15 @@ a {
             padding: 0px;
             list-style: none;
             background-color: #fff;
-            padding: 10px 20px;
+            padding: 0px 20px;
             display: none;
 
             > li {
+                border: none;
+
                 > a {
                     line-height: 40px;
-                    font-size: 17px;
+                    font-size: 16px;
                     display: block;
                     padding: 0px;
 
@@ -1666,13 +1737,12 @@ a {
                         width: 20px;
                         height: 20px;
                         border-radius: 50%;
-                        background-color: #fff;
-                        border: 1px solid #ddd;
-                        margin: 10px 10px 0px 0px;
+
+                        margin: 13px 0px 0px 0px;
                         line-height: 18px;
                         text-align: center;
-                        font-size: 12px;
-                        color: #666;
+                        font-size: 15px;
+                        color: #333;
                         float: left;
 
 
@@ -1694,10 +1764,10 @@ a {
 
                     > li {
                         > a {
-                            line-height: 40px;
-                            font-size: 17px;
+                            line-height: 30px;
+                            font-size: 13px;
                             display: block;
-                            padding: 0px 0px 0px 20px;
+                            padding: 0px 0px 0px 30px;
 
                             span {
                                 width: 20px;
@@ -1711,6 +1781,7 @@ a {
                                 font-size: 12px;
                                 color: #000;
                                 float: left;
+                                display: none;
 
 
                             }
@@ -1732,7 +1803,7 @@ a {
                             > li {
                                 > a {
                                     line-height: 40px;
-                                    font-size: 17px;
+                                    font-size: 13px;
                                     display: block;
 
                                     padding: 0px 0px 0px 50px;
@@ -1762,7 +1833,7 @@ a {
 
 .box-products {
 
-    padding: 0px 0px 0px 250px;
+    padding: 0px 0px 0px 270px;
 
     @media screen and (max-width: 991px) {
         padding: 0px;
@@ -1770,9 +1841,9 @@ a {
     }
 
     .bp-left {
-        width: 220px;
+        width: 240px;
         float: left;
-        margin: 0px 0px 0px -250px;
+        margin: 0px 0px 0px -270px;
 
         @media screen and (max-width: 991px) {
             float: none;
@@ -1790,163 +1861,437 @@ a {
         }
     }
 
+    .products-list {
+        margin-bottom: 60px;
+    }
+
     .product-col {
         float: left;
         width: 33.333%;
+        padding: 0px 15px;
 
         @media screen and (max-width: 767px) {
             width: 50%;
 
         }
 
+        @media screen and (max-width: 575px) {
+            width: 100%;
+            float: none;
+        }
 
-        .product-item {
-            padding: 8px;
-            text-align: center;
-            margin: 0px -8px 20px -8px;
-            position: relative;
-            z-index: 1;
-            transition: all ease 0.3s;
+
+
+
+    }
+}
+
+.product-item {
+    margin: 0px 0px 30px 0px;
+
+
+
+
+
+    .pi-img {
+        overflow: hidden;
+    }
+
+    img {
+        width: 100%;
+        display: block;
+        transition: all ease 0.5s;
+
+
+    }
+
+    &:hover {
+        z-index: 2;
+
+
+        .pi-img {
+            img {
+                transform: scale(1.1);
+            }
+        }
+
+    }
+
+    h3 {
+        padding: 10px 0px;
+        text-align: center;
+        font-size: 1.4rem;
+        color: $text-color-second;
+
+    }
+
+
+}
+
+.product-cate {
+    border-bottom: 1px solid #cccccc;
+    padding: 70px 0px 40px 0px;
+
+    @media screen and (max-width: 991px) {
+        padding: 30px 0px;
+
+    }
+
+    &:first-child {
+        padding-top: 0px;
+
+        @media screen and (max-width: 991px) {
+            padding-top: 0px;
+        }
+    }
+
+
+    .product-item {
+        margin: 0px auto;
+        max-width: 310px;
+
+
+    }
+
+
+
+    .see-more {
+        text-align: center;
+        margin: 70px 0px 0px 0px;
+
+        @media screen and (max-width: 991px) {
+            margin: 40px 0px 0px 0px;
+        }
+
+        a {
+            display: inline-block;
+            line-height: 32px;
+            padding: 0px 30px;
+            font-family: $font-family-heading;
+            color: #fff;
+            background-color: $active-color;
+            border-radius: 30px;
+            margin: 0px 0px 0px 0px;
+            font-size: 1.4rem;
+            border: none;
+            @include transition();
+            cursor: pointer;
+
+            &:hover {
+                background-color: lighten($active-color, 10%);
+                outline: none;
+                color: #fff;
+            }
+
+
+
+        }
+    }
+}
+
+.slider-cate {
+    padding: 0px 50px;
+    position: relative;
+
+    .owl-prev {
+
+        width: 40px;
+        height: 40px;
+        background-color: #adadad;
+        border-radius: 50%;
+        line-height: 40px;
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+        transition: all ease 0.3s;
+        position: absolute;
+        top: 50%;
+        left: -50px;
+
+        margin: -60px 0px 0px 0px;
+
+
+        &:hover {
+            background-color: #999;
+        }
+
+    }
+
+    .owl-next {
+
+        width: 40px;
+        height: 40px;
+        background-color: #adadad;
+        border-radius: 50%;
+        line-height: 40px;
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+        transition: all ease 0.3s;
+        position: absolute;
+        top: 50%;
+        right: -50px;
+
+        margin: -60px 0px 0px 0px;
+
+
+        &:hover {
+            background-color: #999;
+        }
+
+    }
+}
+
+
+.detail-intro {
+    h1 {
+        margin: 0px 0px 40px 0px;
+
+
+        font-size: 3rem;
+        color: $text-color-second;
+
+        @media screen and (max-width: 991px) {
+            font-size: 2rem;
+        }
+    }
+
+    .di-wrap {
+        padding: 0px 230px 0px 0px;
+        position: relative;
+
+        @media screen and (max-width: 991px) {
+            padding: 0px;
+        }
+
+        .di-des {
+            width: 320px;
+            position: absolute;
+            top: 0xp;
+            right: 0px;
+
+            p {
+                font-size: 1.8rem;
+                color: #000;
+            }
+
+            @media screen and (max-width: 991px) {
+                display: none;
+            }
+        }
+    }
+}
+
+
+
+.detail-slider {
+    max-width: 500px;
+    margin: 0px auto 50px auto;
+    position: relative;
+
+    .sr-item {
+
+        position: absolute;
+        bottom: 100px;
+        right: 0px;
+        z-index: 10;
+
+        .sr-zoom {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            background-image: url(../images/zoom.png);
+            background-repeat: no-repeat;
+            background-size: 30px auto;
             border-radius: 2px;
 
-            .pd-des-control {
-                margin: 0px 0px 0px 0px;
-                padding: 0px;
-                text-align: left;
-            }
 
-            .pi-img {
-                overflow: hidden;
-            }
+
+        }
+    }
+
+
+    .slick-slider {
+        position: relative;
+
+        .slider-for {
+            margin: 0px 0px 40px 0px;
 
             img {
                 width: 100%;
                 display: block;
-                transition: all ease 0.5s;
-
-
-            }
-
-            &:hover {
-                z-index: 2;
-                background-color: #fff;
-                box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
-
-                .pi-img {
-                    img {
-                        transform: scale(1.1);
-                    }
-                }
-
-            }
-
-            h3 {
-                padding: 15px 10px;
-                text-align: center;
-                font-size: 1.9rem;
-
-                @media screen and (max-width: 767px) {
-                    font-size: 1.5rem;
-                }
-            }
-
-            h2 {
-                padding: 15px 10px;
-                text-align: center;
-                font-size: 2.3rem;
-
-                @media screen and (max-width: 767px) {
-                    font-size: 1.8rem;
-                }
+                height: auto;
             }
         }
 
+        .slider-nav {
+            position: relative;
+            max-width: 270px;
+            padding: 0px 30px;
+            margin: 0px auto 40px auto;
+
+            .slick-prev {
+                width: 30px;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                bottom: 0px;
+                border: none;
+                background-color: transparent;
+                outline: none;
+                font-size: 20px;
+                cursor: pointer;
+
+            }
+
+            .slick-next {
+
+                width: 30px;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                bottom: 0px;
+                border: none;
+                cursor: pointer;
+                background-color: transparent;
+                outline: none;
+                font-size: 20px;
+            }
+
+            .slick-slide {
+                outline: none;
+                padding: 0px 5px;
+                overflow: hidden;
+
+                img {
+                    border: 1px solid #ccc;
+                    width: 100%;
+                    height: auto;
+                    cursor: pointer;
+                }
+
+                &.slick-current {
+                    img {
+                        border: 1px solid $active-color;
+
+                    }
+                }
+            }
+
+            .nav-item {
+                border: 1px solid #fff;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
     }
 }
 
+.detail-tab-nav {
+    border-bottom: 1px solid #cccccc;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    display: block;
+    text-align: center;
 
+    li {
+        display: inline-block;
 
+        margin: 0px 30px;
+        margin-bottom: -1px;
 
+        @media screen and (max-width: 991px) {
+            margin: 0px 10px;
 
-
-
-
-
-
-
-
-
-
-
-
-.box {
-    margin: 0px 0px 60px 0px;
-
-
-    .box-caption {
-        margin: 0px 0px 30px 0px;
-        text-align: center;
-
-        h2 {
-            margin: 0px 0px 10px 0px;
-            padding: 0px;
-            font-size: 5rem;
-
-            @media screen and (max-width: 991px) {
-                font-size: 3rem;
-            }
         }
 
-        p {
+        @media screen and (max-width: 767px) {
+            margin: 0px 5px;
+            margin-bottom: -1px;
 
-            font-size: 2rem;
+        }
+
+
+        a {
+            display: block;
+            line-height: 50px;
             color: $text-color-second;
-            margin: 0px;
+            font-size: 2rem;
+            border-bottom: 1px solid transparent;
+            cursor: pointer;
 
             @media screen and (max-width: 991px) {
+                font-size: 1.6rem;
+            }
+
+            @media screen and (max-width: 575px) {
                 font-size: 1.4rem;
             }
 
+
+
+        }
+
+        &.active {
+
+            a {
+                color: $active-color;
+                border-bottom: 1px solid $active-color;
+            }
+        }
+    }
+
+}
+
+.detail-tab-content {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+    padding: 40px 0px;
+
+    p {
+        color: $text-color-second;
+        font-size: 1.8rem;
+        margin: 0px 0px 20px 0px;
+
+        @media screen and (max-width: 991px) {
+            font-size: 1.4rem;
         }
     }
 }
 
+.related-product {
+    margin: 20px 0px 50px 0px;
 
 
-.box-more {
-    text-align: center;
-
-    a {
-
-        height: 80px;
-        width: 80px;
-        background-color: $active-color;
-        border-radius: 50%;
-        font-size: 1.4rem;
-        color: #fff;
-        text-transform: uppercase;
-        background-color: $active-color;
-        transition: all ease 0.3s;
-        display: flex;
-        align-items: center;
+    .product-item {
         margin: 0px auto;
-        align-content: center;
-        justify-content: center;
-        text-align: center;
+        max-width: 310px;
 
-        span {
-            display: block;
-            margin: -5px 0px 0px 0px;
-            font-weight: 600;
-        }
 
-        &:hover {
+    }
 
-            background-color: $active-color-second;
+    .rp-caption {
+        margin: 0px 0px 20px 0px;
+        color: $text-color-second;
+        font-size: 3rem;
+
+        @media screen and (max-width: 991px) {
+            font-size: 2.5rem;
 
         }
     }
 }
+
+
+
+
 
 
 
@@ -2640,87 +2985,6 @@ a {
 
 
 
-.detail-slider {
-    max-width: 500px;
-    margin: 0px auto 50px auto;
-
-    .slick-slider {
-        position: relative;
-
-        .slider-for {
-            margin: 0px 0px 40px 0px;
-
-            img {
-                width: 100%;
-                display: block;
-                height: auto;
-            }
-        }
-
-        .slider-nav {
-            position: relative;
-            max-width: 270px;
-            padding: 0px 30px;
-            margin: 0px auto 40px auto;
-
-            .slick-prev {
-                width: 30px;
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                bottom: 0px;
-                border: none;
-                background-color: transparent;
-                outline: none;
-                font-size: 20px;
-                cursor: pointer;
-
-            }
-
-            .slick-next {
-
-                width: 30px;
-                position: absolute;
-                top: 0px;
-                right: 0px;
-                bottom: 0px;
-                border: none;
-                cursor: pointer;
-                background-color: transparent;
-                outline: none;
-                font-size: 20px;
-            }
-
-            .slick-slide {
-                outline: none;
-                padding: 0px 5px;
-                overflow: hidden;
-
-                img {
-                    border: 1px solid #ccc;
-                    width: 100%;
-                    height: auto;
-                    cursor: pointer;
-                }
-
-                &.slick-current {
-                    img {
-                        border: 1px solid $active-color;
-
-                    }
-                }
-            }
-
-            .nav-item {
-                border: 1px solid #fff;
-
-                img {
-                    width: 100%;
-                }
-            }
-        }
-    }
-}
 
 
 .pd-des {
