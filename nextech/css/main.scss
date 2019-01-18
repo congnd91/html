@@ -808,16 +808,29 @@ a {
     position: fixed;
     z-index: 999;
     bottom: 10px;
-    left: 10px;
-    width: 30px;
-    height: 30px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: $active-color;
+    transition: background ease 0.3s;
+
+
     border-radius: 50%;
-    background-color: $red;
     cursor: pointer;
-    line-height: 30px;
+    line-height: 40px;
     text-align: center;
     color: #fff;
     font-size: 17px;
+
+    &:hover {
+        background-color: lighten($active-color, 10%);
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 991px) {
+        display: none;
+    }
+
 }
 
 .menu-res {
@@ -1217,11 +1230,18 @@ a {
                     opacity: 1;
                 }
             }
+
+            .nh-img {
+                img {
+                    transform: scale(1.1);
+                }
+            }
         }
 
         .nh-img {
             float: left;
             width: 45%;
+            overflow: hidden;
 
             @media screen and (max-width: 1400px) {
                 width: 40%;
@@ -1234,6 +1254,10 @@ a {
 
             img {
                 width: 100%;
+                display: block;
+                transition: all ease 0.4s;
+
+
             }
 
         }
@@ -1645,6 +1669,7 @@ a {
             > li {
                 position: relative;
                 margin: 0px 0px 5px 0px;
+                line-height: none;
 
 
 
@@ -1725,6 +1750,7 @@ a {
             display: none;
 
             > li {
+                line-height: none;
                 border: none;
 
                 > a {
@@ -1763,6 +1789,8 @@ a {
                     padding: 0px;
 
                     > li {
+                        line-height: none;
+
                         > a {
                             line-height: 30px;
                             font-size: 13px;

@@ -477,18 +477,19 @@
 
         }
 
-        db.fixedHeader = function () {
+        db.toTop = function () {
 
             $('.totop').hide();
             $(window).scroll(function () {
                 if ($(this).scrollTop() >= 50) {
-                    $('body').addClass("body-scrolling");
+
                     $('.totop').fadeIn();
                 } else {
-                    $('body').removeClass("body-scrolling");
+
                     $('.totop').fadeOut();
                 }
             });
+
 
             $(".totop").click(function () {
 
@@ -521,6 +522,7 @@
         db.showSearch();
         db.matchHeight();
         db.tabProductDetail();
+        db.toTop();
 
         db.scrollIntro();
         db.sliderProduct();
