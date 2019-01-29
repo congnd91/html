@@ -237,7 +237,7 @@
         }
 
         @media screen and (max-width: 991px) {
-            font-size: $fs30;
+            font-size: $fs28;
             margin: 0px 0px 30px 0px;
         }
     }
@@ -267,15 +267,12 @@
                 cursor: pointer;
                 font-weight: 600;
                 text-align: center;
-                font-size: $fs14;
 
                 @media screen and (max-width: 1199px) {
                     padding: 0px 10px;
                     min-width: 10px;
-                    font-size: $fs12 + 1/16;
                     line-height: 40px;
-
-
+                    font-size: $fs14;
                 }
             }
 
@@ -391,13 +388,13 @@
         line-height: 50px;
         text-transform: none;
         font-weight: 600;
-        margin-top: -50px;
+
         position: relative;
         z-index: 9;
         color: #fff;
         border: 0;
         top: 0;
-        border-radius: 3px;
+        border-radius: $border-radius;
         transition: all ease 0.4s;
 
         &:hover {
@@ -413,21 +410,24 @@
 }
 
 .section-tryit {
-    background-image: linear-gradient(90deg, #05b9a0, #269cd3);
-    padding: 90px 0px;
+    margin: 60px 0px 0px 0px;
+    padding: 60px 0px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 
     @media screen and (max-width: 991px) {
         text-align: center;
         padding: 60px 0px;
     }
 
+
     p {
         display: inline-block;
         margin: 0px;
         font-size: $fs36;
         padding: 0px;
-        font-weight: 300;
         color: #fff;
+        font-weight: 300;
+
 
         strong {
             font-weight: 600;
@@ -442,18 +442,18 @@
     .btn-try-it {
         display: inline-block;
         float: right;
-        background-color: #fff;
-        opacity: 0.9;
-        padding: 0px 44px;
+        background-color: $active-color;
+
+        padding: 0px 50px;
         line-height: 50px;
         text-transform: none;
         font-weight: 600;
         position: relative;
-        z-index: 999;
-        color: $active-color;
+        z-index: 1;
+        color: #fff;
         border: 0;
         top: 0;
-        border-radius: 3px;
+        border-radius: $border-radius;
         transition: all ease 0.4s;
 
         @media screen and (max-width: 991px) {
@@ -462,8 +462,8 @@
         }
 
         &:hover {
-            opacity: 1;
-            transform: scale(1.1);
+            background-color: lighten($active-color, 10%);
+
         }
     }
 }
@@ -471,17 +471,47 @@
 .section-people {
     padding: 90px 0px;
     overflow: hidden;
-    background-color: #f3f5f5;
+    position: relative;
+
+
+
+    background-image: linear-gradient(90deg, #0099fe, #35bdaa);
+
+    background-image: linear-gradient(45deg, #181d25, #080a0c);
 
     @media screen and (max-width: 991px) {
         padding: 60px 0px;
     }
 
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        background-image: url(../images/home/people_bg.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        opacity: 0.1;
+
+
+
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+
     h2 {
         font-size: $fs36;
-        color: $text-color-heading;
+        color: #fff;
         text-align: center;
-        margin: 0px 0px 40px 0px;
+        margin: 0px 0px 60px 0px;
 
         strong {
             font-weight: 300;
@@ -493,6 +523,7 @@
         }
     }
 
+
     .comment-item {
         background-color: #fff;
         margin: 0px 0px 20px 0px;
@@ -500,6 +531,7 @@
         min-height: 70px;
         box-shadow: 3px 3px 6px rgba(0, 0, 0, .12);
         transition: all ease 0.4s;
+        border-radius: $border-radius;
 
         &:hover {
             box-shadow: 3px 3px 15px 0px rgba(0, 0, 0, .3);
@@ -517,10 +549,10 @@
         h3 {
             display: block;
             font-weight: 600;
-            font-size: $fs14;
             margin: 0px 0px 0px 0px;
             min-height: 40px;
             padding: 10px 0px 0px 0px;
+            font-size: $font-size-base;
 
             a {
                 color: $text-color-heading;
@@ -530,7 +562,7 @@
         p {
             margin: 0px;
             padding: 0px;
-            font-size: $fs12 + 1/16;
+            color: $text-color-meta;
 
             a {
                 font-weight: 500;
@@ -550,9 +582,8 @@
             padding: 10px;
 
             .card-title {
-                font-size: $fs14;
-                color: $text-color-heading;
-                line-height: 1.5;
+                font-size: $fs16;
+                color: $text-color;
                 font-weight: 600;
             }
 
@@ -592,13 +623,14 @@
                 margin: 0px 0px 0px 0px;
 
                 a {
-                    color: $text-color-heading;
+                    color: $text-color;
                 }
             }
 
             p {
                 margin: 0px 0px 0px 0px;
-                font-size: $fs12 +1/16;
+                color: $text-color-meta;
+
             }
         }
 

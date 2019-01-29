@@ -10,7 +10,7 @@
     right: 0px;
     z-index: 100;
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
-    padding: 10px 0px;
+    padding: 15px 0px;
     transition: all ease 0.4s;
 
     .float-left {
@@ -36,21 +36,18 @@
 
 
 
-    &-transparent {
+    &.header-transparent {
 
 
-        padding: 20px 0px 20px 0px;
+        padding: 25px 0px 25px 0px;
         background-color: transparent;
         box-shadow: none;
 
 
-
-
-
     }
 
-    &-scrolled {
-        padding: 10px 0px 10px 0px;
+    &.header-scrolled {
+        padding: 15px 0px 15px 0px;
         background-color: $bar-color;
         box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
 
@@ -70,7 +67,8 @@
 
         li {
             float: left;
-            margin: 0px 0px 0px 20px;
+            margin: 0px 0px 0px 30px;
+
 
             a {
                 line-height: 30px;
@@ -78,12 +76,35 @@
                 transition: all ease 0.3s;
                 font-weight: 600;
 
+                display: block;
+                position: relative;
+
+                &:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 0px;
+                    bottom: 0px;
+                    height: 1px;
+                    transition: width ease 0.4s;
+                    width: 0px;
+                    background-color: rgba(255, 255, 255, 0.5);
+
+
+                }
+
                 .fa-plus {
                     font-size: 10px;
                     color: $active-color;
                     position: relative;
                     top: -5px;
-                    transform: all ease 0.4s;
+                    transition: all ease 0.4s;
+                }
+
+                &:hover {
+                    opacity: 0.8;
+
+
                 }
 
 
@@ -195,12 +216,14 @@
     }
 }
 
+
+
 .user-info {
     float: left;
     margin: -5px 10px -5px 10px;
     position: relative;
 
-    .user-avatar {
+    .user-info-avatar {
         width: 40px;
         cursor: pointer;
         height: 40px;
@@ -213,7 +236,8 @@
         }
     }
 
-    .user-type {
+    .user-info-type {
+
         position: absolute;
         top: 0px;
         right: -20px;
@@ -229,24 +253,26 @@
 
 }
 
-.user-info-dropdown {
+.db-dropdown-menu {
 
-    font-size: $font-size-base;
-    left: unset !important;
-    margin: 25px 0px 0px 0px;
-    top: 100% !important;
-    right: -15px !important;
-
-    transform: none !important;
-
-
-    min-width: 300px;
-
-    margin-left: 0px;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.4);
     border: none;
-    border-radius: 3px;
+    border-radius: $border-radius;
+    background-color: #fff;
+    top: 100% !important;
+    transform: none !important;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.4);
+}
 
+.db-dropdown-menu-right {
+    right: -15px !important;
+    left: unset !important;
+}
+
+.user-info-dropdown {
+    font-size: $font-size-base;
+    margin: 25px 0px 0px 0px;
+    min-width: 300px;
+    margin-left: 0px;
 
     &:before {
         bottom: 100%;
@@ -278,9 +304,6 @@
         margin-left: -10px;
     }
 
-
-
-
     &:before {
         left: unset !important;
         right: 19px;
@@ -291,34 +314,15 @@
         right: 19px;
     }
 
-    li {
 
-        &.current {
-            background-color: $active-color;
-
-            a {
-                color: #fff;
-            }
-
-            &:hover {
-                opacity: 0.9;
-                background-color: $active-color;
-
-                a {
-                    background-color: $active-color;
-                    color: #fff;
-                }
-            }
-        }
-    }
 
 
 }
 
-.user-head {
+.user-info-head {
     padding: 15px 15px 10px 70px;
 
-    .uh-avatar {
+    .avatar {
         width: 40px;
         margin: 0px 0px 0px -55px;
         height: 40px;
@@ -335,8 +339,7 @@
 
     h3 {
 
-        font-size: $fs16;
-
+        font-size: $fs18;
         margin: -5px 0px 0px 0px;
         white-space: nowrap;
         max-width: 600px;
@@ -373,47 +376,45 @@
     }
 }
 
-.line-under-stock {
+.user-info-line {
     height: 1px;
-    margin: 10px 0px 10px 0px;
-    background-color: $border-color;
+    margin: 0px 0px 10px 0px;
+    background-color: #eee;
+
 
 }
 
-.user-balance {
+.user-info-balance {
     padding: 0px 15px;
-    white-space: nowrap;
 
-    .db-coins {
+    .coins-wrap {
+
+        margin: 0px 0px 15px 0px;
+        white-space: nowrap;
+    }
+
+    .stock-wrap {
+
+        margin: 0px 0px 15px 0px;
+
         p {
-            font-size: $font-size-base - 1/16;
+            margin: 0px;
 
+            em {
+                font-style: normal;
+                font-weight: 600;
+            }
         }
     }
 
-    .user-stock {
-        display: block;
-        margin: 10px 0px 0px 0px;
-
-        p {
-            margin: 0px 0px 0px 0px;
-            font-size: $fs14 - 1/16;
-
-        }
 
 
-    }
 
 
     .db-stock-flex {
         display: flex;
 
-        label {
-            line-height: 15px;
-            margin: 0px 0px 0px 5px;
-            font-size: $fs14 - 1/16;
 
-        }
 
         .db-stock-progress {
             width: 100%;
@@ -425,7 +426,8 @@
             display: block;
             width: 100%;
             position: relative;
-            background-color: $border-color;
+            background-color: #eee;
+
             height: 7px;
             border-radius: 5px;
 
@@ -443,42 +445,46 @@
     }
 }
 
-.user-list-menu {
+.user-info-menu {
     padding: 0px 0px;
     list-style: none;
     margin: 0px;
 
     li {
-        padding: 0px;
-        margin: 0px;
 
         a {
             display: block;
-            padding: 8px 15px;
+            line-height: 40px;
+            min-height: 25px;
             color: $text-color;
+            padding: 0px 0px 0px 5px;
 
+            transition: all ease 0.3s;
 
-            i {
+            &:hover {
+                background-color: $box-color;
 
-                width: 25px;
-                display: inline-block;
             }
 
 
 
-        }
 
-        &:hover {
-            a {
+            .icon {
+                width: 40px;
+                float: left;
+                text-align: center;
 
-                background-color: #f5f5f5;
+                line-height: 40px;
+
+
             }
+
         }
 
-        &.active {
+        &.current {
             a {
-                background-color: #f5f5f5;
-                font-weight: 600;
+                background-color: $box-color;
+                color: $active-color;
             }
         }
     }
@@ -518,7 +524,7 @@
 
 
             a {
-                line-height: 35px;
+                line-height: 40px;
                 color: $text-color;
                 transition: all ease 0.4s;
                 font-weight: 600;
@@ -527,7 +533,7 @@
 
                 &:hover {
                     color: $active-color;
-                    background-color: $border-color;
+
                 }
 
 
