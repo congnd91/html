@@ -42,7 +42,7 @@ body {
   font-size: 1.4rem;
   color: #333333;
   line-height: 1.5;
-  padding: 0px;
+  padding: 120px 0px 0px 0px;
   margin: 0px; }
 
 dt,
@@ -167,8 +167,14 @@ iframe {
   z-index: 99999; }
 
 .header {
+  background-color: #fff;
   height: 80px;
-  overflow: hidden; }
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 200; }
   .header .header-left {
     float: left; }
   .header .header-right {
@@ -198,7 +204,7 @@ iframe {
             height: 25px; } }
     .header .header-right .hotline {
       float: left;
-      margin: 25px 0px 0px 0px;
+      margin: 25px 0px 0px 30px;
       font-size: 24px;
       font-weight: bold;
       color: #2e9742; }
@@ -213,14 +219,24 @@ iframe {
         background-image: url(../images/phone.png);
         width: 17px;
         height: 18px;
-        margin: 2px 5px 0px 0px; }
+        background-repeat: no-repeat;
+        margin: 10px 5px 0px 0px;
+        background-size: 14px auto; }
+        @media screen and (max-width: 767px) {
+          .header .header-right .hotline span {
+            margin: 5px 2px 0px 0px; } }
 
 .main-menu {
   height: 40px;
   background-color: #2e9742;
   position: relative;
   z-index: 100;
-  background-image: linear-gradient(to right, #53bb50 0%, #298e3d 100%); }
+  background-image: linear-gradient(to right, #53bb50 0%, #298e3d 100%);
+  position: fixed;
+  top: 80px;
+  left: 0px;
+  right: 0px;
+  z-index: 200; }
   .main-menu .menu {
     float: right;
     margin: 0px;
@@ -241,10 +257,14 @@ iframe {
         font-size: 15px;
         font-weight: 600;
         padding: 0px 15px;
+        cursor: pointer;
         text-transform: uppercase;
         transition: all ease 0.3s; }
         .main-menu .menu li a:hover {
-          background-color: #288339; }
+          background-color: #288339;
+          color: #fff; }
+      .main-menu .menu li.active a {
+        background-color: #288339; }
     @media screen and (max-width: 767px) {
       .main-menu .menu {
         display: none;
@@ -281,6 +301,9 @@ iframe {
     @media screen and (max-width: 767px) {
       .main-menu .menu-icon {
         display: block; } }
+
+.slider-banner {
+  position: relative; }
 
 .banner {
   min-height: 600px;
@@ -780,5 +803,9 @@ iframe {
     display: inline-block; }
     .footer .share a {
       margin: 0px 10px; }
+
+@media screen and (max-width: 767px) {
+  .mobile-check {
+    display: none; } }
 
 /*# sourceMappingURL=main.css.map */

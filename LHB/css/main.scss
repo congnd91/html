@@ -23,7 +23,7 @@ body {
     font-size: 1.4rem;
     color: $text-color;
     line-height: 1.5;
-    padding: 0px;
+    padding: 120px 0px 0px 0px;
     margin: 0px;
 
 }
@@ -203,8 +203,15 @@ a {
 }
 
 .header {
+    background-color: #fff;
+
     height: 80px;
     overflow: hidden;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 200;
 
     .header-left {
         float: left;
@@ -262,7 +269,7 @@ a {
 
         .hotline {
             float: left;
-            margin: 25px 0px 0px 0px;
+            margin: 25px 0px 0px 30px;
             font-size: 24px;
             font-weight: bold;
             color: $active-color;
@@ -280,8 +287,15 @@ a {
                 background-image: url(../images/phone.png);
                 width: 17px;
                 height: 18px;
+                background-repeat: no-repeat;
 
-                margin: 2px 5px 0px 0px;
+                margin: 10px 5px 0px 0px;
+
+                @media screen and (max-width: 767px) {
+                    margin: 5px 2px 0px 0px;
+                }
+
+                background-size: 14px auto;
 
             }
         }
@@ -299,6 +313,11 @@ a {
     position: relative;
     z-index: 100;
     background-image: linear-gradient(to right, #53bb50 0%, #298e3d 100%);
+    position: fixed;
+    top: 80px;
+    left: 0px;
+    right: 0px;
+    z-index: 200;
 
 
     .menu {
@@ -329,11 +348,20 @@ a {
                 font-size: 15px;
                 font-weight: 600;
                 padding: 0px 15px;
+                cursor: pointer;
 
                 text-transform: uppercase;
                 transition: all ease 0.3s;
 
                 &:hover {
+                    background-color: darken($active-color, 5%);
+                    color: #fff;
+                }
+            }
+
+            &.active {
+
+                a {
                     background-color: darken($active-color, 5%);
                 }
             }
@@ -393,6 +421,9 @@ a {
 
 
 
+.slider-banner {
+    position: relative;
+}
 
 .banner {
     min-height: 600px;
@@ -1113,5 +1144,11 @@ a {
 
         }
 
+    }
+}
+
+.mobile-check {
+    @media screen and (max-width: 767px) {
+        display: none;
     }
 }
