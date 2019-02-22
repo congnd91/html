@@ -1,5 +1,18 @@
 (function ($) {
     $(document).on('ready', function () {
+
+
+        function autoHeight() {
+            $('.footer-wrap').css('margin-top', $(document).height() - ($('.page').height()) - $('.footer-wrap').height() - $('.header').height());
+        }
+
+        autoHeight();
+        $(window).resize(function () {
+            autoHeight();
+        });
+
+
+
         var db = new Object();
         db.preLoad = function () {
             $('#page-loader').delay(800).fadeOut(600, function () {

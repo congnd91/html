@@ -21,15 +21,15 @@
 -------------------------------------------------------------------*/
 h1,
 .h1 {
-  font-size: 3.5rem; }
+  font-size: 6rem; }
 
 h2,
 .h2 {
-  font-size: 3rem; }
+  font-size: 4rem; }
 
 h3,
 .h3 {
-  font-size: 2rem; }
+  font-size: 3rem; }
 
 h4,
 .h4 {
@@ -53,20 +53,16 @@ html {
   font-size: 10px; }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sorts Mill Goudy", serif;
   min-width: 320px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   line-height: 1.5;
   color: #000;
   font-weight: 400; }
   body.layout-boxed {
     background-color: #fff; }
   body.background {
-    background-image: url(../images/bg.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed; }
+    background-image: url(../images/bg.jpg); }
 
 dt,
 dd {
@@ -100,7 +96,7 @@ h6,
 .h5,
 .h6 {
   line-height: 1.3;
-  font-family: "Chonburi", cursive; }
+  font-family: "Volkhov", serif; }
 
 iframe {
   width: 100%;
@@ -125,7 +121,7 @@ span.type {
   cursor: pointer;
   line-height: 40px;
   padding: 0px 30px;
-  font-family: "Chonburi", cursive;
+  font-family: "Volkhov", serif;
   color: #fff;
   background-color: #000;
   letter-spacing: 2px;
@@ -183,7 +179,7 @@ span.type {
       opacity: 0.8;
       font-weight: 300;
       letter-spacing: 2px;
-      font-family: "Chonburi", cursive; }
+      font-family: "Volkhov", serif; }
       #page-loader .loading-wrapper p span {
         font-size: 15px;
         animation-name: dots;
@@ -203,23 +199,33 @@ span.type {
   100% {
     opacity: .2; } }
 
-.wrapper {
-  max-width: 960px;
-  padding: 0px 20px;
-  margin: 0px auto; }
+.page-outer {
+  padding: 50px 50px; }
 
 .page {
-  transition: all ease 0.3s; }
+  border: 2px solid #000;
+  margin: 0px auto;
+  max-width: 1400px; }
 
 /*==========Header=========*/
 .header {
   position: relative;
-  z-index: 999;
-  padding: 20px 0px;
-  margin: 0px 0px 40px 0px;
-  border-bottom: 1px solid #000; }
+  z-index: 999; }
+  .header .header-center {
+    text-align: center;
+    padding: 40px 0px; }
+    .header .header-center h1 {
+      font-weight: 600;
+      font-size: 40px; }
+    .header .header-center p.date {
+      text-transform: uppercase;
+      margin: 5px 0px 0px 0px;
+      letter-spacing: 2px;
+      font-size: 10px;
+      font-weight: 300;
+      font-family: "Oswald", sans-serif; }
   .header a.logo img {
-    height: 35px; }
+    height: 70px; }
   .header .header-right {
     float: right; }
     .header .header-right .icon-search {
@@ -268,6 +274,141 @@ span.type {
         .header .header-right .icon-menu .im-line.three {
           width: 20px;
           margin: 5px 0px 0px 0px; }
+
+.menu-main {
+  height: 55px;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000; }
+  .menu-main > ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between; }
+    .menu-main > ul > li {
+      position: relative;
+      padding: 0px 0px 0px 0px;
+      margin: 0px;
+      flex: 1;
+      border-left: 2px solid #000; }
+      .menu-main > ul > li:first-child {
+        border: none; }
+      .menu-main > ul > li.active > a {
+        color: #fd190b; }
+      .menu-main > ul > li > a {
+        display: block;
+        line-height: 51px;
+        padding: 0px 20px;
+        -moz-transition: all ease 0.5s;
+        -o-transition: all ease 0.5s;
+        -webkit-transition: all ease 0.5s;
+        transition: all ease 0.5s;
+        text-transform: uppercase;
+        position: relative;
+        text-align: center;
+        font-family: "Oswald", sans-serif;
+        font-size: 20px;
+        font-weight: 600; }
+        .menu-main > ul > li > a .fa-home {
+          margin: 0px 2px 0px -10px;
+          font-size: 25px; }
+      .menu-main > ul > li:hover > a {
+        background-color: #fd493e; }
+        .menu-main > ul > li:hover > a span {
+          border-bottom-color: #fd190b;
+          border-right-color: #fd190b; }
+        .menu-main > ul > li:hover > a ul li a {
+          background-color: transparent; }
+      .menu-main > ul > li:hover > .sub-menu {
+        opacity: 1;
+        visibility: visible;
+        margin-top: 0px; }
+      .menu-main > ul > li:hover .mega-menu {
+        opacity: 1;
+        visibility: visible;
+        margin-top: 0px;
+        -moz-transition: all ease 0.5s;
+        -o-transition: all ease 0.5s;
+        -webkit-transition: all ease 0.5s;
+        transition: all ease 0.5s; }
+      .menu-main > ul > li.has-mega-menu {
+        position: static; }
+    .menu-main > ul .sub-menu {
+      position: absolute;
+      top: 100%;
+      left: -2px;
+      right: -2px;
+      height: auto;
+      background-color: #000;
+      visibility: hidden;
+      z-index: 9999;
+      border: 2px solid #000;
+      transition: all ease 0.2s;
+      opacity: 0;
+      font-family: "Sorts Mill Goudy", serif;
+      padding: 0px 0px;
+      margin-top: 10px;
+      box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.6); }
+      .menu-main > ul .sub-menu li {
+        margin: 0px 0px;
+        display: block;
+        padding: 0px;
+        float: none;
+        border-bottom: 2px solid #000;
+        position: relative; }
+        .menu-main > ul .sub-menu li.menu-item-has-children:before {
+          display: block;
+          content: "\f105";
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: 13px;
+          position: absolute;
+          width: 15px;
+          height: 15px;
+          top: 11px;
+          right: 0px;
+          -moz-transition: all ease 0.5s;
+          -o-transition: all ease 0.5s;
+          -webkit-transition: all ease 0.5s;
+          transition: all ease 0.5s;
+          color: #999; }
+        .menu-main > ul .sub-menu li.menu-item-has-children:hover:before {
+          color: #fd190b; }
+        .menu-main > ul .sub-menu li.has-mega-menu {
+          position: static; }
+        .menu-main > ul .sub-menu li:before {
+          display: none; }
+        .menu-main > ul .sub-menu li a {
+          display: block;
+          line-height: 20px;
+          text-align: left;
+          text-transform: none;
+          padding: 8px 15px !important;
+          font-size: 14px;
+          font-family: "Oswald", sans-serif;
+          background-color: #eee;
+          float: none;
+          text-transform: uppercase;
+          font-weight: 400; }
+          .menu-main > ul .sub-menu li a:hover {
+            color: #fd190b;
+            background-color: transparent !important; }
+        .menu-main > ul .sub-menu li:last-child {
+          border: none; }
+        .menu-main > ul .sub-menu li .sub-menu {
+          top: 0px;
+          margin-top: -2px;
+          left: 100%;
+          margin-left: 15px;
+          width: 200px;
+          right: unset !important;
+          width: 100%; }
+        .menu-main > ul .sub-menu li:hover > a {
+          color: #fd190b;
+          background-color: transparent; }
+        .menu-main > ul .sub-menu li:hover > .sub-menu {
+          margin-left: 0px;
+          opacity: 1;
+          visibility: visible; }
 
 /*==========Menu & Search =========*/
 .menu-overlay {
@@ -342,7 +483,7 @@ span.type {
         position: relative; }
         .menu-overlay .menu > ul > li > a {
           font-size: 3rem;
-          font-family: "Chonburi", cursive;
+          font-family: "Volkhov", serif;
           position: relative;
           display: inline-block;
           padding: 0px 20px 0px 0px; }
@@ -492,7 +633,7 @@ span.type {
       height: 60px;
       border: none;
       background-color: transparent;
-      font-family: "Chonburi", cursive;
+      font-family: "Volkhov", serif;
       color: #000;
       font-size: 3rem;
       outline: none;
@@ -628,45 +769,6 @@ span.type {
         border-left: none;
         padding: 0px; } }
 
-.box {
-  margin: 0px 0px 40px 0px;
-  border-bottom: 1px solid #000;
-  padding: 0px 50px 30px 0px; }
-  @media screen and (max-width: 991px) {
-    .box {
-      padding: 0px 0px 30px 0px; } }
-  .box.no-margin {
-    margin-bottom: 0px; }
-  .box.padding-top {
-    padding-top: 30px; }
-  .box .box-caption {
-    margin: 0px 0px 20px 0px;
-    font-size: 3.5rem;
-    padding: 0px; }
-    @media screen and (max-width: 991px) {
-      .box .box-caption {
-        font-size: 3rem; } }
-    @media screen and (max-width: 767px) {
-      .box .box-caption {
-        font-size: 2.5rem; } }
-    .box .box-caption.small {
-      font-size: 2.5rem; }
-    .box .box-caption span {
-      letter-spacing: -1px;
-      font-family: "Chonburi", cursive;
-      display: inline-block;
-      position: relative; }
-      .box .box-caption span:before {
-        content: "";
-        display: block;
-        height: 10px;
-        left: 0px;
-        right: 0px;
-        bottom: 10px;
-        position: absolute;
-        z-index: -1;
-        background-color: #fd190b; }
-
 /*sidebar*/
 .list-news-other {
   margin: 0px;
@@ -758,7 +860,7 @@ span.type {
         transition: all ease 0.5s; }
     .social-network .sn-item p {
       margin: 0px;
-      font-family: "Chonburi", cursive;
+      font-family: "Volkhov", serif;
       text-transform: uppercase;
       color: #fff;
       padding: 4px 0px 0px 0px;
@@ -772,7 +874,7 @@ span.type {
       margin: 0px;
       font-size: 11px;
       color: #eee;
-      font-family: "Chonburi", cursive;
+      font-family: "Volkhov", serif;
       letter-spacing: 1px;
       font-weight: 300; }
     .social-network .sn-item:hover p {
@@ -811,7 +913,7 @@ span.type {
     .popular-news li h3 {
       font-size: 1.6rem; }
     .popular-news li a {
-      font-family: "Chonburi", cursive;
+      font-family: "Volkhov", serif;
       position: relative;
       transition: all ease 0.3s; }
       .popular-news li a:hover {
@@ -823,17 +925,33 @@ span.type {
 
 /*post*/
 .post-title {
-  margin: 0px 0px 5px 0px;
-  transition: all ease 0.3s; }
+  margin: 0px 0px 15px 0px;
+  transition: all ease 0.3s;
+  font-weight: 600;
+  font-family: "Oswald", sans-serif; }
   .post-title:hover {
     opacity: 0.8; }
 
 .post-thumbnail {
   margin: 0px 0px 10px 0px; }
+  .post-thumbnail img {
+    filter: brightness(90%) grayscale(100%) contrast(130%); }
 
 .post-meta {
   margin: 0px 0px 10px 0px;
+  padding: 0px 0px 0px 25px;
+  position: relative;
   color: #333; }
+  .post-meta:before {
+    width: 15px;
+    height: 2px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    margin: -3px 0px 0px 0px;
+    background-color: #000;
+    content: "";
+    display: block; }
   .post-meta a {
     letter-spacing: 1px;
     font-weight: 600;
@@ -859,15 +977,16 @@ span.type {
     text-decoration: none;
     border-bottom: 1px dashed #000; }
   .post-meta .post-date {
-    color: #333;
-    font-weight: 300;
-    display: block;
-    font-size: 1.2rem;
-    margin: 0px 0px 5px 0px; }
+    text-transform: uppercase;
+    margin: 5px 0px 0px 0px;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Oswald", sans-serif; }
 
 .post-des p {
   margin: 0px 0px 10px 0px;
-  font-weight: 300; }
+  font-weight: 600; }
 
 .post-readmore a {
   color: #000;
@@ -876,118 +995,125 @@ span.type {
   .post-readmore a:hover {
     border-bottom: 1px solid #000; }
 
+.box-one {
+  display: flex;
+  border-bottom: 2px solid #000; }
+  .box-one .bo-left {
+    flex: 0 0 66.66666667%;
+    max-width: 66.66666667%;
+    width: 66.66666667%;
+    border-right: 2px solid #000; }
+  .box-one .bo-right {
+    flex: 0 0 33.33333333%;
+    max-width: 33.33333333%;
+    width: 33.33333333%; }
+
 .big-sticky-post {
   position: relative;
-  text-align: center;
   margin: 0px 0px 0px 0px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #000; }
+  padding: 30px; }
   .big-sticky-post img {
     width: 100%; }
   .big-sticky-post h1 {
-    text-align: center;
     font-size: 60px;
-    margin: 40px 0px 20px 0px;
-    line-height: 1.1;
-    display: inline-block; }
+    line-height: 1.1; }
     @media screen and (max-width: 767px) {
       .big-sticky-post h1 {
         font-size: 3.5rem; } }
   .big-sticky-post .post-meta {
-    margin: 0px 0px 20px 0px;
-    text-align: center; }
-  .big-sticky-post .post-des {
-    margin-bottom: 50px; }
-    .big-sticky-post .post-des p {
-      margin: 10px 20px;
-      text-align: center;
+    margin: 0px 0px 20px 0px; }
+  .big-sticky-post .post-des p {
+    font-size: 1.8rem; }
+    @media screen and (max-width: 767px) {
+      .big-sticky-post .post-des p {
+        font-size: 16px;
+        margin: 10px 10px; } }
+
+.big-slider-post {
+  position: relative;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 450px 0px 0px; }
+  .big-slider-post .post-thumbnail {
+    width: 400px;
+    float: right;
+    margin: 0px -420px 0px 0px; }
+  .big-slider-post img {
+    width: 100%; }
+  .big-slider-post h1 {
+    font-size: 60px;
+    line-height: 1.1; }
+    @media screen and (max-width: 767px) {
+      .big-slider-post h1 {
+        font-size: 3.5rem; } }
+  .big-slider-post .post-meta {
+    margin: 0px 0px 20px 0px; }
+  .big-slider-post .post-des {
+    columns: 2;
+    column-gap: 30px; }
+    .big-slider-post .post-des p {
       font-size: 1.8rem; }
       @media screen and (max-width: 767px) {
-        .big-sticky-post .post-des p {
+        .big-slider-post .post-des p {
           font-size: 16px;
           margin: 10px 10px; } }
-  .big-sticky-post .readmore {
-    text-align: center;
-    margin: 0px 0px 40px 0px; }
-    .big-sticky-post .readmore a {
-      display: inline-block;
-      position: relative;
-      padding: 0px 0px;
-      font-family: "Chonburi", cursive;
-      padding: 0px 0px;
-      font-size: 2rem;
-      transition: all ease 0.3s;
-      border-bottom: 1px dashed #000; }
-      @media screen and (max-width: 767px) {
-        .big-sticky-post .readmore a {
-          font-size: 1.6rem; } }
-      .big-sticky-post .readmore a:hover {
-        border-bottom: 1px solid #000; }
-      .big-sticky-post .readmore a:before {
-        content: "";
-        display: block;
-        height: 5px;
-        left: 0px;
-        right: 0px;
-        bottom: 12px;
-        position: absolute;
-        z-index: -1; }
+  .big-slider-post.no-thumbnail {
+    padding: 30px; }
+    .big-slider-post.no-thumbnail .post-des {
+      columns: 3;
+      column-gap: 30px; }
 
-.np-slider {
+.box-two {
+  border-bottom: 2px solid #000;
+  padding: 30px; }
+
+.bt-slider {
   position: relative; }
-  .np-slider .owl-prev {
+  .bt-slider .owl-dots {
+    display: block;
     position: absolute;
-    top: 40%;
-    left: 10px;
-    width: 30px;
-    height: 30px;
-    line-height: 28px;
-    z-index: 999;
-    border: 1px solid #000;
-    color: #000;
-    font-size: 20px;
-    margin: -15px 0px 0px 0px;
-    text-align: center;
-    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
-    .np-slider .owl-prev:hover {
-      background-color: #000;
-      color: #fff; }
-    .np-slider .owl-prev:active {
-      box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); }
-  .np-slider .owl-next {
-    position: absolute;
-    top: 40%;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    line-height: 28px;
-    z-index: 999;
-    border: 1px solid #000;
-    color: #000;
-    text-align: center;
-    font-size: 20px;
-    margin: -15px 0px 0px 0px;
-    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3); }
-    .np-slider .owl-next:hover {
-      background-color: #000;
-      color: #fff; }
-    .np-slider .owl-next:active {
-      box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); }
-  .np-slider .owl-dots {
-    display: none;
-    position: absolute;
-    border: -10px;
+    bottom: 0px;
     left: 0px;
     right: 0px;
     text-align: center; }
-    .np-slider .owl-dots .owl-dot {
-      width: 7px;
-      height: 3px;
+    .bt-slider .owl-dots .owl-dot {
+      width: 13px;
+      height: 13px;
       display: inline-block;
       margin: 0px 5px;
-      background-color: #000; }
-      .np-slider .owl-dots .owl-dot:hover, .np-slider .owl-dots .owl-dot.active {
+      border-radius: 50%;
+      border: 2px solid #000; }
+      .bt-slider .owl-dots .owl-dot:hover, .bt-slider .owl-dots .owl-dot.active {
         background-color: #000; }
+
+.box-three {
+  display: flex;
+  border-bottom: 2px solid #000; }
+  .box-three .bt-col {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+    width: 33.33333%;
+    min-height: 100px;
+    border-right: 2px solid #000; }
+    .box-three .bt-col:last-child {
+      border: none; }
+  .box-three .three-item-post {
+    padding: 30px; }
+
+.box {
+  padding: 30px;
+  border-bottom: 2px solid #000; }
+  .box .box-caption {
+    margin: 0px 0px 20px 0px;
+    padding: 0px; }
+    .box .box-caption span {
+      font-family: "Oswald", sans-serif;
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 2px;
+      background-color: #000;
+      padding: 0px 10px;
+      color: #fff; }
 
 .news-item {
   padding: 20px 0px 20px 0px;
@@ -1168,7 +1294,7 @@ span.type {
     display: inline-block;
     margin: 0px 4px;
     line-height: 30px;
-    font-family: "Chonburi", cursive;
+    font-family: "Volkhov", serif;
     font-size: 20px;
     color: #000;
     padding: 0px 5px;
@@ -1186,7 +1312,7 @@ span.type {
     margin: 0px 4px;
     line-height: 30px;
     font-weight: 700;
-    font-family: "Chonburi", cursive;
+    font-family: "Volkhov", serif;
     font-size: 20px;
     font-weight: normal;
     min-width: 25px;
@@ -1253,7 +1379,7 @@ span.type {
       float: left;
       margin: 10px 10px 0px 5px;
       color: #333;
-      font-family: "Chonburi", cursive;
+      font-family: "Volkhov", serif;
       display: block; }
   .single-detail .sd-content .sdc-650 > p:first-child {
     min-height: 50px; }
@@ -1268,7 +1394,7 @@ span.type {
       float: left;
       margin: 10px 10px 0px 5px;
       color: #333;
-      font-family: "Chonburi", cursive;
+      font-family: "Volkhov", serif;
       display: block; }
 
 .single-detail .sdc-650 {
@@ -1287,7 +1413,7 @@ span.type {
     text-align: center;
     line-height: 25px;
     white-space: nowrap;
-    font-family: "Chonburi", cursive; }
+    font-family: "Volkhov", serif; }
   .sd-share a {
     display: inline-block;
     width: 25px;
@@ -1351,7 +1477,7 @@ span.type {
 
 /*==========Page Contact =========*/
 .page-contact h3 {
-  font-family: "Chonburi", cursive;
+  font-family: "Volkhov", serif;
   font-weight: 400;
   font-size: 25px;
   margin: 10px 0px 20px 0px; }
@@ -1387,7 +1513,7 @@ span.type {
 .field-item {
   margin: 10px 0px; }
   .field-item .field-caption {
-    font-family: "Chonburi", cursive;
+    font-family: "Volkhov", serif;
     margin: 10px 0px;
     font-size: 13px;
     letter-spacing: 2px; }
@@ -1443,7 +1569,7 @@ span.type {
       color: #fff;
       text-align: center;
       font-size: 1.4rem;
-      font-family: "Chonburi", cursive;
+      font-family: "Volkhov", serif;
       text-transform: uppercase;
       letter-spacing: 2px;
       font-weight: 300;
@@ -1460,7 +1586,7 @@ span.type {
       background-color: #000;
       color: #fff;
       text-align: center;
-      font-family: "Chonburi", cursive;
+      font-family: "Volkhov", serif;
       -moz-transition: all ease 0.5s;
       -o-transition: all ease 0.5s;
       -webkit-transition: all ease 0.5s;
@@ -1486,7 +1612,7 @@ span.type {
       font-size: 20px;
       line-height: 30px;
       text-align: center;
-      font-family: "Chonburi", cursive;
+      font-family: "Volkhov", serif;
       -moz-transition: all ease 0.5s;
       -o-transition: all ease 0.5s;
       -webkit-transition: all ease 0.5s;
@@ -1519,7 +1645,7 @@ span.type {
   .shop-item .price {
     margin: 5px 0px; }
     .shop-item .price span {
-      font-family: "Chonburi", cursive;
+      font-family: "Volkhov", serif;
       margin: 0px 20px 0px 0px;
       color: #fd190b;
       font-size: 1.4rem; }
@@ -1535,7 +1661,7 @@ span.type {
   text-align: center;
   margin: 0px 0px 50px 0px; }
   .loadmore-prouduct a {
-    font-family: "Chonburi", cursive;
+    font-family: "Volkhov", serif;
     letter-spacing: 2px;
     font-size: 14px;
     border: 1px solid #000;
@@ -1554,7 +1680,7 @@ span.type {
 .shopbar {
   margin: 0px 0px 20px 0px; }
   .shopbar h3 {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Sorts Mill Goudy", serif;
     font-size: 14px;
     float: left;
     margin: 0px 0px 10px 0px;
@@ -1573,7 +1699,7 @@ span.type {
         float: none;
         width: 100%; } }
     .shopbar .sortby p {
-      font-family: "Montserrat", sans-serif;
+      font-family: "Sorts Mill Goudy", serif;
       font-size: 14px;
       padding: 0px 10px;
       line-height: 25px;
@@ -1635,7 +1761,7 @@ span.type {
         color: #fd190b; }
   .pp-item .price {
     margin: 5px 0px;
-    font-family: "Chonburi", cursive; }
+    font-family: "Volkhov", serif; }
     .pp-item .price span {
       margin: 0px 20px 0px 0px;
       color: #fd190b;
@@ -1659,7 +1785,7 @@ span.type {
       margin: 0px; }
     .box-shopping-cart .sc-item p {
       color: #666;
-      font-family: "Chonburi", cursive;
+      font-family: "Volkhov", serif;
       margin: 5px 0px 0px 0px;
       font-weight: 500; }
   .box-shopping-cart h5 {
@@ -1693,7 +1819,7 @@ span.type {
   margin: 0px 0px 10px 0px;
   padding: 0px !important;
   line-height: 25px;
-  font-family: "Chonburi", cursive; }
+  font-family: "Volkhov", serif; }
   @media screen and (max-width: 991px) {
     .woocommerce .woocommerce-result-count {
       float: none; } }
@@ -1704,7 +1830,7 @@ span.type {
   .woocommerce .woocommerce-ordering select {
     border: 1px solid #000;
     text-transform: uppercase;
-    font-family: "Chonburi", cursive;
+    font-family: "Volkhov", serif;
     font-size: 14px;
     float: right; }
   @media screen and (max-width: 991px) {
@@ -1758,7 +1884,7 @@ table {
         padding: 0px;
         text-transform: uppercase;
         text-align: center;
-        font-family: "Chonburi", cursive;
+        font-family: "Volkhov", serif;
         -moz-transition: all ease 0.5s;
         -o-transition: all ease 0.5s;
         -webkit-transition: all ease 0.5s;
@@ -1790,7 +1916,7 @@ table {
       .woocommerce ul.products li.product .price .ins {
         display: block; }
       .woocommerce ul.products li.product .price span {
-        font-family: "Chonburi", cursive;
+        font-family: "Volkhov", serif;
         color: #fd190b;
         font-size: 16px; }
     .woocommerce ul.products li.product:hover .product-thumbnail .button {
@@ -1873,7 +1999,7 @@ table {
 .product-des .price {
   margin: 5px 0px; }
   .product-des .price span {
-    font-family: "Chonburi", cursive;
+    font-family: "Volkhov", serif;
     margin: 0px 20px 0px 0px;
     color: #fd190b;
     font-size: 16px; }
@@ -1911,12 +2037,12 @@ table {
     -o-transition: all ease 0.5s;
     -webkit-transition: all ease 0.5s;
     transition: all ease 0.5s;
-    font-family: "Chonburi", cursive;
+    font-family: "Volkhov", serif;
     font-size: 20px;
     border: none;
     cursor: pointer; }
   .quantity input[type="text"] {
-    font-family: "Chonburi", cursive;
+    font-family: "Volkhov", serif;
     float: left;
     width: 30px;
     height: 30px;
@@ -1942,7 +2068,7 @@ table {
         display: block;
         line-height: 40px;
         position: relative;
-        font-family: "Chonburi", cursive;
+        font-family: "Volkhov", serif;
         padding: 0px;
         font-size: 3rem;
         padding: 5px 0px; }
@@ -1980,7 +2106,7 @@ table {
     .cart-table thead tr th {
       border: none;
       color: #fff;
-      font-family: "Chonburi", cursive;
+      font-family: "Volkhov", serif;
       font-weight: 400;
       padding: 10px; }
   .cart-table tr {
@@ -1989,7 +2115,7 @@ table {
       border: none;
       padding: 10px;
       vertical-align: middle;
-      font-family: "Chonburi", cursive; }
+      font-family: "Volkhov", serif; }
       .cart-table tr td .quantity {
         margin: 0px; }
       .cart-table tr td .amount {
@@ -2005,14 +2131,14 @@ table {
   margin: 30px 0px 30px 0px; }
   .cart-totals table tr td {
     border: 1px solid #000;
-    font-family: "Chonburi", cursive;
+    font-family: "Volkhov", serif;
     padding: 10px;
     font-weight: 400; }
     .cart-totals table tr td strong {
       color: #fd190b; }
   .cart-totals table tr th {
     border: 1px solid #000;
-    font-family: "Chonburi", cursive;
+    font-family: "Volkhov", serif;
     padding: 10px;
     font-weight: 400;
     background-color: #eeeeee; }

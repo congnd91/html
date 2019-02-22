@@ -1,5 +1,9 @@
 (function ($) {
     $(document).on('ready', function () {
+
+
+
+
         var db = new Object();
         db.menuResponsive = function () {
             $('.menu-icon').on('click', function () {
@@ -38,6 +42,19 @@
                     $('.is-active').removeClass("is-active");
                     $(this).parent().addClass("is-active");
                 });
+            }
+        }
+
+
+        db.Grid = function () {
+
+            if ($('.grid').length) {
+                var $grid = $('.grid').isotope({
+                    itemSelector: '.grid-item'
+                    // filter: '.t1'
+                });
+                // filter items on button click
+
             }
         }
 
@@ -161,6 +178,17 @@
         db.menuResponsive();
         db.scrollMenu();
         db.gridTemplate();
+        db.Grid();
+
+        $("#mygallery").justifiedGallery({
+
+            rowHeight: 250,
+
+            margins: 20,
+            lastRow: 'nojustify',
+            selector: '.gallery-item'
+
+        });
 
     });
 })(jQuery);

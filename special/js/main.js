@@ -55,13 +55,13 @@
                 }
             });
         }
-        db.sliderNP = function () {
-            var owl_np = $('.owl-np');
+        db.sliderBT = function () {
+            var owl_np = $('.owl-bt');
             if ($(owl_np).length) {
                 $(owl_np).owlCarousel({
                     loop: true,
                     margin: 0,
-                    nav: true,
+                    nav: false,
                     autoplay: true,
                     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
                     items: 1,
@@ -102,7 +102,7 @@
         db.toolTip();
         db.menu();
         db.search();
-        db.sliderNP();
+        db.sliderBT();
         db.sliderProduct();
         db.gridMode();
         db.matchHeight();
