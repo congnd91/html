@@ -237,6 +237,28 @@ span.type {
 
     margin: 0px auto;
     max-width: 1400px;
+    position: relative;
+    z-index: 1;
+
+    .wrapper {
+        position: relative;
+        z-index: 2;
+        background-color: #fff;
+    }
+
+    &:before {
+        border: 2px solid #000;
+        position: absolute;
+        background-color: #fff;
+        left: 4px;
+        top: -14px;
+        right: -4px;
+        bottom: 4px;
+        content: "";
+        display: block;
+        z-index: 0;
+
+    }
 
 }
 
@@ -928,17 +950,19 @@ span.type {
 
 /*==========Footer=========*/
 .footer {
-    margin: 150px 0px 0px 0px;
+
     padding: 30px 0px 30px 0px;
-    border-top: 1px solid #000;
+    border-top: 2px solid #000;
 
     .allright {
         text-align: center;
 
         p {
             margin: 0px;
-            font-weight: 300;
-            font-size: $fs12;
+            font-size: $fs14;
+            font-family: $font-family-meta;
+            letter-spacing: 2px;
+
         }
 
         em {
@@ -964,35 +988,15 @@ span.type {
     &.colfull {
         padding: 0px;
 
-        .box {
-            padding-right: 0px;
 
-            &:last-child {
-                border-bottom: none;
-                margin-bottom: 0px;
-            }
-
-            &:first-child {
-                padding-top: 30px;
-            }
-        }
     }
 
     .colleft {
         float: left;
         width: 100%;
-        border-right: 1px solid #000;
+        border-right: 2px solid #000;
 
-        .box {
-            &:last-child {
-                border-bottom: none;
-                margin-bottom: 0px;
-            }
 
-            &:first-child {
-                padding-top: 30px;
-            }
-        }
     }
 
     .colright {
@@ -1001,42 +1005,14 @@ span.type {
         margin: 0px -300px 0px 0px;
         min-height: 400px;
 
-        .box {
-            padding-right: 0px;
-            padding-left: 50px;
-
-            @media screen and (max-width: 991px) {
-                padding-left: 0px;
-            }
-
-            &:last-child {
-                border-bottom: none;
-                margin-bottom: 0px;
-            }
-
-            &:first-child {
-                padding-top: 30px;
-            }
+        .box-content {
+            padding: 30px;
         }
+
+
     }
 
-    @media screen and (max-width: 991px) {
-        padding: 0px;
-
-        .colleft {
-            float: none;
-            width: 100%;
-            border: none;
-        }
-
-        .colright {
-            width: 100%;
-            float: none;
-            margin: 20px 0px 0px 0px;
-            border-left: none;
-            padding: 0px;
-        }
-    }
+    @media screen and (max-width: 991px) {}
 }
 
 
@@ -1303,6 +1279,7 @@ span.type {
     padding: 0px 0px 0px 25px;
     position: relative;
     color: $text-color-second;
+    display: inline-block;
 
     &:before {
         width: 15px;
@@ -1584,23 +1561,30 @@ span.type {
 
 
 .box {
-    padding: 30px;
+
     border-bottom: 2px solid #000;
 
 
+
+    position: relative;
+
     .box-caption {
-        margin: 0px 0px 20px 0px;
+        margin: 0px 0px 0px 0px;
         padding: 0px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 100;
 
 
         span {
             font-family: $font-family-meta;
             font-size: 2rem;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 2px;
             background-color: #000;
-            padding: 0px 10px;
+            padding: 0px 20px;
             color: #fff;
 
 
@@ -1611,49 +1595,46 @@ span.type {
 
 
 .news-item {
-    padding: 20px 0px 20px 0px;
-    border-top: 1px solid $border-color;
+    padding: 30px;
+    border-top: 2px solid #000;
 
     &:first-child {
         border: none;
-        padding-top: 0px;
     }
+
+
 
     .post-thumbnail {
         float: left;
-        width: 250px;
-        margin: 0px 20px 0px 0px;
+        width: 440px;
+        margin: 0px 30px 0px 0px;
 
         @media screen and (max-width: 767px) {
-            width: 100%;
+            width: 33.333%;
             float: none;
             margin: 0px 0px 10px 0px;
         }
     }
 }
 
-.grids-outer {
-    overflow: hidden;
-    margin-top: -40px;
-
-    &.no-margin-top {
-        margin-top: 0px;
-    }
-}
+.grids-outer {}
 
 .grids {
-    margin: 0px -20px;
+
     position: relative;
-    min-height: 500px;
+    margin: -2px 0px 0px 0px;
+
 
     &:before {
         content: "";
         display: block;
-        top: 0px;
+
         position: absolute;
-        width: 1px;
+        width: 2px;
+        top: 0px;
         bottom: 0px;
-        background-color: $base-color;
+        margin-left: -1px;
+        background-color: #000;
         left: 33.33333%;
 
         @media screen and (max-width: 767px) {
@@ -1666,10 +1647,11 @@ span.type {
         display: block;
         top: 0px;
         position: absolute;
-        width: 1px;
+        width: 2px;
         bottom: 0px;
-        background-color: $base-color;
+        background-color: #000;
         left: 66.66666%;
+        margin-left: -1px;
 
         @media screen and (max-width: 767px) {
             display: none;
@@ -1680,17 +1662,10 @@ span.type {
 .grid-item {
     float: left;
     width: 33.33%;
-    padding: 30px 20px;
-    border-bottom: 1px solid $base-color;
+    padding: 30px 30px;
+    border-top: 2px solid #000;
 
-    @media screen and (max-width: 991px) {
-        width: 50%;
-    }
 
-    @media screen and (max-width:767px) {
-        float: none;
-        width: 100%;
-    }
 
     article {}
 
@@ -1758,28 +1733,12 @@ span.type {
     }
 }
 
-.colleft {
-    .grids {
-        &:before {
-            display: none;
-        }
 
-        &:after {
-            display: none;
-        }
-
-        .grids-item {
-            float: left;
-            width: 50%;
-            padding: 0px 20px 0px 20px;
-            margin-bottom: 30px;
-
-            @media screen and (max-width: 767px) {
-                float: none;
-                width: 100%;
-            }
-        }
-    }
+.bar-marque {
+    height: 50px;
+    height: 50px;
+    border-top: 2px solid #000;
+    margin: -2px 0px 0px 0px;
 }
 
 /*==========Category =========*/
