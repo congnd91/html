@@ -3,6 +3,21 @@
         "use strict";
         var db = new Object();
 
+        $('.marquee').marquee({
+            //duration in milliseconds of the marquee
+            duration: 25000,
+            pauseOnHover: true,
+            //gap in pixels between the tickers
+            gap: 10,
+            //time in milliseconds before the marquee will start animating
+            delayBeforeStart: 0,
+            //'left' or 'right'
+            direction: 'left',
+            //true or false - should the marquee be duplicated to show an effect of continues flow
+            //   duplicated: true
+        });
+
+
         /**list function**/
         db.preLoad = function () {
             $('#page-loader').delay(800).fadeOut(600, function () {

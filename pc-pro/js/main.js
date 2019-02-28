@@ -83,21 +83,20 @@
                 });
             }
         }
-        db.showSearch = function () {
+        db.menuLeft = function () {
 
-            $('.page').on('click', function () {
-                $('.search-wrap').removeClass("show");
+            $('.menu-left-caption').on('click', function () {
+                var menu = $(".colleft");
+                if ($(menu).is(":visible")) {
+                    $(menu).slideUp();
+
+                } else {
+                    $(menu).slideDown();
+
+                }
             });
 
-            $('.search-icon').on('click', function (e) {
 
-                e.stopPropagation();
-                $('.search-wrap').toggleClass("show");
-            });
-
-            $('.search-wrap .search-box').on('click', function (e) {
-                e.stopPropagation();
-            });
 
         }
 
@@ -193,40 +192,7 @@
                 }
             }, 1000);
         }
-        db.menuLeft = function () {
-            $('.ml-ul > li > a.has-child > div').on('click', function (event) {
-                event.preventDefault();
-                var child = $(this).parents("a").next();
-                var child_ul = $(this).parents(".ml-ul");
-                if ($(child).is(":visible")) {
-                    $(child).slideUp();
-                    $(this).parents("a").removeClass("active");
-                } else {
-                    $(child).slideDown();
-                    $(this).parents("a").addClass("active");
-                }
-            });
-            $('.ml-caption').on('click', function () {
-                var lv1 = $('.lv1');
-                if ($(lv1).is(":visible")) {
-                    $(lv1).slideUp();
-                } else {
-                    $(lv1).slideDown();
-                }
-            });
 
-            $('.menu-left-caption').on('click', function () {
-                var menu = $('.menu-left');
-                if ($(menu).is(":visible")) {
-                    $(menu).slideUp();
-                    $(this).removeClass("active");
-                } else {
-                    $(menu).slideDown();
-                    $(this).addClass("active");
-
-                }
-            });
-        }
         db.matchHeight = function () {
             if ($('.news-item').length) {
                 $('.news-item').matchHeight();
@@ -249,7 +215,7 @@
         db.scrollMenu();
         db.homeSlider();
         db.productSlider();
-        db.showSearch();
+        db.menuLeft();
         db.fAQ();
         db.gender();
         db.showApp();
@@ -257,7 +223,7 @@
 
 
 
-        db.menuLeft();
+
         db.sliderAbout();
         db.menuResponsive();
         db.matchHeight();
