@@ -165,6 +165,9 @@ img {
   background-color: rgba(255, 255, 255, 0.6);
   transition: all ease 0.3s;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }
+  @media screen and (max-width: 991px) {
+    .header {
+      padding: 10px 0px; } }
   .header.header-scrolled {
     padding: 10px 0px;
     background-color: #fff; }
@@ -177,19 +180,34 @@ img {
           height: 30px;
           margin: 10px 0px 0px 0px; } }
   .header .menu {
-    float: left; }
+    float: right; }
     @media screen and (max-width: 991px) {
       .header .menu {
-        display: none; } }
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0px;
+        right: 0px; } }
+    @media screen and (min-width: 992px) {
+      .header .menu {
+        display: block !important; } }
     .header .menu ul {
       float: left;
       margin: 0px;
       padding: 0px;
       list-style: none; }
+      @media screen and (max-width: 991px) {
+        .header .menu ul {
+          float: none; } }
       .header .menu ul li {
         float: left;
         margin: 0px 5px 0px 5px;
         position: relative; }
+        @media screen and (max-width: 991px) {
+          .header .menu ul li {
+            margin: 0px;
+            float: none;
+            width: 100%; } }
         .header .menu ul li a {
           display: block;
           line-height: 50px;
@@ -199,13 +217,18 @@ img {
           padding: 0px 15px;
           transition: all ease 0.4s;
           font-size: 1.3rem; }
+          @media screen and (max-width: 991px) {
+            .header .menu ul li a {
+              line-height: 35px;
+              border-radius: 0px;
+              width: 100%; } }
           .header .menu ul li a:hover {
             background-color: #A4C43A; }
           @media screen and (max-width: 1199px) {
             .header .menu ul li a {
               padding: 0px 5px;
               font-size: 1.2rem; } }
-        .header .menu ul li.active a {
+        .header .menu ul li.active > a {
           background-color: #A4C43A; }
         .header .menu ul li:hover ul {
           display: block; }
@@ -217,13 +240,25 @@ img {
           display: none;
           padding: 5px 0px 0px 0px;
           width: 120px; }
+          @media screen and (max-width: 1199px) {
+            .header .menu ul li ul {
+              position: relative;
+              width: 100%;
+              display: block;
+              padding: 0px; } }
           .header .menu ul li ul li {
             float: none;
             margin: 0px 0px 5px 0px; }
+            @media screen and (max-width: 1199px) {
+              .header .menu ul li ul li {
+                margin: 0px; } }
             .header .menu ul li ul li a {
               display: block; }
+              @media screen and (max-width: 1199px) {
+                .header .menu ul li ul li a {
+                  text-transform: uppercase; } }
   .header .phone {
-    float: left;
+    float: right;
     margin: 0px 0px 0px 10px;
     font-size: 20px;
     color: #A4C43A;
@@ -256,7 +291,7 @@ img {
         .header .phone i {
           display: none; } }
   .header .menu-icon {
-    float: left;
+    float: right;
     text-align: center;
     width: 40px;
     cursor: pointer;
