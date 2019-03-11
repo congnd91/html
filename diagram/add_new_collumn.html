@@ -434,14 +434,112 @@
             <div class="modal-content">
                 <i class="fa fa-times modal-close" data-dismiss="modal" aria-label="Close">
                 </i>
+
                 <div class="md-caption">Add New Provider</div>
+
                 <div class="md-field">
                     <p class="mdf-caption">Provider name</p>
                     <input type="text" placeholder="" class="md-txt">
                 </div>
+
+
                 <div class="md-control">
+
                     <a href="#" class="md-btn">Save</a>
-                    <a href="#" class="md-btn cancel">Cancel</a>
+                    <a href="#" class="md-btn cancel" data-dismiss="modal" aria-label="Close">Cancel</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--add table-->
+    <div class="modal fade" id="modal-add-table" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-dialog-auto">
+            <div class="modal-content">
+                <i class="fa fa-times modal-close" data-dismiss="modal" aria-label="Close">
+                </i>
+
+                <div class="md-caption">Add New Table</div>
+
+                <div class="md-field">
+                    <p class="mdf-caption">Table name</p>
+                    <input type="text" placeholder="" class="md-txt">
+                </div>
+                <div class="md-field">
+                    <p class="mdf-caption">Schema</p>
+                    <input type="text" placeholder="" class="md-txt" value="dbo_">
+                </div>
+                <div class="md-field">
+                    <p class="mdf-caption">Source file name</p>
+                    <input type="text" placeholder="" class="md-txt">
+                </div>
+
+
+                <div class="md-control">
+
+                    <a href="#" class="md-btn">Save</a>
+                    <a href="#" class="md-btn cancel" data-dismiss="modal" aria-label="Close">Cancel</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--edit table-->
+    <div class="modal fade" id="modal-edit-table" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-dialog-auto">
+            <div class="modal-content">
+                <i class="fa fa-times modal-close" data-dismiss="modal" aria-label="Close">
+                </i>
+
+                <div class="md-caption">Edit a Table</div>
+
+                <div class="md-field">
+                    <p class="mdf-caption">Table name</p>
+                    <input type="text" placeholder="" class="md-txt">
+                </div>
+                <div class="md-field">
+                    <p class="mdf-caption">Schema</p>
+                    <input type="text" placeholder="" class="md-txt" value="dbo_">
+                </div>
+                <div class="md-field">
+                    <p class="mdf-caption">Source file name</p>
+                    <input type="text" placeholder="" class="md-txt">
+                </div>
+
+
+                <div class="md-control">
+
+                    <a href="#" class="md-btn">Save</a>
+                    <a href="#" class="md-btn cancel" data-dismiss="modal" aria-label="Close">Cancel</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--Delete table-->
+    <div class="modal fade" id="modal-delete-table" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-dialog-auto">
+            <div class="modal-content">
+                <i class="fa fa-times modal-close" data-dismiss="modal" aria-label="Close">
+                </i>
+
+                <div class="md-caption">Delete a Table</div>
+
+                <div class="md-mess">
+                    <p> Do you really want to delete this table? <br />
+                        Note: when you delete the table all data in the table will not be restored</p>
+                </div>
+
+
+                <div class="md-control">
+
+                    <a href="#" class="md-btn delete">Delete</a>
+                    <a href="#" class="md-btn cancel" data-dismiss="modal" aria-label="Close">Cancel</a>
+
                 </div>
             </div>
         </div>
@@ -462,9 +560,9 @@
                         <div class="md-field">
                             <p class="mdf-caption">Data Type</p>
                             <select class="md-select">
-                            <option>Type 1</option>
-                           <option>Type 2</option>
-                              <option>Type 3</option>
+                                <option>Type 1</option>
+                                <option>Type 2</option>
+                                <option>Type 3</option>
                             </select>
 
                         </div>
@@ -548,7 +646,7 @@
                 </div>
                 <div class="md-control">
                     <a href="#" class="md-btn">Save</a>
-                    <a href="#" class="md-btn cancel">Cancel</a>
+                    <a href="#" class="md-btn cancel" data-dismiss="modal" aria-label="Close">Cancel</a>
                 </div>
             </div>
         </div>
@@ -560,7 +658,25 @@
     <script src="js/main.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+
+
+            $('.btn-new-provider').click(function() {
+                $('#modal-new-provider').modal('show');
+            });
+
+            $('.btn-add-table').click(function() {
+                $('#modal-add-table').modal('show');
+            });
+
+            $('.btn-edit-table').click(function() {
+                $('#modal-edit-table').modal('show');
+            });
+
+            $('.btn-delete-table').click(function() {
+                $('#modal-delete-table').modal('show');
+            });
             $('#modal-new-collumn').modal('show');
+
         });
 
     </script>
