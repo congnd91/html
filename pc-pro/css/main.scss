@@ -201,6 +201,10 @@ img {
     background-color: rgba(255, 255, 255, 0.6);
     transition: all ease 0.3s;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    @media screen and (max-width: 991px) {
+
+        padding: 10px 0px;
+    }
 
     &.header-scrolled {
         padding: 10px 0px;
@@ -223,11 +227,22 @@ img {
     }
 
     .menu {
-        float: left;
+        float: right;
+
 
         @media screen and (max-width: 991px) {
             display: none;
+            position: absolute;
+            top: 60px;
+            left: 0px;
+            right: 0px;
         }
+
+        @media screen and (min-width: 992px) {
+            display: block !important;
+
+        }
+
 
         ul {
             float: left;
@@ -235,11 +250,21 @@ img {
             padding: 0px;
             list-style: none;
 
+            @media screen and (max-width: 991px) {
+                float: none;
+            }
+
             li {
                 float: left;
                 margin: 0px 5px 0px 5px;
                 position: relative;
 
+                @media screen and (max-width: 991px) {
+
+                    margin: 0px;
+                    float: none;
+                    width: 100%;
+                }
 
 
                 a {
@@ -251,6 +276,12 @@ img {
                     padding: 0px 15px;
                     transition: all ease 0.4s;
                     font-size: 1.3rem;
+                    @media screen and (max-width: 991px) {
+
+                        line-height: 35px;
+                        border-radius: 0px;
+                        width: 100%;
+                    }
 
                     &:hover {
                         background-color: $active-color;
@@ -266,7 +297,7 @@ img {
 
                 &.active {
 
-                    a {
+                    > a {
                         background-color: $active-color;
                     }
                 }
@@ -286,12 +317,29 @@ img {
                     padding: 5px 0px 0px 0px;
                     width: 120px;
 
+                    @media screen and (max-width: 1199px) {
+                        position: relative;
+                        width: 100%;
+                        display: block;
+                        padding: 0px;
+
+                    }
+
                     li {
                         float: none;
                         margin: 0px 0px 5px 0px;
+                        @media screen and (max-width: 1199px) {
+                            margin: 0px;
+
+                        }
+
 
                         a {
                             display: block;
+                            @media screen and (max-width: 1199px) {
+                                text-transform: uppercase;
+
+                            }
                         }
                     }
                 }
@@ -300,7 +348,7 @@ img {
     }
 
     .phone {
-        float: left;
+        float: right;
         margin: 0px 0px 0px 10px;
         font-size: 20px;
         color: $active-color;
@@ -354,7 +402,7 @@ img {
 
 
     .menu-icon {
-        float: left;
+        float: right;
         text-align: center;
         width: 40px;
         cursor: pointer;

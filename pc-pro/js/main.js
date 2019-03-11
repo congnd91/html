@@ -17,8 +17,14 @@
         }
         db.menuResponsive = function () {
             $('.menu-icon').on('click', function (e) {
-                e.stopPropagation();
-                $('body').toggleClass("open-menu");
+                var menu = $('.menu');
+                if ($(menu).is(":visible")) {
+                    $(menu).slideUp();
+                } else {
+                    $(menu).slideDown();
+
+                }
+
             });
             $('.page').on('click', function () {
                 $('body').removeClass("open-menu");
