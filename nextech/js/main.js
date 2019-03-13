@@ -433,6 +433,13 @@
             }
 
 
+            if ($(".detail-tab-nav").length) {
+
+                $(".detail-tab-nav").stick_in_parent({
+                    offset_top: 140
+                });
+            }
+
 
 
 
@@ -510,6 +517,25 @@
 
         }
 
+        db.scroll = function () {
+
+
+            $(".detail-tab ul li").click(function () {
+
+                $(".detail-tab ul li").removeClass("active");
+                var that = this;
+                var id = $(that).attr("data-tab");
+                $(that).addClass("active");
+
+
+                $('html,body').animate({
+                    scrollTop: $(id).offset().top - 200
+                }, 1000);
+
+
+            });
+        }
+
 
 
 
@@ -529,6 +555,7 @@
         db.gender();
         db.scrollFixBar();
         db.closeCookie();
+        db.scroll();
         new WOW().init();
 
 
