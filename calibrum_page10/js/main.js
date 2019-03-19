@@ -1,31 +1,55 @@
 (function ($) {
     $(document).on('ready', function () {
         var db = new Object();
-        db.sidebarMenu = function () {
-            $('.sidebar-menu-item.has-child.active .sidebar-sub-menu').show();
-            $('.sidebar-menu-item.has-child >a').on('click', function (e) {
-                var menu = $(this).parent().find(".sidebar-sub-menu");
-                if ($(menu).is(":visible")) {
-                    $(menu).slideUp();
-                    $(this).parent().removeClass("active");
+
+
+        db.showBoxComment = function () {
+
+            $('.rri-comment').click(function () {
+
+                $('.rri-comment').removeClass("active");
+
+                $(".rri-write-comment-box").hide();
+                $('.rri-write-comment').removeClass("active");
+                var content = $(this).parents(".ri-option").find('.rri-comment-box');
+
+                if ($(content).is(":visible")) {
+                    $(content).hide();
+                    $(this).removeClass("active");
                 } else {
-                    $(menu).slideDown();
-                    $(this).parent().addClass("active");
+                    $(content).show();
+                    $(this).addClass("active");
                 }
-                return false;
+
+
             });
-        }
-        db.menuResponsive = function () {
-            $('.menu-icon').on('click', function () {
-                var menu = $('.menu-res');
-                if ($(menu).is(":visible")) {
-                    $(menu).slideUp();
+
+            $('.rri-write-comment').click(function () {
+
+                $('.rri-write-comment').removeClass("active");
+
+
+                $('.rri-comment').removeClass("active");
+
+                $(".rri-comment-box").hide();
+                $('.rri-comment').removeClass("active");
+                var content = $(this).parents(".ri-option").find('.rri-write-comment-box');
+
+                if ($(content).is(":visible")) {
+                    $(content).hide();
+                    $(this).removeClass("active");
                 } else {
-                    $(menu).slideDown();
+                    $(content).show();
+                    $(this).addClass("active");
                 }
+
+
             });
+
         }
-        db.sidebarMenu();
-        db.menuResponsive();
+
+        db.showBoxComment();
+
+
     });
 })(jQuery);
