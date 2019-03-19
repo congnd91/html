@@ -165,6 +165,11 @@
                 }
             });
         }
+        db.closeCookie = function () {
+            $('.close-cookie').on('click', function () {
+                $('.cookie-notify').hide();
+            });
+        }
 
         db.preLoad();
         db.scrollMenu();
@@ -178,5 +183,6 @@
         db.matchHeight();
         db.fAQ();
         db.sliderAbout();
+        db.closeCookie();
     });
 })(jQuery);
