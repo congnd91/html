@@ -7,17 +7,26 @@
     Author URI:     https://danhcong.com    
 -------------------------------------------------------------------
 -------------------------------------------------------------------*/
+
 @import "scss/variables";
 @import "scss/mixins";
 @import "scss/reset";
 
 /*-------------------------------HEADER------------------------------------*/
+
 body {
     background-color: #e2e2e2;
     min-width: 500px;
     padding: 0px 0px 0px 0px;
     font-family: Arial, "sans-serif", "Helvetica Neue", Helvetica !important;
     color: #393939;
+    &.fix {
+        min-width: 900px;
+        overflow: auto;
+        .wrap {
+            min-width: 900px;
+        }
+    }
 
 }
 
@@ -50,7 +59,9 @@ body {
 
     margin: 0px auto;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.6)
+    background-color: rgba(255, 255, 255, 0.6);
+
+
 }
 
 .logo-wrap {
@@ -72,8 +83,7 @@ body {
 
 .box-matrix {
     //   background-color: #fff;
-    min-height: 500px;
-    // box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.2);
+    min-height: 500px; // box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.2);
     // padding: 15px;
 }
 
@@ -82,13 +92,62 @@ body {
 
     .bmi-caption {
         border-bottom: 1px solid #ddd;
-        padding: 5px 10px;
-        font-size: 14px;
-        font-weight: 600;
-        background-color: $active-color;
-        color: #fff;
+
+
+        h3 {
+            margin: 0px;
+
+            padding: 8px 10px;
+            font-size: 14px;
+            font-weight: 600;
+            background-color: $active-color;
+            color: #fff;
+            i {
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                font-size: 16px;
+                &.active {
+                    &:after {
+                        display: block;
+                    }
+                }
+
+
+                &:after {
+                    content: "";
+                    display: none;
+                    width: 0px;
+                    height: 0px;
+                    border: 8px solid transparent;
+                    border-bottom-color: #F4F5F6;
+                    position: absolute;
+                    bottom: -10px;
+
+                    left: -2px;
+                }
+            }
+        }
 
     }
+
+
+
+    .bmi-info {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 0px 0px 0px 0px;
+        overflow: auto;
+        max-height: 400px;
+        display: none;
+
+        p {
+            color: #666;
+            font-size: 13px;
+            margin: 0px 0px 0px 0px;
+        }
+    }
+
 }
 
 .bmi-content {
@@ -266,8 +325,7 @@ body {
             font-size: 11px;
             left: 1px;
             position: absolute;
-            display: none;
-            // font-family: "Font Awesome 5 Free";
+            display: none; // font-family: "Font Awesome 5 Free";
             font-family: FontAwesome;
             content: "\f00c";
         }
@@ -596,6 +654,384 @@ body {
             cursor: pointer;
             background-color: $active-color;
             font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            border: none;
+            transition: all ease 0.3s;
+
+            &:hover {
+                background-color: lighten($active-color, 10%);
+            }
+        }
+    }
+}
+
+/******************************hor*************/
+
+.ho-box {
+    table {
+        border: 1px solid #ddd;
+        width: 100%;
+
+        th {
+            border: 1px solid #ddd;
+            padding: 7px 10px;
+            background-color: $active-color;
+            &.ho-col1 {
+                width: 20%;
+            }
+            &.ho-col2 {
+                width: 20%;
+            }
+            &.ho-col3 {
+                width: 35%;
+            }
+            &.ho-col4 {
+                width: 25%;
+            }
+
+            p {
+                color: #fff;
+                font-weight: 600;
+                margin: 0px;
+            }
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            vertical-align: top;
+        }
+    }
+}
+
+.ho-col1 {
+    h3 {
+        font-size: 13px;
+        font-weight: 600;
+        margin: 0px 0px 10px 0px;
+
+
+        i {
+            margin: 0px 0px 0px 5px;
+            font-size: 13px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            &.active {
+                &:after {
+
+                    content: "";
+                    display: block;
+                    width: 0px;
+                    height: 0px;
+                    border: 8px solid transparent;
+                    border-bottom-color: #fff;
+                    position: absolute;
+                    bottom: -12px;
+                    left: -2px;
+                }
+            }
+        }
+    }
+    .bmi-info {
+        display: none;
+        background-color: #fff;
+        font-size: 10px;
+        padding: 10px;
+    }
+}
+
+.ho-comment {
+    position: relative;
+
+    span {
+        font-size: 10px;
+        color: #666;
+        cursor: pointer;
+
+    }
+    &.active {
+        &:before {
+            content: "";
+            display: block;
+            width: 0px;
+            height: 0px;
+            border: 8px solid transparent;
+            border-bottom-color: #fff;
+            position: absolute;
+            left: 20px;
+            bottom: -10px;
+        }
+    }
+}
+
+.ho-write-comment {
+    margin: 5px 0px 0px 0px;
+    position: relative;
+    i {
+        margin: 0px 2px 0px 0px;
+    }
+
+    span {
+        font-size: 10px;
+        color: $active-color;
+        cursor: pointer;
+        &:hover {
+            color: $active-color;
+        }
+
+    }
+    &.active {
+        &:before {
+            content: "";
+            display: block;
+            width: 0px;
+            height: 0px;
+            border: 8px solid transparent;
+            border-bottom-color: #fff;
+            position: absolute;
+            left: 20px;
+            bottom: -10px;
+        }
+    }
+}
+
+.ho-select {
+    margin: 3px 0px 10px 0px;
+
+    select {
+
+        height: 25px;
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        color: $text-color;
+
+        font-size: 11px;
+        outline: none;
+        min-width: 200px;
+        margin: 0px;
+    }
+}
+
+.ho-percent {
+    height: 15px;
+    text-align: center;
+    font-size: 9px;
+    margin: 5px 0px 0px 0px;
+    color: #999;
+
+}
+
+.ho-vote {
+    height: 15px;
+    text-align: center;
+    .ho-like {
+        color: $green;
+        font-size: 9px;
+
+    }
+    .ho-unlike {
+        color: $red;
+        font-size: 9px;
+
+    }
+    em {
+        font-size: 9px;
+    }
+}
+
+.ho-col {
+    .item-radio {
+        float: none;
+        width: 20px;
+        span {
+            top: -10px;
+        }
+    }
+    .item-check {
+        float: none;
+        width: 20px;
+        span {
+            top: -10px;
+        }
+    }
+}
+
+.ho-cols5 {
+    .ho-col {
+        float: left;
+        width: 20%;
+        text-align: center;
+        font-size: 11px;
+
+    }
+}
+
+.ho-cols3 {
+    .ho-col {
+        float: left;
+        width: 33.333%;
+        text-align: center;
+        font-size: 11px;
+
+    }
+}
+
+
+.ho-comment-box {
+
+    background-color: #fff;
+    padding: 0px 10px;
+
+    margin: 10px 0px 10px 0px;
+    overflow: auto;
+    max-height: 800px;
+    display: none;
+
+    .cb-item {
+        border-bottom: 1px solid #eee;
+        padding: 10px 0px;
+
+        label {
+            font-size: 11px;
+            display: block;
+            font-weight: 600;
+            margin: 0px 0px 5px 0px;
+        }
+
+        &:last-child {
+            border: none;
+            margin: 0px;
+        }
+
+        p {
+            color: #666;
+            font-size: 11px;
+            margin: 0px 0px 15px 0px;
+        }
+    }
+
+    .rate-caption {
+        font-size: 11px;
+        display: inline-block;
+        float: left;
+        font-weight: 600;
+        margin: -2px 10px 0px 0px;
+    }
+
+    .starrr {
+        display: inline-block;
+        margin: 0px 0px 0px 0px;
+    }
+    .wcb-items {
+        background-color: #fff;
+        padding: 0px;
+        margin: 0px 0px 10px 0px;
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            display: block;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            outline: none;
+            font-size: 13px;
+        }
+
+        .my-btn {
+            margin-top: 10px;
+            display: inline-block;
+            line-height: 30px;
+            padding: 0px 20px;
+            border-radius: 2px;
+            cursor: pointer;
+            background-color: $active-color;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            border: none;
+            transition: all ease 0.3s;
+
+            &:hover {
+                background-color: lighten($active-color, 10%);
+            }
+        }
+    }
+}
+
+.ho-write-comment-box {
+
+    background-color: #fff;
+    padding: 0px 10px;
+
+    margin: 10px 0px 10px 0px;
+    overflow: auto;
+    max-height: 800px;
+    display: none;
+
+    .cb-item {
+        border-bottom: 1px solid #eee;
+        padding: 10px 0px;
+
+        label {
+            font-size: 11px;
+            display: block;
+            font-weight: 600;
+            margin: 0px 0px 5px 0px;
+        }
+
+        &:last-child {
+            border: none;
+            margin: 0px;
+        }
+
+        p {
+            color: #666;
+            font-size: 11px;
+            margin: 0px 0px 15px 0px;
+        }
+    }
+
+    .rate-caption {
+        font-size: 11px;
+        display: inline-block;
+        float: left;
+        font-weight: 600;
+        margin: -2px 10px 0px 0px;
+    }
+
+    .starrr {
+        display: inline-block;
+        margin: 0px 0px 0px 0px;
+    }
+    .wcb-items {
+        background-color: #fff;
+        padding: 0px;
+        margin: 0px 0px 10px 0px;
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            display: block;
+            padding: 5px;
+
+            background-color: #fff;
+            border: 1px solid #ddd;
+            outline: none;
+            font-size: 11px;
+        }
+
+        .my-btn {
+            margin-top: 10px;
+            display: inline-block;
+            line-height: 30px;
+            padding: 0px 20px;
+            border-radius: 2px;
+            cursor: pointer;
+            background-color: $active-color;
+            font-size: 12px;
             font-weight: 600;
             color: #fff;
             border: none;

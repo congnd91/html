@@ -107,6 +107,11 @@ body {
   padding: 0px 0px 0px 0px;
   font-family: Arial, "sans-serif", "Helvetica Neue", Helvetica !important;
   color: #393939; }
+  body.fix {
+    min-width: 900px;
+    overflow: auto; }
+    body.fix .wrap {
+      min-width: 900px; }
 
 .dropdown-menu {
   border: none;
@@ -149,12 +154,42 @@ body {
 .bm-item {
   margin: 0px 0px 10px 0px; }
   .bm-item .bmi-caption {
-    border-bottom: 1px solid #ddd;
-    padding: 5px 10px;
-    font-size: 14px;
-    font-weight: 600;
-    background-color: #32a3ce;
-    color: #fff; }
+    border-bottom: 1px solid #ddd; }
+    .bm-item .bmi-caption h3 {
+      margin: 0px;
+      padding: 8px 10px;
+      font-size: 14px;
+      font-weight: 600;
+      background-color: #32a3ce;
+      color: #fff; }
+      .bm-item .bmi-caption h3 i {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        font-size: 16px; }
+        .bm-item .bmi-caption h3 i.active:after {
+          display: block; }
+        .bm-item .bmi-caption h3 i:after {
+          content: "";
+          display: none;
+          width: 0px;
+          height: 0px;
+          border: 8px solid transparent;
+          border-bottom-color: #F4F5F6;
+          position: absolute;
+          bottom: -10px;
+          left: -2px; }
+  .bm-item .bmi-info {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 0px 0px 0px 0px;
+    overflow: auto;
+    max-height: 400px;
+    display: none; }
+    .bm-item .bmi-info p {
+      color: #666;
+      font-size: 13px;
+      margin: 0px 0px 0px 0px; }
 
 .bmi-content {
   border: 1px solid #ddd;
@@ -508,6 +543,272 @@ body {
       border: none;
       transition: all ease 0.3s; }
       .rri-write-comment-box .wcb-items .my-btn:hover {
+        background-color: #5bb5d8; }
+
+/******************************hor*************/
+.ho-box table {
+  border: 1px solid #ddd;
+  width: 100%; }
+  .ho-box table th {
+    border: 1px solid #ddd;
+    padding: 7px 10px;
+    background-color: #32a3ce; }
+    .ho-box table th.ho-col1 {
+      width: 20%; }
+    .ho-box table th.ho-col2 {
+      width: 20%; }
+    .ho-box table th.ho-col3 {
+      width: 35%; }
+    .ho-box table th.ho-col4 {
+      width: 25%; }
+    .ho-box table th p {
+      color: #fff;
+      font-weight: 600;
+      margin: 0px; }
+  .ho-box table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    vertical-align: top; }
+
+.ho-col1 h3 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0px 0px 10px 0px; }
+  .ho-col1 h3 i {
+    margin: 0px 0px 0px 5px;
+    font-size: 13px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer; }
+    .ho-col1 h3 i.active:after {
+      content: "";
+      display: block;
+      width: 0px;
+      height: 0px;
+      border: 8px solid transparent;
+      border-bottom-color: #fff;
+      position: absolute;
+      bottom: -12px;
+      left: -2px; }
+
+.ho-col1 .bmi-info {
+  display: none;
+  background-color: #fff;
+  font-size: 10px;
+  padding: 10px; }
+
+.ho-comment {
+  position: relative; }
+  .ho-comment span {
+    font-size: 10px;
+    color: #666;
+    cursor: pointer; }
+  .ho-comment.active:before {
+    content: "";
+    display: block;
+    width: 0px;
+    height: 0px;
+    border: 8px solid transparent;
+    border-bottom-color: #fff;
+    position: absolute;
+    left: 20px;
+    bottom: -10px; }
+
+.ho-write-comment {
+  margin: 5px 0px 0px 0px;
+  position: relative; }
+  .ho-write-comment i {
+    margin: 0px 2px 0px 0px; }
+  .ho-write-comment span {
+    font-size: 10px;
+    color: #32a3ce;
+    cursor: pointer; }
+    .ho-write-comment span:hover {
+      color: #32a3ce; }
+  .ho-write-comment.active:before {
+    content: "";
+    display: block;
+    width: 0px;
+    height: 0px;
+    border: 8px solid transparent;
+    border-bottom-color: #fff;
+    position: absolute;
+    left: 20px;
+    bottom: -10px; }
+
+.ho-select {
+  margin: 3px 0px 10px 0px; }
+  .ho-select select {
+    height: 25px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    color: #393939;
+    font-size: 11px;
+    outline: none;
+    min-width: 200px;
+    margin: 0px; }
+
+.ho-percent {
+  height: 15px;
+  text-align: center;
+  font-size: 9px;
+  margin: 5px 0px 0px 0px;
+  color: #999; }
+
+.ho-vote {
+  height: 15px;
+  text-align: center; }
+  .ho-vote .ho-like {
+    color: #28a745;
+    font-size: 9px; }
+  .ho-vote .ho-unlike {
+    color: #dc3545;
+    font-size: 9px; }
+  .ho-vote em {
+    font-size: 9px; }
+
+.ho-col .item-radio {
+  float: none;
+  width: 20px; }
+  .ho-col .item-radio span {
+    top: -10px; }
+
+.ho-col .item-check {
+  float: none;
+  width: 20px; }
+  .ho-col .item-check span {
+    top: -10px; }
+
+.ho-cols5 .ho-col {
+  float: left;
+  width: 20%;
+  text-align: center;
+  font-size: 11px; }
+
+.ho-cols3 .ho-col {
+  float: left;
+  width: 33.333%;
+  text-align: center;
+  font-size: 11px; }
+
+.ho-comment-box {
+  background-color: #fff;
+  padding: 0px 10px;
+  margin: 10px 0px 10px 0px;
+  overflow: auto;
+  max-height: 800px;
+  display: none; }
+  .ho-comment-box .cb-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0px; }
+    .ho-comment-box .cb-item label {
+      font-size: 11px;
+      display: block;
+      font-weight: 600;
+      margin: 0px 0px 5px 0px; }
+    .ho-comment-box .cb-item:last-child {
+      border: none;
+      margin: 0px; }
+    .ho-comment-box .cb-item p {
+      color: #666;
+      font-size: 11px;
+      margin: 0px 0px 15px 0px; }
+  .ho-comment-box .rate-caption {
+    font-size: 11px;
+    display: inline-block;
+    float: left;
+    font-weight: 600;
+    margin: -2px 10px 0px 0px; }
+  .ho-comment-box .starrr {
+    display: inline-block;
+    margin: 0px 0px 0px 0px; }
+  .ho-comment-box .wcb-items {
+    background-color: #fff;
+    padding: 0px;
+    margin: 0px 0px 10px 0px; }
+    .ho-comment-box .wcb-items textarea {
+      width: 100%;
+      height: 80px;
+      display: block;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      outline: none;
+      font-size: 13px; }
+    .ho-comment-box .wcb-items .my-btn {
+      margin-top: 10px;
+      display: inline-block;
+      line-height: 30px;
+      padding: 0px 20px;
+      border-radius: 2px;
+      cursor: pointer;
+      background-color: #32a3ce;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      border: none;
+      transition: all ease 0.3s; }
+      .ho-comment-box .wcb-items .my-btn:hover {
+        background-color: #5bb5d8; }
+
+.ho-write-comment-box {
+  background-color: #fff;
+  padding: 0px 10px;
+  margin: 10px 0px 10px 0px;
+  overflow: auto;
+  max-height: 800px;
+  display: none; }
+  .ho-write-comment-box .cb-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0px; }
+    .ho-write-comment-box .cb-item label {
+      font-size: 11px;
+      display: block;
+      font-weight: 600;
+      margin: 0px 0px 5px 0px; }
+    .ho-write-comment-box .cb-item:last-child {
+      border: none;
+      margin: 0px; }
+    .ho-write-comment-box .cb-item p {
+      color: #666;
+      font-size: 11px;
+      margin: 0px 0px 15px 0px; }
+  .ho-write-comment-box .rate-caption {
+    font-size: 11px;
+    display: inline-block;
+    float: left;
+    font-weight: 600;
+    margin: -2px 10px 0px 0px; }
+  .ho-write-comment-box .starrr {
+    display: inline-block;
+    margin: 0px 0px 0px 0px; }
+  .ho-write-comment-box .wcb-items {
+    background-color: #fff;
+    padding: 0px;
+    margin: 0px 0px 10px 0px; }
+    .ho-write-comment-box .wcb-items textarea {
+      width: 100%;
+      height: 80px;
+      display: block;
+      padding: 5px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      outline: none;
+      font-size: 11px; }
+    .ho-write-comment-box .wcb-items .my-btn {
+      margin-top: 10px;
+      display: inline-block;
+      line-height: 30px;
+      padding: 0px 20px;
+      border-radius: 2px;
+      cursor: pointer;
+      background-color: #32a3ce;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      border: none;
+      transition: all ease 0.3s; }
+      .ho-write-comment-box .wcb-items .my-btn:hover {
         background-color: #5bb5d8; }
 
 /*# sourceMappingURL=main.css.map */

@@ -50,6 +50,7 @@
                 $('body').toggleClass("show-video");
             });
             $('.close-video').on('click', function (e) {
+                $('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
                 $('body').toggleClass("show-video");
             });
         }
@@ -121,6 +122,19 @@
                 }, 1000);
             });
         }
+        db.scrollToListProduct = function () {
+
+
+            $(".scroll-to-product-list").click(function () {
+                $("html, body").animate({
+                    scrollTop: $('.list-product').offset().top - 100
+                }, 1500);
+                return false;
+            });
+        }
+
+
+
         db.textPlaceHolder = function () {
             $('.c-text')
                 .on('focus', function () {
@@ -184,5 +198,6 @@
         db.fAQ();
         db.sliderAbout();
         db.closeCookie();
+        db.scrollToListProduct();
     });
 })(jQuery);
