@@ -544,7 +544,9 @@
                 $('body').toggleClass("show-modal");
             });
 
-            $('.btn-show-db-note').click(function(e) {
+            $('.btn-show-db-note').click(function(event) {
+                event.stopPropagation();
+                event.preventDefault();
 
                 var note = $('.db-note');
                 if ($(note).is(":visible")) {
