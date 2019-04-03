@@ -141,6 +141,29 @@
 
 
 
+        db.sliderProduct = function () {
+            if ($('.slider-for').length) {
+                $('.slider-for').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: '.slider-nav'
+                });
+                $('.slider-nav').slick({
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    asNavFor: '.slider-for',
+
+
+                    focusOnSelect: true,
+                    prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button"> <i class="icon ion-ios-arrow-back"></i></button>',
+                    nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button"> <i class="icon ion-ios-arrow-forward"></i></button>'
+                });
+            }
+
+        }
+
 
 
 
@@ -255,6 +278,9 @@
         db.sliderAbout();
         db.menuResponsive();
         db.matchHeight();
+
+
+        db.sliderProduct();
         db.closeCookie();
 
     });
