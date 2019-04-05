@@ -55,24 +55,35 @@
 
     </style>
     <style type="text/css">
+        body {
+            background-image: url(bg.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            font-family: Arial;
+            margin: 0px;
+            padding: 0px;
+        }
+
         .col-xs-12 {
             width: 100%;
         }
 
         .vongxoay-img {
-            background: url('vong-quay-all.png') no-repeat;
-            background-position: -5px 41px;
-            height: 520px;
-        }
-
-        .vongxoay-img img:nth-child(1) {
+            width: 329px;
+            margin: 0px auto;
             position: relative;
-            margin-top: 80px;
         }
 
-        .vongxoay-img img:nth-child(2) {
+        .vongxoay-img #img_quay {
+            position: relative;
+            margin-top: 60px;
+        }
+
+        .vongxoay-img .arrow {
             position: absolute;
-            margin: 40px -173px;
+            top: 30px;
+            left: 50%;
+            margin: 0px 0px 0px 0px;
         }
 
         body {
@@ -80,30 +91,68 @@
             padding: 0;
         }
 
+        .vtaui-btn-blue {
+            display: inline-block;
+            color: #fff;
+            background-color: #0099fe;
+            line-height: 40px;
+            padding: 0px 30px;
+            border-radius: 4px;
+            border: 1px solid #fff;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        #ketqua {
+            min-height: 30px;
+            color: #fff;
+            text-align: center;
+            margin: 0px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .soluot {
+            min-height: 30px;
+            color: #fff;
+            text-align: center;
+            margin: 0px;
+            font-size: 14px;
+            padding: 10px 0px 0px 0px;
+        }
+
+        .control {
+            padding: 20px 0px 0px 0px;
+            text-align: center;
+        }
+
     </style>
     <script type="text/javascript" src="jquery.min.js"></script>
 </head>
 
 <body>
-    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 vongxoay-img" id="vongxoaytichdiem">
-        <img src="vong-quay-circle.png" alt="" id="img_quay">
-        <img src="vong-quay-target.png">
+    <div class="vongxoay-img" id="vongxoaytichdiem">
+        <img src="round.png" alt="" id="img_quay">
+        <img src="arrow.png" class="arrow">
+        <div class="control">
+            <p id="ketqua"></p>
+            <a href="javascript: void(0)" onclick="quay();" class="vtaui-btn-blue ">Săn quà</a>
+            <p class="soluot">4 lượt quay</p>
+        </div>
     </div>
-    <p id="ketqua"></p>
-    <a style="font-size: 25px;color: #000;" href="javascript: void(0)" onclick="quay();" class="vtaui-btn-blue">Quay ngay</a>
     <script type="text/javascript">
         var hieu_ung = {
             'el': '#img_quay',
             'stop_point': null,
             'interval_id': null,
             'stop_index': {
-                1: [0], //50 Vpoint
-                2: [60], //20 Vpoint
-                3: [120], //5 Vpoint
-                4: [180], //90 - Mặt mếu , 210 - Mặt cười
-                5: [240], //40 Vpoint
-                6: [300], //10 Vpoint
-
+                1: [0], //iPhone
+                2: [60], //100K
+                3: [120], //200K
+                4: [180], //300K
+                5: [240], //400K
+                6: [300], //500K
             },
             'rotate_count': 5,
             'old_point': {
@@ -111,32 +160,25 @@
                 'value_old': null,
                 'value_new': null
             },
-
             'play': function() {
                 if (!this.stop_point)
                     return;
-
                 if (this.old_point.value_old == null) {
                     this.old_point.value_old = this.old_point.value_new;
                 }
-
                 $(this).css('-webkit-transform', 'rotate(' + this.old_point.value_old + 'deg)');
                 $(this).css('-moz-transform', 'rotate(' + this.old_point.value_old + 'deg)');
                 $(this).css('transform', 'rotate(' + this.old_point.value_old + 'deg)');
                 //console.log('Giá trị v_old : ' + this.old_point.value_old);
-
                 var v_old = this.old_point.value_old;
                 var v_stop = this.stop_point;
                 var element = this.el;
                 var v_this = this;
-
-
                 $(this.el).animate({
                     transform: v_stop
                 }, {
                     step: function(now, fx) {
                         fx.start = v_old;
-
                         if (now >= v_old) {
                             $(this).css('-webkit-transform', 'rotate(' + now + 'deg)');
                             $(this).css('-moz-transform', 'rotate(' + now + 'deg)');
@@ -146,7 +188,6 @@
                     duration: 5000
                 }, 'ease-out');
                 //},0)
-
             },
             'stop': function() {
                 $(this.el).stop();
@@ -156,8 +197,6 @@
                     this.old_point.check = true;
                 }
                 var arr_point = this.stop_index[params.coupon_id];
-
-
                 //console.log(this.stop_point)
                 var valueArrPoint = arr_point[Math.floor(Math.random() * arr_point.length)];
                 console.log('Giá trị tọa độ : ' + valueArrPoint);
@@ -178,16 +217,13 @@
     </script>
     <script type="text/javascript">
         function quay() {
-
-            //$('#img_quay').addClass('unlimit');
-
             var response = {
                 "Successfully": true,
                 "Status": null,
                 "GiftPart": {
                     "Id": 0,
                     "Point": 30,
-                    "Name": 6, //"5",
+                    "Name": 6, // truyền ID vào đây muổn random thì gọi hàm random từ 1->6
                     "Label": "30",
                     "Frequency": 0,
                     "CampaignId": null
@@ -195,57 +231,33 @@
                 "TotalPoint": 0
             }
             setTimeout(function() {
-                console.log(response.GiftPart.Name + "cong");
+                //  console.log(response.GiftPart.Name);
                 if (1 == 1) {
                     if (response.Successfully) {
                         hieu_ung.setStopPoint({
                             'coupon_id': response.GiftPart.Name
                         });
-                        //$('#img_quay').removeClass('unlimit');
-                        $('#ketqua').html('.');
                         hieu_ung.play();
-
                         setTimeout(function() {
-
                             var messageResult = 'Bạn nhận được ';
-                            /*
-                                1:[0], //50 Vpoint
-								2:[30], //20 Vpoint
-								3:[60,180,300],  //5 Vpoint
-								4:[90,210], //90 - Mặt mếu , 210 - Mặt cười
-								5:[120],   //40 Vpoint
-								6:[150], //10 Vpoint
-								7:[240], //30 Vpoint
-								8:[270], //10 Vpoint
-						        9:[330]  // flower
-						        */
                             switch (response.GiftPart.Name) {
                                 case 1:
-                                    messageResult = messageResult + '1 Vpoint';
+                                    messageResult = messageResult + '1 iPhone';
                                     break;
                                 case 2:
-                                    messageResult = messageResult + '2 Vpoint';
+                                    messageResult = messageResult + '500K';
                                     break;
                                 case 3:
-                                    messageResult = messageResult + '3 Vpoint';
+                                    messageResult = messageResult + '400K';
                                     break;
                                 case 4:
-                                    messageResult = messageResult + '4 Vpoint';
+                                    messageResult = messageResult + '300K';
                                     break;
                                 case 5:
-                                    messageResult = messageResult + '5 Vpoint';
+                                    messageResult = messageResult + '200K';
                                     break;
                                 case 6:
-                                    messageResult = messageResult + '6 Vpoint';
-                                    break;
-                                case 7:
-                                    messageResult = messageResult + '30 Vpoint';
-                                    break;
-                                case 8:
-                                    messageResult = messageResult + '10 Vpoint';
-                                    break;
-                                case 9:
-                                    messageResult = messageResult + 'flower';
+                                    messageResult = messageResult + '100K';
                                     break;
                                 default:
                                     messageResult = 'Error!';
@@ -255,18 +267,10 @@
                         }, 5000);
                     } else {
                         var messageResult = "Không thành công!";
-                        // if (response.Status === "Campaign_DoAction_BeLimitedMaximumPlayInDay") {
-                        //     messageResult = "<p>Hôm nay bạn đã tham gia vòng quay may mắn</p> <p class='strong-title'>Vui lòng quay lại sau</p>";
-                        // }
                         $('#ketqua').html(messageResult);
                     }
-                } else {
-
-                }
+                } else {}
             }, 0)
-
-
-
         }
 
     </script>
