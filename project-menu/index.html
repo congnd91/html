@@ -7,39 +7,42 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" name="viewport">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <link href='assets/css/style-new.css' media='all' rel='stylesheet' type='text/css'>
-    <link href='css/main.css' media='all' rel='stylesheet' type='text/css'>
+    <link href='assets/css/style.css' media='all' rel='stylesheet' type='text/css'>
+
     <style>
         body {
             /*  background-color: #ffffff;
 */
             transition: background-color 0.6s ease;
         }
+
         .layout-home,
         .slide,
         .slide.light-blue {
             background-color: transparent;
         }
+
     </style>
 </head>
 
 <body>
     <header class="pageHeader">
-        <div class="pageHeader__inner"> <a class="logo logo--small" href="#"> <img class="logo__image" src="assets/img/logo/logo-dark.svg" alt="Lund IT & Webb AB"> </a>
+        <div class="pageHeader__inner"> <a class="logo logo--small" href="#"> <img class="logo__image" src="assets/img/logo/logo-light.svg" alt="Lund IT & Webb AB"> </a>
+            <a href="#" class="logo-icon">
+            <img alt="" src="assets/img/logo/ico-logo-light.svg">
+            </a>
             <div class="db-menu-desktop">
                 <ul>
-                    <li><a href="#">LINK MENU</a></li>
-                    <li><a href="#">LINK MENU</a></li>
-                    <li><a href="#">LINK MENU</a></li>
-                    <li><a href="#">LINK MENU</a></li>
-                    <li><a href="#">LINK MENU</a></li>
+                    <li><a href="#">Tjänster</a></li>
+                    <li><a href="#">Blogg</a></li>
+                    <li><a href="#">Om Oss</a></li>
+                    <li><a href="#">Kontakta Oss</a></li>
                 </ul>
             </div>
             <div class="pageHeader__buttons">
                 <div class="pageHeader__buttonsInner">
                     <div class="db-phone">
-                        <span></span>
-                        Phone
+                        <span></span> 046-20 99 00
                     </div>
                     <div class="db-menu-desktop-icon">
                         <span class="one"></span>
@@ -103,6 +106,7 @@
             </div>
         </nav>
     </header>
+
     <div class="db-menu-desktop-overlay">
         <div class="db-wrap-flex">
             <div class="db-wrap-outer">
@@ -143,8 +147,6 @@
             </div>
         </div>
     </div>
-
-
     <div class="db-menu-mobile-wrap">
         <span class="db-close-menu-mobile">X</span>
         <div class="db-menu-mobile-wrap-inner">
@@ -177,7 +179,6 @@
                     <label>Phone</label>
                     <p>+84 969 931 091</p>
                 </div>
-
                 <div class="db-link">
                     <p> More contact information, opening hours and map on the </p>
                     <a href="#">Link here</a>
@@ -189,12 +190,9 @@
             </div>
         </div>
     </div>
-
     <div class="db-modal">
         <div class="db-close-modal">
         </div>
-
-
         <div class="db-wrap-flex">
             <div class="db-wrap-outer">
                 <div class="db-wrap fix-margin">
@@ -215,23 +213,15 @@
                         </div>
                         <div class="db-menu-col right">
                             <div class="db-modal-box">
-
-
-
-
-
                                 <div class="db-field">
-                                    <input type="text" placeholder="Name" class="db-text">
+                                    <input type="text" placeholder="Name" class="db-text db-name">
                                 </div>
                                 <div class="db-field">
-                                    <input type="text" placeholder="Email" class="db-text">
+                                    <input type="text" placeholder="Email" class="db-text db-email">
                                 </div>
                                 <div class="db-field">
-                                    <input type="text" placeholder="Phone" class="db-text">
+                                    <input type="text" placeholder="Phone" class="db-text infogroup">
                                 </div>
-
-
-
                                 <div class="db-field">
                                     <label class="db-comfirm">
                                         <input type="checkbox">
@@ -239,13 +229,14 @@
                                         <span class="btn-show-db-note">Link </span>
                                     </label>
                                 </div>
-
                                 <div class="db-note">
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
                                 </div>
                                 <div class="db-field last">
-                                    <button class="db-btn">Save Change</button>
+                                    <button type="submit" class="db-btn">Save Change</button>
                                 </div>
+                                <div class="error"></div>
+
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -254,10 +245,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
     </div>
     <div class="page index">
         <div class="scroll hero layout-home" data-color="#FFFFFF">
@@ -481,6 +468,7 @@
         })
 
     </script>
+
     <script src="assets/js/common.js"></script>
     <script>
         $(window).scroll(function() {
@@ -524,7 +512,6 @@
                     $(this).addClass("active");
                 }
             });
-
             //show modal
             $('.db-menu-col ul li a').click(function(e) {
                 $('body').toggleClass("show-modal");
@@ -538,16 +525,13 @@
                 $('body').toggleClass("show-modal");
                 return false;
             });
-
             //close modal
             $('.db-close-modal').click(function(e) {
                 $('body').toggleClass("show-modal");
             });
-
             $('.btn-show-db-note').click(function(event) {
                 event.stopPropagation();
                 event.preventDefault();
-
                 var note = $('.db-note');
                 if ($(note).is(":visible")) {
                     $(note).slideUp();
@@ -557,8 +541,25 @@
                     $(this).addClass("active");
                 }
             });
-
-
+            //scroll menu
+            var c, currentScrollTop = 0,
+                navbar = $('.pageHeader');
+            $(window).scroll(function() {
+                var a = $(window).scrollTop();
+                var b = navbar.height();
+                currentScrollTop = a;
+                if (c < currentScrollTop && a > b + b) {
+                    navbar.addClass("scrollUp");
+                } else if (c > currentScrollTop && !(a <= b)) {
+                    navbar.removeClass("scrollUp");
+                }
+                c = currentScrollTop;
+                if (a > b) {
+                    $('body').addClass("scrolling");
+                } else {
+                    $('body').removeClass("scrolling");
+                }
+            });
         });
 
     </script>
