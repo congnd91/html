@@ -99,6 +99,72 @@
             console.log(elements[index]);
         }
 
+        //image
+
+        var reader;
+        $("#db_image_file").change(function () {
+            if (this.files && this.files[0]) {
+                reader = new FileReader();
+                reader.onload = imageIsLoaded;
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        var pictureURL;
+
+        function imageIsLoaded(e) {
+
+
+            pictureURL = e.target.result;
+
+            // $(".preview").empty().append(picture);
+
+        }
+
+        db.createImage = function () {
+
+
+            if (pictureURL == null) {
+                alert("Chua chon anh");
+
+
+
+            } else {
+                var index = elements.length;
+                var width = $('#db_image_width').val();
+                var height = $('#db_image_height').val();
+                var top = "30%";
+                var left = "30%";
+                var img = document.createElement("img");
+                img.setAttribute("src", pictureURL);
+                img.style.width = width;
+                img.style.height = height;
+                img.style.top = top;
+                img.style.left = left;
+                var id = uuidv4();
+                var span = document.createElement("span");
+                img.setAttribute("data-index", index);
+                img.setAttribute("data-type", "text");
+                img.setAttribute("id", id);
+
+
+
+
+                $(".db-preview").append(img);
+                db.moving(id);
+                //  document.getElementById("db-preview").appendChild(picture);
+            }
+
+
+
+
+
+
+        }
+
+
+
+
         document.body.querySelector('.db-preview').onmousedown = function (e) {
             $(".db-active").removeClass("db-active");
             e = e || window.event;
@@ -114,6 +180,8 @@
                 }
             }
         }
+
+
 
 
 
@@ -137,6 +205,13 @@
         $('.db-btn-save').click(function () {
             db.downloadImage();
         });
+
+        //image
+
+        $('#db-add-image').click(function () {
+            db.createImage();
+        });
+
 
     });
 })(jQuery);
