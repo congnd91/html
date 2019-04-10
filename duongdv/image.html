@@ -13,7 +13,6 @@
             overflow: hidden;
             height: 400px;
             position: relative;
-
         }
 
         .db-preview span {
@@ -21,7 +20,6 @@
             position: relative;
             z-index: auto;
             position: absolute;
-
             line-height: 1;
         }
 
@@ -30,7 +28,6 @@
             position: relative;
             z-index: auto;
             position: absolute;
-
         }
 
         .db-preview h1 {
@@ -60,14 +57,25 @@
 
         .db-btn-download {
             margin-top: 30px;
-
             color: #fff !important;
             width: auto;
         }
 
+        .db-upload-zone input {
+            padding: 7px 0px 7px 5px;
+            height: 40px;
+        }
+
+        .db-caption {
+            display: block !important;
+            text-align: left !important;
+            font-size: 17px !important;
+            font-weight: bold;
+            margin: 10px 0px 5px -15px !important;
+        }
+
     </style>
 </head>
-
 
 <body>
     <section id="config">
@@ -137,30 +145,51 @@
                 <section class="row">
                     <form class="frm-config form-inline col-12 col-md-12">
                         <section class="container-fluid mb-4">
+                            <label class="db-caption">Background</label>
+                            <div class="row">
+                                <div class="form-group col-3 pl-0">
+                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">Width</label>
+                                    <input type="text" class="form-control w-100" id="db_background_width" value="1000px">
+                                </div>
+                                <div class="form-group col-3 pl-0">
+                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">Height</label>
+                                    <input type="text" class="form-control w-100" id="db_background_height" value="400px">
+                                </div>
+                                <div class="form-group col-2 pl-0">
+                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">Color</label>
+                                    <input type="text" class="form-control w-100" id="db_background_color" value="#eeeeee">
+                                </div>
+                                <div class="form-group col-2 pl-0">
+                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">Control</label>
+                                    <button id="db-update-background" type="button" class="db-btn btn btn-action-preview text-white">
+                                        <span>Update</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="container-fluid mb-4">
+                            <label class="db-caption">Text</label>
                             <div class="row">
                                 <div class="form-group col-2 pl-0">
-                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">Text</label>
+                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">Value</label>
                                     <input type="text" class="form-control w-100" id="db_text" value="text demo">
                                 </div>
-
                                 <div class="form-group col-2 pl-0">
                                     <label for="txtTitleName" class="col-12 justify-content-between p-0">Font</label>
                                     <select class="custom-select" id="db_text_font">
                                         <option value="Arial">Arial</option>
                                         <option value="Montserrat">Montserrat</option>
-
                                     </select>
                                 </div>
                                 <div class="form-group col-2 pl-0">
                                     <label for="txtTitleName" class="col-12 justify-content-between p-0">Size</label>
-                                    <input type="text" class="form-control w-100" id="db_text_size" placeholder="Example input" value="20px">
+                                    <input type="text" class="form-control w-100" id="db_text_size" placeholder="Example input" value="50px">
                                 </div>
                                 <div class="form-group col-1 pl-0">
                                     <label for="txtTitleName" class="col-12 justify-content-between p-0">Style</label>
                                     <select class="custom-select" id="db_text_style">
                                         <option value="Normal">Normal</option>
                                         <option value="Bold">Bold</option>
-
                                     </select>
                                 </div>
                                 <div class="form-group col-1 pl-0">
@@ -169,102 +198,64 @@
                                 </div>
                                 <div class="form-group col-4 pl-0">
                                     <label for="txtTitleName" class="col-12 justify-content-between p-0">Control</label>
-
-
                                     <button id="db-add-text" type="button" class="db-btn  btn btn-action-preview text-white">
                                         <span>Add</span>
                                     </button>
-
                                     <button id="db-update-text" type="button" class="db-btn btn btn-action-preview text-white">
                                         <span>Update</span>
                                     </button>
                                     <button id="db-delete-text" type="button" class="db-btn red btn btn-action-preview text-white">
                                         <span>Delete</span>
                                     </button>
-
                                     <label id="db_text_index" class="hidden"></label>
                                 </div>
-
-
                             </div>
                         </section>
-
-
                         <section class="container-fluid mb-4">
+                            <label class="db-caption">Image</label>
                             <div class="row">
                                 <div class="form-group col-4 pl-0">
-                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">Text</label>
-
+                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">File</label>
                                     <div class="db-upload-zone">
-
                                         <input type='file' id="db_image_file" accept=".png, .jpg, .jpeg" />
                                         <label for="db_image_file"></label></div>
                                 </div>
-
                                 <div class="form-group col-2 pl-0">
                                     <label for="txtTitleName" class="col-12 justify-content-between p-0">Width</label>
-
                                     <input type="text" class="form-control w-100" id="db_image_width" value="200px">
-
-
                                 </div>
                                 <div class="form-group col-2 pl-0">
                                     <label for="txtTitleName" class="col-12 justify-content-between p-0">Height</label>
                                     <input type="text" class="form-control w-100" id="db_image_height" value="auto">
                                 </div>
-
-
                                 <div class="form-group col-4 pl-0">
                                     <label for="txtTitleName" class="col-12 justify-content-between p-0">Control</label>
-
-
                                     <button id="db-add-image" type="button" class="db-btn  btn btn-action-preview text-white">
                                         <span>Add</span>
                                     </button>
-
                                     <button id="db-update-image" type="button" class="db-btn btn btn-action-preview text-white">
                                         <span>Update</span>
                                     </button>
                                     <button id="db-delete-image" type="button" class="db-btn red btn btn-action-preview text-white">
                                         <span>Delete</span>
                                     </button>
-
                                     <label id="db_image_index" class="hidden"></label>
                                 </div>
-
-
                             </div>
                         </section>
-
-
-
-
-
                     </form>
-
                 </section>
-
             </section>
             <section class="d-flex config-header mb-3">
                 <span class="text-uppercase bg-white pr-3">Preview</span>
             </section>
-
             <div class="db-preview" id="db-preview">
-
-                <img alt="" src="img/1.png" style="position: absolute;top: 50px;
-                                                   left: 50px;" id="cong2">
-
-
             </div>
             <div>
                 <a class="btn btn btn-action-preview db-btn-download">Download Image</a>
-
-
             </div>
         </main>
-
     </section>
-
     <script type="text/javascript" src="./asset/js/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="./asset/js/popper.min.js"></script>
@@ -279,10 +270,8 @@
                     .find('.icon-expand')
                     .toggleClass('icon-collapse');
             }
-
             $('.collapse').on('hidden.bs.collapse', toggleIcon);
             $('.collapse').on('shown.bs.collapse', toggleIcon);
-
             $('.icon-view-list').click(() => {
                 $('#accordion .collapse').removeAttr("data-parent");
                 $('#accordion .collapse').collapse('show');
@@ -294,7 +283,6 @@
         });
 
     </script>
-
 </body>
 
 </html>

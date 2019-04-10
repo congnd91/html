@@ -98,9 +98,7 @@
             elements[index].value = value;
             console.log(elements[index]);
         }
-
         //image
-
         var reader;
         $("#db_image_file").change(function () {
             if (this.files && this.files[0]) {
@@ -109,26 +107,15 @@
                 reader.readAsDataURL(this.files[0]);
             }
         });
-
         var pictureURL;
 
         function imageIsLoaded(e) {
-
-
             pictureURL = e.target.result;
-
             // $(".preview").empty().append(picture);
-
         }
-
         db.createImage = function () {
-
-
             if (pictureURL == null) {
                 alert("Chua chon anh");
-
-
-
             } else {
                 var index = elements.length;
                 var width = $('#db_image_width').val();
@@ -144,27 +131,38 @@
                 var id = uuidv4();
                 var span = document.createElement("span");
                 img.setAttribute("data-index", index);
-                img.setAttribute("data-type", "text");
+                img.setAttribute("data-type", "image");
                 img.setAttribute("id", id);
-
-
-
-
                 $(".db-preview").append(img);
                 db.moving(id);
-                //  document.getElementById("db-preview").appendChild(picture);
+                element = {
+                    "index": index,
+                    "width": width,
+                    "height": height,
+                    "id": id,
+                    "top": top,
+                    "left": left,
+                };
+                elements.push(element);
             }
-
-
-
-
-
-
         }
-
-
-
-
+        db.selectImage = function (index) {
+            $('#db_image_width').val(elements[index].width);
+            $('#db_image_height').val(elements[index].height);
+            $('#db_image_index').text(index);
+        }
+        db.updateImage = function (index) {
+            var width = $('#db_image_width').val();
+            var height = $('#db_image_height').val();
+            var img = document.querySelectorAll("[data-index='" + index + "']");
+            $(img).css({
+                "width": width,
+                "height": height,
+            });
+            elements[index].width = width;
+            elements[index].height = height;
+            //console.log(elements[index]);
+        }
         document.body.querySelector('.db-preview').onmousedown = function (e) {
             $(".db-active").removeClass("db-active");
             e = e || window.event;
@@ -173,25 +171,39 @@
                 $("#" + elementId).addClass("db-active");
                 db.moving(elementId);
                 var data_index = $("#" + elementId).attr("data-index");
-                console.log("id: " + data_index);
                 var data_type = $("#" + elementId).attr("data-type");
+                console.log("type: " + data_type);
                 if (data_type == "text") {
                     db.selectText(data_index);
+                }
+                if (data_type == "image") {
+                    db.selectImage(data_index);
                 }
             }
         }
 
-
-
-
-
-
+        function saveAs(uri, filename) {
+            var link = document.createElement('a');
+            if (typeof link.download === 'string') {
+                link.href = uri;
+                link.download = filename;
+                //Firefox requires the link to be in the body
+                document.body.appendChild(link);
+                //simulate click
+                link.click();
+                //remove the link when done
+                document.body.removeChild(link);
+            } else {
+                window.open(uri);
+            }
+        }
         db.downloadImage = function () {
             html2canvas(document.querySelector('#db-preview')).then(function (canvas) {
                 console.log(canvas);
                 saveAs(canvas.toDataURL(), 'file-name.png');
             });
         }
+        //text
         $('#db-add-text').click(function () {
             db.createText();
         });
@@ -202,16 +214,32 @@
             var span = document.querySelectorAll("[data-index='" + $('#db_text_index').text() + "']");
             $(span).remove();
         });
-        $('.db-btn-save').click(function () {
-            db.downloadImage();
-        });
-
         //image
-
         $('#db-add-image').click(function () {
             db.createImage();
         });
-
-
+        $('#db-update-image').click(function () {
+            db.updateImage($('#db_image_index').text());
+        });
+        $('#db-delete-image').click(function () {
+            var img = document.querySelectorAll("[data-index='" + $('#db_image_index').text() + "']");
+            $(img).remove();
+        });
+        //background
+        $('#db-update-background').click(function () {
+            var width = $('#db_background_width').val();
+            var height = $('#db_background_height').val();
+            var color = $('#db_background_color').val();
+            var div = $('.db-preview');
+            $(div).css({
+                "width": width,
+                "height": height,
+                "background-color": color,
+            });
+        });
+        //download
+        $('.db-btn-download').click(function () {
+            db.downloadImage();
+        });
     });
 })(jQuery);
