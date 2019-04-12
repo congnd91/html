@@ -104,6 +104,15 @@
                     infinite: false,
                     asNavFor: '.slider-about-for',
                     focusOnSelect: true,
+                    vertical: false,
+                    responsive: [
+                        {
+                            breakpoint: 992,
+                            settings: {
+                                vertical: true,
+                            }
+                       }
+                    ]
                 });
             }
         }
@@ -123,8 +132,6 @@
             });
         }
         db.scrollToListProduct = function () {
-
-
             $(".scroll-to-product-list").click(function () {
                 $("html, body").animate({
                     scrollTop: $('.list-product').offset().top - 100
@@ -132,9 +139,6 @@
                 return false;
             });
         }
-
-
-
         db.textPlaceHolder = function () {
             $('.c-text')
                 .on('focus', function () {
@@ -184,7 +188,6 @@
                 $('.cookie-notify').hide();
             });
         }
-
         db.preLoad();
         db.scrollMenu();
         db.menuResponsive();
