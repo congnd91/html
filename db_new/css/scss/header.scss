@@ -1,0 +1,219 @@
+//Header
+
+.header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+    padding: 30px 0px;
+    transition: all ease 0.3s;
+
+
+    a.logo {
+        float: left;
+        position: relative;
+        top: 2px;
+
+        img {
+            height: 35px;
+        }
+    }
+
+    .header-right {
+        float: right;
+
+        &.fix-margin {
+            margin-right: -200px;
+
+            @media screen and (max-width: 1599px) {
+                margin-right: -100px;
+
+            }
+
+            @media screen and (max-width: 1400px) {
+
+                margin-right: 0px;
+            }
+        }
+    }
+
+    .main-menu {
+        float: left;
+
+        ul {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+
+            li {
+                display: inline-block;
+                margin: 0px 0px 0px 50px;
+
+
+
+                a {
+                    display: block;
+                    line-height: 35px;
+                    color: #fff;
+                    font-size: $fs16;
+                    padding: 0px 0px;
+                    font-weight: 400;
+                    position: relative;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+
+
+                    &:before {
+                        content: "";
+                        display: block;
+                        width: 0px;
+                        height: 2px;
+                        background-color: rgba(255, 255, 255, 1);
+                        display: block;
+                        position: absolute;
+                        bottom: -5px;
+
+                        left: 0px;
+                        transition: all ease 0.3s;
+                    }
+
+                    &:hover {
+                        &:before {
+                            width: 20px;
+                        }
+                    }
+                }
+
+                &.current {
+
+                    a {
+                        &:before {
+                            width: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .user-control {
+        float: left;
+        margin: 0px 0px 0px 80px;
+
+
+        .uc-link {
+            display: block;
+            line-height: 35px;
+            padding: 0px 30px;
+            border: 1px solid #fff;
+            border-radius: 30px;
+            color: #fff;
+            font-weight: 400;
+
+            font-size: $fs16;
+            transition: all ease 0.3s;
+
+            &:hover {
+                text-decoration: none;
+                background-color: #fff;
+                color: $text-color;
+            }
+
+            @media screen and (max-width: 991px) {
+                border: 1px solid $text-color;
+                color: $text-color;
+
+            }
+        }
+    }
+
+    @media screen and (max-width: 991px) {
+        background-color: #fff;
+        padding: 10px 0px;
+
+    }
+
+    &.header-scrolled {
+        padding: 15px 0px;
+        background-color: #fff;
+
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.02);
+
+        .main-menu {
+
+
+            ul {
+
+
+                li {
+
+
+
+
+                    a {
+
+                        color: $text-color;
+
+
+                        &:hover {
+                            text-decoration: none;
+                            color: $brand-color;
+
+                        }
+
+
+                        &:before {
+
+                            display: none;
+
+
+
+
+
+                        }
+
+
+                    }
+
+                    &.current {
+
+                        a {
+                            color: $brand-color;
+
+                            &:before {
+                                width: 30px;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .user-control {
+
+
+
+            .uc-link {
+
+                border: 1px solid $text-color;
+                color: $text-color;
+
+
+                &:hover {
+
+                    background-color: #fff;
+                    color: $text-color;
+                }
+
+
+            }
+        }
+    }
+
+
+
+}
