@@ -7,6 +7,30 @@
     <link rel="stylesheet" type="text/css" href="./asset/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style type="text/css">
+        .db-wrap-image {}
+
+        .form-group.db-wrap-image {}
+
+        .db-hidden {
+            display: none !important;
+        }
+
+        .db-block {
+            display: flex;
+        }
+
+        .db-wrap-child {
+            background-color: #c2e9ff;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .db-wrap-child {
+            background-color: #c2e9ff;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
         .db-preview {
             background-color: #F3F3F3;
             width: 1000px;
@@ -170,12 +194,50 @@
                             </div>
                         </section>
                         <section class="container-fluid mb-4">
-                            <label class="db-caption">Text</label>
+                            <label class="db-caption">ADD ELEMENTS</label>
+
                             <div class="row">
                                 <div class="form-group col-2 pl-0">
+                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">Choose type</label>
+                                    <select class="custom-select" id="db_choose">
+                                        <option value="text">Text</option>
+                                        <option value="image">Image</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-4 pl-0 db-wrap-text">
+
                                     <label for="txtTitleName" class="col-12 justify-content-between p-0">Value</label>
                                     <input type="text" class="form-control w-100" id="db_text" value="text demo">
                                 </div>
+
+                                <div class="form-group col-1 pl-0 db-wrap-text">
+                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">Control</label>
+                                    <button id="db-add-text" type="button" class="db-btn  btn btn-action-preview text-white">
+                                        <span>Add</span>
+                                    </button>
+                                </div>
+
+
+                                <div class="form-group col-4 pl-0 db-wrap-image">
+                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">File</label>
+                                    <div class="db-upload-zone">
+                                        <input type='file' id="db_image_file" accept=".png, .jpg, .jpeg" />
+                                        <label for="db_image_file"></label></div>
+                                </div>
+
+                                <div class="form-group col-1 pl-0 db-wrap-image">
+                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">Control</label>
+                                    <button id="db-add-image" type="button" class="db-btn  btn btn-action-preview text-white">
+                                        <span>Add</span>
+                                    </button>
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="row db-wrap-text db-wrap-child">
+
                                 <div class="form-group col-2 pl-0">
                                     <label for="txtTitleName" class="col-12 justify-content-between p-0">Font</label>
                                     <select class="custom-select" id="db_text_font">
@@ -211,9 +273,6 @@
                                 </div>
                                 <div class="form-group col-4 pl-0">
                                     <label for="txtTitleName" class="col-12 justify-content-between p-0">Control</label>
-                                    <button id="db-add-text" type="button" class="db-btn  btn btn-action-preview text-white">
-                                        <span>Add</span>
-                                    </button>
                                     <button id="db-update-text" type="button" class="db-btn btn btn-action-preview text-white">
                                         <span>Update</span>
                                     </button>
@@ -223,16 +282,9 @@
                                     <label id="db_text_index" class="hidden"></label>
                                 </div>
                             </div>
-                        </section>
-                        <section class="container-fluid mb-4">
-                            <label class="db-caption">Image</label>
-                            <div class="row">
-                                <div class="form-group col-2 pl-0">
-                                    <label for="txtTitleName" class="col-12 justify-content-between p-0">File</label>
-                                    <div class="db-upload-zone">
-                                        <input type='file' id="db_image_file" accept=".png, .jpg, .jpeg" />
-                                        <label for="db_image_file"></label></div>
-                                </div>
+
+                            <div class="row db-wrap-image db-wrap-child">
+
                                 <div class="form-group col-1 pl-0">
                                     <label for="txtTitleName" class="col-12 justify-content-between p-0">Width</label>
                                     <input type="text" class="form-control w-100" id="db_image_width" value="200px">
@@ -273,9 +325,7 @@
 
                                 <div class="form-group col-4 pl-0">
                                     <label for="txtTitleName" class="col-12 justify-content-between p-0">Control</label>
-                                    <button id="db-add-image" type="button" class="db-btn  btn btn-action-preview text-white">
-                                        <span>Add</span>
-                                    </button>
+
                                     <button id="db-update-image" type="button" class="db-btn btn btn-action-preview text-white">
                                         <span>Update</span>
                                     </button>
@@ -286,6 +336,7 @@
                                 </div>
                             </div>
                         </section>
+
                     </form>
                 </section>
             </section>
@@ -295,7 +346,7 @@
             <div class="db-preview" id="db-preview">
             </div>
             <div>
-                <a class="btn btn btn-action-preview db-btn-download">Download Image</a>
+                <a id="db-btn-download" class="btn btn btn-action-preview db-btn-download">Download Image</a>
             </div>
         </main>
     </section>
