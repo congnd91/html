@@ -9,7 +9,21 @@ body {
   min-width: 370px;
   font-size: 1rem;
   color: #425268;
-  line-height: 1.5; }
+  line-height: 1.5;
+  font-weight: 400; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #28313e; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
 
 /*==========Components=========*/
 .my-btn {
@@ -78,7 +92,7 @@ body {
           display: block;
           line-height: 35px;
           color: #fff;
-          font-size: 1rem;
+          font-size: 0.875rem;
           padding: 0px 0px;
           font-weight: 400;
           position: relative; }
@@ -102,15 +116,19 @@ body {
   .header .user-control {
     float: left;
     margin: 0px 0px 0px 80px; }
+    @media screen and (max-width: 991px) {
+      .header .user-control {
+        margin: 0px; } }
     .header .user-control .uc-link {
       display: block;
       line-height: 35px;
       padding: 0px 30px;
       border: 1px solid #fff;
       border-radius: 30px;
+      float: left;
       color: #fff;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 0.875rem;
       transition: all ease 0.3s; }
       .header .user-control .uc-link:hover {
         text-decoration: none;
@@ -118,8 +136,24 @@ body {
         color: #425268; }
       @media screen and (max-width: 991px) {
         .header .user-control .uc-link {
-          border: 1px solid #425268;
-          color: #425268; } }
+          display: none; } }
+    .header .user-control .uc-link-register {
+      display: block;
+      line-height: 35px;
+      padding: 0px 10px;
+      margin: 0px 0px 0px 20px;
+      float: left;
+      color: #fff;
+      font-weight: 400;
+      font-size: 0.875rem;
+      transition: all ease 0.3s;
+      cursor: pointer; }
+      .header .user-control .uc-link-register:hover {
+        text-decoration: none;
+        color: #fff; }
+      @media screen and (max-width: 991px) {
+        .header .user-control .uc-link-register {
+          display: none; } }
     .header .user-control .uc-profile .uc-name {
       height: 30px; }
       .header .user-control .uc-profile .uc-name img {
@@ -131,7 +165,7 @@ body {
       .header .user-control .uc-profile .uc-name span {
         color: #fff;
         font-weight: 400;
-        font-size: 1rem;
+        font-size: 0.875rem;
         line-height: 30px;
         display: inline-block; }
         .header .user-control .uc-profile .uc-name span i {
@@ -140,6 +174,19 @@ body {
         @media screen and (max-width: 991px) {
           .header .user-control .uc-profile .uc-name span {
             color: #425268; } }
+  .header .menu-icon {
+    float: left;
+    height: 40px;
+    width: 40px;
+    color: #425268;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    display: none; }
+    @media screen and (max-width: 991px) {
+      .header .menu-icon {
+        display: block; } }
   @media screen and (max-width: 991px) {
     .header {
       background-color: #fff;
@@ -148,6 +195,9 @@ body {
     padding: 15px 0px;
     background-color: #fff;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.02); }
+    @media screen and (max-width: 991px) {
+      .header.header-scrolled {
+        padding: 10px 0px; } }
     .header.header-scrolled .main-menu ul li a {
       color: #425268; }
       .header.header-scrolled .main-menu ul li a:hover {
@@ -165,8 +215,13 @@ body {
       .header.header-scrolled .user-control .uc-link:hover {
         background-color: #fff;
         color: #425268; }
+    .header.header-scrolled .user-control .uc-link-register {
+      color: #425268; }
+      .header.header-scrolled .user-control .uc-link-register:hover {
+        text-decoration: none;
+        color: #425268; }
   .header.header-dark {
-    padding: 15px 0px;
+    padding: 10px 0px;
     background-color: #181d25;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.02); }
     .header.header-dark .main-menu ul li a {
@@ -186,6 +241,263 @@ body {
       .header.header-dark .user-control .uc-link:hover {
         background-color: #fff;
         color: #425268; }
+    .header.header-dark .user-control .uc-link-register {
+      color: #fff; }
+      .header.header-dark .user-control .uc-link-register:hover {
+        color: #fff; }
+
+.menu-mobile {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  top: 0px;
+  background-color: #181d25;
+  left: 0px;
+  padding: 50px 20px 20px 20px;
+  overflow: auto;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+  transition: all ease 0.3s; }
+  @media screen and (min-width: 992px) {
+    .menu-mobile {
+      display: none; } }
+  .menu-mobile .close-menu {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    height: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 38px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer; }
+  .menu-mobile ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none; }
+    .menu-mobile ul li {
+      margin: 0px 0px 15px 0px; }
+      .menu-mobile ul li a {
+        display: block;
+        line-height: 30px;
+        color: #fff;
+        font-size: 0.875rem;
+        text-align: center; }
+
+.show-menu-mobile {
+  overflow: hidden; }
+  .show-menu-mobile .menu-mobile {
+    z-index: 100;
+    visibility: visible;
+    opacity: 1; }
+
+.user-info {
+  float: left;
+  margin: 0px 0px 0px 0px;
+  position: relative; }
+  @media screen and (max-width: 991px) {
+    .user-info {
+      margin: 0px 10px 0px 0px; } }
+  .user-info .user-info-avatar {
+    width: 30px;
+    cursor: pointer;
+    height: 30px; }
+    @media screen and (max-width: 991px) {
+      .user-info .user-info-avatar {
+        margin: 5px 0px 0px 0px; } }
+    .user-info .user-info-avatar img {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: block; }
+  .user-info .user-info-type {
+    position: absolute;
+    top: 0px;
+    right: -20px;
+    border-radius: 2px;
+    line-height: 13px;
+    height: 13px;
+    color: #fff;
+    z-index: 999;
+    font-size: 8px;
+    padding: 0px 5px;
+    background-color: #dd4b39; }
+
+.db-dropdown-menu {
+  border: none;
+  border-radius: 3px;
+  background-color: #fff;
+  top: 100% !important;
+  transform: none !important;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.4); }
+
+.db-dropdown-menu-right {
+  right: -15px !important;
+  left: unset !important; }
+
+.user-info-dropdown {
+  font-size: 0.9375rem;
+  margin: 25px 0px 0px 0px;
+  min-width: 320px;
+  margin-left: 0px; }
+  .user-info-dropdown:before {
+    bottom: 100%;
+    right: 19px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(194, 225, 245, 0);
+    border-bottom-color: #ddd;
+    border-width: 11px;
+    margin-left: -11px; }
+  .user-info-dropdown:after {
+    bottom: 100%;
+    right: 19px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: #fff;
+    border-width: 10px;
+    margin-left: -10px; }
+  .user-info-dropdown:before {
+    left: unset !important;
+    right: 19px; }
+  .user-info-dropdown:after {
+    left: unset !important;
+    right: 19px; }
+
+.user-info-head {
+  padding: 15px 15px 10px 70px; }
+  .user-info-head .avatar {
+    width: 40px;
+    margin: 0px 0px 0px -55px;
+    height: 40px;
+    float: left;
+    border-radius: 50%; }
+    .user-info-head .avatar img {
+      display: block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%; }
+  .user-info-head h3 {
+    font-size: 1.125rem;
+    margin: -5px 0px 0px 0px;
+    white-space: nowrap;
+    max-width: 600px;
+    padding: 5px 0px 0px 0px;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+    .user-info-head h3 .upgrade {
+      display: inline-block;
+      color: #dd4b39;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 0.625rem;
+      border: 1px solid #dd4b39;
+      position: relative;
+      margin: 0px 0px 0px 7px;
+      font-weight: 500;
+      top: -5px;
+      transition: all ease 0.3s; }
+      .user-info-head h3 .upgrade:hover {
+        cursor: pointer;
+        background-color: #dd4b39;
+        color: #fff; }
+  .user-info-head p {
+    font-size: 0.75rem;
+    margin: 0px;
+    color: #6a80a0; }
+
+.user-info-line {
+  height: 1px;
+  margin: 0px 0px 10px 0px;
+  background-color: #eee; }
+
+.user-info-balance {
+  padding: 0px 15px; }
+  .user-info-balance .coins-wrap {
+    margin: 0px 0px 15px 0px;
+    white-space: nowrap; }
+
+.user-info-menu {
+  padding: 0px 0px;
+  list-style: none;
+  margin: 0px; }
+  .user-info-menu li a {
+    display: block;
+    line-height: 40px;
+    min-height: 25px;
+    color: #425268;
+    padding: 0px 0px 0px 5px;
+    font-size: 0.875rem;
+    transition: all ease 0.3s; }
+    .user-info-menu li a:hover {
+      background-color: #f1f1f1; }
+    .user-info-menu li a .icon {
+      width: 40px;
+      float: left;
+      text-align: center;
+      line-height: 40px; }
+  .user-info-menu li.current a {
+    background-color: #f1f1f1;
+    color: #0099fe; }
+
+.db-coins {
+  line-height: 30px;
+  display: inline-block;
+  margin: 0px 10px 0px 0px; }
+  .db-coins .db-coins-icon {
+    float: left;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0px 2px 0px 0px;
+    background-image: url(../images/icon/coins.svg);
+    background-size: 22px auto; }
+  .db-coins p {
+    line-height: 30px;
+    display: inline-block;
+    margin: 0px;
+    font-size: 0.875rem;
+    color: #425268; }
+  .db-coins.db-bonus-coins .db-coins-icon {
+    float: left;
+    background-image: url(../images/icon/bonus-coins.svg); }
+
+.db-stocks {
+  line-height: 30px;
+  display: block;
+  margin: 0px 10px 0px 0px; }
+  .db-stocks .db-stocks-icon {
+    float: left;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0px 2px 0px 0px;
+    background-image: url(../images/icon/stock.svg);
+    background-size: 22px auto; }
+    .db-stocks .db-stocks-icon i {
+      display: block;
+      line-height: 30px;
+      font-size: 15px;
+      color: #0099fe; }
+  .db-stocks p {
+    line-height: 30px;
+    display: inline-block;
+    margin: 0px;
+    font-size: 0.875rem;
+    color: #425268; }
 
 .footer {
   padding: 70px 0px 0px 0px;
@@ -206,14 +518,14 @@ body {
         margin: 0px 0px 5px 0px;
         opacity: 0.7; }
       .footer .footer-left .language .language-current {
-        line-height: 30px;
-        height: 40px;
+        line-height: 20px;
+        height: 30px;
         padding: 5px 10px 5px 6px;
         border-radius: 3px;
         background-color: #222934;
         color: #fff;
         display: inline-block;
-        font-size: 0.875rem;
+        font-size: 0.8125rem;
         cursor: pointer;
         text-decoration: none; }
         .footer .footer-left .language .language-current i {
@@ -221,8 +533,8 @@ body {
         .footer .footer-left .language .language-current img {
           margin: 0px 10px 0px 0px;
           float: left;
-          width: 30px;
-          height: 30px;
+          width: 20px;
+          height: 20px;
           border-radius: 50%; }
     .footer .footer-left .social {
       padding: 15px 0px 0px 5px; }
@@ -440,7 +752,7 @@ body {
     font-weight: 600;
     box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.2);
     transition: all ease 0.4s; }
-    .home-hero .hero-btn span {
+    .home-hero .hero-btn span.arrow {
       display: inline-block;
       height: 20px;
       width: 30px;
@@ -478,7 +790,7 @@ body {
   .home-templates .ht-caption p {
     margin: 0px 0px 30px 0px;
     font-size: 1rem; }
-    .home-templates .ht-caption p span {
+    .home-templates .ht-caption p strong {
       color: #07b8a2; }
     @media screen and (max-width: 1199px) {
       .home-templates .ht-caption p {
@@ -543,6 +855,9 @@ body {
   padding: 140px 0px 100px 0px;
   background-color: #f5f5f5;
   min-height: 600px; }
+  @media screen and (max-width: 991px) {
+    .section-language {
+      padding: 100px 0px 50px 0px; } }
   .section-language .ht-caption h2 {
     font-size: 2rem;
     font-weight: 700;

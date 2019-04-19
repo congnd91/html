@@ -7,12 +7,11 @@
         var db = new Object();
         db.menuResponsive = function () {
             $('.menu-icon').on('click', function () {
-                var menu = $('.menu-res');
-                if ($(menu).is(":visible")) {
-                    $(menu).slideUp();
-                } else {
-                    $(menu).slideDown();
-                }
+                $('body').toggleClass("show-menu-mobile");
+            });
+
+            $('.close-menu').on('click', function () {
+                $('body').toggleClass("show-menu-mobile");
             });
         }
 
