@@ -43,10 +43,24 @@
             }
         }
 
+        db.scroll = function () {
+
+            $(".btn-download").click(function () {
+                $('html, body').stop(true, true).animate({
+                    scrollTop: $(".home-lightning").offset().top
+                }, 2000);
+                return false;
+            });
+        }
+
+
+
 
         db.scrollMenu();
         db.menuResponsive();
+        db.scroll();
         db.quoteSlider();
+
 
     });
 })(jQuery);
