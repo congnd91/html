@@ -20,9 +20,26 @@
                 e.stopPropagation();
                 $('body').toggleClass("open-menu");
             });
+
+            $('body').on('click', function (e) {
+                var search = $(".search-box-mobile");
+                if ($(search).is(":visible")) {
+                    $(search).hide();
+                }
+            });
+
+            $('.search-box-mobile').on('click', function (e) {
+                e.stopPropagation();
+            });
             $('.search-icon-mobile').on('click', function (e) {
                 e.stopPropagation();
-                $('body').toggleClass("open-menu");
+                var search = $(".search-box-mobile");
+                if ($(search).is(":visible")) {
+                    $(search).hide();
+                } else {
+                    $(search).show();
+                    $(".search-box-mobile input").focus();
+                }
             });
 
             $('.close-menu').on('click', function (e) {

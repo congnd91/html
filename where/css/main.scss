@@ -196,6 +196,13 @@ img {
 .header {
     padding: 15px 0px 15px 0px;
     background-color: #fff;
+    position: relative;
+    z-index: 10;
+
+
+    &.shadown {
+        box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    }
 
     .header-inner {
         height: 130px;
@@ -210,6 +217,7 @@ img {
         position: absolute;
         top: 0px;
         left: 0px;
+
         img {
             width: 175px;
         }
@@ -220,6 +228,7 @@ img {
             width: 150px;
             display: block;
             margin: 0px 0px 0px -75px;
+
             img {
                 width: 150px;
             }
@@ -455,6 +464,37 @@ img {
 
         @media screen and (max-width: 991px) {
             display: block;
+        }
+    }
+
+    .search-box-mobile {
+        position: absolute;
+        top: 5px;
+        right: -4px;
+        height: 50px;
+        width: 215px;
+        display: none;
+
+        input {
+            height: 50px;
+            width: 215px;
+            display: block;
+            outline: none;
+            background-color: #fff;
+            padding: 0px 10px 0px 52px;
+            border: 1px solid #adadad;
+            border-radius: 30px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            background-image: url(../images/icon_search1.png);
+            background-repeat: no-repeat;
+            background-size: 25px 25px;
+            background-position: 12px 10px;
+
+        }
+
+
+        @media screen and (min-width: 992px) {
+            display: none !important;
         }
     }
 
@@ -1139,4 +1179,212 @@ img {
         margin: 0px;
         color: #808080;
     }
+}
+
+.middle {}
+
+.search-result {
+    background-color: #fcfcfc;
+    padding: 50px 0px 0px 0px;
+
+    @media screen and (max-width: 991px) {
+        padding: 25px 0px 0px 0px;
+    }
+
+}
+
+.block-section {
+    margin: 0px 0px 40px 0px;
+
+    .bs-caption {
+        margin: 0px 0px 20px 0px;
+
+        h2 {
+            font-size: 6.2rem;
+            font-weight: 700;
+            margin: 0px 0px 0px 0px;
+
+            @media screen and (max-width: 991px) {
+                font-size: 3rem;
+            }
+        }
+
+        p {
+            color: $text-color-for;
+            font-size: 2.2rem;
+            margin: 0px;
+
+            @media screen and (max-width: 991px) {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+}
+
+.bs-item {
+    width: 100%;
+    margin: 0px 0px 30px 0px;
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.04);
+    border-radius: 3px;
+
+    .bsi-img {
+        position: relative;
+
+        .dayleft {
+            position: absolute;
+            z-index: 2;
+            top: 0px;
+            left: 0px;
+            font-size: 1.8rem;
+            color: #fff;
+            padding: 3px 10px;
+            background-color: #eb9ac1;
+            border-radius: 0px 0px 3px 0px;
+            display: inline-block;
+        }
+
+        img {
+            width: 100%;
+
+        }
+
+        &:before {
+            content: "";
+            display: block;
+            width: 100%;
+            // background-image: url(../images/mark.png);
+            height: 16px;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            background-repeat: no-repeat;
+            background-position: bottom center;
+            right: 0px;
+            z-index: 2;
+        }
+    }
+
+    .bsi-des {
+        text-align: center;
+        padding: 10px;
+
+        h3 {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0px 0px 20px 0px;
+
+            @media screen and (max-width: 767px) {
+                font: 1.6rem;
+            }
+
+            a {
+                color: $text-color-second;
+                transition: all ease 0.3s;
+
+                &:hover {
+                    color: $active-color;
+                }
+
+                .light {
+                    border-radius: 2px;
+                    display: inline-block;
+                    padding: 0px 2px;
+
+                    background-color: $yellow;
+                }
+
+            }
+        }
+
+        .bsi-control {
+            text-align: left;
+            padding: 5px 0px 0px 0px;
+
+
+            .like {
+                display: inline-block;
+
+                line-height: 30px;
+                min-height: 30px;
+                color: #4a4a4a;
+                font-size: 22px;
+
+                @media screen and (max-width: 767px) {
+                    font-size: 1.8rem;
+                }
+
+                .like-icon {
+                    background-image: url(../images/heart_icon.png);
+                    width: 32px;
+                    height: 27px;
+                    background-repeat: no-repeat;
+                    float: left;
+
+                    margin: 0px 5px 0px 0px;
+                }
+
+
+            }
+
+            .expries {
+                display: inline-block;
+
+                line-height: 30px;
+                min-height: 30px;
+                color: #4a4a4a;
+                font-size: 1.5rem;
+            }
+
+            .readmore {
+                background-color: #eb9ac1;
+                width: 80px;
+                display: block;
+                height: 80px;
+                border-radius: 50%;
+                position: absolute;
+                right: -30px;
+                bottom: -30px;
+
+                span {
+                    display: block;
+                    background-image: url(../images/arrow_right.png);
+                    width: 26px;
+                    height: 18px;
+                    background-repeat: no-repeat;
+                    float: left;
+                    margin: 20px 5px 0px 15px;
+
+                }
+
+
+            }
+        }
+    }
+}
+
+.bs-more {
+    padding: 0px 0px 0px 0px;
+}
+
+.db-btn {
+    height: 40px;
+    line-height: 40px;
+    background-color: $active-color;
+    color: #fff;
+    display: inline-block;
+    font-size: 1.5rem;
+    padding: 0px 50px;
+    font-weight: 700;
+    border-radius: 3px;
+    box-shadow: 16px 0px 30px rgba(0, 0, 0, 0.019);
+
+    &:hover {
+        color: #fff;
+    }
+
 }
