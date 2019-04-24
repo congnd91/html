@@ -35,6 +35,18 @@
                 return false;
             });
         }
+
+
+        db.gender = function () {
+            $('.c-text').on('click', function () {
+                $('.c-text').removeClass("active");
+                $(this).addClass("active");
+                var gender = $(this).attr('data-gender');
+                $("#gender").val(gender);
+            });
+        }
+
+
         db.menuFooter = function () {
             $('.footer-col.cap h3').on('click', function (e) {
                 var menu = $(this).parent().find("ul");
@@ -172,16 +184,24 @@
             }
         }
         db.fAQ = function () {
+
             $('.faq-item .fi-caption').on('click', function () {
+
                 var content = $(this).next();
                 if ($(content).is(":visible")) {
+
+
                     $(content).slideUp();
                     $(this).parent().removeClass("active");
+
                 } else {
                     $(content).slideDown();
                     $(this).parent().addClass("active");
+
                 }
+
             });
+
         }
         db.closeCookie = function () {
             $('.close-cookie').on('click', function () {
@@ -191,6 +211,10 @@
         db.preLoad();
         db.scrollMenu();
         db.menuResponsive();
+        db.gender();
+
+
+
         db.homeSlider();
         db.menuFooter();
         db.video();

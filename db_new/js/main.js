@@ -3,6 +3,8 @@
 
 
 
+        $('[data-toggle="tooltip"]').tooltip();
+
 
         var db = new Object();
         db.menuResponsive = function () {

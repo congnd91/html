@@ -49,6 +49,8 @@
 
         }
 
+
+
         db.aboutSlider = function () {
             var owl_about = $('.owl-about');
             if ($(owl_about).length) {
@@ -112,6 +114,18 @@
             }
         }
 
+        db.like = function () {
+            $('.like-icon').on('click', function (e) {
+                $(this).toggleClass("liked");
+
+            });
+
+
+
+        }
+
+
+
 
         db.preLoad();
         db.scrollMenu();
@@ -119,6 +133,7 @@
         db.aboutSlider();
         db.reviewSlider();
         db.blogSlider();
+        db.like();
 
     });
 })(jQuery);
