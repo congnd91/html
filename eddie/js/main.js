@@ -76,11 +76,33 @@
 
         };
 
+        db.fAQ = function () {
+
+            $('.faq-item .fi-caption').on('click', function () {
+
+                var content = $(this).next();
+                if ($(content).is(":visible")) {
+
+
+                    $(content).slideUp();
+                    $(this).parent().removeClass("active");
+
+                } else {
+                    $(content).slideDown();
+                    $(this).parent().addClass("active");
+
+                }
+
+            });
+
+        }
+
 
         db.preLoad();
         db.scrollMenu();
         db.menuResponsive();
         db.homeSlider();
         db.matchHeight();
+        db.fAQ();
     });
 })(jQuery);
