@@ -57,29 +57,7 @@
                 }
             });
         }
-        db.video = function () {
-            $('.video-icon').on('click', function (e) {
-                $('body').toggleClass("show-video");
-            });
-            $('.close-video').on('click', function (e) {
-                $('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
-                $('body').toggleClass("show-video");
-            });
-        }
-        db.homeSlider = function () {
-            var owl_home = $('.owl-home');
-            if ($(owl_home).length) {
-                $(owl_home).owlCarousel({
-                    loop: true,
-                    margin: 0,
-                    //mouseDrag: false,
-                    nav: true,
-                    autoplay: true,
-                    items: 1,
-                    animateOut: 'fadeOut'
-                });
-            }
-        }
+
         db.sliderProduct = function () {
             if ($('.slider-for').length) {
                 $('.slider-for').slick({
@@ -90,44 +68,19 @@
                     asNavFor: '.slider-nav'
                 });
                 $('.slider-nav').slick({
-                    slidesToShow: 4,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                     asNavFor: '.slider-for',
+
+
                     focusOnSelect: true,
                     prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button"> <i class="icon ion-ios-arrow-back"></i></button>',
                     nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button"> <i class="icon ion-ios-arrow-forward"></i></button>'
                 });
             }
+
         }
-        db.sliderAbout = function () {
-            if ($('.slider-about-for').length) {
-                $('.slider-about-for').slick({
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                    fade: true,
-                    infinite: false,
-                    asNavFor: '.slider-about-nav'
-                });
-                $('.slider-about-nav').slick({
-                    slidesToShow: 10,
-                    slidesToScroll: 10,
-                    arrows: false,
-                    infinite: false,
-                    asNavFor: '.slider-about-for',
-                    focusOnSelect: true,
-                    vertical: false,
-                    responsive: [
-                        {
-                            breakpoint: 992,
-                            settings: {
-                                vertical: true,
-                            }
-                       }
-                    ]
-                });
-            }
-        }
+
         db.toTop = function () {
             $('.totop').hide();
             $(window).scroll(function () {
@@ -143,32 +96,7 @@
                 }, 1000);
             });
         }
-        db.scrollToListProduct = function () {
-            $(".scroll-to-product-list").click(function () {
-                $("html, body").animate({
-                    scrollTop: $('.list-product').offset().top - 100
-                }, 1500);
-                return false;
-            });
-        }
-        db.textPlaceHolder = function () {
-            $('.c-text')
-                .on('focus', function () {
-                    $(this).parents(".c-field").find('.placeholder').hide();
-                })
-                .on('blur', function () {
-                    if (!$(this).val())
-                        $(this).parents(".c-field").find('.placeholder').show();
-                });
-            $('.c-area')
-                .on('focus', function () {
-                    $(this).parents(".c-field").find('.placeholder').hide();
-                })
-                .on('blur', function () {
-                    if (!$(this).val())
-                        $(this).parents(".c-field").find('.placeholder').show();
-                });
-        }
+
         db.matchHeight = function () {
             if ($('.sc-item').length) {
                 $('.sc-item').matchHeight();
@@ -212,19 +140,10 @@
         db.scrollMenu();
         db.menuResponsive();
         db.gender();
-
-
-
-        db.homeSlider();
-        db.menuFooter();
-        db.video();
-        db.sliderProduct();
-        db.toTop();
-        db.textPlaceHolder();
-        db.matchHeight();
         db.fAQ();
-        db.sliderAbout();
+        db.matchHeight();
+        db.sliderProduct();
         db.closeCookie();
-        db.scrollToListProduct();
+
     });
 })(jQuery);

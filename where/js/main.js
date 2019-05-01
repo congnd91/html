@@ -114,6 +114,41 @@
             }
         }
 
+        db.menuSlider = function () {
+            var owl_menu = $('.owl-menu');
+            if ($(owl_menu).length) {
+                $(owl_menu).owlCarousel({
+                    loop: true,
+                    margin: 40,
+
+                    autoWidth: true,
+                    nav: true,
+                    autoplay: true,
+
+                    responsive: {
+
+                        0: {
+                            items: 2,
+                        },
+
+                        576: {
+                            items: 2,
+                        },
+
+                        768: {
+                            items: 3,
+                            margin: 20,
+
+                        },
+                        991: {
+                            items: 4,
+
+                        }
+                    },
+                });
+            }
+        }
+
         db.like = function () {
             $('.like-icon').on('click', function (e) {
                 $(this).toggleClass("liked");
@@ -123,6 +158,32 @@
 
 
         }
+        db.advanceFilter = function () {
+            $('.af-value').on('click', function (e) {
+                $(".advanced-filter").toggleClass("show-dropdown");
+
+            });
+            $('.af-control a').on('click', function (e) {
+                $(".advanced-filter").toggleClass("show-dropdown");
+                return false;
+
+            });
+
+
+        }
+
+        db.changeValueDropdown = function () {
+            $('.sbi-dropdown ul li p').on('click', function (e) {
+                $(this).parents('.sbi-dropdown').find("span").text($(this).text());
+            });
+
+
+
+        }
+
+
+
+
 
 
 
@@ -130,10 +191,13 @@
         db.preLoad();
         db.scrollMenu();
         db.menuResponsive();
-        db.aboutSlider();
         db.reviewSlider();
+        db.aboutSlider();
+        db.menuSlider();
         db.blogSlider();
         db.like();
+        db.advanceFilter();
+        db.changeValueDropdown();
 
     });
 })(jQuery);
