@@ -25,17 +25,22 @@
 }
 
 @mixin gradient($start-color, $end-color, $orientation) {
-  background: $start-color;
-  @if $orientation == 'vertical' {
-    background: -webkit-linear-gradient(top, $start-color, $end-color);
-    background: linear-gradient(to bottom, $start-color, $end-color);
-  } @else if $orientation == 'horizontal' {
-    background: -webkit-linear-gradient(left, $start-color, $end-color);
-    background: linear-gradient(to right, $start-color, $end-color);
-  } @else {
-    background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
-    background: radial-gradient(ellipse at center, $start-color, $end-color);
-  }
+    background: $start-color;
+
+    @if $orientation=='vertical' {
+        background: -webkit-linear-gradient(top, $start-color, $end-color);
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    }
+
+    @else if $orientation=='horizontal' {
+        background: -webkit-linear-gradient(left, $start-color, $end-color);
+        background: linear-gradient(to right, $start-color, $end-color);
+    }
+
+    @else {
+        background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+        background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
 }
 
 @mixin linearGradient($top, $bottom) {
@@ -53,7 +58,7 @@
     /* IE10+ */
     background: linear-gradient(to bottom, $top 0%, $bottom 100%);
     /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#000000', GradientType=0);
     /* IE6-9 */
 }
 
@@ -62,31 +67,46 @@
     background-repeat: no-repeat;
     background-image: linear-gradient(#{$direction}, $color1 0%, $color2 100%),
     linear-gradient(#{$direction}, $color1 0%, $color2 100%);
-    @if $direction=='to right' or $direction=='to left' {
+
+    @if $direction=='to right'or $direction=='to left' {
         @if $direction=='to right' {
             border-left: $border-width solid $color1;
             border-right: $border-width solid $color2;
         }
+
         @else {
             border-left: $border-width solid $color2;
             border-right: $border-width solid $color1;
         }
+
         background-position: 0 0,
         0 100%;
         background-size: 100% $border-width;
     }
 
-    @if $direction=='to top' or $direction=='to bottom' {
+    @if $direction=='to top'or $direction=='to bottom' {
         @if $direction=='to top' {
             border-top: $border-width solid $color2;
             border-bottom: $border-width solid $color1;
         }
+
         @else {
             border-top: $border-width solid $color1;
             border-bottom: $border-width solid $color2;
         }
+
         background-position: 0 0,
         100% 0;
         background-size: $border-width 100%;
+    }
+}
+
+
+
+@for $i from 1 through 100 {
+    .mw#{$i* 10} {
+        max-width: 1px * $i*10;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
