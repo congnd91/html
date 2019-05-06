@@ -37,7 +37,6 @@
                 });
             }
         }
-
         db.menuResponsive();
         db.scrollMenu();
         db.gridTemplate();
