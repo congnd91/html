@@ -64,6 +64,7 @@
                     nav: true,
                     autoplay: true,
                     items: 1,
+
                     animateOut: 'fadeOut'
                 });
             }
@@ -94,12 +95,14 @@
                     slidesToScroll: 1,
                     arrows: false,
                     fade: true,
+                    speed: 10,
                     infinite: false,
                     asNavFor: '.slider-about-nav'
                 });
                 $('.slider-about-nav').slick({
                     slidesToShow: 10,
                     slidesToScroll: 10,
+                    speed: 10,
                     arrows: false,
                     infinite: false,
                     asNavFor: '.slider-about-for',
@@ -113,6 +116,11 @@
                             }
                        }
                     ]
+                });
+
+
+                $('.slider-about-nav .slick-slide').mouseover(function () {
+                    $(this).click();
                 });
             }
         }
