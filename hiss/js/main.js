@@ -108,15 +108,15 @@
             }
 
         }
-        db.homeCate = function () {
-            var owl_cate = $('.owl-cate');
-            if ($(owl_cate).length) {
-                $(owl_cate).owlCarousel({
+        db.relatedProduct = function () {
+            var owl_related = $('.owl-related');
+            if ($(owl_related).length) {
+                $(owl_related).owlCarousel({
                     loop: false,
-                    margin: 0,
+                    margin: 20,
                     nav: true,
-                    autoplay: false,
-                    navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+
+                    autoplay: true,
 
                     responsive: {
 
@@ -125,15 +125,19 @@
                         },
 
                         576: {
-                            items: 1,
+                            items: 2,
                         },
 
                         768: {
                             items: 2,
 
                         },
-                        991: {
+                        992: {
                             items: 3,
+
+                        },
+                        1200: {
+                            items: 4,
 
                         }
                     },
@@ -312,20 +316,10 @@
                 $('.slider-for').slick({
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    arrows: false,
-                    fade: true,
-                    asNavFor: '.slider-nav'
+                    arrows: true,
+                    fade: false,
                 });
-                $('.slider-nav').slick({
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    asNavFor: '.slider-for',
 
-
-                    focusOnSelect: true,
-                    prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button"> <i class="icon ion-ios-arrow-back"></i></button>',
-                    nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button"> <i class="icon ion-ios-arrow-forward"></i></button>'
-                });
             }
 
         }
@@ -541,17 +535,19 @@
 
 
         db.preLoad();
-        db.hoverMenu();
         db.menuResponsive();
-        db.homeSlider();
-        db.homeCate();
+        db.relatedProduct();
+        db.sliderProduct();
+
+
+
         db.showSearch();
         db.matchHeight();
         db.tabProductDetail();
         db.toTop();
 
         db.scrollIntro();
-        db.sliderProduct();
+
         db.gender();
         db.scrollFixBar();
         db.closeCookie();
