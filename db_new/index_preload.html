@@ -1,20 +1,61 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://schema.org/Product">
+<!-- Main CSS (SCSS Compile) -->
 
 <head>
     <title>DesignBold.com</title>
     <!-- // TypeKit Fonts -->
     <style type="text/css" id="preload-style">
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+
         body {
             margin: 0px;
             padding: 0px;
         }
 
+        .header {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            z-index: 10;
+            padding: 30px 0px;
+        }
+
+        .logo {
+            width: 150px;
+            height: 35px;
+            display: block;
+        }
+
         .intro-home {
             min-height: 1000px;
-            background: linear-gradient(-45deg, #07b8a2, #0099fe);
+            background-color: #fff;
             width: 100%;
-
         }
 
         @media screen and (max-width: 991px) {
@@ -29,11 +70,208 @@
             }
         }
 
+        .home-hero {
+            min-height: 800px;
+            background-repeat: no-repeat;
+            background-position: top right;
+            padding: 300px 0px 200px 0px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        @media screen and (max-width: 1199px) {
+            .home-hero {
+                padding: 150px 0px 150px 0px;
+                min-height: 600px;
+            }
+        }
+
+        @media screen and (max-width: 991px) {
+            .home-hero {
+                min-height: 300px;
+                padding: 120px 0px 50px 0px;
+            }
+        }
+
+        .home-hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #28313e;
+            margin: 20px 0px 0px 0px;
+        }
+
+        .home-hero h1 span {
+            display: inline-block;
+            margin: 0px 0px 0px 0px;
+            height: 50px;
+        }
+
+        @media screen and (max-width: 1199px) {
+            .home-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media screen and (max-width: 991px) {
+            .home-hero h1 {
+                color: #fff;
+            }
+        }
+
+        .home-hero p {
+            margin: 0px 0px 30px 0px;
+            font-size: 1.125rem;
+        }
+
+        @media screen and (max-width: 1199px) {
+            .home-hero p {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media screen and (max-width: 991px) {
+            .home-hero p {
+                color: #fff;
+            }
+        }
+
+        .home-hero .hero-btn {
+            display: inline-block;
+            line-height: 50px;
+            padding: 0px 40px 0px 50px;
+            border-radius: 40px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .home-hero .hero-btn span.arrow {
+            display: inline-block;
+            height: 20px;
+            width: 30px;
+            top: 2px;
+            left: 0px;
+            transition: all ease 0.3s;
+            margin: 0px 0px 0px 2px;
+            position: relative;
+        }
+
+        .header-right {
+            opacity: 0;
+        }
+
+        .placeholder-content {
+            animation-duration: 1.7s;
+            color: transparent !important;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-name: placeholderAnimate;
+            background-color: #f6f7f8 !important;
+            background: linear-gradient(to right, #eee 2%, #ddd 18%, #eee 33%);
+            background-size: 1300px;
+
+        }
+
+        .placeholder-content * {
+            color: transparent !important;
+            opacity: 0;
+        }
+
+        @keyframes placeholderAnimate {
+            0% {
+                background-position: -650px 0;
+            }
+
+            100% {
+                background-position: 650px 0;
+            }
+        }
+
+        .home-hero .hh-img {
+            width: 932px;
+            height: 871px;
+            z-index: 1;
+            position: absolute;
+            top: -302px;
+            right: -82px;
+            color: transparent !important;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-name: placeholderAnimate;
+            background-color: #f6f7f8 !important;
+            background: linear-gradient(to right, #eee 2%, #ddd 18%, #eee 33%);
+            background-size: 1300px;
+            border-radius: 0px 0px 0px 100px;
+            overflow: hidden;
+            transform: rotate(-12deg) skewX(21deg);
+
+        }
+
+
+        @media screen and (max-width: 1300px) {
+            .home-hero .hh-img {
+                right: -120px;
+            }
+        }
+
+        @media screen and (max-width: 1199px) {
+            .home-hero .hh-img {
+                right: -200px;
+                height: 720px;
+            }
+        }
+
+        @media screen and (max-width: 991px) {
+            .home-hero .hh-img {
+                transform: rotate(0deg) skewX(0deg);
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                border-radius: 0px;
+            }
+        }
+
     </style>
 </head>
 
 <body>
-    <div class="intro-home">
+    <div class="page">
+        <!--header-->
+        <header class="header">
+            <div class="container">
+                <a href="#" class="logo placeholder-content">
+                    <img alt="" src="images/logo.svg">
+                </a>
+                <div class="header-right fix-margin">
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </header>
+        <!--home-hero-->
+        <section class="home-hero">
+            <div class="hh-img placeholder-content"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <h1><span class="db-text placeholder-content">Design is</span> <br />
+                            <span class="db-text placeholder-content">really simple</span></h1>
+                        <p><span class="db-text placeholder-content">Create a stunning design within 5 minutes.</span></p>
+                        <a href="#" class="hero-btn placeholder-content">
+                            <span class="db-text "> Try it free</span> <span class="arrow"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </body>
 

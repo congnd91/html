@@ -35,6 +35,29 @@
                 return false;
             });
         }
+
+
+        db.menuLeft = function () {
+            $('.sb-menu li.has-child > a').on('click', function (e) {
+                var menu = $(this).parent().find(".sb-sub");
+
+                if ($(menu).is(":visible")) {
+                    $(menu).slideUp();
+                    $(this).parent().removeClass("active");
+
+                } else {
+
+                    $(menu).slideDown();
+                    $(this).parent().addClass("active");
+
+                }
+                return false;
+
+            });
+
+        }
+
+
         db.homeSlider = function () {
             var owl_home = $('.owl-home');
             if ($(owl_home).length) {
@@ -103,6 +126,7 @@
         db.menuResponsive();
         db.homeSlider();
         db.matchHeight();
+        db.menuLeft();
         db.fAQ();
     });
 })(jQuery);
