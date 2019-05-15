@@ -16,6 +16,7 @@
             });
         }
         db.menuResponsive = function () {
+
             $('.menu-icon').on('click', function (e) {
                 e.stopPropagation();
                 $('body').toggleClass("open-menu");
@@ -24,7 +25,7 @@
                 $('body').removeClass("open-menu");
             });
             $('.menu-res-inner ul li.has-menu a').on('click', function (e) {
-                var menu = $(this).parent().find("ul");
+                var menu = $(this).parent().find(" > ul");
                 if ($(menu).is(":visible")) {
                     $(menu).slideUp();
                     $(this).parent().removeClass("active");

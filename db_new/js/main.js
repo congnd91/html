@@ -37,6 +37,18 @@
                 });
             }
         }
+
+        db.gridTemplate = function () {
+            if ($('.grid-templates').length) {
+                var $grid = $('.grid-templates').isotope({
+                    itemSelector: '.grid-item'
+                    // filter: '.t1'
+                });
+                // filter items on button click
+
+            }
+        }
+
         db.menuResponsive();
         db.scrollMenu();
         db.gridTemplate();
