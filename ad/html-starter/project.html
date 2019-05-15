@@ -56,6 +56,8 @@
     <!-- Libs -->
     <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
 
+    <link rel="stylesheet" href="assets/vendor/libs/bootstrap-sortable/bootstrap-sortable.css">
+
 </head>
 
 <body>
@@ -711,12 +713,12 @@
                     <!-- Content -->
                     <div class="container-fluid flex-grow-1 container-p-y">
 
-                        <h4 class="font-weight-bold py-3 mb-4">
+                        <h4 class="font-weight-bold">
                             <span class="text-muted font-weight-light">Home /</span> Projects
                         </h4>
 
                         <div class="row">
-                            <div class="col-sm-4 col-xl-4">
+                            <div class="col-sm-3 col-xl-3">
 
                                 <div class="card mb-4">
                                     <div class="card-body">
@@ -731,7 +733,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-sm-4 col-xl-4">
+                            <div class="col-sm-3 col-xl-3">
 
                                 <div class="card mb-4">
                                     <div class="card-body">
@@ -747,7 +749,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-sm-4 col-xl-4">
+                            <div class="col-sm-3 col-xl-3">
 
                                 <div class="card mb-4">
                                     <div class="card-body">
@@ -756,6 +758,22 @@
                                             <div class="ml-3">
                                                 <div class="text-muted small">USD</div>
                                                 <div class="text-large">USD221.01
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-3 col-xl-3">
+
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="lnr lnr-earth display-4 text-info"></div>
+                                            <div class="ml-3">
+                                                <div class="text-muted small">TOTAL</div>
+                                                <div class="text-large">221.01
                                                 </div>
                                             </div>
                                         </div>
@@ -775,6 +793,13 @@
 
 
                                     <div class="btn-group show">
+                                        <div class="input-group input-group-sm mr-2">
+                                            <input class="form-control" placeholder="Search for..." type="text">
+                                            <span class="input-group-append">
+              <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i>
+</button>
+            </span>
+                                        </div>
                                         <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">Action</button>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="javascript:void(0)">Active</a>
@@ -796,10 +821,10 @@
 
                                 </div>
                             </div>
-                            <table class="table card-table db-table">
+                            <table class="table card-table db-table sortable">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>
+                                        <th data-defaultsign="nospan" data-defaultsort="asc">
                                             <input type="checkbox" value="option1"> </th>
 
 
@@ -816,62 +841,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr class="db-parent">
                                         <th scope="row"><input type="checkbox" value="option2"> </th>
 
 
 
 
-                                        <td>PRJ201600366</td>
-
-                                        <td>17 MacPro </td>
-                                        <td>Hollytheclient </td>
-                                        <td>17</td>
-                                        <td>Demo Holly</td>
-                                        <td>AUD481.26 </td>
-                                        <td>06/04/2019 10:00</td>
-                                        <td>07/04/2019 12:28</td>
-                                        <td>
-
-                                            <div class="btn-group show">
-                                                <button class="btn btn-warning btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">Delayed</button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="javascript:void(0)">Active</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Complete</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Cancelled</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Delayed</a>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <div class="db-control">
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit">
-                        <span class="fas fa-pen" ></span>
-                      </button>
-
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Invoice project">
-                        <span class="fas fa-file-invoice-dollar"></span>
-                      </button>
-
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Mask as complete">
-                        <span class="fas fa-check"></span>
-                      </button>
-
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary">
-                        <span class="fas fa-caret-down"></span>
-                      </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><input type="checkbox" value="option2"> </th>
-
-
-
-
-                                        <td>PRJ201600366</td>
+                                        <td><span class="db-show-child">TRJ201600366</span></td>
 
                                         <td>17 MacPro </td>
                                         <td>Hollytheclient </td>
@@ -914,160 +890,88 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row"><input type="checkbox" value="option2"> </th>
+                                    <tr class="db-child">
+                                        <td colspan="11">
+                                            <table class="table card-table db-table" style="border: 1px solid #ddd">
+                                                <thead class="thead-light">
+                                                    <tr>
 
 
+                                                        <th>Job Code</th>
+                                                        <th>Job name</th>
+                                                        <th>Service</th>
+                                                        <th>Volume</th>
+                                                        <th>Resource</th>
+                                                        <th>Rate</th>
+                                                        <th>Total</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
 
 
-                                        <td>PRJ201600366</td>
+                                                        <td>TRJ201600366</td>
 
-                                        <td>17 MacPro </td>
-                                        <td>Hollytheclient </td>
-                                        <td>17</td>
-                                        <td>Demo Holly</td>
-                                        <td>AUD481.26 </td>
-                                        <td>06/04/2019 10:00</td>
-                                        <td>07/04/2019 12:28</td>
-                                        <td>
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
 
-                                            <div class="btn-group show">
-                                                <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">Active</button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="javascript:void(0)">Active</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Complete</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Cancelled</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Delayed</a>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <div class="db-control">
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit">
-                        <span class="fas fa-pen" ></span>
-                      </button>
-
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Invoice project">
-                        <span class="fas fa-file-invoice-dollar"></span>
-                      </button>
-
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Mask as complete">
-                        <span class="fas fa-check"></span>
-                      </button>
-
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary">
-                        <span class="fas fa-caret-down"></span>
-                      </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><input type="checkbox" value="option2"> </th>
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
 
 
+                                                    </tr>
+                                                    <tr>
 
 
-                                        <td>PRJ201600366</td>
+                                                        <td>TRJ201600366</td>
 
-                                        <td>17 MacPro </td>
-                                        <td>Hollytheclient </td>
-                                        <td>17</td>
-                                        <td>Demo Holly</td>
-                                        <td>AUD481.26 </td>
-                                        <td>06/04/2019 10:00</td>
-                                        <td>07/04/2019 12:28</td>
-                                        <td>
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
 
-                                            <div class="btn-group show">
-                                                <button class="btn btn-danger btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">Cancelled</button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="javascript:void(0)">Active</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Complete</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Cancelled</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Delayed</a>
-                                                </div>
-                                            </div>
-                                        </td>
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
 
-                                        <td>
-                                            <div class="db-control">
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit">
-                        <span class="fas fa-pen" ></span>
-                      </button>
 
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Invoice project">
-                        <span class="fas fa-file-invoice-dollar"></span>
-                      </button>
+                                                    </tr>
+                                                    <tr>
 
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Mask as complete">
-                        <span class="fas fa-check"></span>
-                      </button>
 
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary">
-                        <span class="fas fa-caret-down"></span>
-                      </button>
-                                            </div>
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="db-parent">
                                         <th scope="row"><input type="checkbox" value="option2"> </th>
 
 
 
 
-                                        <td>PRJ201600366</td>
-
-                                        <td>17 MacPro </td>
-                                        <td>Hollytheclient </td>
-                                        <td>17</td>
-                                        <td>Demo Holly</td>
-                                        <td>AUD481.26 </td>
-                                        <td>06/04/2019 10:00</td>
-                                        <td>07/04/2019 12:28</td>
-                                        <td>
-
-                                            <div class="btn-group show">
-                                                <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">Active</button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="javascript:void(0)">Active</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Complete</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Cancelled</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Delayed</a>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <div class="db-control">
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit">
-                        <span class="fas fa-pen" ></span>
-                      </button>
-
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Invoice project">
-                        <span class="fas fa-file-invoice-dollar"></span>
-                      </button>
-
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Mask as complete">
-                        <span class="fas fa-check"></span>
-                      </button>
-
-                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary">
-                        <span class="fas fa-caret-down"></span>
-                      </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><input type="checkbox" value="option2"> </th>
-
-
-
-
-                                        <td>PRJ201600366</td>
+                                        <td><span class="db-show-child">KRJ201600366</span></td>
 
                                         <td>17 MacPro </td>
                                         <td>Hollytheclient </td>
@@ -1110,13 +1014,212 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="db-child">
+                                        <td colspan="11">
+                                            <table class="table card-table db-table" style="border: 1px solid #ddd">
+                                                <thead class="thead-light">
+                                                    <tr>
+
+
+                                                        <th>Job Code</th>
+                                                        <th>Job name</th>
+                                                        <th>Service</th>
+                                                        <th>Volume</th>
+                                                        <th>Resource</th>
+                                                        <th>Rate</th>
+                                                        <th>Total</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr class="db-parent">
                                         <th scope="row"><input type="checkbox" value="option2"> </th>
 
 
 
 
-                                        <td>PRJ201600366</td>
+                                        <td><span class="db-show-child">ARJ201600366</span></td>
+
+                                        <td>17 MacPro </td>
+                                        <td>Hollytheclient </td>
+                                        <td>17</td>
+                                        <td>Demo Holly</td>
+                                        <td>AUD481.26 </td>
+                                        <td>06/04/2019 10:00</td>
+                                        <td>07/04/2019 12:28</td>
+                                        <td>
+
+                                            <div class="btn-group show">
+                                                <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">Active</button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="javascript:void(0)">Active</a>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Complete</a>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Cancelled</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Delayed</a>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="db-control">
+                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit">
+                        <span class="fas fa-pen" ></span>
+                      </button>
+
+                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Invoice project">
+                        <span class="fas fa-file-invoice-dollar"></span>
+                      </button>
+
+                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Mask as complete">
+                        <span class="fas fa-check"></span>
+                      </button>
+
+                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary">
+                        <span class="fas fa-caret-down"></span>
+                      </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="db-child">
+                                        <td colspan="11">
+                                            <table class="table card-table db-table" style="border: 1px solid #ddd">
+                                                <thead class="thead-light">
+                                                    <tr>
+
+
+                                                        <th>Job Code</th>
+                                                        <th>Job name</th>
+                                                        <th>Service</th>
+                                                        <th>Volume</th>
+                                                        <th>Resource</th>
+                                                        <th>Rate</th>
+                                                        <th>Total</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr class="db-parent">
+                                        <th scope="row"><input type="checkbox" value="option2"> </th>
+
+
+
+
+                                        <td><span class="db-show-child">HRJ201600366</span></td>
 
                                         <td>17 MacPro </td>
                                         <td>Hollytheclient </td>
@@ -1157,6 +1260,329 @@
                         <span class="fas fa-caret-down"></span>
                       </button>
                                             </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="db-child">
+                                        <td colspan="11">
+                                            <table class="table card-table db-table" style="border: 1px solid #ddd">
+                                                <thead class="thead-light">
+                                                    <tr>
+
+
+                                                        <th>Job Code</th>
+                                                        <th>Job name</th>
+                                                        <th>Service</th>
+                                                        <th>Volume</th>
+                                                        <th>Resource</th>
+                                                        <th>Rate</th>
+                                                        <th>Total</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr class="db-parent">
+                                        <th scope="row"><input type="checkbox" value="option2"> </th>
+
+
+
+
+                                        <td><span class="db-show-child">ARJ201600366</span></td>
+
+                                        <td>17 MacPro </td>
+                                        <td>Hollytheclient </td>
+                                        <td>17</td>
+                                        <td>Demo Holly</td>
+                                        <td>AUD481.26 </td>
+                                        <td>06/04/2019 10:00</td>
+                                        <td>07/04/2019 12:28</td>
+                                        <td>
+
+                                            <div class="btn-group show">
+                                                <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">Active</button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="javascript:void(0)">Active</a>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Complete</a>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Cancelled</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Delayed</a>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="db-control">
+                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit">
+                        <span class="fas fa-pen" ></span>
+                      </button>
+
+                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Invoice project">
+                        <span class="fas fa-file-invoice-dollar"></span>
+                      </button>
+
+                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Mask as complete">
+                        <span class="fas fa-check"></span>
+                      </button>
+
+                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary">
+                        <span class="fas fa-caret-down"></span>
+                      </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="db-child">
+                                        <td colspan="11">
+                                            <table class="table card-table db-table" style="border: 1px solid #ddd">
+                                                <thead class="thead-light">
+                                                    <tr>
+
+
+                                                        <th>Job Code</th>
+                                                        <th>Job name</th>
+                                                        <th>Service</th>
+                                                        <th>Volume</th>
+                                                        <th>Resource</th>
+                                                        <th>Rate</th>
+                                                        <th>Total</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr class="db-parent">
+                                        <th scope="row"><input type="checkbox" value="option2"> </th>
+
+
+
+
+                                        <td><span class="db-show-child">HRJ201600366</span></td>
+
+                                        <td>17 MacPro </td>
+                                        <td>Hollytheclient </td>
+                                        <td>17</td>
+                                        <td>Demo Holly</td>
+                                        <td>AUD481.26 </td>
+                                        <td>06/04/2019 10:00</td>
+                                        <td>07/04/2019 12:28</td>
+                                        <td>
+
+                                            <div class="btn-group show">
+                                                <button class="btn btn-warning btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">Delayed</button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="javascript:void(0)">Active</a>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Complete</a>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Cancelled</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Delayed</a>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="db-control">
+                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit">
+                        <span class="fas fa-pen" ></span>
+                      </button>
+
+                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Invoice project">
+                        <span class="fas fa-file-invoice-dollar"></span>
+                      </button>
+
+                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary" data-toggle="tooltip" data-placement="top" title="Mask as complete">
+                        <span class="fas fa-check"></span>
+                      </button>
+
+                                                <button type="button" class="btn icon-btn  btn-xs btn-secondary">
+                        <span class="fas fa-caret-down"></span>
+                      </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="db-child">
+                                        <td colspan="11">
+                                            <table class="table card-table db-table" style="border: 1px solid #ddd">
+                                                <thead class="thead-light">
+                                                    <tr>
+
+
+                                                        <th>Job Code</th>
+                                                        <th>Job name</th>
+                                                        <th>Service</th>
+                                                        <th>Volume</th>
+                                                        <th>Resource</th>
+                                                        <th>Rate</th>
+                                                        <th>Total</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                    <tr>
+
+
+                                                        <td>TRJ201600366</td>
+
+                                                        <td>17 MacPro </td>
+                                                        <td>Hollytheclient </td>
+                                                        <td>17</td>
+                                                        <td>Demo Holly</td>
+                                                        <td>AUD481.26 </td>
+                                                        <td>AUD481.26 </td>
+
+                                                        <td>06/04/2019 10:00</td>
+                                                        <td>07/04/2019 12:28</td>
+
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </td>
                                     </tr>
 
@@ -1223,6 +1649,8 @@ Copyright © 2019 Strategic Agenda</span>
 
     <!-- Libs -->
     <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/bootstrap-sortable/bootstrap-sortable.js"></script>
 
     <!-- Demo -->
     <script src="assets/js/demo.js"></script>
