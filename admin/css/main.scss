@@ -6,10 +6,12 @@
     Skype:          congnd91
 -------------------------------------------------------------------
 -------------------------------------------------------------------*/
+
 @import "scss/variables";
 @import "scss/mixins";
 
 /*-------------------------------HEADER------------------------------------*/
+
 body {
     background-color: #F8F9FB;
     padding: 60px 0px 0px 0px;
@@ -25,7 +27,7 @@ body {
     right: 0px;
     z-index: 100;
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.02);
-    padding: 10px 0px;
+    padding: 0px 0px;
 
     a.logo {
         display: block;
@@ -35,6 +37,7 @@ body {
         background-color: #0099fe;
         border-radius: 50%;
         line-height: 40px;
+        margin: 10px 0px 0px 0px;
         text-align: center;
 
         svg {
@@ -44,7 +47,7 @@ body {
     }
 
     .menu {
-        margin: 0px 0px 0px 30px;
+        margin: 0px 0px 0px 10px;
         float: left;
 
         ul {
@@ -54,20 +57,72 @@ body {
 
             li {
                 float: left;
-                margin: 0px 30px 0px 0px;
+                margin: 0px 0px 0px 0px;
+                position: relative;
+                ul {
+                    position: absolute;
+                    top: 100%;
+
+                    transition: all ease 0.3s;
+                    visibility: hidden;
+                    z-index: 1;
+                    margin-top: -10px;
+                    left: 0px;
+                    width: 200px;
+                    height: auto;
+                    opacity: 0;
+
+                    padding: 0px 0px 10px 0px;
+
+                    background-color: lighten($text-color-heading, 5%);
+                    li {
+                        float: none;
+                        margin: 0px;
+                        border: none;
+                        a {
+                            display: block;
+                            padding: 9px 20px;
+                            line-height: 20px;
+
+                            transition: all ease 0.3s;
+                            &:hover {
+                                background-color: lighten($text-color-heading, 8%);
+                            }
+
+                        }
+                    }
+                }
 
                 a {
                     font-size: 14px;
                     color: #ddd;
-                    line-height: 40px;
+                    line-height: 60px;
                     font-weight: 600;
+                    display: block;
+                    transition: all ease 0.3s;
+                    padding: 0px 20px;
+                    @media screen and (max-width: 1199px) {
+                        padding: 0px 15px;
 
-                    &:hover {
+                    }
+                    @media screen and (max-width: 991px) {
+                        font-size: 13px;
+                    }
+
+                }
+                &:hover {
+                    > a {
                         color: #fff;
+                        background-color: lighten($text-color-heading, 5%);
                         text-decoration: none;
                     }
+                    ul {
+                        display: block;
+                        opacity: 1;
+                        visibility: visible;
+                        margin-top: 0px;
+                    }
                 }
-
                 &.active {
                     a {
                         color: #fff;
@@ -75,6 +130,9 @@ body {
                 }
             }
         }
+    }
+    .float-right {
+        padding-top: 10px;
     }
 }
 
@@ -373,6 +431,36 @@ body {
             transition: all ease 0.3s;
             position: relative;
 
+            img {
+                width: 80px;
+                height: 80px;
+                border-radius: 3px;
+            }
+
+            .lai-small-icon {
+                width: 25px;
+                height: 25px;
+                border: 1px solid #fff;
+                border-radius: 50%;
+                color: #fff;
+                line-height: 23px;
+                text-align: center;
+                font-size: 12px;
+                position: absolute;
+                bottom: -5px;
+                right: -5px;
+                background-color: #fff;
+                color: $text-color;
+                border: 2px solid #fff;
+                img {
+                    width: 21px;
+                    height: 21px;
+                    display: block;
+                    border-radius: 50%;
+                }
+            }
+
+
             span {
                 line-height: 80px;
                 height: 80px;
@@ -395,9 +483,13 @@ body {
                 position: absolute;
                 bottom: -5px;
                 right: -5px;
-                background-color: #fff;
-                color: $text-color;
+                background-color: $active-color;
+
+
                 box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+                i {
+                    color: #fff;
+                }
             }
         }
 
@@ -469,7 +561,6 @@ body {
     border-radius: 3px;
     float: right;
     width: 250px;
-
     @media screen and (max-width: 991px) {
         float: none;
         width: 100%;
@@ -553,6 +644,36 @@ body {
         transition: all ease 0.3s;
         position: relative;
 
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 3px;
+        }
+
+        .lai-small-icon {
+            width: 35px;
+            height: 35px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            color: #fff;
+            line-height: 23px;
+            text-align: center;
+            font-size: 12px;
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            background-color: #fff;
+            color: $text-color;
+            border: 2px solid #fff;
+
+            img {
+                width: 31px;
+                height: 31px;
+                display: block;
+                border-radius: 50%;
+            }
+        }
+
         span {
             line-height: 100px;
             height: 100px;
@@ -575,9 +696,12 @@ body {
             position: absolute;
             bottom: -5px;
             right: -5px;
-            background-color: #fff;
-            color: $text-color;
+            background-color: $active-color;
+
             box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+            i {
+                color: #fff;
+            }
         }
 
         &:hover {
@@ -653,8 +777,7 @@ body {
     min-height: 400px;
     background-color: #fff;
     margin: 30px 0px 0px 0px;
-    border-radius: 3px;
-    // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.07);
+    border-radius: 3px; // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.07);
     padding: 15px;
     border: 1px solid #ddd;
 }
@@ -797,5 +920,293 @@ body {
             font-size: 11px;
             font-weight: 600;
         }
+    }
+}
+
+.box-video {
+    width: 250px;
+    float: right;
+    @media screen and (max-width: 991px) {
+        float: none;
+        width: 100%;
+        margin-top: 50px;
+    }
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+}
+
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.toolbar {
+    width: 150px;
+    position: fixed;
+    top: 60px;
+    left: 0px;
+    bottom: 0px;
+    z-index: 100;
+    background-color: #eee;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    background-color: lighten($text-color-heading, 10%);
+
+    .toobar-caption {
+        background-color: lighten($text-color-heading, 5%);
+        padding: 5px 10px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+        color: #fff;
+    }
+}
+
+.workspace {
+    position: absolute;
+    left: 140px;
+    top: 60px;
+    right: 0px;
+    bottom: 0px;
+    overflow: auto;
+    top: 60px;
+
+}
+
+.workspace-bar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 40px;
+    background-color: #fff;
+    padding: 0px 20px;
+
+
+    box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
+    .wb-preview {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        display: inline-block;
+        transform: translateX(-50%);
+        padding: 6px 0px 0px 0px;
+
+
+        .preview-mode {
+            height: 28px;
+            width: 25px;
+            margin: 0px 2px;
+            display: inline-block;
+            line-height: 28px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            cursor: pointer;
+            i {
+                font-size: 13px;
+            }
+            &.active {
+                background-color: #fff;
+                border: 1px solid $active-color;
+                color: $active-color;
+
+            }
+        }
+    }
+    .wb-right {
+        padding: 5px 0px 0px 0px;
+        .wb-new-tab {
+            height: 30px;
+            width: 30px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            transition: all ease 0.3s;
+            &:hover {
+                color: $active-color;
+            }
+        }
+    }
+
+}
+
+.workspace-scroll {
+    top: 40px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    overflow: auto;
+    position: absolute;
+
+    padding: 20px 50px;
+
+
+}
+
+.drop-container {
+    border: 2px dashed #ddd;
+    background-color: #eee;
+    border-radius: 2px;
+    padding: 40px 10px;
+    width: 100%;
+    text-align: center;
+    p {
+        color: #aaa;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0px;
+        text-shadow: 1px 1px 0px #fff;
+
+    }
+
+}
+
+.drop-block {
+    margin: 30px 0px 0px 0px;
+
+    border: 1px solid #ddd;
+    background-color: #eee;
+    border-radius: 2px;
+    .db-caption {
+        padding: 5px 10px;
+        border-bottom: 1px solid #ddd;
+        span {
+            font-size: 13px;
+            font-weight: 700;
+            color: $text-color;
+        }
+    }
+
+}
+
+.control-hover {
+    &:hover {
+
+        .drop-control {
+            opacity: 1;
+        }
+    }
+}
+
+.drop-control {
+    display: inline-block;
+    margin: 0px 0px 0px 10px;
+    transition: all ease 0.1s;
+    opacity: 0;
+
+    a {
+        line-height: 20px;
+        color: $text-color;
+        margin: 0px 5px 0px 0xp;
+        display: inline-block;
+        font-size: 12px;
+        width: 20px;
+        text-align: center;
+        &:hover {
+            color: $active-color;
+        }
+        &.delete {
+            &:hover {
+                color: $red;
+            }
+        }
+    }
+}
+
+.db-content {
+    padding: 15px;
+    background-color: #fff;
+
+}
+
+.toobar-scroll {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: auto;
+
+    .toobar-inner {
+        width: 120px;
+
+        min-height: 200px;
+        margin: 0px auto;
+        padding: 10px 0px 0px 0px;
+    }
+}
+
+.drop-element {
+    border: 1px dashed transparent;
+
+    padding: 5px 10px;
+    &:hover {
+        border: 1px dashed rgba(0, 0, 0, 0.1);
+    }
+
+    .de-caption {
+        margin: 0px 0px 5px 0px;
+
+        span {
+
+            opacity: 0.5;
+            font-weight: 700;
+            font-size: 13px;
+
+        }
+    }
+
+}
+
+.tb-row {
+    margin: 0px -5px;
+
+    .tb-col {
+        float: left;
+        width: 50%;
+        padding: 5px 5px;
+    }
+}
+
+.w100 {
+    width: 100%;
+}
+
+.tb-item {
+    background-color: lighten($text-color-heading, 15%);
+    border-radius: 2px;
+    padding: 5px 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    &:hover {
+        background-color: lighten($text-color-heading, 19%);
+    }
+    .tbi-icon {
+
+        height: 30px;
+        line-height: 30px;
+        i {
+            font-size: 20px;
+            color: #ddd;
+        }
+
     }
 }
