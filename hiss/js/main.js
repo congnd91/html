@@ -72,7 +72,7 @@
                     $(child).slideDown();
                     $(this).parents("li").addClass("active");
                 }
-                //return false;
+                return false;
 
 
             });
@@ -88,7 +88,7 @@
                     $(child).slideDown();
                     $(this).parents(".sub-menu").find(" > li.has-child").addClass("active");
                 }
-                //return false;
+                return false;
 
 
             });
