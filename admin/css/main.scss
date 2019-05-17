@@ -59,6 +59,7 @@ body {
                 float: left;
                 margin: 0px 0px 0px 0px;
                 position: relative;
+
                 ul {
                     position: absolute;
                     top: 100%;
@@ -75,16 +76,19 @@ body {
                     padding: 0px 0px 10px 0px;
 
                     background-color: lighten($text-color-heading, 5%);
+
                     li {
                         float: none;
                         margin: 0px;
                         border: none;
+
                         a {
                             display: block;
                             padding: 9px 20px;
                             line-height: 20px;
 
                             transition: all ease 0.3s;
+
                             &:hover {
                                 background-color: lighten($text-color-heading, 8%);
                             }
@@ -101,21 +105,25 @@ body {
                     display: block;
                     transition: all ease 0.3s;
                     padding: 0px 20px;
+
                     @media screen and (max-width: 1199px) {
                         padding: 0px 15px;
 
                     }
+
                     @media screen and (max-width: 991px) {
                         font-size: 13px;
                     }
 
                 }
+
                 &:hover {
                     > a {
                         color: #fff;
                         background-color: lighten($text-color-heading, 5%);
                         text-decoration: none;
                     }
+
                     ul {
                         display: block;
                         opacity: 1;
@@ -123,6 +131,7 @@ body {
                         margin-top: 0px;
                     }
                 }
+
                 &.active {
                     a {
                         color: #fff;
@@ -131,6 +140,7 @@ body {
             }
         }
     }
+
     .float-right {
         padding-top: 10px;
     }
@@ -452,6 +462,7 @@ body {
                 background-color: #fff;
                 color: $text-color;
                 border: 2px solid #fff;
+
                 img {
                     width: 21px;
                     height: 21px;
@@ -487,6 +498,7 @@ body {
 
 
                 box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+
                 i {
                     color: #fff;
                 }
@@ -561,6 +573,7 @@ body {
     border-radius: 3px;
     float: right;
     width: 250px;
+
     @media screen and (max-width: 991px) {
         float: none;
         width: 100%;
@@ -699,6 +712,7 @@ body {
             background-color: $active-color;
 
             box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+
             i {
                 color: #fff;
             }
@@ -843,6 +857,14 @@ body {
     }
 }
 
+.ls-scroll {
+    overflow: auto;
+}
+
+.ls-inner {
+    white-space: nowrap;
+}
+
 .list-specific {
     margin: 0px 0px 20px 0px;
 
@@ -856,7 +878,8 @@ body {
     }
 
     .lp-item {
-        float: left;
+        float: none;
+        display: inline-block;
         margin: 0px 10px 10px 0px;
         width: 90px;
         padding: 20px 0px 5px 0px;
@@ -926,11 +949,13 @@ body {
 .box-video {
     width: 250px;
     float: right;
+
     @media screen and (max-width: 991px) {
         float: none;
         width: 100%;
         margin-top: 50px;
     }
+
     border-radius: 3px;
     overflow: hidden;
     margin-bottom: 20px;
@@ -959,7 +984,7 @@ body {
 .toolbar {
     width: 150px;
     position: fixed;
-    top: 60px;
+    top: 0px;
     left: 0px;
     bottom: 0px;
     z-index: 100;
@@ -980,11 +1005,11 @@ body {
 .workspace {
     position: absolute;
     left: 140px;
-    top: 60px;
+    top: 0px;
+
     right: 0px;
     bottom: 0px;
     overflow: auto;
-    top: 60px;
 
 }
 
@@ -996,9 +1021,9 @@ body {
     height: 40px;
     background-color: #fff;
     padding: 0px 20px;
-
-
+    min-width: 600px;
     box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
+
     .wb-preview {
         position: absolute;
         top: 0px;
@@ -1019,9 +1044,11 @@ body {
             background-color: rgba(0, 0, 0, 0.1);
             border-radius: 2px;
             cursor: pointer;
+
             i {
                 font-size: 13px;
             }
+
             &.active {
                 background-color: #fff;
                 border: 1px solid $active-color;
@@ -1030,15 +1057,42 @@ body {
             }
         }
     }
-    .wb-right {
+
+    .wb-control {
+        float: left;
         padding: 5px 0px 0px 0px;
+
+        a {
+            height: 30px;
+            margin: 0px 10px 0px 0px;
+            line-height: 30px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            transition: all ease 0.3s;
+            color: #343f51;
+
+            &:hover {
+                opacity: 1;
+                text-decoration: none;
+                color: $active-color;
+            }
+        }
+    }
+
+    .wb-right {
+        padding: 0px 0px 0px 0px;
+
         .wb-new-tab {
             height: 30px;
             width: 30px;
             text-align: center;
             line-height: 30px;
             font-size: 14px;
+            margin: 5px 0px 0px 0px;
+            float: left;
             transition: all ease 0.3s;
+
             &:hover {
                 color: $active-color;
             }
@@ -1067,6 +1121,7 @@ body {
     padding: 40px 10px;
     width: 100%;
     text-align: center;
+
     p {
         color: #aaa;
         font-size: 14px;
@@ -1084,9 +1139,11 @@ body {
     border: 1px solid #ddd;
     background-color: #eee;
     border-radius: 2px;
+
     .db-caption {
         padding: 5px 10px;
         border-bottom: 1px solid #ddd;
+
         span {
             font-size: 13px;
             font-weight: 700;
@@ -1119,9 +1176,11 @@ body {
         font-size: 12px;
         width: 20px;
         text-align: center;
+
         &:hover {
             color: $active-color;
         }
+
         &.delete {
             &:hover {
                 color: $red;
@@ -1157,6 +1216,7 @@ body {
     border: 1px dashed transparent;
 
     padding: 5px 10px;
+
     &:hover {
         border: 1px dashed rgba(0, 0, 0, 0.1);
     }
@@ -1196,13 +1256,16 @@ body {
     text-align: center;
     cursor: pointer;
     transition: all ease 0.3s;
+
     &:hover {
         background-color: lighten($text-color-heading, 19%);
     }
+
     .tbi-icon {
 
         height: 30px;
         line-height: 30px;
+
         i {
             font-size: 20px;
             color: #ddd;

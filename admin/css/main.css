@@ -648,6 +648,12 @@ body {
     .module-control a:hover {
       cursor: pointer; }
 
+.ls-scroll {
+  overflow: auto; }
+
+.ls-inner {
+  white-space: nowrap; }
+
 .list-specific {
   margin: 0px 0px 20px 0px; }
   .list-specific label {
@@ -658,7 +664,8 @@ body {
     opacity: 0.7;
     display: block; }
   .list-specific .lp-item {
-    float: left;
+    float: none;
+    display: inline-block;
     margin: 0px 10px 10px 0px;
     width: 90px;
     padding: 20px 0px 5px 0px;
@@ -735,7 +742,7 @@ body {
 .toolbar {
   width: 150px;
   position: fixed;
-  top: 60px;
+  top: 0px;
   left: 0px;
   bottom: 0px;
   z-index: 100;
@@ -753,11 +760,10 @@ body {
 .workspace {
   position: absolute;
   left: 140px;
-  top: 60px;
+  top: 0px;
   right: 0px;
   bottom: 0px;
-  overflow: auto;
-  top: 60px; }
+  overflow: auto; }
 
 .workspace-bar {
   position: absolute;
@@ -767,6 +773,7 @@ body {
   height: 40px;
   background-color: #fff;
   padding: 0px 20px;
+  min-width: 600px;
   box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2); }
   .workspace-bar .wb-preview {
     position: absolute;
@@ -792,14 +799,32 @@ body {
         background-color: #fff;
         border: 1px solid #0099fe;
         color: #0099fe; }
-  .workspace-bar .wb-right {
+  .workspace-bar .wb-control {
+    float: left;
     padding: 5px 0px 0px 0px; }
+    .workspace-bar .wb-control a {
+      height: 30px;
+      margin: 0px 10px 0px 0px;
+      line-height: 30px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 14px;
+      transition: all ease 0.3s;
+      color: #343f51; }
+      .workspace-bar .wb-control a:hover {
+        opacity: 1;
+        text-decoration: none;
+        color: #0099fe; }
+  .workspace-bar .wb-right {
+    padding: 0px 0px 0px 0px; }
     .workspace-bar .wb-right .wb-new-tab {
       height: 30px;
       width: 30px;
       text-align: center;
       line-height: 30px;
       font-size: 14px;
+      margin: 5px 0px 0px 0px;
+      float: left;
       transition: all ease 0.3s; }
       .workspace-bar .wb-right .wb-new-tab:hover {
         color: #0099fe; }
