@@ -39,15 +39,14 @@ $(function () {
     if ($('html').attr('dir') === 'rtl') {
         $('#layout-navbar .dropdown-menu').toggleClass('dropdown-menu-right');
     }
-    $('.db-show-child').click(function () {
 
+    $('.db-show-child').click(function () {
+        alert("s");
         var child = $(this).parents(".db-parent").next();
         if ($(child).is(":visible")) {
             $(child).hide();
-            $(this).removeClass("active");
         } else {
             $(child).show();
-            $(this).addClass("active");
 
         }
     });
