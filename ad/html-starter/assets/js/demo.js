@@ -41,7 +41,7 @@ $(function () {
     }
 
     $('.db-show-child').click(function () {
-        alert("s");
+
         var child = $(this).parents(".db-parent").next();
         if ($(child).is(":visible")) {
             $(child).hide();
