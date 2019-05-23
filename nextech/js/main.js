@@ -539,7 +539,6 @@
 
 
 
-
         db.preLoad();
         db.hoverMenu();
         db.menuResponsive();
@@ -549,12 +548,14 @@
         db.matchHeight();
         db.tabProductDetail();
         db.toTop();
+        db.closeCookie();
+
 
         db.scrollIntro();
         db.sliderProduct();
         db.gender();
         db.scrollFixBar();
-        db.closeCookie();
+
         db.scroll();
         new WOW().init();
 
