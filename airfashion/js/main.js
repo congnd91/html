@@ -35,7 +35,23 @@
                 return false;
             });
         }
+        db.homeSlider = function () {
 
+
+            var owl_home = $('.owl-home');
+            if ($(owl_home).length) {
+                $(owl_home).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: false,
+                    autoplay: true,
+                    items: 1,
+                    //      animateOut: 'fadeOut'
+
+                });
+            }
+
+        }
 
         db.gender = function () {
             $('.c-text').on('click', function () {
@@ -139,6 +155,7 @@
         db.preLoad();
         db.scrollMenu();
         db.menuResponsive();
+        db.homeSlider();
         db.gender();
         db.fAQ();
         db.matchHeight();
