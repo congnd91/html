@@ -65,9 +65,10 @@
                 $(owl_home).owlCarousel({
                     loop: true,
                     margin: 0,
-                    //mouseDrag: false,
+                    mouseDrag: false,
                     nav: false,
                     autoplay: true,
+                    autoplayTimeout: 7000,
                     items: 1,
                     animateOut: 'fadeOut'
                 });
