@@ -257,8 +257,14 @@
             if ($('.pp-item').length) {
                 $('.pp-item').matchHeight();
             }
+
+            if ($('.product-item').length) {
+                $('.product-item').matchHeight();
+            }
             $('.mega-col').matchHeight();
+
         }
+
 
 
 
@@ -335,7 +341,7 @@
 
 
                 $('html,body').animate({
-                    scrollTop: $(id).offset().top - 160
+                    scrollTop: $(id).offset().top - 180
                 }, 1000);
 
 
@@ -346,7 +352,9 @@
 
             if ($(".detail-bar").length) {
 
-                $(".detail-bar").stick_in_parent();
+                $(".detail-bar").stick_in_parent({
+                    offset_top: 100,
+                });
             }
             if ($(".pc-row.head").length) {
 
@@ -467,6 +475,7 @@
         db.scrollFixBar();
         db.closeCookie();
         db.fAQ();
+        db.scroll();
 
 
         new WOW().init();
