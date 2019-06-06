@@ -50,4 +50,45 @@ $(function () {
 
         }
     });
+    $('.db-chat-close').click(function () {
+        $('.db-chat').toggleClass("db-hide-chat");
+    });
+
+
+    setTimeout(function () {
+
+        if ($('#chart-bars').length)
+
+        {
+            var barsChart = new Chart(document.getElementById('chart-bars').getContext("2d"), {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Now', 'Dec'],
+                    datasets: [{
+                        label: '2018',
+                        data: [53, 99, 14, 10, 43, 27, 17, 27, 57, 50, 27, 27],
+                        borderWidth: 1,
+                        backgroundColor: 'rgba(205, 220, 57, 0.3)',
+                        borderColor: '#CDDC39'
+      }, {
+                        label: '2019',
+                        data: [55, 74, 20, 90, 67, 97, 17, 27, 57, ],
+                        borderWidth: 1,
+                        backgroundColor: 'rgba(103, 58, 183, 0.3)',
+                        borderColor: '#673AB7'
+      }]
+                },
+
+                // Demo
+                options: {
+                    responsive: false,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+    }, 1000);
+
+
+
+
 });
