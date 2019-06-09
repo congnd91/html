@@ -2,12 +2,34 @@
 $(function () {
     var isRtl = $('html').attr('dir') === 'rtl';
 
+
+
+    if ($('#datepicker-base10').length)
+
+    {
+
+        $('#datepicker-base10').datepicker({
+            orientation: isRtl ? 'auto right' : 'auto left'
+        }).on('changeDate', function (ev) {
+            $('#datepicker-base10').datepicker('hide');
+        });
+
+    }
+
+
+
+
+
     $('#datepicker-base1').datepicker({
         orientation: isRtl ? 'auto right' : 'auto left'
     });
     $('#datepicker-base2').datepicker({
         orientation: isRtl ? 'auto right' : 'auto left'
     });
+
+
+
+
     $('#datepicker-features').datepicker({
         calendarWeeks: true,
         todayBtn: 'linked',
