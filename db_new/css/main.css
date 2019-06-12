@@ -855,6 +855,12 @@ a {
 .text-white {
   color: #fff; }
 
+.text-color {
+  color: #425268; }
+
+.text-heading {
+  color: #28313e; }
+
 .bg-primary {
   background-color: #0099fe; }
 
@@ -2689,7 +2695,11 @@ a {
       bottom: 0px;
       z-index: 1;
       position: absolute;
-      opacity: 0.7; }
+      opacity: 0.1;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-image: url(../images/template_bg.jpg); }
     .section-templates .st-banner .container {
       position: relative;
       z-index: 2; }
@@ -2925,7 +2935,7 @@ a {
     margin: 0px 20px 0px 0px; }
   .templates-bar .tb-item {
     float: left;
-    margin: 0px 15px 0px 0px; }
+    margin: 0px 17px 0px 0px; }
     .templates-bar .tb-item .dropdown-toggle {
       line-height: 48px;
       cursor: pointer;
@@ -2948,7 +2958,7 @@ a {
         line-height: 40px;
         min-height: 25px;
         color: #425268;
-        padding: 0px 30px 0px 15px;
+        padding: 0px 15px 0px 15px;
         font-size: 0.875rem;
         transition: all ease 0.3s;
         position: relative;
@@ -2957,8 +2967,8 @@ a {
         .templates-bar .db-dropdown-menu ul li a i {
           position: absolute;
           top: 0px;
-          right: 0px;
-          width: 30px;
+          left: 5px;
+          width: 20px;
           text-align: center;
           line-height: 40px;
           opacity: 0; }
@@ -2968,6 +2978,48 @@ a {
         color: #0099fe; }
         .templates-bar .db-dropdown-menu ul li.active a i {
           opacity: 1; }
+  .templates-bar .db-list-doctype-dropdown-menu {
+    border: none;
+    min-width: 100px;
+    width: 800px;
+    max-width: 800px;
+    padding: 0px;
+    border-radius: 2px; }
+    .templates-bar .db-list-doctype-dropdown-menu .db-list-doctype-scroll {
+      max-height: 350px;
+      overflow: auto; }
+    .templates-bar .db-list-doctype-dropdown-menu ul {
+      margin: 0px;
+      padding: 0px;
+      list-style: none; }
+      .templates-bar .db-list-doctype-dropdown-menu ul li {
+        float: left;
+        width: 33.333%; }
+        .templates-bar .db-list-doctype-dropdown-menu ul li a {
+          display: block;
+          line-height: 40px;
+          min-height: 25px;
+          color: #425268;
+          padding: 0px 15px 0px 15px;
+          font-size: 0.875rem;
+          transition: all ease 0.3s;
+          position: relative;
+          font-size: 13px;
+          white-space: nowrap; }
+          .templates-bar .db-list-doctype-dropdown-menu ul li a i {
+            position: absolute;
+            top: 0px;
+            left: 5px;
+            width: 20px;
+            text-align: center;
+            line-height: 40px;
+            opacity: 0; }
+          .templates-bar .db-list-doctype-dropdown-menu ul li a:hover {
+            background-color: #f1f1f1; }
+        .templates-bar .db-list-doctype-dropdown-menu ul li.active a {
+          color: #0099fe; }
+          .templates-bar .db-list-doctype-dropdown-menu ul li.active a i {
+            opacity: 1; }
   .templates-bar .float-right .db-dropdown-menu {
     left: auto !important;
     right: 0px !important; }
@@ -3075,10 +3127,7 @@ a {
         align-items: center;
         justify-content: center; }
     .card-item .ci-img .number-page {
-      position: absolute;
       z-index: 10;
-      top: 8px;
-      right: 8px;
       line-height: 20px;
       padding: 0px 10px;
       letter-spacing: 1px;
@@ -3087,20 +3136,36 @@ a {
       text-transform: uppercase;
       font-size: 10px;
       background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 20px; }
+      border-radius: 20px;
+      display: inline-block; }
     .card-item .ci-img .ci-info {
       position: absolute;
       top: 8px;
       left: 8px; }
       .card-item .ci-img .ci-info .premium-icon {
         background-color: rgba(0, 0, 0, 0.7);
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
         background-image: url(../images/premium.svg);
         background-repeat: no-repeat;
-        background-size: 18px auto;
+        background-size: 14px auto;
         background-position: center center; }
+      .card-item .ci-img .ci-info .multi-badge {
+        z-index: 10;
+        display: inline-block;
+        line-height: 20px;
+        padding: 0px 10px;
+        letter-spacing: 1px;
+        color: #fff;
+        line-height: 20px;
+        text-transform: uppercase;
+        font-size: 10px;
+        background-color: #dd4b39;
+        border-radius: 20px; }
+      .card-item .ci-img .ci-info.float-right {
+        left: unset;
+        right: 8px; }
     .card-item .ci-img img {
       max-width: 100%;
       width: 100%; }
@@ -3149,6 +3214,39 @@ a {
   .block-loading i {
     color: #0099fe;
     font-size: 40px; }
+
+.overflow-hidden {
+  overflow: hidden; }
+
+.template-overlay {
+  position: fixed;
+  top: 55px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #21272f;
+  z-index: 1000;
+  overflow: auto;
+  padding: 60px 15px 15px 15px; }
+  .template-overlay .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #dc3545;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    border-radius: 50%;
+    text-shadow: none;
+    opacity: 1; }
+    .template-overlay .close i {
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px; }
 
 .static-page {
   padding: 120px 0px; }
