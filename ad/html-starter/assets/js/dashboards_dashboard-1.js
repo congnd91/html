@@ -74,50 +74,59 @@ $(function () {
         });
     }
 
-    var chart1 = new Chart(document.getElementById('statistics-chart-1').getContext("2d"), {
-        type: 'line',
-        data: {
-            labels: ['2016-10', '2016-11', '2016-12', '2017-01', '2017-02', '2017-03', '2017-04', '2017-05'],
-            datasets: [{
-                label: 'Visits',
-                data: [93, 25, 95, 59, 46, 68, 4, 41],
-                borderWidth: 1,
-                backgroundColor: 'rgba(28,180,255,.05)',
-                borderColor: 'rgba(28,180,255,1)'
-      }, {
-                label: 'Returns',
-                data: [83, 1, 43, 28, 56, 82, 80, 66],
-                borderWidth: 1,
-                borderDash: [5, 5],
-                backgroundColor: 'rgba(136, 151, 170, 0.1)',
-                borderColor: '#8897aa'
-      }],
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    gridLines: {
-                        display: false
-                    },
-                    ticks: {
-                        fontColor: '#aaa'
-                    }
-        }],
-                yAxes: [{
-                    gridLines: {
-                        display: false
-                    },
-                    ticks: {
-                        fontColor: '#aaa',
-                        stepSize: 20
-                    }
-        }]
-            },
+    setTimeout(function () {
+        if ($('#statistics-chart-1').length) {
 
-            responsive: false,
-            maintainAspectRatio: false
+            var chart1 = new Chart(document.getElementById('statistics-chart-1').getContext("2d"), {
+                type: 'line',
+                data: {
+                    labels: ['2016-10', '2016-11', '2016-12', '2017-01', '2017-02', '2017-03', '2017-04', '2017-05'],
+                    datasets: [{
+                        label: 'Visits',
+                        data: [93, 25, 95, 59, 46, 68, 4, 41],
+                        borderWidth: 1,
+                        backgroundColor: 'rgba(28,180,255,.05)',
+                        borderColor: 'rgba(28,180,255,1)'
+      }, {
+                        label: 'Returns',
+                        data: [83, 1, 43, 28, 56, 82, 80, 66],
+                        borderWidth: 1,
+                        borderDash: [5, 5],
+                        backgroundColor: 'rgba(136, 151, 170, 0.1)',
+                        borderColor: '#8897aa'
+      }],
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                fontColor: '#aaa'
+                            }
+        }],
+                        yAxes: [{
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                fontColor: '#aaa',
+                                stepSize: 20
+                            }
+        }]
+                    },
+
+                    responsive: false,
+                    maintainAspectRatio: false
+                }
+            });
         }
-    });
+
+    }, 500);
+
+
+
     var chart3 = new Chart(document.getElementById('statistics-chart-3').getContext("2d"), {
         type: 'bar',
         data: {
