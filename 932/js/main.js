@@ -69,6 +69,40 @@
                 });
             }
         }
+
+        db.partnerSlider = function () {
+            var owl_partner = $('.owl-partner');
+            if ($(owl_partner).length) {
+                $(owl_partner).owlCarousel({
+                    loop: false,
+                    margin: 0,
+                    mouseDrag: false,
+                    nav: false,
+                    margin: 30,
+                    autoplay: false,
+                    responsive: {
+                        0: {
+                            items: 2,
+
+                        },
+                        576: {
+                            items: 3,
+
+                        },
+                        768: {
+                            items: 4,
+
+                        },
+                        992: {
+                            items: 6,
+
+                        }
+                    }
+
+
+                });
+            }
+        }
         db.sliderProduct = function () {
             if ($('.slider-for').length) {
                 $('.slider-for').slick({
@@ -166,6 +200,7 @@
         db.menuResponsive();
         db.homeSlider();
         db.sectionSlider();
+        db.partnerSlider();
 
 
         db.sliderProduct();
