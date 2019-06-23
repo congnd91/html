@@ -61,5 +61,10 @@
         db.menuResponsive();
         db.slider();
         db.scroll();
+
+        new WOW({
+            offset: 100,
+            mobile: true
+        }).init()
     });
 })(jQuery);
