@@ -635,6 +635,61 @@
 }
 
 
+
+.db-tooltip {
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+        .db-tooltip-content {
+            z-index: 1;
+            visibility: visible;
+            opacity: 1;
+            margin: 0px 0px 0px 10px;
+        }
+    }
+
+
+    .db-tooltip-content {
+        position: absolute;
+
+        top: 0px;
+        left: 100%;
+        margin: 0px 0px 0px 15px;
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 2px;
+        padding: 5px 10px;
+        color: #fff;
+        font-size: 11px;
+        white-space: nowrap;
+        transition: all ease 0.3s;
+        z-index: -1;
+        visibility: hidden;
+
+        opacity: 0;
+
+
+
+
+        &:before {
+            content: "";
+            display: block;
+            width: 0px;
+            height: 0px;
+            border: 5px solid transparent;
+            border-right-color: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: 50%;
+            left: -10px;
+
+            margin: -5px 0px 0px 0px;
+        }
+
+
+    }
+
+}
+
 .grid-templates {
     // margin: 0px -15px;
 
@@ -751,34 +806,51 @@
             position: absolute;
             top: 8px;
             left: 8px;
+            z-index: 30;
 
-            .premium-icon {
-                background-color: rgba(0, 0, 0, 0.7);
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                background-image: url(#{$path_default}/images/premium.svg);
-                background-repeat: no-repeat;
-                background-size: 14px auto;
+            .stock-premium {
+                float: left;
+                margin: 0px 10px 0px 0px;
 
-                background-position: center center;
+                .icon {
+                    background-color: rgba(0, 0, 0, 0.7);
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-image: url(#{$path_default}/images/money.svg);
+                    background-repeat: no-repeat;
+                    background-size: 8px auto;
+
+                    background-position: center center;
+                }
+
+
             }
 
-            .multi-badge {
-                z-index: 10;
-                display: inline-block;
 
-                line-height: 20px;
-                padding: 0px 10px;
-                letter-spacing: 1px;
-                color: #fff;
-                line-height: 20px;
-                text-transform: uppercase;
-                font-size: 10px;
+            .template-premium {
+                float: left;
+                margin: 0px 10px 0px 0px;
 
-                background-color: $pro-color;
-                border-radius: 20px;
+                .icon {
+                    background-color: rgba(0, 0, 0, 0.7);
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-image: url(#{$path_default}/images/premium.svg);
+                    background-repeat: no-repeat;
+                    background-size: 14px auto;
+
+                    background-position: center center;
+                }
+
             }
+
+
+
+
+
+
 
             &.float-right {
                 left: unset;
@@ -798,6 +870,19 @@
     .ci-caption {
         padding: 10px 10px;
         position: relative;
+
+        .multi-badge {
+            z-index: 10;
+            display: inline-block;
+            padding: 0px 2px;
+            letter-spacing: 1px;
+            color: #fff;
+            line-height: 15px;
+            text-transform: uppercase;
+            font-size: 10px;
+            background-color: $pro-color;
+            border-radius: 2px;
+        }
 
         p {
             margin: 0px;

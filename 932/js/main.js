@@ -122,6 +122,26 @@
                 });
             }
         }
+        db.searchAdvanced = function () {
+            $(".btn-advanced").click(function () {
+                var search = $('.advanced-search');
+
+                if ($(search).is(":visible")) {
+                    $(search).slideUp();
+                } else {
+                    $(search).slideDown();
+                }
+                return false;
+            });
+        }
+
+
+
+
+
+
+
+
 
         db.toTop = function () {
             $('.totop').hide();
@@ -201,6 +221,7 @@
         db.homeSlider();
         db.sectionSlider();
         db.partnerSlider();
+        db.searchAdvanced();
 
 
         db.sliderProduct();
