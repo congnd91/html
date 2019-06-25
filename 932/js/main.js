@@ -133,6 +133,31 @@
                 }
                 return false;
             });
+
+            $(".show-advance-search-mobile span").click(function () {
+                $("body").toggleClass("show-search");
+            });
+
+            $(".close-search-mobile").click(function () {
+                $("body").toggleClass("show-search");
+            });
+        }
+
+
+        db.magazineSlider = function () {
+            var owl_magazine = $('.owl-magazine');
+            if ($(owl_magazine).length) {
+                $(owl_magazine).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    mouseDrag: false,
+                    nav: true,
+                    autoplay: true,
+                    items: 1,
+                    animateOut: 'fadeOut',
+                    navText: ["<i class='fas fa-angle-left'></i>", "<i class='fas fa-angle-right'></i>"]
+                });
+            }
         }
 
 
@@ -144,12 +169,12 @@
 
 
         db.toTop = function () {
-            $('.totop').hide();
+            // $('.totop').hide();
             $(window).scroll(function () {
                 if ($(this).scrollTop() >= 50) {
-                    $('.totop').fadeIn();
+                    ///$('.totop').fadeIn();
                 } else {
-                    $('.totop').fadeOut();
+                    // $('.totop').fadeOut();
                 }
             });
             $(".totop").click(function () {
@@ -222,6 +247,7 @@
         db.sectionSlider();
         db.partnerSlider();
         db.searchAdvanced();
+        db.magazineSlider();
 
 
         db.sliderProduct();
