@@ -448,6 +448,7 @@ a {
                     display: block;
 
 
+
                     > a {
 
                         padding: 6px 30px;
@@ -468,6 +469,30 @@ a {
                             height: 0px;
                             border: 17px solid transparent;
                         }
+
+                        position: relative;
+
+                        &:before {
+                            content: "";
+                            display: block;
+                            width: 15px;
+                            background-color: #fff;
+
+                            border-radius: 20px;
+                            box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+                            height: 15px;
+                            position: absolute;
+                            top: 50%;
+                            left: 7px;
+                            background-image: url(../images/arrow.png);
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            z-index: 2;
+                            margin: -7px 0px 0px 0px;
+
+
+                        }
+
                     }
 
                     &.two-line {
@@ -530,12 +555,11 @@ a {
                         }
 
                         .mega-col {
-                            float: left;
-                            width: 50%;
+                            width: 100%;
 
 
                             p {
-                                margin: 0px 0px 10px 0px;
+                                margin: 0px 0px 15px 0px;
 
                                 a {
                                     font-size: 1.5rem;
@@ -543,6 +567,10 @@ a {
 
                                     &:hover {
                                         color: $active-color-second;
+                                    }
+
+                                    i {
+                                        margin: 0px 5px 0px 0px;
                                     }
                                 }
                             }
@@ -1050,9 +1078,10 @@ a {
         text-align: center;
 
         h2 {
-            margin: 0px 0px 10px 0px;
+            margin: 0px 0px 20px 0px;
             padding: 0px;
             font-size: 5rem;
+
 
             @media screen and (max-width: 991px) {
                 font-size: 3rem;
@@ -1077,7 +1106,9 @@ a {
 .box-products {
     .product-col {
         float: left;
-        width: 33.333%;
+        width: 25%;
+        padding: 0px 5px;
+
 
         @media screen and (max-width: 767px) {
             width: 50%;
@@ -1169,6 +1200,172 @@ a {
 
     }
 }
+
+
+.box-news-wrap {
+    padding: 60px 0px;
+}
+
+.box-app {
+
+    background-color: #2e2e2e;
+    padding: 60px 0px 60px 0px;
+
+    &.box-app-fix {
+        padding: 120px 0px 120px 0px;
+
+        @media screen and (max-width: 991px) {
+            padding: 60px 0px;
+
+
+        }
+
+        .box-caption {
+            p {
+                font-size: 16px;
+
+            }
+        }
+    }
+
+
+    .box-caption {
+        margin: 0px 0px 30px 0px;
+        text-align: center;
+
+        h2 {
+            margin: 0px 0px 10px 0px;
+            padding: 0px;
+            font-size: 4.5rem;
+            color: #fff;
+
+            @media screen and (max-width: 991px) {
+                font-size: 3rem;
+            }
+        }
+
+        p {
+
+            font-size: 2rem;
+            color: #fff;
+            margin: 0px;
+
+            @media screen and (max-width: 991px) {
+                font-size: 1.4rem;
+            }
+
+        }
+    }
+
+    .more {
+
+        display: inline-block;
+        padding: 0px 50px;
+        line-height: 40px;
+        font-size: 14px;
+        color: #fff;
+        margin-top: 30px;
+        border-radius: 30px;
+        background-color: $active-color;
+        transition: all ease 0.3s;
+        font-weight: bold;
+
+        @media screen and (max-width: 767px) {
+            padding: 0px 20px;
+        }
+
+        &:hover {
+            background-color: lighten($active-color, 10%);
+
+        }
+    }
+}
+
+
+.box-list-app {
+    .app-col {
+        float: left;
+        width: 33.333%;
+        padding: 10px 10px;
+
+
+        @media screen and (max-width: 767px) {
+            width: 50%;
+
+
+        }
+
+
+        .app-item {
+            overflow: hidden;
+            position: relative;
+
+            a {
+                display: block;
+            }
+
+            img {
+                width: 100%;
+                display: block;
+                transition: all ease 0.4s;
+            }
+
+            &:hover {
+
+                img {
+                    transform: scale(1.05);
+
+                }
+            }
+
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                top: 0px;
+                background-image: url(../images/app_mark.png);
+                background-repeat: repeat-x;
+                background-position: bottom left;
+
+            }
+        }
+
+        .ai-caption {
+            z-index: 2;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            padding: 10px 10px 10px 10px;
+
+            p {
+                font-size: 22px;
+                color: #fff;
+                margin: 0px;
+
+                @media screen and (max-width: 991px) {
+                    font-size: 17px;
+                }
+
+                @media screen and (max-width: 767px) {
+                    font-size: 15px;
+                }
+            }
+        }
+
+
+
+    }
+
+
+}
+
+
+
+
 
 .box-more {
     text-align: center;
@@ -1510,76 +1707,89 @@ a {
     }
 
     a {
-        display: block;
-        width: 90px;
-        height: 90px;
-        margin: 0px 0px 5px 0px;
 
-
-        padding: 10px 10px;
-
-        .dl-inner {
-            display: flex;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            height: 70px;
-        }
-
-
-        p {
-            margin: 0px 0px 0px 0px;
-            color: #fff;
-            line-height: 1.2;
-        }
-
-    }
-
-
-
-    .fl-search {
         background-color: $active-color;
-        transition: all ease 0.4s;
-
-        &:hover {
-            background-color: lighten($active-color, 10%);
-        }
-
-        .fl-icon {
-
-            background-image: url(../images/search_icon.png);
-            width: 25px;
-            height: 25px;
-            margin: 0px auto 10px auto;
-            background-size: 25px auto;
-
-
-        }
-
-
-    }
-
-    .fl-roll {
+        display: block;
+        width: 190px;
+        height: 60px;
+        margin: 0px 0px 5px 0px;
         background-color: #50c743;
         transition: all ease 0.4s;
+        background-repeat: no-repeat;
+        position: relative;
+
+        left: -150px;
+
+
+
 
         &:hover {
             background-color: lighten(#50c743, 10%);
+            left: 0px;
         }
 
-        .fl-icon {
+        .dl-inner {
+            padding: 0px 30px 0px 0px;
+            position: relative;
 
-            background-image: url(../images/scroll_icon.png);
-            width: 25px;
-            height: 25px;
-            margin: 0px auto 10px auto;
-            background-size: 25px auto;
+            .fl-icon {
+                position: absolute;
+                background-image: url(../images/scroll_icon.png);
+                width: 30px;
+                height: 25px;
+                background-size: 25px auto;
+                background-position: center center;
+                background-repeat: no-repeat;
+                right: 6px;
+                top: 17px;
+                margin: 0px;
+            }
 
+            p {
+                display: block;
+                margin: 0px;
+                color: #fff;
+                padding: 18px 0px 0px 0px;
+                margin: 0px;
+                text-align: center;
+
+
+
+
+
+            }
 
         }
+
+        &.fl-search {
+            background-color: #f77104;
+
+
+            &:hover {
+                background-color: lighten(#f77104, 10%);
+            }
+
+            .dl-inner {
+
+
+                .fl-icon {
+                    position: absolute;
+                    background-image: url(../images/search_icon.png);
+
+                }
+
+
+
+            }
+        }
+
 
 
     }
+
+
+
+
 
 }
 
@@ -2116,12 +2326,32 @@ a {
     position: relative;
     z-index: 99;
     text-align: center;
+    position: relative;
+
 
     .db-left {
-        float: left;
+
         line-height: 60px;
         font-size: 2.2rem;
         color: #fff;
+        z-index: 0;
+        max-width: 1210px;
+        margin: 0px auto;
+        text-align: left;
+        height: 1px;
+        padding-left: 15px;
+
+        @media screen and (max-width: 991px) {
+            height: auto;
+            text-align: center;
+            padding-left: 0px;
+
+
+
+        }
+
+
+
 
         @media screen and (max-width: 767px) {
             display: block;
@@ -4723,4 +4953,226 @@ a {
             }
         }
     }
+}
+
+
+.news-slider {
+    position: relative;
+
+    .news-slider-item {
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 170px 0px;
+
+        @media screen and (max-width: 1199px) {
+            padding: 100px 0px;
+
+
+        }
+
+        @media screen and (max-width: 991px) {
+            padding: 70px 0px;
+        }
+
+        @media screen and (max-width: 767px) {
+            padding: 30px 0px;
+
+        }
+
+    }
+
+    .ns-text {
+        max-width: 580px;
+
+        h2 {
+            color: #fff;
+            font-size: 30px;
+            color: #fff;
+            margin: 0px 0px 30px 0px;
+
+            @media screen and (max-width: 991px) {
+                font-size: 20px;
+            }
+
+            @media screen and (max-width: 767px) {
+                margin: 0px 0px 10px 0px;
+            }
+        }
+
+        p {
+            font-size: 16px;
+            color: #fff;
+            margin: 0px 0px 30px 0px;
+
+            @media screen and (max-width: 991px) {
+                font-size: 14px;
+            }
+
+            @media screen and (max-width: 767px) {
+                margin: 0px 0px 10px 0px;
+                font-size: 12px;
+            }
+        }
+
+        .more {
+            display: inline-block;
+            color: #fff;
+            min-width: 190px;
+            text-align: center;
+            border: 2px solid #fff;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 40px;
+            border-radius: 30px;
+            transition: all ease 0.3s;
+
+            @media screen and (max-width: 767px) {
+                min-width: 160px;
+                padding: 0px 10px;
+
+            }
+
+            &:hover {
+                color: $active-color;
+                background-color: #fff;
+            }
+        }
+    }
+
+
+}
+
+
+.list-application {
+    background-color: #2e2e2e;
+    padding: 60px 0px 200px 0px;
+    position: relative;
+    z-index: 1;
+
+    .page-caption {
+        h2 {
+            color: #fff;
+        }
+
+        p {
+            color: #fff;
+        }
+    }
+
+}
+
+.mw1000 {
+
+    max-width: 1000px;
+    margin: 0px auto;
+}
+
+
+.app-detail {
+    background-color: #2e2e2e;
+
+    .add-one {
+        padding: 60px 0px 60px 0px;
+
+        h1 {
+            color: #fff;
+            font-size: 46px;
+            margin: 0px 0px 30px 0px;
+            text-align: center;
+
+            @media screen and (max-width: 991px) {
+                font-size: 30px;
+            }
+
+            @media screen and (max-width: 767px) {
+                font-size: 25px;
+            }
+
+        }
+
+        p {
+            font-size: 16px;
+            color: #fff;
+            margin: 0px 0px 30px 0px;
+
+            @media screen and (max-width: 991px) {
+                font-size: 14px;
+
+            }
+        }
+    }
+
+
+}
+
+.ad-two {
+
+
+
+
+    background-image: url(../images/gradient1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    padding: 100px 0px 200px 0px;
+    position: relative;
+    z-index: 2;
+
+    @media screen and (max-width: 991px) {
+        background-image: url(../images/gradient.png);
+        padding: 50px 0px;
+
+    }
+
+    .product-item {
+        h3 {
+            color: #fff;
+
+        }
+
+        &:hover {
+            h3 {
+                color: $text-color;
+            }
+        }
+    }
+
+
+
+}
+
+.ad-three {
+    background-color: #fff;
+    position: relative;
+    z-index: 3;
+
+    @media screen and (max-width: 991px) {
+        padding: 50px 0px;
+    }
+
+    .container {
+        position: relative;
+        top: -50px;
+
+        @media screen and (max-width: 991px) {
+            top: 0px;
+        }
+
+    }
+
+    p {
+        color: #333333;
+        font-size: 16px;
+
+        margin: 0px 0px 30px 0px;
+
+
+        @media screen and (max-width: 991px) {
+            font-size: 14px;
+        }
+    }
+
 }

@@ -67,6 +67,23 @@
             }
 
         }
+        db.newsHomeSlider = function () {
+
+
+            var owl_news = $('.owl-news');
+            if ($(owl_news).length) {
+                $(owl_news).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: false,
+                    autoplay: true,
+                    items: 1,
+                    //      animateOut: 'fadeOut'
+
+                });
+            }
+
+        }
 
         db.scrollIntro = function () {
 
@@ -466,6 +483,7 @@
         db.hoverMenu();
         db.menuResponsive();
         db.homeSlider();
+        db.newsHomeSlider();
         db.scrollIntro();
         db.showSearch();
         db.tabProductDetail();
