@@ -250,16 +250,19 @@
                     // $('.totop').fadeOut();
                 }
             });
+
+
             $(".totop").click(function () {
                 $("html, body").animate({
                     scrollTop: 0
                 }, 1000);
             });
         }
-        db.scrollToListProduct = function () {
-            $(".scroll-to-product-list").click(function () {
+        db.scrollToRegister = function () {
+
+            $(".btn-register-fanchise").click(function () {
                 $("html, body").animate({
-                    scrollTop: $('.list-product').offset().top - 100
+                    scrollTop: $('#form-register').offset().top - 50
                 }, 1500);
                 return false;
             });
@@ -323,6 +326,7 @@
         db.magazineSlider();
         db.menuCateMobile();
         db.sliderProduct();
+        db.scrollToRegister();
 
 
         db.sliderProduct();
@@ -332,6 +336,6 @@
         db.fAQ();
 
         db.closeCookie();
-        db.scrollToListProduct();
+
     });
 })(jQuery);
