@@ -85,10 +85,55 @@
         }
 
 
+
+        db.sliderRecommended = function () {
+            if ($('.slick-recommended').length) {
+                $('.slick-recommended').slick({
+                    dots: false,
+                    infinite: true,
+                    speed: 500,
+                    slidesToShow: 6,
+                    slidesToScroll: 6,
+                    prevArrow: "<div class='slick-prev'> <i class='fal fa-angle-left'></i></div>",
+                    nextArrow: "<div class='slick-next'> <i class='fal fa-angle-right'></i></div>",
+                    responsive: [{
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 5,
+                                slidesToScroll: 5,
+                            }
+                    },
+                        {
+                            breakpoint: 992,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3
+                            }
+                    },
+                        {
+                            breakpoint: 576,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2
+                            }
+                    }
+
+                ]
+                });
+
+            }
+
+        }
+
+
+
+
+
         db.menuResponsive();
         db.scrollMenu();
         db.gridTemplate();
         db.gridCollection();
         db.brandkitSlider();
+        db.sliderRecommended();
     });
 })(jQuery);
