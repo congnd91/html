@@ -8,18 +8,69 @@
     display: block;
     width: 100%;
     padding: 0px 15px 0px 15px;
-
+    line-height: 38px;
 
     &:focus {
         border: 1px solid #48A2BA;
     }
+}
 
+.db-area {
+    border: 1px solid $border-color;
+    background-color: $box-color;
+    outline: none;
+    height: 140px;
+    border-radius: 4px;
+    transition: all ease 0.3s;
+    display: block;
+    width: 100%;
+    padding: 10px 15px 10px 15px;
+
+    &:focus {
+        border: 1px solid #48A2BA;
+    }
+}
+
+.db-search {
+    display: inline-block;
+    border: 1px solid $border-color;
+    background-color: $box-color;
+    border-radius: 4px;
+    height: 40px;
+    position: relative;
+    padding: 0px 40px 0px 0px;
+
+    input {
+        width: 100%;
+        height: 38px;
+        display: block;
+        padding: 0px 0px 0px 15px;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        color: $text-color;
+    }
+
+    button {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 40px;
+        height: 40px;
+        background-image: url(../images/icon_search.svg);
+        border: none;
+        background-color: transparent;
+        outline: none;
+        cursor: pointer;
+        background-position: center center;
+        background-size: 20px auto;
+        background-repeat: no-repeat;
+    }
 }
 
 .db-button {
     background-color: $border-color;
     outline: none;
-
     border-radius: 4px;
     transition: all ease 0.3s;
     display: inline-block;
@@ -28,10 +79,10 @@
     text-align: center;
     color: $text-color;
     cursor: pointer;
+    height: 40px;
 
     &:hover {
         background-color: lighten($border-color, 10%);
-
     }
 
     &.is-dark {
@@ -44,14 +95,32 @@
         }
     }
 
+    &.is-outlined {
+        border: 1px solid $border-color;
+        background-color: $box-color;
+
+        &:hover {
+            background-color: $border-color;
+        }
+    }
+
+    &.is-link {
+        color: $active-color;
+        border: none;
+        background-color: transparent;
+
+        &:hover {
+            border: none;
+            background-color: transparent;
+        }
+    }
+
     &.is-small {
-
         line-height: 25px;
-
+        height: 25px;
     }
 
     &.is-disabled {
-
         opacity: 0.6;
     }
 
@@ -59,28 +128,44 @@
         border-radius: 0px;
     }
 
+    &.is-active {
+        border: 1px solid $active-color-second;
+        background-color: $active-color-second;
+        color: #fff;
+
+        &:hover {
+            background-color: lighten($active-color-second, 10%);
+        }
+
+        &.is-outlined {
+            border: 1px solid $active-color-second;
+            background-color: #fff;
+            color: $active-color-second;
+
+            &:hover {
+                background-color: lighten($active-color-second, 10%);
+                color: #fff;
+            }
+        }
+    }
 }
 
 .field {
     margin-bottom: 7px;
     position: relative;
 
-
     &.has-icon {
-
         .db-input {
-            padding-left: 50px;
+            padding-left: 40px;
         }
 
         .db-button {
             padding-left: 40px;
         }
     }
-
 }
 
 /************dropdown*******/
-
 .dropdown-menu {
     width: 100%;
     min-width: 100px;
@@ -90,7 +175,6 @@
     border-radius: 0px;
     border: 1px solid $border-color;
     box-shadow: none;
-
     border-radius: 2px;
     width: 100%;
     min-width: 100px;
@@ -101,10 +185,8 @@
         color: $text-color;
         padding: 10px 15px;
 
-
         &:hover {
             background-color: #CBD6E2;
-
         }
 
         &.is-active {
@@ -112,7 +194,6 @@
             color: #fff;
         }
     }
-
 }
 
 .db-dropdown {
@@ -147,9 +228,48 @@
                 display: inline-block;
                 cursor: pointer;
                 color: #fff;
-
-
             }
         }
     }
+}
+
+.db-checkbox {
+    position: relative;
+    display: inline-block;
+
+    label {
+        display: block;
+        cursor: pointer;
+
+        input {
+            visibility: hidden;
+            position: absolute;
+            width: 1px;
+            height: 1px;
+        }
+
+        span {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #CAD4E0;
+            border-radius: 3px;
+            background-color: #fff;
+            display: block;
+        }
+
+        input:checked ~ span {
+            background-image: url('../images/check.svg');
+            background-size: 20px 20px;
+            border: none;
+        }
+    }
+}
+
+.db-vote {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-image: url('../images/vote.svg');
+    background-size: 20px 20px;
+    margin-bottom: 5px;
 }
