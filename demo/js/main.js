@@ -14,8 +14,18 @@
                 $(this).toggleClass("is-active");
             });
         }
+        db.addLotSelected = function () {
+            $('.al-item').on('click', function () {
+                $(this).toggleClass("selected");
+            });
+        }
+
+
+
 
         db.dropdown();
+        db.addLotSelected();
+
 
 
     });
