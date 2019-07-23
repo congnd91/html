@@ -15,6 +15,49 @@
     }
 }
 
+.document-view-alert {
+    border: 1px solid $border-color;
+    background-color: $box-color;
+    outline: none;
+    height: 40px;
+    border-radius: 2px;
+    transition: all ease 0.3s;
+    background-color: #fff;
+    position: absolute;
+
+    display: block;
+    width: 100%;
+    padding: 0px 40px 0px 15px;
+    max-width: 550px;
+    @media screen and (max-width: 1199px) {
+        max-width: 450px;
+    }
+    @media screen and (max-width: 991px) {
+        max-width: 300px;
+    }
+    p {
+        line-height: 38px;
+        margin: 0px;
+    }
+    i {
+        width: 38px;
+        height: 38px;
+        line-height: 38px;
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        font-size: 30px;
+        color: $text-color-second;
+        cursor: pointer;
+        &:hover {
+            color: $active-color;
+
+
+        }
+    }
+}
+
 .db-area {
     border: 1px solid $border-color;
     background-color: $box-color;
@@ -33,23 +76,25 @@
 
 .db-search {
     display: inline-block;
-    border: 1px solid $border-color;
-    background-color: $box-color;
+
+
     border-radius: 2px;
     height: 40px;
     position: relative;
-    padding: 0px 40px 0px 0px;
+    padding: 0px 0px 0px 0px;
 
     input {
         width: 100%;
-        height: 38px;
+        height: 40px;
         display: block;
-        padding: 0px 0px 0px 15px;
+        padding: 0px 40px 0px 15px;
         background-color: transparent;
         outline: none;
         border: none;
         color: $text-color;
-
+        border: 1px solid $border-color;
+        background-color: $box-color;
+        transition: all ease 0.3s;
 
         &::-webkit-input-placeholder {
             color: $text-color;
@@ -61,6 +106,9 @@
 
         &::placeholder {
             color: $text-color;
+        }
+        &:focus {
+            border: 1px solid #48A2BA;
         }
     }
 
@@ -78,8 +126,6 @@
         background-position: center center;
         background-size: 20px auto;
         background-repeat: no-repeat;
-
-
 
     }
 }
@@ -130,7 +176,6 @@
             border: none;
             background-color: transparent;
             text-decoration: underline;
-            background-color: #fff;
 
         }
     }
@@ -186,13 +231,13 @@
 }
 
 .db-number {
-    border-radius: 2px;
-    padding: 0px 40px 0px 0px;
+
+
     height: 40px;
     width: 145px;
-    border: 1px solid $border-color;
-    background-color: $box-color;
+
     position: relative;
+
 
     input {
         width: 100%;
@@ -206,13 +251,22 @@
         font-size: 14px;
         padding: 0px 10px 0px 15px;
         background-color: transparent;
+        border: 1px solid $border-color;
+        background-color: $box-color;
+        border-radius: 2px;
+        padding: 0px 40px 0px 15px;
+        transition: all ease 0.3s;
+
+        &:focus {
+            border: 1px solid $active-color;
+        }
     }
 
     .control {
         width: 38px;
-        height: 38px;
+        height: 36px;
         position: absolute;
-        top: 0px;
+        top: 1px;
         right: 0px;
         border-left: 1px solid $border-color;
 
@@ -293,6 +347,7 @@
                 font-size: 16px;
             }
         }
+
     }
 
     &.is-dark {
@@ -309,7 +364,19 @@
             }
         }
     }
+
+    .dropdown {
+        &.is-active {
+
+            .dropdown-trigger {
+                span {
+                    border-color: $active-color;
+                }
+            }
+        }
+    }
 }
+
 
 .db-checkbox {
     position: relative;
