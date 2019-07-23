@@ -5082,34 +5082,112 @@ a {
 
 .news-slider {
     position: relative;
+    .owl-dots {
+        position: absolute;
+        bottom: 10px;
+        left: 0px;
+        right: 0px;
+        text-align: center;
+        z-index: 20;
+        .owl-dot {
+            width: 12px;
+            height: 12px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0px 7px;
+
+            cursor: pointer;
+            &.active {
+                background-color: #fff;
+            }
+        }
+    }
+
+    .owl-prev {
+        background-image: url(../images/prev.png);
+        width: 39px;
+        height: 77px;
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        margin-top: -40px;
+        cursor: pointer;
+        z-index: 10;
+        text-indent: -9999px;
+        overflow: hidden;
+
+        @media screen and (max-width: 991px) {
+            width: 19px;
+            height: 47px;
+            background-size: 19px 47px;
+            left: 5px;
+        }
+
+
+    }
+
+    .owl-next {
+        background-image: url(../images/next.png);
+        width: 39px;
+        height: 77px;
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        margin-top: -40px;
+        cursor: pointer;
+        z-index: 10;
+        text-indent: -9999px;
+        overflow: hidden;
+
+        @media screen and (max-width: 991px) {
+            width: 19px;
+            height: 47px;
+            background-size: 19px 47px;
+            right: 5px;
+        }
+
+
+
+    }
+
+
 
     .news-slider-item {
         position: relative;
         background-repeat: no-repeat;
         background-position: center center;
         padding: 170px 0px;
+        height: 600px;
+        background-size: cover;
+
 
         @media screen and (max-width: 1199px) {
-            padding: 100px 0px;
+            padding: 170px 0px;
 
 
         }
 
         @media screen and (max-width: 991px) {
-            padding: 70px 0px;
+            padding: 100px 0px;
+            height: 400px;
         }
 
         @media screen and (max-width: 767px) {
-            padding: 30px 0px;
+            padding: 100px 0px;
 
         }
 
     }
 
     .news-slider-item-video {
-        height: 570px;
+        height: 600px;
         position: relative;
-        border: 1px solid red;
+        overflow: hidden;
+        @media screen and (max-width: 991px) {
+            height: 400px;
+
+        }
     }
 
     .btn-block {
@@ -5128,6 +5206,10 @@ a {
     .ns-text {
         max-width: 580px;
 
+        @media screen and (max-width: 1300px) {
+
+            padding-left: 30px;
+        }
         h2 {
             color: #fff;
             font-size: 30px;

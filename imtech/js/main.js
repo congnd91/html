@@ -103,8 +103,9 @@
                 $(owl_news).owlCarousel({
                     loop: true,
                     margin: 0,
-                    nav: false,
-                    autoplay: false,
+                    nav: true,
+                    autoplay: true,
+
                     items: 1,
                     //      animateOut: 'fadeOut'
 
