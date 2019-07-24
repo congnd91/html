@@ -32,9 +32,12 @@
                 if ($(content).is(":visible")) {
                     $(content).hide();
                     $(this).removeClass("active");
+                    $('body').removeClass("overflow");
                 } else {
                     $(content).show();
                     $(this).addClass("active");
+
+                    $('body').addClass("overflow");
                 }
             });
         }
@@ -47,7 +50,7 @@
                 if (isMobileWidth()) {
                     var padding = $('.dv-slider').height();
                     var doc = $(window).height();
-                    $(".document-sidebar-scroll").css("padding-top", padding + "px");
+                    $(".document-sidebar-scroll").css("padding-top", padding - 10 + "px");
                 }
                 $(".dh-accordion-content").css("height", doc - padding - 50 + "px");
             }).trigger('resize');
