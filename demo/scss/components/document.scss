@@ -4,7 +4,9 @@
     .dh-left {
         float: left;
 
-        @media screen and (max-width: 767px) {}
+        @media screen and (max-width: 575px) {
+            float: none;
+        }
 
 
     }
@@ -13,6 +15,12 @@
         float: right;
 
         @media screen and (max-width: 991px) {}
+
+        @media screen and (max-width: 575px) {
+            float: none;
+            margin: 20px 0px 0px 0px;
+
+        }
     }
 
     .dh-item {
@@ -22,7 +30,7 @@
             min-width: 400px;
         }
 
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: 575px) {
             min-width: 165px;
         }
 
@@ -31,7 +39,7 @@
             margin: 0px 30px 0px 0px;
             width: 165px;
 
-            @media screen and (max-width: 767px) {
+            @media screen and (max-width: 575px) {
                 float: none;
                 margin: 0px 0px 10px 0px;
 
@@ -62,7 +70,16 @@
         margin: 30px 0px 20px 0px;
 
         .dh-item {
-            min-width: 300px;
+            min-width: 400px;
+
+            @media screen and (max-width: 1199px) {
+                min-width: 400px;
+            }
+
+            @media screen and (max-width: 991px) {
+                min-width: 300px;
+
+            }
 
 
             img {
@@ -84,6 +101,11 @@
 
     .dh-right-info {
         float: right;
+
+        @media screen and (max-width: 767px) {
+            float: none;
+            margin: 20px 0px 0px 0px;
+        }
 
 
 
@@ -122,23 +144,12 @@
     border-radius: 4px;
     background-color: $box-color;
     border: 1px solid $border-color;
-    padding: 15px 15px 15px 40px;
+    padding: 15px 15px 15px 15px;
     position: relative;
 
     cursor: grab;
 
-    &:before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        bottom: 5px;
-        width: 10px;
-        background-image: url(../images/dot.png);
-        background-repeat: repeat-y;
-        background-size: 8px auto;
-    }
+
 
     img {
         float: left;
@@ -153,6 +164,25 @@
     }
 
     p {}
+
+    &.is-drag {
+        padding-left: 35px;
+
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            bottom: 5px;
+            width: 10px;
+            background-image: url(../images/dot.png);
+            background-repeat: repeat-y;
+            background-size: 8px auto;
+        }
+
+
+    }
 }
 
 .document-datasheet-card {
@@ -180,7 +210,7 @@
     border-radius: 4px;
     background-color: $box-color;
     border: 1px solid $border-color;
-    transition: all ease 0.3s;
+    transition: background ease 0.3s;
 
     @media screen and (max-width: 991px) {
         width: 150px;
@@ -217,12 +247,18 @@
     right: 30px;
     bottom: 30px;
     background-color: #F9FCFF;
+
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+
     .vs-value {
         position: absolute;
         width: 12px;
         left: 0px;
         background-color: $text-color;
     }
+
     .vs-num {
         height: 40px;
         width: 24px;

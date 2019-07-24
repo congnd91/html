@@ -21,7 +21,7 @@ body {
   min-height: 100%;
   padding: 0px;
   height: 100%;
-  min-width: 500px; }
+  min-width: 340px; }
 
 h1,
 .h1 {
@@ -876,7 +876,7 @@ h6 {
   outline: none;
   height: 40px;
   border-radius: 2px;
-  transition: all ease 0.3s;
+  transition: border ease 0.3s;
   display: block;
   width: 100%;
   padding: 0px 15px 0px 15px;
@@ -890,13 +890,16 @@ h6 {
   outline: none;
   height: 40px;
   border-radius: 2px;
-  transition: all ease 0.3s;
+  transition: border ease 0.3s;
   background-color: #fff;
   position: absolute;
   display: block;
   width: 100%;
   padding: 0px 40px 0px 15px;
-  max-width: 550px; }
+  max-width: 710px; }
+  @media screen and (max-width: 1407px) {
+    .document-view-alert {
+      max-width: 550px; } }
   @media screen and (max-width: 1199px) {
     .document-view-alert {
       max-width: 450px; } }
@@ -926,7 +929,7 @@ h6 {
   outline: none;
   height: 140px;
   border-radius: 2px;
-  transition: all ease 0.3s;
+  transition: border ease 0.3s;
   display: block;
   width: 100%;
   padding: 10px 15px 10px 15px; }
@@ -950,7 +953,7 @@ h6 {
     color: #33475B;
     border: 1px solid #CBD6E2;
     background-color: #F9FCFF;
-    transition: all ease 0.3s; }
+    transition: border ease 0.3s; }
     .db-search input::-webkit-input-placeholder {
       color: #33475B; }
     .db-search input:-ms-input-placeholder {
@@ -978,7 +981,7 @@ h6 {
   background-color: #CBD6E2;
   outline: none;
   border-radius: 2px;
-  transition: all ease 0.3s;
+  transition: border ease 0.3s, background ease 0.3s;
   display: inline-block;
   padding: 0px 30px;
   line-height: 40px;
@@ -1055,7 +1058,7 @@ h6 {
     background-color: #F9FCFF;
     border-radius: 2px;
     padding: 0px 40px 0px 15px;
-    transition: all ease 0.3s; }
+    transition: border ease 0.3s; }
     .db-number input:focus {
       border: 1px solid #0091ae; }
   .db-number .control {
@@ -1116,7 +1119,8 @@ h6 {
     padding: 0px 25px;
     display: inline-block;
     cursor: pointer;
-    color: #33475B; }
+    color: #33475B;
+    transition: border ease 0.3s; }
     .db-dropdown .dropdown-trigger span i {
       margin-left: 5px;
       font-size: 16px; }
@@ -1169,6 +1173,9 @@ h6 {
     width: 100%; }
   .user-header .uh-des {
     padding-left: 15px; }
+    @media screen and (max-width: 767px) {
+      .user-header .uh-des {
+        padding: 0px; } }
     .user-header .uh-des h3 {
       margin-bottom: 15px; }
     .user-header .uh-des p {
@@ -1181,6 +1188,10 @@ h6 {
   .user-document .ud-tab {
     border-bottom: 2px solid #CBD6E2;
     height: 36px; }
+    @media screen and (max-width: 767px) {
+      .user-document .ud-tab {
+        border: none;
+        height: auto; } }
     .user-document .ud-tab a {
       float: left;
       width: 20%;
@@ -1190,7 +1201,18 @@ h6 {
       font-size: 16px;
       text-align: center;
       color: #33475B;
-      transition: all ease 0.3s; }
+      transition: color ease 0.3s;
+      cursor: pointer; }
+      @media screen and (max-width: 991px) {
+        .user-document .ud-tab a {
+          font-size: 14px; } }
+      @media screen and (max-width: 767px) {
+        .user-document .ud-tab a {
+          width: auto;
+          padding: 0px 10px;
+          border: none;
+          margin-bottom: 10px;
+          line-height: 25px; } }
       .user-document .ud-tab a span.icon-lock {
         display: inline-block;
         width: 25px;
@@ -1242,17 +1264,22 @@ h6 {
     .tab-designs .td-bar .is-pulled-left {
       width: 100%;
       float: none;
-      margin: 0px 0px 10px 0px; } }
+      margin: 0px 0px 10px 0px;
+      display: flex;
+      justify-content: space-between; } }
+  .tab-designs .td-bar .is-pulled-left .db-button {
+    white-space: nowrap; }
+  @media screen and (max-width: 991px) {
+    .tab-designs .td-bar .is-pulled-right {
+      display: none; } }
   .tab-designs .td-bar .db-search {
     float: left;
     margin: 0px 7px 0px 0px;
     width: 550px; }
     @media screen and (max-width: 991px) {
       .tab-designs .td-bar .db-search {
-        width: 400px; } }
-    @media screen and (max-width: 767px) {
-      .tab-designs .td-bar .db-search {
-        width: 300px; } }
+        width: 400px;
+        width: 100%; } }
   .tab-designs .td-bar .db-button {
     float: left; }
   .tab-designs .td-bar .db-dropdown {
@@ -1270,47 +1297,47 @@ h6 {
     margin: 0px 3px;
     color: #0091ae; }
 
-.collection-card {
-  margin: 0px 0px 40px 0px; }
-  .collection-card .cc-img {
+.document-card {
+  margin: 0px 0px 0px 0px; }
+  .document-card .cc-img {
     position: relative;
     position: relative;
     margin: 0px 0px 5px 0px; }
-    .collection-card .cc-img img {
+    .document-card .cc-img img {
       width: 100%; }
-    .collection-card .cc-img .cc-control {
+    .document-card .cc-img .cc-control {
       z-index: 1;
       position: absolute;
       top: 8px;
       right: 8px; }
-  .collection-card .cc-des h3 {
+  .document-card .cc-des h3 {
     font-weight: 400;
     font-size: 14px; }
-    .collection-card .cc-des h3 span {
+    .document-card .cc-des h3 span {
       float: right;
       font-size: 12px; }
-  .collection-card .cc-des-inner img {
+  .document-card .cc-des-inner img {
     float: left;
     width: 65px;
     height: 35px;
     margin: 2px 8px 0px 0px; }
-  .collection-card .cc-des-inner p {
+  .document-card .cc-des-inner p {
     margin: 0px 0px 0px 0px;
     font-size: 14px;
     color: #506E91; }
-    .collection-card .cc-des-inner p em {
+    .document-card .cc-des-inner p em {
       font-size: 12px;
       float: right;
       font-style: normal; }
-  .collection-card .cc-des-inner span {
+  .document-card .cc-des-inner span {
     display: block;
     font-size: 12px;
     color: #506E91; }
-    .collection-card .cc-des-inner span em {
+    .document-card .cc-des-inner span em {
       float: right;
       font-size: 12px;
       font-style: normal; }
-      .collection-card .cc-des-inner span em i {
+      .document-card .cc-des-inner span em i {
         display: inline-block;
         width: 15px;
         height: 15px;
@@ -1339,23 +1366,30 @@ h6 {
 
 .document-header .dh-left {
   float: left; }
+  @media screen and (max-width: 575px) {
+    .document-header .dh-left {
+      float: none; } }
 
 .document-header .dh-right {
   float: right; }
+  @media screen and (max-width: 575px) {
+    .document-header .dh-right {
+      float: none;
+      margin: 20px 0px 0px 0px; } }
 
 .document-header .dh-item {
   min-width: 600px; }
   @media screen and (max-width: 991px) {
     .document-header .dh-item {
       min-width: 400px; } }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 575px) {
     .document-header .dh-item {
       min-width: 165px; } }
   .document-header .dh-item img {
     float: left;
     margin: 0px 30px 0px 0px;
     width: 165px; }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 575px) {
       .document-header .dh-item img {
         float: none;
         margin: 0px 0px 10px 0px; } }
@@ -1375,7 +1409,13 @@ h6 {
 .document-header.fix {
   margin: 30px 0px 20px 0px; }
   .document-header.fix .dh-item {
-    min-width: 300px; }
+    min-width: 400px; }
+    @media screen and (max-width: 1199px) {
+      .document-header.fix .dh-item {
+        min-width: 400px; } }
+    @media screen and (max-width: 991px) {
+      .document-header.fix .dh-item {
+        min-width: 300px; } }
     .document-header.fix .dh-item img {
       float: left;
       margin: 0px 30px 0px 0px;
@@ -1388,6 +1428,10 @@ h6 {
 
 .document-header .dh-right-info {
   float: right; }
+  @media screen and (max-width: 767px) {
+    .document-header .dh-right-info {
+      float: none;
+      margin: 20px 0px 0px 0px; } }
   .document-header .dh-right-info p {
     margin: 0px 0px 5px 0px;
     font-size: 14px;
@@ -1413,20 +1457,9 @@ h6 {
   border-radius: 4px;
   background-color: #F9FCFF;
   border: 1px solid #CBD6E2;
-  padding: 15px 15px 15px 40px;
+  padding: 15px 15px 15px 15px;
   position: relative;
   cursor: grab; }
-  .document-feature-card:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    bottom: 5px;
-    width: 10px;
-    background-image: url(../images/dot.png);
-    background-repeat: repeat-y;
-    background-size: 8px auto; }
   .document-feature-card img {
     float: left;
     margin: 0px 20px 0px 0px;
@@ -1435,6 +1468,19 @@ h6 {
   .document-feature-card h3 {
     font-size: 20px;
     margin: 0px 0px 5px 0px; }
+  .document-feature-card.is-drag {
+    padding-left: 35px; }
+    .document-feature-card.is-drag:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      bottom: 5px;
+      width: 10px;
+      background-image: url(../images/dot.png);
+      background-repeat: repeat-y;
+      background-size: 8px auto; }
 
 .document-datasheet-card {
   border-radius: 4px;
@@ -1455,7 +1501,7 @@ h6 {
   border-radius: 4px;
   background-color: #F9FCFF;
   border: 1px solid #CBD6E2;
-  transition: all ease 0.3s; }
+  transition: background ease 0.3s; }
   @media screen and (max-width: 991px) {
     .document-attachment-card {
       width: 150px; } }
@@ -1483,6 +1529,9 @@ h6 {
   right: 30px;
   bottom: 30px;
   background-color: #F9FCFF; }
+  @media screen and (max-width: 767px) {
+    .vertical-slider {
+      display: none; } }
   .vertical-slider .vs-value {
     position: absolute;
     width: 12px;
@@ -1577,6 +1626,8 @@ h6 {
 
 .document-datasheet-card {
   margin-bottom: 20px; }
+  .document-datasheet-card p {
+    margin: 0px !important; }
   .document-datasheet-card .edit {
     position: absolute;
     width: 20px;
@@ -1631,7 +1682,7 @@ h6 {
   border-radius: 4px;
   background-color: #F9FCFF;
   border: 1px solid #CBD6E2;
-  transition: all ease 0.3s;
+  transition: background ease 0.3s;
   min-height: 172px; }
   @media screen and (max-width: 991px) {
     .document-attachment-dropzone {
@@ -1790,6 +1841,9 @@ h6 {
   right: 0px;
   z-index: 10;
   padding: 10px; }
+  @media screen and (max-width: 767px) {
+    .document-view-toolbar {
+      display: none; } }
 
 .toolbar-level span {
   border: 1px solid #CBD6E2;
@@ -1922,6 +1976,62 @@ h6 {
       background-image: url(../images/dot.png);
       background-repeat: repeat-y;
       background-size: 8px auto; }
+
+#mobile-indicator {
+  display: none; }
+
+@media (max-width: 991px) {
+  #mobile-indicator {
+    display: block; } }
+
+.dh-accordion-title {
+  display: block;
+  height: 35px;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0px 0px 0px 0px;
+  padding: 5px 10px;
+  border-bottom: 1px solid #CBD6E2;
+  display: none;
+  cursor: pointer; }
+  @media screen and (max-width: 991px) {
+    .dh-accordion-title {
+      display: block; } }
+  .dh-accordion-title i {
+    width: 20px;
+    font-size: 18px;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    position: relative; }
+  .dh-accordion-title.active i {
+    top: -2px;
+    transform: rotate(-90deg); }
+  .dh-accordion-title strong {
+    float: right;
+    line-height: 25px;
+    font-weight: 700; }
+
+@media screen and (min-width: 992px) {
+  .document-sidebar-scroll {
+    padding-top: 0px !important; } }
+
+.dh-accordion-content {
+  overflow: auto;
+  background-color: #fff; }
+  @media screen and (max-width: 991px) {
+    .dh-accordion-content {
+      display: none;
+      padding: 0px 10px 25px 10px; } }
+
+@media screen and (max-width: 991px) {
+  .document-fixed {
+    background-color: #fff;
+    position: fixed;
+    z-index: 10;
+    top: 60px;
+    left: 0px;
+    right: 0px; } }
 
 .item-table .db-search {
   width: 100%; }
@@ -2600,10 +2710,10 @@ h6 {
         line-height: 40px;
         color: #33475B;
         padding: 0px 5px 0px 15px; }
-      .setting .setting-nav > ul > li > ul > li.active > a {
-        background-color: #F6F8FA; }
       .setting .setting-nav > ul > li > ul > li:hover > a {
         background-color: #F6F8FA; }
+      .setting .setting-nav > ul > li > ul > li.active > a {
+        background-color: #d5dfe8; }
 
 .sr-caption {
   margin: 0px 0px 20px 0px; }

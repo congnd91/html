@@ -95,6 +95,10 @@
             }
 
         }
+        $('.topbar').click(function () {
+            $(".video-youtube")[0].src += "1";
+
+        });
         db.newsHomeSlider = function () {
 
 
@@ -104,13 +108,37 @@
                     loop: true,
                     margin: 0,
                     nav: true,
-                    autoplay: true,
-
+                    autoplay: false,
                     items: 1,
+                    autoplayTimeout: 5000
                     //      animateOut: 'fadeOut'
+
+                    // changed: callback
 
                 });
             }
+
+            owl_news.on('changed.owl.carousel', function (event) {
+                //  var vid = document.getElementById("my-video");
+
+
+
+
+
+                setTimeout(function () {
+
+                    $(".video-youtube")[0].src += "1";
+
+                }, 2000);
+
+
+
+            });
+
+
+
+
+
 
         }
 
@@ -504,6 +532,7 @@
                 }
             });
         }
+
 
 
         db.preLoad();
