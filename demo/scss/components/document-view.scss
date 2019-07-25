@@ -1,3 +1,246 @@
+.document {}
+
+.document-header {
+    margin-bottom: 15px;
+    .dh-left {
+        float: left;
+
+        @media screen and (max-width: 575px) {
+            float: none;
+        }
+
+
+    }
+
+    .dh-right {
+        float: right;
+
+        @media screen and (max-width: 991px) {}
+
+        @media screen and (max-width: 575px) {
+            float: none;
+            margin: 20px 0px 0px 0px;
+
+        }
+    }
+
+    .dh-item {
+        min-width: 600px;
+
+        @media screen and (max-width: 991px) {
+            min-width: 400px;
+        }
+
+        @media screen and (max-width: 575px) {
+            min-width: 165px;
+        }
+
+        img {
+            float: left;
+            margin: 7px 30px 0px 0px;
+            width: 165px;
+
+            @media screen and (max-width: 575px) {
+                float: none;
+                margin: 0px 0px 10px 0px;
+
+            }
+        }
+
+        h3 {
+            font-size: 20px;
+            margin: 0px 0px 5px 0px;
+        }
+    }
+
+    .dh-item-right {
+        max-width: 165px;
+
+        img {
+            margin: 0px 0px 5px 0px;
+            width: 165px;
+        }
+
+        p {
+            font-size: 20px;
+            margin: 0px 0px 10px 0px;
+        }
+    }
+
+    &.fix {
+        margin: 30px 0px 20px 0px;
+
+        .dh-item {
+            min-width: 400px;
+
+            @media screen and (max-width: 1199px) {
+                min-width: 400px;
+            }
+
+            @media screen and (max-width: 991px) {
+                min-width: 300px;
+
+            }
+
+
+            img {
+                float: left;
+                margin: 7px 30px 0px 0px;
+                width: 165px;
+
+                @media screen and (max-width: 767px) {
+                    float: left;
+                    margin: 0px 20px 10px 0px;
+                    width: 150px;
+
+                }
+            }
+
+
+        }
+    }
+
+    .dh-right-info {
+        float: right;
+
+        @media screen and (max-width: 767px) {
+            float: none;
+            margin: 20px 0px 0px 0px;
+        }
+
+
+
+        p {
+            margin: 0px 0px 5px 0px;
+            font-size: 14px;
+            font-weight: 700;
+
+            span {
+                font-weight: 400;
+                display: inline-block;
+                min-width: 100px;
+
+                b {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+
+.document-caption {
+    margin: 20px 0px 10px 0px;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    i {
+        margin: 0px 5px 0px 0px;
+        font-size: 20px;
+        opacity: 0.8;
+    }
+}
+
+.dat-cols {
+    .dat-col {
+        float: left;
+        margin: 0px 30px 30px 0px;
+    }
+}
+
+.vertical-slider {
+    width: 12px;
+    position: absolute;
+    z-index: 10;
+    top: 70px;
+    right: 30px;
+    bottom: 30px;
+    background-color: #F9FCFF;
+
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+
+    .vs-value {
+        position: absolute;
+        width: 12px;
+        left: 0px;
+        background-color: $text-color;
+    }
+
+    .vs-num {
+        height: 40px;
+        width: 24px;
+        background-color: #fff;
+        z-index: 1;
+        cursor: pointer;
+        border: 1px solid #CBD6E2;
+        box-sizing: border-box;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        position: absolute;
+        left: -6px;
+        z-index: 2;
+
+        span {
+            display: block;
+            width: 12px;
+            height: 12px;
+            background-image: url(../images/icon_num.svg);
+            position: absolute;
+            background-repeat: no-repeat;
+            background-position: center center;
+            transform: rotate(90deg);
+            top: 12px;
+            left: 5px;
+
+
+        }
+
+    }
+
+}
+
+.lo-slide {
+    .lo-slide-text {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+            font-size: 14px;
+        }
+    }
+
+
+
+    .lo-track {
+        height: 12px;
+        position: relative;
+        margin: 20px 0px 0px 0px;
+        background-color: #F9FCFF;
+
+        .lo-num {
+            position: absolute;
+            width: 39.18px;
+            height: 24px;
+            top: -6px;
+
+            background-color: #fff;
+            z-index: 1;
+            cursor: pointer;
+            border: 1px solid #CBD6E2;
+            box-sizing: border-box;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+            border-radius: 5px;
+            background-image: url(../images/icon_num.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+
+
+        }
+    }
+}
+
 .document-attachment-zone {
     background: #F9FCFF;
     border: 0.5px dashed #33475B;
@@ -47,10 +290,14 @@
     }
 }
 
-.ds-adjust {}
+
 
 .ds-content {
     margin: 0px 0px 30px 0px;
+
+    .db-input {
+        margin-bottom: 7px;
+    }
 
     label {
         display: block;
@@ -64,8 +311,7 @@
     }
 
     .column {
-        padding-bottom: 5px;
-
+        // padding-bottom: 5px;
     }
 
     .db-button {
@@ -213,6 +459,14 @@
     right: 0px;
     z-index: 10;
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    .is-pulled-left {
+        flex: 1;
+
+    }
+
 
     @media screen and (max-width: 767px) {
         display: none;
@@ -259,6 +513,9 @@
 }
 
 .toolbar-control {
+    white-space: nowrap;
+    padding-left: 20px;
+
     .icon {
         cursor: pointer;
 
@@ -371,6 +628,7 @@
     padding: 10px 30px 10px 30px;
 
     margin-bottom: 8px;
+    cursor: pointer;
 
     span {
         margin: 0px;
@@ -415,6 +673,22 @@
             background-image: url(../images/dot.png);
             background-repeat: repeat-y;
             background-size: 8px auto;
+        }
+    }
+
+    &.is-active {
+        border: 1px solid $active-color;
+
+
+
+    }
+
+    &.is-dropzone {
+        border: 1px dashed $active-color;
+
+        p {
+            text-align: center;
+            margin: 0px;
         }
     }
 }
@@ -532,7 +806,3 @@
 }
 
 .document-sidebar-scroll {}
-
-body.overflow {
-    overflow: hidden;
-}
