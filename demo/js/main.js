@@ -14,6 +14,7 @@
         db.stepSelected = function () {
             $('.step-item .dot').on('click', function () {
                 $(this).parent().toggleClass("active");
+
             });
         }
         db.accodion = function () {

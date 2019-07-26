@@ -18,11 +18,9 @@
 
         span {
             width: 100%;
+            padding: 0px 10px;
 
-            i {
-                float: right;
-                margin: 12px 0px 0px 0px;
-            }
+            i {}
 
         }
     }
@@ -61,47 +59,93 @@
 
     }
 
-    .item-card {
-        width: 60px;
-        height: 60px;
-        border-radius: 3px;
-        float: left;
-        margin: 0px 7px 7px 0px;
-        overflow: hidden;
-        position: relative;
+
+}
+
+.item-card {
+    width: 60px;
+    height: 60px;
+    border-radius: 3px;
+    float: left;
+    margin: 0px 7px 7px 0px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid $border-color;
+    background-color: $box-color;
+
+    .item-number {
+        width: 20px;
+        height: 20px;
+        display: block;
+        background-color: #48A2BA;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        line-height: 20px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 1;
+        font-size: 14px;
+
+    }
+
+    &.active {
+        border: 1px solid #48A2BA;
+        background-color: lighten($text-color-second, 40%);
+    }
+
+    img {
+        width: 58px;
+        height: 58px;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+
+.item-card-large {
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    position: relative;
+    padding: 50px 30px;
+    text-align: center;
+    cursor: pointer;
+
+    .dot {
+        width: 25px;
+        height: 25px;
+        background-color: #fff;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
+        border-radius: 50%;
         border: 1px solid $border-color;
-        background-color: $box-color;
 
-        .item-number {
-            width: 20px;
-            height: 20px;
-            display: block;
-            background-color: #48A2BA;
-            border-radius: 50%;
-            color: #fff;
-            text-align: center;
-            line-height: 20px;
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            z-index: 1;
-            font-size: 14px;
+    }
 
-        }
+    &.selected {
+        background-color: #CBD6E2;
+        border: 1px solid #48A2BA;
 
-        &.active {
+        .dot {
             border: 1px solid #48A2BA;
-            background-color: lighten($text-color-second, 40%);
-        }
 
-        img {
-            width: 60px;
+            &:before {
+                content: "";
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                display: block;
+                background-color: #48A2BA;
+                position: absolute;
+                top: 4px;
+                left: 4px;
 
-            height: 60px;
-        }
-
-        &:hover {
-            opacity: 0.8;
+            }
         }
     }
 }
