@@ -1,177 +1,159 @@
-.db-input {
-    border: 1px solid $border-color;
-    background-color: $box-color;
-    outline: none;
+.input {
     height: 40px;
-    border-radius: 2px;
-    transition: border ease 0.3s;
-    display: block;
-    width: 100%;
-    padding: 0px 15px 0px 15px;
-    line-height: 38px;
+}
+
+.label {
+    color: $text;
+}
+
+.input,
+.textarea,
+.select {
+    background-color: $background;
+    border: 1px solid $border;
+    border-radius: $radius-small;
+    outline: none;
+    box-shadow: none;
+    font-size: $font-size-h6;
+    &:hover {
+        border-color: $border;
+
+    }
 
     &:focus {
-        border: 1px solid #48A2BA;
+        outline: none;
+        border-color: $theme-ltblue;
+        box-shadow: none;
+    }
+
+    &::-webkit-input-placeholder {
+        color: $text;
+    }
+
+    &:-ms-input-placeholder {
+        color: $text;
+    }
+
+    &::placeholder {
+        color: $text;
     }
 }
+
+
+a.is-link {
+    color: $theme-ltblue;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.input[disabled],
+.textarea[disabled],
+.select select[disabled],
+fieldset[disabled] .input,
+fieldset[disabled] .textarea,
+fieldset[disabled] .select select,
+.select fieldset[disabled] select {
+    background-color: $background;
+    border-color: $border;
+    box-shadow: none;
+    color: $text;
+
+    opacity: 0.6;
+}
+
 
 .color-primary {
-    color: $active-color;
+    color: $theme-ltblue;
 }
 
-.document-view-alert {
-    border: 1px solid $border-color;
-    background-color: lighten($border-color, 10%);
-
-    outline: none;
-    height: 40px;
-    border-radius: 2px;
-    transition: border ease 0.3s;
-    position: relative;
-
-    display: block;
-    width: 100%;
-    padding: 0px 40px 0px 15px;
-
-
-
-    p {
-        line-height: 38px;
-        margin: 0px;
-    }
-
-    i {
-        width: 38px;
-        height: 38px;
-        line-height: 38px;
-        text-align: center;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        font-size: 30px;
-        color: $text-color-second;
-        cursor: pointer;
-
-        &:hover {
-            color: $active-color;
-
-
-        }
-    }
-}
-
-.db-area {
-    border: 1px solid $border-color;
-    background-color: $box-color;
-    outline: none;
-    height: 140px;
-    border-radius: 2px;
-    transition: border ease 0.3s;
-    display: block;
-    width: 100%;
-    padding: 10px 15px 10px 15px;
-
-    &:focus {
-        border: 1px solid #48A2BA;
-    }
-}
-
-.db-search {
-    display: inline-block;
-
-
-    border-radius: 2px;
-    height: 40px;
-    position: relative;
-    padding: 0px 0px 0px 0px;
-
-    input {
-        width: 100%;
-        height: 40px;
-        display: block;
-        padding: 0px 40px 0px 15px;
-        background-color: transparent;
-        outline: none;
-        border: none;
-        color: $text-color;
-        border: 1px solid $border-color;
-        background-color: $box-color;
-        transition: border ease 0.3s;
-
-        &::-webkit-input-placeholder {
-            color: $text-color;
-        }
-
-        &:-ms-input-placeholder {
-            color: $text-color;
-        }
-
-        &::placeholder {
-            color: $text-color;
-        }
-
-        &:focus {
-            border: 1px solid #48A2BA;
-        }
-    }
-
-    button {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        width: 40px;
-        height: 40px;
-        background-image: url(../images/icon_search.svg);
-        border: none;
-        background-color: transparent;
-        outline: none;
-        cursor: pointer;
-        background-position: center center;
-        background-size: 20px auto;
+.field-search {
+    .icon-search {
         background-repeat: no-repeat;
+        background-position: center center;
 
+    }
+    .input {
+        &:hover {
+
+            border: 1px solid $border;
+
+        }
+        &:focus {
+            border: 1px solid $theme-ltblue;
+        }
     }
 }
 
-.db-button {
-    background-color: $border-color;
+
+
+.button {
+    background-color: $background;
     outline: none;
-    border-radius: 2px;
+    border-radius: $radius-small;
     transition: border ease 0.3s, background ease 0.3s;
     display: inline-block;
     padding: 0px 30px;
     line-height: 40px;
     text-align: center;
-    color: $text-color;
+    color: $text;
+    font-size: $font-size-h6;
     cursor: pointer;
     height: 40px;
     vertical-align: top;
 
-    &:hover {
-        background-color: lighten($border-color, 10%);
-    }
+    i.icon {
+        margin: 0px 3px !important;
+        width: 11px;
+        height: 11px;
+        background-size: 7px auto;
+        display: inline-block;
+        background-position: center;
 
+
+
+    }
+    /*
+    &:hover {
+        background-color: $background-light;
+    }
+    */
+    &:focus {
+        background-color: $border;
+        outline: none;
+
+        box-shadow: none !important;
+
+
+    }
     &.is-dark {
-        background-color: $text-color-second;
+        background-color: $theme-dkgreyblue;
         border: none;
-        color: #fff;
+        color: $white;
 
         &:hover {
-            background-color: lighten($text-color-second, 10%);
+            background-color: $theme-ltgreyblue;
         }
     }
 
     &.is-outlined {
-        border: 1px solid $border-color;
-        background-color: $box-color;
+        border: 1px solid $border;
+        background-color: $background;
 
         &:hover {
-            background-color: $border-color;
+            background-color: $theme-ltgrey-light;
+
+
+        }
+        &:focus {
+            border-color: $theme-blue;
+
+
         }
     }
 
     &.is-link {
-        color: $active-color;
+        color: $theme-ltblue;
         border: none;
         background-color: transparent;
 
@@ -179,6 +161,7 @@
             border: none;
             background-color: transparent;
             text-decoration: underline;
+            color: $theme-ltblue;
 
         }
     }
@@ -196,42 +179,50 @@
         border-radius: 0px;
     }
 
+
     &.is-active {
-        border: 1px solid $active-color-second;
-        background-color: $active-color-second;
-        color: #fff;
+        border: 1px solid $theme-orange;
+        background-color: $theme-orange;
+        color: $white;
 
         &:hover {
-            background-color: lighten($active-color-second, 10%);
+            background-color: $theme-orange-light;
+            border-color: $theme-orange-light;
+
         }
 
         &.is-outlined {
-            border: 1px solid $active-color-second;
-            background-color: #fff;
-            color: $active-color-second;
+            border: 1px solid $theme-orange;
+            background-color: $white;
+            color: $theme-orange;
 
             &:hover {
-                background-color: lighten($active-color-second, 10%);
-                color: #fff;
+
+                background-color: $theme-orange-lighter;
+                color: $theme-orange;
             }
         }
     }
+
 }
 
+
+/*
 .field {
     margin-bottom: 7px;
     position: relative;
 
     &.has-icon {
-        .db-input {
+        .input {
             padding-left: 40px;
         }
 
-        .db-button {
+        .button {
             padding-left: 40px;
         }
     }
 }
+*/
 
 .db-number {
 
@@ -249,19 +240,18 @@
 
 
         outline: none;
-        border: none;
-        color: $text-color;
-        font-size: 14px;
+        border: none; //  color: $text;
+        font-size: $font-size-h6;
         padding: 0px 10px 0px 15px;
         background-color: transparent;
-        border: 1px solid $border-color;
-        background-color: $box-color;
-        border-radius: 2px;
+        border: 1px solid $border;
+        background-color: $background;
+        border-radius: $radius-small;
         padding: 0px 40px 0px 15px;
         transition: border ease 0.3s;
 
         &:focus {
-            border: 1px solid $active-color;
+            border: 1px solid $theme-ltblue;
         }
     }
 
@@ -271,21 +261,22 @@
         position: absolute;
         top: 1px;
         right: 0px;
-        border-left: 1px solid $border-color;
+        border-left: 1px solid $border;
 
         .up {
             height: 19px;
-            border-bottom: 1px solid $border-color;
-            background-image: url(../images/up.svg);
+            border-bottom: 1px solid $border;
+            background-image: url(#{$assetPath}/icon-up.svg);
             background-repeat: no-repeat;
             background-position: center center;
             background-size: 15px auto;
             cursor: pointer;
         }
 
+
         .down {
             height: 19px;
-            background-image: url(../images/up.svg);
+            background-image: url(#{$assetPath}/icon-up.svg);
             background-repeat: no-repeat;
             background-position: center center;
             background-size: 15px auto;
@@ -306,47 +297,52 @@
 
 .dropdown-content {
     border-radius: 0px;
-    border: 1px solid $border-color;
+    border: 1px solid $border;
     box-shadow: none;
-    border-radius: 2px;
+    border-radius: $radius-small;
     width: 100%;
     min-width: 100px;
     padding: 0px;
     overflow: hidden;
-    background-color: $box-color;
+    background-color: $background;
 
 
     .dropdown-item {
-        color: $text-color;
+        //    color: $text;
         padding: 10px 15px;
 
         &:hover {
-            background-color: #CBD6E2;
+            background-color: $border;
         }
 
         &.is-active {
-            background-color: $text-color-second;
-            color: #fff;
+            background-color: $theme-dkgreyblue;
+            color: $white;
         }
     }
 }
 
-.db-dropdown {
+.dropdown {
     display: inline-block;
 
     .dropdown-trigger {
         span {
-            background: #F6F8FA;
-            border: 1px solid $border-color;
-            border-radius: 2px;
+            background: $theme-whitish;
+
+            border: 1px solid $border;
+            border-radius: $radius-small;
             line-height: 40px;
             padding: 0px 25px;
             display: inline-block;
             height: 40px;
             position: relative;
-            cursor: pointer;
-            color: $text-color;
+            cursor: pointer; //   color: $text;
             transition: border ease 0.3s;
+            &:hover {
+                background-color: $theme-ltgrey-light;
+
+
+            }
 
             i {
 
@@ -358,7 +354,7 @@
                 display: inline-block;
                 border: 5px solid transparent;
 
-                border-top-color: $text-color;
+                border-top-color: $text;
 
             }
         }
@@ -368,20 +364,19 @@
     &.is-dark {
         .dropdown-trigger {
             span {
-                background: $text-color-second;
-                border: 1px solid $text-color-second;
-                border-radius: 2px;
+                background: $theme-dkgreyblue;
+                border: 1px solid $theme-dkgreyblue;
+                border-radius: $radius-small;
                 line-height: 40px;
                 padding: 0px 25px;
                 display: inline-block;
                 cursor: pointer;
-                color: #fff;
-
+                color: $white;
                 i {
-
-
-                    border-top-color: #fff;
-
+                    border-top-color: $white;
+                }
+                &:hover {
+                    background-color: $theme-ltgreyblue;
                 }
             }
         }
@@ -392,11 +387,12 @@
 
             .dropdown-trigger {
                 span {
-                    border-color: $active-color;
+                    border-color: $theme-ltblue;
                 }
             }
         }
     }
+
 }
 
 
@@ -418,14 +414,14 @@
         span {
             width: 20px;
             height: 20px;
-            border: 2px solid #CAD4E0;
-            border-radius: 3px;
-            background-color: #fff;
+            border: 2px solid $border;
+            border-radius: $radius;
+            background-color: $white;
             display: block;
         }
 
         input:checked ~ span {
-            background-image: url('../images/check.svg');
+            background-image: url('#{$assetPath}/icon-check.svg');
             background-size: 20px 20px;
             border: none;
         }
@@ -436,7 +432,32 @@
     width: 20px;
     height: 20px;
     display: block;
-    background-image: url('../images/vote.svg');
+    background-image: url('#{$assetPath}/icon-vote.svg');
     background-size: 20px 20px;
     margin-bottom: 5px;
+}
+
+.tag:not(body) {
+
+    background-color: $background;
+    border-radius: $radius-small;
+
+
+}
+
+.tag:not(body).is-primary {
+    background-color: $theme-dkblue;
+    color: $white;
+    font-size: $font-size-h6;
+
+
+}
+
+.tags.are-medium .tag:not(.is-normal):not(.is-large) {
+    font-size: $font-size-h6;
+}
+
+.tags .tag {
+    margin-bottom: 0.5rem;
+
 }

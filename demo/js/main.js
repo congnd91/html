@@ -7,13 +7,13 @@
             });
         }
         db.addLotSelected = function () {
-            $('.al-item').on('click', function () {
-                $(this).toggleClass("selected");
+            $('.item-card-large').on('click', function () {
+                $(this).toggleClass("is-active");
             });
         }
         db.stepSelected = function () {
             $('.step-item .dot').on('click', function () {
-                $(this).parent().toggleClass("active");
+                $(this).parent().toggleClass("is-active");
 
             });
         }
@@ -22,21 +22,21 @@
                 var content = $(this).next();
                 if ($(content).is(":visible")) {
                     $(content).slideUp();
-                    $(this).addClass("active");
+                    $(this).addClass("is-active");
                 } else {
                     $(content).slideDown();
-                    $(this).removeClass("active");
+                    $(this).removeClass("is-active");
                 }
             });
             $('.dh-accordion-title').on('click', function () {
                 var content = $(".dh-accordion-content");
                 if ($(content).is(":visible")) {
                     $(content).hide();
-                    $(this).removeClass("active");
+                    $(this).removeClass("is-active");
                     $('body').removeClass("overflow");
                 } else {
                     $(content).show();
-                    $(this).addClass("active");
+                    $(this).addClass("is-active");
 
                     $('body').addClass("overflow");
                 }
@@ -49,7 +49,7 @@
             if (isMobileWidth()) {}
             $(window).bind('resize', function () {
                 if (isMobileWidth()) {
-                    var padding = $('.dv-slider').height();
+                    var padding = $('.view-arrows').height();
                     var doc = $(window).height();
                     $(".document-sidebar-scroll").css("padding-top", padding + 10 + "px");
                 }
