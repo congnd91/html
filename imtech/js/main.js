@@ -118,22 +118,17 @@
                 });
             }
 
-            owl_news.on('changed.owl.carousel', function (event) {
-                //  var vid = document.getElementById("my-video");
+            /*  owl_news.on('changed.owl.carousel', function (event) {
+               
+               setTimeout(function () {
+
+     $(".video-youtube")[0].src += "1";
+
+ }, 2000);
 
 
 
-
-
-                setTimeout(function () {
-
-                    $(".video-youtube")[0].src += "1";
-
-                }, 2000);
-
-
-
-            });
+            });*/
 
 
 

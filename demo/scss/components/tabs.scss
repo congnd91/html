@@ -1,62 +1,85 @@
 .tabs {
 
-    border-bottom: 2px solid $border;
+
     height: 36px;
     display: block;
     overflow: inherit;
+
     @media screen and (max-width: 767px) {
         border: none;
         height: auto;
     }
 
-    a {
+    li {
         float: left;
-        width: 20%;
+        width: 25%;
         height: 36px;
-        border-bottom: 2px solid $border !important;
-        line-height: 36px;
-        font-size: $font-size-h5;
-        text-align: center;
-      //  color: $text;
-        transition: color ease 0.3s;
 
-        cursor: pointer;
+        a {
 
-        @media screen and (max-width: 991px) {
-            font-size: $font-size-h6;
+            display: block;
+            border-bottom: 2px solid $border !important;
+            line-height: 36px;
+            font-size: $font-size-h5;
+            text-align: center;
+            //  color: $text;
+            transition: color ease 0.3s;
+            padding: 0px;
 
+            cursor: pointer;
+
+            span.icon-lock {
+                display: inline-block;
+                width: 25px;
+                height: 20px;
+
+                background-position: center center;
+                position: relative;
+                top: 0px;
+
+                background-size: 20px auto;
+
+                @media screen and (max-width: 575px) {
+                    display: none;
+
+                }
+            }
+
+            @media screen and (max-width: 991px) {
+                font-size: $font-size-h6;
+
+            }
+
+            @media screen and (max-width: 767px) {}
+
+            @media screen and (max-width: 575px) {
+                width: auto;
+
+            }
         }
+
+
         @media screen and (max-width: 767px) {
-            width: 20%;
-            padding: 0px 10px;
-            border: none;
+            width: 25%;
             margin-bottom: 10px;
-            line-height: 25px;
-        }
-        @media screen and (max-width: 575px) {
-            width: auto;
 
         }
 
-        span.icon-lock {
-            display: inline-block;
-            width: 25px;
-            height: 20px;
+        @media screen and (max-width: 575px) {}
 
-            background-position: center center;
-            position: relative;
-            top: 0px;
 
-            background-size: 20px auto;
-        }
 
         &.is-active {
-            border-bottom: 2px solid $theme-ltblue !important;
-            color: $theme-ltblue;
+            a {
+                border-bottom: 2px solid $theme-ltblue !important;
+                color: $theme-ltblue;
+            }
         }
 
         &:hover {
-            color: $theme-ltblue;
+            a {
+                color: $theme-ltblue;
+            }
         }
 
 
