@@ -95,10 +95,7 @@
             }
 
         }
-        $('.topbar').click(function () {
-            $(".video-youtube")[0].src += "1";
 
-        });
         db.newsHomeSlider = function () {
 
 
@@ -108,6 +105,8 @@
                     loop: true,
                     margin: 0,
                     nav: true,
+                    smartSpeed: 1000,
+
                     autoplay: false,
                     items: 1,
                     autoplayTimeout: 5000
@@ -118,17 +117,12 @@
                 });
             }
 
-            /*  owl_news.on('changed.owl.carousel', function (event) {
-               
-               setTimeout(function () {
-
-     $(".video-youtube")[0].src += "1";
-
- }, 2000);
+            owl_news.on('changed.owl.carousel', function (event) {
+                $('.video-youtube')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
 
 
 
-            });*/
+            });
 
 
 
