@@ -107,7 +107,7 @@
                     nav: true,
                     smartSpeed: 1000,
 
-                    autoplay: false,
+                    autoplay: true,
                     items: 1,
                     autoplayTimeout: 5000
                     //      animateOut: 'fadeOut'
@@ -118,8 +118,7 @@
             }
 
             owl_news.on('changed.owl.carousel', function (event) {
-                $('.video-youtube')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
-
+                /*      $('.video-youtube')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');*/
 
 
             });
