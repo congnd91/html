@@ -68,7 +68,7 @@
                 });
             }
         }
-        db.sliderGrid = function () {
+        /*db.sliderGrid = function () {
             if ($('.grid').length) {
                 $('.grid').isotope({
                     // options
@@ -76,7 +76,7 @@
                     layoutMode: 'fitRows'
                 });
             }
-        }
+        }*/
 
         db.toTop = function () {
             $('.totop').hide();
@@ -104,13 +104,25 @@
             });
         }
 
+    /*    $('.logo-item').css("min-height", $('.logo-item').width() + "px");
+    $(window).bind('resize', function () {
+        $('.logo-item').css("min-height", $('.logo-item').width() + "px");
+    }).trigger('resize');*/
+
+
+        db.matchHeight = function () {
+          /*  if ($('.logo-item').length) {
+      $('.logo-item').matchHeight();
+  }*/
+        }
         db.preLoad();
         db.menuResponsive();
         db.sliderHay();
         db.sliderMallistomme();
         db.sliderReferensseja();
-        db.sliderGrid();
+        //  db.sliderGrid();
         db.mallistommeDropdown();
+        db.matchHeight();
         new WOW({
             offset: 100,
             mobile: true
