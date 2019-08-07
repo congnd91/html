@@ -106,7 +106,7 @@
                     margin: 0,
                     nav: true,
                     smartSpeed: 1000,
-
+                    // autoHeight: true,
                     autoplay: true,
                     items: 1,
                     autoplayTimeout: 5000
@@ -456,6 +456,9 @@
 
                     make_sticky();
                 }
+
+
+                $('.news-slider-item').css("height", +$('.news-slider-item-video').height() + "px");
 
             }).trigger('resize');
 

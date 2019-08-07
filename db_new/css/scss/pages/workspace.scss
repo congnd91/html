@@ -2,12 +2,13 @@
 
 .db-workspace {
     user-select: none;
+    overflow: hidden;
+
 }
 
 .section-workspace {
 
     min-height: 600px;
-
 
 
 }
@@ -59,12 +60,16 @@
         border-right: 1px solid rgba(0, 0, 0, 0.1);
         height: 49px;
         padding: 0px 10px;
+        margin: 0px 10px 0px 0px;
+
 
         .tbc-item {
 
             float: left;
             margin: 6px 2px 0px 2px;
             border-radius: 2px;
+
+            position: relative;
 
             i {
                 width: 35px;
@@ -85,6 +90,42 @@
 
 
             }
+
+            &.active {
+                i {
+                    color: $active-color;
+                }
+
+
+            }
+
+            &.loading {
+
+
+                i {
+
+
+                    &:before {
+                        content: "\f3f4";
+                        font-family: "Font Awesome 5 Pro";
+                        animation: fa-spin 2s infinite linear;
+                        display: block;
+                        position: absolute;
+                        left: 0px;
+                        top: 0px;
+                        width: 100%;
+                        height: 100%;
+                        color: $text-color;
+
+                        text-align: center;
+
+
+
+                    }
+                }
+            }
+
+
 
         }
 
@@ -1130,5 +1171,105 @@
         right: -5px;
         text-align: center;
         font-size: 12px;
+    }
+}
+
+
+.show-workspace-panel-info {
+    .workspace-panel-info {
+        transform: translateX(0px);
+    }
+}
+
+.workspace-panel-info {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 105px;
+
+    right: 0px;
+    bottom: 0px;
+    width: 300px;
+    z-index: 10;
+    background-color: #fff;
+    transition: all ease 0.4s;
+    transform: translateX(300px);
+
+
+    .wpi-scroll {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        overflow: auto;
+    }
+
+    .wpi-close {
+        color: $red;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+
+        i {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    }
+
+    h3 {
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: $text-color-meta;
+        font-size: 11px;
+        text-transform: uppercase;
+    }
+
+    .wpi-thumb {
+        text-align: center;
+        margin-bottom: 10px;
+
+        img {
+            max-width: 100%;
+            max-height: 400px;
+        }
+    }
+
+    .wpi-des {
+        h4 {
+            font-size: 16px;
+            color: $text-color;
+            font-weight: 600;
+            margin-bottom: 10px;
+
+        }
+    }
+
+    .wpi-des-row {
+        display: flex;
+        align-content: space-between;
+        margin-bottom: 5px;
+        font-size: 12px;
+        color: $text-color-meta;
+
+        p {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        span {
+            padding: 0px 10px 0px 0px;
+            font-weight: 600;
+        }
+
+        a {
+            color: $active-color;
+        }
     }
 }
