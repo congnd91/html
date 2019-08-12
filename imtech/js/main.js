@@ -108,6 +108,7 @@
                     smartSpeed: 1000,
                     // autoHeight: true,
                     autoplay: true,
+
                     items: 1,
                     autoplayTimeout: 5000
                     //      animateOut: 'fadeOut'
@@ -457,10 +458,17 @@
                     make_sticky();
                 }
 
+                $('.news-slider-item-video').css("height", +$('.news-slider-item').outerHeight() + "px");
 
-                $('.news-slider-item').css("height", +$('.news-slider-item-video').height() + "px");
+
 
             }).trigger('resize');
+
+
+
+            $('.news-slider-item-video').css("height", +$('.news-slider-item').outerHeight() + "px");
+
+
 
             function make_sticky() {
                 if ($(".pp-left").length) {

@@ -61,5 +61,8 @@
         db.stepSelected();
         db.accodion();
         db.fixBar();
+
+
+        new SimpleBar($('.simple-scroll')[0]);
     });
 })(jQuery);

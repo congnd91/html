@@ -173,22 +173,26 @@
   .is-active.pagination-link,
   .is-active.pagination-ellipsis {
     outline: none; }
-  .button[disabled], .input[disabled], .textarea[disabled], .select select[disabled], .file-cta[disabled],
-  .file-name[disabled], .pagination-previous[disabled],
-  .pagination-next[disabled],
-  .pagination-link[disabled],
-  .pagination-ellipsis[disabled],
+  [disabled].button, [disabled].input, [disabled].textarea, .select select[disabled], [disabled].file-cta,
+  [disabled].file-name, [disabled].pagination-previous,
+  [disabled].pagination-next,
+  [disabled].pagination-link,
+  [disabled].pagination-ellipsis,
   fieldset[disabled] .button,
   fieldset[disabled] .input,
   fieldset[disabled] .textarea,
-  fieldset[disabled] .select select,
-  .select fieldset[disabled] select,
+  fieldset[disabled] .select select, .select
+  fieldset[disabled] select,
   fieldset[disabled] .file-cta,
-  fieldset[disabled] .file-name,
+  fieldset[disabled]
+  .file-name,
   fieldset[disabled] .pagination-previous,
-  fieldset[disabled] .pagination-next,
-  fieldset[disabled] .pagination-link,
-  fieldset[disabled] .pagination-ellipsis {
+  fieldset[disabled]
+  .pagination-next,
+  fieldset[disabled]
+  .pagination-link,
+  fieldset[disabled]
+  .pagination-ellipsis {
     cursor: not-allowed; }
 
 /*! minireset.css v0.0.4 | MIT License | github.com/jgthms/minireset.css */
@@ -2803,45 +2807,45 @@ a.tag:hover {
   .input:focus, .textarea:focus, .select select:focus, .is-focused.input, .is-focused.textarea, .select select.is-focused, .input:active, .textarea:active, .select select:active, .is-active.input, .is-active.textarea, .select select.is-active {
     border-color: #48A2BA;
     box-shadow: 0 0 0 0.125em rgba(72, 162, 186, 0.25); }
-  .input[disabled], .textarea[disabled], .select select[disabled],
+  [disabled].input, [disabled].textarea, .select select[disabled],
   fieldset[disabled] .input,
   fieldset[disabled] .textarea,
-  fieldset[disabled] .select select,
-  .select fieldset[disabled] select {
+  fieldset[disabled] .select select, .select
+  fieldset[disabled] select {
     background-color: #F9FCFF;
     border-color: #F9FCFF;
     box-shadow: none;
     color: #7a7a7a; }
-    .input[disabled]::-moz-placeholder, .textarea[disabled]::-moz-placeholder, .select select[disabled]::-moz-placeholder,
+    [disabled].input::-moz-placeholder, [disabled].textarea::-moz-placeholder, .select select[disabled]::-moz-placeholder,
     fieldset[disabled] .input::-moz-placeholder,
     fieldset[disabled] .textarea::-moz-placeholder,
-    fieldset[disabled] .select select::-moz-placeholder,
-    .select fieldset[disabled] select::-moz-placeholder {
+    fieldset[disabled] .select select::-moz-placeholder, .select
+    fieldset[disabled] select::-moz-placeholder {
       color: rgba(122, 122, 122, 0.3); }
-    .input[disabled]::-webkit-input-placeholder, .textarea[disabled]::-webkit-input-placeholder, .select select[disabled]::-webkit-input-placeholder,
+    [disabled].input::-webkit-input-placeholder, [disabled].textarea::-webkit-input-placeholder, .select select[disabled]::-webkit-input-placeholder,
     fieldset[disabled] .input::-webkit-input-placeholder,
     fieldset[disabled] .textarea::-webkit-input-placeholder,
-    fieldset[disabled] .select select::-webkit-input-placeholder,
-    .select fieldset[disabled] select::-webkit-input-placeholder {
+    fieldset[disabled] .select select::-webkit-input-placeholder, .select
+    fieldset[disabled] select::-webkit-input-placeholder {
       color: rgba(122, 122, 122, 0.3); }
-    .input[disabled]:-moz-placeholder, .textarea[disabled]:-moz-placeholder, .select select[disabled]:-moz-placeholder,
+    [disabled].input:-moz-placeholder, [disabled].textarea:-moz-placeholder, .select select[disabled]:-moz-placeholder,
     fieldset[disabled] .input:-moz-placeholder,
     fieldset[disabled] .textarea:-moz-placeholder,
-    fieldset[disabled] .select select:-moz-placeholder,
-    .select fieldset[disabled] select:-moz-placeholder {
+    fieldset[disabled] .select select:-moz-placeholder, .select
+    fieldset[disabled] select:-moz-placeholder {
       color: rgba(122, 122, 122, 0.3); }
-    .input[disabled]:-ms-input-placeholder, .textarea[disabled]:-ms-input-placeholder, .select select[disabled]:-ms-input-placeholder,
+    [disabled].input:-ms-input-placeholder, [disabled].textarea:-ms-input-placeholder, .select select[disabled]:-ms-input-placeholder,
     fieldset[disabled] .input:-ms-input-placeholder,
     fieldset[disabled] .textarea:-ms-input-placeholder,
-    fieldset[disabled] .select select:-ms-input-placeholder,
-    .select fieldset[disabled] select:-ms-input-placeholder {
+    fieldset[disabled] .select select:-ms-input-placeholder, .select
+    fieldset[disabled] select:-ms-input-placeholder {
       color: rgba(122, 122, 122, 0.3); }
 
 .input, .textarea {
   box-shadow: none;
   max-width: 100%;
   width: 100%; }
-  .input[readonly], .textarea[readonly] {
+  [readonly].input, [readonly].textarea {
     box-shadow: none; }
   .is-white.input, .is-white.textarea {
     border-color: #fff; }
@@ -2932,7 +2936,7 @@ a.tag:hover {
     cursor: pointer; }
   .checkbox:hover, .radio:hover {
     color: #363636; }
-  .checkbox[disabled], .radio[disabled],
+  [disabled].checkbox, [disabled].radio,
   fieldset[disabled] .checkbox,
   fieldset[disabled] .radio {
     color: #7a7a7a;
@@ -8890,6 +8894,10 @@ fieldset[disabled] .select select,
         top: 4px;
         left: 4px; }
 
+.simple-scroll {
+  max-height: 500px;
+  overflow: auto; }
+
 .steps {
   display: flex;
   max-width: 700px;
@@ -8921,8 +8929,8 @@ fieldset[disabled] .select select,
         @media screen and (max-width: 767px) {
           .steps .step-item .dot:before {
             width: 150px; } }
-      .steps .step-item .dot.last:before {
-        display: none; }
+    .steps .step-item:last-child .dot:before {
+      display: none; }
     .steps .step-item p {
       text-transform: uppercase;
       font-weight: 5600;
