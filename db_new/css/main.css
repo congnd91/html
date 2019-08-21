@@ -827,6 +827,9 @@ a {
   a:hover {
     text-decoration: none; }
 
+img[src=""] {
+  display: none; }
+
 .font-10,
 .size-10 {
   font-size: 10px; }
@@ -938,6 +941,9 @@ a {
 .db-scroll {
   overflow: auto; }
 
+.full-width {
+  width: 100%; }
+
 .btn-loading {
   color: transparent !important;
   position: relative; }
@@ -1011,6 +1017,20 @@ a {
 
 .form-control {
   font-size: 0.875rem; }
+
+.db-checkbox label {
+  cursor: pointer; }
+
+.db-checkbox input {
+  position: relative;
+  top: 2px; }
+
+.db-radio label {
+  cursor: pointer; }
+
+.db-radio input {
+  position: relative;
+  top: 1px; }
 
 /**************alert**********/
 .alert-overlay {
@@ -1183,9 +1203,26 @@ a {
   color: #425268;
   transition: all ease 0.3s; }
   .db-input:focus {
-    border: 1px solid #aaaaaa; }
+    border: 1px solid #c4c3c3; }
   .db-input::placeholder {
-    color: #aaaaaa; }
+    color: #c4c3c3; }
+
+.db-select {
+  width: 100%;
+  height: 37px;
+  border: none;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 0px 0px 0px 15px;
+  background-color: transparent;
+  outline: none;
+  font-size: 14px;
+  color: #425268;
+  transition: all ease 0.3s; }
+  .db-select:focus {
+    border: 1px solid #c4c3c3; }
+  .db-select::placeholder {
+    color: #c4c3c3; }
 
 .db-field {
   margin-bottom: 15px; }
@@ -3310,6 +3347,192 @@ a {
       .list-version .lv-item p span {
         margin: 0px 10px 0px 0px; }
 
+.db-processbar {
+  height: 25px;
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 25px;
+  position: relative;
+  margin: 10px 0px 0px 0px; }
+  .db-processbar .dbp-state {
+    position: absolute;
+    left: 0px;
+    display: block;
+    border-radius: 23px;
+    background-color: #0099fe;
+    background-image: linear-gradient(90deg, #05b9a0, #269cd3);
+    bottom: 0px;
+    top: 0px;
+    transition: all ease 0.3s; }
+    .db-processbar .dbp-state:before {
+      content: "";
+      display: block;
+      top: 4px;
+      height: 5px;
+      left: 7px;
+      right: 7px;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 3px; }
+    .db-processbar .dbp-state:after {
+      position: absolute;
+      content: "";
+      width: 25px;
+      height: 25px;
+      display: block;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      border-radius: 25px;
+      box-shadow: 5px 0px 10px 0px rgba(38, 156, 211, 0.3); }
+
+.modal-download-file {
+  max-width: 450px; }
+
+.db-steps {
+  text-align: left; }
+
+.db-quote {
+  margin: 30px 0px 20px 0px;
+  min-height: 80px;
+  position: relative;
+  text-align: center; }
+  .db-quote .db-quote-item {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+    transition: opacity ease 1s; }
+    .db-quote .db-quote-item.active-slider {
+      opacity: 1;
+      z-index: 3; }
+  .db-quote p {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0px; }
+  .db-quote span {
+    display: block;
+    font-style: italic;
+    text-align: center;
+    font-weight: 300;
+    margin: 5px 0px 0px 0px;
+    font-size: 13px; }
+
+.step-item {
+  position: relative;
+  margin: 0px 0px 0px 0px;
+  padding: 10px 0px 10px 0px;
+  border-top: 1px solid #ddd; }
+  .step-item p {
+    margin: 0px;
+    font-size: 13px; }
+  .step-item em {
+    float: right;
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 2px 0px 0px -30px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    font-style: italic;
+    opacity: 0;
+    transition: all ease 0.3s; }
+    .step-item em i {
+      color: #0099fe; }
+  .step-item.running {
+    opacity: 1; }
+    .step-item.running em {
+      opacity: 1;
+      font-style: normal;
+      width: auto;
+      height: auto; }
+      .step-item.running em:before {
+        color: #425268;
+        font-family: 'Font Awesome 5 Pro' !important;
+        content: "\f3f4";
+        display: none;
+        width: auto;
+        height: auto;
+        position: relative;
+        top: unset;
+        left: unset;
+        line-height: 20px;
+        text-align: center;
+        font-size: 14px;
+        -webkit-animation: fa-spin 2s infinite linear;
+        animation: fa-spin 2s infinite linear; }
+    .step-item.running.running-mb em:before {
+      display: none; }
+  .step-item.success {
+    opacity: 1; }
+    .step-item.success p {
+      color: #28a745; }
+    .step-item.success em {
+      color: #fff;
+      font-style: normal;
+      opacity: 1; }
+      .step-item.success em:before {
+        font-family: 'Font Awesome 5 Pro' !important;
+        content: "\f00c";
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: -2px;
+        left: 0px;
+        line-height: 20px;
+        text-align: center;
+        color: #28a745;
+        font-size: 14px; }
+  .step-item.error {
+    opacity: 1; }
+    .step-item.error p {
+      color: #dc3545; }
+    .step-item.error em {
+      opacity: 1;
+      color: #fff;
+      font-style: normal; }
+      .step-item.error em:before {
+        font-family: 'Font Awesome 5 Pro' !important;
+        content: "\f057";
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: -2px;
+        left: 0px;
+        line-height: 20px;
+        text-align: center;
+        color: #dc3545;
+        font-size: 14px; }
+  .step-item.waiting {
+    opacity: 0.5; }
+    .step-item.waiting em {
+      opacity: 0;
+      color: #fff;
+      font-style: normal; }
+      .step-item.waiting em:before {
+        color: #425268;
+        font-family: 'Font Awesome 5 Pro' !important;
+        content: "\f3f4";
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: -2px;
+        left: 0px;
+        line-height: 20px;
+        text-align: center;
+        font-size: 14px;
+        -webkit-animation: fa-spin 2s infinite linear;
+        animation: fa-spin 2s infinite linear; }
+
 @-webkit-keyframes Gradient {
   0% {
     background-position: 0% 50%; }
@@ -4693,9 +4916,9 @@ img {
       visibility: visible;
       opacity: 1; }
 
-.teamplates-loading {
+.templates-loading {
   padding: 30px 0px 100px 0px; }
-  .teamplates-loading i {
+  .templates-loading i {
     color: #0099fe;
     font-size: 40px; }
 
