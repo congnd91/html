@@ -10,6 +10,24 @@
                 $('body').toggleClass("show-menu-mobile");
             });
         }
+
+        db.pricingFAQ = function () {
+            $('.pricing-faq-item .caption').on('click', function () {
+
+                var content = $(this).parent().find('.content');
+                if ($(content).is(":visible")) {
+
+                    $(content).slideUp();
+                    $(this).parent().removeClass("active");
+                } else {
+                    $(content).slideDown();
+                    $(this).parent().addClass("active");
+
+                }
+
+            });
+
+        }
         db.scrollMenu = function () {
             $(window).scroll(function () {
                 if ($(this).scrollTop() >= 50) {
@@ -135,5 +153,6 @@
         db.gridCollection();
         db.brandkitSlider();
         db.sliderRecommended();
+        db.pricingFAQ();
     });
 })(jQuery);
