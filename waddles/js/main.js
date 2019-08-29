@@ -8,6 +8,15 @@
 
             });
         }
+
+        db.menuResponsive = function () {
+            $('.menu-icon').on('click', function (e) {
+                e.stopPropagation();
+                $('body').toggleClass("open-side");
+            });
+
+        }
+
         db.menuDashboard = function () {
             $('.ds-menu .has-child .arrow').on('click', function (e) {
 
@@ -31,10 +40,14 @@
             if ($('.ls-item ul').length) {
                 $('.ls-item ul').matchHeight();
             }
+            if ($('.project-row .project-col').length) {
+                $('.project-row .project-col').matchHeight();
+            }
         }
         db.preLoad();
         db.matchHeight();
         db.menuDashboard();
+        db.menuResponsive();
 
     });
 })(jQuery);
