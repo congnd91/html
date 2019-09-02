@@ -41,10 +41,35 @@
                     $('.is-active').removeClass("is-active");
                     $(this).addClass("is-active");
                 });
+
+
+                $grid.imagesLoaded().progress(function () {
+                    $grid.isotope('layout');
+                });
+
             }
         }
-        db.matchHeight = function () {}
+        db.showSortLong = function () {
+
+            $(".ci-content .short a").click(function () {
+
+                $(this).parents('.short').hide();
+                $(this).parents('.ci-content ').find(".long").show();
+                return false;
+
+            })
+
+            $(".ci-content .long a").click(function () {
+
+                $(this).parents('.long').hide();
+                $(this).parents('.ci-content ').find(".short").show();
+                return false;
+
+            })
+        }
         db.customerSlider();
         db.gridTemplate();
+        db.showSortLong();
+
     });
 })(jQuery);
