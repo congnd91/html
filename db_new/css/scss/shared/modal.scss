@@ -1519,6 +1519,7 @@
             font-size: 11px;
             text-transform: uppercase;
             font-weight: 600;
+
             i {
                 display: block;
                 line-height: 25px;
@@ -2063,6 +2064,32 @@
 
 
 //***********modal download***********/
+
+.db-select-wrap {
+    position: relative;
+
+    .loading-icon {
+        position: absolute;
+        width: 25px;
+        height: 32px;
+        background-color: #fff;
+        line-height: 32px;
+        top: 2px;
+        right: 2px;
+        z-index: 10;
+        display: none;
+
+    }
+
+    &.loading {
+        .loading-icon {
+            display: block;
+        }
+
+    }
+
+}
+
 .db-processbar {
     height: 25px;
     width: 100%;
@@ -2193,10 +2220,18 @@
         opacity: 0;
         transition: all ease 0.3s;
 
-
         i {
             color: $active-color;
         }
+    }
+
+
+    .spinner {
+        position: absolute;
+        top: 10px;
+        right: 0px;
+        font-size: 12px;
+
     }
 
 
@@ -2441,6 +2476,19 @@
         cursor: pointer;
         font-size: 13px;
         color: $active-color;
+
+        span {
+            font-weight: 500;
+            margin: 0px 0px 0px 5px;
+        }
+    }
+
+    .switch-payment-method {
+        float: right;
+        cursor: pointer;
+        font-size: 13px;
+        color: $active-color;
+
         span {
             font-weight: 500;
             margin: 0px 0px 0px 5px;
@@ -2452,6 +2500,42 @@
 
     border: 1px solid $border-color;
     border-radius: 2px;
+    position: relative;
+
+    .checkout-tab {
+        position: absolute;
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        top: -32px;
+        right: 10px;
+
+
+        li {
+            float: left;
+            line-height: 30px;
+            padding: 0px 15px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            border-radius: 2px 2px 0px 0px;
+
+            &.active {
+                border-color: $border-color;
+                border-bottom-color: #fff;
+                font-weight: 600;
+
+
+
+
+            }
+
+            span {
+                line-height: 30px;
+                font-weight: 500;
+
+            }
+        }
+    }
 
 
     .db-scroll {
@@ -2462,6 +2546,7 @@
 
 
     }
+
     .item {
         border-bottom: 1px dashed $border-color;
         padding: 10px 250px 10px 0px;
@@ -2489,6 +2574,7 @@
                 }
 
             }
+
             h5 {
                 font-size: 13px;
                 margin: 0px;
@@ -2511,6 +2597,7 @@
                 }
             }
         }
+
         .item-right {
             position: absolute;
 
@@ -2563,23 +2650,28 @@
             text-transform: uppercase;
         }
     }
+
     label {
         display: block;
         font-weight: 500;
         margin: 0px 0px 5px 0px;
 
     }
+
     .user-info-balance {
         padding: 0px;
         font-size: 13px;
+
         .db-stocks {
             display: inline-block;
+
             p {
                 font-size: 12px;
 
             }
 
         }
+
         .db-coins p {
             font-size: 12px;
 
@@ -2594,12 +2686,14 @@
     label {
         font-weight: 600;
         margin: 0px 0px 5px 0px;
+
         em {
             font-style: normal;
             font-weight: 700;
 
         }
     }
+
     p {
         font-style: italic;
 
@@ -2618,9 +2712,11 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 
     position: absolute;
+
     p {
         margin: 0px;
     }
+
     &:before {
         content: "";
         display: block;
@@ -2634,6 +2730,7 @@
 
         border-top-color: #fff;
     }
+
     &:after {
 
         content: "";
@@ -2648,5 +2745,55 @@
 
         right: 10px;
         border-top-color: $border-color;
+    }
+}
+
+//**********resourse not found********/
+
+
+
+.list-resource-not-found {
+    max-height: 400px;
+    overflow: auto;
+}
+
+.resource-item {
+    padding: 10px 10px 10px 50px;
+    border-bottom: 1px solid $border-color;
+
+    .thumb {
+        float: left;
+        width: 40px;
+        display: flex;
+        margin: 0px 0px 0px -50px;
+
+        align-content: center;
+        height: 40px;
+        border: 1px solid lighten($border-color, 15%);
+
+        img {
+            max-height: 40px;
+            max-width: 40px;
+        }
+    }
+
+    .des {
+        h3 {
+            margin: 0px 0px 7px 0px;
+            font-size: 14px;
+            font-weight: 600;
+            color: $text-color;
+
+        }
+
+
+        p {
+            font-size: 12px;
+
+            color: $text-color-meta;
+            margin: 0px;
+
+            strong {}
+        }
     }
 }
