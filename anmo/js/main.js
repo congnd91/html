@@ -39,8 +39,9 @@
                     margin: 0,
                     mouseDrag: false,
                     nav: true,
-                    autoplay: true,
+                    autoplay: false,
                     items: 1,
+
                     //      animateOut: 'fadeOut'
                 });
             }
@@ -76,46 +77,38 @@
             });
 
         }
-        db.sliderAbout = function () {
-            setTimeout(function () {
-                var owl_miles = $('.owl-miles');
-                if ($(owl_miles).length) {
-                    $(owl_miles).owlCarousel({
-                        loop: false,
-                        margin: 0,
-                        nav: true,
-                        autoplay: false,
-                        navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
-                        responsive: {
-                            0: {
-                                items: 1,
-                            },
-                            576: {
-                                items: 2,
-                            },
-                            768: {
-                                items: 3,
-                            },
-                            991: {
-                                items: 4,
-                            }
-                        },
-                        onRefreshed: callback
-                    });
-                }
+        db.sliderListProduct = function () {
 
-                function callback() {
-                    var maxHeight = 0;
-                    $('.mi-box').each(function () {
-                        var thisH = $(this).height();
-                        if (thisH > maxHeight) {
-                            maxHeight = thisH;
+            var owl_list = $('.owl-list');
+            if ($(owl_list).length) {
+                $(owl_list).owlCarousel({
+                    loop: false,
+                    margin: 0,
+                    nav: true,
+                    autoplay: false,
+                    responsive: {
+                        0: {
+                            items: 1,
+                        },
+                        576: {
+                            items: 1,
+
+                        },
+                        768: {
+                            items: 2,
+                            margin: 20
+                        },
+                        991: {
+                            items: 3,
+                            margin: 60
                         }
-                    });
-                    $('.mi-box').css("min-height", maxHeight + 30 + "px");
-                    console.log(maxHeight);
-                }
-            }, 1000);
+                    },
+
+                });
+            }
+
+
+
         }
         db.menuLeft = function () {
             $('.ml-ul > li > a.has-child > div').on('click', function (event) {
@@ -184,6 +177,7 @@
         }
         db.preLoad();
         db.homeSlider();
+        db.sliderListProduct();
         // db.homeProductSlider();
         //  db.showSearch();
         // db.menuLeft();
