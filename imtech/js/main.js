@@ -321,9 +321,10 @@
                 $('.pp-item').matchHeight();
             }
 
-            if ($('.product-item').length) {
-                $('.product-item').matchHeight();
-            }
+            //   if ($('.product-item').length) {
+            //   $('.product-item').matchHeight();
+            //  }
+
             $('.mega-col').matchHeight();
 
         }
