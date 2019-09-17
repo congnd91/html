@@ -167,23 +167,18 @@
 
             $('.mega-col').matchHeight();
         }
-        db.gender = function () {
-            $('.c-text').on('click', function () {
-                $('.c-text').removeClass("active");
-                $(this).addClass("active");
-                var gender = $(this).attr('data-gender');
-                $("#gender").val(gender);
-            });
-        }
+
+
+
+
+
+
         db.preLoad();
         db.homeSlider();
         db.sliderListProduct();
-        // db.homeProductSlider();
-        //  db.showSearch();
-        // db.menuLeft();
-        //  db.sliderAbout();
         db.menuResponsive();
-        //   db.matchHeight();
-        //   db.gender();
+
+
+        new WOW().init();
     });
 })(jQuery);

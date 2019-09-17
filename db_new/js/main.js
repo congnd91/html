@@ -39,8 +39,8 @@
         }
 
         db.gridTemplate = function () {
-            if ($('.grid-template').length) {
-                var $grid = $('.grid-template').isotope({
+            if ($('.grid-templates').length) {
+                var $grid = $('.grid-templates').isotope({
                     itemSelector: '.grid-item'
                     // filter: '.t1'
                 });
@@ -142,6 +142,28 @@
             }
 
         }
+        db.sliderPreview = function () {
+            if ($('.slider-for').length) {
+                $('.slider-for').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: '.slider-nav'
+                });
+                $('.slider-nav').slick({
+                    slidesToShow: 9,
+
+                    asNavFor: '.slider-for',
+
+
+                    focusOnSelect: true,
+                    prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button"> <i class="fal fa-angle-left"></i></button>',
+                    nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button"> <i class="fal fa-angle-right"></i></button>'
+                });
+            }
+
+        }
 
 
 
@@ -154,5 +176,6 @@
         db.brandkitSlider();
         db.sliderRecommended();
         db.pricingFAQ();
+        db.sliderPreview();
     });
 })(jQuery);
