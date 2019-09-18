@@ -82,16 +82,21 @@
             var owl_list = $('.owl-list');
             if ($(owl_list).length) {
                 $(owl_list).owlCarousel({
-                    loop: false,
-                    margin: 0,
+                    loop: true,
+                    margin: 20,
                     nav: true,
                     autoplay: false,
+
                     responsive: {
                         0: {
-                            items: 1,
+                            center: true,
+                            items: 2
+
                         },
                         576: {
-                            items: 1,
+
+
+                            items: 2
 
                         },
                         768: {
@@ -110,6 +115,50 @@
 
 
         }
+
+
+        db.sliderProduct = function () {
+            if ($('.slick-product').length) {
+                $('.slick-product').slick({
+                    dots: false,
+                    infinite: true,
+                    speed: 500,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+
+                    responsive: [{
+                            breakpoint: 992,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 1,
+                            }
+                    },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2
+                            }
+                    },
+                        {
+
+                            breakpoint: 576,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                centerMode: true,
+                                centerPadding: '50px',
+                            }
+                    }
+
+                ]
+                });
+
+            }
+
+        }
+
+
         db.menuLeft = function () {
             $('.ml-ul > li > a.has-child > div').on('click', function (event) {
                 event.preventDefault();
@@ -175,7 +224,8 @@
 
         db.preLoad();
         db.homeSlider();
-        db.sliderListProduct();
+
+        db.sliderProduct();
         db.menuResponsive();
 
 
