@@ -1308,3 +1308,58 @@
 
 
 }
+
+
+
+.show-preload .line-preload {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 999999;
+}
+
+.line-preload div {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 2px;
+    width: 80%;
+    opacity: 1 !important;
+    background-color: #0099fe;
+    box-shadow: 0.1em 0 1em 0.1em rgba(0, 153, 254, 0.5);
+}
+
+.remove-line-preload .line-preload div {
+    width: 100%;
+}
+
+.remove-line-preload .line-preload {
+    -webkit-animation-fill-mode: both;
+    /* Safari 4.0 - 8.0 */
+    animation-fill-mode: both;
+    animation-name: my-opacity;
+    animation-duration: 0.5s;
+}
+
+@-webkit-keyframes my-opacity {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        z-index: -1;
+        opacity: 0;
+    }
+}
+
+@keyframes my-opacity {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        z-index: -1;
+        opacity: 0;
+    }
+}

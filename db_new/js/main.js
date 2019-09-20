@@ -9,6 +9,26 @@
             $('.close-menu').on('click', function () {
                 $('body').toggleClass("show-menu-mobile");
             });
+
+            $('.menu-left-icon').on('click', function () {
+                $('body').toggleClass("show-menu-left");
+
+            });
+
+            $('.close-menu-left').on('click', function () {
+                $('body').toggleClass("show-menu-left");
+
+            });
+            $('.menu-workspace-icon').on('click', function () {
+                $('body').toggleClass("show-menu-workspace");
+
+            });
+
+
+            $('.close-menu-workspace').on('click', function () {
+                $('body').toggleClass("show-menu-workspace");
+
+            });
         }
 
         db.pricingFAQ = function () {

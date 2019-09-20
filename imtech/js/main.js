@@ -533,6 +533,16 @@
             });
         }
 
+        db.matchHeight = function () {
+
+            if ($('.product-col').length) {
+
+                $('.product-col').matchHeight();
+            }
+
+
+        }
+
 
 
         db.preLoad();
@@ -552,6 +562,8 @@
         db.closeCookie();
         db.fAQ();
         db.scroll();
+
+        db.matchHeight();
 
 
         new WOW().init();
