@@ -87,6 +87,18 @@
             }
         }
 
+        db.gridWorkspace = function () {
+            if ($('.grid-workspace').length) {
+                var $grid = $('.grid-workspace').isotope({
+                    itemSelector: '.grid-item'
+                    // filter: '.t1'
+                });
+                // filter items on button click
+
+            }
+        }
+
+
         db.brandkitSlider = function () {
             var owl_brandkit = $('.owl-brandkit');
             if ($(owl_brandkit).length) {
