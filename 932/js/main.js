@@ -316,6 +316,20 @@
                 $('.cookie-notify').hide();
             });
         }
+
+
+        db.grid = function () {
+            if ($('.grid-templates').length) {
+                var $grid = $('.grid-templates').isotope({
+                    itemSelector: '.grid-item'
+                    // filter: '.t1'
+                });
+                // filter items on button click
+
+            }
+        }
+
+
         db.preLoad();
 
         db.menuResponsive();
@@ -334,6 +348,7 @@
         db.textPlaceHolder();
         db.matchHeight();
         db.fAQ();
+        db.grid();
 
         db.closeCookie();
 
