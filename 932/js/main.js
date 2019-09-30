@@ -324,9 +324,16 @@
                     itemSelector: '.grid-item'
                     // filter: '.t1'
                 });
-                // filter items on button click
+
+                // layout Isotope after each image loads
+                $grid.imagesLoaded().progress(function () {
+                    $grid.isotope('layout');
+                });
 
             }
+
+
+
         }
 
 
