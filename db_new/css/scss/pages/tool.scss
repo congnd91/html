@@ -3,8 +3,17 @@
 .tool-page {
     background-color: rgba(0, 0, 0, 0.05);
     user-select: none;
+
+    svg {
+        stroke: none;
+        stroke-width: 1;
+        fill: none;
+        fill-rule: evenodd;
+
+    }
 }
 
+/***********************************************************/
 .tool-header {
     height: 55px;
     background-color: #fff;
@@ -181,7 +190,8 @@
 
         p {
             text-transform: uppercase;
-            font-size: 9px;
+            font-size: 10px;
+
             font-weight: 600;
             margin: 0px 0px 0px 0px;
         }
@@ -203,6 +213,9 @@
     }
 
 }
+
+/***********************************************************/
+
 
 .tool-menu {
     padding: 55px 0px 0px 0px;
@@ -409,17 +422,6 @@
 }
 
 
-.tp-scroll {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    overflow: auto;
-
-    border: 1px solid lime;
-
-}
-
 .tool-panel {
     z-index: 90;
     box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.1);
@@ -433,17 +435,51 @@
 
 
 
-    .tp-wrap {
-        width: 280px;
-        border: 1px solid red;
 
-        margin: 0px 0px 0px 20px;
+}
+
+.tp-tab {
+
+    position: absolute;
+    top: 55px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+
+    .tab-head {}
+
+    .tab-content {
+
+        flex-grow: 1;
+        position: relative;
+
     }
+
 
 
 }
 
+.tc-scroll {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    overflow: auto;
 
+
+
+}
+
+.tc-wrap {
+    width: 280px;
+    margin: 0px 0px 0px 20px;
+}
+
+
+/***********************************************************/
 .tool-workspace {
     position: fixed;
     top: 55px;
@@ -527,4 +563,231 @@
         }
     }
 
+}
+
+/*************************/
+
+
+.template-item {
+    background-color: #fff;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.05);
+    transition: box-shadow .3s ease-out, transform .3s ease-out, opacity .2s ease-out;
+    transition-delay: .1s;
+    border-radius: 1px;
+
+    transform: translateZ(0);
+    background-color: #fff;
+    overflow: hidden;
+    height: 100%;
+
+    .ti-transparent-bg {
+        background-image: linear-gradient(45deg, rgba(0, 0, 0, .04) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .04) 50%, rgba(0, 0, 0, .04) 75%, transparent 75%, transparent);
+        background-size: 10px 10px;
+
+    }
+
+    .ti-img {
+
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        background-color: #fff;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .ti-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 20;
+            background-color: rgba(0, 0, 0, 0.4);
+
+            transition: all ease 0.3s;
+            visibility: hidden;
+            opacity: 0;
+
+            a.fill {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+        }
+
+        .ti-generating {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 20;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .generating-text {
+                font-weight: 600;
+                color: #fff;
+            }
+
+            a {
+                color: #fff;
+                font-style: italic;
+
+            }
+
+
+
+
+        }
+
+        .number-page {
+
+            z-index: 10;
+
+            line-height: 20px;
+            padding: 0px 10px;
+            letter-spacing: 1px;
+            color: #fff;
+            line-height: 20px;
+            text-transform: uppercase;
+            font-size: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .ti-info {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            z-index: 30;
+
+            .stock-premium {
+                float: left;
+                margin: 0px 10px 0px 0px;
+
+                .icon {
+                    background-color: rgba(0, 0, 0, 0.7);
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-image: url(#{$path_default}/images/money.svg);
+                    background-repeat: no-repeat;
+                    background-size: 8px auto;
+
+                    background-position: center center;
+                }
+
+
+            }
+
+
+            .template-premium {
+                float: left;
+                margin: 0px 10px 0px 0px;
+
+                .icon {
+                    background-color: rgba(0, 0, 0, 0.7);
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-image: url(#{$path_default}/images/premium.svg);
+                    background-repeat: no-repeat;
+                    background-size: 14px auto;
+
+                    background-position: center center;
+                }
+
+            }
+
+
+
+
+
+
+
+            &.float-right {
+                left: unset;
+                right: 8px;
+            }
+        }
+
+
+
+
+        img {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+
+    .ti-caption {
+        padding: 10px 10px;
+        position: relative;
+
+        .multi-badge {
+            z-index: 10;
+            display: inline-block;
+            padding: 0px 2px;
+            letter-spacing: 1px;
+            color: #fff;
+            line-height: 15px;
+            text-transform: uppercase;
+            font-size: 10px;
+            background-color: $pro-color;
+            border-radius: 2px;
+        }
+
+        p {
+            margin: 0px;
+        }
+
+        .view-detail {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            background-color: $box-color;
+
+            font-family: Georgia, 'Times New Roman';
+            transition: all ease 0.4s;
+            font-style: italic;
+
+            color: $text-color-meta;
+
+            &:hover {
+                color: #fff;
+
+                background-color: $active-color;
+            }
+        }
+    }
+
+    &:hover {
+        box-shadow: rgba(45, 45, 45, 0.05) 0px 2px 2px, rgba(49, 49, 49, 0.05) 0px 4px 4px, rgba(42, 42, 42, 0.05) 0px 8px 8px, rgba(32, 32, 32, 0.05) 0px 16px 16px, rgba(49, 49, 49, 0.05) 0px 32px 32px, rgba(35, 35, 35, 0.05) 0px 64px 64px;
+
+        /*.ci-img {
+            .ci-hover {
+                visibility: visible;
+                opacity: 1;
+            }
+        }*/
+
+    }
 }

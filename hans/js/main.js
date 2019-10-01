@@ -14,8 +14,25 @@ $(document).ready(function () {
         });
 
     }
+    db.accordion = function () {
+        $('.accordion-caption').on('click', function (e) {
+
+            var content = $(this).next();
+            if ($(content).is(":visible")) {
+                $(content).slideUp();
+                $(this).removeClass("active");
+            } else {
+                $(content).slideDown();
+                $(this).addClass("active");
+
+            }
+        });
+
+    }
+
 
     db.preLoad();
     db.menuResponsive();
+    db.accordion();
 
 });
