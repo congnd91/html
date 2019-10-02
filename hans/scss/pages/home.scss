@@ -124,7 +124,6 @@
 
             &.active {
                 a {
-
                     color: $active-color-second;
                 }
             }
@@ -167,13 +166,11 @@
     margin: 0px 0px 30px 0px;
     text-align: center;
 
-
     h2 {
         font-size: 25px;
         color: $active-color;
         font-weight: 700;
         margin: 0px 0px 10px 0px;
-
         text-transform: uppercase;
 
         @media screen and (max-width: 991px) {
@@ -244,7 +241,6 @@
 .group-field {
     .fg-caption {
         font-size: 15px;
-
         text-transform: uppercase;
         font-weight: 700;
         border-bottom: 1px solid $border-color;
@@ -454,41 +450,37 @@
 }
 
 .accordion {
-    border-bottom: 1px solid $border-color;
-
     .accordion-caption {
-        border-top: 1px solid $border-color;
-        padding: 15px 40px 15px 0px;
+        background-color: $box-color;
+        color: $text-color;
+
+        padding: 12px 40px 12px 15px;
         position: relative;
         cursor: pointer;
+        margin: 15px 0px 0px 0px;
+        transition: all ease 0.3s;
 
         &.active {
-
-            color: $active-color;
+            background-color: lighten($active-color, 10%);
+            color: #fff;
 
             .icon {
                 transform: rotate(180deg);
-
             }
         }
-
-
 
         h3 {
             margin: 0px;
             padding: 0px;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
-
         }
 
         .icon {
-
             width: 40px;
             height: 40px;
             position: absolute;
-            top: 4px;
-
+            top: 2px;
             right: 0px;
             text-align: center;
             line-height: 40px;
@@ -496,9 +488,145 @@
     }
 
     .accordion-content {
-
         display: none;
-        padding: 10px 0px;
+        padding: 15px 15px;
+        border: 1px solid $border-color;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+
+.top-bar {
+    position: fixed;
+    z-index: 999;
+    border-bottom: 1px solid $border-color;
+    z-index: 999;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 15px 0px;
+
+    background-color: #fff;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+
+    .name {
+        font-weight: 700;
+        font-family: $font-family-heading;
+        color: $active-color;
+        line-height: 30px;
+        font-size: 16px;
+
+        span {
+            color: $active-color-second;
+        }
     }
 
+    .name-of-page {
+
+        img {
+            width: 30px;
+            height: 30px;
+            margin: 0px 10px 0px 0px;
+        }
+
+        span {
+            line-height: 30px;
+            display: inline-block;
+            font-weight: 700;
+            font-family: $font-family-heading;
+            color: $active-color;
+            font-size: 16px;
+
+
+        }
+    }
+
+
+}
+
+.search-section {
+    padding: 60px 0px 20px 0px;
+
+    background-color: $box-color;
+
+    .search-item {
+        margin: 0px 0px 15px 0px;
+    }
+
+    h4 {
+        font-weight: 700;
+        font-size: 20px;
+        color: $active-color;
+        margin: 0px 0px 15px 0px;
+    }
+}
+
+.db-table-wrap {
+    overflow: auto;
+
+    .db-table-scroll {
+        min-width: 900px;
+
+    }
+}
+
+.db-table {
+    border: 1px solid $active-color;
+
+    .table-head {
+        border-bottom: 1px solid $border-color;
+        background-color: $active-color;
+        display: flex;
+
+
+        .col {
+            color: #fff;
+
+            padding: 10px 10px;
+            font-size: 14px;
+
+            strong {
+                font-weight: 600;
+            }
+        }
+
+        .col2 {
+            min-width: 250px;
+        }
+    }
+
+    .table-content {
+
+        .tc-row {
+            border-bottom: 1px solid $border-color;
+            background-color: #fff;
+            display: flex;
+
+            &:hover {
+                background-color: lighten($active-color-second, 45%);
+
+            }
+
+            &:nth-child(even) {
+                background-color: lighten($box-color, 0%);
+
+            }
+
+            .col {
+                padding: 12px 10px;
+                font-size: 14px;
+            }
+
+            .col2 {
+                min-width: 250px;
+            }
+
+            strong {
+                font-weight: 600;
+            }
+        }
+    }
 }

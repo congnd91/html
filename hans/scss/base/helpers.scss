@@ -91,17 +91,15 @@ h6 {
     &:hover {
 
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-        background-color: darken($active-color, 10%);
+        background-color: lighten($active-color, 20%);
         color: #fff;
-
-
 
     }
 
     &:active {
 
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-        background-color: darken($active-color, 10%);
+        background-color: lighten($active-color, 20%);
         top: 1px;
     }
 
@@ -118,26 +116,22 @@ h6 {
         &:hover {
 
 
-            background-color: darken($active-color-second, 10%);
+            background-color: lighten($active-color-second, 15%);
             color: #fff;
-
-
 
         }
 
         &:active {
 
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-            background-color: darken($active-color-second, 10%);
+            background-color: lighten($active-color-second, 15%);
             top: 1px;
         }
-
 
     }
 
     &.cancel {
         border: 1px solid rgba(#5A5D6C, 0.3);
-
         color: #5A5D6C;
         background-color: transparent;
         background: none;
@@ -239,6 +233,79 @@ h6 {
 
 }
 
+.db-radio-fill {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+
+    span {
+        display: inline-block;
+        padding: 0px 10px 0px 35px;
+        position: relative;
+        line-height: 30px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 2px;
+        background-color: $active-color;
+        color: #fff;
+
+
+        &:before {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: #fff;
+            border-radius: 50%;
+            background-color: #fff;
+
+
+        }
+
+
+        cursor: pointer;
+    }
+
+    input {
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        &:checked ~ span {
+
+            background-color: $active-color-second;
+
+            &:before {}
+
+            &:after {
+
+                width: 12px;
+                height: 12px;
+                background-color: $active-color-second;
+                content: "";
+                display: block;
+                border-radius: 50%;
+                position: absolute;
+                top: 9px;
+                left: 9px;
+
+
+
+
+
+            }
+        }
+    }
+
+
+}
+
 .db-field {
     margin: 0px 0px 15px 0px;
 
@@ -317,6 +384,79 @@ h6 {
                 position: absolute;
                 line-height: 18px;
                 text-align: center;
+                font-size: 12px;
+
+            }
+        }
+    }
+
+}
+
+
+.db-checkbox-fill {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+
+    span {
+        display: inline-block;
+        padding: 0px 10px 0px 35px;
+        position: relative;
+        line-height: 30px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 2px;
+        background-color: $active-color;
+        color: #fff;
+
+
+        &:before {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: #fff;
+            border-radius: 2;
+            background-color: #fff;
+
+
+        }
+
+
+        cursor: pointer;
+    }
+
+    input {
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        &:checked ~ span {
+            background-color: $active-color-second;
+
+            &:before {}
+
+            &:after {
+
+                content: "\f00c";
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                width: 18px;
+                height: 18px;
+                display: block;
+                top: 7px;
+                left: 7px;
+                border: none;
+                position: absolute;
+                line-height: 18px;
+                text-align: center;
+                color: $active-color-second;
                 font-size: 12px;
 
             }

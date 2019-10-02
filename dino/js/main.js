@@ -194,8 +194,9 @@
             });
         }
         db.matchHeight = function () {
-            if ($('.news-item').length) {
-                $('.news-item').matchHeight();
+            if ($('.product-item').length) {
+                $('.product-item').matchHeight();
+
             }
             if ($('.pp-item').length) {
                 $('.pp-item').matchHeight();
@@ -206,15 +207,6 @@
 
 
 
-            if ($('.product-item').length) {
-                $('.product-item').matchHeight();
-            }
-
-            if ($('.sr-des').length) {
-                $('.sr-des ').niceScroll();
-            }
-
-            $('.mega-col').matchHeight();
         }
 
 
@@ -227,8 +219,7 @@
 
         db.sliderProduct();
         db.menuResponsive();
-
-
+        db.matchHeight();
         new WOW().init();
     });
 })(jQuery);
