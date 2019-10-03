@@ -14,6 +14,13 @@ $(document).ready(function () {
         });
 
     }
+    db.closeAlert = function () {
+        $('.close-alert').on('click', function (e) {
+            e.stopPropagation();
+            $(this).parent().hide();
+        });
+
+    }
     db.accordion = function () {
         $('.accordion-caption').on('click', function (e) {
 
@@ -34,5 +41,5 @@ $(document).ready(function () {
     db.preLoad();
     db.menuResponsive();
     db.accordion();
-
+    db.closeAlert();
 });

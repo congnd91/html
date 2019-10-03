@@ -116,5 +116,8 @@
         $('.db-toggle input').click(function () {
             alert("Call Ajax here.")
         });
+
+
+
     });
 })(jQuery);
