@@ -54,6 +54,36 @@
                 });
             }
         }
+
+        db.partnerSlider = function () {
+            var owl_partner = $('.owl-partner');
+            if ($(owl_partner).length) {
+                $(owl_partner).owlCarousel({
+                    loop: true,
+                    margin: 10,
+                    nav: false,
+                    autoplay: false,
+                    items: 2,
+                    responsive: {
+                        0: {
+                            items: 2,
+                        },
+                        576: {
+                            items: 2,
+                        },
+                        768: {
+                            items: 4,
+                        },
+                        991: {
+                            items: 5,
+                        },
+                        1199: {
+                            items: 6,
+                        }
+                    },
+                });
+            }
+        }
         db.stepSlider = function () {
             var owl_step = $('.owl-step');
             if ($(owl_step).length) {
@@ -96,6 +126,7 @@
         db.homeSlider();
         db.serviceSlider();
         db.stepSlider();
+        db.partnerSlider();
         db.menuResponsive();
         db.matchHeight();
     });
