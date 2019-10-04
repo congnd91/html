@@ -1591,6 +1591,23 @@ img {
     color: #fff;
     font-size: 16px;
     font-weight: 400; }
+    .topbar .user .dropdown-toggle {
+      cursor: pointer; }
+    .topbar .user .dropdown-menu {
+      border-radius: 1px;
+      border: 1px solid #2dac9c;
+      padding: 0px;
+      margin-top: -2px; }
+      .topbar .user .dropdown-menu a {
+        display: block;
+        line-height: 20px;
+        padding: 10px 10px 10px 10px;
+        font-size: 14px;
+        color: #2dac9c;
+        transition: all ease 0.3s; }
+        .topbar .user .dropdown-menu a:hover {
+          background-color: #2dac9c;
+          color: #fff; }
     .topbar .user .icon {
       width: 45px;
       height: 45px;
@@ -1630,6 +1647,8 @@ img {
 .header {
   background-color: #fff;
   padding: 30px 0px;
+  position: relative;
+  z-index: 99;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2); }
   @media screen and (max-width: 991px) {
     .header {
@@ -1659,10 +1678,35 @@ img {
       .header .menu ul li {
         display: inline-block;
         line-height: 40px;
-        margin: 0px 0px 0px 60px; }
+        margin: 0px 0px 0px 60px;
+        position: relative; }
         @media screen and (max-width: 1199px) {
           .header .menu ul li {
             margin: 0px 0px 0px 30px; } }
+        .header .menu ul li ul {
+          position: absolute;
+          top: 100%;
+          z-index: 999;
+          left: 0px;
+          width: 200px;
+          background-color: #2dac9c;
+          transition: all ease 0.3s;
+          z-index: -1;
+          visibility: hidden;
+          opacity: 0;
+          margin-top: 10px; }
+          .header .menu ul li ul li {
+            display: block;
+            padding: 0px;
+            margin: 0px; }
+            .header .menu ul li ul li a {
+              padding: 10px 10px 10px 20px;
+              color: #fff;
+              text-transform: none;
+              line-height: 20px; }
+            .header .menu ul li ul li:hover > a {
+              background-color: #28988a;
+              color: #fff; }
         .header .menu ul li a {
           display: block;
           line-height: 40px;
@@ -1671,9 +1715,14 @@ img {
           font-size: 16px;
           transition: all ease 0.3s;
           text-transform: uppercase; }
-        .header .menu ul li:hover a {
+        .header .menu ul li:hover > a {
           color: #2dac9c; }
-        .header .menu ul li.active a {
+        .header .menu ul li:hover > ul {
+          margin-top: 0px;
+          z-index: 99;
+          visibility: visible;
+          opacity: 1; }
+        .header .menu ul li.active > a {
           color: #2dac9c; }
   .header .float-right {
     padding: 5px 0px 0px 0px; }
@@ -1745,7 +1794,8 @@ img {
   top: 0px;
   right: -280px;
   transition: all ease 0.3s;
-  background-color: #000;
+  background-color: #fff;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
   bottom: 0px;
   padding: 30px 0px 0px 0px; }
   @media screen and (min-width: 992px) {
@@ -1758,15 +1808,23 @@ img {
     .menu-mobile ul li {
       margin: 0px 0px 10px 0px; }
       .menu-mobile ul li a {
-        padding: 10px 20px 20px 20px;
+        padding: 10px 20px 10px 20px;
         font-size: 14px;
         font-family: "Barlow", sans-serif;
-        color: #fff;
+        color: #000;
         font-weight: 700;
         opacity: 0.9;
         text-transform: uppercase; }
         .menu-mobile ul li a:hover {
           opacity: 1; }
+      .menu-mobile ul li ul {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        padding: 10px 0px 0px 0px; }
+        .menu-mobile ul li ul li a {
+          text-transform: none;
+          padding: 10px 10px 10px 40px; }
       .menu-mobile ul li.active a {
         color: #2dac9c; }
 
@@ -1911,8 +1969,8 @@ img {
     text-align: center; }
     .service-slider .owl-dots .owl-dot {
       display: inline-block;
-      width: 14px;
-      height: 14px;
+      width: 10px;
+      height: 10px;
       border-radius: 7px;
       background-color: #ebebeb;
       margin: 0px 5px; }
@@ -1922,10 +1980,10 @@ img {
           height: 10px; } }
       .service-slider .owl-dots .owl-dot.active {
         background-color: #2dac9c;
-        width: 45px; }
+        width: 30px; }
         @media screen and (max-width: 991px) {
           .service-slider .owl-dots .owl-dot.active {
-            width: 30px; } }
+            width: 20px; } }
   .service-slider .service-item {
     position: relative;
     padding: 15px 10px 10px 10px; }
@@ -2208,16 +2266,33 @@ img {
 .section-partner {
   padding: 50px 0px; }
 
-.partner .partner-col {
-  float: left;
-  width: 16.666%; }
-  @media screen and (max-width: 991px) {
-    .partner .partner-col {
-      width: 33.333%; } }
-  @media screen and (max-width: 400px) {
-    .partner .partner-col {
-      width: 50%; } }
-  .partner .partner-col .partner-item {
+.partner-slider {
+  position: relative;
+  margin: 0px 0px 50px 0px; }
+  .partner-slider .owl-dots {
+    position: absolute;
+    bottom: -50px;
+    left: 0px;
+    right: 0px;
+    text-align: center; }
+    .partner-slider .owl-dots .owl-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 7px;
+      background-color: #ebebeb;
+      margin: 0px 5px; }
+      @media screen and (max-width: 991px) {
+        .partner-slider .owl-dots .owl-dot {
+          width: 10px;
+          height: 10px; } }
+      .partner-slider .owl-dots .owl-dot.active {
+        background-color: #2dac9c;
+        width: 30px; }
+        @media screen and (max-width: 991px) {
+          .partner-slider .owl-dots .owl-dot.active {
+            width: 20px; } }
+  .partner-slider .partner-item {
     width: 150px;
     margin: 0px auto;
     border: 1px solid #ddd;
@@ -2225,18 +2300,18 @@ img {
     overflow: hidden;
     transition: all ease 0.3s; }
     @media screen and (max-width: 1199px) {
-      .partner .partner-col .partner-item {
+      .partner-slider .partner-item {
         width: 140px; } }
     @media screen and (max-width: 1199px) {
-      .partner .partner-col .partner-item {
+      .partner-slider .partner-item {
         margin: 0px auto 20px auto; } }
-    .partner .partner-col .partner-item:hover {
+    .partner-slider .partner-item:hover {
       border: 1px solid #2dac9c; }
-    .partner .partner-col .partner-item a {
+    .partner-slider .partner-item a {
       display: block;
       padding: 5px 5px;
       text-align: center; }
-      .partner .partner-col .partner-item a img {
+      .partner-slider .partner-item a img {
         max-height: 50px; }
 
 .footer {
