@@ -1,0 +1,304 @@
+.page-preload {
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+}
+
+.header {
+
+    position: fixed;
+    top: 0xp;
+    left: 0px;
+    right: 0px;
+
+    padding: 30px 0px;
+    right: 0px;
+    z-index: 100;
+    transition: all ease 0.3s;
+
+    a.logo {
+        float: left;
+        margin: 0px 0px 0px 0px;
+        h1 {
+            font-family: $font-family;
+            color: #fff;
+            font-weight: 900;
+            font-size: 30px;
+            line-height: 40px;
+            height: 40px;
+
+            @media screen and (max-width: 991px) {
+                font-size: 20px;
+                line-height: 30px;
+            }
+
+        }
+    }
+    .float-right {
+
+        .menu {
+            @media screen and (max-width: 991px) {
+                display: none;
+            }
+            ul {
+                margin: 0px;
+                padding: 0px;
+                li {
+                    display: inline-block;
+                    margin: 0px 0px 0px 25px;
+                    @media screen and (max-width: 1199px) {
+                        margin: 0px 0px 0px 20px;
+
+                    }
+
+                    a {
+                        color: #fff;
+                        line-height: 35px;
+
+
+                        font-size: 14px;
+                        position: relative;
+                        display: inline-block;
+                        transition: all ease 0.3s;
+                        font-weight: 600;
+                        &:before {
+                            content: "";
+                            display: block;
+                            height: 2px;
+                            width: 0px;
+                            position: absolute;
+                            bottom: -2px;
+                            transition: all ease 0.3s;
+                            left: 0px;
+                            background-color: $active-color;
+
+                        }
+                    }
+                    &.active {
+                        a {
+
+                            color: $active-color;
+
+                            &:before {
+                                width: 100%;
+                            }
+
+                        }
+                    }
+                    &:hover {
+                        a {
+                            color: $active-color;
+                            &:before {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.header-scrolled {
+        background-color: #000;
+        padding: 10px 0px;
+
+    }
+}
+
+.page {
+    transition: all ease 0.3s;
+    position: relative;
+}
+
+.menu-icon {
+    width: 30px;
+    height: 30px;
+    padding: 7px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    float: left;
+    display: none;
+    @media screen and (max-width: 991px) {
+        display: block;
+        cursor: pointer;
+    }
+    span {
+        display: block;
+        width: 100%;
+        height: 2px;
+
+        background-color: #fff;
+        margin: 0px 0px 5px 0px;
+    }
+}
+
+.menu-mobile {
+    position: fixed;
+    width: 280px;
+    top: 0px;
+    right: -280px;
+    transition: all ease 0.3s;
+    background-color: $text-color;
+    bottom: 0px;
+    padding: 30px 0px 0px 0px;
+    @media screen and (min-width: 992px) {
+        display: block;
+    }
+    ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        li {
+            margin: 0px 0px 10px 0px;
+            a {
+                padding: 10px 20px 20px 20px;
+                font-size: 14px;
+                color: #fff;
+                opacity: 0.9;
+                &:hover {
+                    opacity: 1;
+                    text-decoration: underline;
+                }
+            }
+            &.active {
+                a {
+                    color: $active-color;
+                }
+            }
+        }
+    }
+}
+
+.open-menu {
+    .menu-mobile {
+
+        right: 0px;
+    }
+    .page {
+        transform: translateX(-280px);
+    }
+}
+
+.home-hero {
+    background-image: url(../images/hero-bg.jpg);
+
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    min-height: 750px;
+    position: relative;
+    @media screen and (max-width: 1500px) {
+        min-height: 650px;
+
+    }
+    @media screen and (max-width: 991px) {
+        min-height: 400px;
+    }
+    &:before {
+        content: "";
+        display: block;
+        top: 0;
+        left: 0;
+        position: absolute;
+
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+    }
+
+
+    .container {
+        position: relative;
+        z-index: 2;
+
+    }
+    .hh-content {
+        position: absolute;
+        bottom: 100px;
+        left: 0px;
+        right: 0px;
+        @media screen and (max-width: 991px) {
+            bottom: 30px;
+        }
+        h2 {
+            color: #fff;
+            font-weight: 800;
+            font-size: 50px;
+            margin: 0px 0px 10px 0px;
+            text-transform: uppercase;
+            @media screen and (max-width: 991px) {
+                font-size: 30px;
+            }
+            @media screen and (max-width: 767px) {
+                font-size: 25px;
+            }
+
+        }
+        p {
+            font-size: 16px;
+            margin: 0px 0px 30px 0px;
+            color: #fff;
+
+            @media screen and (max-width: 991px) {
+                font-size: 14px;
+            }
+            @media screen and (max-width: 767px) {
+                font-size: 13px;
+            }
+        }
+
+    }
+
+}
+
+.section {
+    padding: 80px 0px;
+    @media screen and (max-width: 991px) {
+        padding: 50px 0px;
+    }
+
+}
+
+.section-bg {
+    background-color: $bg-color;
+}
+
+.section-caption {
+
+    text-align: center;
+    margin: 0px 0px 40px 0px;
+    h2 {
+
+        font-weight: 900;
+        font-size: 40px;
+        text-transform: uppercase;
+        margin: 0px;
+        span {
+            font-weight: 300;
+
+        }
+        @media screen and (max-width: 991px) {
+            font-size: 30px;
+        }
+    }
+    p {
+        margin: 5px 0px 0px 0px;
+
+        font-size: 16px;
+        color: $text-color-second;
+
+    }
+}
+
+.lorem-context {
+    background-color: #aaa;
+
+    text-align: center;
+    padding: 150px 10px;
+    color: #666;
+
+}
