@@ -23,5 +23,9 @@
         db.preLoad();
         db.menuResponsive();
         db.matchHeight();
+        new WOW({
+            offset: 100,
+            mobile: true
+        }).init()
     });
 })(jQuery);

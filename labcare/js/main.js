@@ -19,7 +19,7 @@
                     loop: true,
                     margin: 0,
                     nav: true,
-                    autoplay: false,
+                    autoplay: true,
                     items: 1,
                     //      animateOut: 'fadeOut'
                 });
@@ -31,8 +31,8 @@
                 $(owl_service).owlCarousel({
                     loop: true,
                     margin: 10,
-                    nav: false,
-                    autoplay: false,
+                    nav: true,
+                    autoplay: true,
                     items: 1,
                     responsive: {
                         0: {
@@ -61,12 +61,12 @@
                 $(owl_partner).owlCarousel({
                     loop: true,
                     margin: 10,
-                    nav: false,
-                    autoplay: false,
-                    items: 2,
+                    nav: true,
+                    autoplay: true,
+                    items: 1,
                     responsive: {
                         0: {
-                            items: 2,
+                            items: 1,
                         },
                         576: {
                             items: 2,
@@ -91,7 +91,7 @@
                     loop: true,
                     margin: 10,
                     nav: true,
-                    autoplay: false,
+                    autoplay: true,
                     items: 1,
                     responsive: {
                         0: {
