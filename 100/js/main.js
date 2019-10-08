@@ -32,7 +32,7 @@
                     loop: true,
                     margin: 0,
                     nav: false,
-                    autoplay: false,
+                    autoplay: true,
                     items: 1,
                     //      animateOut: 'fadeOut'
                 });
