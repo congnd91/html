@@ -117,8 +117,8 @@
             if ($('.si-des h3').length) {
                 $('.si-des h3').matchHeight();
             }
-            if ($('.about-col').length) {
-                $('.about-col').matchHeight();
+            if ($('.sc-des').length) {
+                $('.sc-des').matchHeight();
             }
         }
         db.preLoad();

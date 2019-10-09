@@ -120,7 +120,7 @@
         db.sliderProduct = function () {
             if ($('.slick-product').length) {
                 $('.slick-product').slick({
-                    dots: false,
+                    dots: true,
                     infinite: true,
                     speed: 500,
                     slidesToShow: 3,
