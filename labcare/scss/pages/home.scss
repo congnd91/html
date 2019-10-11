@@ -768,6 +768,23 @@
             .si-img {
                 position: relative;
 
+                .si-sale {
+                    z-index: 1;
+
+                    position: absolute;
+                    bottom: 5px;
+                    right: 5px;
+                    color: #fff;
+                    background-color: #ff0000;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    padding: 5px 5px;
+                    line-height: 1;
+                    display: inline-block;
+
+                }
+
                 img {
                     width: 100%;
                     display: block;
@@ -786,6 +803,7 @@
                     transition: all ease 0.3s;
                     background-color: rgba(255, 255, 255, 0.6);
                     opacity: 0;
+                    z-index: 2;
                 }
             }
 
@@ -800,7 +818,19 @@
                 }
 
                 .price {
-                    text-align: right;
+                    margin: 0px 0px 4px 0px;
+                }
+
+                .price {
+
+
+                    strong {
+                        float: left;
+                        font-size: 16px;
+                        font-weight: 500;
+                        float: left;
+
+                    }
 
                     span {
                         font-size: 20px;
@@ -808,6 +838,10 @@
                         color: $active-color;
                         display: inline-block;
                         color: $active-color;
+                        float: left;
+                        margin: -3px 0px 0px 0px;
+
+
                     }
 
                     em {
@@ -817,6 +851,10 @@
                         position: relative;
                         margin: 0px 10px 0px 0px;
                         text-decoration: line-through;
+                        float: left;
+
+
+
                     }
                 }
             }
@@ -1427,7 +1465,7 @@
     border: 1px solid $border-color;
     z-index: 1;
     padding: 0px 0px 0px 165px;
-    min-height: 120px;
+    min-height: 100px;
     margin: -1px 0px 0px 0px;
     transition: all ease 0.3s;
 
@@ -1462,7 +1500,9 @@
     }
 
     .s-des {
-        padding: 15px 20px 20px 25px;
+        padding: 15px 20px 10px 25px;
+
+        position: relative;
 
         @media screen and (max-width: 991px) {
             padding: 5px 10px 10px 10px;
@@ -1490,10 +1530,53 @@
         p {
             color: $text-color-second;
             font-size: 18px;
-            margin: 0px;
+            margin: 0px 0px 35px 0px;
+
 
             @media screen and (max-width: 991px) {
                 font-size: 14px;
+            }
+        }
+
+        .control {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+
+            span {
+                float: left;
+                height: 35px;
+                border: 1px solid $border-color;
+                border-bottom: none;
+                color: #353535;
+                font-size: 18px;
+                font-weight: 700;
+                padding: 0px 15px;
+                line-height: 35px;
+
+                @media screen and (max-width: 991px) {
+                    font-size: 14px;
+                }
+
+            }
+
+            a {
+                float: left;
+                font-size: 18px;
+                color: #fff;
+                height: 35px;
+                line-height: 35px;
+                padding: 0px 15px;
+                background-color: $active-color;
+                transition: all ease 0.3s;
+
+                &:hover {
+                    background-color: lighten($active-color, 10%);
+                }
+
+                @media screen and (max-width: 991px) {
+                    font-size: 14px;
+                }
             }
         }
     }
@@ -1623,65 +1706,163 @@
     background-color: #fff;
 
     .sc-price {
-        text-align: center;
-        padding: 10px 0px;
-        background-color: $active-color;
+        border-top: 1px dashed $active-color;
 
-        @media screen and (max-width: 991px) {
-            padding: 15px 0px;
+
+
+        padding-top: 3px;
+
+        .scp-inner {
+            background-color: $active-color;
         }
 
-        strong {
-            color: #fff;
-            font-size: 20px;
-            font-weight: 300;
-            position: relative;
-            display: inline-block;
-            top: -5px;
-            margin: 0px 5px 0px 0px;
-            text-decoration: line-through;
+        .scp-col {
+            float: left;
+            width: 50%;
+            padding: 5px 15px 10px 15px;
+
+            text-align: right;
 
 
-            em {
-                display: inline-block;
-                position: relative;
-                top: -15px;
-                font-weight: 300;
-                font-size: 15px;
-
-                font-style: normal;
-
+            &.left {
+                border-right: 1px solid #fff;
+                text-align: left;
             }
+        }
 
-            @media screen and (max-width: 991px) {
+        em {
+            display: block;
+            font-size: 16px;
+            font-style: normal;
+            margin: 0px;
+            color: #fff;
+
+        }
+
+        .price {
+            margin: 20px 0px 0px 0px;
+            position: relative;
+
+
+
+            span {
+                color: #fff;
                 font-size: 16px;
+                font-weight: 600;
+                display: block;
+                position: absolute;
+
+                top: -18px;
+                left: 0px;
+                line-height: 1;
+                text-decoration: line-through;
+                margin: 0px 0px 0px 0px;
+                width: 100%;
+
+                i {
+                    display: inline-block;
+                    position: relative;
+                    top: -5px;
+                    font-weight: 300;
+                    font-size: 12px;
+
+                    font-style: normal;
+
+                }
             }
 
+            strong {
+                color: #fff;
+                line-height: 1;
+                font-size: 35px;
+                font-weight: 700;
+                display: block;
+
+                @media screen and (max-width: 991px) {
+                    font-size: 20px;
+                }
+
+
+
+
+                i {
+                    display: inline-block;
+                    position: relative;
+                    top: -15px;
+                    font-weight: 600;
+                    font-size: 15px;
+
+                    font-style: normal;
+
+                }
+
+
+            }
         }
 
-        span {
-            color: #fff;
-            font-size: 35px;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
+        .price-one-row {
+            text-align: center;
+            padding: 10px 0px;
 
-            em {
+            span {
+                color: #fff;
+                font-size: 20px;
+                font-weight: 300;
                 display: inline-block;
-                position: relative;
-                top: -15px;
-                font-weight: 400;
-                font-size: 20px;
+                margin: 0px 4px 0px 0px;
 
-                font-style: normal;
 
+
+
+                line-height: 1;
+                text-decoration: line-through;
+                margin: 0px 0px 0px 0px;
+
+
+                i {
+                    display: inline-block;
+                    position: relative;
+                    top: -5px;
+                    font-weight: 300;
+                    font-size: 12px;
+
+                    font-style: normal;
+
+                }
             }
 
-            @media screen and (max-width: 991px) {
-                font-size: 20px;
-            }
+            strong {
+                color: #fff;
+                line-height: 1;
+                font-size: 35px;
+                font-weight: 700;
+                display: inline-block;
 
+                @media screen and (max-width: 991px) {
+                    font-size: 20px;
+                }
+
+
+
+
+                i {
+                    display: inline-block;
+                    position: relative;
+                    top: -15px;
+                    font-weight: 600;
+                    font-size: 15px;
+
+                    font-style: normal;
+
+                }
+
+
+            }
         }
+
+
+
+
     }
 
     .sc-des {

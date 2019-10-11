@@ -2098,6 +2098,19 @@ img {
       overflow: hidden; }
       .service-slider .service-item .si-inner .si-img {
         position: relative; }
+        .service-slider .service-item .si-inner .si-img .si-sale {
+          z-index: 1;
+          position: absolute;
+          bottom: 5px;
+          right: 5px;
+          color: #fff;
+          background-color: #ff0000;
+          border-radius: 4px;
+          font-size: 14px;
+          font-weight: 600;
+          padding: 5px 5px;
+          line-height: 1;
+          display: inline-block; }
         .service-slider .service-item .si-inner .si-img img {
           width: 100%;
           display: block; }
@@ -2113,7 +2126,8 @@ img {
           align-items: center;
           transition: all ease 0.3s;
           background-color: rgba(255, 255, 255, 0.6);
-          opacity: 0; }
+          opacity: 0;
+          z-index: 2; }
       .service-slider .service-item .si-inner .si-des {
         padding: 10px 8px; }
         .service-slider .service-item .si-inner .si-des h3 {
@@ -2122,20 +2136,28 @@ img {
           font-weight: 700;
           font-family: "Barlow", sans-serif; }
         .service-slider .service-item .si-inner .si-des .price {
-          text-align: right; }
-          .service-slider .service-item .si-inner .si-des .price span {
-            font-size: 20px;
-            font-weight: 700;
-            color: #2dac9c;
-            display: inline-block;
-            color: #2dac9c; }
-          .service-slider .service-item .si-inner .si-des .price em {
-            font-size: 16px;
-            font-style: normal;
-            display: inline-block;
-            position: relative;
-            margin: 0px 10px 0px 0px;
-            text-decoration: line-through; }
+          margin: 0px 0px 4px 0px; }
+        .service-slider .service-item .si-inner .si-des .price strong {
+          float: left;
+          font-size: 16px;
+          font-weight: 500;
+          float: left; }
+        .service-slider .service-item .si-inner .si-des .price span {
+          font-size: 20px;
+          font-weight: 700;
+          color: #2dac9c;
+          display: inline-block;
+          color: #2dac9c;
+          float: left;
+          margin: -3px 0px 0px 0px; }
+        .service-slider .service-item .si-inner .si-des .price em {
+          font-size: 16px;
+          font-style: normal;
+          display: inline-block;
+          position: relative;
+          margin: 0px 10px 0px 0px;
+          text-decoration: line-through;
+          float: left; }
       .service-slider .service-item .si-inner:hover {
         border: 1px dashed #2dac9c; }
         .service-slider .service-item .si-inner:hover .si-img .si-hover {
@@ -2570,7 +2592,7 @@ img {
   border: 1px solid #ddd;
   z-index: 1;
   padding: 0px 0px 0px 165px;
-  min-height: 120px;
+  min-height: 100px;
   margin: -1px 0px 0px 0px;
   transition: all ease 0.3s; }
   @media screen and (max-width: 991px) {
@@ -2595,7 +2617,8 @@ img {
     .s-item .s-icon-inner img {
       max-width: 90%; }
   .s-item .s-des {
-    padding: 15px 20px 20px 25px; }
+    padding: 15px 20px 10px 25px;
+    position: relative; }
     @media screen and (max-width: 991px) {
       .s-item .s-des {
         padding: 5px 10px 10px 10px; } }
@@ -2614,10 +2637,41 @@ img {
     .s-item .s-des p {
       color: #353535;
       font-size: 18px;
-      margin: 0px; }
+      margin: 0px 0px 35px 0px; }
       @media screen and (max-width: 991px) {
         .s-item .s-des p {
           font-size: 14px; } }
+    .s-item .s-des .control {
+      position: absolute;
+      bottom: 0px;
+      right: 0px; }
+      .s-item .s-des .control span {
+        float: left;
+        height: 35px;
+        border: 1px solid #ddd;
+        border-bottom: none;
+        color: #353535;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 0px 15px;
+        line-height: 35px; }
+        @media screen and (max-width: 991px) {
+          .s-item .s-des .control span {
+            font-size: 14px; } }
+      .s-item .s-des .control a {
+        float: left;
+        font-size: 18px;
+        color: #fff;
+        height: 35px;
+        line-height: 35px;
+        padding: 0px 15px;
+        background-color: #2dac9c;
+        transition: all ease 0.3s; }
+        .s-item .s-des .control a:hover {
+          background-color: #3fcdbb; }
+        @media screen and (max-width: 991px) {
+          .s-item .s-des .control a {
+            font-size: 14px; } }
 
 .box-right {
   margin: 0px 0px 30px 0px; }
@@ -2700,47 +2754,97 @@ img {
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
   background-color: #fff; }
   .service-card .sc-price {
-    text-align: center;
-    padding: 10px 0px;
-    background-color: #2dac9c; }
-    @media screen and (max-width: 991px) {
-      .service-card .sc-price {
-        padding: 15px 0px; } }
-    .service-card .sc-price strong {
-      color: #fff;
-      font-size: 20px;
-      font-weight: 300;
-      position: relative;
-      display: inline-block;
-      top: -5px;
-      margin: 0px 5px 0px 0px;
-      text-decoration: line-through; }
-      .service-card .sc-price strong em {
-        display: inline-block;
-        position: relative;
-        top: -15px;
-        font-weight: 300;
-        font-size: 15px;
-        font-style: normal; }
-      @media screen and (max-width: 991px) {
-        .service-card .sc-price strong {
-          font-size: 16px; } }
-    .service-card .sc-price span {
-      color: #fff;
-      font-size: 35px;
-      font-weight: 700;
-      position: relative;
-      display: inline-block; }
-      .service-card .sc-price span em {
-        display: inline-block;
-        position: relative;
-        top: -15px;
-        font-weight: 400;
+    border-top: 1px dashed #2dac9c;
+    padding-top: 3px; }
+    .service-card .sc-price .scp-inner {
+      background-color: #2dac9c; }
+    .service-card .sc-price .scp-col {
+      float: left;
+      width: 50%;
+      padding: 5px 15px 10px 15px;
+      text-align: right; }
+      .service-card .sc-price .scp-col.left {
+        border-right: 1px solid #fff;
+        text-align: left; }
+    .service-card .sc-price em {
+      display: block;
+      font-size: 16px;
+      font-style: normal;
+      margin: 0px;
+      color: #fff; }
+    .service-card .sc-price .price {
+      margin: 20px 0px 0px 0px;
+      position: relative; }
+      .service-card .sc-price .price span {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        display: block;
+        position: absolute;
+        top: -18px;
+        left: 0px;
+        line-height: 1;
+        text-decoration: line-through;
+        margin: 0px 0px 0px 0px;
+        width: 100%; }
+        .service-card .sc-price .price span i {
+          display: inline-block;
+          position: relative;
+          top: -5px;
+          font-weight: 300;
+          font-size: 12px;
+          font-style: normal; }
+      .service-card .sc-price .price strong {
+        color: #fff;
+        line-height: 1;
+        font-size: 35px;
+        font-weight: 700;
+        display: block; }
+        @media screen and (max-width: 991px) {
+          .service-card .sc-price .price strong {
+            font-size: 20px; } }
+        .service-card .sc-price .price strong i {
+          display: inline-block;
+          position: relative;
+          top: -15px;
+          font-weight: 600;
+          font-size: 15px;
+          font-style: normal; }
+    .service-card .sc-price .price-one-row {
+      text-align: center;
+      padding: 10px 0px; }
+      .service-card .sc-price .price-one-row span {
+        color: #fff;
         font-size: 20px;
-        font-style: normal; }
-      @media screen and (max-width: 991px) {
-        .service-card .sc-price span {
-          font-size: 20px; } }
+        font-weight: 300;
+        display: inline-block;
+        margin: 0px 4px 0px 0px;
+        line-height: 1;
+        text-decoration: line-through;
+        margin: 0px 0px 0px 0px; }
+        .service-card .sc-price .price-one-row span i {
+          display: inline-block;
+          position: relative;
+          top: -5px;
+          font-weight: 300;
+          font-size: 12px;
+          font-style: normal; }
+      .service-card .sc-price .price-one-row strong {
+        color: #fff;
+        line-height: 1;
+        font-size: 35px;
+        font-weight: 700;
+        display: inline-block; }
+        @media screen and (max-width: 991px) {
+          .service-card .sc-price .price-one-row strong {
+            font-size: 20px; } }
+        .service-card .sc-price .price-one-row strong i {
+          display: inline-block;
+          position: relative;
+          top: -15px;
+          font-weight: 600;
+          font-size: 15px;
+          font-style: normal; }
   .service-card .sc-des {
     padding: 20px;
     text-align: center; }
