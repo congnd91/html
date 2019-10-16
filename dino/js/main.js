@@ -16,6 +16,23 @@
                 $('body').removeClass("open-menu");
             });
 
+
+            $('.bottom-col h3').on('click', function (e) {
+                var menu = $(this).next();
+
+                if ($(menu).is(":visible")) {
+                    $(menu).hide();
+
+                    $(this).removeClass("active");
+                } else {
+                    $(menu).show();
+
+                    $(this).addClass("active");
+                }
+            });
+
+
+
             $('.mega-menu ul li:first-child').find(".mega-sub").show();
             $('.mega-menu ul li').hover(function () {
                     $('.mega-menu ul li').removeClass("active");
@@ -30,6 +47,7 @@
                 function () {
                     $("body").removeClass("show-overlay");
                 });
+
         }
         db.homeSlider = function () {
             var owl_home = $('.owl-home');

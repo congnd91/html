@@ -45,7 +45,7 @@
         margin: 20px 0px 0px 0px;
 
         @media screen and (max-width: 991px) {
-            margin: 15px 0px 0px 0px;
+            margin: 17px 0px 0px 0px;
             position: absolute;
             top: 6px;
             left: 50%;
@@ -402,8 +402,38 @@
         padding: 110px 0px 110px 0px;
         width: 100%;
         display: block;
+        position: relative;
 
         .hst-inner {}
+
+        position: relative;
+
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            transition: all ease 0.3s;
+            background-color: rgba(0, 0, 0, 0.2);
+
+        }
+
+
+        &:hover {
+            &:before {
+                background-color: transparent;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+        }
 
         @media screen and (max-width: 1199px) {
             padding: 100px 0px;
@@ -568,7 +598,7 @@
 
         h2 {
 
-            letter-spacing: 3px;
+            letter-spacing: 2px;
 
             text-align: center;
             font-family: $font-family-heading;
@@ -820,6 +850,8 @@
 
     p {
 
+        line-height: 1.2;
+
         &.long {
             display: none;
             position: absolute;
@@ -928,6 +960,7 @@
             font-family: $font-bold;
             color: $text-color;
             margin: 0px 0px 15px 0px;
+            font-weight: 700;
 
             @media screen and (max-width: 991px) {
                 font-size: 16px;
@@ -1005,6 +1038,8 @@
             font-size: 20px;
             margin: 0px 0px 7px 0px;
             font-weight: 600;
+            // font-family: $font-bold;
+            // font-weight: 700;
 
             @media screen and (max-width: 991px) {
                 font-size: 16px;
@@ -1073,9 +1108,22 @@
         padding: 50px 0px 70px 0px;
     }
 
+    @media screen and (max-width: 767px) {
+        padding: 50px 0px 30px 0px;
+
+    }
+
     .bottom-col {
         margin: 0px 0px 30px 0px;
         position: relative;
+
+        @media screen and (max-width: 767px) {
+            margin: 0px;
+        }
+
+        @media screen and (max-width: 767px) {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
         .social {
             position: absolute;
@@ -1129,10 +1177,37 @@
             margin: 0px 0px 20px 0px;
             color: #ADABAC;
             font-size: 20px;
+            position: relative;
 
-            @media screen and (max-width: 991px) {
+            @media screen and (max-width: 767px) {
                 font-size: 14px;
-                margin: 0px 0px 10px 0px;
+                margin: 0px 0px 0px 0px;
+                padding: 10px 0px;
+
+                cursor: pointer;
+
+                &:before {
+                    width: 20px;
+                    height: 20px;
+                    display: block;
+                    content: "+";
+                    line-height: 20px;
+                    position: absolute;
+                    top: 7px;
+                    right: 0px;
+                    text-align: center;
+                    transition: all ease 0.3s;
+
+
+                }
+
+                &.active {
+                    &:before {
+                        transform: rotate(-45deg);
+                    }
+                }
+
+
             }
         }
 
@@ -1140,6 +1215,11 @@
             margin: 0px;
             list-style: none;
             padding: 0px;
+
+            @media screen and (max-width: 767px) {
+                padding-bottom: 30px;
+            }
+
 
             li {
                 margin: 0px 0px 2px 0px;
@@ -1158,6 +1238,15 @@
                         font-size: 14px;
                     }
                 }
+            }
+
+            @media screen and (max-width: 767px) {
+                display: none;
+            }
+
+            @media screen and (min-width: 768px) {
+                display: block !important;
+
             }
         }
     }

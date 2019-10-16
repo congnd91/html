@@ -1723,6 +1723,10 @@ a {
     visibility: visible;
     opacity: 1; }
 
+.user-info-scroll {
+  max-height: calc(100vh - 355px);
+  overflow: auto; }
+
 .user-info {
   float: left;
   margin: 3px 0px 0px 0px;
@@ -9570,7 +9574,7 @@ img {
     .global-control .gc-item p {
       text-transform: uppercase;
       font-size: 10px;
-      font-weight: 600;
+      font-weight: 500;
       margin: 0px 0px 0px 0px; }
     .global-control .gc-item:active .gc-icon {
       margin: 5px 0px 2px 0px; }
@@ -9612,7 +9616,7 @@ img {
         .tool-menu .tm-tab li .tab-item p {
           text-transform: uppercase;
           font-size: 10px;
-          font-weight: 600;
+          font-weight: 500;
           margin: 0px 0px 0px 0px; }
       .tool-menu .tm-tab li.active-tab .tab-item .tab-icon .ti-inner {
         background-color: rgba(0, 0, 0, 0.1); }
@@ -9693,7 +9697,7 @@ img {
 .tool-workspace {
   position: fixed;
   top: 55px;
-  left: 380px;
+  left: 390px;
   right: 0px;
   bottom: 0px; }
   .tool-workspace .tool-workspace-scroll {
@@ -9887,206 +9891,246 @@ img {
             }
         }*/ }
 
-.tool-page {
-  background-color: rgba(0, 0, 0, 0.05);
-  user-select: none; }
-  .tool-page svg {
+/*********************tool-setting***********/
+.tool-setting {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: #e6e6e6;
+  padding: 50px;
+  visibility: hidden;
+  transition: all ease 0.3s;
+  opacity: 0; }
+  .tool-setting.show {
+    visibility: visible;
+    opacity: 1; }
+  .tool-setting h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0px 0px 30px 0px; }
+  .tool-setting .setting-row {
+    display: flex;
+    align-items: center; }
+    .tool-setting .setting-row .cap {
+      display: inline-block;
+      min-width: 100px;
+      font-weight: 600;
+      color: #425268;
+      font-size: 12px;
+      text-transform: uppercase;
+      line-height: 25px; }
+
+.db-switch {
+  position: relative;
+  display: inline-block; }
+  .db-switch input {
+    visibility: hidden;
+    width: 0px;
+    left: 0px;
+    position: absolute; }
+  .db-switch label {
+    display: block;
+    margin: 0px; }
+  .db-switch span {
+    display: block;
+    position: relative;
+    height: 25px;
+    width: 50px;
+    background-color: #425268;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    transition: all ease 0.3s;
+    cursor: pointer; }
+    .db-switch span:before {
+      content: "";
+      display: block;
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: all ease 0.3s; }
+  .db-switch input:checked ~ span {
+    background-color: #0099fe; }
+    .db-switch input:checked ~ span:before {
+      left: 27px; }
+
+.tool-page svg {
+  stroke: none;
+  stroke-width: 1;
+  fill: none;
+  fill-rule: evenodd; }
+
+.tool-page.dark-mode {
+  background-color: #1d1f21;
+  /***********************************************************/
+  /***********************************************************/ }
+  .tool-page.dark-mode svg {
     stroke: none;
-    stroke-width: 1;
+    stroke-width: 1.5;
     fill: none;
     fill-rule: evenodd; }
-  .tool-page.dark-theme {
-    background-color: #1d1f21;
-    /***********************************************************/
-    /***********************************************************/ }
-    .tool-page.dark-theme svg g {
+    .tool-page.dark-mode svg g {
       stroke: #fff !important; }
-    .tool-page.dark-theme .tool-header {
-      background-color: #323639;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-      .tool-page.dark-theme .tool-header .th-menu p {
-        color: #eee; }
-        .tool-page.dark-theme .tool-header .th-menu p i {
-          margin: 0px 0px 0px 5px; }
-      .tool-page.dark-theme .tool-header .design-name .dn-text p {
-        color: #eee; }
-      .tool-page.dark-theme .tool-header .design-name .dn-text .dn-icon-edit {
-        color: #eee; }
-        .tool-page.dark-theme .tool-header .design-name .dn-text .dn-icon-edit:hover {
-          background-color: rgba(0, 0, 0, 0.1); }
-      .tool-page.dark-theme .tool-header .design-name input[type="text"] {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        border: 1px solid transparent;
-        display: block;
-        padding: 0px 10px;
-        height: 35px;
-        border-radius: 2px;
-        width: auto;
-        font-size: 12px;
-        outline: none;
-        transition: all ease 0.3s; }
-        .tool-page.dark-theme .tool-header .design-name input[type="text"]:hover {
-          border: 1px solid rgba(0, 0, 0, 0.1);
-          background-color: rgba(0, 0, 0, 0.05); }
-      .tool-page.dark-theme .tool-header .logo {
-        float: left;
-        width: 70px;
-        text-align: center;
-        height: 70px;
-        padding: 10px 0px 10px 0px;
-        border-right: 1px solid rgba(0, 0, 0, 0.1); }
-        .tool-page.dark-theme .tool-header .logo img {
-          height: 35px; }
-      .tool-page.dark-theme .tool-header .th-right {
-        float: right; }
-        .tool-page.dark-theme .tool-header .th-right .user-control {
-          margin: 12px 30px 0px 20px; }
-    .tool-page.dark-theme .gc-line {
-      border-left: 1px solid rgba(0, 0, 0, 0.1); }
-    .tool-page.dark-theme .global-control .gc-item .gc-icon {
-      margin: 5px 0px 2px 0px; }
-    .tool-page.dark-theme .global-control .gc-item p {
+  .tool-page.dark-mode .tool-header {
+    background-color: #323639;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+    .tool-page.dark-mode .tool-header .th-menu p {
       color: #eee; }
-    .tool-page.dark-theme .global-control .gc-item:active .gc-icon {
-      margin: 5px 0px 2px 0px; }
-      .tool-page.dark-theme .global-control .gc-item:active .gc-icon .gc-icon-inner {
+      .tool-page.dark-mode .tool-header .th-menu p i {
+        margin: 0px 0px 0px 5px; }
+    .tool-page.dark-mode .tool-header .design-name .dn-text p {
+      color: #eee; }
+    .tool-page.dark-mode .tool-header .design-name .dn-text .dn-icon-edit {
+      color: #eee; }
+      .tool-page.dark-mode .tool-header .design-name .dn-text .dn-icon-edit:hover {
         background-color: rgba(0, 0, 0, 0.1); }
-    .tool-page.dark-theme .tool-menu {
-      padding: 55px 0px 0px 0px;
-      z-index: 90;
+    .tool-page.dark-mode .tool-header .design-name input[type="text"] {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      border: 1px solid transparent;
+      display: block;
+      padding: 0px 10px;
+      height: 35px;
+      border-radius: 2px;
+      width: auto;
+      font-size: 12px;
+      outline: none;
+      transition: all ease 0.3s; }
+      .tool-page.dark-mode .tool-header .design-name input[type="text"]:hover {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.05); }
+    .tool-page.dark-mode .tool-header .logo {
+      float: left;
       width: 70px;
-      border-right: 1px solid rgba(0, 0, 0, 0.1);
-      background-color: #323639;
-      position: fixed;
-      top: 0px;
-      left: 0px;
-      bottom: 0px; }
-      .tool-page.dark-theme .tool-menu .tm-tab {
-        padding: 0px;
-        margin: 0px;
-        list-style: none; }
-        .tool-page.dark-theme .tool-menu .tm-tab li {
-          text-align: center; }
-          .tool-page.dark-theme .tool-menu .tm-tab li .tab-item {
-            height: 70px;
-            cursor: pointer; }
-            .tool-page.dark-theme .tool-menu .tm-tab li .tab-item .tab-icon {
-              margin: 5px 0px 2px 0px; }
-              .tool-page.dark-theme .tool-menu .tm-tab li .tab-item .tab-icon .ti-inner {
-                width: 40px;
-                height: 40px;
-                margin: 0px auto;
-                border-radius: 50%;
-                line-height: 40px;
-                text-align: center;
-                transition: all ease 0.3s; }
-                .tool-page.dark-theme .tool-menu .tm-tab li .tab-item .tab-icon .ti-inner svg {
-                  height: 20px; }
-            .tool-page.dark-theme .tool-menu .tm-tab li .tab-item p {
-              text-transform: uppercase;
-              font-size: 10px;
-              font-weight: 600;
-              margin: 0px 0px 0px 0px; }
-          .tool-page.dark-theme .tool-menu .tm-tab li.active-tab .tab-item .tab-icon .ti-inner {
-            background-color: rgba(0, 0, 0, 0.1); }
-            .tool-page.dark-theme .tool-menu .tm-tab li.active-tab .tab-item .tab-icon .ti-inner svg g {
-              stroke: #0099fe; }
-          .tool-page.dark-theme .tool-menu .tm-tab li.active-tab .tab-item p {
-            color: #0099fe; }
-          .tool-page.dark-theme .tool-menu .tm-tab li:hover .tab-item .tab-icon .ti-inner {
-            background-color: rgba(0, 0, 0, 0.05); }
-      .tool-page.dark-theme .tool-menu .tm-tab-bottom {
-        padding: 0px;
-        margin: 0px;
-        list-style: none;
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        right: 0px; }
-        .tool-page.dark-theme .tool-menu .tm-tab-bottom li {
-          text-align: center; }
-          .tool-page.dark-theme .tool-menu .tm-tab-bottom li .tab-item {
-            height: 45px;
-            cursor: pointer; }
-            .tool-page.dark-theme .tool-menu .tm-tab-bottom li .tab-item .tab-icon {
-              margin: 5px 0px 5px 0px; }
-              .tool-page.dark-theme .tool-menu .tm-tab-bottom li .tab-item .tab-icon .ti-inner {
-                width: 35px;
-                height: 35px;
-                margin: 0px auto;
-                border-radius: 50%;
-                line-height: 35px;
-                text-align: center;
-                transition: all ease 0.3s; }
-                .tool-page.dark-theme .tool-menu .tm-tab-bottom li .tab-item .tab-icon .ti-inner svg {
-                  height: 20px; }
-          .tool-page.dark-theme .tool-menu .tm-tab-bottom li.active-tab .tab-item .tab-icon .ti-inner svg g {
-            stroke: #0099fe; }
-          .tool-page.dark-theme .tool-menu .tm-tab-bottom li.active-tab .tab-item p {
-            color: #0099fe; }
-          .tool-page.dark-theme .tool-menu .tm-tab-bottom li:hover .tab-item .tab-icon .ti-inner svg g {
-            stroke: #0099fe; }
-    .tool-page.dark-theme .tool-panel {
-      z-index: 90;
-      box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.1);
-      background-color: #3e4347;
-      position: fixed;
-      top: 0px;
-      left: 70px;
-      bottom: 0px;
-      width: 320px;
-      padding: 55px 0px 0px 0px; }
-    .tool-page.dark-theme .tp-tab {
+      text-align: center;
+      height: 70px;
+      padding: 10px 0px 10px 0px;
+      border-right: 1px solid rgba(0, 0, 0, 0.1); }
+      .tool-page.dark-mode .tool-header .logo img {
+        height: 35px; }
+    .tool-page.dark-mode .tool-header .th-right {
+      float: right; }
+      .tool-page.dark-mode .tool-header .th-right .user-control {
+        margin: 12px 30px 0px 20px; }
+  .tool-page.dark-mode .gc-line {
+    border-left: 1px solid rgba(0, 0, 0, 0.1); }
+  .tool-page.dark-mode .global-control .gc-item .gc-icon {
+    margin: 5px 0px 2px 0px; }
+  .tool-page.dark-mode .global-control .gc-item p {
+    color: #eee; }
+  .tool-page.dark-mode .global-control .gc-item:active .gc-icon {
+    margin: 5px 0px 2px 0px; }
+    .tool-page.dark-mode .global-control .gc-item:active .gc-icon .gc-icon-inner {
+      background-color: rgba(0, 0, 0, 0.1); }
+  .tool-page.dark-mode .tool-menu {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #323639; }
+    .tool-page.dark-mode .tool-menu .tm-tab li .tab-item .tab-icon .ti-inner svg {
+      height: 20px; }
+    .tool-page.dark-mode .tool-menu .tm-tab li .tab-item p {
+      color: #eee; }
+    .tool-page.dark-mode .tool-menu .tm-tab li.active-tab .tab-item .tab-icon .ti-inner {
+      background-color: rgba(0, 0, 0, 0.1); }
+      .tool-page.dark-mode .tool-menu .tm-tab li.active-tab .tab-item .tab-icon .ti-inner svg g {
+        stroke: #0099fe !important; }
+    .tool-page.dark-mode .tool-menu .tm-tab li.active-tab .tab-item p {
+      color: #0099fe; }
+    .tool-page.dark-mode .tool-menu .tm-tab li:hover .tab-item .tab-icon .ti-inner {
+      background-color: rgba(0, 0, 0, 0.05); }
+    .tool-page.dark-mode .tool-menu .tm-tab-bottom {
+      padding: 0px;
+      margin: 0px;
+      list-style: none;
       position: absolute;
-      top: 55px;
-      left: 0;
-      bottom: 0;
-      right: 0;
+      bottom: 0px;
+      left: 0px;
+      right: 0px; }
+      .tool-page.dark-mode .tool-menu .tm-tab-bottom li {
+        text-align: center; }
+        .tool-page.dark-mode .tool-menu .tm-tab-bottom li .tab-item {
+          height: 45px;
+          cursor: pointer; }
+          .tool-page.dark-mode .tool-menu .tm-tab-bottom li .tab-item .tab-icon {
+            margin: 5px 0px 5px 0px; }
+            .tool-page.dark-mode .tool-menu .tm-tab-bottom li .tab-item .tab-icon .ti-inner {
+              width: 35px;
+              height: 35px;
+              margin: 0px auto;
+              border-radius: 50%;
+              line-height: 35px;
+              text-align: center;
+              transition: all ease 0.3s; }
+              .tool-page.dark-mode .tool-menu .tm-tab-bottom li .tab-item .tab-icon .ti-inner svg {
+                height: 20px; }
+        .tool-page.dark-mode .tool-menu .tm-tab-bottom li.active-tab .tab-item .tab-icon .ti-inner svg g {
+          stroke: #0099fe; }
+        .tool-page.dark-mode .tool-menu .tm-tab-bottom li.active-tab .tab-item p {
+          color: #0099fe; }
+        .tool-page.dark-mode .tool-menu .tm-tab-bottom li:hover .tab-item .tab-icon .ti-inner svg g {
+          stroke: #0099fe; }
+  .tool-page.dark-mode .tool-panel {
+    z-index: 90;
+    box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.1);
+    background-color: #3e4347;
+    position: fixed;
+    top: 0px;
+    left: 70px;
+    bottom: 0px;
+    width: 320px;
+    padding: 55px 0px 0px 0px; }
+  .tool-page.dark-mode .tp-tab {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column; }
+    .tool-page.dark-mode .tp-tab .tab-content {
+      flex-grow: 1;
+      position: relative; }
+  .tool-page.dark-mode .tc-scroll {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    overflow: auto; }
+  .tool-page.dark-mode .tc-wrap {
+    width: 280px;
+    margin: 0px 0px 0px 20px; }
+  .tool-page.dark-mode .tool-setting {
+    background-color: #1d1f21; }
+    .tool-page.dark-mode .tool-setting h2 {
+      color: #eee; }
+    .tool-page.dark-mode .tool-setting .setting-row {
       display: flex;
-      flex-direction: column; }
-      .tool-page.dark-theme .tp-tab .tab-content {
-        flex-grow: 1;
-        position: relative; }
-    .tool-page.dark-theme .tc-scroll {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      bottom: 0px;
-      right: 0px;
-      overflow: auto; }
-    .tool-page.dark-theme .tc-wrap {
-      width: 280px;
-      margin: 0px 0px 0px 20px; }
-    .tool-page.dark-theme .tool-workspace {
-      position: fixed;
-      top: 55px;
-      left: 380px;
-      right: 0px;
-      bottom: 0px; }
-      .tool-page.dark-theme .tool-workspace .tool-workspace-scroll {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        overflow: auto; }
+      align-items: center; }
+      .tool-page.dark-mode .tool-setting .setting-row .cap {
+        color: #eee; }
+
+.tool-page.less-text {
+  /***********************************************************/ }
+  .tool-page.less-text .global-control .gc-item .gc-icon {
+    margin: 12px 0px 2px 0px; }
+  .tool-page.less-text .global-control .gc-item p {
+    display: none; }
+  .tool-page.less-text .tool-menu .tm-tab li .tab-item {
+    height: 50px; }
+    .tool-page.less-text .tool-menu .tm-tab li .tab-item p {
+      display: none; }
 
 /***********************************************************/
-.page .page-info {
-  margin: -30px 0px 0px 0px;
-  height: 30px; }
-  .page .page-info .pi-left {
-    float: left; }
-    .page .page-info .pi-left .pi-name {
-      margin: 0px;
-      font-size: 12px;
-      font-weight: 500;
-      margin: 0px;
-      line-height: 30px; }
-  .page .page-info .pi-right {
-    float: right; }
+.page .page-info .pi-left .pi-name {
+  color: #eee; }
 
 .page .page-control .pc-item {
   float: left;
@@ -10257,6 +10301,7 @@ img {
             }
         }*/ }
 
+/*********************tool-setting***********/
 .workspace-left.drag-over .workspace-menu > ul > li.active {
   background: #ffffff; }
 

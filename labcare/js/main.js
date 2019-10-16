@@ -12,6 +12,20 @@
                 $('body').toggleClass("open-menu");
             });
         }
+        db.menuRight = function () {
+            $('.br-menu ul li.has-menu .arrow').on('click', function (e) {
+
+                var menu = $(this).parent().find("ul");
+                if ($(menu).is(":visible")) {
+                    $(menu).slideUp();
+
+                } else {
+
+                    $(menu).slideDown();
+                }
+
+            });
+        }
         db.homeSlider = function () {
             var owl_home = $('.owl-home');
             if ($(owl_home).length) {
@@ -129,5 +143,6 @@
         db.partnerSlider();
         db.menuResponsive();
         db.matchHeight();
+        db.menuRight();
     });
 })(jQuery);

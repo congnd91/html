@@ -192,7 +192,7 @@
             text-transform: uppercase;
             font-size: 10px;
 
-            font-weight: 600;
+            font-weight: 500;
             margin: 0px 0px 0px 0px;
         }
 
@@ -266,8 +266,9 @@
                 p {
                     text-transform: uppercase;
                     font-size: 10px;
-                    font-weight: 600;
+                    font-weight: 500;
                     margin: 0px 0px 0px 0px;
+
 
                 }
 
@@ -483,7 +484,7 @@
 .tool-workspace {
     position: fixed;
     top: 55px;
-    left: 380px;
+    left: 390px;
     right: 0px;
     bottom: 0px;
 
@@ -789,5 +790,117 @@
             }
         }*/
 
+    }
+}
+
+
+
+/*********************tool-setting***********/
+
+.tool-setting {
+
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background-color: #e6e6e6;
+    padding: 50px;
+    visibility: hidden;
+    transition: all ease 0.3s;
+    opacity: 0;
+
+    &.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    h2 {
+        font-size: 30px;
+        font-weight: 700;
+        margin: 0px 0px 30px 0px;
+
+
+
+    }
+
+    .setting-row {
+
+        display: flex;
+        align-items: center;
+
+        .cap {
+            display: inline-block;
+            min-width: 100px;
+            font-weight: 600;
+            color: $text-color;
+            font-size: 12px;
+            text-transform: uppercase;
+            line-height: 25px;
+        }
+    }
+
+
+}
+
+.db-switch {
+    position: relative;
+    display: inline-block;
+
+    input {
+        visibility: hidden;
+        width: 0px;
+        left: 0px;
+        position: absolute;
+    }
+
+    label {
+        display: block;
+        margin: 0px;
+
+    }
+
+    span {
+
+        display: block;
+        position: relative;
+        height: 25px;
+        width: 50px;
+
+        background-color: $text-color;
+
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        transition: all ease 0.3s;
+        cursor: pointer;
+
+        &:before {
+            content: "";
+            display: block;
+            width: 21px;
+            height: 21px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: all ease 0.3s;
+
+        }
+
+
+
+    }
+
+    input:checked ~ span {
+        background-color: $active-color;
+
+
+        &:before {
+            left: 27px;
+
+        }
     }
 }
