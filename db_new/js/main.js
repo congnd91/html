@@ -196,6 +196,19 @@
             }
 
         }
+        
+          db.sliderTemplateForSeo = function () {
+            if ($('.slider-nav-seo').length) {
+               
+                $('.slider-nav-seo').slick({
+                    slidesToShow: 9,
+                    focusOnSelect: false,
+                    prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button"> <i class="fal fa-angle-left"></i></button>',
+                    nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button"> <i class="fal fa-angle-right"></i></button>'
+                });
+            }
+
+        }
 
 
 
@@ -209,5 +222,6 @@
         db.sliderRecommended();
         db.pricingFAQ();
         db.sliderPreview();
+        db.sliderTemplateForSeo();
     });
 })(jQuery);
