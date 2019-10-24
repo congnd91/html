@@ -101,6 +101,10 @@
             background-position: center center;
             position: relative;
 
+            background-size: 18px auto;
+
+
+
             .number {
                 color: $red;
                 width: 15px;
@@ -496,6 +500,16 @@
             min-height: 250px;
         }
 
+        @media screen and (max-width: 575px) {
+            min-height: 180px;
+
+        }
+
+        @media screen and (max-width: 400px) {
+            min-height: 130px;
+
+        }
+
         &:before {
             position: absolute;
 
@@ -777,131 +791,135 @@
         }
     }
 
-    .product-item {
-        position: relative;
-        padding: 15px 0px 10px 0px;
+
+}
+
+.product-item {
+    position: relative;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 30px 0px;
+
+    .pi-inner {
+        border-radius: 2px;
+
+        border: 1px solid $border-color;
+        background-color: #fff;
+        transition: all ease 0.3s;
+        overflow: hidden;
+
+        .pi-img {
+            position: relative;
+
+            .db-btn {
+                min-width: 100px;
+                padding: 0px 10px;
+
+            }
+
+            .pi-sale {
+                z-index: 1;
+
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                color: #fff;
+                background-color: #ff0000;
+                border-radius: 4px;
+                font-size: 14px;
+                font-weight: 600;
+                padding: 5px 5px;
+                line-height: 1;
+                display: inline-block;
+
+            }
+
+            img {
+                width: 100%;
+                display: block;
+            }
+
+            .pi-hover {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                display: flex;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+                transition: all ease 0.3s;
+                background-color: rgba(255, 255, 255, 0.6);
+                opacity: 0;
+                z-index: 2;
+            }
+
+        }
+
+        .pi-des {
+            padding: 10px 15px;
+
+            h3 {
+                margin: 0px 0px 20px 0px;
+                font-size: 18px;
+                font-weight: 700;
+                font-family: $font-family;
+            }
+
+            .price {
+                margin: 0px 0px 4px 0px;
+            }
+
+            .price {
 
 
-        .pi-inner {
-            border-radius: 2px;
+                strong {
+                    float: left;
+                    font-size: 16px;
+                    font-weight: 500;
+                    float: left;
 
-            border: 1px solid $border-color;
-            background-color: #fff;
-            transition: all ease 0.3s;
-            overflow: hidden;
+                }
+
+                span {
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: $active-color;
+                    display: inline-block;
+                    color: $active-color;
+                    float: left;
+
+                    margin: -3px 0px 0px 0px;
+
+
+                }
+
+                em {
+                    font-size: 16px;
+                    font-style: normal;
+                    display: inline-block;
+                    position: relative;
+                    margin: 0px 0px 0px 10px;
+                    text-decoration: line-through;
+                    float: left;
+
+
+
+                }
+            }
+        }
+
+        &:hover {
+            border: 1px solid $active-color;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 
             .pi-img {
-                position: relative;
 
-                .pi-sale {
-                    z-index: 1;
 
-                    position: absolute;
-                    top: 5px;
-                    right: 5px;
-                    color: #fff;
-                    background-color: #ff0000;
-                    border-radius: 4px;
-                    font-size: 14px;
-                    font-weight: 600;
-                    padding: 5px 5px;
-                    line-height: 1;
-                    display: inline-block;
-
-                }
-
-                img {
-                    width: 100%;
-                    display: block;
-                }
+                img {}
 
                 .pi-hover {
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    right: 0px;
-                    bottom: 0px;
-                    display: flex;
-                    align-content: center;
-                    justify-content: center;
-                    align-items: center;
-                    transition: all ease 0.3s;
-                    background-color: rgba(255, 255, 255, 0.6);
-                    opacity: 0;
-                    z-index: 2;
-                }
-
-            }
-
-            .pi-des {
-                padding: 10px 15px;
-
-                h3 {
-                    margin: 0px 0px 20px 0px;
-                    font-size: 18px;
-                    font-weight: 700;
-                    font-family: $font-family;
-                }
-
-                .price {
-                    margin: 0px 0px 4px 0px;
-                }
-
-                .price {
-
-
-                    strong {
-                        float: left;
-                        font-size: 16px;
-                        font-weight: 500;
-                        float: left;
-
-                    }
-
-                    span {
-                        font-size: 20px;
-                        font-weight: 700;
-                        color: $active-color;
-                        display: inline-block;
-                        color: $active-color;
-                        float: left;
-
-                        margin: -3px 0px 0px 0px;
-
-
-                    }
-
-                    em {
-                        font-size: 16px;
-                        font-style: normal;
-                        display: inline-block;
-                        position: relative;
-                        margin: 0px 0px 0px 10px;
-                        text-decoration: line-through;
-                        float: left;
-
-
-
-                    }
-                }
-            }
-
-            &:hover {
-                border: 1px solid $active-color;
-                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-
-                .pi-img {
-                    .db-btn {
-                        min-width: 100px;
-                        padding: 0px 10px;
-
-                    }
-
-                    img {}
-
-                    .pi-hover {
-                        opacity: 1;
-                    }
+                    opacity: 1;
                 }
             }
         }
@@ -1341,7 +1359,23 @@
 
 .footer {
     background-color: $active-color;
-    padding: 50px 0px 30px 0px;
+    padding: 50px 0px 0px 0px;
+
+    .allright {
+        margin: 40px 0px 0px 0px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px 0px;
+        text-align: center;
+
+
+        p {
+            color: #fff;
+            font-size: 13px;
+            letter-spacing: 1px;
+
+            margin: 0px;
+        }
+    }
 
 
     h3 {
@@ -1358,7 +1392,19 @@
     }
 
     .company {
-        padding: 20px 0px 20px 0px;
+        padding: 0px 0px 20px 0px;
+
+
+        h1 {
+            font-weight: 700;
+            font-size: 20px;
+            color: #fff;
+            margin: 0px 0px 20px 0px;
+
+            @media screen and (max-width: 767px) {
+                font-size: 16px;
+            }
+        }
 
         a.logo {
             display: inline-block;
@@ -1384,7 +1430,7 @@
         list-style: none;
         margin: 0px;
         padding: 0px;
-        margin: 0px 0px 30px 0px;
+        margin: 0px 0px 10px 0px;
 
         li {
             margin: 0px 0px 10px 0px;
@@ -1406,7 +1452,7 @@
 
         a {
             display: inline-block;
-            width: 40px;
+            width: 30px;
             height: 40px;
             margin: 0px 5px 0px 0px;
             background-repeat: no-repeat;
@@ -1616,6 +1662,36 @@
     }
 
 }
+
+.br-menu-caption {
+    @media screen and (max-width: 991px) {
+        cursor: pointer;
+    }
+
+    i {
+        display: none;
+
+        @media screen and (max-width: 991px) {
+            display: inline-block;
+            margin: 0px 0px 0px 5px;
+
+        }
+    }
+
+
+}
+
+.br-menu-content {
+    @media screen and (max-width: 991px) {
+        display: none;
+    }
+
+    @media screen and (min-width: 992px) {
+        display: block !important;
+
+    }
+}
+
 
 .box-right {
     margin: 0px 0px 30px 0px;

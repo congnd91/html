@@ -12,6 +12,27 @@
                 $('body').toggleClass("open-menu");
             });
         }
+
+        db.menuLeftMobile = function () {
+            $('.br-menu-caption').on('click', function (e) {
+
+                var menu = $(this).next();
+                if ($(menu).is(":visible")) {
+                    $(menu).hide();
+
+                } else {
+
+                    $(menu).show();
+                }
+
+            });
+        }
+
+
+
+
+
+
         db.menuRight = function () {
             $('.br-menu ul li.has-menu .arrow').on('click', function (e) {
 
@@ -26,6 +47,10 @@
 
             });
         }
+
+
+
+
         db.homeSlider = function () {
             var owl_home = $('.owl-home');
             if ($(owl_home).length) {
@@ -138,11 +163,15 @@
         db.preLoad();
         db.matchHeight();
         db.homeSlider();
+        db.menuRight();
+        db.menuLeftMobile();
+
+
         db.productSlider();
         db.stepSlider();
         db.partnerSlider();
         db.menuResponsive();
         db.matchHeight();
-        db.menuRight();
+
     });
 })(jQuery);
