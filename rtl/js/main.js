@@ -30,18 +30,48 @@
             }
         }
 
-        db.matchHeight = function () {
-            if ($('.si-des h3').length) {
-                $('.si-des h3').matchHeight();
-            }
-            if ($('.sc-des').length) {
-                $('.sc-des').matchHeight();
+        db.newsSlider = function () {
+            var owl_news = $('.owl-news');
+            if ($(owl_news).length) {
+                $(owl_news).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: true,
+                    autoplay: false,
+                    items: 1,
+
+                    navText: ["<span></span>", "<span></span>"]
+
+                });
             }
         }
+        db.partnerSlider = function () {
+            var owl_partner = $('.owl-partner');
+            if ($(owl_partner).length) {
+                $(owl_partner).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: true,
+                    autoplay: false,
+                    items: 1,
+
+                    navText: ["<span></span>", "<span></span>"]
+
+                });
+            }
+        }
+
+
         db.preLoad();
-        db.matchHeight();
         db.approachSlider();
+        db.newsSlider();
+        db.partnerSlider();
         db.menuResponsive();
+
+        new WOW({
+            offset: 100,
+            mobile: true
+        }).init()
 
 
     });
