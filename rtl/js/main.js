@@ -21,8 +21,10 @@
                     loop: true,
                     margin: 0,
                     nav: true,
-                    autoplay: false,
+                    autoplay: true,
                     items: 1,
+                    autoplayHoverPause: true,
+                    smartSpeed: 500,
 
                     navText: ["<span></span>", "<span></span>"]
 
@@ -37,8 +39,10 @@
                     loop: true,
                     margin: 0,
                     nav: true,
-                    autoplay: false,
+                    autoplay: true,
                     items: 1,
+                    autoplayHoverPause: true,
+                    smartSpeed: 500,
 
                     navText: ["<span></span>", "<span></span>"]
 
@@ -52,8 +56,11 @@
                     loop: true,
                     margin: 0,
                     nav: true,
-                    autoplay: false,
+                    autoplay: true,
+                    autoplay: true,
                     items: 1,
+                    autoplayHoverPause: true,
+                    smartSpeed: 500,
 
                     navText: ["<span></span>", "<span></span>"]
 
@@ -71,7 +78,11 @@
         new WOW({
             offset: 100,
             mobile: true
-        }).init()
+        }).init();
+
+        $('.nav-tabs > li > a').hover(function () {
+            $(this).tab('show');
+        });
 
 
     });
