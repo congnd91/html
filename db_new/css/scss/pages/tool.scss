@@ -22,6 +22,7 @@
     left: 0px;
     right: 0px;
     z-index: 100;
+    min-width: 1050px;
 
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
@@ -138,9 +139,37 @@
     .th-right {
         float: right;
 
-        .user-control {
-            margin: 12px 30px 0px 20px;
+        .btn-order-print {
+            float: left;
+            margin: 10px 15px 0px 0px;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 0px 15px;
+
+
+
+
         }
+
+        .user-control {
+            margin: 12px 30px 0px 0px;
+            float: left;
+        }
+
+        .notification-headway {
+
+
+            float: left;
+
+            .fa-bell {
+                color: $text-color;
+                line-height: 55px;
+
+
+            }
+
+        }
+
     }
 
 }
@@ -169,7 +198,7 @@
         margin: 0px 5px 0px 0px;
 
         .gc-icon {
-            margin: 5px 0px 2px 0px;
+            margin: 2px 0px 2px 0px;
 
             .gc-icon-inner {
                 width: 30px;
@@ -198,7 +227,8 @@
 
         &:active {
             .gc-icon {
-                margin: 5px 0px 2px 0px;
+                margin: 2px 0px 2px 0px;
+
 
                 .gc-icon-inner {
 
@@ -256,8 +286,7 @@
                         transition: all ease 0.3s;
 
                         svg {
-
-                            height: 20px;
+                            height: 17px;
                         }
 
                     }
@@ -545,76 +574,220 @@
 
     }
 
-}
+    .page {
 
-.page {
-
-    margin: 80px auto 0px auto;
+        margin: 80px auto 0px auto;
 
 
 
-    .page-info {
-        margin: -30px 0px 0px 0px;
-        height: 30px;
+        .page-info {
+            margin: -30px 0px 0px 0px;
+            height: 30px;
 
 
-        .pi-left {
-            float: left;
+            .pi-left {
+                float: left;
 
-            .pi-name {
-                margin: 0px;
-                font-size: 12px;
-                font-weight: 500;
-                margin: 0px;
-                line-height: 30px;
-            }
-        }
-
-        .pi-right {
-            float: right;
-        }
-    }
-
-    .page-control {
-
-        .pc-item {
-            float: left;
-            margin: 0px 0px 0px 5px;
-
-
-            .pi-icon {
-                width: 22px;
-                height: 25px;
-                margin: 0px auto;
-
-                line-height: 25px;
-                text-align: center;
-                transition: all ease 0.3s;
-
-                cursor: pointer;
-                border-radius: 2px;
-
-
-
-                svg {
-                    height: 15px;
-                    opacity: 0.7;
+                .pi-name {
+                    margin: 0px;
+                    font-size: 12px;
+                    font-weight: 500;
+                    margin: 0px;
+                    line-height: 30px;
                 }
             }
 
-            &:hover {
+            .pi-right {
+                float: right;
+            }
+        }
+
+        .page-control {
+
+            .pc-item {
+                float: left;
+                margin: 0px 0px 0px 5px;
+
+
                 .pi-icon {
-                    background-color: rgba(0, 0, 0, 0.05);
+                    width: 22px;
+                    height: 25px;
+                    margin: 0px auto;
+
+                    line-height: 25px;
+                    text-align: center;
+                    transition: all ease 0.3s;
+
+                    cursor: pointer;
+                    border-radius: 2px;
+
 
                     svg {
-                        opacity: 1
+                        height: 15px;
+                        opacity: 0.7;
+                    }
+                }
+
+                &:hover {
+                    .pi-icon {
+                        background-color: rgba(0, 0, 0, 0.05);
+
+                        svg {
+                            opacity: 1
+                        }
                     }
                 }
             }
         }
+
+    }
+
+
+    #selected-border {
+        border: 1px solid lighten($active-color, 0%);
+
+        position: absolute;
+        z-index: 1000;
+
+    }
+
+    .handle-circle {
+        width: 36px;
+        height: 36px;
+        cursor: nesw-resize;
+        position: absolute;
+
+
+        &:before {
+            content: "";
+            display: block;
+            width: 15px;
+            height: 15px;
+            border: 1px solid $active-color;
+            background-color: #fff;
+            border-radius: 50%;
+            top: 50%;
+            position: absolute;
+
+            left: 50%;
+            margin: -8px 0px 0px -8px;
+
+
+        }
+
+
+        &#tl-handle {
+            left: -18px;
+            top: -18px;
+            z-index: 10;
+            cursor: nw-resize;
+        }
+
+        &#tr-handle {
+
+            right: -18px;
+            top: -18px;
+            z-index: 10;
+            cursor: nesw-resize;
+
+
+        }
+
+        &#bl-handle {
+
+            left: -18px;
+            bottom: -18px;
+            z-index: 10;
+            cursor: ne-resize;
+
+
+        }
+
+        &#br-handle {
+
+            right: -18px;
+            bottom: -18px;
+            z-index: 10;
+            cursor: nwse-resize;
+
+
+        }
+
+    }
+
+
+    .handle-square {
+        width: 36px;
+        height: 36px;
+        cursor: nesw-resize;
+        position: absolute;
+
+
+        &:before {
+            content: "";
+            display: block;
+            width: 13px;
+            height: 13px;
+            border: 1px solid $active-color;
+            background-color: #fff;
+
+            position: absolute;
+            top: 50%;
+
+            left: 50%;
+            margin: -7px 0px 0px -7px;
+
+
+
+        }
+
+
+        &#l-handle {
+            top: 50%;
+            left: -18px;
+            z-index: 10;
+            cursor: e-resize;
+            margin: -18px 0px 0px 0px;
+
+        }
+
+        &#t-handle {
+
+            top: -18px;
+            left: 50%;
+            z-index: 10;
+            cursor: n-resize;
+            margin: 0px 0px 0px -18px;
+
+        }
+
+
+        &#r-handle {
+
+            top: 50%;
+            right: -18px;
+            z-index: 10;
+            cursor: e-resize;
+            margin: -18px 0px 0px 0px;
+
+
+        }
+
+        &#b-handle {
+            bottom: -18px;
+            left: 50%;
+            z-index: 10;
+            cursor: n-resize;
+
+            margin: 0px 0px 0px -18px;
+
+
+        }
+
     }
 
 }
+
 
 /*************************/
 
@@ -854,7 +1027,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 10;
+
+    z-index: 9999;
     background-color: #e6e6e6;
     padding: 50px;
     visibility: hidden;
@@ -954,3 +1128,5 @@
         }
     }
 }
+
+/**********selected-border*************/
