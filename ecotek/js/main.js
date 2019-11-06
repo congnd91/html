@@ -27,6 +27,15 @@
 
             });
         }
+        db.bankInfo = function () {
+            $('.bank-info').on('click', function (e) {
+
+
+                $('.bank-info-box').toggleClass("active");
+                return false;
+
+            });
+        }
 
 
         db.sliderServiceDetail = function () {
@@ -188,13 +197,14 @@
         db.menuRight();
         db.menuLeftMobile();
         db.sliderServiceDetail();
-
+        db.bankInfo();
 
         db.productSlider();
         db.stepSlider();
         db.partnerSlider();
         db.menuResponsive();
         db.matchHeight();
+
 
     });
 })(jQuery);
