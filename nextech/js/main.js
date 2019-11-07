@@ -100,7 +100,7 @@
                     loop: true,
                     margin: 0,
                     nav: true,
-                    autoplay: true,
+                    autoplay: false,
                     items: 1,
                     //      animateOut: 'fadeOut'
 
