@@ -1568,7 +1568,72 @@ img {
 
 .topbar {
   background-color: #0A4595;
-  height: 40px; }
+  height: 40px;
+  position: relative;
+  z-index: 999; }
+  .topbar .search-mobile {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    right: 0px;
+    padding: 10px 15px 50px 15px;
+    background-color: #eee;
+    display: none; }
+    @media screen and (max-width: 767px) {
+      .topbar .search-mobile {
+        padding: 10px 15px 30px 15px; } }
+    .topbar .search-mobile.active {
+      display: block; }
+    @media screen and (min-width: 992px) {
+      .topbar .search-mobile {
+        display: none !important; } }
+    .topbar .search-mobile .searchbox {
+      border: 1px solid #0A4595;
+      max-width: 600px;
+      display: flex;
+      margin: 0px auto; }
+      .topbar .search-mobile .searchbox .search-dropdown {
+        min-height: 35px;
+        border-right: 1px solid #0A4595; }
+        .topbar .search-mobile .searchbox .search-dropdown select {
+          height: 35px;
+          border: none;
+          padding: 0px 10px 0px 15px;
+          font-size: 14px;
+          font-weight: 600;
+          background-color: transparent; }
+      .topbar .search-mobile .searchbox .search-content {
+        flex-grow: 1; }
+      .topbar .search-mobile .searchbox .search-form {
+        padding: 0px 40px 0px 0px;
+        position: relative; }
+        .topbar .search-mobile .searchbox .search-form input {
+          width: 100%;
+          display: block;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          display: block;
+          height: 35px;
+          font-size: 13px;
+          padding: 0px 10px 0px 15px; }
+        .topbar .search-mobile .searchbox .search-form button {
+          width: 40px;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          height: 35px;
+          border: none;
+          outline: none;
+          background-color: #0A4595;
+          transition: all ease 0.3s;
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 12px;
+          font-weight: 600; }
+          .topbar .search-mobile .searchbox .search-form button:hover {
+            cursor: pointer;
+            background-color: #0d5bc5; }
   .topbar .tb-item {
     float: left;
     margin: 0px 20px 0px 0px;
@@ -1895,6 +1960,20 @@ img {
     height: 2px;
     background-color: #353535;
     margin: 0px 0px 5px 0px; }
+
+.search-icon {
+  width: 30px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-size: 15px;
+  float: right;
+  cursor: pointer;
+  display: none; }
+  @media screen and (max-width: 991px) {
+    .search-icon {
+      display: block; } }
 
 .menu-mobile {
   position: fixed;

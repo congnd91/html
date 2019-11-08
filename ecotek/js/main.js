@@ -30,8 +30,14 @@
         db.bankInfo = function () {
             $('.bank-info').on('click', function (e) {
 
-
                 $('.bank-info-box').toggleClass("active");
+                return false;
+
+            });
+
+            $('.search-icon').on('click', function (e) {
+
+                $('.search-mobile').toggleClass("active");
                 return false;
 
             });
