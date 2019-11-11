@@ -79,6 +79,21 @@ $(document).ready(function () {
     }
 
 
+
+
+
+
+
+
+
+    db.preLoad();
+    db.menuResponsive();
+    db.accordion();
+    db.closeAlert();
+    db.filter();
+    db.checkboxFilter();
+
+
     $("#demo").freshslider({
         range: true,
         step: 1,
@@ -96,18 +111,5 @@ $(document).ready(function () {
     }, 50);
 
 
-
-
-
-
-
-
-
-    db.preLoad();
-    db.menuResponsive();
-    db.accordion();
-    db.closeAlert();
-    db.filter();
-    db.checkboxFilter();
 
 });
