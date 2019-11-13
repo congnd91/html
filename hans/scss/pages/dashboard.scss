@@ -1,0 +1,338 @@
+.dashboad {
+    background-color: #f5f5f5;
+}
+
+.dashboard-header {
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    left: 220px;
+    right: 0px;
+    height: 52px;
+    padding: 10px 0px;
+    background-color: #0a3e52;
+
+    transition: all ease 0.3s;
+
+    @media screen and (max-width: 991px) {
+        left: 0px;
+    }
+
+    .search {
+        color: #fff;
+        font-size: 14px;
+        display: inline-block;
+        line-height: 32px;
+
+
+    }
+
+    .menu-dashboard-icon {
+        float: left;
+
+        width: 25px;
+        height: 32px;
+        cursor: pointer;
+        padding: 8px 0px 0px 0px;
+        margin: 0px 15px 0px 0px;
+        display: none;
+
+        @media screen and (max-width: 991px) {
+            display: block;
+        }
+
+        span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            margin: 0px 0px 5px 0px;
+            background-color: #fff;
+        }
+    }
+    .notify {
+        float: left;
+        margin: 0px 0px 0px 20px;
+        .icon {
+
+            width: 25px;
+            line-height: 32px;
+            color: #fff;
+            font-size: 14px;
+            position: relative;
+            em {
+                width: 13px;
+                height: 13px;
+                display: block;
+                position: absolute;
+                top: 1px;
+                right: 1px;
+                color: #fff;
+                line-height: 13px;
+                font-size: 9px;
+                font-weight: bold;
+                text-align: center;
+                background-color: $red;
+                border-radius: 50%;
+
+
+            }
+        }
+
+    }
+
+
+
+    .user-dropdown {
+        float: left;
+
+        .username {
+            cursor: pointer;
+
+            height: 32px;
+            line-height: 32px;
+
+
+            span {
+                color: #fff;
+                font-size: 14px;
+                display: inline-block;
+                line-height: 32px;
+
+            }
+
+            &:after {
+                display: none;
+            }
+        }
+
+        .dropdown-menu {
+            border: none;
+            padding: 0px 0px;
+            width: 220px;
+            margin-top: 10px;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 32px rgba(29, 48, 0, 0.08);
+            border-radius: 0px;
+
+            hr {
+                border: none;
+                height: 1px;
+                background-color: #ddd;
+                display: block;
+                width: 100%;
+                margin: 5px 0px;
+            }
+
+            .dropdown-user-item {
+                display: block;
+                font-size: 15px;
+                color: $text-color-second;
+                position: relative;
+                padding: 10px 10px 10px 20px;
+                transition: all ease 0.3s;
+
+                &:hover {
+                    background-color: $blue20;
+                }
+
+                &.active {
+                    background-color: $blue20;
+                }
+
+                &.logout {
+                    color: $blue40;
+                }
+            }
+        }
+    }
+}
+
+.dashboard-side {
+    position: fixed;
+    z-index: 1001;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 220px;
+    background-color: #fff;
+
+    transition: all ease 0.3s;
+    @media screen and (max-width: 991px) {
+        left: -220px;
+    }
+
+    .ds-head {
+        background-color: lighten(#0a3e52, 5%);
+        height: 52px;
+        padding: 12px 0px 0px 20px;
+
+        img {
+            height: 30px;
+        }
+    }
+
+    .ds-footer {
+        position: absolute;
+        bottom: 10px;
+        left: 0px;
+        right: 10px;
+        padding: 0px 0px 0px 20px;
+
+        p {
+            font-size: 12px;
+            color: #fff;
+            font-weight: 500;
+        }
+    }
+
+    .ds-menu {
+        position: absolute;
+        top: 65px;
+        left: 0px;
+        right: 0px;
+        bottom: 50px;
+        overflow: auto;
+
+        > ul {
+            margin: 20px 0px 0px 0px;
+            padding: 0px;
+            list-style: none;
+
+            > li {
+                margin: 0px 0px 10px 0px;
+                position: relative;
+
+                > a {
+                    display: block;
+                    line-height: 40px;
+                    color: $text-color;
+                    font-size: 14px;
+
+                    .icon {
+                        width: 30px;
+                        height: 40px;
+                        float: left;
+                        margin: 0px 0px 0px 10px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 16px 16px;
+                        background-position: center center;
+
+                        &.icon-dashboard {
+                            background-image: url(../images/icon-dashboard.svg);
+                        }
+
+                        &.icon-project {
+                            background-image: url(../images/icon-project.svg);
+                        }
+
+                        &.icon-monitor {
+                            background-image: url(../images/icon-monitor.svg);
+                        }
+
+                        &.icon-user {
+                            background-image: url(../images/icon-user.svg);
+                        }
+                    }
+                }
+
+                &.has-child {
+                    .arrow {
+                        position: absolute;
+                        top: 0px;
+                        right: 0px;
+                        height: 40px;
+                        width: 40px;
+                        cursor: pointer;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 16px 16px;
+                        background-position: center center;
+                        cursor: pointer;
+                        transform: rotate(180deg);
+                        background-image: url(../images/icon-arrow-up.svg);
+                    }
+
+                    &.active {
+                        .arrow {
+                            transform: rotate(0deg);
+                        }
+                    }
+                }
+
+                ul {
+                    margin: 0px;
+                    padding: 0px;
+                    line-height: none;
+                    display: none;
+                    background-color: $blue40;
+
+                    li {
+                        a {
+                            display: block;
+                            font-size: 16px;
+                            color: #fff;
+                            line-height: 40px;
+                            padding: 0px 0px 0px 40px;
+                        }
+
+                        &.active {}
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dashboard-content {
+    position: absolute;
+    overflow: auto;
+    top: 64px;
+    left: 220px;
+    right: 0px;
+    bottom: 0px;
+    transition: all ease 0.3s;
+    background-color: #ddd;
+
+
+    @media screen and (max-width: 991px) {
+        left: 0px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .open-side {
+        .dashboard-header {
+            left: 220px;
+        }
+
+        .dashboard-side {
+            left: 0px;
+        }
+
+        .dashboard-content {}
+    }
+}
+
+.dashboard-caption {
+    margin: 40px 0px 30px 0px;
+
+    h2 {
+        font-size: 28px;
+        font-weight: 500;
+        margin: 0px 0px 10px 0px;
+
+        @media screen and (max-width: 991px) {
+            font-size: 20px;
+        }
+    }
+
+    p {
+        color: $text-color-meta;
+        margin: 0px 0px 10px 0px;
+
+        @media screen and (max-width: 991px) {
+            font-size: 14px;
+        }
+    }
+}

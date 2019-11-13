@@ -79,7 +79,13 @@ $(document).ready(function () {
     }
 
 
+    db.menuDashboadResponsive = function () {
+        $('.menu-dashboard-icon').on('click', function (e) {
+            e.stopPropagation();
+            $('body').toggleClass("open-side");
+        });
 
+    }
 
 
 
@@ -92,6 +98,7 @@ $(document).ready(function () {
     db.closeAlert();
     db.filter();
     db.checkboxFilter();
+    db.menuDashboadResponsive();
 
 
     $("#demo").freshslider({
