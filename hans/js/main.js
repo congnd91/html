@@ -99,11 +99,31 @@ $(document).ready(function () {
         step: 100,
         text: true,
         min: 12000,
-        max: 34000,
+        max: 340000,
         // unit: none,
         enabled: true,
-        value: [12000, 34000],
-        onchange: function (low, high) {}
+        value: [12000, 340000],
+        onchange: function (low, high) {
+
+
+            if (low > 12000) {
+                $('#demo').parents('.filter-box').addClass("has-check");
+
+            }
+
+            if (high < 340000) {
+                $('#demo').parents('.filter-box').addClass("has-check");
+
+            }
+
+
+
+            if (low == 12000 && high == 340000) {
+                $('#demo').parents('.filter-box').removeClass("has-check");
+
+            }
+
+        }
 
     });
     setTimeout(function () {
