@@ -96,13 +96,13 @@ $(document).ready(function () {
 
     $("#demo").freshslider({
         range: true,
-        step: 1,
+        step: 100,
         text: true,
-        min: 0,
-        max: 100,
+        min: 12000,
+        max: 34000,
         // unit: none,
         enabled: true,
-        value: [4, 60],
+        value: [12000, 34000],
         onchange: function (low, high) {}
 
     });
