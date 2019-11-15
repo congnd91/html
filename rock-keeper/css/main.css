@@ -1549,6 +1549,13 @@ img {
       padding-left: 15px;
       padding-right: 15px; } }
 
+@keyframes widthtransition {
+  0% {
+    width: 100%; }
+  100% {
+    width: 0%;
+    z-index: -1 !important; } }
+
 .dropdown-menu {
   font-size: inherit;
   top: 100% !important;
@@ -1919,6 +1926,20 @@ img {
 .home-slider {
   position: relative;
   margin: 103px 0px 0px 0px; }
+  .home-slider:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    transition: all ease 0.3s;
+    bottom: 0px;
+    background-color: #ffffff;
+    z-index: 9999;
+    animation-delay: 0.6s;
+    animation-name: widthtransition;
+    animation-duration: 2s; }
   .home-slider .arrow-down {
     width: 50px;
     height: 50px;
@@ -2207,6 +2228,20 @@ img {
   position: relative;
   background-image: url(../images/product-bg.png);
   margin: 100px 0px 0px 0px; }
+  .page-banner:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    transition: all ease 0.3s;
+    bottom: 0px;
+    background-color: #ffffff;
+    z-index: 9999;
+    animation-name: widthtransition;
+    animation-delay: 0.5s;
+    animation-duration: 2s; }
   .page-banner .pb-inner {
     min-height: 450px;
     padding: 50px 0px;
@@ -2643,10 +2678,14 @@ img {
 .about-bar {
   position: relative;
   z-index: 100;
-  margin: -55px 0px 0px 0px; }
-  @media screen and (max-width: 767px) {
+  margin: -55px 0px 0px 0px;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1); }
+  @media screen and (max-width: 991px) {
     .about-bar {
-      margin: 20px 0px 20px 0px; } }
+      margin: 20px 0px 20px 0px;
+      position: relative !important;
+      top: unset !important;
+      left: unset !important; } }
   .about-bar .about-nav {
     list-style: none;
     margin: 0px;
@@ -2689,11 +2728,11 @@ img {
         @media screen and (max-width: 575px) {
           .about-bar .about-nav li a {
             font-size: 12px; } }
+      .about-bar .about-nav li:hover a {
+        color: #d61d4b; }
       .about-bar .about-nav li.active a {
         color: #fff;
         background-color: #d61d4b; }
-      .about-bar .about-nav li:hover a {
-        color: #d61d4b; }
 
 .about-block {
   min-height: 400px;
@@ -2857,5 +2896,63 @@ img {
       box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3); }
       .milestone-slider .news-item:hover .ni-img img {
         transform: scale(1.1); }
+
+#mobile-indicator {
+  display: none; }
+  @media screen and (max-width: 991px) {
+    #mobile-indicator {
+      display: block; } }
+
+.cookie-notify {
+  background-color: #000;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 9999;
+  padding: 20px 0px; }
+  .cookie-notify .close-cookie {
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all ease 0.4s; }
+    .cookie-notify .close-cookie:hover {
+      opacity: 1; }
+  .cookie-notify .cn-inner {
+    padding: 0px 200px 0px 0px;
+    position: relative;
+    text-align: center; }
+    @media screen and (max-width: 991px) {
+      .cookie-notify .cn-inner {
+        padding: 0px 40px 0px 0px; } }
+    .cookie-notify .cn-inner p {
+      color: #fff;
+      margin: 0px 0px;
+      text-align: left; }
+      .cookie-notify .cn-inner p a {
+        color: #d61d4b; }
+        .cookie-notify .cn-inner p a:hover {
+          text-decoration: underline; }
+    .cookie-notify .cn-inner .db-btn {
+      text-align: center;
+      width: 90px;
+      border-radius: 3px;
+      position: absolute;
+      top: 0px;
+      right: 50px; }
+      @media screen and (max-width: 991px) {
+        .cookie-notify .cn-inner .db-btn {
+          position: relative;
+          top: unset;
+          right: unset;
+          margin: 15px 0px 0px 0px; } }
 
 /*# sourceMappingURL=main.css.map */
