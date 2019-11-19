@@ -23,6 +23,14 @@
                 $('body').toggleClass("show-menu-workspace");
 
             });
+            $('.menu-ts-icon').on('click', function () {
+                $('body').addClass("show-menu-template");
+
+            });
+            $('.close-ts-icon').on('click', function () {
+                $('body').removeClass("show-menu-template");
+
+            });
 
 
             $('.close-menu-workspace').on('click', function () {
@@ -196,10 +204,10 @@
             }
 
         }
-        
-          db.sliderTemplateForSeo = function () {
+
+        db.sliderTemplateForSeo = function () {
             if ($('.slider-nav-seo').length) {
-               
+
                 $('.slider-nav-seo').slick({
                     slidesToShow: 9,
                     focusOnSelect: false,
