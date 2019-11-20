@@ -97,7 +97,7 @@
         db.scrollToMiddle = function () {
             $(".arrow-down").click(function () {
                 $('html, body').animate({
-                    scrollTop: $(".middle").offset().top
+                    scrollTop: $(".middle").offset().top - 100
                 }, 800);
 
 
@@ -162,8 +162,20 @@
 
 
 
-
         db.scroll = function () {
+
+            $('.fixed-link').hide();
+            $(window).scroll(function () {
+
+                if ($(this).scrollTop() >= 150) {
+
+                    $('.fixed-link').show();
+
+                } else {
+                    $('.fixed-link').hide();
+                }
+            });
+
 
 
             $(".totop").click(function () {
