@@ -64,6 +64,28 @@
                 });
             }
         }
+
+        db.accordion = function () {
+            $('.bfc-caption').on('click', function (event) {
+
+                var child = $(this).next(".bfc-content");
+
+                if ($(child).is(":visible")) {
+                    $(child).slideUp();
+                    $(this).removeClass("active");
+                } else {
+                    $(child).slideDown();
+                    $(this).addClass("active");
+                }
+            });
+
+
+        }
+
+
+
+
+
         db.homeProductSlider = function () {
             var owl_home = $('.owl-product-home');
             if ($(owl_home).length) {
@@ -78,6 +100,7 @@
                 });
             }
         }
+
         db.showSearch = function () {
 
             $('.page').on('click', function () {
@@ -134,7 +157,6 @@
 
         }
 
-
         db.sliderProduct = function () {
             if ($('.slick-product').length) {
                 $('.slick-product').slick({
@@ -175,7 +197,6 @@
             }
 
         }
-
 
         db.menuLeft = function () {
             $('.ml-ul > li > a.has-child > div').on('click', function (event) {
@@ -234,9 +255,9 @@
 
         db.preLoad();
         db.homeSlider();
-
         db.sliderProduct();
         db.menuResponsive();
+        db.accordion();
         db.matchHeight();
         new WOW().init();
     });
