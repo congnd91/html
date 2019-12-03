@@ -11,7 +11,7 @@
 
 .loader {
     background-color: #fff;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -1403,6 +1403,10 @@
     display: inline-block;
     margin: 0px 0px 45px 0px;
 
+    @media screen and (max-width: 767px) {
+        padding: 0px 0px 0px 5px;
+    }
+
 
 
     a {
@@ -1433,7 +1437,12 @@
 
         @media screen and (max-width: 991px) {
             font-size: 14px;
+            margin: 0px;
 
+        }
+
+        @media screen and (max-width: 575px) {
+            font-size: 13px;
         }
     }
 
@@ -1450,6 +1459,12 @@
         margin: 0px 0px 0px 10px;
         position: relative;
         top: 3px;
+
+        @media screen and (max-width: 767px) {
+            border-width: 4px 6px;
+            margin: 0px;
+            top: 1px;
+        }
 
 
 
@@ -1911,9 +1926,8 @@
 
         h2 {
             color: #ffffff;
-            font-family: $font-bold;
             font-size: 42px;
-            font-weight: bold;
+            font-weight: normal;
             text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
             font-family: $font-family-heading;
             letter-spacing: 1px;
@@ -2005,7 +2019,7 @@
     padding: 30px 0px 0px 400px;
 
     @media screen and (max-width: 991px) {
-        padding: 0px;
+        padding: 20px 0px 0px 0px;
     }
 
     .colleft {
@@ -2015,11 +2029,13 @@
         width: 340px;
 
         @media screen and (max-width: 991px) {
-            .colleft {
-                width: 100%;
-                float: none;
-                margin: 0px;
-            }
+
+            width: 100%;
+            float: none;
+            margin: 0px;
+            display: none;
+
+
         }
     }
 
@@ -2134,5 +2150,272 @@
                 border-top: 1px solid #d1d0d0;
             }
         }
+    }
+}
+
+.list-bar {
+    margin: 0px 0px 15px 0px;
+
+    .switch-view {
+        float: right;
+
+        .view-grid {
+            float: left;
+            width: 30px;
+            height: 30px;
+            background-image: url(../images/icon-grid.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            cursor: pointer;
+
+            &.active {
+                background-image: url(../images/icon-grid-active.png);
+            }
+        }
+
+        .view-list {
+            margin: 0px 0px 0px 10px;
+
+            float: left;
+            width: 30px;
+            height: 30px;
+            background-image: url(../images/icon-list.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            cursor: pointer;
+
+            &.active {
+                background-image: url(../images/icon-list-active.png);
+            }
+        }
+
+    }
+}
+
+.box-view-gird {
+    overflow: hidden;
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+    .vg-row {
+        margin: 0px -5px;
+    }
+
+    .vg-col {
+        float: left;
+        width: 33.333%;
+        padding: 0px 5px;
+
+        @media screen and (max-width: 1199px) {
+            width: 50%;
+        }
+
+        @media screen and (max-width: 767px) {
+            width: 50%;
+
+        }
+
+        @media screen and (max-width: 575px) {
+            width: 100%;
+            float: none;
+        }
+    }
+}
+
+.gird-item {
+    position: relative;
+    border: 1px solid #d8d7d8;
+    overflow: hidden;
+    margin: 0px 0px 10px 0px;
+
+    img {
+        width: 100%;
+        transition: all ease 0.3s;
+
+        display: block;
+    }
+
+    &:hover {
+        img {
+            transform: scale(1.05);
+        }
+    }
+
+    a {
+        display: block;
+    }
+
+    .gi-des {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        padding: 10px 0px 0px 15px;
+
+        h3 {
+            font-family: $font-bold;
+            font-weight: bold;
+            font-size: 24px;
+            color: #737373;
+            margin: 0px;
+
+        }
+
+        p {
+            margin: 0px;
+            font-size: 20px;
+            color: #e0e0e0;
+            font-weight: 600;
+        }
+    }
+
+    .gi-meta {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        padding: 0px 0px 10px 0px;
+        text-align: center;
+
+        span {
+            color: #b3a080;
+            font-size: 14px;
+            font-weight: 600;
+
+            display: inline-block;
+
+            &.blue {
+                color: #8395b9;
+            }
+
+            &.green {
+                color: #739580;
+            }
+        }
+
+        em {
+            color: #b3a080;
+            font-size: 14px;
+            font-style: normal;
+            display: inline-block;
+            margin: 0px 4px;
+
+        }
+
+    }
+
+}
+
+.box-view-list {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+
+.list-item {
+    border: 1px solid #d8d7d8;
+    margin: 0px 0px 10px 0px;
+
+    a {
+        display: block;
+        padding: 0px 0px 0px 200px;
+
+        @media screen and (max-width: 575px) {
+            padding: 0px;
+        }
+
+
+    }
+
+    .img {
+        width: 180px;
+        float: left;
+        margin: 0px 0px 0px -200px;
+
+        @media screen and (max-width: 575px) {
+            float: none;
+            margin: 0px 0px 10px 0px;
+            width: 100%;
+            text-align: center;
+
+        }
+    }
+
+    .gi-des {
+        padding: 10px 10px 0px 0px;
+
+        @media screen and (max-width: 767px) {
+            padding: 10px;
+        }
+
+        label {
+            text-align: right;
+            margin: 0px;
+            font-size: 20px;
+            color: #e0e0e0;
+            font-weight: 600;
+            display: block;
+            margin: 0px;
+        }
+
+        h3 {
+            font-family: $font-bold;
+            font-weight: bold;
+            font-size: 24px;
+            color: #737373;
+            margin: 0px 0px 15px 0px;
+
+
+        }
+
+        p {
+            margin: 0px;
+            font-size: 16px;
+            color: #adabac;
+            font-weight: 300;
+            margin: 0px 0px 10px 0px;
+        }
+    }
+
+    .gi-meta {
+        padding: 0px 0px 20px 0px;
+
+        @media screen and (max-width: 575px) {
+            padding: 10px;
+
+        }
+
+
+        span {
+            color: #b3a080;
+            font-size: 14px;
+            font-weight: 600;
+
+            display: inline-block;
+
+            &.blue {
+                color: #8395b9;
+            }
+
+            &.green {
+                color: #739580;
+            }
+        }
+
+
+        em {
+            color: #b3a080;
+            font-size: 14px;
+            font-style: normal;
+            display: inline-block;
+            margin: 0px 4px;
+
+        }
+
     }
 }

@@ -81,6 +81,25 @@
 
 
         }
+        db.switchView = function () {
+            $('.view-grid').on('click', function () {
+
+                $('.box-view-list').removeClass("active");
+                $('.view-list').removeClass("active");
+                $('.box-view-gird').addClass("active");
+                $(this).addClass("active");
+            });
+
+            $('.view-list').on('click', function () {
+                $('.box-view-gird').removeClass("active");
+                $('.view-grid').removeClass("active");
+
+                $('.box-view-list').addClass("active");
+                $(this).addClass("active");
+            });
+
+
+        }
 
 
 
@@ -258,6 +277,7 @@
         db.sliderProduct();
         db.menuResponsive();
         db.accordion();
+        db.switchView();
         db.matchHeight();
         new WOW().init();
     });
