@@ -64,6 +64,22 @@
                 });
             }
         }
+        db.dtSlider = function () {
+            var owl_dt = $('.owl-dt');
+            if ($(owl_dt).length) {
+                $(owl_dt).owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    mouseDrag: false,
+                    nav: true,
+                    autoplay: false,
+                    items: 1,
+
+                    //      animateOut: 'fadeOut'
+                });
+            }
+        }
+
 
         db.accordion = function () {
             $('.bfc-caption').on('click', function (event) {
@@ -274,6 +290,7 @@
 
         db.preLoad();
         db.homeSlider();
+        db.dtSlider();
         db.sliderProduct();
         db.menuResponsive();
         db.accordion();
