@@ -87,6 +87,7 @@
             z-index: -1;
             transition: all ease 0.3s;
             opacity: 0;
+            visibility: hidden;
 
 
             @media screen and (max-width: 1199px) {
@@ -1585,14 +1586,25 @@
     height: 40px;
     background-color: rgba(0, 0, 0, 0.3);
 
-    padding: 0px 5px 0px 20px;
-    border-radius: 0px 5px 5px 0px;
+    padding: 0px 10px 0px 15px;
+
     display: inline-block;
     margin: 0px 0px 45px 0px;
+    transition: all ease 0.3s;
+    transform: translateX(-100%);
+
+    cursor: pointer;
+
+    position: relative;
 
     @media screen and (max-width: 767px) {
         padding: 0px 0px 0px 5px;
     }
+
+    &.show {
+        transform: translateX(0);
+    }
+
 
 
 
@@ -1634,25 +1646,34 @@
     }
 
     .arrow {
+        height: 40px;
+        width: 40px;
 
-        width: 0px;
-        height: 0px;
-        border-width: 8px 13px;
-        border-style: solid;
-        border-color: transparent;
-        border-left-color: #fff;
-        display: inline-block;
-        line-height: 40px;
-        margin: 0px 0px 0px 10px;
-        position: relative;
-        top: 3px;
+        background-color: rgba(0, 0, 0, 0.3);
 
-        @media screen and (max-width: 767px) {
-            border-width: 4px 6px;
-            margin: 0px;
-            top: 1px;
+        position: absolute;
+        top: 0px;
+        right: -40px;
+        bottom: 0px;
+
+
+        border-radius: 0px 5px 5px 0px;
+        cursor: pointer;
+
+        &:before {
+            content: "";
+            display: block;
+            border-width: 8px 13px;
+            border-style: solid;
+            border-color: transparent;
+            border-left-color: #fff;
+            position: absolute;
+            top: 11px;
+            left: 3px;
+            margin: 0px 0px 0px 10px;
+
+
         }
-
 
 
     }
@@ -2614,20 +2635,7 @@
     float: left;
     width: 100%;
 
-    .sitemap {
-        margin: 0px 0px 50px 0px;
 
-        @media screen and (max-width: 991px) {
-            display: none;
-        }
-
-        .arrow {
-            margin: 0px;
-            top: 9px;
-
-
-        }
-    }
 
     .dt-slider {
         position: relative;
@@ -2728,10 +2736,21 @@
 
 }
 
+#mobile-indicator {
+    display: none;
+
+    @media screen and (max-width: 991px) {
+        display: block;
+    }
+}
+
 .pd-bar {
     background-color: #e0e0e0;
     margin: 20px 0px 30px 0px;
     border-top: 1px solid #c8c7c8;
+    z-index: 999;
+
+
 
     ul {
         list-style: none;
