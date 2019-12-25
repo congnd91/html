@@ -95,6 +95,30 @@
                 }
             });
 
+            $('body').on('click', function (event) {
+
+                $(".db-dropdown").hide();
+
+
+            });
+            $('.db-drop').on('click', function (e) {
+                e.stopPropagation();
+                var child = $(this).find(".db-dropdown");
+
+                if ($(child).is(":visible")) {
+                    $(child).hide();
+
+                } else {
+                    $(child).show();
+
+                }
+            });
+
+            $('.db-dropdown').on('click', function (e) {
+                e.stopPropagation();
+
+            });
+
 
         }
         db.switchView = function () {
