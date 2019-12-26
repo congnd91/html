@@ -27,7 +27,6 @@
 .header {
     padding: 20px 0px;
     @media screen and (max-width: 1023px) {
-
         padding: 0px 0px 0px 0px;
     }
     .navbar-brand {
@@ -144,14 +143,19 @@
     }
     &.is-second {
         background-color: #fddbf4;
+        border: 1px solid #fddbf4;
         &:hover {
-            background-color: darken(#fddbf4, 3%);
+            background-color: transparent;
+            color: #fff;
         }
     }
     &.is-primary {
         background-color: #5eddf5;
+        border: 1px solid #5eddf5;
         &:hover {
-            background-color: darken(#5eddf5, 3%);
+            border: 1px solid #5eddf5;
+            background-color: transparent;
+            color: $text-color;
         }
     }
 }
@@ -193,6 +197,26 @@
 }
 
 .product-banner {
+    padding: 10px 20px 20px 20px;
+    .is-ancestor {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        @media screen and (max-width: 1023px) {
+            display: block;
+        }
+        .tile.is-8 {
+            @media screen and (max-width: 1023px) {
+                width: 100%;
+                display: block;
+            }
+        }
+        .tile.is-parent {
+            @media screen and (max-width: 1023px) {
+                width: 100%;
+                display: block;
+            }
+        }
+    }
     .pb-item {
         position: relative;
         min-height: 200px;
@@ -264,12 +288,9 @@
             }
         }
         &.two {
-            margin-top: 30px;
             background-color: #f5d5c9;
-            min-height: 255px;
-            @media screen and (max-width: 1023px) {
-                margin-top: 10px;
-            }
+            min-height: 263px;
+            @media screen and (max-width: 1023px) {}
             @media screen and (max-width: 767px) {
                 padding-bottom: 40px;
             }
@@ -373,8 +394,71 @@
             font-size: 16px;
         }
     }
+    .card {
+        max-width: 280px;
+        margin: 0px auto;
+        text-align: center;
+        box-shadow: none;
+        background-color: transparent;
+        .card-content {
+            padding: 0px;
+        }
+        .card-image {
+            display: flex;
+            min-height: 410px;
+            align-items: flex-end;
+            justify-content: center;
+            @media screen and (max-width: 767px) {
+                min-height: 100px;
+            }
+            img {
+                transition: all ease 0.3s;
+            }
+        }
+        &:hover {
+            .card-image {
+                img {
+                    opacity: 0.7
+                }
+            }
+        }
+        h3 {
+            font-family: $font-family;
+            font-size: 14px;
+            font-weight: 600;
+            color: $text-color-second;
+            min-height: 50px;
+            margin: 0px;
+            text-transform: uppercase;
+            max-width: 200px;
+            margin: 15px auto 0px auto;
+        }
+        .like {
+            margin: 0px 0px 15px 0px;
+            .star {
+                display: inline-block;
+                background-image: url(../images/icon-heart.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                width: 15px;
+                height: 13px;
+                margin: 0px 2px 0px 0px;
+                &.active {
+                    background-image: url(../images/icon-heart-red.png);
+                }
+            }
+        }
+        .price {
+            color: $active-color-second;
+            font-weight: 600;
+            font-size: 16px;
+        }
+    }
     .button {
         margin: 20px auto 0px auto;
+        &:hover {
+            color: $text-color;
+        }
     }
 }
 
@@ -580,7 +664,7 @@
             margin: 0px auto;
         }
         @media screen and (max-width: 575px) {
-            width: 280px;
+            width: 310px;
         }
         input {
             width: 100%;
