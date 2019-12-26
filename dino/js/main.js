@@ -117,7 +117,18 @@
             $('.db-dropdown').on('click', function (e) {
                 e.stopPropagation();
 
+
+
             });
+
+            $('.checkall').click(function () {
+                var checkedStatus = this.checked;
+                $('.list-check ').find('input').each(function () {
+                    $(this).prop('checked', checkedStatus);
+                });
+            });
+
+
 
 
         }
