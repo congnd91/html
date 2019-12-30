@@ -19,6 +19,19 @@
 
 
         }
+        db.dropdown = function () {
+            var $toggle = $('.dropdown');
+
+
+            $toggle.click(function () {
+                $(this).toggleClass('is-active');
+
+            });
+
+
+
+
+        }
         db.footer = function () {
             $('.footer h3.has-list-menu').click(function () {
 
@@ -31,7 +44,6 @@
                 }
 
             });
-
         }
         db.sliderProduct = function () {
             if ($('.slider-for').length) {
@@ -40,7 +52,17 @@
                     slidesToScroll: 1,
                     arrows: false,
                     fade: true,
-                    asNavFor: '.slider-nav'
+                    asNavFor: '.slider-nav',
+                    responsive: [
+                        {
+                            breakpoint: 991,
+                            settings: {
+
+                                dots: true,
+
+                            }
+                                    }
+                                    ]
                 });
                 $('.slider-nav').slick({
                     slidesToShow: 4,
@@ -66,6 +88,8 @@
         db.preLoad();
 
         db.menuResponsive();
+        db.dropdown();
+
         db.footer();
         db.sliderProduct();
 
