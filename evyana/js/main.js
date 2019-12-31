@@ -21,10 +21,36 @@
         }
         db.dropdown = function () {
             var $toggle = $('.dropdown');
-
-
             $toggle.click(function () {
                 $(this).toggleClass('is-active');
+
+            });
+
+
+
+            $('.accordion-caption').click(function () {
+                var content = $(this).next(".accordion-content");
+                if ($(content).is(":visible")) {
+
+                    $(content).hide();
+                    $(this).removeClass("is-active");
+                } else {
+                    $(content).show();
+                    $(this).addClass("is-active");
+                }
+
+            });
+
+            $('.ib-caption').click(function () {
+                var content = $(this).next(".ib-content");
+                if ($(content).is(":visible")) {
+
+                    $(content).hide();
+                    $(this).removeClass("is-active");
+                } else {
+                    $(content).show();
+                    $(this).addClass("is-active");
+                }
 
             });
 
