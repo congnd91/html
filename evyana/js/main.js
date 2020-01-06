@@ -55,6 +55,17 @@
             });
 
 
+            $('.tabs ul li').click(function () {
+                var content = $(this).attr("data-id");
+                $(this).parents(".tabs").find("li").removeClass("is-active");
+                $(this).addClass("is-active");
+                $(this).parents(".db-tabs").find(".tab-content").removeClass("is-active");
+                $(content).addClass("is-active");
+
+
+            });
+
+
 
 
         }

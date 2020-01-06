@@ -8594,7 +8594,17 @@ img {
       background-color: #dd4b39;
       border-radius: 2px; }
     .card-item .ci-caption p {
-      margin: 0px; }
+      margin: 0px;
+      position: relative; }
+      .card-item .ci-caption p .size {
+        font-size: 11px;
+        color: #6a80a0;
+        opacity: 0;
+        transition: all ease 0.3s;
+        position: absolute;
+        display: inline-block;
+        margin: 0px 0px 0px 4px;
+        top: 4px; }
   .card-item .view-detail {
     position: absolute;
     top: 10px;
@@ -8622,6 +8632,8 @@ img {
     .card-item:hover .ci-img .ci-hover {
       visibility: visible;
       opacity: 1; }
+    .card-item:hover .ci-caption p .size {
+      opacity: 0.8; }
 
 .templates-loading,
 .teamplates-loading {
@@ -11323,6 +11335,30 @@ img {
     .s-images .image-item .thumb img {
       width: 68px;
       height: 68px; }
+  .s-images .image-item.uploading .thumb:before {
+    content: "";
+    display: block;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 2px; }
+  .s-images .image-item.uploading .thumb .percent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600; }
   .s-images .image-item .remove {
     position: absolute;
     background-color: #fff;
