@@ -1231,7 +1231,6 @@
             font-size: 20px;
             margin: 0px 0px 7px 0px;
             font-weight: 600; // font-family: $font-bold;
-
             // font-weight: 700;
             @media screen and (max-width: 991px) {
                 font-size: 16px;
@@ -1531,6 +1530,7 @@
 }
 
 /************product-banner*********/
+
 .product-banner {
     background-repeat: no-repeat;
     background-position: center center;
@@ -2153,6 +2153,7 @@
 
 
 /************list-banner*********/
+
 .list-banner {
     background-repeat: no-repeat;
     background-position: center center;
@@ -2219,7 +2220,7 @@
     background-color: #e0e0e0;
 
     .container {
-        border-left: 1px solid #fff;
+
 
         @media screen and (max-width: 991px) {
             border: none;
@@ -2237,6 +2238,13 @@
             border-bottom: 1px solid #fff;
 
         }
+        &:first-child {
+            border-left: 1px solid #fff;
+            @media screen and (max-width: 991px) {
+                border-left: none;
+            }
+
+        }
 
         &:last-child {}
 
@@ -2245,14 +2253,16 @@
             font-size: 20px;
             text-align: center;
             display: block;
-            padding: 20px 0px;
-            color: #adabac;
+            padding: 20px 0px 14px 0px;
+            color: #737373;
 
             transition: all ease 0.3s;
+            border-bottom: 8px solid transparent;
 
             @media screen and (max-width: 991px) {
                 padding: 13px 0px;
                 font-size: 16px;
+                border-bottom-width: 2px;
 
             }
 
@@ -2267,9 +2277,11 @@
 
         &.active {
             a {
-                color: #737373;
-                font-weight: 600;
-
+                color: #333333;
+                border-bottom: 8px solid $active-color;
+                @media screen and (max-width: 991px) {
+                    border-bottom-width: 2px;
+                }
                 &:hover {
 
                     color: $active-color;
@@ -2325,7 +2337,7 @@
 
 
     .bf-caption {
-        color: #1b1a1b;
+        color: #333333;
         font-family: $font-bold;
         padding: 10px 0px 10px 0px;
         font-size: 30px;
@@ -2396,7 +2408,7 @@
             margin: -15px 0px 0px 0px;
             cursor: pointer;
             background-position: center center;
-            background-image: url(../images/arrow-right.png);
+            background-image: url(../images/arrow-up.png);
         }
 
         &.active {
@@ -2525,6 +2537,17 @@
             transform: scale(1.05);
             opacity: 1;
         }
+        .gi-des {
+
+
+            h3 {
+
+                color: $active-color;
+
+            }
+
+        }
+
     }
 
     a {
@@ -2542,10 +2565,8 @@
             font-weight: bold;
             font-size: 24px;
             color: #737373;
-            margin: 0px;
-            // text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
-
-
+            transition: all ease 0.3s;
+            margin: 0px; // text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
         }
 
         p {
@@ -3007,14 +3028,27 @@
         text-align: center;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+
 
 
 
         li {
+            padding: 5px 0px;
+
             a {
                 font-size: 20px;
-                color: #ADABAC;
+                color: #adabac;
                 font-weight: 300;
+                padding: 5px 25px;
+                background-color: transparent;
+                display: inline-block;
+                border: 1px solid transparent;
+                @media screen and (max-width: 1199px) {
+                    font-size: 17px;
+                    padding: 4px 15px;
+                }
+
 
 
                 @media screen and (max-width: 991px) {
@@ -3025,6 +3059,9 @@
                 &.active {
                     color: #737373;
                     font-weight: 600;
+                    background-color: #f0f0f0;
+
+                    border: 1px solid #b5b3b4;
                 }
             }
 

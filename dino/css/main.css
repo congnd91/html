@@ -2939,11 +2939,9 @@ img {
 
 .list-tab {
   background-color: #e0e0e0; }
-  .list-tab .container {
-    border-left: 1px solid #fff; }
-    @media screen and (max-width: 991px) {
-      .list-tab .container {
-        border: none; } }
+  @media screen and (max-width: 991px) {
+    .list-tab .container {
+      border: none; } }
   .list-tab .lt-item {
     float: left;
     width: 33.33%;
@@ -2953,23 +2951,33 @@ img {
         width: 100%;
         border: none;
         border-bottom: 1px solid #fff; } }
+    .list-tab .lt-item:first-child {
+      border-left: 1px solid #fff; }
+      @media screen and (max-width: 991px) {
+        .list-tab .lt-item:first-child {
+          border-left: none; } }
     .list-tab .lt-item a {
       font-weight: 300;
       font-size: 20px;
       text-align: center;
       display: block;
-      padding: 20px 0px;
-      color: #adabac;
-      transition: all ease 0.3s; }
+      padding: 20px 0px 14px 0px;
+      color: #737373;
+      transition: all ease 0.3s;
+      border-bottom: 8px solid transparent; }
       @media screen and (max-width: 991px) {
         .list-tab .lt-item a {
           padding: 13px 0px;
-          font-size: 16px; } }
+          font-size: 16px;
+          border-bottom-width: 2px; } }
       .list-tab .lt-item a:hover {
         color: #2273B1; }
     .list-tab .lt-item.active a {
-      color: #737373;
-      font-weight: 600; }
+      color: #333333;
+      border-bottom: 8px solid #2273B1; }
+      @media screen and (max-width: 991px) {
+        .list-tab .lt-item.active a {
+          border-bottom-width: 2px; } }
       .list-tab .lt-item.active a:hover {
         color: #2273B1; }
 
@@ -2998,7 +3006,7 @@ img {
 .box-filter {
   margin: 0px 0px 30px 0px; }
   .box-filter .bf-caption {
-    color: #1b1a1b;
+    color: #333333;
     font-family: "Mukta", sans-serif;
     padding: 10px 0px 10px 0px;
     font-size: 30px;
@@ -3046,7 +3054,7 @@ img {
     margin: -15px 0px 0px 0px;
     cursor: pointer;
     background-position: center center;
-    background-image: url(../images/arrow-right.png); }
+    background-image: url(../images/arrow-up.png); }
   .bf-accordion .bfc-caption.active .arrow {
     background-image: url(../images/arrow-down.png); }
 
@@ -3126,6 +3134,8 @@ img {
   .gird-item:hover img {
     transform: scale(1.05);
     opacity: 1; }
+  .gird-item:hover .gi-des h3 {
+    color: #2273B1; }
   .gird-item a {
     display: block; }
   .gird-item .gi-des {
@@ -3138,6 +3148,7 @@ img {
       font-weight: bold;
       font-size: 24px;
       color: #737373;
+      transition: all ease 0.3s;
       margin: 0px; }
     .gird-item .gi-des p {
       margin: 0px;
@@ -3444,21 +3455,34 @@ img {
     padding: 0px;
     text-align: center;
     display: flex;
-    justify-content: space-between; }
-    .brief-list .bl-tab li a {
-      font-size: 20px;
-      color: #ADABAC;
-      font-weight: 300; }
-      @media screen and (max-width: 991px) {
-        .brief-list .bl-tab li a {
-          font-size: 16px; } }
-      .brief-list .bl-tab li a.active {
-        color: #737373;
+    justify-content: space-between;
+    align-items: center; }
+    .brief-list .bl-tab li {
+      padding: 5px 0px; }
+      .brief-list .bl-tab li a {
+        font-size: 20px;
+        color: #adabac;
+        font-weight: 300;
+        padding: 5px 25px;
+        background-color: transparent;
+        display: inline-block;
+        border: 1px solid transparent; }
+        @media screen and (max-width: 1199px) {
+          .brief-list .bl-tab li a {
+            font-size: 17px;
+            padding: 4px 15px; } }
+        @media screen and (max-width: 991px) {
+          .brief-list .bl-tab li a {
+            font-size: 16px; } }
+        .brief-list .bl-tab li a.active {
+          color: #737373;
+          font-weight: 600;
+          background-color: #f0f0f0;
+          border: 1px solid #b5b3b4; }
+      .brief-list .bl-tab li span {
+        font-size: 20px;
+        color: #e0e0e0;
         font-weight: 600; }
-    .brief-list .bl-tab li span {
-      font-size: 20px;
-      color: #e0e0e0;
-      font-weight: 600; }
 
 .bl-scroll-wrap {
   overflow: auto; }
