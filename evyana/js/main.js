@@ -116,6 +116,37 @@
 
 
 
+        db.scrollFixBar = function () {
+
+
+            if ($(".box-summary-desktop").length) {
+
+                $(".box-summary-desktop").stick_in_parent({
+
+                    offset_top: 20,
+
+                });
+            }
+
+            $('.summary-mobile-bar').click(function () {
+
+                $('.box-summary-mobile').addClass("is-active");
+
+            });
+            $('.close-bsm').click(function () {
+
+                $('.box-summary-mobile').removeClass("is-active");
+
+            });
+
+
+
+
+
+
+        }
+
+
 
 
 
@@ -129,6 +160,7 @@
 
         db.footer();
         db.sliderProduct();
+        db.scrollFixBar();
 
     });
 })(jQuery);
