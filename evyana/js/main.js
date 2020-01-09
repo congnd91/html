@@ -64,7 +64,18 @@
 
 
             });
+            $('.se-buttons button').click(function () {
+                $('.se-buttons button').removeClass("is-active");
+                $(this).addClass("is-active");
 
+
+            });
+
+            $('.header-cart').click(function () {
+                $('body').toggleClass("show-cart");
+
+
+            });
 
 
 
@@ -119,14 +130,14 @@
         db.scrollFixBar = function () {
 
 
-            if ($(".box-summary-desktop").length) {
+            /*if ($(".box-summary-desktop").length) {
 
-                $(".box-summary-desktop").stick_in_parent({
+    $(".box-summary-desktop").stick_in_parent({
 
-                    offset_top: 20,
+        offset_top: 20,
 
-                });
-            }
+    });
+}*/
 
             $('.summary-mobile-bar').click(function () {
 
