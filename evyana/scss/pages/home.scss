@@ -26,6 +26,11 @@
 
 body {
     padding-top: 95px;
+    @media screen and (max-width: 1023px) {
+        padding-top: 55px;
+
+    }
+
 }
 
 .show-cart {
@@ -1341,8 +1346,11 @@ body {
         }
 
         @media screen and (max-width: 575px) {
-            width: 310px;
+            width: 280px;
+
         }
+
+
 
         input {
             width: 100%;
@@ -1602,6 +1610,8 @@ body {
 .product-listing {
     max-width: 960px;
     margin: 0px auto;
+    padding-left: 15px;
+    padding-right: 15px;
     padding-bottom: 60px;
     padding-top: 40px;
 
@@ -1872,6 +1882,45 @@ body {
     .se-buttons {
         display: flex;
         justify-content: space-between;
+        .se-radio {
+            width: 100%;
+            label {
+                display: block;
+                input {
+
+                    width: 0px;
+                    height: 0px;
+                    visibility: hidden;
+                    opacity: 0;
+
+                }
+                span {
+                    display: block;
+                    font-size: 19px;
+                    border: 1px solid $text-color-meta;
+                    text-align: center;
+                    line-height: 38px;
+                    min-width: 10px;
+                    flex-grow: 1;
+                    color: $text-color;
+                    font-weight: 300;
+                    cursor: pointer;
+                    @media screen and (max-width: 991px) {
+                        font-size: 14px;
+
+                    }
+                }
+                input:checked ~ span {
+                    background-color: $active-color;
+                    color: #fff;
+                    border-color: $active-color;
+
+                }
+            }
+            &:nth-child(2) {
+                margin: 0px 10px;
+            }
+        }
 
         .button {
             height: 40px;
@@ -2139,6 +2188,18 @@ body {
 .box-content {
     max-width: 1050px;
     margin: 0px auto;
+    .reverse-columns-mobile {
+        @media screen and (max-width: 767px) {
+            flex-direction: column-reverse;
+            display: flex;
+            text-align: left;
+            .column {
+                width: 100%;
+
+            }
+
+        }
+    }
 
     h3 {
         font-size: 60px;
@@ -4193,6 +4254,10 @@ body {
                 @media screen and (max-width: 767px) {
                     border: none;
                 }
+            }
+
+            &.you-purchased {
+                min-width: 260px;
             }
         }
     }
