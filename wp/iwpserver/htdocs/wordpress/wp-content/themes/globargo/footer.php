@@ -15,14 +15,11 @@
         <div class="menu-footer">
             <div class="container">
                 <div class="menu">
-                    <ul>
-                        <li><a href="#home"><span>Home</span></a></li>
-                        <li><a href="#about"><span>About us</span></a></li>
-                        <li class="active"><a href="#mission"><span>Mission</span></a></li>
-                        <li><a href="#services"><span>Services</span></a></li>
-                        <li><a href="#how-it-work"><span>How it works</span></a></li>
-                        <li><a href="#contact"><span>Contact Us</span></a></li>
-                    </ul>
+                    <?php wp_nav_menu(array(
+                                'theme_location'=>'main-menu',
+                                'menu_class'=>'',
+                                'container'=>'')
+                                ); ?>
                 </div>
             </div>
         </div>

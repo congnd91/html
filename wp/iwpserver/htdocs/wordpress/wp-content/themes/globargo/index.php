@@ -14,57 +14,15 @@
 $greeky_sidebar_position = get_theme_mod('sidebar_position');
 get_header(); ?>
     <!--sliderhome-->
-    1
     <section class="home-slider" id="home">
         <div class="owl-carousel owl-home">
-            <div class="item">
-                <div class="home-slider-item" style="background-image: url(images/slider01.png);">
-                    <div class="slider-caption">
-                        <div class="container">
-                            <div class="sc">
-                                <div class="sc-inner">
-                                    <div class="sc-text">
-                                        <p>The Transport Network Community</p>
-                                        <p>Consumer Electronics Express Specialist</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="home-slider-item" style="background-image: url(images/slider01.png);">
-                    <div class="slider-caption">
-                        <div class="container">
-                            <div class="sc">
-                                <div class="sc-inner">
-                                    <div class="sc-text">
-                                        <p>The Transport Network Community</p>
-                                        <p>Consumer Electronics Express Specialist</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="home-slider-item" style="background-image: url(images/slider01.png);">
-                    <div class="slider-caption">
-                        <div class="container">
-                            <div class="sc">
-                                <div class="sc-inner">
-                                    <div class="sc-text">
-                                        <p>The Transport Network Community</p>
-                                        <p>Consumer Electronics Express Specialist</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+    if ( is_home() && is_active_sidebar( 'globargo_home_slider_content'))
+    dynamic_sidebar('globargo_home_slider_content'); ?>
+
+
+
+
         </div>
     </section>
 

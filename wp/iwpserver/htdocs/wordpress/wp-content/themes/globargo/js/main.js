@@ -22,8 +22,22 @@
                 }
             });
 
-            $('.menu').navpoints({
-                offset: 70
+            function goToByScroll(id) {
+                // Remove "link" from the ID
+
+                // Scroll
+                $('html,body').animate({
+                    scrollTop: $(id).offset().top - 70
+                }, 'slow');
+            }
+
+            $(".menu  a").click(function (e) {
+                e.preventDefault();
+                // Call the scroll function
+                var id = $(this).attr("href");
+                $(".menu  a").removeClass("active");
+                $(this).addClass("active");
+                goToByScroll(id);
             });
 
 
