@@ -293,7 +293,7 @@ function greeky_scripts() {
         
 
     
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() .'/css/fontawesome-all.css' );
+	
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() .'/css/bootstrap.min.css' );
 	wp_enqueue_style( 'owl', get_template_directory_uri() .'/css/owl.carousel.min.css' );
     

@@ -8,24 +8,6 @@
     background-color: #fff;
 }
 
-.menu-icon {
-    float: right;
-    width: 25px;
-    height: 40px;
-    cursor: pointer;
-    padding: 10px 0px 0px 0px;
-    margin: 0px 0px 0px 5px;
-    display: none;
-    @media screen and (max-width: 991px) {
-        display: block;
-    }
-    span {
-        width: 100%;
-        height: 1px;
-        background-color: #fff;
-        margin: 5px 0px 0px 0px;
-    }
-}
 
 .header {
     padding: 20px 0px;
@@ -37,21 +19,29 @@
     right: 0px;
     transition: all ease 0.3s;
     &.header-scrolled {
-        background-color: $active-color-second;
+        background-color: rgba(10, 31, 52, 0.7);
         padding: 15px 0px;
     }
     @media screen and (max-width: 991px) {
         padding: 10px 0px 10px 0px !important;
-        background-color: $active-color-second !important;
+        background-color: rgba(10, 31, 52, 0.7) !important;
         height: 70px;
     }
     a.logo {
         float: left;
+        @media screen and (max-width: 991px) {
+            float: right;
+        }
         img {
             height: 40px;
             @media screen and (max-width: 991px) {
                 height: 30px;
                 margin: 10px 0px 0px 0px;
+            }
+            @media screen and (max-width: 575px) {
+                height: 25px;
+                margin: 13px 0px 0px 0px;
+
             }
         }
     }
@@ -71,7 +61,7 @@
                 &:first-child {
                     a {
                         span {
-                            display: none !important;
+                            display: none;
                         }
                     }
                 }
@@ -108,6 +98,19 @@
             }
         }
     }
+    .float-left {
+        @media screen and (max-width: 991px) {
+            float: right !important;
+
+        }
+    }
+
+    .float-right {
+        @media screen and (max-width: 991px) {
+            float: left !important;
+        }
+    }
+
 }
 
 .page {
@@ -120,17 +123,20 @@
 }
 
 .menu-icon {
-    width: 25px;
-    height: 30px;
+    width: 32px;
+
+    height: 32px;
     padding: 15px 0px 0px 0px;
     margin: 0px 0px 0px 5px;
     float: left;
+
     display: none;
     @media screen and (max-width: 991px) {
         display: block;
         cursor: pointer;
     }
-    span {
+
+    > span {
         display: block;
         width: 100%;
         height: 2px;
@@ -140,35 +146,55 @@
 }
 
 .menu-mobile {
-    position: fixed;
-    width: 280px;
-    top: 0px;
-    right: -280px;
+    position: absolute;
+    width: 220px;
+    top: 100%;
+    left: 0px;
+
     transition: all ease 0.3s;
-    background-color: #fff;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
-    bottom: 0px;
-    padding: 30px 0px 0px 0px;
-    @media screen and (min-width: 992px) {
+    background-color: rgba(10, 31, 52, 0.7);
+    display: none;
+    margin: 0px !important;
+    .icon-home {
         display: none !important;
+
     }
+    .menu {
+        display: block !important;
+    }
+
+
     ul {
         margin: 0px;
         padding: 0px;
         list-style: none;
         li {
             margin: 0px 0px 10px 0px;
+            float: none !important;
+            &:first-child {
+                a {
+
+                    span {
+                        display: block !important;
+                    }
+                }
+            }
             a {
-                padding: 10px 20px 10px 20px;
+                padding: 10px 20px 10px 0px;
                 font-size: 14px;
                 font-family: $font-family-heading;
-                color: $text-color;
                 font-weight: 500;
-                opacity: 0.9;
-                text-transform: uppercase;
+                color: #fff;
+
                 &:hover {
                     opacity: 1;
                     color: $active-color;
+                }
+                &.active {
+                    span {
+                        border: none !important;
+                    }
+
                 }
             }
             ul {
@@ -186,6 +212,9 @@
             &.active {
                 a {
                     color: $active-color;
+                    span {
+                        border: none !important;
+                    }
                 }
             }
         }
@@ -223,16 +252,10 @@
 
 
     .open-menu {
+
+
         .menu-mobile {
-            right: 0px;
-        }
-        .page {
-            // transform: translateX(-280px);
-            left: -280px;
-        }
-        .header {
-            left: -280px;
-            right: 280px;
+            display: block !important;
         }
     }
 }
@@ -298,6 +321,8 @@
                     padding: 0px 0px 0px 40px;
                     @media screen and (max-width: 991px) {
                         padding: 0px 0px 0px 20px;
+                        border-left-width: 3px;
+
                     }
                     p {
                         font-size: 43px;
@@ -449,7 +474,38 @@
 }
 
 .services {
-    background-color: $active-color-second;
+
+    padding: 0px !important; // background-color: #08192a;
+    @media screen and (max-width: 991px) {
+        padding: 0px 0px !important;
+
+
+    }
+    .services-inner {
+        padding: 60px 0px;
+        background-color: $active-color-second;
+
+        @media screen and (max-width: 991px) {
+            padding: 40px 0px;
+
+
+        }
+        position: relative;
+        .owl-prev {
+            left: -20px;
+            position: absolute;
+            top: 50%;
+            color: #fff;
+            font-size: 14px;
+        }
+        .owl-next {
+            right: -20px;
+            position: absolute;
+            top: 50%;
+            color: #fff;
+            font-size: 14px;
+        }
+    }
     .section-caption {
         h2 {
             color: #fff;
@@ -470,6 +526,11 @@
             text-align: left;
             color: #fff;
             opacity: 0.6;
+        }
+        img {
+            width: auto;
+            margin: 0px auto;
+
         }
     }
 }
@@ -534,6 +595,9 @@
     .menu-footer {
         padding: 20px 0px;
         background-color: rgba(255, 255, 255, 0.03);
+        @media screen and (max-width: 991px) {
+            display: none;
+        }
         ul {
             margin: 0px;
             padding: 0px;

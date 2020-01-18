@@ -22,22 +22,8 @@
                 }
             });
 
-            function goToByScroll(id) {
-                // Remove "link" from the ID
-
-                // Scroll
-                $('html,body').animate({
-                    scrollTop: $(id).offset().top - 70
-                }, 'slow');
-            }
-
-            $(".menu  a").click(function (e) {
-                e.preventDefault();
-                // Call the scroll function
-                var id = $(this).attr("href");
-                $(".menu  a").removeClass("active");
-                $(this).addClass("active");
-                goToByScroll(id);
+            $('.menu').navpoints({
+                offset: 70
             });
 
 
@@ -63,6 +49,43 @@
 
 
         }
+        db.homeServices = function () {
+            var owl_services = $('.owl-services');
+            if ($(owl_services).length) {
+                $(owl_services).owlCarousel({
+                    loop: false,
+                    margin: 30,
+                    nav: true,
+                    autoplay: false,
+                    items: 1,
+                    nav: true,
+                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+
+
+
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: true
+                        },
+                        600: {
+                            items: 1,
+                            nav: true,
+                            navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+                        },
+                        992: {
+                            items: 3,
+                            margin: 30,
+                            nav: false,
+                            loop: false
+                        }
+                    }
+                });
+            }
+
+
+        }
+
 
         db.matchHeight = function () {
             if ($('.si-des h3').length) {
@@ -80,8 +103,7 @@
         db.scrollMenu();
         db.menuResponsive();
         db.homeSlider();
-
-
+        db.homeServices();
 
 
     });

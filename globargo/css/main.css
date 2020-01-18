@@ -1580,23 +1580,6 @@ img {
   bottom: 0;
   background-color: #fff; }
 
-.menu-icon {
-  float: right;
-  width: 25px;
-  height: 40px;
-  cursor: pointer;
-  padding: 10px 0px 0px 0px;
-  margin: 0px 0px 0px 5px;
-  display: none; }
-  @media screen and (max-width: 991px) {
-    .menu-icon {
-      display: block; } }
-  .menu-icon span {
-    width: 100%;
-    height: 1px;
-    background-color: #fff;
-    margin: 5px 0px 0px 0px; }
-
 .header {
   padding: 20px 0px;
   position: relative;
@@ -1607,21 +1590,28 @@ img {
   right: 0px;
   transition: all ease 0.3s; }
   .header.header-scrolled {
-    background-color: #0a1f34;
+    background-color: rgba(10, 31, 52, 0.7);
     padding: 15px 0px; }
   @media screen and (max-width: 991px) {
     .header {
       padding: 10px 0px 10px 0px !important;
-      background-color: #0a1f34 !important;
+      background-color: rgba(10, 31, 52, 0.7) !important;
       height: 70px; } }
   .header a.logo {
     float: left; }
+    @media screen and (max-width: 991px) {
+      .header a.logo {
+        float: right; } }
     .header a.logo img {
       height: 40px; }
       @media screen and (max-width: 991px) {
         .header a.logo img {
           height: 30px;
           margin: 10px 0px 0px 0px; } }
+      @media screen and (max-width: 575px) {
+        .header a.logo img {
+          height: 25px;
+          margin: 13px 0px 0px 0px; } }
   .header .menu {
     float: left;
     margin: 15px 0px 0px 0px; }
@@ -1636,7 +1626,7 @@ img {
         float: left;
         margin: 0px 0px 0px 20px; }
         .header .menu ul li:first-child a span {
-          display: none !important; }
+          display: none; }
         .header .menu ul li a {
           display: block;
           line-height: 40px;
@@ -1661,6 +1651,12 @@ img {
           .header .menu ul li a.active span {
             border-bottom: 1px solid #efd131;
             color: #efd131; }
+  @media screen and (max-width: 991px) {
+    .header .float-left {
+      float: right !important; } }
+  @media screen and (max-width: 991px) {
+    .header .float-right {
+      float: left !important; } }
 
 .page {
   transition: all ease 0.3s;
@@ -1671,8 +1667,8 @@ img {
       left: 0px !important; } }
 
 .menu-icon {
-  width: 25px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   padding: 15px 0px 0px 0px;
   margin: 0px 0px 0px 5px;
   float: left;
@@ -1681,7 +1677,7 @@ img {
     .menu-icon {
       display: block;
       cursor: pointer; } }
-  .menu-icon span {
+  .menu-icon > span {
     display: block;
     width: 100%;
     height: 2px;
@@ -1689,35 +1685,38 @@ img {
     margin: 0px 0px 5px 0px; }
 
 .menu-mobile {
-  position: fixed;
-  width: 280px;
-  top: 0px;
-  right: -280px;
+  position: absolute;
+  width: 220px;
+  top: 100%;
+  left: 0px;
   transition: all ease 0.3s;
-  background-color: #fff;
-  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
-  bottom: 0px;
-  padding: 30px 0px 0px 0px; }
-  @media screen and (min-width: 992px) {
-    .menu-mobile {
-      display: none !important; } }
+  background-color: rgba(10, 31, 52, 0.7);
+  display: none;
+  margin: 0px !important; }
+  .menu-mobile .icon-home {
+    display: none !important; }
+  .menu-mobile .menu {
+    display: block !important; }
   .menu-mobile ul {
     margin: 0px;
     padding: 0px;
     list-style: none; }
     .menu-mobile ul li {
-      margin: 0px 0px 10px 0px; }
+      margin: 0px 0px 10px 0px;
+      float: none !important; }
+      .menu-mobile ul li:first-child a span {
+        display: block !important; }
       .menu-mobile ul li a {
-        padding: 10px 20px 10px 20px;
+        padding: 10px 20px 10px 0px;
         font-size: 14px;
         font-family: "PT Sans", sans-serif;
-        color: #3c3c3c;
         font-weight: 500;
-        opacity: 0.9;
-        text-transform: uppercase; }
+        color: #fff; }
         .menu-mobile ul li a:hover {
           opacity: 1;
           color: #efd131; }
+        .menu-mobile ul li a.active span {
+          border: none !important; }
       .menu-mobile ul li ul {
         list-style: none;
         margin: 0px;
@@ -1728,6 +1727,8 @@ img {
           padding: 10px 10px 10px 40px; }
       .menu-mobile ul li.active a {
         color: #efd131; }
+        .menu-mobile ul li.active a span {
+          border: none !important; }
   .menu-mobile .language {
     margin: 20px 0px 0px 20px;
     min-height: 30px;
@@ -1752,12 +1753,7 @@ img {
 
 @media screen and (max-width: 991px) {
   .open-menu .menu-mobile {
-    right: 0px; }
-  .open-menu .page {
-    left: -280px; }
-  .open-menu .header {
-    left: -280px;
-    right: 280px; } }
+    display: block !important; } }
 
 .home-slider {
   position: relative; }
@@ -1818,7 +1814,8 @@ img {
           padding: 0px 0px 0px 40px; }
           @media screen and (max-width: 991px) {
             .home-slider .home-slider-item .slider-caption .sc .sc-text {
-              padding: 0px 0px 0px 20px; } }
+              padding: 0px 0px 0px 20px;
+              border-left-width: 3px; } }
           .home-slider .home-slider-item .slider-caption .sc .sc-text p {
             font-size: 43px;
             font-weight: 700;
@@ -1944,7 +1941,29 @@ img {
         font-family: "UniSansBold", sans-serif; }
 
 .services {
-  background-color: #0a1f34; }
+  padding: 0px !important; }
+  @media screen and (max-width: 991px) {
+    .services {
+      padding: 0px 0px !important; } }
+  .services .services-inner {
+    padding: 60px 0px;
+    background-color: #0a1f34;
+    position: relative; }
+    @media screen and (max-width: 991px) {
+      .services .services-inner {
+        padding: 40px 0px; } }
+    .services .services-inner .owl-prev {
+      left: -20px;
+      position: absolute;
+      top: 50%;
+      color: #fff;
+      font-size: 14px; }
+    .services .services-inner .owl-next {
+      right: -20px;
+      position: absolute;
+      top: 50%;
+      color: #fff;
+      font-size: 14px; }
   .services .section-caption h2 {
     color: #fff; }
   .services .service-item {
@@ -1961,6 +1980,9 @@ img {
       text-align: left;
       color: #fff;
       opacity: 0.6; }
+    .services .service-item img {
+      width: auto;
+      margin: 0px auto; }
 
 .how-it-work .hiw-des p {
   margin: 0px 0px 20px 0px;
@@ -2011,6 +2033,9 @@ img {
   .footer .menu-footer {
     padding: 20px 0px;
     background-color: rgba(255, 255, 255, 0.03); }
+    @media screen and (max-width: 991px) {
+      .footer .menu-footer {
+        display: none; } }
     .footer .menu-footer ul {
       margin: 0px;
       padding: 0px;

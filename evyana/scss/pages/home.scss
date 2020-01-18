@@ -952,10 +952,12 @@ body {
 
 .product-popular {
     background-color: #f9eef7;
-    padding: 40px 0px 60px 0px;
+    padding: 40px 10px 60px 10px;
     background-image: linear-gradient(to top, #e3f4f6 0%, #faeef7 100%);
 
+
     h2 {
+
         text-align: center;
         font-weight: 700;
         font-family: $font-family;
@@ -1823,6 +1825,34 @@ body {
     .option-box {
         padding: 20px;
         border: 1px solid $active-color;
+        .ob-radio {
+            position: relative;
+            input {
+                width: 0px;
+                height: 0px;
+                opacity: 0;
+                visibility: hidden;
+                position: absolute;
+            }
+            label {
+                display: block;
+                margin: 0px;
+                padding: 0px;
+
+            }
+            input:checked ~ {
+                .option-item {
+
+                    font-weight: 600;
+
+                    &:before {
+                        background-color: $active-color;
+                        border-color: $active-color;
+                    }
+
+                }
+            }
+        }
 
         .option-item {
             position: relative;
@@ -2251,6 +2281,11 @@ body {
 
         @media screen and (max-width: 767px) {
             margin: 0px;
+            float: none;
+            margin: 0px 0px 10px 0px;
+            text-align: center;
+
+
         }
 
         p {
@@ -2273,7 +2308,10 @@ body {
                 width: 20px;
                 height: 18px;
                 background-size: 20px auto;
+                display: inline-block;
+                float: none;
             }
+
         }
     }
 
@@ -3303,6 +3341,12 @@ body {
         border-bottom: 1px solid #000;
         margin: 0px 0px 30px 0px;
 
+        .column {
+            @media screen and (max-width: 767px) {
+                padding-bottom: 0px;
+
+            }
+        }
         .pb-item {
             strong {
                 display: inline-block;
@@ -3324,6 +3368,11 @@ body {
                     margin: 0px 0px 0px 10px;
                 }
 
+                @media screen and (max-width: 767px) {
+                    margin: 0px;
+
+
+                }
                 .button {
                     height: auto;
                     line-height: 50px;
@@ -3909,6 +3958,12 @@ body {
                 .credit-card {
                     float: right;
                     margin: 5px 0px 0px 0px;
+                    @media screen and (max-width: 767px) {
+                        float: none;
+                        margin: 10px auto 0px auto;
+                        text-align: center;
+
+                    }
                 }
             }
         }
@@ -4784,9 +4839,32 @@ body {
     .container {
         padding: 0px 15px;
     }
+    .sl-radio {
+        position: relative;
+        input {
+            width: 0;
+            height: 0;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+        }
+        label {
+            display: block;
+            margin: 0px;
+            padding: 0px;
+        }
+        input:checked ~ .sl-item {
+            h3 {
+                color: #000;
+
+            }
+
+        }
+    }
 
     .sl-item {
         text-align: center;
+        cursor: pointer;
 
         h3 {
             font-size: 17px;
