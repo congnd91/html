@@ -132,6 +132,26 @@
 
 
         }
+
+        db.faq = function () {
+            $('.acc-caption').on('click', function (event) {
+
+                var child = $(this).next(".acc-content");
+
+                if ($(child).is(":visible")) {
+                    $(child).slideUp();
+                    $(this).removeClass("active");
+                } else {
+                    $(child).slideDown();
+                    $(this).addClass("active");
+                }
+            });
+
+
+
+
+
+        }
         db.switchView = function () {
             $('.view-grid').on('click', function () {
 
@@ -376,6 +396,7 @@
         db.dtSlider();
         db.sliderProduct();
         db.menuResponsive();
+        db.faq();
         db.accordion();
         db.switchView();
         db.matchHeight();

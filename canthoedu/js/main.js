@@ -8,34 +8,16 @@
         }
         db.menuResponsive = function () {
             $('.menu-icon').on('click', function (e) {
+
                 e.stopPropagation();
                 $('body').toggleClass("open-menu");
             });
+
             $('.close-menu').on('click', function (e) {
                 e.stopPropagation();
                 $('body').removeClass("open-menu");
             });
         }
-
-        db.scrollMenu = function () {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() >= 50) {
-                    $('.header').addClass("header-scrolled");
-                } else {
-                    $('.header').removeClass("header-scrolled");
-                }
-            });
-
-            $('.menu').navpoints({
-                offset: 70
-            });
-
-
-
-
-
-        }
-
 
 
         db.homeSlider = function () {
@@ -67,7 +49,6 @@
 
 
         db.preLoad();
-        db.scrollMenu();
         db.menuResponsive();
         db.homeSlider();
 
