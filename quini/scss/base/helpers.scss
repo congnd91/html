@@ -1,0 +1,285 @@
+//background
+.bg-white {
+    background-color: $white;
+}
+
+.bg-black {
+    background-color: $black;
+}
+
+.bg-sliver {
+    background-color: $bg-color;
+
+}
+
+.color-primary {
+    color: $active-color;
+}
+
+
+
+img {
+    max-width: 100%;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.row-fix {
+
+    margin-left: -10px;
+    margin-right: -10px;
+
+    .col-fix {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.app-item {
+    margin: 0px 0px 20px 0px;
+    min-height: 200px;
+
+    position: relative;
+    overflow: hidden;
+
+    @media screen and (max-width: 575px) {
+        min-height: 150px;
+    }
+
+    .ai-img {
+
+        display: block;
+        position: absolute;
+
+        top: 0px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 9;
+        background-repeat: no-repeat;
+        background-position: center;
+        text-align: center;
+        background-size: cover;
+        transition: all ease 0.3s;
+        transform: scale(1.1);
+
+
+    }
+
+    a {
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+
+        &:before {
+            content: "";
+            display: block;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            transition: all ease 0.3s;
+            z-index: 11;
+            position: absolute;
+
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+
+
+        p {
+            position: relative;
+            z-index: 12;
+            margin: 0px;
+            text-align: center;
+            font-size: 26px;
+            color: #fff;
+            font-family: $font-bold;
+            text-transform: uppercase;
+            font-weight: 700;
+
+            @media screen and (max-width: 991px) {
+                font-size: 18px;
+
+            }
+
+
+        }
+    }
+
+    &:hover {
+        .ai-img {
+            transform: scale(1);
+        }
+
+        a {
+
+
+            &:before {
+
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+
+
+
+
+        }
+
+    }
+}
+
+
+.db-radio {
+    display: inline-block;
+    position: relative;
+
+
+    label {
+        margin: 0px;
+        padding: 0px;
+        display: block;
+
+        input {
+            width: 1px;
+            height: 1px;
+            position: absolute;
+            z-index: -1;
+            visibility: hidden;
+            opacity: 0;
+
+
+        }
+
+        span {
+            display: block;
+            line-height: 30px;
+            padding: 0px 0px 0px 30px;
+            font-size: 16px;
+            color: #999;
+            font-weight: 300;
+            cursor: pointer;
+            transition: all ease 0.3s;
+
+
+            &:before {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 20px;
+                border: 1px solid #999;
+                border-radius: 50%;
+                position: absolute;
+                top: 5px;
+                left: 0px;
+
+
+            }
+
+            &:hover {
+                color: $active-color;
+            }
+        }
+
+        input:checked ~ span {
+            &:after {
+
+                content: "";
+                display: block;
+                width: 10px;
+                height: 10px;
+                background-color: #999;
+                border-radius: 50%;
+                position: absolute;
+                top: 10px;
+                left: 5px;
+
+            }
+        }
+    }
+}
+
+
+.db-checkbox {
+    display: inline-block;
+    position: relative;
+
+    label {
+        margin: 0px;
+        padding: 0px;
+        display: block;
+
+
+        input {
+            width: 1px;
+            height: 1px;
+            position: absolute;
+            z-index: -1;
+            visibility: hidden;
+            opacity: 0;
+
+
+        }
+
+        span {
+            display: block;
+            line-height: 30px;
+            padding: 0px 0px 0px 30px;
+            font-size: 16px;
+            color: #999;
+            font-weight: 300;
+            cursor: pointer;
+            transition: all ease 0.3s;
+
+
+            &:before {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 20px;
+                border: 1px solid #999;
+
+                position: absolute;
+                top: 5px;
+                left: 0px;
+
+            }
+
+            &:hover {
+                color: $active-color;
+            }
+        }
+
+        input:checked ~ span {
+            &:after {
+                background-color: #666;
+            }
+
+            &:after {
+
+                content: "";
+                display: block;
+                width: 18px;
+                height: 18px;
+                position: absolute;
+                z-index: 2;
+                top: 6px;
+                background-repeat: no-repeat;
+                background-position: center center;
+
+                left: 1px;
+                background-image: url(../images/check.png);
+
+
+            }
+        }
+    }
+}

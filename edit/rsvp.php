@@ -206,6 +206,11 @@ if ( ! $already_rendered ) {
 					 * * @param string
 					 */
 					$email = apply_filters( 'tribe_tickets_rsvp_form_email', '' );
+                    
+                    $vorname = apply_filters( 'tribe_tickets_rsvp_form_vorname', '' );
+                    
+                    
+                    $adresse = apply_filters( 'tribe_tickets_rsvp_form_adresse', '' );
 					?>
 					<table class="tribe-tickets-table">
 					<!-- Hier checkbox System erarbeiten -->
@@ -233,7 +238,7 @@ if ( ! $already_rendered ) {
 								<label for="tribe-tickets-email"><?php esc_html_e( 'Email', 'event-tickets' ); ?>:</label>
 							</td>
 							<td colspan="3">
-								<input type="email" name="attendee[email]" id="tribe-tickets-email" value="<?php echo esc_html( $email ); ?>">
+								<input type="email" name="attendee[email]" id="tribe-tickets-email" value="<?php echo esc_html( $vorname ); ?>">
 							</td>
 						</tr>
 						
@@ -252,7 +257,7 @@ if ( ! $already_rendered ) {
 								<label for="tribe-tickets-vorname"><?php esc_html_e( 'Vorname', 'event-tickets' ); ?>:</label>
 							</td>
 							<td colspan="3">
-								<input type="text" name="attendee[vorname]" id="tribe-tickets-vorname" value="">
+								<input type="text" name="attendee[vorname]" id="tribe-tickets-vorname" value="<?php echo esc_html( $vorname ); ?>">
 							</td>
 						</tr>
                          <tr class="tribe-tickets-adresse-row db-no" style="display:none">
@@ -260,7 +265,7 @@ if ( ! $already_rendered ) {
 								<label for="tribe-tickets-adresse"><?php esc_html_e( 'Adresse', 'event-tickets' ); ?>:</label>
 							</td>
 							<td colspan="3">
-								<input type="text" name="attendee[adresse]" id="tribe-tickets-adresse" value="">
+								<input type="text" name="attendee[adresse]" id="tribe-tickets-adresse" value="<?php echo esc_html( $adresse ); ?>">
 							</td>
 						</tr>
                         
