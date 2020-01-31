@@ -6,47 +6,16 @@
                 $('body').fadeIn();
             });
         }
-        db.menuResponsive = function () {
-            $('.menu-icon').on('click', function (e) {
+        db.brandLogo = function () {
+            $('.nav-icon').on('click', function (e) {
                 e.stopPropagation();
-                $('body').toggleClass("open-menu");
-            });
-
-            $('.page').on('click', function () {
-                $('body').removeClass("open-menu");
-            });
-
-
-            $('.bottom-col h3').on('click', function (e) {
-                var menu = $(this).next();
-
-                if ($(menu).is(":visible")) {
-                    $(menu).hide();
-
-                    $(this).removeClass("active");
-                } else {
-                    $(menu).show();
-
-                    $(this).addClass("active");
-                }
+                $('.brand').toggleClass("active");
             });
 
 
 
-            $('.mega-menu ul li:first-child').find(".mega-sub").show();
-            $('.mega-menu ul li').hover(function () {
-                    $('.mega-menu ul li').removeClass("active");
-                    $(".mega-sub").hide();
-                    $(this).addClass("active");
-                    $(this).find(".mega-sub").show();
-                },
-                function () {});
-            $('.menu > ul > li.has-mega').hover(function () {
-                    $("body").addClass("show-overlay");
-                },
-                function () {
-                    $("body").removeClass("show-overlay");
-                });
+
+
 
         }
         db.homeSlider = function () {
@@ -392,17 +361,8 @@
 
 
         db.preLoad();
-        db.homeSlider();
-        db.dtSlider();
-        db.sliderProduct();
-        db.menuResponsive();
-        db.faq();
-        db.accordion();
-        db.switchView();
-        db.matchHeight();
-        db.siteMap();
-        db.scrollFixBar();
 
-        new WOW().init();
+        db.brandLogo();
+
     });
 })(jQuery);
