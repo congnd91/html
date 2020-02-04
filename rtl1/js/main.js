@@ -15,27 +15,29 @@
         }
 
 
-
         db.stepSlider = function () {
             var owl_partner = $('.owl-step3');
             if ($(owl_partner).length) {
                 $(owl_partner).owlCarousel({
-                    loop: true,
-                    margin: 50,
-                    nav: true,
+                    loop: false,
+                    margin: 0,
+                    nav: false,
                     responsive: {
                         0: {
-                            items: 1,
-                            nav: true
+                            items: 2,
+
                         },
-                        600: {
+                        700: {
+                            items: 2,
+
+                        },
+                        1200: {
                             items: 3,
-                            nav: false
+
                         },
-                        1000: {
+                        1350: {
                             items: 5,
-                            nav: true,
-                            loop: false
+
                         }
                     }
 
