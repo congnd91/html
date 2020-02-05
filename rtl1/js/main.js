@@ -16,33 +16,52 @@
 
 
         db.stepSlider = function () {
-            var owl_partner = $('.owl-step3');
-            if ($(owl_partner).length) {
-                $(owl_partner).owlCarousel({
-                    loop: false,
-                    margin: 0,
-                    nav: false,
-                    responsive: {
-                        0: {
-                            items: 2,
+            var owl = $('.owl-step3');
+            $(owl).children().each(function (index) {
+                $(this).attr('data-position', index); // NB: .attr() instead of .data()
+            });
 
-                        },
-                        700: {
-                            items: 2,
+            $(owl).owlCarousel({
+                center: true,
+                loop: true,
+                responsive: {
+                    0: {
+                        items: 2,
 
-                        },
-                        1200: {
-                            items: 3,
+                    },
+                    700: {
+                        items: 2,
 
-                        },
-                        1350: {
-                            items: 5,
+                    },
+                    1200: {
+                        items: 3,
 
-                        }
+                    },
+                    1350: {
+                        items: 5,
+
                     }
+                }
 
-                });
-            }
+            });
+
+
+
+
+
+
+            /*$owl.owlCarousel({
+              center: true,
+              loop: true,
+              items: 5,
+            });*/
+
+            $(document).on('click', '.owl-item>div', function () {
+
+                var $speed = 300;
+                $(owl).trigger('to.owl.carousel', [$(this).data('position'), $speed]);
+            });
+
         }
 
 
@@ -56,9 +75,6 @@
             mobile: true
         }).init();
 
-        $('.nav-tabs > li > a').hover(function () {
-            $(this).tab('show');
-        });
 
 
     });
