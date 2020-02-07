@@ -11,6 +11,16 @@ db.menuResponsive = function () {
     });
 
 }
+db.matchHeight = function () {
+    if ($('.news-item').length) {
+        $('.news-item').matchHeight();
+
+    }
+    if ($('.course-item').length) {
+        $('.course-item').matchHeight();
+
+    }
+}
 
 
 db.stepSlider = function () {
@@ -66,13 +76,6 @@ db.stepSlider = function () {
 
 }
 
-
 db.preLoad();
-
-db.stepSlider();
 db.menuResponsive();
-
-new WOW({
-    offset: 100,
-    mobile: true
-}).init();
+db.matchHeight();
