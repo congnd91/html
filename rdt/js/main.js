@@ -9,6 +9,31 @@ db.menuResponsive = function () {
         e.stopPropagation();
         $('body').toggleClass("open-menu");
     });
+    $('.filter-nav').on('click', function (e) {
+        e.stopPropagation();
+        $('body').toggleClass("open-filter");
+    });
+    $('.close-filter').on('click', function (e) {
+        e.stopPropagation();
+        $('body').toggleClass("open-filter");
+    });
+
+}
+db.accordion = function () {
+    $('.accordion .caption').on('click', function (e) {
+        var content = $(this).next();
+        if ($(content).is(":visible")) {
+            $(content).slideUp();
+            $(this).removeClass("active");
+
+        } else {
+            $(content).slideDown();
+            $('.accordion .caption').removeClass("active");
+            $(this).addClass("active");
+
+        }
+    });
+
 
 }
 db.matchHeight = function () {
@@ -20,6 +45,67 @@ db.matchHeight = function () {
         $('.course-item').matchHeight();
 
     }
+}
+
+
+
+db.detailSlider = function () {
+
+    var owl_detail = $('.owl-detail');
+    if ($(owl_detail).length) {
+        $(owl_detail).owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: true,
+            rtl: true,
+            autoplay: false,
+            items: 1,
+            //      animateOut: 'fadeOut'
+            navContainer: '#customNav',
+            // move dotsContainer outside the primary owl wrapper
+            dotsContainer: '#customDots',
+
+        });
+    }
+
+}
+
+
+
+db.relatedSlider = function () {
+
+    var owl_related = $('.owl-related');
+    if ($(owl_related).length) {
+        $(owl_related).owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: true,
+            rtl: true,
+            autoplay: false,
+            items: 1,
+            //      animateOut: 'fadeOut'
+            navContainer: '#customNav1',
+            // move dotsContainer outside the primary owl wrapper
+            dotsContainer: '#customDots1',
+
+            responsive: {
+                768: {
+                    items: 1,
+
+                },
+                992: {
+                    items: 2,
+
+                },
+                1200: {
+                    items: 3,
+
+                }
+            }
+
+        });
+    }
+
 }
 
 
@@ -60,6 +146,7 @@ db.stepSlider = function () {
 
 
 
+
     /* $(owl).owlCarousel({
          center: true,
          loop: true,
@@ -79,3 +166,6 @@ db.stepSlider = function () {
 db.preLoad();
 db.menuResponsive();
 db.matchHeight();
+db.detailSlider();
+db.accordion();
+db.relatedSlider();

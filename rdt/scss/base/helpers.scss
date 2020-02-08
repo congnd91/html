@@ -80,6 +80,56 @@
     }
 }
 
+.db-checkbox {
+    display: inline-block;
+    text-align: left;
+
+    label {
+        display: block;
+        margin: 0px;
+        padding: 0px 0px 0px 0px;
+        input {
+            width: 0;
+            height: 0;
+            opacity: 0;
+            position: absolute;
+            visibility: hidden;
+        }
+
+        span {
+            display: block;
+            padding: 0px 0px 0px 22px;
+
+            position: relative;
+            font-size: 16px;
+            &:before {
+                width: 16px;
+                height: 16px;
+                position: absolute;
+                content: "";
+                display: block;
+                background-color: #fff;
+                position: absolute;
+                top: 4px;
+                left: 0px;
+                border: 1px solid #121212;
+            }
+        }
+        input:checked ~ span {
+
+            &:before {
+                border: 1px solid $active-color-second;
+                background-color: $active-color-second;
+                background-image: url(../images/check.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+
+            }
+        }
+
+    }
+}
+
 h1,
 h2,
 h3,
