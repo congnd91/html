@@ -139,10 +139,12 @@
                 var child = $(this).next(".acc-content");
 
                 if ($(child).is(":visible")) {
-                    $(child).slideUp();
+                    $(child).hide();
                     $(this).removeClass("active");
                 } else {
-                    $(child).slideDown();
+                    $('.acc-content').hide();
+                    $('.acc-caption').removeClass("active");
+                    $(child).show();
                     $(this).addClass("active");
                 }
             });
