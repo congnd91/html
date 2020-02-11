@@ -5573,7 +5573,7 @@ a {
   display: inline-block;
   line-height: 40px;
   cursor: pointer;
-  padding: 0px 25px 0px 22px;
+  padding: 0px 15px 0px 15px;
   border-radius: 30px;
   background-color: #3b5998;
   color: #fff;
@@ -5614,29 +5614,31 @@ a {
 
 .list-fanpage {
   min-height: 100px; }
+  .list-fanpage .list-fanpage-inner {
+    overflow: hidden; }
+  .list-fanpage .db-scroll {
+    overflow: auto;
+    max-height: 300px; }
   .list-fanpage .row {
-    margin-left: -10px;
-    margin-right: -10px; }
+    margin-left: -8px;
+    margin-right: -8px; }
     .list-fanpage .row .col-6 {
-      padding-left: 10px;
-      padding-right: 10px; }
+      padding-left: 8px;
+      padding-right: 8px; }
   .list-fanpage .item {
     border: 1px solid #ddd;
     padding: 10px 10px 20px 60px;
     border-radius: 2px;
-    min-height: 60px;
+    height: 60px;
     background-color: #fff;
     transition: all ease 0.3s;
     cursor: pointer;
     position: relative;
-    margin: 0px 0px 10px 0px; }
+    margin: 0px 0px 15px 0px; }
     .list-fanpage .item:hover {
       border: 1px solid #98d6ff;
       background-color: #e5f4ff; }
-    .list-fanpage .item.selected {
-      border: 1px solid #98d6ff;
-      background-color: #e5f4ff; }
-    .list-fanpage .item .text-connected {
+    .list-fanpage .item .text-selected {
       display: none;
       background-color: #0099fe;
       color: #fff;
@@ -5645,11 +5647,12 @@ a {
       padding: 2px 4px;
       position: absolute;
       top: 0px;
-      right: 0px; }
-    .list-fanpage .item.connected {
+      right: 0px;
+      letter-spacing: 1px; }
+    .list-fanpage .item.selected {
       border: 1px solid #98d6ff;
       background-color: #e5f4ff; }
-      .list-fanpage .item.connected .text-connected {
+      .list-fanpage .item.selected .text-selected {
         display: block; }
     .list-fanpage .item .avatar {
       width: 40px;
@@ -5705,7 +5708,10 @@ a {
       .list-fanpage .item .des p {
         margin: 0px;
         color: #6a80a0;
-        font-size: 12px; }
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
 
 .fanpage-form {
   width: 100%;
@@ -5858,12 +5864,20 @@ a {
           line-height: 15px;
           font-size: 8px; }
 
+.modal-box p.font-semi {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6a80a0;
+  margin: 0px 0px 5px 0px;
+  display: block;
+  text-transform: uppercase; }
+
 .schedule-page {
   padding: 5px 0px; }
-  .schedule-page .fanpage-selected {
+  .schedule-page .fanpage-item {
     margin: 0px 4px 0px 0px;
-    height: 25px;
-    line-height: 25px;
+    height: 40px;
+    line-height: 40px;
     padding: 0px 0px 0px 0px;
     font-size: 13px;
     font-weight: 500;
@@ -5872,55 +5886,38 @@ a {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    border-radius: 20px 20px 20px 20px; }
-    .schedule-page .fanpage-selected .remove {
-      opacity: 1;
-      width: 20px;
-      line-height: 25px;
-      cursor: pointer;
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      height: 25px;
-      text-align: center; }
-      .schedule-page .fanpage-selected .remove i {
-        display: block;
-        line-height: 25px;
-        color: #dc3545; }
-      .schedule-page .fanpage-selected .remove:hover {
-        cursor: pointer;
-        color: #dc3545; }
-    .schedule-page .fanpage-selected .avatar {
-      width: 25px;
-      height: 25px;
+    display: inline-block; }
+    .schedule-page .fanpage-item .avatar {
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       float: left;
       margin: 0px 5px 0px 0px;
       position: relative; }
-      .schedule-page .fanpage-selected .avatar img {
-        width: 25px;
-        height: 25px;
+      .schedule-page .fanpage-item .avatar img {
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         display: block; }
-      .schedule-page .fanpage-selected .avatar .icon {
-        width: 12px;
-        height: 12px;
+      .schedule-page .fanpage-item .avatar .icon {
+        width: 15px;
+        height: 15px;
         position: absolute;
         bottom: 0px;
         right: 0px;
         border-radius: 50%;
-        line-height: 12px;
+        line-height: 14px;
         text-align: center;
         background-color: #3b5998;
         color: #fff; }
-        .schedule-page .fanpage-selected .avatar .icon i {
+        .schedule-page .fanpage-item .avatar .icon i {
           display: block;
-          line-height: 12px;
-          font-size: 8px; }
-      .schedule-page .fanpage-selected .avatar.avatar-twitter .icon {
+          line-height: 15px;
+          font-size: 9px; }
+      .schedule-page .fanpage-item .avatar.avatar-twitter .icon {
         background-color: #3a92c8;
         color: #fff; }
-        .schedule-page .fanpage-selected .avatar.avatar-twitter .icon i {
+        .schedule-page .fanpage-item .avatar.avatar-twitter .icon i {
           display: block;
           line-height: 15px;
           font-size: 8px; }
