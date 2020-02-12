@@ -26,15 +26,16 @@ db.stepSlider = function () {
         rtl: true,
         responsive: {
             0: {
-                items: 2,
+                items: 3,
 
             },
             700: {
-                items: 2,
+                items: 3,
 
             },
             1200: {
-                items: 3,
+                items: 5,
+
 
             },
             1350: {

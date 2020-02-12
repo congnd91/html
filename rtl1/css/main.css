@@ -1845,7 +1845,7 @@ body {
     margin-top: -15px; }
     .header .user .user-inner {
       height: 50px;
-      background-color: #CDE2FF;
+      background-color: #F2F2F2;
       padding: 10px 10px 10px 10px;
       display: flex;
       align-items: center;
@@ -2070,15 +2070,15 @@ body {
       height: 20px;
       position: relative;
       float: right;
-      margin: 0px 10px 0px 0px; }
+      margin: 5px 10px 0px 0px; }
       .step-box .step-item .dot-wrap:before {
         z-index: 1;
         content: "";
         background-color: #D8D8D8;
         display: block;
         width: 1px;
-        left: 10px;
-        bottom: 0px;
+        left: 50%;
+        bottom: 10px;
         height: 10000px;
         position: absolute; }
     .step-box .step-item.first .dot-wrap:after {
@@ -2087,20 +2087,19 @@ body {
       background-color: #fff;
       display: block;
       width: 4px;
-      left: 8px;
+      left: 10px;
       bottom: 10px;
       height: 10000px;
       position: absolute; }
     .step-box .step-item .dot {
-      width: 20px;
-      height: 20px;
+      width: 10px;
+      height: 10px;
       background-color: #fff;
       border-radius: 50%;
       background-color: #6174EB;
       z-index: 20;
-      position: absolute;
-      top: 0px;
-      right: 0px; }
+      margin: 0px auto;
+      position: relative; }
       .step-box .step-item .dot:after {
         position: absolute;
         content: "";
@@ -2119,13 +2118,18 @@ body {
       width: 20px;
       height: 20px;
       position: relative; }
+      .step-box .step-item.active .dot-wrap .dot {
+        width: 14px;
+        height: 14px; }
       .step-box .step-item.active .dot-wrap:before {
         z-index: 10;
         content: "";
         background-color: #6174EB; }
     .step-box .step-item.active .dot {
       background-color: #6174EB;
-      border-color: #6174EB; }
+      border-color: #6174EB;
+      width: 13px;
+      height: 13px; }
       .step-box .step-item.active .dot:before {
         position: absolute;
         content: "";
@@ -2140,7 +2144,9 @@ body {
         animation: dot 1.5s ease-in-out infinite; }
     .step-box .step-item.done .dot {
       background-color: #6174EB;
-      border-color: #6174EB; }
+      border-color: #6174EB;
+      width: 16px;
+      height: 16px; }
       .step-box .step-item.done .dot:after {
         position: absolute;
         content: "";
@@ -2590,7 +2596,7 @@ body {
     border-radius: 40px;
     background-color: #ededed;
     padding: 20px;
-    max-width: 400px;
+    max-width: 200px;
     margin: 0px auto;
     position: relative; }
     @media screen and (max-width: 1500px) {
@@ -2888,6 +2894,14 @@ body {
     @media screen and (max-width: 991px) {
       .step5 .step5-inner {
         margin: 0px 50px 0px 0px; } }
+
+@keyframes move {
+  0% {
+    right: 0px; }
+  50% { }
+  60% { }
+  100% {
+    right: 100%; } }
   .step5 .box5-flex {
     display: flex;
     margin: 0px 0px 20px 0px; }
@@ -2897,6 +2911,15 @@ body {
       width: 100px;
       flex-shrink: 0;
       position: relative; }
+      .step5 .box5-flex .space .move {
+        position: absolute;
+        z-index: 2;
+        height: 2px;
+        width: 5px;
+        background-color: white;
+        top: -2px;
+        right: 0px;
+        animation: move 3.5s ease-in-out infinite; }
       .step5 .box5-flex .space .line-map {
         position: absolute;
         top: 60px;
