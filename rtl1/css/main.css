@@ -1341,7 +1341,7 @@ html {
   height: 100%; }
 
 body {
-  min-width: 700px;
+  min-width: 400px;
   font-size: 14px;
   color: #494C6A;
   line-height: 1.5;
@@ -2052,6 +2052,9 @@ body {
   min-height: 400px;
   padding: 10px 0px 0px 0px;
   position: relative; }
+  @media screen and (max-width: 767px) {
+    .step-box {
+      margin: 0px -15px 0px 0px; } }
   .step-box .step-line {
     position: absolute;
     right: 10px;
@@ -2171,7 +2174,10 @@ body {
   .step1 .step1-row {
     display: flex;
     position: relative;
-    z-index: 2; }
+    z-index: 10; }
+    @media screen and (max-width: 767px) {
+      .step1 .step1-row {
+        flex-wrap: wrap; } }
     .step1 .step1-row .step1-col {
       width: 100%;
       min-height: 100px; }
@@ -2181,81 +2187,90 @@ body {
       @media screen and (max-width: 991px) {
         .step1 .step1-row .space {
           width: 15px; } }
-    .step1 .step1-row .search .search-suggestion {
-      background-color: #fff;
-      border-radius: 3px;
-      border: 1px solid #E2E8EE;
-      display: block;
-      margin: 10px 0px 0px 0px; }
-      .step1 .step1-row .search .search-suggestion .ss-button {
-        text-align: center;
-        position: relative;
-        padding: 10px 0px; }
-        .step1 .step1-row .search .search-suggestion .ss-button a {
-          display: inline-block;
-          line-height: 30px;
-          border-radius: 10px;
-          padding: 0px 30px;
-          font-size: 13px;
-          color: #fff;
-          background-color: #69A1AC;
-          transition: all ease 0.3s; }
-          .step1 .step1-row .search .search-suggestion .ss-button a:hover {
-            background-color: #518791; }
-      .step1 .step1-row .search .search-suggestion .ss {
-        position: relative; }
-        .step1 .step1-row .search .search-suggestion .ss p {
-          margin: 0px;
-          color: #000;
-          font-size: 13px;
-          padding: 7px 10px 7px 30px; }
-        .step1 .step1-row .search .search-suggestion .ss.active {
-          background-color: #F2F2F2; }
-          .step1 .step1-row .search .search-suggestion .ss.active:before {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background-color: #6174EB;
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            content: "";
-            margin: -9px 0px 0px 0px;
-            background-image: url(../images/check-white.svg);
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 14px auto; }
-    .step1 .step1-row .search .search-form {
-      background-color: #fff;
-      height: 40px;
-      border-radius: 3px;
-      position: relative;
-      border: 1px solid #4064D3;
-      padding: 0px 0px 0px 0px; }
-      .step1 .step1-row .search .search-form input {
-        height: 40px;
-        border: none;
-        outline: none;
-        background-color: transparent;
-        width: 100%;
-        padding: 0px 40px 0px 0px;
-        color: #000000;
-        font-size: 14px; }
-        @media screen and (max-width: 991px) {
-          .step1 .step1-row .search .search-form input {
-            font-size: 13px; } }
-        .step1 .step1-row .search .search-form input::placeholder {
-          color: #B2B2B2; }
-      .step1 .step1-row .search .search-form button {
+    .step1 .step1-row .search {
+      position: relative; }
+      .step1 .step1-row .search.show-search .search-suggestion {
+        display: block; }
+      .step1 .step1-row .search .search-suggestion {
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        margin: 10px 0px 0px 0px;
+        z-index: 100;
         position: absolute;
-        width: 0px;
-        height: 0px;
-        border: 5px solid transparent;
-        padding: 0px;
-        background-color: transparent;
-        border-bottom-color: #6174EB;
-        top: 10px;
-        right: 10px; }
+        top: 100%;
+        left: 0px;
+        right: 0px;
+        display: none; }
+        .step1 .step1-row .search .search-suggestion .ss-button {
+          text-align: center;
+          position: relative;
+          padding: 10px 0px; }
+          .step1 .step1-row .search .search-suggestion .ss-button a {
+            display: inline-block;
+            line-height: 30px;
+            border-radius: 10px;
+            padding: 0px 30px;
+            font-size: 13px;
+            color: #fff;
+            background-color: #69A1AC;
+            transition: all ease 0.3s; }
+            .step1 .step1-row .search .search-suggestion .ss-button a:hover {
+              background-color: #518791; }
+        .step1 .step1-row .search .search-suggestion .ss {
+          position: relative; }
+          .step1 .step1-row .search .search-suggestion .ss p {
+            margin: 0px;
+            color: #000;
+            font-size: 13px;
+            padding: 7px 10px 7px 30px; }
+          .step1 .step1-row .search .search-suggestion .ss.active {
+            background-color: #F2F2F2; }
+            .step1 .step1-row .search .search-suggestion .ss.active:before {
+              width: 18px;
+              height: 18px;
+              border-radius: 50%;
+              background-color: #6174EB;
+              position: absolute;
+              left: 10px;
+              top: 50%;
+              content: "";
+              margin: -9px 0px 0px 0px;
+              background-image: url(../images/check-white.svg);
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-size: 14px auto; }
+      .step1 .step1-row .search .search-form {
+        background-color: #fff;
+        height: 40px;
+        border-radius: 3px;
+        position: relative;
+        border: 1px solid #4064D3;
+        padding: 0px 0px 0px 0px; }
+        .step1 .step1-row .search .search-form input {
+          height: 40px;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          width: 100%;
+          padding: 0px 40px 0px 0px;
+          color: #000000;
+          font-size: 14px; }
+          @media screen and (max-width: 991px) {
+            .step1 .step1-row .search .search-form input {
+              font-size: 13px; } }
+          .step1 .step1-row .search .search-form input::placeholder {
+            color: #B2B2B2; }
+        .step1 .step1-row .search .search-form button {
+          position: absolute;
+          width: 0px;
+          height: 0px;
+          border: 5px solid transparent;
+          padding: 0px;
+          background-color: transparent;
+          border-bottom-color: #6174EB;
+          top: 10px;
+          right: 10px; }
 
 .step-control {
   padding: 60px 0px;
@@ -2309,6 +2324,9 @@ body {
     margin: 0px 80px 0px 0px;
     position: relative;
     z-index: 10; }
+    @media screen and (max-width: 767px) {
+      .step2 .step2-inner {
+        margin: 0px 30px 0px 0px; } }
   .step2 h5 {
     font-size: 17px;
     margin: 0px 0px 20px 0px; }
@@ -2319,6 +2337,9 @@ body {
     background-color: #F2F2F2;
     position: relative;
     border-radius: 10px; }
+    @media screen and (max-width: 767px) {
+      .step2 .step2-row {
+        padding: 5px 2px; } }
     .step2 .step2-row .remove {
       position: absolute;
       top: 50%;
@@ -2341,6 +2362,9 @@ body {
       float: left;
       width: 15%;
       padding: 0px 10px; }
+      @media screen and (max-width: 767px) {
+        .step2 .step2-row .col1 {
+          padding: 0px 5px; } }
       .step2 .step2-row .col1 strong {
         font-size: 28px;
         font-weight: bold;
@@ -2348,6 +2372,9 @@ body {
         color: #818181;
         height: 30px;
         line-height: 30px; }
+        @media screen and (max-width: 767px) {
+          .step2 .step2-row .col1 strong {
+            font-size: 16px; } }
       .step2 .step2-row .col1 p {
         color: #818181;
         margin: 0px;
@@ -2356,12 +2383,18 @@ body {
       float: left;
       width: 20%;
       padding: 0px 10px; }
+      @media screen and (max-width: 767px) {
+        .step2 .step2-row .col2 {
+          padding: 0px 5px; } }
       .step2 .step2-row .col2 .count {
         width: 85px;
         padding: 0px 20px 0px 20px;
         position: relative;
         height: 20px;
         margin: 10px auto 0px auto; }
+        @media screen and (max-width: 767px) {
+          .step2 .step2-row .col2 .count {
+            width: 60px; } }
         .step2 .step2-row .col2 .count strong {
           display: block;
           text-align: center;
@@ -2412,6 +2445,10 @@ body {
       float: left;
       width: 41%;
       padding: 0px 10px; }
+      @media screen and (max-width: 767px) {
+        .step2 .step2-row .col3 {
+          padding: 0px 5px;
+          width: 50%; } }
       .step2 .step2-row .col3 .kg {
         display: flex;
         align-items: center;
@@ -2472,6 +2509,10 @@ body {
       float: left;
       width: 24%;
       padding: 0px 10px; }
+      @media screen and (max-width: 767px) {
+        .step2 .step2-row .col4 {
+          padding: 0px 5px;
+          width: 15%; } }
       .step2 .step2-row .col4 .col4-button {
         display: flex;
         justify-content: space-between;
@@ -2499,6 +2540,9 @@ body {
             .step2 .step2-row .col4 .col4-button select {
               min-width: 70px;
               font-size: 13px; } }
+          @media screen and (max-width: 767px) {
+            .step2 .step2-row .col4 .col4-button select {
+              min-width: 50px; } }
         .step2 .step2-row .col4 .col4-button a {
           display: inline-block;
           height: 30px;
@@ -2677,7 +2721,7 @@ body {
         display: inline; }
     .step3-slider .sf-item .sf-control {
       text-align: center;
-      display: none; }
+      opacity: 0; }
       .step3-slider .sf-item .sf-control a {
         height: 30px;
         border-radius: 10px;
@@ -2697,7 +2741,8 @@ body {
     .step3-slider .center .sf-item .sale {
       display: block; }
     .step3-slider .center .sf-item .sf-control {
-      display: block; }
+      display: block;
+      opacity: 1; }
     .step3-slider .center .sf-item .price {
       text-align: center;
       padding: 10px 0px 0px 0px; }
@@ -2730,12 +2775,18 @@ body {
     position: relative;
     z-index: 10;
     margin: 0px 80px 0px 0px; }
+    @media screen and (max-width: 767px) {
+      .step4 .step4-inner {
+        margin: 0px 30px 0px 0px; } }
   .step4 .step4-box {
     max-width: 1000px;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     background-color: #fff; }
+    @media screen and (max-width: 767px) {
+      .step4 .step4-box {
+        padding: 10px; } }
     .step4 .step4-box .step4-note {
       padding: 10px;
       background-color: #E3EEFF;
@@ -2779,6 +2830,9 @@ body {
         float: left;
         width: 20%;
         padding: 0px 10px; }
+        @media screen and (max-width: 767px) {
+          .step4 .step4-box .step4-head .col2 {
+            width: 30%; } }
       .step4 .step4-box .step4-head .col3 {
         float: left;
         width: 20%;
@@ -2791,6 +2845,9 @@ body {
         .step4 .step4-box .step4-head .col4 span {
           width: 240px;
           text-align: right; }
+        @media screen and (max-width: 767px) {
+          .step4 .step4-box .step4-head .col4 {
+            width: 30%; } }
     .step4 .step4-box .step4-row {
       background-color: #F7F7F7;
       padding: 10px 0px;
@@ -2820,6 +2877,9 @@ body {
         float: left;
         width: 20%;
         padding: 0px 10px; }
+        @media screen and (max-width: 767px) {
+          .step4 .step4-box .step4-row .col1 {
+            width: 30%; } }
       .step4 .step4-box .step4-row .col2 {
         float: left;
         width: 20%;
@@ -2833,6 +2893,9 @@ body {
         width: 40%;
         padding: 0px 10px;
         text-align: right; }
+        @media screen and (max-width: 767px) {
+          .step4 .step4-box .step4-row .col4 {
+            width: 30%; } }
         .step4 .step4-box .step4-row .col4 span {
           width: 100%;
           text-align: right; }
@@ -2911,6 +2974,9 @@ body {
       width: 100px;
       flex-shrink: 0;
       position: relative; }
+      @media screen and (max-width: 767px) {
+        .step5 .box5-flex .space {
+          width: 10px; } }
       .step5 .box5-flex .space .move {
         position: absolute;
         z-index: 2;
@@ -3059,9 +3125,15 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center; }
+    @media screen and (max-width: 767px) {
+      .step5 .box5-one {
+        flex-wrap: wrap; } }
     .step5 .box5-one .bo-left {
       width: 30%;
       text-align: center; }
+      @media screen and (max-width: 767px) {
+        .step5 .box5-one .bo-left {
+          width: 100%; } }
       .step5 .box5-one .bo-left strong {
         font-size: 30px;
         font-weight: bold;
@@ -3074,6 +3146,9 @@ body {
         margin: 0px; }
     .step5 .box5-one .bo-right {
       width: 70%; }
+      @media screen and (max-width: 767px) {
+        .step5 .box5-one .bo-right {
+          width: 100%; } }
       .step5 .box5-one .bo-right .bo-row {
         padding: 5px 0px;
         display: flex;
@@ -3188,6 +3263,9 @@ body {
       justify-content: space-between;
       max-width: 500px;
       margin: 0px auto; }
+      @media screen and (max-width: 650px) {
+        .step5 .box-two .bt-radio-wrap {
+          flex-wrap: wrap; } }
       .step5 .box-two .bt-radio-wrap .bt-radio {
         display: inline-block;
         margin: 0px 10px;
@@ -3195,6 +3273,9 @@ body {
         border-radius: 3px;
         width: 100%;
         background-color: #808BD1; }
+        @media screen and (max-width: 650px) {
+          .step5 .box-two .bt-radio-wrap .bt-radio {
+            margin: 10px 0px; } }
         .step5 .box-two .bt-radio-wrap .bt-radio .bt-img {
           opacity: 20px 0px 0px 0px;
           min-height: 140px;
@@ -3218,6 +3299,9 @@ body {
         .step5 .box-two .bt-radio-wrap .bt-radio.two {
           background-color: #AACEF2;
           margin: 0px 15px; }
+          @media screen and (max-width: 650px) {
+            .step5 .box-two .bt-radio-wrap .bt-radio.two {
+              margin: 10px 0px; } }
         .step5 .box-two .bt-radio-wrap .bt-radio.three {
           background-color: #000; }
         .step5 .box-two .bt-radio-wrap .bt-radio label {

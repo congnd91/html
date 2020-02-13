@@ -10,6 +10,25 @@ db.menuResponsive = function () {
         $('body').toggleClass("open-menu");
     });
 
+
+    $('.search-form').on('click', function (e) {
+        e.stopPropagation();
+        var p = $(this).parent();
+
+        if ($(p).hasClass("show-search")) {} else {
+            $(p).addClass("show-search");
+
+        }
+    });
+    $('.search-suggestion').on('click', function (e) {
+        e.stopPropagation();
+
+        $('.search').removeClass("show-search");
+
+
+    });
+
+
 }
 
 
@@ -26,7 +45,11 @@ db.stepSlider = function () {
         rtl: true,
         responsive: {
             0: {
-                items: 3,
+                items: 2,
+
+            },
+            580: {
+                items: 2,
 
             },
             700: {
