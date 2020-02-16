@@ -4,6 +4,41 @@ db.preLoad = function () {
         $('body').fadeIn();
     });
 }
+
+
+
+db.select = function () {
+
+    if ($('.select-one').length) {
+
+
+        $('.select-one').select2();
+        var flg = 0;
+        $('.select-one').on("select2:open", function () {
+            flg++;
+            if (flg == 1) {
+                $(".select2-results").append("<div class='ss-button'><a href='#'>فـضأ ناونـع دـج</a> </div>");
+            }
+
+        });
+    }
+    if ($('.select-two').length) {
+
+
+        $('.select-two').select2();
+        var flg1 = 0;
+        $('.select-two').on("select2:open", function () {
+            flg1++;
+            if (flg1 == 1) {
+                $(".select2-results").append("<div class='ss-button'><a href='#'>فـضأ ناونـع دـج</a> </div>");
+            }
+
+        });
+    }
+}
+
+
+
 db.menuResponsive = function () {
     $('.menu-icon').on('click', function (e) {
         e.stopPropagation();
@@ -95,6 +130,8 @@ db.preLoad();
 
 db.stepSlider();
 db.menuResponsive();
+db.select();
+
 
 new WOW({
     offset: 100,
