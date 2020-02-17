@@ -15,8 +15,6 @@
                 $('body').removeClass("open-map");
             });
         }
-
-
         db.owlCard = function () {
             var owl_card = $('.owl-card');
             if ($(owl_card).length) {
@@ -27,8 +25,6 @@
                     nav: true,
                     autoplay: false,
                     items: 1,
-
-
                 });
             }
         }
@@ -45,18 +41,11 @@
                     slidesToShow: 5,
                     slidesToScroll: 1,
                     asNavFor: '.slider-for',
-
                     arrows: false,
                     focusOnSelect: true,
-
                 });
             }
-
         }
-
-
-
-
         db.preLoad();
         db.openMap();
         db.owlCard();
