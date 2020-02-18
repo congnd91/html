@@ -15,6 +15,17 @@
                 $('body').removeClass("open-map");
             });
         }
+        db.showMore = function () {
+            $('.d-short .show-more').on('click', function (e) {
+                $('.d-short').hide();
+                $('.d-long').show();
+            });
+            $('.d-long .show-less').on('click', function (e) {
+                $('.d-short').show();
+                $('.d-long').hide();
+            });
+        }
+
         db.owlCard = function () {
             var owl_card = $('.owl-card');
             if ($(owl_card).length) {
@@ -50,5 +61,6 @@
         db.openMap();
         db.owlCard();
         db.sliderDetail();
+        db.showMore();
     });
 })(jQuery);

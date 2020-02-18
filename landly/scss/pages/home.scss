@@ -50,6 +50,7 @@
     .search-col {
         margin: 0px 25px 15px 0px;
         display: inline-block;
+        vertical-align: text-top;
         @media screen and (max-width: 991px) {
             display: block;
             width: 100%;
@@ -118,6 +119,9 @@
                 .dropdown-toggle {
                     border-radius: 4px 4px 0px 0px;
                     border-bottom-color: transparent;
+                    &:before {
+                        display: none;
+                    }
                 }
                 .dropdown-menu {
                     border-top-color: transparent;
@@ -144,6 +148,7 @@
         .item {
             display: inline-block;
             margin: 0px 25px 0px 0px;
+            vertical-align: text-bottom;
         }
         @media screen and (max-width: 991px) {
             display: flex;
@@ -907,6 +912,10 @@
                     }
                 }
             }
+            @media screen and (max-width: 575px) {
+                padding-bottom: 10px;
+                padding-top: 10px;
+            }
         }
         .price {
             margin: 0px 0px 10px 0px;
@@ -941,10 +950,17 @@
             justify-content: space-between;
             margin: 0px 0px 5px 0px;
             flex-wrap: wrap;
+            @media screen and (max-width: 575px) {
+                display: block;
+            }
             .value-item {
                 width: 50%;
                 padding: 0px 10px 0px 0px;
                 margin: 0px 0px 7px 0px;
+                @media screen and (max-width: 575px) {
+                    padding: 0px;
+                    width: 100%;
+                }
             }
             .value-caption {
                 span {
@@ -1020,10 +1036,11 @@
                 @media screen and (max-width: 1199px) {
                     font-size: 13px;
                 }
-                a {
+                span {
                     font-family: $font-bold;
                     text-decoration: underline;
                     color: #000;
+                    cursor: pointer;
                 }
             }
         }
@@ -1052,6 +1069,10 @@
     }
 }
 
+.d-long {
+    display: none;
+}
+
 .box-detail {
     margin: 0px 0px 40px 0px;
     h3 {
@@ -1070,10 +1091,11 @@
     align-items: center;
     margin: 0px 0px 15px 0px;
     span {
-        font-size: 16px;
+        font-size: 15px;
         color: $text-color-second;
         font-family: $font-bold;
         white-space: nowrap;
+        min-width: 135px;
         @media screen and (max-width: 767px) {
             font-size: 13px;
         }
@@ -1083,21 +1105,36 @@
         font-size: 16px;
         color: rgba(90, 187, 224, 0.9);
         font-family: $font-bold;
+        min-width: 30px;
         @media screen and (max-width: 767px) {
             font-size: 13px;
         }
     }
     .progress {
         height: 8px;
-        margin: 0px 20px;
+        margin: 0px 10px;
         border-radius: 8px;
-        background-color: rgba(90, 187, 224, 0.9);
+        background-color: #ecfaff;
+        position: relative;
         width: 100%;
+        div {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+            border-radius: 8px;
+            background-color: rgba(90, 187, 224, 0.9);
+        }
         @media screen and (max-width: 575px) {
             margin: 0px 15px;
             height: 6px;
         }
     }
+}
+
+.round-chart-wrap {
+    max-width: 400px;
+    margin: 0px auto;
 }
 
 .round-item {
@@ -1110,6 +1147,92 @@
         font-family: $font-bold;
         @media screen and (max-width: 767px) {
             font-size: 13px;
+        }
+    }
+}
+
+.similar-variants {
+    padding: 30px 0px 0px 0px;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 4px;
+}
+
+.modal-school {
+    background-color: #fff;
+    border: 1px solid #D9D9D9;
+    position: relative;
+    padding: 20px 24px 40px 24px;
+    border-radius: 4px;
+    .close-modal {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background-image: url(../images/close.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        cursor: pointer;
+        opacity: 1;
+        top: 20px;
+        background-size: 14px auto;
+        right: 20px;
+    }
+    h3 {
+        font-family: $font-bold;
+        font-size: 20px;
+        margin: 0px 0px 5px 0px;
+    }
+    p {
+        margin: 0px 0px 20px 0px;
+        font-size: 14px;
+        a {
+            color: #000;
+            text-decoration: underline;
+        }
+    }
+    .ms-item {
+        display: flex;
+        margin: 25px 0px 0px 0px;
+        align-items: center;
+        .round {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background-color: $blue-dark;
+            text-align: center;
+            line-height: 50px;
+            margin: 0px 10px 0px 0px;
+            &.two {
+                background-color: #09548F;
+            }
+            &.three {
+                background-color: #97CADB;
+            }
+            span {
+                font-size: 20px;
+                color: #fff;
+                font-family: $font-bold;
+                em {
+                    font-family: $font-family;
+                    font-style: normal;
+                    font-size: 12px;
+                    color: #fff;
+                }
+            }
+        }
+        h4 {
+            color: $blue;
+            font-size: 16px;
+            font-family: $font-bold;
+            margin: 0px 0px 2px 0px;
+        }
+        span {
+            margin: 0px 5px 0px 0px;
+            display: inline-block;
+            font-size: 14px;
         }
     }
 }
