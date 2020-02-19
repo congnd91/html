@@ -30,6 +30,25 @@
         border-right: 1px solid $border-color;
         height: 44px;
         float: left;
+        @media screen and (max-width: 575px) {
+            display: none;
+
+        }
+        a {
+            color: $text-color-meta;
+            font-size: 13px;
+            transition: all ease 0.3s;
+            display: inline-block;
+            line-height: 44px;
+            margin: 0px 20px;
+            @media screen and (max-width: 575px) {
+                margin: 0px 10px;
+            }
+
+            &:hover {
+                color: $active-color;
+            }
+        }
 
     }
 
@@ -38,12 +57,47 @@
         height: 44px;
         float: left;
         min-width: 50px;
+        .search-form {
+            width: 145px;
+            height: 44px;
+            position: relative;
+            padding: 0px 50px 0px 20px;
+
+
+
+            input {
+                width: 100%;
+                font-size: 13px;
+                display: block;
+                height: 44px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+            }
+            button {
+                width: 44px;
+                height: 44px;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-image: url(../images/search-icon.png);
+
+            }
+        }
     }
+
+
 
     .language {
         border-right: 1px solid $border-color;
         height: 44px;
         float: left;
+
 
         .dropdown-toggle {
             height: 44px;
@@ -52,18 +106,38 @@
             display: block;
             font-size: 13px;
             color: $text-color-meta;
-            padding: 0px 20px;
-
+            padding: 0px 15px;
             cursor: pointer;
 
             i {
-                margin: 0px 0px 0px 10px;
+                margin: 0px 0px 0px 7px;
             }
 
 
             &:after {
                 display: none;
             }
+        }
+        .dropdown-menu {
+            min-width: 1px;
+            left: -1px !important;
+            right: -1px;
+            border-radius: 0px;
+            border: 1px solid $border-color;
+            padding: 0px;
+            margin: 0px 0px 0px 0px;
+
+
+            .dropdown-item {
+                font-size: 12px;
+                &:hover {
+                    color: $active-color;
+                }
+                &:active {
+                    background-color: #fff;
+                }
+            }
+
         }
     }
 }
@@ -74,6 +148,10 @@
     height: 80px;
 
 
+    @media screen and (max-width: 991px) {
+        height: 60px;
+
+    }
 
     .header-left {
         float: left;
@@ -86,34 +164,16 @@
         img {
             height: 60px;
             display: block;
+            @media screen and (max-width: 991px) {
+                height: 40px;
+
+            }
 
 
         }
     }
 
 
-    .menu-icon {
-        width: 32px;
-        height: 30px;
-        float: left;
-        margin: 0px 0px 0px 20px;
-        padding: 9px 0px 0px 0px;
-        cursor: pointer;
-        display: none;
-
-        @media screen and (max-width: 991px) {
-            display: block;
-        }
-
-        span {
-            display: block;
-            height: 2px;
-            margin: 0px 0px 6px 0px;
-            background-color: #3e3e3e;
-
-
-        }
-    }
 
 
 
@@ -126,6 +186,10 @@
 
     .menu {
         float: left;
+        @media screen and (max-width: 991px) {
+            display: none;
+
+        }
 
 
         > ul {
@@ -158,6 +222,29 @@
                 }
             }
         }
+    }
+}
+
+.menu-icon {
+    width: 35px;
+    height: 35px;
+    margin: 5px 0px 0px 0px;
+    padding: 5px 0px 0px 0px;
+    cursor: pointer;
+    display: none;
+    @media screen and (max-width: 991px) {
+        display: block;
+
+    }
+    div {
+
+        display: block;
+        background-color: $text-color-second;
+        height: 2px;
+        width: 35px;
+
+        margin: 0px 0px 5px 0px;
+
     }
 }
 
@@ -292,220 +379,55 @@
     }
 }
 
-.home-banner {
+.home-slider {
     position: relative;
-    z-index: 1;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-image: url(../images/malaysia.jpg);
+    .slider-title {
+
+        width: 580px;
+        font-size: 48px !important;
+        text-transform: none !important;
+        font-family: arial !important;
+        font-weight: normal !important;
 
 
-    .shadow {
+
+    }
+    .slider-subtitle {
+        width: 580px;
+        font-size: 35px !important;
+        text-transform: none !important;
+        font-family: arial !important;
+        line-height: normal !important;
+        letter-spacing: 0px !important;
+        font-weight: normal !important;
+
+    }
+
+    .zeus.tparrows {
+        top: 50%;
+        transform: matrix(1, 0, 0, 1, 20, -25);
+        left: 0px;
+        cursor: pointer;
+        min-width: 50px;
+
+        min-height: 50px;
         position: absolute;
-        top: 0%;
-        left: 0%;
-        background-color: #979797;
-        background-image: linear-gradient(to bottom, #ffffff -41%, #000000 122%);
-        opacity: 0.71;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
+        display: block;
+        z-index: 100;
+        border-radius: 0px;
+        overflow: hidden;
+        background: #fff;
     }
+    .zeus.tparrows:before {
 
-    .container {
-        position: relative;
-        z-index: 10;
-    }
-
-
-    .banner-content {
-        padding: 230px 0px 230px 0px;
-
-        @media screen and (max-width: 991px) {
-            padding: 150px 0px;
-        }
-
-        @media screen and (max-width: 575px) {
-            padding: 100px 0px;
-
-        }
-    }
-
-
-
-    h1 {
-        font-weight: 700;
-        color: #fff;
-        font-size: 45px;
-        margin: 0px;
+        font-size: 13px;
+        color: #333;
+        display: block;
+        line-height: 50px;
         text-align: center;
-        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
-        margin: 0px 0px 20px 0px;
-
-        @media screen and (max-width: 991px) {
-            font-size: 35px;
-        }
-
-        @media screen and (max-width: 767px) {
-            font-size: 30px;
-
-        }
-
-        span {
-            color: $active-color;
-        }
-
-    }
-
-    .searchbox {
-        height: 55px;
-
-
-        display: flex;
-
-        @media screen and (max-width: 575px) {
-            display: block;
-            height: auto;
-            background-color: transparent;
-
-        }
-
-        .search-col {
-            width: 100%;
-
-            margin: 0px 15px 15px 0px;
-
-            @media screen and (max-width: 575px) {
-                margin: 0px 0px 15px 0px;
-
-            }
-
-            &.location {
-
-
-                @media screen and (max-width: 575px) {
-                    margin: 0px 0px 15px 0px;
-
-
-                }
-
-            }
-
-        }
-
-        .input-wrap {
-            position: relative;
-            height: 50px;
-
-
-            @media screen and (max-width: 575px) {
-
-
-                height: 45px;
-
-            }
-
-            .icon {
-                width: 40px;
-                position: absolute;
-                z-index: 1;
-                top: 0px;
-                left: 0px;
-                bottom: 0px;
-                text-align: center;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                ion-icon {
-                    display: block;
-                    font-size: 20px;
-                    text-align: center;
-                    opacity: 0.5;
-
-
-                }
-            }
-
-            input {
-                display: block;
-                width: 100%;
-                height: 50px;
-                border: none;
-                background-color: transparent;
-                z-index: 2;
-                outline: none;
-                border-radius: 3px;
-                background-color: #fff;
-                padding: 0px 15px 0px 40px;
-                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-
-                &:focus {
-
-                    border-color: rgba(82, 168, 236, 0.8);
-
-                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-
-
-                }
-
-
-                @media screen and (max-width: 767px) {
-                    opacity: 0px 10px 0px 35px;
-                    font-size: 13px;
-
-                }
-
-                @media screen and (max-width: 575px) {
-                    height: 45px;
-                }
-            }
-        }
-
-        .btn-search {
-            height: 50px;
-            border-radius: 0px 4px 4px 0px;
-            padding: 0px 20px;
-            border: none;
-            color: #fff;
-            background-color: $active-color;
-            transition: all ease 0.3s;
-            font-weight: 600;
-            white-space: nowrap;
-            font-size: 15px; //background-image: linear-gradient(180deg, #08c, #05c);
-            outline: none;
-            border-radius: 3px;
-
-            @media screen and (max-width: 767px) {
-                padding: 0px 15px;
-                font-size: 13px;
-
-
-            }
-
-            @media screen and (max-width: 575px) {
-                padding: 0px 30px;
-                width: 100%;
-                height: 45px;
-
-            }
-
-            &:hover {
-                background-color: lighten($active-color, 10%); //   background-image: linear-gradient(175deg, #08c, #05c);
-            }
-
-        }
-
-
+        z-index: 2;
+        position: relative;
     }
 
 
-
-
-}
-
-.middle {
-    position: relative;
-    z-index: 2;
 }

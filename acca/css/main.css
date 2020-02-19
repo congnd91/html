@@ -1524,11 +1524,51 @@ img {
     border-right: 1px solid #e8e8e8;
     height: 44px;
     float: left; }
+    @media screen and (max-width: 575px) {
+      .topbar .user-link {
+        display: none; } }
+    .topbar .user-link a {
+      color: #999999;
+      font-size: 13px;
+      transition: all ease 0.3s;
+      display: inline-block;
+      line-height: 44px;
+      margin: 0px 20px; }
+      @media screen and (max-width: 575px) {
+        .topbar .user-link a {
+          margin: 0px 10px; } }
+      .topbar .user-link a:hover {
+        color: #958457; }
   .topbar .search {
     border-right: 1px solid #e8e8e8;
     height: 44px;
     float: left;
     min-width: 50px; }
+    .topbar .search .search-form {
+      width: 145px;
+      height: 44px;
+      position: relative;
+      padding: 0px 50px 0px 20px; }
+      .topbar .search .search-form input {
+        width: 100%;
+        font-size: 13px;
+        display: block;
+        height: 44px;
+        border: none;
+        outline: none;
+        background-color: transparent; }
+      .topbar .search .search-form button {
+        width: 44px;
+        height: 44px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: url(../images/search-icon.png); }
   .topbar .language {
     border-right: 1px solid #e8e8e8;
     height: 44px;
@@ -1539,17 +1579,34 @@ img {
       display: block;
       font-size: 13px;
       color: #999999;
-      padding: 0px 20px;
+      padding: 0px 15px;
       cursor: pointer; }
       .topbar .language .dropdown-toggle i {
-        margin: 0px 0px 0px 10px; }
+        margin: 0px 0px 0px 7px; }
       .topbar .language .dropdown-toggle:after {
         display: none; }
+    .topbar .language .dropdown-menu {
+      min-width: 1px;
+      left: -1px !important;
+      right: -1px;
+      border-radius: 0px;
+      border: 1px solid #e8e8e8;
+      padding: 0px;
+      margin: 0px 0px 0px 0px; }
+      .topbar .language .dropdown-menu .dropdown-item {
+        font-size: 12px; }
+        .topbar .language .dropdown-menu .dropdown-item:hover {
+          color: #958457; }
+        .topbar .language .dropdown-menu .dropdown-item:active {
+          background-color: #fff; }
 
 .header {
   background-color: #fff;
   padding: 10px 0px;
   height: 80px; }
+  @media screen and (max-width: 991px) {
+    .header {
+      height: 60px; } }
   .header .header-left {
     float: left; }
   .header a.logo {
@@ -1558,26 +1615,16 @@ img {
     .header a.logo img {
       height: 60px;
       display: block; }
-  .header .menu-icon {
-    width: 32px;
-    height: 30px;
-    float: left;
-    margin: 0px 0px 0px 20px;
-    padding: 9px 0px 0px 0px;
-    cursor: pointer;
-    display: none; }
-    @media screen and (max-width: 991px) {
-      .header .menu-icon {
-        display: block; } }
-    .header .menu-icon span {
-      display: block;
-      height: 2px;
-      margin: 0px 0px 6px 0px;
-      background-color: #3e3e3e; }
+      @media screen and (max-width: 991px) {
+        .header a.logo img {
+          height: 40px; } }
   .header .header-right {
     float: right; }
   .header .menu {
     float: left; }
+    @media screen and (max-width: 991px) {
+      .header .menu {
+        display: none; } }
     .header .menu > ul {
       margin: 0px;
       padding: 0px;
@@ -1595,6 +1642,23 @@ img {
           color: #958457; }
         .header .menu > ul > li.active > a {
           color: #958457; }
+
+.menu-icon {
+  width: 35px;
+  height: 35px;
+  margin: 5px 0px 0px 0px;
+  padding: 5px 0px 0px 0px;
+  cursor: pointer;
+  display: none; }
+  @media screen and (max-width: 991px) {
+    .menu-icon {
+      display: block; } }
+  .menu-icon div {
+    display: block;
+    background-color: #666;
+    height: 2px;
+    width: 35px;
+    margin: 0px 0px 5px 0px; }
 
 @media screen and (max-width: 991px) {
   .open-menu {
@@ -1678,138 +1742,42 @@ img {
       margin: 0px -20px 0px -20px;
       padding: 0px 20px; } }
 
-.home-banner {
-  position: relative;
-  z-index: 1;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-image: url(../images/malaysia.jpg); }
-  .home-banner .shadow {
+.home-slider {
+  position: relative; }
+  .home-slider .slider-title {
+    width: 580px;
+    font-size: 48px !important;
+    text-transform: none !important;
+    font-family: arial !important;
+    font-weight: normal !important; }
+  .home-slider .slider-subtitle {
+    width: 580px;
+    font-size: 35px !important;
+    text-transform: none !important;
+    font-family: arial !important;
+    line-height: normal !important;
+    letter-spacing: 0px !important;
+    font-weight: normal !important; }
+  .home-slider .zeus.tparrows {
+    top: 50%;
+    transform: matrix(1, 0, 0, 1, 20, -25);
+    left: 0px;
+    cursor: pointer;
+    min-width: 50px;
+    min-height: 50px;
     position: absolute;
-    top: 0%;
-    left: 0%;
-    background-color: #979797;
-    background-image: linear-gradient(to bottom, #ffffff -41%, #000000 122%);
-    opacity: 0.71;
-    width: 100%;
-    height: 100%;
-    z-index: 1; }
-  .home-banner .container {
-    position: relative;
-    z-index: 10; }
-  .home-banner .banner-content {
-    padding: 230px 0px 230px 0px; }
-    @media screen and (max-width: 991px) {
-      .home-banner .banner-content {
-        padding: 150px 0px; } }
-    @media screen and (max-width: 575px) {
-      .home-banner .banner-content {
-        padding: 100px 0px; } }
-  .home-banner h1 {
-    font-weight: 700;
-    color: #fff;
-    font-size: 45px;
-    margin: 0px;
+    display: block;
+    z-index: 100;
+    border-radius: 0px;
+    overflow: hidden;
+    background: #fff; }
+  .home-slider .zeus.tparrows:before {
+    font-size: 13px;
+    color: #333;
+    display: block;
+    line-height: 50px;
     text-align: center;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
-    margin: 0px 0px 20px 0px; }
-    @media screen and (max-width: 991px) {
-      .home-banner h1 {
-        font-size: 35px; } }
-    @media screen and (max-width: 767px) {
-      .home-banner h1 {
-        font-size: 30px; } }
-    .home-banner h1 span {
-      color: #958457; }
-  .home-banner .searchbox {
-    height: 55px;
-    display: flex; }
-    @media screen and (max-width: 575px) {
-      .home-banner .searchbox {
-        display: block;
-        height: auto;
-        background-color: transparent; } }
-    .home-banner .searchbox .search-col {
-      width: 100%;
-      margin: 0px 15px 15px 0px; }
-      @media screen and (max-width: 575px) {
-        .home-banner .searchbox .search-col {
-          margin: 0px 0px 15px 0px; } }
-      @media screen and (max-width: 575px) {
-        .home-banner .searchbox .search-col.location {
-          margin: 0px 0px 15px 0px; } }
-    .home-banner .searchbox .input-wrap {
-      position: relative;
-      height: 50px; }
-      @media screen and (max-width: 575px) {
-        .home-banner .searchbox .input-wrap {
-          height: 45px; } }
-      .home-banner .searchbox .input-wrap .icon {
-        width: 40px;
-        position: absolute;
-        z-index: 1;
-        top: 0px;
-        left: 0px;
-        bottom: 0px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center; }
-        .home-banner .searchbox .input-wrap .icon ion-icon {
-          display: block;
-          font-size: 20px;
-          text-align: center;
-          opacity: 0.5; }
-      .home-banner .searchbox .input-wrap input {
-        display: block;
-        width: 100%;
-        height: 50px;
-        border: none;
-        background-color: transparent;
-        z-index: 2;
-        outline: none;
-        border-radius: 3px;
-        background-color: #fff;
-        padding: 0px 15px 0px 40px;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-        .home-banner .searchbox .input-wrap input:focus {
-          border-color: rgba(82, 168, 236, 0.8);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6); }
-        @media screen and (max-width: 767px) {
-          .home-banner .searchbox .input-wrap input {
-            opacity: 0px 10px 0px 35px;
-            font-size: 13px; } }
-        @media screen and (max-width: 575px) {
-          .home-banner .searchbox .input-wrap input {
-            height: 45px; } }
-    .home-banner .searchbox .btn-search {
-      height: 50px;
-      border-radius: 0px 4px 4px 0px;
-      padding: 0px 20px;
-      border: none;
-      color: #fff;
-      background-color: #958457;
-      transition: all ease 0.3s;
-      font-weight: 600;
-      white-space: nowrap;
-      font-size: 15px;
-      outline: none;
-      border-radius: 3px; }
-      @media screen and (max-width: 767px) {
-        .home-banner .searchbox .btn-search {
-          padding: 0px 15px;
-          font-size: 13px; } }
-      @media screen and (max-width: 575px) {
-        .home-banner .searchbox .btn-search {
-          padding: 0px 30px;
-          width: 100%;
-          height: 45px; } }
-      .home-banner .searchbox .btn-search:hover {
-        background-color: #ad9d72; }
-
-.middle {
-  position: relative;
-  z-index: 2; }
+    z-index: 2;
+    position: relative; }
 
 /*# sourceMappingURL=main.css.map */
