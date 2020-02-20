@@ -1,0 +1,12 @@
+$(".country-dropdown-menu li a").click(function(e) {
+	// e.preventDefault();
+	var currentCountry = $("#current-country").text();
+	var newCountry = $(this).attr("data-country");
+	console.log(currentCountry  + " to " + newCountry);
+	_gaq.push(['_trackEvent', 'Switch Country', 'To: ' + newCountry, 'From: ' + currentCountry,, 'true']);
+});
+
+function trackLoginError(errorMsg, formElem) {
+	console.log('Form Error: ' + errorMsg + 'Form element: ' + formElem);
+	_gaq.push(['_trackEvent', 'Error', 'Form Error:  ' + errorMsg, 'Form element: ' + formElem,, 'true']);
+}
