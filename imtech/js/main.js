@@ -343,6 +343,24 @@
                 $(value).addClass("active");
             });
         }
+        db.scroll = function () {
+
+
+            $(".detail-bar ul li").click(function () {
+
+                $(".detail-bar ul li").removeClass("active");
+                var that = this;
+                var id = $(that).attr("data-id");
+                $(that).addClass("active");
+
+
+                $('html,body').animate({
+                    scrollTop: $(id).offset().top - 180
+                }, 1000);
+
+
+            });
+        }
 
         db.sliderMiles = function () {
             setTimeout(function () {
@@ -393,24 +411,6 @@
             }, 1000);
         }
 
-        db.scroll = function () {
-
-
-            $(".detail-bar ul li").click(function () {
-
-                $(".detail-bar ul li").removeClass("active");
-                var that = this;
-                var id = $(that).attr("data-id");
-                $(that).addClass("active");
-
-
-                $('html,body').animate({
-                    scrollTop: $(id).offset().top - 180
-                }, 1000);
-
-
-            });
-        }
 
         db.scrollFixBar = function () {
 

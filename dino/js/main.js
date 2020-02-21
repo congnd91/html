@@ -102,6 +102,7 @@
 
             });
             $('.db-drop').on('click', function (e) {
+                $('.db-dropdown').hide();
                 e.stopPropagation();
                 var child = $(this).find(".db-dropdown");
 
@@ -180,6 +181,37 @@
             });
 
         }
+
+
+        db.tabProductDetail = function () {
+            $(".pd-bar li").click(function () {
+                var value = $(this).attr("data-tab");
+                $(".pd-bar li").removeClass("active");
+                $(this).addClass("active");
+                $('.pd-content').removeClass("active");
+                $(value).addClass("active");
+            });
+        }
+
+        db.scroll = function () {
+
+            $(".pd-bar ul li").click(function () {
+
+                $(".pd-bar ul li").removeClass("active");
+                var that = this;
+                var id = $(that).attr("data-id");
+                $(that).addClass("active");
+
+                $('html,body').animate({
+                    scrollTop: $(id).offset().top - 150
+                }, 1000);
+
+
+            });
+        }
+
+
+
 
 
 
@@ -386,9 +418,8 @@
 
 
         }
-
-
-
+        db.tabProductDetail();
+        db.scroll();
 
 
 
