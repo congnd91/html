@@ -5877,6 +5877,7 @@ a {
   .schedule-page .fanpage-item {
     margin: 0px 4px 0px 0px;
     height: 40px;
+    width: 40px;
     line-height: 40px;
     padding: 0px 0px 0px 0px;
     font-size: 13px;
@@ -5891,12 +5892,13 @@ a {
       width: 40px;
       height: 40px;
       border-radius: 50%;
+      border: 1px solid #0099fe;
       float: left;
       margin: 0px 5px 0px 0px;
       position: relative; }
       .schedule-page .fanpage-item .avatar img {
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
         border-radius: 50%;
         display: block; }
       .schedule-page .fanpage-item .avatar .icon {
@@ -5921,6 +5923,8 @@ a {
           display: block;
           line-height: 15px;
           font-size: 8px; }
+    .schedule-page .fanpage-item.disabled .avatar {
+      border: 1px solid #fff; }
 
 /**********box-move**********/
 .box-move {
@@ -12521,6 +12525,103 @@ img {
       margin: 0px 0px 0px 0px;
       color: #6a80a0; }
 
+.tool-dropdown .tool-dropdown-menu {
+  border: none;
+  border-radius: 1px;
+  background-color: #fff;
+  top: 100% !important;
+  transform: none !important;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.4); }
+  .tool-dropdown .tool-dropdown-menu:before {
+    bottom: 100%;
+    right: 19px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(194, 225, 245, 0);
+    border-bottom-color: #ddd;
+    border-width: 11px;
+    margin-left: -11px; }
+  .tool-dropdown .tool-dropdown-menu:after {
+    bottom: 100%;
+    right: 19px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: #fff;
+    border-width: 10px;
+    margin-left: -10px; }
+
+.tool-dropdown .tdm-item-outer {
+  position: relative; }
+  .tool-dropdown .tdm-item-outer:hover .tdm-submenu {
+    display: block; }
+  .tool-dropdown .tdm-item-outer .tdm-submenu {
+    border-radius: 1px;
+    background-color: #fff;
+    transform: none !important;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.4);
+    padding: 5px 0px;
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    min-width: 160px;
+    display: none; }
+
+.tool-dropdown .tdm-item {
+  display: flex;
+  padding: 0px 15px 0px 10px;
+  align-items: center;
+  cursor: pointer;
+  color: #425268;
+  white-space: nowrap;
+  font-size: 14px;
+  transition: background ease 0.3s; }
+  .tool-dropdown .tdm-item .icon {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin: 0px 0px 0px -10px;
+    flex-shrink: 0; }
+  .tool-dropdown .tdm-item p {
+    margin: 0px;
+    font-size: 14px !important;
+    text-transform: none !important;
+    font-weight: 400 !important;
+    line-height: 40px; }
+  .tool-dropdown .tdm-item:hover {
+    background-color: #f1f1f1; }
+
+.tool-dropdown .line {
+  height: 1px;
+  background-color: #f1f1f1; }
+
+.tool-dropdown-global-control .tool-dropdown-menu {
+  right: -27px !important;
+  margin: 8px 0px 0px 0px;
+  left: unset !important; }
+
+.tool-dropdown-th-menu .tool-dropdown-menu {
+  left: -10px !important;
+  margin: 2px 0px 0px 0px;
+  min-width: 200px; }
+  .tool-dropdown-th-menu .tool-dropdown-menu:before {
+    bottom: 100%;
+    right: unset;
+    left: 53px; }
+  .tool-dropdown-th-menu .tool-dropdown-menu:after {
+    bottom: 100%;
+    right: unset;
+    left: 53px; }
+
 .tool-page {
   background-color: rgba(0, 0, 0, 0.05);
   user-select: none; }
@@ -12547,7 +12648,7 @@ img {
   .tool-header .th-menu {
     float: left;
     margin: 0px 0px 0px 15px; }
-    .tool-header .th-menu p {
+    .tool-header .th-menu .th-menu-inner p {
       line-height: 55px;
       margin: 0px;
       font-size: 12px;
@@ -12555,11 +12656,11 @@ img {
       margin: 0px;
       font-weight: 600;
       cursor: pointer; }
-      .tool-header .th-menu p i {
+      .tool-header .th-menu .th-menu-inner p i {
         margin: 0px 0px 0px 5px; }
   .tool-header .design-name {
-    float: left;
-    margin: 10px 0px 0px 80px;
+    float: right;
+    margin: 10px 0px 0px 0px;
     width: 160px;
     position: relative; }
     .tool-header .design-name .dn-text {
@@ -12652,6 +12753,10 @@ img {
     float: left;
     padding: 0px 10px;
     margin: 0px 5px 0px 0px; }
+    @media screen and (max-width: 1199px) {
+      .global-control .gc-item {
+        padding: 0px;
+        margin: 0px 8px 0px 0px; } }
     .global-control .gc-item .gc-icon {
       margin: 2px 0px 2px 0px; }
       .global-control .gc-item .gc-icon .gc-icon-inner {
@@ -12695,6 +12800,9 @@ img {
       .tool-menu .tm-tab li .tab-item {
         margin: 0px 0px 15px 0px;
         cursor: pointer; }
+        @media screen and (max-height: 550px) {
+          .tool-menu .tm-tab li .tab-item {
+            margin: 0px; } }
         .tool-menu .tm-tab li .tab-item .tab-icon {
           margin: 0px 0px 2px 0px; }
           .tool-menu .tm-tab li .tab-item .tab-icon .ti-inner {
@@ -12712,6 +12820,9 @@ img {
           font-size: 10px;
           font-weight: 500;
           margin: 0px 0px 0px 0px; }
+          @media screen and (max-height: 700px) {
+            .tool-menu .tm-tab li .tab-item p {
+              display: none; } }
       .tool-menu .tm-tab li.active-tab .tab-item .tab-icon .ti-inner {
         background-color: rgba(0, 0, 0, 0.1); }
         .tool-menu .tm-tab li.active-tab .tab-item .tab-icon .ti-inner svg g {
@@ -13305,7 +13416,7 @@ img {
     .db-switch input:checked ~ span:before {
       left: 27px; }
 
-/**********selected-border*************/
+/**********tool-dropdown*************/
 .tool-page svg {
   stroke: none;
   stroke-width: 1;
@@ -13325,10 +13436,8 @@ img {
   .tool-page.dark-mode .tool-header {
     background-color: #323639;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-    .tool-page.dark-mode .tool-header .th-menu p {
+    .tool-page.dark-mode .tool-header .th-menu .th-menu-inner p {
       color: #eee; }
-      .tool-page.dark-mode .tool-header .th-menu p i {
-        margin: 0px 0px 0px 5px; }
     .tool-page.dark-mode .tool-header .design-name .dn-text p {
       color: #eee; }
     .tool-page.dark-mode .tool-header .design-name .dn-text .dn-icon-edit {
@@ -13368,7 +13477,7 @@ img {
     border-left: 1px solid rgba(0, 0, 0, 0.1); }
   .tool-page.dark-mode .global-control .gc-item .gc-icon {
     margin: 5px 0px 2px 0px; }
-  .tool-page.dark-mode .global-control .gc-item p {
+  .tool-page.dark-mode .global-control .gc-item p.gc-text {
     color: #eee; }
   .tool-page.dark-mode .global-control .gc-item:active .gc-icon {
     margin: 5px 0px 2px 0px; }
@@ -13481,7 +13590,7 @@ img {
   /***********************************************************/ }
   .tool-page.less-text .global-control .gc-item .gc-icon {
     margin: 12px 0px 2px 0px; }
-  .tool-page.less-text .global-control .gc-item p {
+  .tool-page.less-text .global-control .gc-item p.gc-text {
     display: none; }
   .tool-page.less-text .global-control .gc-item:active .gc-icon {
     margin: 12px 0px 2px 0px; }
