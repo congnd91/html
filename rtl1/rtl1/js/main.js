@@ -10,7 +10,12 @@ db.menuResponsive = function () {
         $('body').toggleClass("open-menu");
     });
 
+
 }
+alert("s");
+
+
+
 
 
 db.stepSlider = function () {
@@ -71,6 +76,7 @@ db.preLoad();
 
 db.stepSlider();
 db.menuResponsive();
+db.goStep();
 
 new WOW({
     offset: 100,
