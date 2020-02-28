@@ -9,9 +9,8 @@ db.preLoad = function () {
 
 db.select = function () {
 
+
     if ($('.select-one').length) {
-
-
         $('.select-one').select2();
         var flg = 0;
         $('.select-one').on("select2:open", function () {
@@ -35,6 +34,8 @@ db.select = function () {
 
         });
     }
+
+
 }
 
 
@@ -113,22 +114,46 @@ db.menuResponsive = function () {
 }
 db.goStep = function () {
     $('.btn-go-step2').on('click', function (e) {
+        if ($(".select-one").val() == "") {
 
-        $('.step1').slideUp();
+            $(".select-one").parents('.step1-col').find('.error').show()
 
-        setTimeout(function () {
-            $('html,body').animate({
-                scrollTop: $('.step-item2').offset().top - 40
-            }, '3000');
-        }, 800);
+        } else {
+            $(".select-one").parents('.step1-col').find('.error').hide();
 
-        setTimeout(function () {
-            $('.step2').slideDown();
-        }, 1000);
+        }
 
-        $('.step-item1').removeClass("active").addClass("done");
-        $('.step-item2').addClass("active");
-        $('body').addClass("on-step2");
+
+        if ($(".select-two").val() == "") {
+
+            $(".select-two").parents('.step1-col').find('.error').show();
+
+        } else {
+            $(".select-two").parents('.step1-col').find('.error').hide();
+        }
+
+        if ($(".select-one").val() != "" && $(".select-two").val() != "") {
+            $('.step1').slideUp();
+
+            setTimeout(function () {
+                $('html,body').animate({
+                    scrollTop: $('.step-item2').offset().top - 40
+                }, '3000');
+            }, 800);
+
+            setTimeout(function () {
+                $('.step2').slideDown();
+            }, 1000);
+
+            $('.step-item1').removeClass("active").addClass("done");
+            $('.step-item2').addClass("active");
+            $('body').addClass("on-step2");
+        }
+
+
+
+
+
 
 
 
@@ -175,7 +200,11 @@ db.goStep = function () {
 
     });
 
-    $('.sf-control a').on('click', function (e) {
+
+
+    $(document).on('click', ".sf-control a", function () {
+
+
 
         $('.step3').slideUp();
 
@@ -192,6 +221,7 @@ db.goStep = function () {
         $('.step-item3').removeClass("active").addClass("done");
         $('.step-item4').addClass("active");
         $('body').addClass("on-step4");
+
 
     });
 
@@ -219,7 +249,7 @@ db.goStep = function () {
     /***********back step***********/
 
 
-    $(document).on('click', ".step-item1.done", function () {
+    $(document).on('click', ".step-item1", function () {
 
         $('.step2').slideUp();
         $('.step3').slideUp();
@@ -238,7 +268,7 @@ db.goStep = function () {
 
     });
 
-    $(document).on('click', ".step-item2.done", function () {
+    $(document).on('click', ".step-item2", function () {
 
         $('.step1').slideUp();
         $('.step3').slideUp();
@@ -247,7 +277,7 @@ db.goStep = function () {
 
         setTimeout(function () {
             $('html,body').animate({
-                scrollTop: $('.step-item2').offset().top - 20
+                scrollTop: $('.step-item2').offset().top - 40
             }, '3000');
         }, 800);
 
@@ -255,11 +285,15 @@ db.goStep = function () {
             $('.step2').slideDown();
         }, 1000);
 
-    });
-    $(document).on('click', ".step-item3.done", function () {
+        $('.step-item1').removeClass("active").addClass("done");
+        $('.step-item2').addClass("active");
+        $('body').addClass("on-step2");
 
-        $('.step1').slideUp();
+    });
+    $(document).on('click', ".step-item3", function () {
+
         $('.step2').slideUp();
+        $('.step1').slideUp();
         $('.step4').slideUp();
         $('.step5').slideUp();
 
@@ -273,13 +307,19 @@ db.goStep = function () {
             $('.step3').slideDown();
         }, 1000);
 
+
+        $('.step-item2').removeClass("active").addClass("done");
+        $('.step-item3').addClass("active");
+        $('body').addClass("on-step3");
+
+
     });
 
-    $(document).on('click', ".step-item4.done", function () {
+    $(document).on('click', ".step-item4", function () {
 
-        $('.step1').slideUp();
         $('.step2').slideUp();
         $('.step3').slideUp();
+        $('.step1').slideUp();
         $('.step5').slideUp();
 
         setTimeout(function () {
@@ -292,14 +332,17 @@ db.goStep = function () {
             $('.step4').slideDown();
         }, 1000);
 
-    });
-    $(document).on('click', ".step-item5.done", function () {
+        $('.step-item3').removeClass("active").addClass("done");
+        $('.step-item4').addClass("active");
+        $('body').addClass("on-step4");
 
-        $('.step1').slideUp();
+    });
+    $(document).on('click', ".step-item5", function () {
+
         $('.step2').slideUp();
         $('.step3').slideUp();
         $('.step4').slideUp();
-
+        $('.step1').slideUp();
         setTimeout(function () {
             $('html,body').animate({
                 scrollTop: $('.step-item5').offset().top - 20
@@ -309,8 +352,107 @@ db.goStep = function () {
         setTimeout(function () {
             $('.step5').slideDown();
         }, 1000);
+        $('.step-item4').removeClass("active").addClass("done");
+        $('.step-item5').addClass("active");
+        $('body').addClass("on-step5");
+
 
     });
+
+
+    //
+    //    $(document).on('click', ".step-item1.done", function () {
+    //
+    //        $('.step2').slideUp();
+    //        $('.step3').slideUp();
+    //        $('.step4').slideUp();
+    //        $('.step5').slideUp();
+    //
+    //        setTimeout(function () {
+    //            $('html,body').animate({
+    //                scrollTop: $('.step-item1').offset().top
+    //            }, '3000');
+    //        }, 800);
+    //
+    //        setTimeout(function () {
+    //            $('.step1').slideDown();
+    //        }, 1000);
+    //
+    //    });
+    //
+    //    $(document).on('click', ".step-item2.done", function () {
+    //
+    //        $('.step1').slideUp();
+    //        $('.step3').slideUp();
+    //        $('.step4').slideUp();
+    //        $('.step5').slideUp();
+    //
+    //        setTimeout(function () {
+    //            $('html,body').animate({
+    //                scrollTop: $('.step-item2').offset().top - 20
+    //            }, '3000');
+    //        }, 800);
+    //
+    //        setTimeout(function () {
+    //            $('.step2').slideDown();
+    //        }, 1000);
+    //
+    //    });
+    //    $(document).on('click', ".step-item3.done", function () {
+    //
+    //        $('.step1').slideUp();
+    //        $('.step2').slideUp();
+    //        $('.step4').slideUp();
+    //        $('.step5').slideUp();
+    //
+    //        setTimeout(function () {
+    //            $('html,body').animate({
+    //                scrollTop: $('.step-item3').offset().top - 20
+    //            }, '3000');
+    //        }, 800);
+    //
+    //        setTimeout(function () {
+    //            $('.step3').slideDown();
+    //        }, 1000);
+    //
+    //    });
+    //
+    //    $(document).on('click', ".step-item4.done", function () {
+    //
+    //        $('.step1').slideUp();
+    //        $('.step2').slideUp();
+    //        $('.step3').slideUp();
+    //        $('.step5').slideUp();
+    //
+    //        setTimeout(function () {
+    //            $('html,body').animate({
+    //                scrollTop: $('.step-item4').offset().top - 20
+    //            }, '3000');
+    //        }, 800);
+    //
+    //        setTimeout(function () {
+    //            $('.step4').slideDown();
+    //        }, 1000);
+    //
+    //    });
+    //    $(document).on('click', ".step-item5.done", function () {
+    //
+    //        $('.step1').slideUp();
+    //        $('.step2').slideUp();
+    //        $('.step3').slideUp();
+    //        $('.step4').slideUp();
+    //
+    //        setTimeout(function () {
+    //            $('html,body').animate({
+    //                scrollTop: $('.step-item5').offset().top - 20
+    //            }, '3000');
+    //        }, 800);
+    //
+    //        setTimeout(function () {
+    //            $('.step5').slideDown();
+    //        }, 1000);
+    //
+    //    });
 
 
 }
@@ -328,7 +470,7 @@ db.stepSlider = function () {
         rtl: true,
         responsive: {
             0: {
-                items: 2,
+                items: 1,
 
             },
             580: {
@@ -351,7 +493,6 @@ db.stepSlider = function () {
         }
 
     });
-
 
 
 
