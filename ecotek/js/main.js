@@ -11,6 +11,20 @@
                 e.stopPropagation();
                 $('body').toggleClass("open-menu");
             });
+
+            $('.menu-mobile ul li.has-menu a').on('click', function (e) {
+                var menu = $(this).parent().find("ul");
+
+                if ($(menu).is(":visible")) {
+                    $(menu).slideUp();
+                    $(this).parent().removeClass("active");
+                } else {
+                    $(menu).slideDown();
+                    $(this).parent().addClass("active");
+
+                }
+                return false;
+            });
         }
 
         db.menuLeftMobile = function () {
