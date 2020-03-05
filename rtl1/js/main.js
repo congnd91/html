@@ -11,25 +11,31 @@ db.select = function () {
 
 
     if ($('.select-one').length) {
+
         $('.select-one').select2();
+
+        $('.select-one').select2().data('select2').$dropdown.addClass('select-container-one');
+
         var flg = 0;
         $('.select-one').on("select2:open", function () {
             flg++;
             if (flg == 1) {
-                $(".select2-results").append("<div class='ss-button'><a href='#'>فـضأ ناونـع دـج</a> </div>");
+                $(".select-container-one .select2-results").append("<div class='ss-button'><a href='#'>فـضأ ناونـع دـج</a> </div>");
             }
 
         });
     }
+
     if ($('.select-two').length) {
 
 
         $('.select-two').select2();
+        $('.select-two').select2().data('select2').$dropdown.addClass('select-container-two')
         var flg1 = 0;
         $('.select-two').on("select2:open", function () {
             flg1++;
             if (flg1 == 1) {
-                $(".select2-results").append("<div class='ss-button'><a href='#'>فـضأ ناونـع دـج</a> </div>");
+                $(".select-container-two .select2-results").append("<div class='ss-button'><a href='#'>فـضأ ناونـع دـج</a> </div>");
             }
 
         });
