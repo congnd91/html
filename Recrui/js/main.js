@@ -25,7 +25,10 @@
             $('.mb-overlay').hide();
 
         });
+        $('.mb-close').click(function (e) {
+            $('.mb-overlay').hide();
 
+        });
 
         $('.db-icon-filter').click(function () {
             $("#content").css({
