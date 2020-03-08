@@ -1,0 +1,41 @@
+// Placeholder mixin
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+// Dotted Border
+@mixin dottedBorder($color: #8f8f8f, $orientation: horizontal, $position: top, $spacing: 5px, $size: 1px) {
+  background-position: $position;
+  @if $orientation == horizontal {
+    background-image: linear-gradient(to right, $color $size/$spacing * 100%, rgba(255,255,255,0) 0%);
+    background-size: $spacing $size;
+    background-repeat: repeat-x;
+  }
+  @else {
+    background-image: linear-gradient($color $size/$spacing * 100%, rgba(255,255,255,0) 0%);
+    background-size: $size $spacing;
+    background-repeat: repeat-y;
+  }
+  .ie9 & {
+    border-#{$position}:1px dotted $color;      
+  }
+}
