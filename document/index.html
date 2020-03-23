@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="congnd91">
+    <title>HTML Template</title>
+    <!-- Vender -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/owl.carousel.min.css" rel="stylesheet" />
+    <!-- Main CSS (SCSS Compile) -->
+    <link href="css/main.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="loader" id="page-loader">
+    </div>
+
+    <div class="brand-bar">
+        <a href="#" class="logo">
+        
+        <img alt="" src="images/logo-icon.png">
+        </a>
+        <div class="search-icon">
+            <i class="icon ion-ios-search"></i>
+        </div>
+
+    </div>
+    <div class="sidebar">
+
+        <label>List API</label>
+        <ul>
+            <li class="active"><a href="#">Addresses</a></li>
+            <li><a href="#">Comparisons</a></li>
+            <li><a href="#">Exchange Rates</a></li>
+            <li><a href="#">Recipient Accounts</a></li>
+            <li><a href="#">User Profiles</a></li>
+            <li><a href="#">Borderless Accounts</a></li>
+
+        </ul>
+        <label>Modal</label>
+        <ul>
+
+            <li><a href="#">Addresses Detail</a></li>
+            <li><a href="#">Comparisons</a></li>
+            <li><a href="#">Currency Pairs</a></li>
+            <li><a href="#">Account Balance</a></li>
+            <li><a href="#">Recipient Accounts</a></li>
+            <li><a href="#">Transfers - Fund</a></li>
+            <li><a href="#">User Profiles </a></li>
+            <li><a href="#">Comparisons</a></li>
+        </ul>
+
+    </div>
+    <div class="main">
+
+        <div class="wrap">
+            <h1>Fintech Sandpit API Documentation</h1>
+            <div class="box">
+                <div class="box-caption">
+                    Address
+                </div>
+
+                <div class="item">
+
+                    <div class="item-caption">
+
+                        <div class="left">
+
+                            <div class="type">POST</div>
+                            <span>/v1/addresses</span>
+                            <em>Create</em>
+                        </div>
+                        <div class="right">
+
+                            <div class="key"><i class="icon ion-md-unlock"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="item-content">
+                        <p>Adds address info to user profile. List of required fields are slightly different for different countries. For example state field is required for US, CA, BR and AU addresses but not for other countries. Please look at Addresses.Requirements to figure out which fields are required to create addresses in specific country.</p>
+
+                        <div class="ic-caption">
+
+                            <span>Parameters</span>
+                            <button class="db-btn">Try it out</button>
+                        </div>
+
+                        <div class="db-table">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width: 100px">Name</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>
+                                            <strong>profile<b class="red">*</b> </strong>
+                                            <span>integer</span>
+                                            <em>(formData)	
+</em>
+                                        </td>
+                                        <td>
+
+                                            <p>User profile Id
+
+                                            </p>
+                                            <input type="text" class="text" value="addressId - Address ID">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <br/>
+
+                        <br/>
+
+                        <div class="ic-caption">
+
+                            <span>Responses</span>
+                            <div>
+                                <div class="icc-flex">
+
+
+                                    <em>Response content type
+</em>
+                                    <select class="select">
+                                <option>application/json</option>
+                                </select> </div>
+
+                            </div>
+                        </div>
+
+                        <div class="db-table">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width: 100px">Code</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>
+                                            <strong>200</strong>
+
+                                        </td>
+                                        <td>
+
+                                            <p>Success response - Address Object
+                                            </p>
+                                            <div class="code-hightlight">
+                                                <img alt="" src="images/codehighlight.png">
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>400</strong>
+
+                                        </td>
+                                        <td>
+                                            <p>Invalid request parameters</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>401</strong>
+
+                                        </td>
+                                        <td>
+                                            <p>Unauthorized</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>404</strong>
+
+                                        </td>
+                                        <td>
+                                            <p>User not found
+
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>500</strong>
+
+                                        </td>
+                                        <td>
+                                            <p>Server error </p>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="item get">
+
+                    <div class="item-caption">
+
+                        <div class="left">
+
+                            <div class="type">Get</div>
+                            <span>/v1/addresses</span>
+                            <em>List</em>
+                        </div>
+                        <div class="right">
+
+                            <div class="key"><i class="icon ion-md-unlock"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="item get">
+
+                    <div class="item-caption">
+
+                        <div class="left">
+
+                            <div class="type">GET</div>
+                            <span>/v1/addresses/{addressId}</span>
+                            <em>Get by ID</em>
+                        </div>
+                        <div class="right">
+
+                            <div class="key"><i class="icon ion-md-unlock"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="item">
+
+                    <div class="item-caption">
+
+                        <div class="left">
+
+                            <div class="type">POST</div>
+                            <span>/v1/addresses-requirements</span>
+                            <em>Post Address Requirements</em>
+                        </div>
+                        <div class="right">
+
+                            <div class="key"><i class="icon ion-md-unlock"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!--scrip file-->
+    <script src="js/jquery-1.12.4.min.js "></script>
+    <script src="js/popper.js "></script>
+    <script src="js/bootstrap.min.js "></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="js/main.min.js "></script>
+</body>
+
+</html>

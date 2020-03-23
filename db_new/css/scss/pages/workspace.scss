@@ -18,6 +18,15 @@
 }
 
 
+.daterangepicker:before {
+    display: none;
+}
+
+.daterangepicker:after {
+    display: none;
+}
+
+
 .workspace-bar {
     background-color: #fff;
     background-color: #eaeaea;
@@ -228,6 +237,20 @@
 
 
         }
+        .date-range-value {
+            float: left;
+            line-height: 45px;
+            float: left;
+            strong {
+                font-weight: 600;
+            }
+            .remove {
+                cursor: pointer;
+                font-size: 12px;
+                color: $red;
+                margin: 0px 0px 0px 5px;
+            }
+        }
 
     }
 
@@ -301,6 +324,26 @@
 
 
 
+        }
+    }
+    .tb-daterange {
+        float: left;
+        margin: 5px 0px 0px 0px;
+        line-height: 35px;
+        line-height: 35px;
+        min-width: 35px;
+        border-radius: 2px;
+        text-align: center;
+        cursor: pointer;
+
+
+        &:active {
+            background-color: rgba(0, 0, 0, 0.05);
+
+
+        }
+        &.active {
+            color: $active-color;
         }
     }
 
@@ -488,8 +531,8 @@
 }
 
 .workspace-left {
+    border-right: 1px solid $border-color;
     position: fixed;
-
     width: 250px;
     top: 105px;
     left: 0px;
@@ -511,17 +554,34 @@
         font-size: 11px;
         font-weight: 600;
         display: block;
-        margin: 0px 0px 10px 17px;
+        margin: 0px 0px 0px 0px;
+        line-height: 40px;
+        cursor: pointer;
+        padding: 0px 30px 0px 15px;
+        position: relative;
 
+        .arrow {
+
+            width: 35px;
+            height: 40px;
+            position: absolute;
+            display: block;
+            top: 0px;
+            right: 0px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 15px;
+            cursor: pointer;
+            color: $text-color;
+
+        }
 
 
     }
 
 
     .workspace-menu {
-        margin-bottom: 30px;
-
-
+        margin-bottom: 30px; //   border-top: 1px solid rgba(0, 0, 0, 0.02);
         > ul {
             list-style: none;
             margin: 0px;
@@ -792,6 +852,34 @@
             }
         }
     }
+
+}
+
+.wm-block {
+    border-bottom: 1px solid $border-color;
+
+    &.active {
+        label {
+            color: $active-color;
+
+            .arrow {
+
+                transform: rotate(180deg);
+
+            }
+
+
+        }
+
+        .workspace-menu {
+            display: block;
+        }
+
+    }
+}
+
+.workspace-menu {
+    display: none;
 }
 
 .workspace-right {
@@ -809,6 +897,65 @@
 
 }
 
+.your-used-space {
+    border-top: 1px solid $border-color;
+    padding: 5px 15px 15px 15px;
+
+    h3 {
+        text-transform: uppercase;
+        color: #6a80a0;
+        font-size: 11px;
+        font-weight: 600;
+        display: block;
+        margin: 0px 0px 5px 0px;
+        line-height: 20px;
+        position: relative;
+
+    }
+    .yus-item {
+        display: flex;
+        align-items: center;
+        padding: 5px 0px;
+
+
+        .yus-icon {
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            background-color: #fff;
+            flex-shrink: 0;
+            margin: 0px 10px 0px 0px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+
+            i {
+                font-size: 12px;
+                opacity: 0.8;
+            }
+
+
+        }
+        p {
+            margin: 0px;
+            line-height: 28px;
+
+            font-size: 12px;
+            em {
+                font-style: normal;
+                font-weight: 700;
+                margin: 0px 3px 0px 0px;
+                display: inline-block;
+            }
+
+        }
+    }
+}
+
+
+.wm-wrap {
+    min-height: calc(100vh - 270px);
+}
 
 .menu-workspace-icon {
     float: left;
