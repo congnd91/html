@@ -30,8 +30,8 @@ $(document).ready(function () {
         }
 
         db.matchHeight = function () {
-            if ($('.service-item').length) {
-                $('.service-item').matchHeight();
+            if ($('.pi-content').length) {
+                $('.pi-content').matchHeight();
             }
 
 
@@ -41,19 +41,15 @@ $(document).ready(function () {
         db.impactSlider = function () {
             var owl = $('.owl-impact');
 
-            $(owl).children().each(function (index) {
-                $(this).attr('data-position', index); // NB: .attr() instead of .data()
-            });
-
             $(owl).owlCarousel({
-                // center: true,
-                loop: false,
-                //  rtl: true,
+                loop: true,
+
                 responsive: {
                     0: {
                         items: 3,
-                        //  nav: true,
-                        // center: true,
+
+
+                        loop: true,
 
                     },
                     580: {
@@ -62,12 +58,16 @@ $(document).ready(function () {
 
                     },
                     992: {
+
                         items: 5,
-                        //  center: true,
+
+
+
 
                     },
                     1200: {
                         items: 5,
+                        loop: false,
 
 
 
@@ -85,19 +85,7 @@ $(document).ready(function () {
 
 
 
-            /* $(owl).owlCarousel({
-                 center: true,
-                 loop: true,
-                 items: 5,
-                 rtl: true
 
-             })*/
-
-            $(document).on('click', '.owl-item>div', function () {
-
-                var $speed = 300;
-                $(owl).trigger('to.owl.carousel', [$(this).data('position'), $speed]);
-            });
 
         }
 

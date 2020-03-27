@@ -32,6 +32,13 @@ db.menuResponsive = function () {
     });
 
 
+    $('.main-bar .share').on('click', function (e) {
+        e.stopPropagation();
+
+        $(this).toggleClass("active");
+    });
+
+
 }
 
 
@@ -68,6 +75,15 @@ db.niceScroll = function () {
         });
 
 
+
+
+    }
+    if ($('.db-scroll').length) {
+
+        $('.db-scroll').niceScroll({
+            cursorcolor: "rgb(197,200,208)",
+            cursorwidth: "4px"
+        });
 
 
     }
@@ -179,6 +195,73 @@ db.cateSlider = function () {
 }
 
 
+db.cate1Slider = function () {
+    var owl = $('.owl-cate1');
+
+
+    $(owl).owlCarousel({
+        center: false,
+        loop: false,
+        rtl: true,
+        margin: 17,
+        responsive: {
+            0: {
+                items: 2,
+
+
+            },
+            992: {
+                items: 3,
+
+            }
+
+        }
+
+    });
+
+
+
+}
+
+
+db.box13Slider = function () {
+    var owl = $('.owl-box13');
+
+
+    $(owl).owlCarousel({
+        center: false,
+        loop: false,
+        rtl: true,
+        margin: 17,
+        responsive: {
+            0: {
+                items: 1,
+
+
+            },
+            576: {
+                items: 2,
+
+            },
+            1700: {
+                items: 4,
+
+            },
+            1800: {
+                items: 5,
+
+
+            }
+
+        }
+
+    });
+
+
+
+}
+
+
 db.fourSlider = function () {
     var owl1 = $('.owl-four');
 
@@ -269,7 +352,9 @@ db.preLoad();
 db.menuResponsive();
 db.niceScroll();
 db.cateSlider();
+db.cate1Slider();
 db.fourSlider();
 db.srSlider();
 db.accordion();
 db.eightSlider();
+db.box13Slider();
