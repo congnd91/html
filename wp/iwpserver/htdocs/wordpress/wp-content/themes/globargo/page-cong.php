@@ -1,0 +1,768 @@
+<?php
+/*
+* Template Name: page cong
+*
+
+*
+* @package greeky
+*/
+
+ ?>
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="Planswell For Advisors">
+        <meta name="author" content="Inovatik">
+
+        <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+        <meta property="og:site_name" content="" />
+        <!-- website name -->
+        <meta property="og:site" content="" />
+        <!-- website link -->
+        <meta property="og:title" content="" />
+        <!-- title shown in the actual shared post -->
+        <meta property="og:description" content="" />
+        <!-- description shown in the actual shared post -->
+        <meta property="og:image" content="" />
+        <!-- image link, make sure it's jpg -->
+        <meta property="og:url" content="" />
+        <!-- where do you want your post to link to -->
+        <meta property="og:type" content="article" />
+
+        <script src="https://js.stripe.com/v3"></script>
+
+        <script>
+            var stripe;
+
+            function setupStripe() {
+                fetch("https://planswell-payments.herokuapp.com/public-key", {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    })
+                    .then(function(result) {
+                        return result.json();
+                    })
+                    .then(function(data) {
+                        stripe = Stripe(data.publicKey);
+                    });
+            }
+
+            function createCheckoutSession(advisorPlan) {
+                return fetch("https://planswell-payments.herokuapp.com/create-checkout-session", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        advisorPlan
+                    })
+                }).then(function(result) {
+                    return result.json();
+                });
+            }
+
+            function redirectToStripe(data) {
+                // Initiate payment
+                stripe
+                    .redirectToCheckout({
+                        sessionId: data.checkoutSessionId
+                    })
+                    .then(function(result) {
+                        console.log("error");
+                        // If `redirectToCheckout` fails due to a browser or network
+                        // error, display the localized error message to your customer
+                        // using `result.error.message`.
+                    })
+                    .catch(function(err) {
+                        console.log(err);
+                    });
+            }
+
+            function handleSignUp(evt) {
+
+                if (!tos1.checked && !tos2.checked && !tos3.checked) {
+                    alert("Please indicate that you accept the Terms and Conditions");
+                    tos2.focus();
+                    return false;
+                }
+                evt.preventDefault();
+                createCheckoutSession(evt.target.attributes["advisorPlan"].value).then(
+                    redirectToStripe
+                );
+            }
+
+            function setupDom() {
+                document.querySelectorAll(".sign-up").forEach(function(e) {
+                    e.addEventListener("click", handleSignUp);
+                });
+            }
+
+            setupStripe();
+            if (document.readyState == "loading") {
+                document.addEventListener("DOMContentLoaded", setupDom);
+            } else {
+                setupDom();
+            }
+
+        </script>
+
+        <!-- Website Title -->
+        <title>Planswell</title>
+
+        <!-- Styles -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+        <link href="http://planswellstage.wpengine.com/advisor/css/bootstrap.css" rel="stylesheet">
+        <link href="http://planswellstage.wpengine.com/advisor/css/fontawesome-all.css" rel="stylesheet">
+        <link href="http://planswellstage.wpengine.com/advisor/css/swiper.css" rel="stylesheet">
+        <link href="http://planswellstage.wpengine.com/advisor/css/magnific-popup.css" rel="stylesheet">
+        <link href="http://planswellstage.wpengine.com/advisor/css/styles.css" rel="stylesheet">
+
+        <!-- Favicon  -->
+        <link rel="icon" href="https://planswell.com/wp-content/themes/planswell/includes/images/favicon.ico">
+    </head>
+
+    <body data-spy="scroll" data-target=".fixed-top">
+
+        <!-- Preloader -->
+        <div class="spinner-wrapper">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+        <!-- end of preloader -->
+
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <div class="container">
+
+                <!-- Image Logo -->
+                <a class="navbar-brand logo-image" href="index.html"><img src="http://planswellstage.wpengine.com/advisor/images/planswell-logo-whity.svg" alt="alternative1"></a>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-awesome fas fa-bars"></span>
+                <span class="navbar-toggler-awesome fas fa-times"></span>
+            </button>
+                <!-- end of mobile menu toggle button -->
+
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#features">FEATURES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#pricing">PRICING</a>
+                        </li>
+                    </ul>
+                    <!--<span class="nav-item">
+                    <a class="btn-outline-sm" href="log-in.html">LOG IN</a>
+                </span>-->
+                </div>
+            </div>
+            <!-- end of container -->
+        </nav>
+        <!-- end of navbar -->
+        <!-- end of navigation -->
+
+
+        <!-- Header -->
+        <header id="header" class="header">
+            <div class="header-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-xl-5">
+                            <div class="text-container">
+                                <h1>Planswell</h1>
+                                <h1>for Advisors</h1>
+                            </div>
+                            <!-- end of text-container -->
+                        </div>
+                        <!-- end of col -->
+                        <div class="col-lg-6 col-xl-7">
+                            <div class="image-container">
+                                <div class="img-wrapper">
+                                    <img class="img-fluid" src="http://planswellstage.wpengine.com/advisor/images/be-protected-768x739.png" alt="alternative">
+                                </div>
+                                <!-- end of img-wrapper -->
+                            </div>
+                            <!-- end of image-container -->
+                        </div>
+                        <!-- end of col -->
+                    </div>
+                    <!-- end of row -->
+                </div>
+                <!-- end of container -->
+            </div>
+            <!-- end of header-content -->
+        </header>
+        <!-- end of header -->
+        <svg class="header-frame" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 310"><defs><style>.cls-1{fill:#16A55A;}</style></defs><title>header-frame</title><path class="cls-1" d="M0,283.054c22.75,12.98,53.1,15.2,70.635,14.808,92.115-2.077,238.3-79.9,354.895-79.938,59.97-.019,106.17,18.059,141.58,34,47.778,21.511,47.778,21.511,90,38.938,28.418,11.731,85.344,26.169,152.992,17.971,68.127-8.255,115.933-34.963,166.492-67.393,37.467-24.032,148.6-112.008,171.753-127.963,27.951-19.26,87.771-81.155,180.71-89.341,72.016-6.343,105.479,12.388,157.434,35.467,69.73,30.976,168.93,92.28,256.514,89.405,100.992-3.315,140.276-41.7,177-64.9V0.24H0V283.054Z"/></svg>
+        <!-- end of header -->
+        <!-- Description -->
+        <div class="cards-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="above-heading"></div>
+                        <h2 class="h2-heading">Each day, thousands of Canadians build a Planswell financial plan. They can’t meet at a coffee shop, but they want to talk to someone…</h2>
+                    </div>
+                    <!-- end of col -->
+                </div>
+                <!-- end of row -->
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="img-fluid" src="http://planswellstage.wpengine.com/advisor/images/description-1.png" alt="alternative">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">The perfect intros</h4>
+                                <p>Using machine learning and data science, we introduce users most likely to become your client.</p>
+                            </div>
+                        </div>
+                        <!-- end of card -->
+
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="img-fluid" src="http://planswellstage.wpengine.com/advisor/images/description-2.png" alt="alternative">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Remote and mobile ready</h4>
+                                <p>Access, make changes, and walk them through their plan, over the phone in real-time.</p>
+                            </div>
+                        </div>
+                        <!-- end of card -->
+
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="img-fluid" src="http://planswellstage.wpengine.com/advisor/images/description-3.png" alt="alternative">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Manage your clients</h4>
+                                <p>View, sort, and make notes on all of your clients in one easy interface</p>
+                            </div>
+                        </div>
+                        <!-- end of card -->
+
+                    </div>
+                    <!-- end of col -->
+                </div>
+                <!-- end of row -->
+            </div>
+            <!-- end of container -->
+        </div>
+        <!-- end of cards-1 -->
+        <!-- end of description -->
+
+
+        <!-- Features -->
+        <div id="features" class="tabs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="above-heading">FEATURES</div>
+                        <h2 class="h2-heading">Unbelievably user friendly</h2>
+                        <p class="p-heading">No other company builds financial plans for Canadians at this rate.</p>
+                    </div>
+                    <!-- end of col -->
+                </div>
+                <!-- end of row -->
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <!-- Tabs Links -->
+                        <ul class="nav nav-tabs" id="argoTabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-list"></i>Holistic done right</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-envelope-open-text"></i>200,000 plans built</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="nav-tab-3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false"><i class="fas fa-chart-bar"></i>Proven system</a>
+                            </li>
+                        </ul>
+                        <!-- end of tabs links -->
+
+                        <!-- Tabs Content -->
+                        <div class="tab-content" id="argoTabsContent">
+
+                            <!-- Tab -->
+                            <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="image-container">
+                                            <img class="img-fluid" src="http://planswellstage.wpengine.com/advisor/images/features-1.png" alt="alternative">
+                                        </div>
+                                        <!-- end of image-container -->
+                                    </div>
+                                    <!-- end of col -->
+                                    <div class="col-lg-6">
+                                        <div class="text-container">
+                                            <h3>Holistic done right</h3>
+                                            <p>Know when to retire, how much to draw, where it will come from, and how to get there.</p>
+                                            <ul class="list-unstyled li-space-lg">
+                                                <li class="media">
+                                                    <i class="fas fa-square"></i>
+                                                    <div class="media-body">Tax optimized RRSP, TFSA, RESP, & Non-Reg allocation</div>
+                                                </li>
+                                                <li class="media">
+                                                    <i class="fas fa-square"></i>
+                                                    <div class="media-body">Precise Term Life, Critical illness, and Disability recommendations</div>
+                                                </li>
+                                                <li class="media">
+                                                    <i class="fas fa-square"></i>
+                                                    <div class="media-body">Debt optimization, mortgage refinancing, and real estate strategy</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- end of text-container -->
+                                    </div>
+                                    <!-- end of col -->
+                                </div>
+                                <!-- end of row -->
+                            </div>
+                            <!-- end of tab-pane -->
+                            <!-- end of tab -->
+
+                            <!-- Tab -->
+                            <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="image-container">
+                                            <img class="img-fluid" src="http://planswellstage.wpengine.com/advisor/images/features-2.png" alt="alternative">
+                                        </div>
+                                        <!-- end of image-container -->
+                                    </div>
+                                    <!-- end of col -->
+                                    <div class="col-lg-6">
+                                        <div class="text-container">
+                                            <h3>200,000 plans built</h3>
+                                            <p>Thousands of clients have trusted Planswell around the world. Many have asked for assistance with implementing their plan on the very first call. Most clients need assistance with insurance to protect their families, monthly contributions to tax optimized investments for the future, financing for real estate, and overall guidance on their financial plan.</p>
+                                        </div>
+                                        <!-- end of text-container -->
+                                    </div>
+                                    <!-- end of col -->
+                                </div>
+                                <!-- end of row -->
+                            </div>
+                            <!-- end of tab-pane -->
+                            <!-- end of tab -->
+
+                            <!-- Tab -->
+                            <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="image-container">
+                                            <img class="img-fluid" src="http://planswellstage.wpengine.com/advisor/images/features-3.png" alt="alternative">
+                                        </div>
+                                        <!-- end of image-container -->
+                                    </div>
+                                    <!-- end of col -->
+                                    <div class="col-lg-6">
+                                        <div class="text-container">
+                                            <h3>Proven system</h3>
+                                            <p>Our team has trained advisors how to use Planswell in six countries so far.</p>
+                                            <ul class="list-unstyled li-space-lg">
+                                                <li class="media">
+                                                    <i class="fas fa-square"></i>
+                                                    <div class="media-body">We hired top experts from multiple remote-service industries</div>
+                                                </li>
+                                                <li class="media">
+                                                    <i class="fas fa-square"></i>
+                                                    <div class="media-body">Best practices refined over tens of thousands of client calls </div>
+                                                </li>
+                                                <li class="media">
+                                                    <i class="fas fa-square"></i>
+                                                    <div class="media-body">Seamless process for virtual planning and rapid success</div>
+                                                </li>
+                                                <li class="media">
+                                                    <i class="fas fa-square"></i>
+                                                    <div class="media-body">Top producers say it’s the best system they’ve ever had </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- end of text-container -->
+                                    </div>
+                                    <!-- end of col -->
+                                </div>
+                                <!-- end of row -->
+                            </div>
+                            <!-- end of tab-pane -->
+                            <!-- end of tab -->
+
+                        </div>
+                        <!-- end of tab content -->
+                        <!-- end of tabs content -->
+
+                    </div>
+                    <!-- end of col -->
+                </div>
+                <!-- end of row -->
+            </div>
+            <!-- end of container -->
+        </div>
+        <!-- end of tabs -->
+        <!-- end of features -->
+
+        <!-- Pricing -->
+        <div id="pricing" class="cards-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="above-heading">PRICING</div>
+                        <h2>Join our next cohort - Risk Free!</h2>
+                        <p>Your membership is 100% refundable after the first training class</p>
+                    </div>
+                    <!-- end of col -->
+                </div>
+                <!-- end of row -->
+            </div>
+            <!-- end of container -->
+        </div>
+        <!-- end of cards-2 -->
+        <!-- end of pricing -->
+        <!-- end of pricing -->
+        <div class="cards-5 embed-responsive"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNWao-fO-MoeGqdHA1QTLmErAPEe4UNZwiWkngji-RcXl8UQ/viewform?embedded=true">Loading…</iframe></div>
+
+        <!-- Testimonials -->
+        <div class="slider-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <!-- Text Slider -->
+                        <div class="slider-container">
+                            <div class="swiper-container text-slider">
+                                <div class="swiper-wrapper">
+
+                                    <!-- Slide -->
+                                    <div class="swiper-slide">
+                                        <div class="image-wrapper">
+                                            <img class="img-fluid" src="http://planswellstage.wpengine.com/advisor/images/testimonial-1.jpg" alt="alternative">
+                                        </div>
+                                        <!-- end of image-wrapper -->
+                                        <div class="text-wrapper">
+                                            <div class="testimonial-text">Planswell is an amazing product with very helpful advisors! I pride myself on being knowledgeable about money management, but I learned more in my first phone call with a Planswell representative than I had learned on my own in a whole year. I am completely satisfied with Planswell and more especially with their staff who are incredibly knowledgeable and very happy to educate those interested in learning more. I highly recommend them.</div>
+                                            <div class="testimonial-author">Melissa C.</div>
+                                        </div>
+                                        <!-- end of text-wrapper -->
+                                    </div>
+                                    <!-- end of swiper-slide -->
+                                    <!-- end of slide -->
+
+                                    <!-- Slide -->
+                                    <div class="swiper-slide">
+                                        <div class="image-wrapper">
+                                            <img class="img-fluid" src="http://planswellstage.wpengine.com/advisor/images/testimonial-2.jpg" alt="alternative">
+                                        </div>
+                                        <!-- end of image-wrapper -->
+                                        <div class="text-wrapper">
+                                            <div class="testimonial-text">I came across one of their surveys online and liked some of the recommendations they made so I went in to see one of their financial planners. When I got there they taught me so much about what I needed and why I needed it. I highly recommend anyone to ask advice with these guys. Experience and value wise I’d take them over a major bank every single time.
+                                            </div>
+                                            <div class="testimonial-author">Christopher T.</div>
+                                        </div>
+                                        <!-- end of text-wrapper -->
+                                    </div>
+                                    <!-- end of swiper-slide -->
+                                    <!-- end of slide -->
+
+                                    <!-- Slide -->
+                                    <div class="swiper-slide">
+                                        <div class="image-wrapper">
+                                            <img class="img-fluid" src="http://planswellstage.wpengine.com/advisor/images/testimonial-3.jpg" alt="alternative">
+                                        </div>
+                                        <!-- end of image-wrapper -->
+                                        <div class="text-wrapper">
+                                            <div class="testimonial-text">I was referred by my most financially savvy family member, and I can easily see why! My investment strategy has already benefited hugely from Andy Cosby's expertise, and it's exciting to see what can be achievable with an informed financial plan in place. Looking forward to working further with the team!</div>
+                                            <div class="testimonial-author">Christine S.</div>
+                                        </div>
+                                        <!-- end of text-wrapper -->
+                                    </div>
+                                    <!-- end of swiper-slide -->
+                                    <!-- end of slide -->
+
+                                    <!-- Slide -->
+                                    <div class="swiper-slide">
+                                        <div class="image-wrapper">
+                                            <img class="img-fluid" src="http://planswellstage.wpengine.com/advisor/images/testimonial-4.jpg" alt="alternative">
+                                        </div>
+                                        <!-- end of image-wrapper -->
+                                        <div class="text-wrapper">
+                                            <div class="testimonial-text">As a divorce mediator, I can confidently say that a financial company like Planswell is long overdue. I feel comfortable when referring clients as I know they will get honest, valuable and beneficial advice. Plus, they will be treated with sensitivity and care! Keep up the great work!</div>
+                                            <div class="testimonial-author">Laura T.</div>
+                                        </div>
+                                        <!-- end of text-wrapper -->
+                                    </div>
+                                    <!-- end of swiper-slide -->
+                                    <!-- end of slide -->
+
+                                </div>
+                                <!-- end of swiper-wrapper -->
+
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <!-- end of add arrows -->
+
+                            </div>
+                            <!-- end of swiper-container -->
+                        </div>
+                        <!-- end of slider-container -->
+                        <!-- end of text slider -->
+
+                    </div>
+                    <!-- end of col -->
+                </div>
+                <!-- end of row -->
+            </div>
+            <!-- end of container -->
+        </div>
+        <!-- end of slider-2 -->
+        <!-- end of testimonials -->
+
+        <!-- Footer -->
+        <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#16A55A;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="footer-col first">
+                            <h4>About Planswell</h4>
+                            <p class="p-small">Planswell was founded in 2015 with the goal of creating the world’s most actionable financial planning experience. Spending over ten million dollars and five years of employing over one hundred people has led to a truly exceptional opportunity for both clients and advisors alike.</p>
+                        </div>
+                    </div>
+                    <!-- end of col -->
+                    <div class="col-md-4">
+                        <div class="footer-col middle">
+                            <h4>Links</h4>
+                            <ul class="list-unstyled li-space-lg p-small">
+                                <li class="media">
+                                    <i class="fas fa-square"></i>
+                                    <div class="media-body">Our client facing site: <a class="white" href="#your-link">planswell.com</a></div>
+                                </li>
+                                <li class="media">
+                                    <i class="fas fa-square"></i>
+                                    <div class="media-body">Read our <a class="white" href="https://planswell.com/terms-of-service/">Terms & Conditions</a>, <a class="white" href="https://planswell.com/privacy-policy/">Privacy Policy</a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end of col -->
+                    <div class="col-md-4">
+                        <div class="footer-col last">
+                            <h4>Contact</h4>
+                            <ul class="list-unstyled li-space-lg p-small">
+                                <li class="media">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div class="media-body">Toronto, Ontario</div>
+                                </li>
+                                <li class="media">
+                                    <i class="fas fa-envelope"></i>
+                                    <div class="media-body"><a class="white" href="mailto:hello@planswell.com">hello@planswell.com</a> <i class="fas fa-globe"></i><a class="white" href="https://planswell.com/">planswell.com</a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end of col -->
+                </div>
+                <!-- end of row -->
+            </div>
+            <!-- end of container -->
+        </div>
+        <!-- end of footer -->
+        <!-- end of footer -->
+
+
+        <!-- Copyright -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="p-small">Planswell Corp. Copyright © 2020</p>
+                    </div>
+                    <!-- end of col -->
+                </div>
+                <!-- enf of row -->
+            </div>
+            <!-- end of container -->
+        </div>
+        <!-- end of copyright -->
+        <!-- end of copyright -->
+
+        <!-- Load Stripe.js on your website. -->
+
+        <div id="details-lightbox-1" class="lightbox-basic zoom-anim-dialog mfp-hide">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-container">
+                            <h3>Start your planning engines...</h3>
+                            <h5>Here are the Terms of how this Service works:</h5>
+                            <h5>Advisors will...</h5>
+                            <ul>
+                                <li>Give users fantastic advice that aligns with users’ goals and interests at all times.</li>
+                                <li>Disposition users correctly in the CRM. We use this data to attract new users who are most likely to become your clients (using machine learning, AI, and other buzzwords.. We practically 3D print the best clients for you). </li>
+                                <li>Receive and use their own custom link to build plans with their existing ecosystem. These plans will appear in the CRM, with a unique identifier, alongside the new Planswell leads.</li>
+                                <li>Not disparage Planswell, it’s employees, or affiliates, on the internet or anywhere else. </li>
+                                <li>Represent the Planswell brand in accordance with the initial and ongoing training.</li>
+                            </ul>
+                            <h5>Planswell Corp. will... </h5>
+                            <ul>
+                                <li>Distribute your leads exclusively. No other advisor, or even Planswell, will solicit them without your approval.</li>
+                                <li>Call some of your leads for feedback on their process to ensure enthusiastic satisfaction and to improve Planswell’s user experience. </li>
+                                <li>Keep your information top secret. Your name, company name, planswell activity or anything else we learn about you will never be disclosed to anyone else, in accordance with our super detailed Privacy Policy. </li>
+                                <li>Provide online training, coaching, support, and love to you via frequent live webinars. </li>
+                                <li>Share all our learnings from onboarding thousands of clients around the world. </li>
+                                <li>At our sole discretion, distribute the pinnacle leads (formerly held demos, booked calls, organic, etc.) to the advisors who we feel are serving clients most effectively. </li>
+                                <li>At our sole discretion, distribute additional free leads that may include low implementation likelihood, low income, legacy leads, etc. (for every plan we generate and distribute, there is at least one other plan that we did not deem high quality enough to include in your membership). These are great leads for email nurture campaigns. Distribution is based on our perception of advisor success on the platform. </li>
+                            </ul>
+                            <h3>Terms of Service - Plain Language</h3>
+                            <p>We try to keep everything as simple as possible so we’ve explained much of our terms of service in plain language below. There is a second section that lawyers get all excited about. It’s there as well. Both sections are considered to be part of the entire terms of service and use of Planswell Corp. services.</p>
+                            <h5>Cancel whenever you want</h5>
+                            <p>We don’t require anyone to commit beyond month to month. We might change the pricing, but we’ll give you enough notice to cancel if you don’t agree. Locking in a longer term contract may be something we offer to keep your rate the same for a period of time. </p>
+                            <h5>Don‘t take anything personally</h5>
+                            <p>Everything you see on our site, such as an article or a video or even a link to another website, is meant to provide general information. It is not meant to be taken as legal, accounting, financial, insurance, borrowing or tax advice, and it is not meant as an offer to sell anything. Users must create their own financial plan and talk to licensed advisors in order to receive advice on their personal situation.</p>
+                            <h5>Let us know if you see a mistake</h5>
+                            <p>We love to help people understand money better. But we’re only human, so there will occasionally be a mistake on this site, or on a site that we link to. It could be a typo, an out-of-date number, or even something worded incorrectly. If something doesn’t look right to you, let us know and we’ll clear it up right away, but you can’t sue us over it.</p>
+                            <h5>Please respect our stuff</h5>
+                            <p>Everything on our site is protected by copyright and trademark laws. You are welcome to share our site with anyone you wish. You may be able to reproduce some of the content from our site if you talk to us about it first. But you are not allowed to take things from our site and publish them elsewhere without our permission. It’s not only illegal, it’s not nice.</p>
+                            <p>Going to court over something on a website seems unlikely, but if a dispute ever happens, it will be settled in the city of Toronto under the laws of Ontario and/or Canada. Below are the longer, and more exhaustive terms of service provided by our lawyers. You also agree to these below by using our service.</p>
+                            <h3>Terms of Service - Legal Jargon</h3>
+                            <h5>Interpretation</h5>
+                            <p>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+                            <h5>Definitions</h5>
+                            <p>For the purposes of these Terms and Conditions:</p>
+                            <ul>
+                                <li>Affiliate means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
+                                <li>Account means a unique account created for You to access our Service or parts of our Service.</li>
+                                <li>Company (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Planswell Corp., 100 College St Suite 150, Toronto, ON M5G 1L5.</li>
+                                <li>Country refers to: Ontario, Canada</li>
+                                <li>Promotions refer to contests, sweepstakes or other promotions offered through the Service.</li>
+                                <li>Service refers to the Website and platform.</li>
+                                <li>Subscriptions refer to the services or access to the Service offered on a subscription basis by the Company to You.</li>
+                                <li>Free Trial refers to a limited period of time that may be free when purchasing a Subscription.</li>
+                                <li>Terms and Conditions (also referred as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service.</li>
+                                <li>Third-party Social Media Service means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.</li>
+                                <li>Website refers to Planswell, accessible from https://planswell.com and associated subdomains</li>
+                                <li>You means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</li>
+                            </ul>
+                            <h3>Acknowledgement</h3>
+                            <p>These are the Terms and Conditions governing the use of this Service and the agreement that operates between You and the Company. These Terms and Conditions set out the rights and obligations of all users regarding the use of the Service. Your access to and use of the Service is conditioned on Your acceptance of and compliance with these Terms and Conditions. These Terms and Conditions apply to all visitors, users and others who access or use the Service. By accessing or using the Service You agree to be bound by these Terms and Conditions. If You disagree with any part of these Terms and Conditions then You may not access the Service. Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our Privacy Policy carefully before using Our Service.</p>
+                            <h3>Subscriptions</h3>
+                            <h5>Subscription period</h5>
+                            <p>The Service or some parts of the Service are available only with a paid Subscription. You will be billed in advance on a recurring and periodic basis (such as daily, weekly, monthly or annually), depending on the type of Subscription plan you select when purchasing the Subscription.</p>
+                            <p>At the end of each period, Your Subscription will automatically renew under the exact same conditions unless You cancel it or the Company cancels it.</p>
+                            <h5>Subscription cancellations</h5>
+                            <p>You may cancel Your Subscription renewal either through Your Account settings page or by contacting the Company.</p>
+                            <p>You will not receive a refund for the fees You already paid for Your current Subscription period and You will be able to access the Service until the end of Your current Subscription period.</p>
+                            <h5>Billing</h5>
+                            <p>You shall provide the Company with accurate and complete billing information including full name, address, state, zip code, telephone number, and a valid payment method information.</p>
+                            <p>Should automatic billing fail to occur for any reason, the Company will issue an electronic invoice indicating that you must proceed manually, within a certain deadline date, with the full payment corresponding to the billing period as indicated on the invoice.</p>
+                            <h5>Fee Changes</h5>
+                            <p>The Company, in its sole discretion and at any time, may modify the Subscription fees. Any Subscription fee change will become effective at the end of the then-current Subscription period.</p>
+                            <p>The Company will provide You with reasonable prior notice of any change in Subscription fees to give You an opportunity to terminate Your Subscription before such change becomes effective.</p>
+                            <p>Your continued use of the Service after the Subscription fee change comes into effect constitutes Your agreement to pay the modified Subscription fee amount.</p>
+                            <h5>Refunds</h5>
+                            <p>Except when required by law, paid Subscription fees are non-refundable.</p>
+                            <p>Certain refund requests for Subscriptions may be considered by the Company on a case-by-case basis and granted at the sole discretion of the Company.</p>
+                            <h5>Trials</h5>
+                            <p>The Company may, at its sole discretion, offer a Subscription with a trial for a limited period of time. You may be required to enter Your billing information in order to sign up for the trial. If You do enter Your billing information when signing up for a Trial, You will not be charged by the Company until the trial has expired. On the last day of the Free Trial period, unless You cancelled Your Subscription, You will be automatically charged the applicable Subscription fees for the type of Subscription You have selected. At any time and without notice, the Company reserves the right to (i) modify the terms and conditions of the Free Trial offer, or (ii) cancel such Free trial offer.</p>
+                            <h5>Promotions</h5>
+                            <p>Any Promotions made available through the Service may be governed by rules that are separate from these Terms. If You participate in any Promotions, please review the applicable rules as well as our Privacy policy. If the rules for a Promotion conflict with these Terms, the Promotion rules will apply.</p>
+                            <h5>User Accounts</h5>
+                            <p>When You create an account with Us, You must provide Us information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of Your account on Our Service. You are responsible for safeguarding the password that You use to access the Service and for any activities or actions under Your password, whether Your password is with Our Service or a Third-Party Social Media Service. You agree not to disclose Your password to any third party. You must notify Us immediately upon becoming aware of any breach of security or unauthorized use of Your account. You may not use as a username the name of another person or entity or that is not lawfully available for use, a name or trademark that is subject to any rights of another person or entity other than You without appropriate authorization, or a name that is otherwise offensive, vulgar or obscene.</p>
+                            <h5>Intellectual Property</h5>
+                            <p>The Service and its original content (excluding Content provided by You or other users), features and functionality are and will remain the exclusive property of the Company and its licensors. The Service is protected by copyright, trademark, and other laws of both the Country and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of the Company.</p>
+                            <h5>Links to Other Websites</h5>
+                            <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by the Company. The Company has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that the Company shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such web sites or services. We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites or services that You visit.</p>
+                            <h5>Termination</h5>
+                            <p>We may terminate or suspend Your Account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if You breach these Terms and Conditions. Upon termination, Your right to use the Service will cease immediately. If You wish to terminate Your Account, You may simply discontinue using the Service.</p>
+                            <h5>Limitation of Liability</h5>
+                            <p>Notwithstanding any damages that You might incur, the entire liability of the Company and any of its suppliers under any provision of this Terms and Your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by You through the Service or 100 CAD if You haven't purchased anything through the Service. To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, loss of data or other information, for business interruption, for personal injury, loss of privacy arising out of or in any way related to the use of or inability to use the Service, third-party software and/or third-party hardware used with the Service, or otherwise in connection with any provision of this Terms), even if the Company or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose. Some states / provinces do not allow the exclusion of implied warranties or limitation of liability for incidental or consequential damages, which means that some of the above limitations may not apply. In these states / provinces, each party's liability will be limited to the greatest extent permitted by law.</p>
+                            <h5>"AS IS" and "AS AVAILABLE" Disclaimer</h5>
+                            <p>The Service is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Service, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Service will meet Your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected. Without limiting the foregoing, neither the Company nor any of the company's provider makes any representation or warranty of any kind, express or implied: (i) as to the operation or availability of the Service, or the information, content, and materials or products included thereon; (ii) that the Service will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information or content provided through the Service; or (iv) that the Service, its servers, the content, or e-mails sent from or on behalf of the Company are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components. Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law.</p>
+                            <h5>Governing Law</h5>
+                            <p>The laws of the Country, excluding its conflicts of law rules, shall govern this Terms and Your use of the Service. Your use of the Application may also be subject to other local, state / provincial, national, or international laws.</p>
+                            <h5>Disputes Resolution</h5>
+                            <p>If You have any concern or dispute about the Service, You agree to first try to resolve the dispute informally by contacting the Company.</p>
+                            <h5>For European Union (EU) Users</h5>
+                            <p>If You are a European Union consumer, you will benefit from any mandatory provisions of the law of the country in which you are resident in.</p>
+                            <h5>United States Federal Government End Use Provisions</h5>
+                            <p>If You are a U.S. federal government end user, our Service is a "Commercial Item" as that term is defined at 48 C.F.R. §2.101.</p>
+                            <p>United States Legal Compliance. You represent and warrant that (i) You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a “terrorist supporting” country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.</p>
+                            <h3>Severability and Waiver</h3>
+                            <h5>Severability</h5>
+                            <p>If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.</p>
+                            <h5>Waiver</h5>
+                            <p>Except as provided herein, the failure to exercise a right or to require performance of an obligation under this Terms shall not effect a party's ability to exercise such right or require such performance at any time thereafter nor shall be the waiver of a breach constitute a waiver of any subsequent breach.</p>
+                            <h5>Translation Interpretation</h5>
+                            <p>These Terms and Conditions may have been translated if We have made them available to You on our Service. You agree that the original English text shall prevail in the case of a dispute.</p>
+                            <h5>Changes to These Terms and Conditions</h5>
+                            <p>We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. If a revision is material We will make reasonable efforts to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at Our sole discretion. By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the website and the Service.</p>
+                            <h3>Contact Us</h3>
+                            <p>If you have any questions about these Terms and Conditions, You can contact us: By email: hello@planswell.com</p>
+                            <a class="btn-outline-reg mfp-close as-button" href="#screenshots">BACK</a>
+                        </div>
+                        <!-- end of col -->
+                    </div>
+                </div>
+                <!-- end of row -->
+            </div>
+            <!-- end of container -->
+        </div>
+        <!-- end of lightbox-basic -->
+
+        <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+
+        <!-- Scripts -->
+        <script src="http://planswellstage.wpengine.com/advisor/js/jquery.min.js"></script>
+        <!-- jQuery for Bootstrap's JavaScript plugins -->
+        <script src="http://planswellstage.wpengine.com/advisor/js/popper.min.js"></script>
+        <!-- Popper tooltip library for Bootstrap -->
+        <script src="http://planswellstage.wpengine.com/advisor/js/bootstrap.min.js"></script>
+        <!-- Bootstrap framework -->
+        <script src="http://planswellstage.wpengine.com/advisor/js/jquery.easing.min.js"></script>
+        <!-- jQuery Easing for smooth scrolling between anchors -->
+        <script src="http://planswellstage.wpengine.com/advisor/js/swiper.min.js"></script>
+        <!-- Swiper for image and text sliders -->
+        <script src="http://planswellstage.wpengine.com/advisor/js/jquery.magnific-popup.js"></script>
+        <!-- Magnific Popup for lightboxes -->
+        <script src="http://planswellstage.wpengine.com/advisor/js/validator.min.js"></script>
+        <!-- Validator.js - Bootstrap plugin that validates forms -->
+        <script src="http://planswellstage.wpengine.com/advisor/js/scripts.js"></script>
+        <!-- Custom scripts -->
+    </body>
+
+    </html>
+
+
+
+    <?php
+while ( have_posts() ) : the_post();
+
+?>
+
+        <?php the_content(); ?>
+        <?php
+endwhile; // End of the loop.
+?>

@@ -83,9 +83,53 @@ db.niceScroll = function () {
 
     }
 
+    if ($('.calendar').length) {
+
+        $('.calendar').niceScroll({
+            cursorcolor: "#DCD9D3",
+            cursorwidth: "6px",
+            cursorborder: "none",
+            background: "#fff",
+            autohidemode: 'leave',
+            autohidemode: false
+        });
+
+
+
+    }
+    if ($('.members-left').length) {
+
+        $('.members-left').niceScroll({
+            cursorcolor: "#DCD9D3",
+            cursorwidth: "6px",
+            cursorborder: "none",
+            background: "#fff",
+            autohidemode: 'leave',
+            autohidemode: false
+        });
+
+
+
+    }
+
+
     if ($('.content-scroll').length) {
 
         $('.content-scroll').niceScroll({
+            cursorcolor: "#DCD9D3",
+            cursorwidth: "6px",
+            cursorborder: "none",
+            background: "#fff",
+            autohidemode: 'leave',
+            autohidemode: false
+        });
+
+
+
+    }
+    if ($('.db-scroll').length) {
+
+        $('.db-scroll').niceScroll({
             cursorcolor: "#DCD9D3",
             cursorwidth: "6px",
             cursorborder: "none",
