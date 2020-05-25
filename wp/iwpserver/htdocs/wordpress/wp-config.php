@@ -16,6 +16,9 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
+
+
+
 define ( 'WP_ALLOW_REPAIR' , true);
 
 define('DB_NAME', 'wordpress');
@@ -82,6 +85,10 @@ define('WPLANG', '');
  */
 define('WP_DEBUG', true);
 define( 'WP_MEMORY_LIMIT', '512M' );
+@ini_set( 'upload_max_size' , '20M' );
+@ini_set( 'post_max_size', '13M');
+@ini_set( 'memory_limit', '15M' );
+
 
 /* That's all, stop editing! Happy blogging. */
 
