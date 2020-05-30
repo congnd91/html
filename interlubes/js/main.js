@@ -60,7 +60,10 @@
 
         }
       });
+      $(".select-dropdown .sd-item a").click(function () {
+        $(this).parents('.select-dropdown').find('.sd-flex span').text($(this).text());
 
+      });
 
     }
 

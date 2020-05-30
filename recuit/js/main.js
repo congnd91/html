@@ -6,6 +6,9 @@
         $('body').fadeIn();
       });
     }
+
+
+
     db.closeBox = function () {
       $('.confirm-box .close').on('click', function (e) {
         $('.confirm-box').hide();
@@ -54,9 +57,9 @@
 
       //**
 
-      $('.cb-list .item .close-item').on('click', function (e) {
+      $(document).on('click', '.cb-list .item .close-item', function (e) {
         $(this).parent().hide();
-        return false;
+
       });
 
       //
@@ -87,6 +90,8 @@
       });
 
       $('.dots-control .dots').on('click', function (e) {
+        $('.box-d').hide();
+        $('.dot-dropdown').hide();
         e.stopPropagation();
 
         var x = $(this).parent().find('.dot-dropdown');
@@ -102,7 +107,7 @@
 
 
       $('.d-share').on('click', function (e) {
-
+        $('.box-d').hide();
         var x = $(this).parents('.dots-control').find('.box-d-share');
         if ($(x).is(":visible")) {
           $(x).hide();
@@ -112,6 +117,7 @@
       });
 
       $('.d-flag').on('click', function (e) {
+        $('.box-d').hide();
         $(this).parent().hide();
         var x = $(this).parents('.dots-control').find('.box-d-flag');
         if ($(x).is(":visible")) {
@@ -122,6 +128,7 @@
       });
 
       $('.d-tool').on('click', function (e) {
+        $('.box-d').hide();
         $(this).parent().hide();
         var x = $(this).parents('.dots-control').find('.box-d-tool');
         if ($(x).is(":visible")) {
@@ -170,6 +177,69 @@
       };
       // $('.form-share').validate();
 
+      if ($('.form-create-alert').length) {
+        $('.form-create-alert').each(function () {
+          $(this).validate();
+        });
+      };
+
+
+
+    }
+
+    db.addJob = function () {
+
+      $('.interested p').click(function () {
+        $(this).hide();
+        $('.cb-list').append('<div class="item"><div class="icon"></div> <span>' + $(this).text() + '</span><div class="close-item"><i class="fas fa-times"></i</div></div>')
+
+      });
+
+
+    }
+
+    db.scroll = function () {
+
+      // Hide Header on on scroll down
+      var didScroll;
+      var lastScrollTop = 0;
+      var delta = 5;
+      var navbarHeight = $('.fix-button-alert').outerHeight();
+
+      $(window).scroll(function (event) {
+        didScroll = true;
+      });
+
+      setInterval(function () {
+        if (didScroll) {
+          hasScrolled();
+          didScroll = false;
+        }
+      }, 250);
+
+      function hasScrolled() {
+        var st = $(this).scrollTop();
+
+        // Make sure they scroll more than delta
+        if (Math.abs(lastScrollTop - st) <= delta)
+          return;
+
+        // If they scrolled down and are past the navbar, add class .nav-up.
+        // This is necessary so you never see what is "behind" the navbar.
+        if (st > lastScrollTop && st > navbarHeight) {
+          // Scroll Down
+          $('.fix-button-alert').removeClass('nav-down').addClass('nav-up');
+        } else {
+          // Scroll Up
+          if (st + $(window).height() < $(document).height()) {
+            $('.fix-button-alert').removeClass('nav-up').addClass('nav-down');
+          }
+        }
+
+        lastScrollTop = st;
+      }
+
+
     }
 
     db.menuMobile = function () {
@@ -192,6 +262,11 @@
       });
       $('.search-header .title input').on('focus', function (e) {
         $('.header').addClass("show-search");
+
+        //close dropdown
+
+        $('.user-dropdown .dropdown-menu').removeClass("show");
+
       });
       $('.header').on('click', function (e) {
         e.stopPropagation();
@@ -400,6 +475,8 @@
     db.filterMobile();
     db.closeBox();
     db.validate();
+    db.addJob();
+    db.scroll();
     // db.menuResponsive();
     // db.dropdownMenu();
     // db.partnerSlider();

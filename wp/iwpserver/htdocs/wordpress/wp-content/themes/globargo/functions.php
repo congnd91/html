@@ -101,91 +101,33 @@ add_action( 'after_setup_theme', 'greeky_content_width', 0 );
 *
 * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
 */
-function globargo_widgets_init() {
-/* register_sidebar( array( 'name' => esc_html__( 'Sidebar', 'greeky' ), 'id' => 'greeky_sidebar', 'description' => esc_html__( 'Add widgets here.', 'greeky' ), 'before_widget' => '
-<div id="%1$s" class="box box-widget %2$s">', 'after_widget' => '</div>', 'before_title' => '
-<div class="box-caption">
-    <h2><span>',
-		'after_title'   => '</span></h2>
-</div>', ) );*/
-/*    register_sidebar(array(
-		'name' => esc_html__( 'Social Header Widgets', 'greeky' ),
-		'id'            => 'greeky_social',
-		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
-		'before_widget' => '',
-		'after_widget'  => '',
-		'before_title'  => '',
-		'after_title'   => '',
-		));
-    
-     register_sidebar(array(
-		'name' => esc_html__( 'Breaking News Widgets', 'greeky' ),
-		'id'            => 'greeky_breaking_news',
-		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
-		'before_widget' => '',
-		'after_widget'  => '',
-		'before_title'  => '',
-		'after_title'   => '',
-		));
-     register_sidebar(array(
-		'name' => esc_html__( 'Social Footer Widgets', 'greeky' ),
-		'id'            => 'greeky_social_footer',
-		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
-		'before_widget' => '',
-		'after_widget'  => '',
-		'before_title'  => '',
-		'after_title'   => '',
-		));*/
+function belsipa_widgets_init() {
+
     register_sidebar(array(
-		'name' => esc_html__( 'Home Content Widgets', 'globargo' ),
-		'id'            => 'globargo_home_content',
-		'description'   => esc_html__( 'Add widgets here.', 'globargo' ),
+		'name' => esc_html__( 'Contact Left Widgets', 'belsipa' ),
+		'id'            => 'belsipa_contact_left',
+		'description'   => esc_html__( 'Add widgets here.', 'belsipa' ),
 		'before_widget' => '',
 		'after_widget'  => '',
 		'before_title'  => '',
 		'after_title'   => '',
 		));
      register_sidebar(array(
-		'name' => esc_html__( 'Home Slider Content Widgets', 'globargo' ),
-		'id'            => 'globargo_home_slider_content',
-		'description'   => esc_html__( 'Add widgets here.', 'globargo' ),
+		'name' => esc_html__( 'Contact Right Widgets', 'belsipa' ),
+		'id'            => 'belsipa_contact_right',
+		'description'   => esc_html__( 'Add widgets here.', 'belsipa' ),
 		'before_widget' => '',
 		'after_widget'  => '',
 		'before_title'  => '',
 		'after_title'   => '',
 		));
-    	/*register_sidebar(array(
-		'name' => esc_html__( 'Home Content Widgets', 'greeky' ),
-		'id'            => 'greeky_home',
-		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
-		'before_widget' => '<section id="%1$s" class="greeky-widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<div class="widget-title col-caption"><span>',
-		'after_title'   => '</span></div>',
-		));
-         
-   
-   
-	register_sidebar(array(
-		'name' => esc_html__( 'Contact Page Widgets', 'greeky' ),
-		'id'            => 'greeky_contact',
-		'description'   => esc_html__( 'Add widgets here.', 'greeky' ),
-		'before_widget' => '',
-		'after_widget'  => '',
-		'before_title'  => '',
-		'after_title'   => '',
-		));*/
+    	
 	
 	
 }
-add_action( 'widgets_init', 'globargo_widgets_init' );
-
-require get_template_directory() . '/widgets/widget_home_about.php';
-require get_template_directory() . '/widgets/widget_home_mission.php';
-require get_template_directory() . '/widgets/widget_home_how_it_work.php';
-require get_template_directory() . '/widgets/widget_home_contact.php';
-require get_template_directory() . '/widgets/widget_home_services.php';
-require get_template_directory() . '/widgets/widget_home_slider.php';
+add_action( 'widgets_init', 'belsipa_widgets_init' );
+require get_template_directory() . '/widgets/widget_contact_member.php';
+require get_template_directory() . '/widgets/widget_contact_form.php';
 require get_template_directory() . '/inc/customizer.php';
 
 
@@ -304,14 +246,13 @@ function greeky_scripts() {
 
    
     wp_enqueue_script( 'popper', get_template_directory_uri() . '/js/popper.js', array('jquery'),$version, true );
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.7', true );
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'),'' , true );
     
 	
     
 	wp_enqueue_script( 'owl', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'),$version, true );
 	wp_enqueue_script( 'matchHeight', get_template_directory_uri() . '/js/jquery.matchHeight.min.js', array('jquery'),$version, true );
     
-	wp_enqueue_script( 'navpoints', get_template_directory_uri() . '/js/jquery.navpoints.js', array('jquery'),$version, true );
 	wp_enqueue_script( 'greeky-main', get_template_directory_uri() . '/js/main.js', array('jquery'),$version, true );
 
 
