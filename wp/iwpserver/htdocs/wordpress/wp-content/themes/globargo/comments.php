@@ -7,7 +7,7 @@
 *
 * @link https://codex.wordpress.org/Template_Hierarchy
 *
-* @package greeky
+* @package belsip
 */
 
 /*
@@ -27,7 +27,7 @@ if ( post_password_required() ) {
 
     <div class="detail-caption">
         <span>
-            <?php comments_number( esc_html( '0 comments', 'greeky' ),  esc_html( '1 comments', 'greeky' ), esc_html( '% comments', 'greeky' ) ); ?> </span>
+            <?php comments_number( esc_html( '0 comments', 'belsip' ),  esc_html( '1 comments', 'belsip' ), esc_html( '% comments', 'belsip' ) ); ?> </span>
     </div>
     <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
     <?php endif; // Check for comment navigation. ?>
@@ -53,7 +53,7 @@ endif; // Check for have_comments().
 // If comments are closed and there are comments, let's leave a little note, shall we?
 if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
     <p class="no-comments">
-        <?php esc_html_e( 'Comments are closed.', 'greeky' ); ?>
+        <?php esc_html_e( 'Comments are closed.', 'belsip' ); ?>
     </p>
     <?php
 endif;
@@ -64,14 +64,14 @@ $comment_form = array(
 	'fields' => apply_filters( 'comment_form_default_fields', array(
 		'author' => '<div class="row"> <div class="col-md-6 col-sm-6 col-xs-12">' .
 		'<div class="field-item">'.	
-		'<p class="field-caption">'.esc_html("Name","greeky").' <span>*</span></p>'.
+		'<p class="field-caption">'.esc_html("Name","belsip").' <span>*</span></p>'.
 		'<input id="author" name="author" placeholder=" " type="text" value="' .
 		esc_attr( $commenter['comment_author']) . '" tabindex="1" />' .
 		'</div>' .
 		'</div>',
 		'email'  => '<div class="col-md-6 col-sm-6 col-xs-12">' .
 		'<div class="field-item">'.
-		'<p class="field-caption">'.esc_html("Email","greeky").' <span>*</span></p>'.
+		'<p class="field-caption">'.esc_html("Email","belsip").' <span>*</span></p>'.
 		'<input id="email" name="email" placeholder="" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" tabindex="2" />' .
 		'</div>' .
 		'</div>' .
@@ -79,13 +79,13 @@ $comment_form = array(
 		) ),
 
 	'comment_field' => ' <div class="field-item">' .
-	'<p class="field-caption">'.esc_html("Comment","greeky").' <span>*</span></p>'.
+	'<p class="field-caption">'.esc_html("Comment","belsip").' <span>*</span></p>'.
 	'<textarea id="comment" name="comment" aria-required="true" placeholder=""></textarea>' .
 	'</div>',
 	'comment_notes_before' => '',
 	'comment_notes_after' => '',
-	'title_reply' => '<span>'.esc_html("Leave a reply","greeky").'</span>' ,
-	'label_submit' => esc_html("SUBMIT","greeky"),
+	'title_reply' => '<span>'.esc_html("Leave a reply","belsip").'</span>' ,
+	'label_submit' => esc_html("SUBMIT","belsip"),
 	'class_submit'=>'my-btn my-btn-dark',
 	'logged_in_as' => '',
 	);

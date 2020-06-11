@@ -4,7 +4,7 @@
 *
 * @link https://codex.wordpress.org/Template_Hierarchy
 *
-* @package greeky
+* @package belsip
 */
 
 get_header(); ?>
@@ -30,7 +30,7 @@ get_header(); ?>
 				             	get_template_part( 'loop/content','grid-mode');
 						endwhile; ?>
                 </div>
-                <?php echo  greeky_pagination();
+                <?php echo  belsip_pagination();
 					}
 					else 
 					{

@@ -34,7 +34,7 @@ function widget($args, $instance)
 {
     extract($args);
     global $post;
-    $title = $instance['name'];
+    $name = $instance['name'];
     $description = $instance['description'];
     $email_url = $instance['email_url'];
     $email = $instance['email'];

@@ -4,7 +4,7 @@
 *
 *
 *
-* @package greeky
+* @package belsip
 */
 
 get_header(); ?>
@@ -43,40 +43,7 @@ get_header(); ?>
             dynamic_sidebar("belsipa_contact_right"); 
         }
         ?>
-              <!-- <h2>Get In Touch
-              </h2>
-              <p>We take great pride in everything that we do, complete control over products allows us to ensure our customers receive the best quality service.
-
-              </p>
-              <p>Please fill in the form below or send an email to <a href="#">info@belsipa.be</a>
-
-              </p>
-
-              <div class="contact-form">
-                <div class="row">
-                  <div class="col-md-6 col-sm-12">
-                    <div class="c-field">
-                      <input type="text" placeholder="Name" class="input">
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-sm-12">
-                    <div class="c-field">
-                      <input type="text" placeholder="Email" class="input">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="c-field">
-                  <input type="text" placeholder="Subject" class="input">
-                </div>
-                <div class="c-field">
-                  <textarea placeholder="Content" class="textarea">
-                    </textarea>
-                </div>
-                <div class="c-field">
-                  <input type="submit" value="submit" class="button">
-                </div>
-              </div>-->
+            
 
             </div>
 

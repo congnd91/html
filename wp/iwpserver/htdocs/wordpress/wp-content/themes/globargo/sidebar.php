@@ -4,11 +4,11 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package greeky
+ * @package belsip
  */
 
-if ( ! is_active_sidebar( 'greeky_sidebar' ) ) {
+if ( ! is_active_sidebar( 'belsip_sidebar' ) ) {
 return;
 }
 ?>
-<?php dynamic_sidebar( 'greeky_sidebar' ); ?>
+<?php dynamic_sidebar( 'belsip_sidebar' ); ?>

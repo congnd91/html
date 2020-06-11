@@ -4,7 +4,7 @@
 *
 * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
 *
-* @package greeky
+* @package belsip
 */
 get_header(); ?>
   <section class="page-template">

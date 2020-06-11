@@ -4,7 +4,7 @@
 *
 * @link https://codex.wordpress.org/Template_Hierarchy
 *
-* @package greeky
+* @package belsip
 */
 
 ?>
@@ -14,7 +14,7 @@
 <article <?php post_class('category-item');?> >
     <div class="row">
         <?php if(has_post_thumbnail()){  ?>
-        <?php  $post; $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'greeky_landscape');  ?>
+        <?php  $post; $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'belsip_landscape');  ?>
         <div class="col-md-6 col-sm-6 col-xs-12 col-fix">
             <article class="news-item-big">
                 <div class="post-thumb">

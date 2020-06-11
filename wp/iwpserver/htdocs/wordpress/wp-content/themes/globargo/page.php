@@ -9,19 +9,19 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package greeky
+ * @package belsip
  */
 
-$greeky_sidebar_position = get_theme_mod('sidebar_position');
+$belsip_sidebar_position = get_theme_mod('sidebar_position');
 get_header(); ?>
 <?php
 while ( have_posts() ) : the_post();
-greeky_setpostviews(get_the_ID() ); 
+belsip_setpostviews(get_the_ID() ); 
 ?>
 <!--cols-->
-<?php if($greeky_sidebar_position=="left"):?>
+<?php if($belsip_sidebar_position=="left"):?>
 <div class="cols sidebar-left">
-    <?php elseif($greeky_sidebar_position=="none"):?>
+    <?php elseif($belsip_sidebar_position=="none"):?>
     <div class="cols cols-full">
         <?php else:?>
         <div class="cols">
@@ -56,7 +56,7 @@ greeky_setpostviews(get_the_ID() );
                         <div class="detail-content">
                             <?php the_content(); ?>
                             <?php wp_link_pages( array(
-                            'before' => '<div class="page-links">' . esc_html( 'Pages:', 'greeky' ),
+                            'before' => '<div class="page-links">' . esc_html( 'Pages:', 'belsip' ),
                             'after'  => '</div>',
                               ) );
                               ?>
@@ -66,25 +66,25 @@ greeky_setpostviews(get_the_ID() );
                         <div class="shares">
                             <div class="box-detail-caption">
                                 <span>
-                                    <?php echo esc_html("Share To","greeky") ?> </span>
+                                    <?php echo esc_html("Share To","belsip") ?> </span>
                             </div>
                             <div class="share-content">
-                                <a data-href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink());?>&p[images][0]=<?php echo wp_get_attachment_url(get_post_thumbnail_id());?>" title="<?php _e('Facebook','greeky');?>" class="share-link facebook">
+                                <a data-href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink());?>&p[images][0]=<?php echo wp_get_attachment_url(get_post_thumbnail_id());?>" title="<?php _e('Facebook','belsip');?>" class="share-link facebook">
                                     <i class="fa fa-facebook"></i>
                                 </a>
-                                <a data-href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink());?>&amp;text=<?php echo urlencode(get_the_title());?>" title="<?php _e('Twitter','greeky');?>" class="share-link twitter">
+                                <a data-href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink());?>&amp;text=<?php echo urlencode(get_the_title());?>" title="<?php _e('Twitter','belsip');?>" class="share-link twitter">
                                     <i class="fa fa-twitter"></i>
                                 </a>
-                                <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" title="<?php _e('Pinterest','greeky');?>" class="share-link pinterest">
+                                <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" title="<?php _e('Pinterest','belsip');?>" class="share-link pinterest">
                                     <i class="fa fa-pinterest"></i>
                                 </a>
-                                <a data-href="https://plus.google.com/share?url=<?php echo urlencode(get_permalink());?>" title="<?php _e('Google+','greeky');?>" class="share-link google">
+                                <a data-href="https://plus.google.com/share?url=<?php echo urlencode(get_permalink());?>" title="<?php _e('Google+','belsip');?>" class="share-link google">
                                     <i class="fa fa-google-plus"></i>
                                 </a>
-                                <a data-href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink());?>" title="<?php _e('Linkedin','greeky');?>" class="share-link linkedin">
+                                <a data-href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink());?>" title="<?php _e('Linkedin','belsip');?>" class="share-link linkedin">
                                     <i class="fa fa-linkedin"></i>
                                 </a>
-                                <a href="mailto:?subject=<?php echo urlencode(get_permalink());?>" title="<?php _e('Email','greeky');?>" class="email">
+                                <a href="mailto:?subject=<?php echo urlencode(get_permalink());?>" title="<?php _e('Email','belsip');?>" class="email">
                                     <i class="fa fa-envelope"></i>
                                 </a>
                             </div>

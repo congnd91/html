@@ -4,15 +4,15 @@
 *
 * @link https://codex.wordpress.org/Template_Hierarchy
 *
-* @package greeky
+* @package belsip
 */
 
-$greeky_sidebar_position = get_theme_mod('sidebar_position');
+$belsip_sidebar_position = get_theme_mod('sidebar_position');
 get_header(); ?>
 <!--cols-->
-<?php if($greeky_sidebar_position=="left"):?>
+<?php if($belsip_sidebar_position=="left"):?>
 <div class="cols sidebar-left">
-    <?php elseif($greeky_sidebar_position=="none"):?>
+    <?php elseif($belsip_sidebar_position=="none"):?>
     <div class="cols cols-full">
         <?php else:?>
         <div class="cols">
@@ -36,7 +36,7 @@ get_header(); ?>
 				             	get_template_part( 'loop/content','grid-mode');
 						endwhile; ?>
                         </div>
-                        <?php echo  greeky_pagination();
+                        <?php echo  belsip_pagination();
 					}
 					else 
 					{

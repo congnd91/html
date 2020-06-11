@@ -9,9 +9,9 @@
 *
 * @link https://codex.wordpress.org/Template_Hierarchy
 *
-* @package greeky
+* @package belsip
 */
-$greeky_sidebar_position = get_theme_mod('sidebar_position');
+$belsip_sidebar_position = get_theme_mod('sidebar_position');
 get_header(); ?>
     <!--sliderhome-->
     <section class="home-slider" id="home">

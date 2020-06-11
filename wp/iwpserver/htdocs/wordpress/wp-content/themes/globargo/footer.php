@@ -6,15 +6,12 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package greeky
+ * @package belsip
  */
-
 ?>
-
   <footer class="footer">
     <div class="container">
       <div class="footer-flex">
-
         <div class="left">
           © Belsipa
         </div>
@@ -22,12 +19,8 @@
         </div>
       </div>
     </div>
-
   </footer>
   </div>
-
-
-
   <?php wp_footer(); ?>
   </body>
 

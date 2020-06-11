@@ -1,13 +1,13 @@
 <?php
 /**
- * greeky functions and definitions
+ * belsip functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package greeky
+ * @package belsip
  */
 
-if ( ! function_exists( 'greeky_setup' ) ) :
+if ( ! function_exists( 'belsip_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'greeky_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function greeky_setup() {
+function belsip_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on greeky, use a find and replace
-	 * to change 'greeky' to the name of your theme in all the template files.
+	 * If you're building a theme based on belsip, use a find and replace
+	 * to change 'belsip' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'greeky', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'belsip', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -42,21 +42,21 @@ function greeky_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'post-thumbnails' );
-    add_image_size( 'greeky_portrait', 1172, 950, true );
-	add_image_size( 'greeky_landscape', 1000, 600, true );
-	add_image_size( 'greeky_small', 70, 60, true );
-	add_image_size( 'greeky_nocrop', 1000, 9999, false );  // medium thumbnail no crop
+    add_image_size( 'belsip_portrait', 1172, 950, true );
+	add_image_size( 'belsip_landscape', 1000, 600, true );
+	add_image_size( 'belsip_small', 70, 60, true );
+	add_image_size( 'belsip_nocrop', 1000, 9999, false );  // medium thumbnail no crop
 	add_theme_support('post-formats', array( 'video', 'audio', 'gallery' ) );
 
 	// Implements editor styling
 	add_editor_style();
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'main-menu' => esc_html__( 'Primary', 'greeky' ),
+		'main-menu' => esc_html__( 'Primary', 'belsip' ),
 	) );
     
     register_nav_menus( array(
-		'footer-menu' => esc_html__( 'Footer Menu', 'greeky' ),
+		'footer-menu' => esc_html__( 'Footer Menu', 'belsip' ),
 	) );
 
 	/*
@@ -72,7 +72,7 @@ function greeky_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'greeky_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'belsip_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
@@ -81,7 +81,7 @@ function greeky_setup() {
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
 endif;
-add_action( 'after_setup_theme', 'greeky_setup' );
+add_action( 'after_setup_theme', 'belsip_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -90,10 +90,10 @@ add_action( 'after_setup_theme', 'greeky_setup' );
  *
  * @global int $content_width
  */
-function greeky_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'greeky_content_width', 640 );
+function belsip_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'belsip_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'greeky_content_width', 0 );
+add_action( 'after_setup_theme', 'belsip_content_width', 0 );
 
 
 /**
@@ -138,8 +138,8 @@ require get_template_directory() . '/inc/customizer.php';
 
 
 // Pagination 
-if ( !function_exists('greeky_pagination') ) {
-function greeky_pagination( $custom_query = false ){
+if ( !function_exists('belsip_pagination') ) {
+function belsip_pagination( $custom_query = false ){
 	global $wp_query;
 	
 	if ( !$custom_query ) $custom_query = $wp_query;
@@ -151,8 +151,8 @@ function greeky_pagination( $custom_query = false ){
 		'current' => max( 1, get_query_var('paged') ),
 		'total' => $custom_query->max_num_pages,
 		'type'			=> 'plain',
-		'prev_text'    =>  esc_html('PREV','greeky') ,
-		'next_text'    =>  esc_html('NEXT','greeky') ,
+		'prev_text'    =>  esc_html('PREV','belsip') ,
+		'next_text'    =>  esc_html('NEXT','belsip') ,
 	) );
 	
 	if ( $pagination ) {
@@ -167,10 +167,10 @@ function greeky_pagination( $custom_query = false ){
 
 
 // Custom body class
-add_action('body_class','greeky_body_class');
-if (!function_exists('greeky_body_class'))
+add_action('body_class','belsip_body_class');
+if (!function_exists('belsip_body_class'))
 {
-	function greeky_body_class($classes){
+	function belsip_body_class($classes){
 
 	    if (is_page_template('template/home_boxed.php')) {
             $classes[] = 'layout-boxed';
@@ -199,13 +199,13 @@ if (!function_exists('greeky_body_class'))
 /*
 Register Fonts
 */
-function greeky_fonts_url() {
+function belsip_fonts_url() {
     $font_url = '';
     /*
     Translators: If there are characters in your language that are not supported
     by chosen font(s), translate this to 'off'. Do not translate into your own language.
      */
-    if ( 'off' !== _x( 'on', 'Google font: on or off', 'greeky' ) ) {
+    if ( 'off' !== _x( 'on', 'Google font: on or off', 'belsip' ) ) {
         $font_url = add_query_arg( 'family', urlencode('Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|PT+Sans:400,400i,700,700i&display=swap'), "//fonts.googleapis.com/css" );
     }
     return $font_url;
@@ -227,10 +227,10 @@ add_action('wp_enqueue_scripts', 'shapeSpace_include_custom_jquery');
 
 
 
-function greeky_scripts() {
+function belsip_scripts() {
 	$version = wp_get_theme( wp_get_theme()->template )->get( 'Version' );
-	wp_enqueue_style( 'greeky-fonts', greeky_fonts_url(), array(), '1.0.0' );
-	wp_enqueue_style( 'greeky-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'belsip-fonts', belsip_fonts_url(), array(), '1.0.0' );
+	wp_enqueue_style( 'belsip-style', get_stylesheet_uri() );
     
         
 
@@ -239,7 +239,7 @@ function greeky_scripts() {
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() .'/css/bootstrap.min.css' );
 	wp_enqueue_style( 'owl', get_template_directory_uri() .'/css/owl.carousel.min.css' );
     
-	wp_enqueue_style( 'greeky-main', get_template_directory_uri() .'/css/main.css' );
+	wp_enqueue_style( 'belsip-main', get_template_directory_uri() .'/css/main.css' );
     
 //	wp_deregister_script('jquery');
   //   wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery.min.js', array('jquery'),null,true );
@@ -253,22 +253,22 @@ function greeky_scripts() {
 	wp_enqueue_script( 'owl', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'),$version, true );
 	wp_enqueue_script( 'matchHeight', get_template_directory_uri() . '/js/jquery.matchHeight.min.js', array('jquery'),$version, true );
     
-	wp_enqueue_script( 'greeky-main', get_template_directory_uri() . '/js/main.js', array('jquery'),$version, true );
+	wp_enqueue_script( 'belsip-main', get_template_directory_uri() . '/js/main.js', array('jquery'),$version, true );
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'greeky_scripts' );
+add_action( 'wp_enqueue_scripts', 'belsip_scripts' );
 
 
 
-function greeky_excerpt_more( $more ) {
+function belsip_excerpt_more( $more ) {
 	return '...';
 }
 
-function greeky_excerpt_length($length) {
+function belsip_excerpt_length($length) {
 	return 25;
 }
 
@@ -276,7 +276,7 @@ function greeky_excerpt_length($length) {
 /**
  * Breadcrumb
  */
-function greeky_breadcrumbs() {
+function belsip_breadcrumbs() {
     $delimiter = '<span><i class="fa fa-angle-right"></i></span>';
     $home = 'Home'; 
     $before = ''; 
@@ -300,7 +300,7 @@ function greeky_breadcrumbs() {
 
 
 // Post Views Counter
-function greeky_setpostviews($postID) {
+function belsip_setpostviews($postID) {
 
     //check if user not administrator, if so execute code block within
     if( !current_user_can('administrator') ) {
@@ -330,7 +330,7 @@ function greeky_setpostviews($postID) {
         }
     }
 }
-function greeky_getpostviews($postID){
+function belsip_getpostviews($postID){
     $count_key = 'post_views_count';
     $count = get_post_meta($postID, $count_key, true);
     if($count==''){
@@ -339,10 +339,10 @@ function greeky_getpostviews($postID){
         return "";
     }
     elseif($count >= 1000) {
-       return round(($count/1000),1) . esc_html__( ' K', 'greeky' );
+       return round(($count/1000),1) . esc_html__( ' K', 'belsip' );
     }
     elseif($count >= 1000) {
-       return round(($count/1000000),1) . esc_html__( ' M', 'greeky' );
+       return round(($count/1000000),1) . esc_html__( ' M', 'belsip' );
     }
     else {
         return $count;

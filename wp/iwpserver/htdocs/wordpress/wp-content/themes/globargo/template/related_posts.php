@@ -17,7 +17,7 @@ if( $my_query->have_posts() ):
 <div class="related-post">
     <div class="box-detail-caption">
         <span>
-            <?php echo esc_html("YOU MIGHT ALSO LIKE","greeky") ?></span>
+            <?php echo esc_html("YOU MIGHT ALSO LIKE","belsip") ?></span>
     </div>
 
 
@@ -29,7 +29,7 @@ if( $my_query->have_posts() ):
             <div class="col-md-4 col-xs-12">
                 <article class="three-item">
                     <?php if(has_post_thumbnail()){  ?>
-                    <?php global $post; $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'greeky_landscape');  ?>
+                    <?php global $post; $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'belsip_landscape');  ?>
                     <div class="post-thumb">
                         <a href="<?php the_permalink(); ?>">
                             <?php if (has_post_format( 'audio' ) ) { ?>
