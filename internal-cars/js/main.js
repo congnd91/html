@@ -78,10 +78,38 @@
         }
       });
     }
+    db.playVideo = function () {
+
+      var $videoSrc;
+      $('.icon-play').click(function () {
+        $videoSrc = $(this).data("src");
+
+      });
+
+      // when the modal is opened autoplay it  
+      $('#modal-video').on('shown.bs.modal', function (e) {
+
+        // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+        $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
+      })
+
+
+
+      // stop playing the youtube video when I close the modal
+      $('#modal-video').on('hide.bs.modal', function (e) {
+        // a poor man's stop video
+        $("#video").attr('src', $videoSrc);
+      })
+
+    }
+
+
+
     db.preLoad();
     db.menuResponsive();
     db.newsSlider();
     db.accordion();
     db.matchHeight();
+    db.playVideo();
   });
 })(jQuery);

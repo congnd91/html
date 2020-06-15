@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stripe Card Elements sample</title>
+    <meta name="description" content="A demo of Stripe Payment Intents" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="/script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="sr-root">
+      <div class="row">
+        <div class="column">
+          <h1>Website Name</h1>
+          <h2>description filler text</h2>
+          <h2>description filler more</h2>
+          <div id="option-box" class="option-box">
+            <input type="radio" id="option-1" name="product-options" checked="checked"/>
+            <label for="option-1">Category 1<div class="product-price">$1.00</div></label>
+
+            <input type="radio" id="option-2" name="product-options" checked="checked"/>
+            <label for="option-2">Category 2<div class="product-price">$1.00</div></label>
+
+            <input type="radio" id="option-3" name="product-options" checked="checked"/>
+            <label for="option-3">Category 3<div class="product-price">$1.00</div></label>
+
+            <input type="radio" id="option-4" name="product-options" checked="checked"/>
+            <label for="option-4">Category 4<div class="product-price">$1.00</div></label>
+          </div>
+          <div class="user-form">
+            <form id="payment-form" class="sr-payment-form">
+              <div class="sr-combo-inputs-row">
+                <div class="row">
+                  <label for="email" >Your Email</label>
+                  <input id="email" type="text" placeholder="test@gmail.com" required="" autocomplete="email">
+                </div>
+                <div class="row">
+                  <label for="friend-phone" >Friend's Phone</label>
+                  <input id="friend-phone" type="text" placeholder="1111111111" required="" autocomplete="tel">
+                </div>
+                <div class="sr-input sr-card-element" id="card-element"></div>
+              </div>
+              NA/Canada only
+              <div class="sr-field-error" id="card-errors" role="alert"></div>
+              <button id="submit">
+                <div class="spinner hidden" id="spinner"></div>
+                <span id="button-text">Pay</span><span id="order-amount"></span>
+              </button>
+            </form>
+            <div classs="success-box" id="success-box">Success!</div>
+          </div>
+        </div>
+        <div class="column product-display">
+          <video autoplay="autoplay" loop="true" poster="https://sendnoodz.io/images/demo.gif" src="https://sendnoodz.io/video/clip.mp4" width="360"></video>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
