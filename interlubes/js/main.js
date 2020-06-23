@@ -149,6 +149,23 @@
         }
       });
 
+      $('.product-tab-mobile .prm-caption').on('click', function (e) {
+
+        var content = $(this).next();
+
+        if ($(content).is(":visible")) {
+
+          $(content).hide();
+          $(this).removeClass("active");
+
+        } else {
+          $(content).show();
+          $(this).addClass("active");
+
+        }
+      });
+
+
 
     }
 
