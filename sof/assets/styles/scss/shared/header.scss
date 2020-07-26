@@ -1,0 +1,495 @@
+.topbar {
+  background-color: $active-color;
+  min-height: 32px;
+  .topbar-inner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .language {
+      .dropdown-toggle {
+        position: relative;
+        font-size: 12px;
+        color: #fff;
+        display: flex;
+        line-height: 32px;
+        align-items: center;
+        justify-content: space-between;
+        img {
+          height: 15px;
+          flex-shrink: 0;
+          margin: 0px 5px 0px 0px;
+        }
+        i {
+          margin: 0px 0px 0px 10px;
+        }
+        &:after {
+          display: none;
+        }
+        i.flag {
+          margin: 0px 5px 0px 0px;
+          transform: scale(0.9);
+          position: relative;
+          top: 1px;
+        }
+      }
+      .dropdown-menu {
+        border: 1px solid $border-color;
+        border-radius: 0px;
+        margin: 0px 0px 0px -10px;
+        padding: 2px 0px;
+        .language-item {
+          padding: 7px 10px;
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+          i.flag {
+            margin: 0px 5px 0px 0px;
+            transform: scale(0.9);
+          }
+          &:hover {
+            cursor: pointer;
+            color: $active-color;
+            background-color: #f5f5f5;
+          }
+        }
+      }
+    }
+    .user-dropdown {
+      .dropdown-toggle {
+        position: relative;
+        font-size: 12px;
+        color: #fff;
+        display: flex;
+        line-height: 32px;
+        align-items: center;
+        justify-content: space-between;
+        .icon {
+          height: 32px;
+          width: 32px;
+          background-image: url(../images/user.png);
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: 20px auto;
+        }
+        &:after {
+          display: none;
+        }
+      }
+      .dropdown-menu {
+        border: 1px solid $border-color;
+        border-radius: 0px;
+        margin: 0px 0px 0px -10px;
+        padding: 2px 0px;
+        .item {
+          padding: 7px 10px;
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+          &:hover {
+            cursor: pointer;
+            color: $active-color;
+            background-color: #f5f5f5;
+          }
+        }
+      }
+    }
+    .user-control {
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+      a {
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff;
+        display: inline-block;
+        line-height: 32px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      span {
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff;
+        display: inline-block;
+        line-height: 32px;
+        margin: 0px 5px;
+      }
+    }
+    .menu-icon {
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      text-align: right;
+      cursor: pointer;
+      display: none;
+      color: #fff;
+      font-size: 15px;
+      @media screen and (max-width: 767px) {
+        display: block;
+      }
+    }
+  }
+}
+
+.header {
+  background-color: #fff;
+  position: fixed;
+  padding: 25px 0px 10px 0px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1000;
+  transition: all ease 0.3s;
+  @media screen and (max-width: 991px) {
+    padding: 20px 0px;
+  }
+  .header-inner {
+    padding: 100px 0px 0px 0px;
+    position: relative;
+    transition: all ease 0.3s;
+    min-height: 75px;
+    @media screen and (max-width: 991px) {
+      padding: 0px 0px 0px 0px;
+      min-height: 42px;
+    }
+    .logo {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      display: block;
+      height: 75px;
+      width: 100%;
+      @media screen and (max-width: 991px) {
+        height: 42px;
+      }
+      img {
+        height: 75px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        transition: all ease 0.3s;
+        @media screen and (max-width: 991px) {
+          height: 42px;
+        }
+      }
+      .logo-small {
+        opacity: 0;
+      }
+      .logo-origin {
+        opacity: 1;
+      }
+    }
+    .header-right {
+      float: right;
+    }
+  }
+  .menu {
+    float: left;
+    @media screen and (max-width: 991px) {
+      display: none;
+    }
+    > ul {
+      list-style: none;
+      margin: 0px;
+      margin: 0px;
+      > li {
+        margin: 0px 23px 0px 0px;
+        display: inline-block;
+        position: relative;
+        @media screen and (max-width: 1199px) {
+          margin: 0px 24px 0px 0px;
+        }
+        > a {
+          text-transform: uppercase;
+          font-size: 17px;
+          font-weight: 600;
+          color: $active-color;
+          line-height: 42px;
+          display: block;
+          border-bottom: 3px solid transparent;
+          transition: all ease 0.3s;
+        }
+        > ul {
+          position: absolute;
+          top: 100%;
+          left: -20px;
+          width: 250px;
+          background-color: #e3eaeb;
+          line-height: none;
+          padding: 10px 0px 20px 0px;
+          visibility: hidden;
+          transition: all ease 0.3s;
+          margin-top: 10px;
+          opacity: 0;
+          z-index: 999;
+          > li {
+            > a {
+              display: block;
+              padding: 6px 20px 6px 20px;
+              color: $active-color-second;
+              text-transform: uppercase;
+              font-size: 15px;
+              font-weight: 600;
+              transition: all ease 0.3s;
+              &:hover {
+                color: $active-color;
+              }
+            }
+          }
+        }
+        &:hover {
+          > a {
+            border-bottom: 3px solid $active-color;
+            color: $active-color-second;
+          }
+          > ul {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 0px;
+          }
+        }
+      }
+    }
+  }
+  .search-icon {
+    float: left;
+    line-height: 40px;
+    width: 30px;
+    text-align: center;
+    color: $active-color;
+    font-size: 16px;
+    margin-left: 24px;
+    cursor: pointer;
+    i {
+      color: $active-color;
+    }
+  }
+  .menu-icon {
+    float: left;
+    line-height: 40px;
+    width: 30px;
+    text-align: center;
+    color: $active-color;
+    font-size: 16px;
+    margin-left: 2px;
+    cursor: pointer;
+    i {
+      color: $active-color;
+    }
+    display: none;
+    @media screen and (max-width: 991px) {
+      display: block;
+    }
+  }
+  &.header-scrolled {
+    padding: 10px 0px 10px 0px;
+    @media screen and (max-width: 991px) {
+      padding: 20px 0px;
+    }
+    .header-inner {
+      padding: 20px 0px 0px 0px;
+      position: relative;
+      @media screen and (max-width: 991px) {
+        padding: 0px;
+      }
+      .logo {
+        .logo-small {
+          opacity: 1;
+        }
+        .logo-origin {
+          opacity: 0;
+        }
+      }
+      .header-right {
+        float: right;
+      }
+    }
+  }
+}
+
+.menu-mobile {
+  background-color: #e3eaeb;
+  z-index: 999999;
+  padding: 0px;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @media screen and (min-width: 992px) {
+    display: none !important;
+  }
+  .mm-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px;
+    a.logo {
+      img {
+        height: 42px;
+      }
+    }
+    .close-menu {
+      line-height: 42px;
+      width: 30px;
+      text-align: center;
+      color: $active-color;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+  .mm-content {
+    position: relative;
+    overflow-y: auto;
+    max-height: calc(100vh - 80px);
+    margin: 0px -15px;
+  }
+  .mm-content {
+    > ul {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      > li {
+        display: block;
+        > a {
+          font-size: 18px;
+          color: $active-color-second;
+          font-weight: 600;
+          padding: 0px 15px;
+          display: block;
+          position: relative;
+          > i {
+            float: right;
+            margin: 8px 5px 0px 0px;
+          }
+          span {
+            display: inline-block;
+            padding: 6px 0px;
+            border-bottom: 2px solid transparent;
+          }
+        }
+        &.active {
+          > a {
+            span {
+              color: $active-color;
+              border-bottom: 2px solid $active-color;
+            }
+            i {
+              color: $active-color;
+              transform: rotate(180deg);
+            }
+          }
+        }
+        > ul {
+          padding: 10px 15px;
+          background-color: #eef3f4;
+          display: none;
+          li {
+            margin: 6px 0px;
+            a {
+              font-size: 14px;
+              font-weight: 600;
+              color: $active-color-second;
+              &:hover {
+                color: $active-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .open-menu {
+    overflow: hidden;
+    .menu-mobile {
+      display: block;
+    }
+  }
+}
+
+.open-search {
+  .searchbox {
+    z-index: 10;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.searchbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: $bg-color;
+  transition: all ease 0.3s;
+  visibility: hidden;
+  z-index: -1;
+  opacity: 0;
+  .searchbox-inner {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0px;
+    padding: 0px 0px 15px 0px;
+  }
+  .search-form {
+    position: relative;
+    .icon {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 36px;
+      line-height: 50px;
+      font-size: 18px;
+      text-align: left;
+      color: $active-color-second;
+    }
+    .clear {
+      position: absolute;
+      top: 8px;
+      right: 0px;
+      width: 30px;
+      line-height: 50px;
+      font-size: 16px;
+      text-align: center;
+      cursor: pointer;
+    }
+    input {
+      width: 100%;
+      font-size: 24px;
+      height: 50px;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      border-bottom: 1px solid $active-color-second;
+      transition: all ease 0.3s;
+      padding: 0px 40px 0px 36px;
+      @media screen and (max-width: 991px) {
+        font-size: 16px;
+      }
+      &:focus {
+        border-bottom: 1px solid $active-color;
+      }
+    }
+  }
+}
+
+.header-scrolled {
+  .searchbox {
+    .searchbox-inner {
+      padding: 0px 0px 30px 0px;
+      @media screen and (max-width: 991px) {
+        padding: 0px 0px 26px 0px;
+
+      }
+    }
+  }
+}

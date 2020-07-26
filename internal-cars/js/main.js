@@ -78,6 +78,19 @@
         }
       });
     }
+    db.showLoginBlock = function () {
+      $('.user-link .login').on('click', function (e) {
+        var content = $('.login-block');
+        if ($(content).is(":visible")) {
+          $(content).slideUp();
+          $(this).removeClass("active");
+        } else {
+          $(content).slideDown();
+          $(this).addClass("active");
+        }
+        return false;
+      });
+    }
     db.playVideo = function () {
 
       var $videoSrc;
@@ -111,5 +124,12 @@
     db.accordion();
     db.matchHeight();
     db.playVideo();
+    db.showLoginBlock();
+
+    new WOW({
+      offset: 100,
+      mobile: true
+    }).init()
+
   });
 })(jQuery);
