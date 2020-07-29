@@ -62,9 +62,9 @@
 
       function callback(event) {
         $('.counter').countTo({
-          from: 998000,
+          from: 10000,
           to: 1000000,
-          speed: 1000,
+          speed: 90000,
           refreshInterval: 50,
           formatter: function (value, options) {
             return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');

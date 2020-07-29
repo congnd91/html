@@ -15,20 +15,48 @@ img {
   }
 }
 
+.disabled {
+  opacity: 0.5;
+}
+
 .button {
   line-height: 45px;
   background-color: $active-color;
   font-size: 16px;
   color: #fff;
-  display: inline-block;
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
   padding: 0px 20px;
   border: none;
   outline: none;
+  justify-content: center;
   font-weight: bold;
   border-radius: 40px;
   text-align: center;
   cursor: pointer;
   outline: none;
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin: 0px 5px 0px 0px;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &.icon-add {
+      background-image: url(../images/icon-add.svg);
+      background-size: 15px auto;
+    }
+    &.icon-check {
+      background-image: url(../images/icon-check-white.svg);
+      background-size: 15px auto;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    line-height: 40px;
+    font-size: 14px;
+    padding: 0px 15px;
+  }
   &:focus {
     outline: none;
   }
@@ -36,7 +64,6 @@ img {
     background-color: lighten($active-color, 5%);
     color: #fff;
   }
-
   &.is-second {
     background-color: $active-color-second;
     &:hover {
@@ -83,11 +110,11 @@ img {
 }
 
 .text-primary {
-  color: $active-color
+  color: $active-color !important;
 }
 
 .text-second {
-  color: $active-color-second;
+  color: $active-color-second !important;
 }
 
 .db-field {
@@ -97,13 +124,74 @@ img {
     margin: 0px 0px 10px 0px;
     text-transform: uppercase;
     letter-spacing: 2px;
+  }
+}
 
+.toggle-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  span {
+    font-size: 16px;
+    line-height: 30px;
+  }
+}
+
+hr.line {
+  border-color: $border-color;
+  margin: 20px 0px;
+}
+
+.toggle {
+  position: relative;
+  label {
+    display: block;
+    margin: 0px;
+    position: relative;
+    input {
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      width: 0px;
+      height: 0px;
+      visibility: visible;
+      opacity: 0;
+    }
+    strong {
+      cursor: pointer;
+      position: relative;
+      width: 28px;
+      height: 10px;
+      background-color: #363D45;
+      display: block;
+      border-radius: 6px;
+      line-height: 1;
+      transition: all ease 0.2s;
+      &:before {
+        content: "";
+        width: 18px;
+        background-color: #fff;
+        border: 2px solid #363D45;
+        height: 18px;
+        left: -1px;
+        top: -4px;
+        position: absolute;
+        border-radius: 50%;
+        transition: all ease 0.2s;
+      }
+    }
+    input:checked ~ strong {
+      background-color: $green;
+      &:before {
+        border: 2px solid $green;
+        left: 12px;
+      }
+    }
   }
 }
 
 .wrap-field {
   position: relative;
-
   .icon {
     width: 45px;
     height: 45px;
@@ -121,11 +209,13 @@ img {
     &.icon-password {
       background-image: url(../images/icon-lock.svg);
     }
+    &.icon-phone {
+      background-image: url(../images/icon-phone.svg);
+    }
   }
   .input {
     padding: 0px 10px 0px 45px;
   }
-
   &.wrap-field-password {
     .input {
       padding: 0px 40px 0px 45px;
@@ -143,10 +233,8 @@ img {
       &.off {
         background-image: url(../images/icon-eye-hide.svg);
       }
-
     }
   }
-
 }
 
 .input {
@@ -311,25 +399,21 @@ img {
 .modal-dialog.max600 {
   @media screen and (max-width: 767px) {
     max-width: 500px;
-
   }
   @media screen and (max-width: 575px) {
     max-width: none;
     margin: 0px 15px;
     min-width: 290px;
-
   }
 }
 
 .modal-content {
-
   border: none;
   padding: 20px;
   border-radius: 6px;
   padding: 60px 20px 60px 20px;
   @media screen and (max-width: 767px) {
     padding: 50px 20px 20px 20px;
-
   }
   .close-modal {
     width: 20px;
@@ -346,7 +430,6 @@ img {
     margin: 0px auto 20px auto;
     width: 60px;
     height: 60px;
-
     border-radius: 50%;
     background-repeat: no-repeat;
     background-position: center center;
@@ -355,13 +438,16 @@ img {
       background-image: url(../images/icon-check-white.svg);
       background-size: 20px auto;
     }
+    &.icon-lock {
+      background-color: $active-color;
+      background-image: url(../images/icon-lock-white.svg);
+      background-size: 20px auto;
+    }
   }
   .mm-caption {
     font-size: 20px;
     margin: 0px 0px 10px 0px;
-
   }
-
   .mm-content {
     margin: 0px 0px 30px 0px;
     p {
@@ -371,7 +457,10 @@ img {
   .mm-control {
     .button {
       min-width: 120px;
-
     }
   }
+}
+
+.text-orange {
+  color: $orange;
 }
