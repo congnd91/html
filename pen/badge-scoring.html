@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PentesterLab: learn web hacking the right way">
+  <meta name="author" content="">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+  <meta name="csrf-token" content="DE8+JcP7VHxnEdMOjMk6Yo985ArfCYp3Uz0SRJ8PLtZMLOoMLI7Obz5PZsAkJtn0UFVmfWfRgJ5kELbdJTPKDQ==" />
+  <title>PentesterLab: Learn Web App Pentesting!</title>
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="referrer" value="no-referrer" />
+  <meta name="Referrer-Policy" value="no-referrer" />
+  <script src="js/app.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="https://kit.fontawesome.com/e8b397a2b9.js" crossorigin="anonymous"></script>
+
+
+  <link rel="icon" type="image/png" href="//assets.pentesterlab.com/favicon.ico">
+  <meta property="og:image" content="https://assets.pentesterlab.com/jwt_ii/jwt_ii.png" />
+  <meta name="twitter:image" content="https://assets.pentesterlab.com/jwt_ii/jwt_ii.png" />
+  <meta name="twitter:title" content="PentesterLab: JSON Web Token II" />
+  <meta name="twitter:description" content="This exercise covers the exploitation of an issue with some implementations of JWT" />
+
+  <link href="css/modern.css" rel="stylesheet">
+  <link href="css/progress.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/atelier-lakeside-dark.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+
+
+    <div class="wrapper">
+      <nav class="sidebar">
+        <div class="sidebar-content ">
+          <a class="sidebar-brand" href="/">
+          <span class="align-middle"><img src="https://assets.pentesterlab.com/logo_m.png" width='150px' alt="PentesterLab" /></span>
+        </a>
+
+          <ul class="sidebar-nav">
+            <li class="sidebar-item">
+              <a href="/my" class="sidebar-link">
+                <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+              </a>
+            </li>
+            <li class="sidebar-item ">
+              <a href="/my/progress" class="sidebar-link">
+                <i class="align-middle" data-feather="map"></i> <span class="align-middle">Progress</span>
+              </a>
+            </li>
+            <li class="sidebar-item active">
+              <a href="#collapse_unix_00" data-toggle="collapse" class="sidebar-link collapsed">
+              <i class="align-middle" data-feather="bookmark"></i> <span class="align-middle">Unix 00 (next)</span>
+            </a>
+
+              <ul id="collapse_unix_00" class="sidebar-dropdown list-unstyled ">
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/exercises/unix_00/course">
+                    <i class="align-middle" data-feather="book-open"></i> Course</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/exercises/unix_00/videos"><i class="align-middle" data-feather="video"></i> Videos</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/exercises/unix_00/scoring">
+                  <i class="align-middle" data-feather="check-square"></i> Scoring</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="https://pentesterlab.com/badges/unix"><i class="align-middle" data-feather="file"></i>Unix Badge</a>
+                </li>
+              </ul>
+            </li>
+
+
+
+
+
+
+
+
+            <li class="sidebar-item">
+              <a href="/badges/unix" class="sidebar-link">
+              <i class="align-middle" data-feather="arrow-right-circle"></i> <span class="align-middle">Unix Badge (next)</span>
+            </a>
+            </li>
+
+
+
+            <li class="sidebar-item">
+              <a href="#badges" data-toggle="collapse" class="sidebar-link collapsed">
+              <i class="align-middle" data-feather="target"></i> <span class="align-middle">Badges</span>
+            </a>
+              <ul id="badges" class="sidebar-dropdown list-unstyled collapse ">
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/unix">Unix Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/essential">Essential Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/pcap">PCAP badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/whitebadge">White Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/serialize">Serialize Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/intercept">Intercept Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/yellowbadge">Yellow Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/bluebadge">Blue Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/ctf">Capture-The-Flag Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/android">Android Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/orangebadge">Orange Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/auth">Authentication / Authorization Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/greenbadge">Green Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/brownbadge">Brown Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/codereview">Code Review Badge</a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/jserialize">Java Serialize Badge</a>
+                </li>
+                <!--li class="sidebar-item"><a class="sidebar-link" href="pages-clients.html">Essential<span class="sidebar-badge badge badge-primary">12/24</span></a></li-->
+                <!--li class="sidebar-item"><a class="sidebar-link" href="pages-kanban.html">Serialize<span class="sidebar-badge badge badge-primary">New</span></a></li-->
+              </ul>
+            </li>
+
+            <li class="sidebar-item">
+              <a href="#finishedbadges" data-toggle="collapse" class="sidebar-link collapsed">
+              <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Finished Badges</span>
+            </a>
+              <ul id="finishedbadges" class="sidebar-dropdown list-unstyled collapse ">
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/badges/introduction">Introduction Badge</a>
+                </li>
+              </ul>
+            </li>
+
+
+
+
+
+
+          </ul>
+
+        </div>
+      </nav>
+
+
+      <div class="main">
+        <nav class="navbar navbar-expand navbar-light bg-white">
+          <a class="sidebar-toggle d-flex mr-2">
+          <i class="hamburger align-self-center"></i>
+        </a>
+          <form html="{:class=&gt;&quot;form-inline d-none d-sm-inline-block&quot;}" action="/exercises/search" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="eI2Mu/O00Gf08l2uEhYjX09niI8hheBe7rEPP6R8Lys47liSHMFKdK2s6GC6+cDJkE4K+Jld6rfZnKumHkDL8A==" />
+            <input class="form-control form-control-no-border mr-sm-2" name='query' type="text" placeholder="Search..." aria-label="Search">
+          </form>
+          <div class="navbar-collapse collapse">
+            <ul class="navbar-nav ml-auto">
+
+              <script>
+                $.ajaxSetup({
+                  headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                  }
+                });
+
+                function clear_notifications() {
+                  $.ajax({
+                    url: "/my/notifications",
+                    type: 'DELETE',
+                    success: function(data) {
+                      $("#indicator").remove();
+                    }
+                  });
+                }
+
+              </script>
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-toggle="dropdown" onclick="clear_notifications()">
+                  <div class="position-relative">
+                    <i class="align-middle" data-feather="bell"></i>
+                    <span id="indicator" class="indicator">42</span>
+                  </div>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="messagesDropdown">
+                  <div class="dropdown-menu-header">
+                    <div class="position-relative">
+                      42 New Notifications
+                    </div>
+                  </div>
+                  <div class="list-group">
+                    <a href="/exercises/codereview_08/course" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="book-open"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Exercise</div>
+                          <div class="text-muted small mt-1">Code Review 08</div>
+                          <div class="text-muted small mt-1">7 days ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/android_08/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Android 08</div>
+                          <div class="text-muted small mt-1">14 days ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/android_07/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Android 07</div>
+                          <div class="text-muted small mt-1">16 days ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/unicode_down/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Unicode and Downcase</div>
+                          <div class="text-muted small mt-1">21 days ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/unicode_down/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Unicode and Downcase</div>
+                          <div class="text-muted small mt-1">21 days ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/unicode_up/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Unicode and Uppercase</div>
+                          <div class="text-muted small mt-1">21 days ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/saml_iii/course" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="book-open"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Exercise</div>
+                          <div class="text-muted small mt-1">SAML: Comment Injection</div>
+                          <div class="text-muted small mt-1">23 days ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/codereview_01/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Code Review 01</div>
+                          <div class="text-muted small mt-1">about 1 month ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/unicode_down/course" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="book-open"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Exercise</div>
+                          <div class="text-muted small mt-1">Unicode and Downcase</div>
+                          <div class="text-muted small mt-1">about 1 month ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/codereview_07/course" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="book-open"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Exercise</div>
+                          <div class="text-muted small mt-1">Code Review 07</div>
+                          <div class="text-muted small mt-1">about 1 month ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/codereview_01/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Code Review 01</div>
+                          <div class="text-muted small mt-1">about 2 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/unicode_up/course" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="book-open"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Exercise</div>
+                          <div class="text-muted small mt-1">Unicode and Uppercase</div>
+                          <div class="text-muted small mt-1">about 2 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/codereview_01/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Code Review 01</div>
+                          <div class="text-muted small mt-1">about 2 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/codereview_01/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Code Review 01</div>
+                          <div class="text-muted small mt-1">2 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/xsleak/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Cross-Site Leak</div>
+                          <div class="text-muted small mt-1">2 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/jwt_viii/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">JWT VIII</div>
+                          <div class="text-muted small mt-1">2 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/oauth2_csrf_client/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">OAuth2: Client CSRF</div>
+                          <div class="text-muted small mt-1">2 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/codereview_06/course" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="book-open"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Exercise</div>
+                          <div class="text-muted small mt-1">Code Review 06</div>
+                          <div class="text-muted small mt-1">2 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/cve-2018-0114/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">CVE-2018-0114</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/jwt_v/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">JWT V</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/jwt_iv/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">JWT IV</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/spring-actuators/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Spring Actuators</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/jwt_vi/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">JWT VI</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/jwt_iii/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">JWT III</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/xsleak/course" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="book-open"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Exercise</div>
+                          <div class="text-muted small mt-1">Cross-Site Leak</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/from_sqli_to_shell_iii_pg_edition/course" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="book-open"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Exercise</div>
+                          <div class="text-muted small mt-1">From SQL injection to Shell III: PostgreSQL Edition</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/oauth2_csrf_client_ii/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">OAuth2: Client CSRF II</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/oauth2_csrf_client/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">OAuth2: Client CSRF</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/oauth2_csrf_client_ii/course" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="book-open"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Exercise</div>
+                          <div class="text-muted small mt-1">OAuth2: Client CSRF II</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/svg_xss/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">SVG XSS</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/graphql/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">GraphQL Introspection</div>
+                          <div class="text-muted small mt-1">3 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/cve-2016-10033/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">CVE-2016-10033: PHPMailer RCE</div>
+                          <div class="text-muted small mt-1">4 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/s2-045/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Struts s2-045</div>
+                          <div class="text-muted small mt-1">4 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/json_csrf/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">JSON Cross-Site Request Forgery</div>
+                          <div class="text-muted small mt-1">4 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/csrf/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Cross-Site Request Forgery</div>
+                          <div class="text-muted small mt-1">4 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/xssi/course" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="book-open"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Exercise</div>
+                          <div class="text-muted small mt-1">XSS Include</div>
+                          <div class="text-muted small mt-1">4 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/s2-052/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">S2-052</div>
+                          <div class="text-muted small mt-1">4 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/jwt_ii/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">JSON Web Token II</div>
+                          <div class="text-muted small mt-1">4 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/cve-2018-1306/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">Apache Pluto RCE</div>
+                          <div class="text-muted small mt-1">4 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/prototype_pollution/videos" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="video"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Video</div>
+                          <div class="text-muted small mt-1">JS Prototype Pollution</div>
+                          <div class="text-muted small mt-1">4 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/oauth2_csrf_client/course" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="book-open"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Exercise</div>
+                          <div class="text-muted small mt-1">OAuth2: Client CSRF</div>
+                          <div class="text-muted small mt-1">4 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="/exercises/codereview_05/course" class="list-group-item">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-2">
+                          <i data-feather="book-open"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New Exercise</div>
+                          <div class="text-muted small mt-1">Code Review 05</div>
+                          <div class="text-muted small mt-1">4 months ago</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="dropdown-menu-footer">
+                    <a href="/my/notifications" class="text-muted">Show all notifications</a>
+                  </div>
+                </div>
+              </li>
+
+
+              <li class="nav-item dropdown">
+
+                <a class="nav-link dropdown-toggle d-none d-sm-inline-block" data-toggle="dropdown">
+                  <img src="images/avatar.jpg" class="avatar img-fluid rounded-circle mr-1" alt="" /> <span class="text-dark">3232 plop</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="/my/details"><i class="align-middle mr-1" data-feather="user"></i> Profile</a>
+                  <a class="dropdown-item" href="/my/subscription"><i class="align-middle mr-1" data-feather="pie-chart"></i> Subscription</a>
+                  <a class="dropdown-item" href="/my/video_settings"><i class="align-middle mr-1" data-feather="video"></i> Video Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/my/stickers"><i class="align-middle mr-1" data-feather="image"></i> Stickers</a>
+                  <a class="dropdown-item" href="/my/gifts"><i class="align-middle mr-1" data-feather="gift"></i> Gifts</a>
+                  <a class="dropdown-item" href="/my/referrals"><i class="align-middle mr-1" data-feather="users"></i> Referrals</a>
+                  <!-- <a class="dropdown-item" href="pages-settings.html">Settings & Privacy</a>-->
+                  <!--<a class="dropdown-item" href="#">Help</a>-->
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/users/sign_out"><i class="align-middle mr-1" data-feather="log-out"></i> Sign-out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+
+
+
+        <main class="content">
+          <div class="container mb-3">
+            <div class="row align-items-center">
+              <div class="col-lg-6 col-md-12">
+
+                <h1 class="h1 mb-1">Scoring Unix 00
+
+                </h1>
+              </div>
+
+              <div class="col-lg-6 col-md-12">
+
+                <div class="badge-bar">
+
+                  <button class="btn btn-outline-primary">
+                <i class="fa fa-arrow-left mr-1"></i>
+                
+                Back to Unix bage</button>
+
+
+
+                </div>
+
+
+              </div>
+
+            </div>
+
+
+
+
+
+
+
+          </div>
+
+
+          <!-- row for headers-->
+          <div class="container">
+
+            <div class="badge-group">
+
+
+
+              <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="db-detail-box">
+
+
+
+
+
+
+
+
+
+
+                    To mark this exercise as completed, you need to submit the key that you will get by finishing this exercise:<br><br>
+                    <form action="https://pentesterlab.com/exercises/unix_00/score_with_key" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="vDdQBDCC1/bM7Yzzi8bKFx0f9Vgg3k24pJfLtEjvs2H8VIQt3/dN5ZWzOT0jKSmBwjZ3L5gGR1GTum8t8tNXug==">
+                      <div class="form-group">
+
+                        <div class="row">
+
+                          <div class="col-lg-6 col-md-10 col-8">
+                            <input type="password" class="form-control" placeholder=" xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" value="">
+                          </div>
+                          <div class="col-lg-2 col-md-2 col-4">
+                            <button type="submit" class="btn btn-primary ml-n4">Submit</button>
+                          </div>
+                        </div>
+
+
+                      </div>
+
+
+
+
+                    </form>
+
+                    <br> You can access this exercise using the following URL:
+                    <a href="http://ptl-bbcfeaa8-ab619b36.libcurl.so/" target="_blank" rel="noopener">http://ptl-bbcfeaa8-ab619b36.libcurl.so/</a>.
+
+                    <br/><br/> You can also use the TLS version if you're experiencing timeouts due to network filtering: <a href="https://ptl-bbcfeaa8-ab619b36.libcurl.so/" target="_blank" rel="noopener">https://ptl-bbcfeaa8-ab619b36.libcurl.so/</a>.
+
+
+
+                    <br/><br/>
+
+                    <div class="alert alert-warning " role="alert">
+                      <div class="alert-icon">
+                        <i class="far fa-fw fa-bell"></i>
+                      </div>
+                      <div class="alert-message">
+                        <strong>Please don't publish any public write-up for our PRO exercises. Thanks!</strong>
+                      </div>
+                    </div>
+
+
+
+
+                    <br><br>
+
+
+
+
+
+
+
+
+
+
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+
+
+        </main>
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row text-muted">
+              <div class="col-6 text-left">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <a class="text-muted" href="mailto:support@pentesterlab.com">Support</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="text-muted" href="/privacy">Privacy</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="text-muted" href="/terms">Terms of Service</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-6 text-right">
+                <p class="mb-0">
+                  &copy; 2020 - <a href="https://pentesterlab.com/" class="text-muted">PentesterLab</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+
+    <script>
+      $(function() {
+        $("pre code").each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+      });
+
+    </script>
+
+
+
+</body>
+
+</html>

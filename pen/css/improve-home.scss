@@ -649,6 +649,22 @@ $active-color:#0099fe;
         font-size: 30px;
         font-weight: 600;
         margin: 0px 0px 0px 0px;
+        position: relative;
+        span {
+          text-transform: uppercase;
+          font-size: 10px;
+          display: inline-block;
+          border-radius: 3px;
+          padding: 4px 6px;
+          font-weight: normal;
+          position: relative;
+          line-height: 1;
+          background-color: #ff002b;
+          top: -15px;
+          color: #fff;
+          left: 2px;
+
+        }
       }
       .email {
         font-size: 15px;
@@ -733,15 +749,19 @@ $active-color:#0099fe;
       margin: 20px 0px 0px 0px;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
 
-      @media screen and (max-width: 767px) {
-        flex-wrap: wrap;
-      }
+      @media screen and (max-width: 767px) {}
       .item {
+
+
+        width: 20%;
         display: inline-block;
 
-
         margin: 0px 0px 30px 0px;
+        @media screen and (max-width: 991px) {
+          width: 33.33%;
+        }
         @media screen and (max-width: 767px) {
           width: 50%;
 
@@ -761,6 +781,9 @@ $active-color:#0099fe;
             a {
               color: $text-color;
               text-decoration: none;
+              &:hover {
+                color: $active-color;
+              }
 
             }
           }
@@ -794,6 +817,26 @@ $active-color:#0099fe;
         background-color: #06c43f;
       }
     }
+    .offline {
+      font-size: 16px;
+      padding: 0px 0px 0px 20px;
+      margin: 0px 0px 10px 0px;
+      position: relative;
+      color: red;
+
+      &:before {
+        content: "";
+        display: block;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        margin-top: -6px;
+        border-radius: 50%;
+        background-color: red;
+      }
+    }
     p {
       margin: 0px 0px 5px 0px;
       font-size: 15px;
@@ -804,6 +847,13 @@ $active-color:#0099fe;
       }
     }
   }
+  .pc-hacktivity {
+    border: 1px solid #ddd;
+    padding: 15px 20px;
+    min-height: 200px;
+    background-color: #fff;
+
+  }
 }
 
 
@@ -812,6 +862,8 @@ $active-color:#0099fe;
 .mc-content {
   .thumb {
     text-align: center;
+    max-width: 700px;
+    margin: 0px auto;
     img {
       margin: 20px 0px 10px 0px;
       box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);

@@ -1371,14 +1371,58 @@ body {
           color: #000;
           transition: all ease 0.3s;
           font-weight: 600;
-          text-transform: uppercase; }
+          text-transform: uppercase;
+          position: relative; }
           @media screen and (max-width: 1199px) {
             .header .menu > ul > li > a {
               font-size: 14px; } }
+        .header .menu > ul > li.has-child > a {
+          padding-right: 25px; }
+          .header .menu > ul > li.has-child > a:before {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 15px;
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            margin: -6px 0px 0px 0px;
+            background-image: url(../images/arrow.png);
+            background-repeat: no-repeat;
+            background-position: center center; }
+        .header .menu > ul > li.has-child:hover ul {
+          margin-top: 0px;
+          visibility: visible;
+          opacity: 1;
+          z-index: 100; }
         .header .menu > ul > li:hover > a {
           color: #007DC5; }
         .header .menu > ul > li.active a {
           color: #007DC5; }
+      .header .menu > ul ul {
+        position: absolute;
+        top: 100%;
+        left: -20px;
+        width: 200px;
+        padding: 5px 0px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        list-style: none;
+        margin-top: 10px;
+        transition: all ease 0.3s;
+        opacity: 0;
+        visibility: hidden;
+        z-index: -1; }
+        .header .menu > ul ul li {
+          display: block; }
+          .header .menu > ul ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: #000;
+            font-size: 16px; }
+          .header .menu > ul ul li:hover a {
+            background-color: #fafafa;
+            color: #007DC5; }
   .header .header-right {
     float: right; }
   .header .user-control {
@@ -2174,6 +2218,46 @@ body {
 
 .quick-slider {
   position: relative; }
+  .quick-slider .owl-prev {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    left: 0px;
+    margin: -60px 0px 0px 0px;
+    background-color: #ddd !important;
+    text-align: center;
+    line-height: 40px;
+    border: none;
+    outline: none;
+    text-align: center; }
+    .quick-slider .owl-prev span {
+      height: 40px;
+      margin: 0px;
+      font-size: 30px !important;
+      line-height: 25px; }
+    .quick-slider .owl-prev:hover span {
+      color: #007DC5; }
+  .quick-slider .owl-next {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    right: 0px;
+    margin: -60px 0px 0px 0px;
+    background-color: #ddd !important;
+    text-align: center;
+    line-height: 40px;
+    border: none;
+    outline: none;
+    text-align: center; }
+    .quick-slider .owl-next span {
+      height: 40px;
+      margin: 0px;
+      font-size: 30px !important;
+      line-height: 25px; }
+    .quick-slider .owl-next:hover span {
+      color: #007DC5; }
   .quick-slider .item {
     padding: 0px 25px 25px 0px; }
   .quick-slider .qi-caption {
@@ -2290,5 +2374,106 @@ body {
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
+
+.block-brand .block-caption p {
+  font-size: 24px;
+  max-width: 100%; }
+  @media screen and (max-width: 991px) {
+    .block-brand .block-caption p {
+      font-size: 14px; } }
+
+.block-brand .bm-img {
+  text-align: right; }
+  @media screen and (max-width: 991px) {
+    .block-brand .bm-img {
+      text-align: center; } }
+
+.block-brand .bm-row {
+  margin: 40px 0px 20px 0px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between; }
+  @media screen and (max-width: 767px) {
+    .block-brand .bm-row {
+      flex-wrap: wrap;
+      margin: 30px auto 0px auto;
+      max-width: 400px;
+      justify-content: center; } }
+  .block-brand .bm-row .item {
+    text-align: center;
+    background-color: #fff;
+    position: relative;
+    margin: 0px 17px 17px 0px; }
+    @media screen and (max-width: 767px) {
+      .block-brand .bm-row .item {
+        margin: 0px 0px 30px 0px; } }
+    .block-brand .bm-row .item .item-inner {
+      background-color: #fff;
+      min-height: 100px;
+      position: relative;
+      z-index: 2;
+      padding: 5px;
+      min-width: 245px;
+      padding: 20px; }
+      @media screen and (max-width: 991px) {
+        .block-brand .bm-row .item .item-inner {
+          min-width: 200px; } }
+    .block-brand .bm-row .item:before {
+      content: "";
+      display: block;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-color: #007DC5;
+      position: absolute;
+      bottom: -17px;
+      left: 17px; }
+      @media screen and (max-width: 991px) {
+        .block-brand .bm-row .item:before {
+          left: 5px;
+          bottom: -5px; } }
+    .block-brand .bm-row .item .icon {
+      margin: 5px 0px 30px 0px; }
+    .block-brand .bm-row .item .db-btn {
+      min-width: 180px;
+      font-size: 14px;
+      padding: 0px 10px;
+      text-align: center; }
+
+@media screen and (max-width: 991px) {
+  .block-audience .block-caption p {
+    max-width: 100%; } }
+
+.block-campaign {
+  background-image: url(../images/s1.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 100px 0px; }
+  .block-campaign .campaign-content {
+    background: rgba(83, 83, 83, 0.6);
+    max-width: 600px;
+    padding: 50px; }
+    @media screen and (max-width: 991px) {
+      .block-campaign .campaign-content {
+        padding: 30px; } }
+    .block-campaign .campaign-content h2 {
+      font-size: 35px;
+      color: #fff;
+      font-weight: bold;
+      margin: 0px 0px 20px 0px; }
+      @media screen and (max-width: 991px) {
+        .block-campaign .campaign-content h2 {
+          font-size: 25px; } }
+    .block-campaign .campaign-content p {
+      font-size: 16px;
+      color: #fff;
+      margin: 0px 0px 30px 0px;
+      padding: 0px;
+      max-width: 350px; }
+      @media screen and (max-width: 991px) {
+        .block-campaign .campaign-content p {
+          font-size: 14px;
+          max-width: 100%; } }
 
 /*# sourceMappingURL=main.css.map */

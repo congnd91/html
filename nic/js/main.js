@@ -56,7 +56,7 @@
         loop: true,
         margin: 0,
         items: 1,
-        nav: false,
+        nav: true,
         onDragged: callback
       });
 

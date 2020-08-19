@@ -12,8 +12,6 @@
       });
     }
     db.accordion = function () {
-
-
       /***********basic accordion*******/
 
       $('.accordion .acc-caption').click(function (e) {

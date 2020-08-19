@@ -2,7 +2,7 @@
     $(document).on('ready', function () {
         var db = new Object();
         db.preLoad = function () {
-            $('#page-loader').delay(800).fadeOut(600, function () {
+            $('#page-loader').delay(300).fadeOut(600, function () {
                 $('body').fadeIn();
             });
         }
