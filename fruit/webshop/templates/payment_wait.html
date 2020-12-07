@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+<main>
+<section class="section-deposit">
+    <div class="container">
+        <h1 class="text-center">{{ gettext("Waiting your payment confirmation.") }}</h1>
+    </div>
+</section>
+</main>
+{% endblock content %}
+
+{% block footer_top %}
+{% endblock footer_top %}
+
+{% block js %}
+{{ super() }}
+<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+var async = async || [];
+async.push(function() {
+    'use strict';
+
+    var stripe = Stripe('{{ stripe_key }}', {
+        locale: '{{ get_locale() }}',
+    });
+    var MAX_POLL_COUNT = 30;
+    var pollCount = 0;
+
+    function pollForSourceStatus() {
+        stripe.retrieveSource({id: '{{ source }}', client_secret: '{{ client_secret }}'})
+            .then(function(result) {
+                var source = result.source;
+                if (source.status === 'pending' && pollCount < MAX_POLL_COUNT) {
+                    pollCount += 1;
+                    setTimeout(pollForSourceStatus, 1000);
+                } else {
+                    location.href = '{{ next }}';
+                }
+            });
+    }
+    pollForSourceStatus();
+});
+</script>
+{% endblock js %}

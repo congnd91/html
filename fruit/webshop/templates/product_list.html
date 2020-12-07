@@ -1,0 +1,31 @@
+{% set sale_prices = sale_prices or util.get_sale_prices(products) %}
+{% set reference_sale_prices = util.get_sale_prices_reference(products) %}
+{% set quantity_prices = quantity_prices or util.get_all_sale_prices(products)[1] %}
+{% from "utils.html" import product_box %}
+
+<div class="row">
+    <div class="col-lg-2 col-categories">
+        <div class="list-categories">
+            <h3>Menu shop</h3>
+            <ul>
+                {% for cat in categories %}
+                <li><a class="{{ 'active' if cat['id'] == category.id else ''}} " href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(True, sale=order, category=cat['id'], **shows), page=1)) }}">{{ util.category_name(cat) }}</a></li>
+                {% endfor %}
+                <li><a class="{{ 'active' if not category else '' }}" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(True, sale=order, category=None, **shows), page=1)) }}">{{ gettext('See all') }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-12 col-lg-10 col-products-grid">
+        {% for row in products | batch(4) %}
+        <div class="row row-products">
+            {% for product in row %}
+            <div class="col-6 col-lg-3">
+                <article class="product-grid-item" id="{{ product.id }}">
+                    {{ product_box(product, sale.currency if sale else currency, sale_prices[product.id], reference_sale_prices[product.id], quantity_prices=quantity_prices.get(product.id), util=util, order=order) }}
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>

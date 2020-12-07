@@ -1,0 +1,137 @@
+{% set title = gettext('My Orders') %}
+{% extends "layout.html" %}
+{% from "utils.html" import item_summary, render_pagination, breadcrumb %}
+
+{% block content %}
+<main>
+{{ breadcrumb(title) }}
+
+<section class="section-heading-center no-margin-top small-margin-bottom">
+    <div class="container">
+        <h1>{{ title }}</h1>
+    </div>
+</section>
+
+<section class="no-margin-top">
+    <div class="container">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link {{ 'active' if state == 'open' else '' }}" href="{{ url_for(request.endpoint, state='open') }}">{{ gettext('My Open Orders') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ 'active' if state != 'open' else '' }}" href="{{ url_for(request.endpoint, state='past') }}">{{ gettext('My Past Orders') }}</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            {% for sale in sales %}
+            <div class="orders-header">
+                <div class="row">
+                    <div class="col-12 col-sm">
+                        <div class="header-left">
+                            <p>{{ gettext('Order <strong>#%(number)s</strong>', number=sale.rec_name) }}</p>
+                        </div>
+                    </div>
+                    {% if util.sale_modify_allowed(sale) or util.sale_cancel_allowed(sale) %}
+                    <div class="col-12 col-sm">
+                        <div class="header-right">
+                            <form action="{{ url_for('sale_cancel', sale=sale, next=request_full_path()) }}" method="POST">
+                                <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                                <div class="btns-wrapper">
+                                    {% if util.sale_modify_allowed(sale) %}
+                                    <a class="btn btn-outline-dark" href="{{ url_for('sale', sale=sale) }}">
+                                        {{ gettext('Edit order') }}
+                                    </a>
+                                    {% endif %}
+                                    {% if util.sale_cancel_allowed(sale) %}
+                                    <button class="btn btn-outline-dark" type="submit" onclick="return confirm('{{ gettext('Are you sure to cancel the order?') }}');" data-submit-text="{{ gettext('Canceling') }}">
+                                        {{ gettext('Cancel order') }}
+                                    </button>
+                                    {% endif %}
+                                </div>
+                            </form>
+                            {% if util.sale_modify_allowed(sale) %}
+                            <div class="paragraph-wrapper">
+                                <p>{{ gettext('You can edit your order until <strong>%(date)s</strong>', date=util.format_date(util.sale_processing_date(sale), '%A %d, %B %H:%M')) }}</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="orders-content">
+                <div class="row">
+                    <div class="col-md-7 col-lg-6">
+                        <div class="orders-infos">
+                            <label>{{ gettext('Address of delivery') }}</label>
+                            <p>
+                                {% for line in sale.shipment_address.full_address.splitlines() %}
+                                {{ line }}<br/>
+                                {% endfor %}
+                            </p>
+                            <label>{{ gettext('Estimated delivery date') }}</label>
+                            <p>
+                                {{ util.format_date(sale.delivery_date, '%A %d, %B') }}
+                            </p>
+                            <label>{{ gettext('Carrier') }}</label>
+                            <p>
+                                {% if sale.carrier %}
+                                {{ sale.carrier.carrier_product.name }}
+                                {% else %}
+                                -
+                                {% endif %}
+                            </p>
+                            <label>{{ gettext('Tracking numbers') }}</label>
+                            <ul>
+                            {% for shipment in sale.shipments %}
+                            {% for package in shipment.packages %}
+                            {% if package.shipping_reference %}
+                            <li>
+                                <a href="{{ url_for('track', reference=package.shipping_reference) }}" target="_blank" rel="noreferrer noopener">
+                                    {{ package.shipping_reference }}
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                            </ul>
+                            <label>{{ gettext('Payment method') }}</label>
+                            {% for payment in sale.payments %}
+                            {% if payment.state != 'failed' %}
+                            {% if payment.stripe_customer_payment_method %}
+                            {{ util.StripeSourceWidget(payment.stripe_customer_payment_method_selection_string) }}
+                            {% else %}
+                            <div class="payment-method">
+                            {{ gettext('SOFORT') }}
+                            </div>
+                            {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                            <label>{{ gettext('Total') }}</label>
+                            <p>
+                                {{ util.format_currency(sale.total_amount, sale.currency) }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-6">
+                        <div class="orders-infos">
+                            <label>{{ gettext('Products') }}</label>
+                            <div class="product-line-preview-wrapper">
+                                {% for line in sale.lines if not line.shipment_cost %}
+                                {{ item_summary(line, sale.currency, util) }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row pagination-wrapper">
+            {{ render_pagination(pagination, util=util) }}
+        </div>
+    </div>
+</section>
+
+</main>
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% set category_name = util.category_name(category) %}
+{% set title = gettext('%(category_name)s to Shop', category_name=category_name) %}
+{% set description = gettext('Get bored with the Fruits from the stores? Click here to discover the widest range of Organic Local and Tropical Fruits, Nuts, Olives, Dates and more!') %}
+{% extends "layout.html" %}
+{% from "utils.html" import breadcrumb %}
+{% from "utils.html" import render_pagination %}
+
+{% block link_alternate %}
+{% for lang in list_translations() %}
+<link rel="alternate" hreflang="{{ lang }}" href="{{ util.url_for_category_language(category, lang, _external=True) }}"/>
+{% endfor %}
+{% endblock link_alternate %}
+
+{% block content %}
+<main>
+{{ breadcrumb(category_name) }}
+
+{% with order = None, shows = {'showCart': 0} %}
+<!-- CATEGORIES -->
+<section class="section-product-filters">
+    <div class="container">
+        {% include "product_filters.html" %}
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section-products no-margin-top">
+    <div class="container">
+        {% include "product_list.html" %}
+        <div class="row pagination-wrapper">
+            {{ render_pagination(pagination, util=util) }}
+        </div>
+    </div>
+</section>
+{% endwith %}
+</main>
+{% endblock content %}

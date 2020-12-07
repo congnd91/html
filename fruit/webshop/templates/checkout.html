@@ -1,0 +1,230 @@
+{% set title = gettext('Checkout') %}
+{% extends "layout.html" %}
+{% from "utils.html" import item_summary, teltype %}
+
+{% block style %}
+{{ super() }}
+<style>
+body {
+    counter-reset: step_;
+}
+.card-number span:before {
+    counter-increment: step_;
+    content: counter(step_);
+}
+</style>
+{% endblock style %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+<main class="page-checkout">
+
+    <header class="header-checkout">
+        <div class="container">
+            <div class="flex-wrapper">
+                <div class="vertical-align">
+                    <span class="navbar-brand">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" title="Jurassic Fruit"/>
+                    </span>
+                    <div>
+                        <a href="{{ url_for('category') }}" class="return">
+                            <i class="fa fa-angle-left"></i>
+                            {{ gettext('Return to store') }}
+                        </a>
+                    </div>
+                </div>
+                {% if request.scheme == 'https' %}
+                <img src="{{ url_for('static', filename='images/ssl.png') }}" class="img-ssl" title="SSL"/>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <section class="no-margin-top">
+        <div class="container">
+            <div class="row row-reverse">
+                <div class="col-md-12 col-lg-4">
+                    <div class="order-summary">
+                        <div class="link-help">
+                            <a href="#" data-toggle="modal" data-target="#need-help">{{ gettext('Need help?') }}</a>
+                        </div>
+                        <div class="lined-title">
+                            <div class="line"></div>
+                            <h3>{{ gettext('Order summary') }}</h3>
+                            <div class="line"></div>
+                        </div>
+                        <div class="product-line-preview-wrapper">
+                            {% for item in items %}
+                            {{ item_summary(item, currency, util) }}
+                            {% endfor %}
+                        </div>
+                        {% if order.__name__ == 'sale.sale' %}
+                        <div class="coupon-form-wrapper">
+                            <form action="{{ url_for('coupon', next=request_full_path()) }}" method="POST">
+                                <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                                <input class="input-coupon-code" type="text" name="coupon" placeholder="{{ gettext('Coupon code') }}" />
+                                <input class="btn btn-grey-full" type="submit" value="{{ gettext('Apply') }}" />
+                            </form>
+                        </div>
+                        {% if order.coupons %}
+                        <div class="coupon-list-wrapper">
+                            {% for coupon in order.coupons %}
+                            <div class="coupon-code">
+                                <i class="fa fa-ticket" aria-hidden="true"></i>{{ coupon.rec_name }}
+                            </div>
+                            {% endfor %}
+                            {% if order.state == 'draft' %}
+                            <form action="{{ url_for('coupon_clear', next=request_full_path({'showCart': 1})) }}" method="POST">
+                                <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                                <button type="submit" name="" class="btn btn-link">
+                                    <i class="fa fa-times-circle"></i>
+                                </button>
+                            </form>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        {% endif %}
+                        {% if sub_total %}
+                        <div class="order-summary-pricing">
+                            <span>{{ gettext('Sub-total') }}</span>
+                            <span>{{ util.format_currency(sub_total, currency) }}</span>
+                        </div>
+                        {% endif %}
+                        <div class="order-summary-pricing">
+                            <span>{{ gettext('Shipping') }}</span>
+                            <span>
+                                {% if shipping_cost %}
+                                {{ util.format_currency(shipping_cost, currency) }}
+                                {% else %}
+                                --
+                                {% endif %}
+                            </span>
+                        </div>
+                        {% if discount_amount %}
+                        <div class="order-summary-pricing">
+                            <span>{{ gettext('Discount') }}</span>
+                            <span class="discount">{{ util.format_currency(discount_amount, currency) }}</span>
+                        </div>
+                        {% endif %}
+                        {% if order.__name__ == 'sale.sale' %}
+                        {% if total_amount != order.extra_amount %}
+                        <div class="order-summary-pricing">
+                            <span>
+                                {{ gettext('Extra weight') }}<br/>
+                                <a href="#" data-toggle="modal" data-target="#extra-weight-help">
+                                    {{ gettext('(REFUNDED if not used)') }}[?]
+                                </a>
+                            </span>
+                            <span class="price">
+                                {{ util.format_currency(order.extra_amount - total_amount, currency) }}
+                            </span>
+                        </div>
+                        {% endif %}
+                        <div class="order-summary-pricing">
+                            <span class="final-price">{{ gettext('Total to pay now') }}<a href="#pay-now" class="text-primary">&ast;</a></span>
+                            <span class="final-price">{{ util.format_currency(order.extra_amount, currency) }}</span>
+                        </div>
+                        <div class="maximum-amount">
+                            {% if deposit_amount %}
+                            <p>{{ gettext('You have a deposit of <strong>%(available_deposit)s</strong> on your account. If not fully used by other order(s), this deposit will be deducted to the amount of your invoice. The maximum amount of your invoice is expected to be <strong>%(invoice_amount)s</strong>.', available_deposit=util.format_currency(available_deposit, currency), invoice_amount=util.format_currency(order.extra_amount - deposit_amount, currency)) }}</p>
+                            {% endif %}
+                            <p id="pay-now">
+                            <span class="text-primary">&ast;</span>
+                            {{ gettext('If applicable you will get a refund after the shipping of your order, once we know the exact quantities shipped.') }}
+                            {{ gettext('A difference in quantities can happen for example in case a fruit is missing (fruit harvest is dependent on weather conditions) or because our fruits are not standardized in size.') }}
+                            </p>
+                        </div>
+                        {% else %}
+                        <div class="order-summary-pricing">
+                            <span class="final-price">{{ gettext('Total') }}</span>
+                            <span class="final-price">{{ util.format_currency(total_amount, currency) }}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-8">
+                    {% for card in steps %}
+                    {% include "checkout/%s.html" % card %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+{% endblock content %}
+
+{% block cart %}
+{% endblock %}
+
+{% block footer_top %}
+{% endblock footer_top %}
+
+{% block modals %}
+{% include "payment-modals.html" %}
+<div class="modal fade modal-help" id="need-help" tabindex="-1" role="dialog" aria-labelledby="need-help-title" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="need-help-title">{{ gettext('Need help?') }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{ gettext('Please contact us by phone at %(phone)s %(open_hours)s', phone=phone, open_hours=open_hours) }}<br>
+                {{ gettext('or by email at <a href="mailto:support@jurassicfruit.com">support@jurassicfruit.com</a>.' ) }}<br>
+                {{ gettext('Thanks!') }}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-help" id="extra-weight-help" tabindex="-1" role="dialog" aria-labelledby="extra-weight-help-title" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="extra-weight-help-title">{{ gettext('Extra Weight?') }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6 class="font-weight-bold">{{ gettext('What is the extra weight?') }}</h6>
+                <p>{{ gettext('It is an extra amount charged that will be refunded to you if not used.') }}</p>
+                <h6 class="font-weight-bold">{{ gettext('Why do you charge an extra amount for weight?') }}</h6>
+                <p>
+                {{ gettext('It is because we invoice the exact weight that we ship to you.') }}
+                {{ gettext('As our fruits are not truly standardized in size we can’t always ship the exact product weights of your order (in particular with big fruits); it is sometimes a bit less and sometimes a bit more.') }}
+                {{ gettext("That's why we need to take a little margin that corresponds to %(extra)s%% more weight of the products sold by kg.", extra=extra_percentage) }}
+                {{ gettext('This amount will be refunded to you if not finally needed.') }}
+                </p>
+                <p>
+                {{ gettext('Of course if we ship less than the quantities of your order you are refunded of the value of products that we did not ship.') }}
+                </p>
+                <p>
+                {{ gettext('And if we ship more than the margin of %(extra)s%% on weight, the value of the extra weight of products is offered to you.', extra=extra_percentage) }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock modals %}
+
+{% block js %}
+{{ super() }}
+{% with payment_currency = currency %}
+{% include "payment-modals.js" %}
+{% endwith %}
+<script>
+{% if deposit %}
+var async = async || [];
+async.push(function() {
+    'use strict';
+    $('#sofort-register').modal('show');
+});
+{% endif %}
+</script>
+{{ teltype(countries) }}
+{% endblock js %}

@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% from "utils.html" import youtube %}
+{% block content %}
+<main>
+<section class="section-thank-you">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="thank-you-frame">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="thank-you-image-wrapper">
+                                <noscript class="loading-lazy">
+                                    <img src="{{ url_for('static', filename='images/thank_you.png') }}" loading="lazy"/>
+                                </noscript>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="thank-you-message-wrapper">
+                                {% block message %}
+                                {% endblock message %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="thank-you-what-next-wrapper">
+                    <p>{{ gettext('What should you do next?') }}</p>
+                    <ul class="fa-ul">
+                        {% if not util.is_subscribed(current_user.email) %}
+                        <li>
+                            <span class="fa-li">
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </span>
+                            <form class="form-group" method="POST" action="{{ url_for('mailing_request_subscribe') }}">
+                                <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                                <input name="email" type="hidden" value="{{ current_user.email }}"/>
+                                <button type="submit" class="btn btn-link">{{ gettext('Sign up') }}</button>
+                                {{ gettext('to receive our inspiring stories, news, videos and special offers.') }}
+                            </form>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <span class="fa-li">
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </span>
+                            <p>
+                                {{ gettext('Follow us on ') }}
+                                <a class="btn btn-link" href="https://www.instagram.com/jurassicfruit/">Instagram</a>,
+                                <a class="btn btn-link" href="https://www.youtube.com/c/jurassicfruit?sub_confirmation=1">Youtube</a> {{ gettext('and') }}
+                                <a class="btn btn-link" href="https://www.facebook.com/jurassicfruit/">Facebook</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="video-container">
+                    {{ youtube(gettext('5TBTf54pnOw')) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+{% endblock content %}

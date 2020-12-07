@@ -1,0 +1,43 @@
+{% set title = gettext('Edit Account') %}
+{% set button = gettext('Save') %}
+{% set submit_text = gettext('Saving') %}
+{% extends "layout-form.html" %}
+
+{% block fields %}
+<div class="form-group">
+    {{ form.party.form.name.label() }}
+    {{ form.party.form.name(class='form-control', placeholder=form.party.form.name.label.text) }}
+    <div class="invalid-feedback">
+        {% for error in form.party.form.name.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+<div class="form-group">
+    {{ form.party.form.nickname.label() }}
+    {{ form.party.form.nickname(class='form-control', placeholder=form.party.form.nickname.label.text) }}
+    <div class="invalid-feedback">
+        {% for error in form.party.form.nickname.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+<div class="form-group">
+    {{ form.email.label() }}
+    {{ form.email(class='form-control', placeholder=form.email.label.text) }}
+    <div class="invalid-feedback">
+        {% for error in form.email.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+<div class="form-group">
+    {{ form.party.lang.label() }}
+    {{ form.party.lang(class='custom-select') }}
+    <div class="invalid-feedback">
+        {% for error in form.party.lang.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+{% endblock fields %}

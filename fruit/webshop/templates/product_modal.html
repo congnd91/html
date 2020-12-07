@@ -1,0 +1,199 @@
+{% from "utils.html" import product_pricing, product_square, product_stars, product_add_button, why_shop %}
+{% set quantity_prices = quantity_prices or util.get_all_sale_price(product)[1] %}
+{% set reductions = util.get_reductions(quantity_prices) | list %}
+
+<div class="row row-center">
+    <div class="col-xl-10 col-product-wrapper">
+        <div class="row mb-4">
+            <div class="col-lg-6" id="preview">
+                <div class="img-wrapper simple-img">
+                    <picture>
+                        <source srcset="{{ util.url_for_product_image(product, size=350) }}" media="(max-width: 576px)"/>
+                        <img src="{{ util.url_for_product_image(product, size=800) }}" loading="lazy"/>
+                    </picture>
+                    <div class="product-img-content">
+                        {{ product_square(product) }}
+                    </div>
+                </div>
+                <div class="video-container auto-height d-none">
+                    <div class="embed-responsive">
+                        <iframe frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="thumbnail-wrapper">
+                    <div class="row">
+                        {% for i in range(0, 4) %}
+                        <div class="col-3 col-sm-2 col-lg-3 col-xl-2">
+                            <div class="img-wrapper" data-preview-id="preview" data-preview-img="{{ util.url_for_product_image(product, i, size=800) }}" data-preview-img-srcset="{{ util.url_for_product_image(product, i, size=350) }}">
+                                <a href="{{ util.url_for_product_image(product, i) }}">
+                                    <img src="{{ util.url_for_product_image(product, i, size=90) }}" onerror="this.parentElement.parentElement.parentElement.style.cssText='display:none !important'" loading="lazy"/>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% if product.webshop_youtube_id %}
+                        <div class="col-3 col-sm-2 col-lg-3 col-xl-2">
+                            <div class="video-thumbnail" data-preview-id="preview" data-preview-video="https://www.youtube.com/embed/{{ product.webshop_youtube_id }}?rel=0&autoplay=1&wmode=transparent" data-preview-video-ratio="{{ product.webshop_youtube_ratio }}">
+                                <a href="https://www.youtube.com/watch?v={{ product.webshop_youtube_id }}">
+                                    <img src="https://img.youtube.com/vi/{{ product.webshop_youtube_id }}/default.jpg" loading="lazy"/>
+                                    <span class="btn-video"></span>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if request.endpoint != 'product' %}
+                <div class="product-btn-view">
+                    <a class="btn btn-grey-full" href="{{ util.url_for_product(product=product) }}">
+                        {{ gettext('View full product details') }}
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <div class="product-details large-details">
+                    <h1 class="product-name big-name">{{ product.name }}</h1>
+
+                    {{ product_stars(product, label=True) }}
+
+                    {% if product.webshop_description %}
+                    <div class="description product-description">
+                        {{ product.webshop_description|safe }}
+                    </div>
+                    {% endif %}
+
+                    {{ product_pricing(product, currency, price, reference_price, util, vat=True) }}
+
+                    {% if reductions %}
+                    <div class="reduction-dotted-frame">
+                        <ul>
+                            {% for quantity, price, amount, percentage, reduction, second_price in reductions %}
+                            <li data-update-quantity="{{ quantity }}" data-target=".add-to-cart">
+                                {{ gettext('<strong><u>I save an extra %(percentage)i%%</u></strong> by buying %(quantity)s%(separator)s%(uom)s (%(price)s<span class="unity unity--light">/%(uom)s</span>)',
+                                percentage=percentage * 100,
+                                quantity=quantity,
+                                separator='×' if product.sale_uom.symbol[0] in '1234567890' else ' ',
+                                uom=product.sale_uom.symbol,
+                                price=util.format_currency(price, currency),
+                                ) }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
+                    <div class="availability">
+                        {% if not product.available or product.available_quantity %}
+                        <h5 class="not-available">
+                            {% if not product.available %}
+                            <i class="fa fa-remove"></i> {{ gettext('Currently unavailable') }}
+                            {% else %}
+                            {% if product.available_quantity == 'out' %}
+                            <i class="fa fa-remove"></i> {{ gettext('Out of stock') }}
+                            {% elif product.available_quantity == 'low' %}
+                            <i class="fa fa-question-circle"></i> {{ gettext('Uncertain availability') }}
+                            {% endif %}
+                            {% endif %}
+                        </h5>
+                        {% else %}
+                        <h5 class="available">
+                            <i class="fa fa-check"></i> {{ gettext('Available') }}
+                        </h5>
+                        {% endif %}
+                        {% if product.available and product.available_quantity != 'out' %}
+                        <p class="availability-paragraph">
+                        {% with delivery_date = util.next_delivery_date(product) %}
+                        {% if delivery_date.year %}
+                        {{ gettext('Order today to get it as soon as <span>%(delivery_date)s</span>.', delivery_date=util.format_date(delivery_date), format='%A %d/%m') }}
+                        {% endif %}
+                        {% endwith %}
+                        </p>
+                        {% endif %}
+                    </div>
+
+                    <!-- <div class="other-product-dotted-frame">
+                        <div class="custom-control custom-checkbox">
+                            <label>
+                                <input type="checkbox" class="custom-control-input" id="custom-checkbox">
+                                <label class="custom-control-label" for="custom-checkbox">
+                                    {{ gettext('Yes, I take with %(product)s for %(price)s', product='', price='') }}
+                                </label>
+                            </label>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/empty.png') }}" class="item-img-medium" />
+                    </div> -->
+
+                    <div class="add-to-cart">
+                        {{ product_add_button(product, util=util, price=price, currency=currency, quantity_prices=quantity_prices, next=page) }}
+                    </div>
+
+                    {% if product.made_in %}
+                    <div class="origin">
+                        <div class="form-group row">
+                            <label for="staticOrigin" class="col-auto col-form-label">{{ gettext('Origin:') }}</label>
+                            <div>
+                                <input type="text" readonly class="form-control-plaintext" id="staticOrigin" value="{{ product.made_in.name }}" />
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Season -->
+
+                    {% if product.seasonal %}
+                    <div class="season">
+                        <label for="tableSeason">{{ gettext('Season:') }}</label>
+                        <div class="table-saison-wrapper" id="tableSeason">
+                            <table>
+                                <tr>
+                                    <td>{{ gettext('Jan') }}</td>
+                                    <td>{{ gettext('Feb') }}</td>
+                                    <td>{{ gettext('Mar') }}</td>
+                                    <td>{{ gettext('Apr') }}</td>
+                                    <td>{{ gettext('May') }}</td>
+                                    <td>{{ gettext('Jun') }}</td>
+                                    <td>{{ gettext('Jul') }}</td>
+                                    <td>{{ gettext('Aug') }}</td>
+                                    <td>{{ gettext('Sep') }}</td>
+                                    <td>{{ gettext('Oct') }}</td>
+                                    <td>{{ gettext('Nov') }}</td>
+                                    <td>{{ gettext('Dec') }}</td>
+                                </tr>
+                                <tr class="bordered">
+                                    {% for month in calendar.month_name[1:] %}
+                                    <td class="{{ util.season2class(product|attr('season_%s' % month|lower)) }}" title="{{ product|attr('season_%s_string' % month|lower) }}">&nbsp;</td>
+                                    {% endfor %}
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!--
+                    <div class="messenger-wrapper">
+                        <div class="messenger-top">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" aria-label="{{ gettext('$Checkbox for following text input') }}">
+                                <span>{{ gettext('Send to') }}</span>
+                            </div>
+                            <span class="icon-messenger">
+                                <img src="images/messenger.png" alt="" />
+                                <span>{{ gettext('Messenger') }}</span>
+                            </span>
+                        </div>
+                        <div class="messenger-bottom">
+                            <div class="user-profil">
+                                <img src="images/messengerProfile.png" alt="" />
+                                <span>Fabi Behre</span>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+
+                </div>
+            </div>
+        </div>
+        {{ why_shop(why) }}
+    </div>
+</div>

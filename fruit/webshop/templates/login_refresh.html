@@ -1,0 +1,32 @@
+{% if not title %}
+{% set title = gettext('Log in') %}
+{% endif %}
+{% extends "layout-form.html" %}
+
+{% block fields %}
+{{ super() }}
+<div class="form-group">
+    {{ form.password.label }}
+    {{ form.password(class='form-control', placeholder=gettext('Enter Password')) }}
+    <div class="invalid-feedback">
+        {% for error in form.password.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+    <a class="form-control-link" href="{{ url_for('forgot_password') }}">
+        <small>{{ gettext('Forget password?') }}</small>
+    </a>
+</div>
+{% endblock fields %}
+
+{% block options %}
+{{ super() }}
+<div class="form-group">
+    <p class="form-create-account">
+        {{ gettext('New by Jurassic Fruit?') }}
+        <a class="form-link" href="{{ url_for('register', next=request.args.get('next')) }}">
+            {{ gettext('Create your account') }}
+        </a>
+    </p>
+</div>
+{% endblock options %}

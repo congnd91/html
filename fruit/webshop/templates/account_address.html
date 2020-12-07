@@ -1,0 +1,74 @@
+{% set title = gettext('Edit Address')  if id else gettext('Add Address') %}
+{% set button = gettext('Save') if id else gettext('Add') %}
+{% set submit_text = gettext('Saving') if id else gettext('Adding') %}
+{% extends "layout-form.html" %}
+
+{% block fields %}
+<div class="form-group">
+    {{ form.party_name.label() }}
+    {{ form.party_name(class='form-control', placeholder=form.party_name.label.text) }}
+    <div class="invalid-feedback">
+        {% for error in form.party_name.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+<div class="form-group">
+    {{ form.street.label() }}
+    {{ form.street(class='form-control', col=35, rows=3, wrap='hard', placeholder=form.street.label.text) }}
+    <div class="invalid-feedback">
+        {% for error in form.street.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+<div class="form-group">
+    {{ form.zip.label() }}
+    {{ form.zip(class='form-control', maxlength=9, style='width: 9em', placeholder=form.zip.label.text) }}
+    <div class="invalid-feedback">
+        {% for error in form.zip.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+<div class="form-group">
+    {{ form.city.label() }}
+    {{ form.city(class='form-control', maxlength=30, placeholder=form.city.label.text) }}
+    <div class="invalid-feedback">
+        {% for error in form.city.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+<div class="form-group">
+    {{ form.country.label() }}
+    {{ form.country(class='custom-select') }}
+    <div class="invalid-feedback">
+        {% for error in form.country.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+{% endblock fields %}
+
+{% block js %}
+{{ super() }}
+<script type="text/javascript">
+function check_address() {
+    var street = $('#street').val().split('\n');
+    for (var i=0; i < street.length; i++) {
+        var line = street[i];
+        if (line.length > 35) {
+            alert('{{ gettext("The lines of street must have a maximum length of 35 chars.") }}');
+            return false;
+        }
+    }
+    if (street.length > 3) {
+        return confirm('{{ gettext("Only the first 3 lines of street will be used for delivery.") }}');
+    }
+}
+$(document).ready(function() {
+    $('form button[type="submit"]').click(check_address);
+})
+</script>
+{% endblock js %}

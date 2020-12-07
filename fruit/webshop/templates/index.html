@@ -1,0 +1,627 @@
+{% set title = gettext('Tree Ripened Fruits, Organic and Wild') %}
+{% set description = gettext('Health-conscious? Fructify your Health with the delicious Organic Fresh Fruits and Nuts we are meant to eat! We have some of the world’s oldest fruits on earth.') %}
+{% if get_locale().language == 'en' %}
+{% set canonical_url = url_lang('en', _external=True) %}
+{% endif %}
+{% extends "layout.html" %}
+{% from "utils.html" import product_box, background, youtube %}
+
+{% set sale_prices = util.get_sale_prices(products) %}
+{% set reference_sale_prices = util.get_sale_prices_reference(products) %}
+{% set quantity_prices = quantity_prices or util.get_all_sale_prices(products)[1] %}
+
+{% block style %}
+{{ super() }}
+<style>
+  body {
+    counter-reset: secret;
+  }
+
+  .secret:after {
+    counter-increment: secret;
+    content: " #"counter(secret);
+  }
+
+</style>
+{{ background('wallpaper') }}
+{{ background('we_produce_differently') }}
+{{ background('join_our_vip_list') }}
+{% endblock style %}
+
+{% block content %}
+<main>
+  <section class="wallpaper background--wallpaper lazy container-fluid">
+    <div class="offset-sm-6 col-sm-6 wallpaper-heading">
+      <h2>{{ gettext('Cultivate your health') }}</h2>
+      <p>{{ gettext('with Delicious Organic Fruits, <br>from the Tree to your Door') }}</p>
+      <a class="btn btn-outline-dark" href="{{ url_for('category') }}">{{ gettext('Shop our Fruits in season') }}</a>
+    </div>
+  </section>
+
+  <section class="section-benefits">
+    <div class="row">
+      <div class="col col-4">
+        <div class="row justify-content-lg-center">
+          <div class="col-lg-auto">
+            <img src="{{ url_for('static', filename='images/icon-benefit-1.png') }}" />
+          </div>
+          <div class="col my-auto text-center text-lg-left">
+            <p class="d-none d-lg-block">{{ gettext('Feed yourself naturally') }}</p>
+            <h3>{{ gettext('Organic and Living Fruits') }}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col col-4">
+        <div class="row justify-content-lg-center">
+          <div class="col-lg-auto">
+            <img src="{{ url_for('static', filename='images/icon-benefit-2.png') }}" />
+          </div>
+          <div class="col my-auto text-center text-lg-left">
+            <p class="d-none d-lg-block">{{ gettext('Support small polyculture farms') }}</p>
+            <h3>{{ gettext('Grown with love') }}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col col-4">
+        <div class="row justify-content-lg-center">
+          <div class="col-lg-auto">
+            <img src="{{ url_for('static', filename='images/icon-benefit-3.png') }}" />
+          </div>
+          <div class="col my-auto text-center text-lg-left">
+            <p class="d-none d-lg-block">{{ gettext('Enjoy trully delicious fruits') }}</p>
+            <h3>{{ gettext('Tree ripened') }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-heading-center container">
+    <h3 class="secret">{{ gettext('Secret') }}</h3>
+    <h2>{{ gettext('Tree ripened fruits from small organic farms') }}</h2>
+    <p class="heading-paragraph">
+      {{ gettext('Most of the fruits you see here are still hanging off their plant in our untypical polyculture farms at this moment...') }}<br>
+      {{ gettext('They patiently continue to ripe, gain savour and nutrients until you pass your order ready to amaze you!') }}
+    </p>
+  </section>
+
+  {% if footer_categories %}
+  <section class="container">
+    <div class="row row-margin-sm">
+      {% if footer_categories | length >= 1 %}
+      {% set category = footer_categories[0] %}
+      <div class="col-md-6">
+        <a href="{{ util.url_for_category(category=category['id']) }}">
+          <div class="img-wrapper">
+            <picture>
+              <noscript class="loading-lazy">
+                <source srcset="{{ util.url_for_category_image(category['id'], size=350) }}" media="(max-width: 992px) and (min-width: 768px)" />
+                <img src="{{ util.url_for_category_image(category['id'], size=800) }}" loading="lazy" />
+              </noscript>
+            </picture>
+            <div class="product-img-content space-between">
+              <h3 class="h1">{{ category['name'] }}</h3>
+              <button class="btn btn-outline-white">{{ gettext('Shop now') }}</button>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% if footer_categories | length >= 2 %}
+      {% set category = footer_categories[1] %}
+      <div class="col-md-6">
+        <a href="{{ util.url_for_category(category=category['id']) }}">
+          <div class="img-wrapper">
+            <picture>
+              <noscript class="loading-lazy">
+                <source srcset="{{ util.url_for_category_image(category['id'], size=350) }}" media="(max-width: 992px) and (min-width: 768px)" />
+                <img src="{{ util.url_for_category_image(category['id'], size=800) }}" loading="lazy" />
+              </noscript>
+            </picture>
+            <div class="product-img-content space-between">
+              <h3 class="h1">{{ category['name'] }}</h3>
+              <button class="btn btn-outline-white">{{ gettext('Shop now') }}</button>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endif %}
+      {% endif %}
+    </div>
+  </section>
+
+  {% if footer_categories | length > 2 %}
+  <section class="container">
+    <h3 class="text-center">{{ gettext('Other loved categories') }}</h3>
+    <div class="row row-margin-sm">
+      {% for category in footer_categories[2:] %}
+      <div class="col-6 col-lg-3">
+        <a href="{{ util.url_for_category(category=category['id']) }}">
+          <div class="img-wrapper">
+            <picture>
+              <noscript class="loading-lazy">
+                <source srcset="{{ util.url_for_category_image(category['id'], size=250) }}" media="(max-width: 576px)" />
+                <img src="{{ util.url_for_category_image(category['id'], size=350) }}" loading="lazy" />
+              </noscript>
+            </picture>
+            <div class="product-img-content align-bottom">
+              <p class="img-legend">{{ category['name'] }}</p>
+              <button class="btn btn-outline-white">{{ gettext('Shop now') }}</button>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+      <div class="col-6 col-lg-3">
+        <a href="{{ url_for('subscribe') }}">
+          <div class="img-wrapper">
+            <picture>
+              <noscript class="loading-lazy">
+                <source srcset="{{ url_for('static', filename='images/subscription-250.jpg') }}" media="(max-width: 576px)" />
+                <img src="{{ url_for('static', filename='images/subscription-350.jpg') }}" loading="lazy" />
+              </noscript>
+            </picture>
+            <div class="product-img-content align-bottom">
+              <p class="img-legend">{{ gettext('Join the subscription club') }}</p>
+              <button class="btn btn-outline-white">{{ gettext('Subscribe') }}</button>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+  {% endif %}
+
+  {% for category in homepage_categories %}
+  <section class="section-products no-margin container">
+    <h3 class="text-center"><a href="{{ util.url_for_category(category=category['id']) }}">{{ category['name'] }}</a></h3>
+    <div class="row row-products">
+      {% for product_id in category['products'] %}
+      {% set product = id2product[product_id] %}
+      <div class="col-6 col-lg-3">
+        <article class="product-grid-item" id="{{ product.id }}">
+          {{ product_box(product, sale.currency if sale else currency, sale_prices[product.id], reference_sale_prices[product.id], quantity_prices=quantity_prices.get(product.id), util=util) }}
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+  <section class="section-full-two-cols section-grey container-fluid mb-0">
+    <div class="row no-gutters">
+      <div class="col-md-6 order-md-2">
+        <div class="item-image background--fruits_live_healthier lazy"></div>
+      </div>
+      <div class="col-md-6 order-md-1">
+        <div class="text-wrapper">
+          <div>
+            <h2>How fruits help you grow your health and happiness?</h2>
+            <ul class="fa-ul">
+              {% for check in [gettext('We, as humans are designed by Nature to eat fresh organic Fruits and Vegetables.'),
+                        gettext('Fruits help us have a better mood, more energy and a cleaner and lighter body.'),
+                        gettext('Fruits are filled with precious phytochemicals that can boost our immunity, protect us from chronic diseases and slow the decline of aging.'),
+                        gettext('Studies continue to provide evidence that more than any other food, fruit is associated with lowered mortality from all cancers combined.')] %}
+
+
+              <li>
+                <p>
+                  <span class="fa-li">
+                    <i class="fa fa-check"></i>
+                  </span>
+                  {{ check }}
+                </p>
+              </li>
+              {% endfor %}
+            </ul>
+            <a class="btn btn-outline-dark" href="{{ url_for('category') }}">{{ gettext('Shop now') }}</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <section class="section-full-two-cols section-grey container-fluid mt-0">
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        <div class="item-image background--we_produce_differently lazy"></div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-wrapper">
+          <div>
+
+            <h2>{{ gettext('We produce differently') }}</h2>
+            <ul class="fa-ul">
+              {% for check in [gettext('We work with 30+ life enthusiast small farmers'),
+                        gettext('Innovative growing methods for more diverse, more abundant and more sustainable farms'),
+                        gettext('Organic certified, Wild or we carefully select the closest alternative that we can find'),
+                        gettext('Fruits with high intensity of flavour and of active ingredients'),
+                        gettext('Many of our tropical and subtropical fruits are grown within Europe (Andalusia)')] %}
+              <li>
+                <p>
+                  <span class="fa-li">
+                    <i class="fa fa-check"></i>
+                  </span>
+                  {{ check }}
+                </p>
+              </li>
+              {% endfor %}
+            </ul>
+            <a class="btn btn-outline-dark" href="{{ url_for('category') }}">{{ gettext('Shop now') }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="customers-saying">
+    <div class="container">
+
+      <h3 class="text-center">See what out customers are saying</h3>
+      <div class="row">
+
+        <div class="col-md-4 col-sm-12 col-12">
+
+          <div class="customers-saying-item">
+            <div class="info">
+              <div class="avatar">
+
+              </div>
+
+              <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+
+            </div>
+            <div class="des">
+              <div class="quote">
+                <i class="fa fa-quote-left "></i>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie, turpis non viverra vehicula, eros nulla lobortis odio</p>
+              <div class="author">
+                <strong>Jochen B.</strong>
+                <span>Hamburg</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4 col-sm-12 col-12">
+          <!-- <div class="images-customers-saying">
+              <img alt="" src="../static/images/customers-are-saying.png">
+            </div>-->
+          <div class="video-container">
+            {{ youtube(gettext('uP97sXM6q0Y')) }}
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-12">
+          <div class="customers-saying-item">
+            <div class="info">
+              <div class="avatar">
+
+              </div>
+
+              <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+
+            </div>
+            <div class="des">
+              <div class="quote">
+                <i class="fa fa-quote-left "></i>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie, turpis non viverra vehicula, eros nulla lobortis odio</p>
+              <div class="author">
+                <strong>Jochen B.</strong>
+                <span>Hamburg</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="take-selfie">
+    <div class="container">
+
+      <p class="text-center">Take a selﬁe with your Jurassic Fruit products and email it to fruitlover@jurassicfruit.com
+        to have the chance to appear here below!
+      </p>
+
+      <div class="selfie-row">
+
+        <div class="selfie-col">
+          <div class="thumb">
+            <img alt="" src="../static/images/selfie1.png">
+          </div>
+        </div>
+        <div class="selfie-col">
+          <div class="thumb">
+            <img alt="" src="../static/images/selfie2.png">
+          </div>
+        </div>
+        <div class="selfie-col">
+          <div class="thumb">
+            <img alt="" src="../static/images/selfie1.png">
+          </div>
+        </div>
+        <div class="selfie-col">
+          <div class="thumb">
+            <img alt="" src="../static/images/selfie2.png">
+          </div>
+        </div>
+        <div class="selfie-col">
+          <div class="thumb">
+            <img alt="" src="../static/images/selfie1.png">
+          </div>
+        </div>
+        <div class="selfie-col">
+          <div class="thumb">
+            <img alt="" src="../static/images/selfie2.png">
+          </div>
+        </div>
+        <div class="selfie-col">
+          <div class="thumb">
+            <img alt="" src="../static/images/selfie1.png">
+          </div>
+        </div>
+        <div class="selfie-col">
+          <div class="thumb">
+            <img alt="" src="../static/images/selfie2.png">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="section-faq container" id="accordion-faq">
+    <h3 class="text-center">FAQ </h3>
+    <div class="row row-margin-30">
+
+      <div class="col-md-6">
+        <div class="accordion">
+          <h4>DELIVERY</h4>
+
+          <div id="question-delivery" class="card-header">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#answer-delivery" aria-expanded="false" aria-controls="answer-delivery">
+              Where do you deliver?
+            </button>
+          </div>
+          <div id="answer-delivery" class="collapse" aria-labelledby="question-delivery" data-parent="#accordion-faq">
+            <div class="card-body">
+              We deliver to United Kingdom, Luxembourg, Denmark, Germany, Belgium, Czechia, Poland, Austria, Netherlands, France (contact us if your country is not in this list).
+            </div>
+          </div>
+
+          <div id="question-order" class="card-header">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#answer-order" aria-expanded="false" aria-controls="answer-order">
+              If I order now when will I be delivered?
+
+
+            </button>
+          </div>
+          <div id="answer-order" class="collapse" aria-labelledby="question-order" data-parent="#accordion-faq">
+            <div class="card-body">
+              We deliver to United Kingdom, Luxembourg, Denmark, Germany, Belgium, Czechia, Poland, Austria, Netherlands, France (contact us if your country is not in this list).
+            </div>
+          </div>
+
+          <div id="question-etc" class="card-header">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#answer-etc" aria-expanded="false" aria-controls="answer-etc">
+              etc
+            </button>
+          </div>
+          <div id="answer-etc" class="collapse" aria-labelledby="question-etc" data-parent="#accordion-faq">
+            <div class="card-body">
+              We deliver to United Kingdom, Luxembourg, Denmark, Germany, Belgium, Czechia, Poland, Austria, Netherlands, France (contact us if your country is not in this list).
+            </div>
+          </div>
+
+        </div>
+
+        <div class="accordion">
+          <h4>SUBSCRIPTION
+          </h4>
+          <div id="question-subscription" class="card-header">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#answer-subscription" aria-expanded="false" aria-controls="answer-subscription">
+              How do I change the settings of my Subscription?
+            </button>
+          </div>
+          <div id="answer-subscription" class="collapse" aria-labelledby="question-subscription" data-parent="#accordion-faq">
+            <div class="card-body">
+              We deliver to United Kingdom, Luxembourg, Denmark, Germany, Belgium, Czechia, Poland, Austria, Netherlands, France (contact us if your country is not in this list).
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-6">
+        <div class="accordion">
+          <h4>ALL ABOUT OUR FRUTS
+
+          </h4>
+
+          <div id="question-certified" class="card-header">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#answer-certified" aria-expanded="false" aria-controls="answer-certified">
+              Are you products organic certified?
+
+
+            </button>
+          </div>
+          <div id="answer-certified" class="collapse" aria-labelledby="question-certified" data-parent="#accordion-faq">
+            <div class="card-body">
+              We deliver to United Kingdom, Luxembourg, Denmark, Germany, Belgium, Czechia, Poland, Austria, Netherlands, France (contact us if your country is not in this list).
+            </div>
+          </div>
+
+          <div id="question-order1" class="card-header">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#answer-order1" aria-expanded="false" aria-controls="answer-order1">
+              If I order now when will I be delivered?
+
+
+            </button>
+          </div>
+          <div id="answer-order1" class="collapse" aria-labelledby="question-order1" data-parent="#accordion-faq">
+            <div class="card-body">
+              We deliver to United Kingdom, Luxembourg, Denmark, Germany, Belgium, Czechia, Poland, Austria, Netherlands, France (contact us if your country is not in this list).
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <div class="accordion">
+          <h4>PAYMENT
+          </h4>
+          <div id="question-canpay" class="card-header">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#answer-canpay" aria-expanded="false" aria-controls="answer-canpay">
+              How can I pay?
+            </button>
+          </div>
+          <div id="answer-canpay" class="collapse" aria-labelledby="question-canpay" data-parent="#accordion-faq">
+            <div class="card-body">
+              We deliver to United Kingdom, Luxembourg, Denmark, Germany, Belgium, Czechia, Poland, Austria, Netherlands, France (contact us if your country is not in this list).
+            </div>
+          </div>
+          <div id="question-canpay1" class="card-header">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#answer-canpay1" aria-expanded="false" aria-controls="answer-canpay1">
+              How can I pay?
+            </button>
+          </div>
+          <div id="answer-canpay1" class="collapse" aria-labelledby="question-canpay1" data-parent="#accordion-faq">
+            <div class="card-body">
+              We deliver to United Kingdom, Luxembourg, Denmark, Germany, Belgium, Czechia, Poland, Austria, Netherlands, France (contact us if your country is not in this list).
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <h4>HOW TO START
+
+
+          </h4>
+          <div id="question-advise" class="card-header">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#answer-advise" aria-expanded="false" aria-controls="answer-advise">
+              Dur advise for your first order
+
+
+            </button>
+          </div>
+          <div id="answer-advise" class="collapse" aria-labelledby="question-advise" data-parent="#accordion-faq">
+            <div class="card-body">
+              We deliver to United Kingdom, Luxembourg, Denmark, Germany, Belgium, Czechia, Poland, Austria, Netherlands, France (contact us if your country is not in this list).
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <section class="section-vip container">
+    <div class="background-wrapper background--join_our_vip_list lazy">
+      <div class="text-wrapper">
+        <h2>{{ gettext('Join our VIP list') }}</h2>
+        <p>
+          {{ gettext('4 500 fruit enthusiasts already enjoy receiving great information, videos <br>and special offers in their mailbox regularly. Put your email below to join us!') }}
+        </p>
+        <form method="POST" action="{{ url_for('mailing_request_subscribe') }}">
+          <input name="csrf_token" type="hidden" value="{{ csrf_token() }}" />
+          <input class="form-control" type="email" name="email" placeholder="{{ gettext('Your email address') }}">
+          <button class="btn btn-outline-white" type="submit">{{ gettext('Sign up') }}</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section-full-two-cols container">
+    <div class="section-full-two-cols-content">
+      <div class="row row-margin-30">
+        <div class="col-sm-12 col-lg-6">
+          <div class="video-title-block">As seen on TV</div>
+          <div>
+            <div class="video-container">
+              {{ youtube(gettext('C6YGFK1Je1A')) }}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+          <div class="video-title-block">Discover how our fruit are grown</div>
+          <div>
+
+            <div class="video-container"> </div>
+            {{ youtube(gettext('18k0jWH3cxI')) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {% cache 60 * 60, 'testimonies', util.get_locale() | string %}
+  {% set testimonies = get_testimonies() %}
+  {% if testimonies | length > 0 %}
+  <section class="section-testimony container">
+    <h3 class="text-center">{{ gettext('See what our customers are saying') }}</h3>
+    <div class="row row-margin-sm">
+      {% for name, testimony in testimonies.items() %}
+      <div class="col-md-4 col-sm-12">
+        <div class="row">
+          <div class="col-3">
+            <div class="user-picture">
+              <noscript class="loading-lazy">
+                <img src="{{ util.url_for_testimony(name) }}" loading="lazy" />
+              </noscript>
+              <div class="stars">
+                {% for i in range(testimony['stars']) %}
+                <i class="fa fa-star"></i>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="col-9">
+            <div class="user-comment">
+              <i class="fa fa-quote-left quote-left"></i>
+              <p>{{ testimony['text'] }}</p>
+              <p class="name">{{ testimony['name'] }}</p>
+              <p class="locality">{{ testimony['locality'] }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+  {% endcache %}
+</main>
+{% endblock content %}
+
+{% block js %}
+{{ super() }}
+{% endblock %}

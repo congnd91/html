@@ -6,6 +6,12 @@
         $('body').fadeIn();
       });
     }
+    db.closeCookies = function () {
+      $('.cookie-notify .button').on('click', function (e) {
+        $('.cookie-notify').fadeOut();
+      });
+
+    }
     db.closeBox = function () {
       $('.confirm-box .close').on('click', function (e) {
         $('.confirm-box').hide();
@@ -129,6 +135,7 @@
         $(this).parents('.re-item').hide();
       });
     }
+
     db.validate = function () {
       if ($('.form-opportunities').length) {
         $('.form-opportunities').validate();
@@ -139,6 +146,10 @@
       };
       if ($('.form-contact').length) {
         $('.form-contact').validate();
+      };
+
+      if ($('.form-auth').length) {
+        $('.form-auth').validate();
       };
       if ($('.form-apply').length) {
         $('.form-apply').validate();
@@ -236,41 +247,39 @@
       });
 
 
+      $('.menu-res-icon').on('click', function () {
+
+        $('body').addClass("open-menu-res");
+      });
+      $('.close-menu-res').on('click', function () {
+        $('body').removeClass("open-menu-res");
+      });
+
+      $('.lm-item').on('click', function () {
+        $('.lm-item').removeClass("active");
+        $(this).addClass("active");
+      });
+
+
 
     }
     db.search = function () {
-      /*  $('body').on('click', function () {
-          $('.header').removeClass("show-search");
-        });
-        $('.back').on('click', function () {
-          $('.header').removeClass("show-search");
-        });
-        $('.search-header .title input').on('focus', function (e) {
-          $('.header').addClass("show-search");
-          //close dropdown
-          $('.user-dropdown .dropdown-menu').removeClass("show");
-        });
-        */
+      $('body').on('click', function () {
+        $('.header').removeClass("show-search");
+      });
+      $('.back').on('click', function () {
+        $('.header').removeClass("show-search");
+      });
+      $('.search-header .title input').on('focus', function (e) {
+        $('.header').addClass("show-search");
+        //close dropdown
+        $('.user-dropdown .dropdown-menu').removeClass("show");
+      });
 
 
       $('.header').on('click', function (e) {
-        //  e.stopPropagation();
+        e.stopPropagation();
       });
-
-
-      $('.search-header-value').on('click', function (e) {
-
-        var content = $(".search-header");
-        if ($(content).is(":visible")) {
-          $(content).slideUp();
-          $(this).removeClass("active");
-        } else {
-          $(content).slideDown();
-          $(this).addClass("active");
-        }
-      });
-
-
 
 
       $('.ui-menu').on('click', function (e) {
@@ -285,6 +294,20 @@
         $(this).parent().find("input").val("");
         $(this).parent().removeClass("has-text");
       });
+
+
+      /*  $('.search-header-value').on('click', function (e) {
+
+        var content = $(".search-header");
+        if ($(content).is(":visible")) {
+          $(content).slideUp();
+          $(this).removeClass("active");
+        } else {
+          $(content).slideDown();
+          $(this).addClass("active");
+        }
+      });
+*/
     }
     db.menuLeft = function () {
       $('.box .box-caption').click(function () {
@@ -495,6 +518,39 @@
         }
       });
     }
+
+    db.showABM = function () {
+      $('.button-show-abm-step2').on('click', function (e) {
+
+        $(".abm-step1").hide();
+        $('.abm-step2').fadeIn();
+        return false;
+
+      });
+      $('.button-show-abm-step3').on('click', function (e) {
+
+        $(".abm-step2").hide();
+        $('.abm-step3').fadeIn();
+        return false;
+
+      });
+    };
+
+    db.showMoreTableMobile = function () {
+
+
+
+      $('.more-caption').on('click', function (e) {
+        if ($(this).parents("td").find('.hide-des').is(":visible")) {
+
+          $(this).parents("td").find('.hide-des').hide();
+        } else {
+          $(this).parents("td").find('.hide-des').show();
+        }
+      });
+    };
+
+
     db.preLoad();
     db.menuMobile();
     db.search();
@@ -505,6 +561,9 @@
     db.validate();
     db.addJob();
     db.scroll();
+    db.showABM();
+    db.closeCookies();
+    db.showMoreTableMobile();
     // db.menuResponsive();
     // db.dropdownMenu();
     // db.partnerSlider();

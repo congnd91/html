@@ -1,0 +1,34 @@
+{% set title = product.name %}
+{% set canonical_url = util.url_for_product(product, _external=True) %}
+{% extends "layout.html" %}
+{% from "utils.html" import breadcrumb %}
+
+{% block link_alternate %}
+{% for lang in list_translations() %}
+<link rel="alternate" hreflang="{{ lang }}" href="{{ util.url_for_product_language(product, lang, _external=True) }}"/>
+{% endfor %}
+{% endblock link_alternate %}
+
+{% block content %}
+<main>
+{% if product.webshop_categories %}
+{% set category = product.webshop_categories[0] %}
+{% endif %}
+{{ breadcrumb(title, [
+    (util.url_for_category(category=category) if category else '#', category.name if category else '')]) }}
+
+<!-- PRODUCT DETAILS -->
+<section class="no-margin-top">
+    <div class="container">
+        {% include "product_modal.html" %}
+    </div>
+</section>
+
+<!-- TODO: does not work -->
+<!-- MENU -->
+<!-- STORY -->
+<!-- YOU MAY ALSO LIKE -->
+<!-- RECENTLY VIEWED -->
+
+</main>
+{% endblock content %}

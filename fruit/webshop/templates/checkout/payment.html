@@ -1,0 +1,27 @@
+{% set card_title = gettext('Payment') %}
+{% extends "checkout/card.html" %}
+{% block body %}
+<form action="{{ url_for(request.endpoint, order=order, step=card, _anchor=card) }}" method="POST">
+    {{ form.csrf_token }}
+    {{ form.stripe_customer_payment(class='list-group', subfield_class='list-group-item') }}
+    <div class="invalid-feedback {{ 'd-block' if form.stripe_customer_payment.errors else '' }}">
+        {% for error in form.stripe_customer_payment.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+    {% if (order.__name__ == 'sale.subscription.box') or (order.extra_amount - deposit_amount > 0) %}
+    <div class="checkout-links-wrapper">
+        <button type="button" class="checkout-link btn btn-link" data-toggle="modal" data-target="#card-register">{{ gettext('Add a new credit card') }}</button>
+        {% if order.party.sepa_debit_allowed %}
+        <button type="button" class="checkout-link btn btn-link" data-toggle="modal" data-target="#sepa-register">{{ gettext('Add a new bank account for direct debit') }}</button>
+        {% endif %}
+    </div>
+    <p class="small">{{ gettext('Secure payment by Stripe.') }}</p>
+    {% endif %}
+    <div class="btns-wrapper">
+        <button type="submit" class="btn btn-primary" data-submit-text="{{ gettext('Processing') }}">
+            {{ gettext('Buy now') }}
+        </button>
+    </div>
+</form>
+{% endblock body %}

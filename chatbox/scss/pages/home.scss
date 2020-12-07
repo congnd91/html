@@ -1,0 +1,392 @@
+body {
+  background-color: #fafafa;
+}
+
+.chat-box {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+
+  .chat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $brand-color;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    background-image: url(../images/chat-icon.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 22px auto;
+    transition: all ease 0.3s;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &.open-chat {
+    .chat-block {
+      visibility: visible;
+      opacity: 1;
+      z-index: 999;
+      margin: 0px 0px 10px 0px;
+
+      @media screen and (max-width: 767px) {
+        margin: 0px 0px 0px 0px;
+      }
+    }
+  }
+}
+
+.chat-block {
+  position: absolute;
+  bottom: 100%;
+  right: 0px;
+  width: 370px;
+  margin: 0px 0px 0px 0px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all ease 0.3s;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+
+  @media screen and (max-width: 767px) {
+    width: auto;
+    bottom: -10px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: calc(100vw - 20px);
+  }
+
+  .head {
+    padding: 10px 30px 10px 15px;
+    border-top: 3px solid $brand-color;
+    display: flex;
+    position: relative;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+
+    .close {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      margin: -15px 0px 0px 0px;
+      cursor: pointer;
+      z-index: 10;
+      background-image: url(../images/close.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 20px auto;
+      transition: all ease 0.3s;
+      opacity: 0.7;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #fff;
+      background-color: $brand-color;
+      flex-shrink: 0;
+      margin: 0px 15px 0px 0px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    h3 {
+      color: $text-color;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1.2;
+      margin: 0px;
+    }
+
+    p {
+      font-size: 12px;
+      color: $text-second;
+      opacity: 0.8;
+      margin: 0px;
+    }
+  }
+
+  .content {
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+
+    position: relative;
+
+    .scroll {
+      padding: 20px 15px 10px 15px;
+      overflow: auto;
+      max-height: calc(100vh - 225px);
+      min-height: 370px;
+
+      @media screen and (max-width: 991px) {
+        min-height: 300px;
+      }
+
+      @media screen and (max-width: 767px) {
+        min-height: 100%;
+        max-height: auto;
+      }
+    }
+
+    .btn-start {
+      border-radius: 3px;
+      margin: 0px 0px 10px 0px;
+      background-color: $brand-color;
+      font-size: 13px;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      outline: none;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    .item {
+      margin-bottom: 10px;
+      display: flex;
+
+      .text-avatar {
+        background-color: #50E3C1;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        color: #fff;
+        font-size: 9px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .avatar {
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        overflow: hidden;
+        flex-shrink: 0;
+        margin: 0px 10px 0px 0px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .item-text {
+        padding: 8px 14px;
+        border-radius: 20px;
+        background-color: #eee;
+        margin-bottom: 5px;
+        display: inline-block;
+
+        p {
+          font-size: 13px;
+          color: $text-second;
+          margin: 0px;
+          line-height: 1.3;
+        }
+      }
+
+      &.you {
+        flex-direction: row-reverse;
+
+        .avatar {
+          border: 1px solid #eee;
+          border-radius: 50%;
+          width: 32px;
+          height: 32px;
+          overflow: hidden;
+          flex-shrink: 0;
+          margin: 0px 0px 0px 10px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .item-text-wrap {
+          text-align: right;
+        }
+
+        .item-text {
+          padding: 8px 14px;
+          background-color: $brand-color;
+          text-align: left;
+          border: none;
+
+          p {
+            font-size: 13px;
+            color: #fff;
+            margin: 0px;
+            line-height: 1.3;
+          }
+        }
+      }
+    }
+
+    .list-option {
+      margin-bottom: 20px;
+      padding-left: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media screen and (max-width: 767px) {
+        //justify-content: flex-start;
+        max-width: 340px;
+
+      }
+
+
+      a {
+        display: inline-block;
+        //margin: 0px 5px 5px 0px;
+        padding: 5px 6px;
+        background-color: #fff;
+        border: 1px solid $brand-color;
+        font-size: 11px;
+        color: $brand-color;
+        text-align: center;
+        border-radius: 20px;
+        margin-right: 10px;
+
+        @media screen and (max-width: 767px) {
+          padding: 4px 6px;
+          // font-size: 9px;
+          margin: 0px 8px 0px 0px;
+
+          &:last-child {
+            margin-right: 0px;
+          }
+        }
+
+        &:last-child {
+          margin-right: 0px;
+
+        }
+
+        &:hover {
+          background-color: $brand-color;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .bar {
+    padding: 10px 10px 10px 10px;
+    border-top: 1px solid #ddd;
+
+    .type-form {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      @media screen and (max-width: 575px) {
+        flex-wrap: wrap;
+      }
+
+      .wrap-input {
+        width: 100%;
+        border: 1px solid #eee;
+        border-radius: 2px;
+
+        .wrap-input-inner {
+          position: relative;
+        }
+
+        input {
+          display: block;
+          width: 100%;
+          min-height: 40px;
+          border: none;
+          outline: none;
+          padding: 10px 40px 5px 10px;
+          transition: all ease 0.2s;
+          font-size: 12px;
+          font-family: $font-family;
+        }
+
+        textarea {
+          display: block;
+          width: 100%;
+          height: 35px;
+          border: none;
+          outline: none;
+          padding: 10px 40px 8px 10px;
+          // transition: all ease 0.2s;
+          font-size: 12px;
+          overflow: hidden;
+          resize: none;
+          min-width: 100%;
+          max-height: 70px;
+          font-family: $font-family;
+
+          &::-webkit-input-placeholder {
+            font-family: $font-family;
+
+          }
+        }
+
+        .btn-send {
+          width: 30px;
+          height: 30px;
+          background-color: transparent;
+          outline: none;
+          position: absolute;
+          top: 50%;
+          background-color: transparent;
+          outline: none;
+          border: none;
+          right: 5px;
+          margin: -15px 0px 0px 0px;
+          background-image: url(../images/send-icon.svg);
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: 17px auto;
+          border-radius: 50%;
+          z-index: 999;
+          cursor: pointer;
+          transition: all ease 0.3s;
+
+          &:hover {
+            opacity: 0.9;
+            background-color: #fafafa;
+          }
+        }
+      }
+    }
+  }
+}

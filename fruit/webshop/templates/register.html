@@ -1,0 +1,65 @@
+{% set title = gettext('Register') %}
+{% extends "login.html" %}
+
+{% block fields %}
+<div class="form-group">
+    {{ form.name.label }}
+    {{ form.name(class='form-control', placeholder='George Lucas') }}
+    <div class="invalid-feedback">
+        {% for error in form.name.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+<div class="form-group">
+    {{ form.nickname.label }}
+    {{ form.nickname(class='form-control', placeholder='George') }}
+    <div class="invalid-feedback">
+        {% for error in form.nickname.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+{{ super() }}
+<div class="form-group">
+    {{ form.password2.label }}
+    {{ form.password2(class='form-control', placeholder=gettext('Re-enter password')) }}
+    <div class="invalid-feedback">
+        {% for error in form.password2.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+<div class="form-group">
+    <div class="custom-control custom-checkbox">
+        {{ form.mailing_subscribe(class='custom-control-input') }}
+        {{ form.mailing_subscribe.label(class='custom-control-label') }}
+        <div class="invalid-feedback">
+            {% for error in form.mailing_subscribe.errors %}
+            {{ error }}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <p class="form-text-left small">
+    {{ gettext('We respect your privacy and any of your private information will never be distributed to any third party without your consent.') }}
+    </p>
+</div>
+{% endblock fields %}
+
+{% block options %}
+<div class="form-group">
+    <p class="form-text-center">
+        {{ gettext('Already have an account?') }}
+        <a class="form-control-link" href="{{ url_for('login') }}">
+            {{ gettext('Log in') }}
+        </a>
+    </p>
+</div>
+<div class="form-group">
+    <p class="form-text-left small">
+        {{ gettext('Professional?<br> Please send us your VAT number and your invoice address to <a href="mailto:fruchtversand@jurassicfruit.com">fruchtversand@jurassicfruit.com</a> when placing your first order.') }}
+    </p>
+</div>
+{% endblock options %}

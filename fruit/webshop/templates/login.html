@@ -1,0 +1,39 @@
+{% extends "login_refresh.html" %}
+
+{% block fields %}
+<div class="form-group">
+    {{ form.email.label }}
+    {{ form.email(class='form-control', placeholder=gettext('Enter Email')) }}
+    <div class="invalid-feedback">
+        {% for error in form.email.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+{{ super() }}
+{% endblock fields %}
+
+{% block actions %}
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="vertical-flex-align">
+                <div class="custom-control custom-checkbox">
+                    {{ form.remember(class='custom-control-input') }}
+                    {{ form.remember.label(class='custom-control-label') }}
+                    <div class="invalid-feedback">
+                        {% for error in form.remember.errors %}
+                        {{ error }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                {{ super() }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock actions %}

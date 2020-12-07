@@ -1,0 +1,12 @@
+{% extends "layout-message.html" %}
+{% block message_content %}
+<h1>{{ gettext("Oops!") }}</h1>
+<h2>{{ gettext("Something went wrong.") }}</h2>
+<p>{{ gettext("You need to reload the page first.") }}</p>
+<p class="reason">{{ reason }}</p>
+<div class="btn-wrapper">
+    <a class="btn btn-primary" href="{{ util.request_full_path() }}">
+        {{ gettext("Reload") }}
+    </a>
+</div>
+{% endblock message_content %}

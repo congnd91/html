@@ -1,0 +1,14 @@
+<div class="dropdown dropdown-language">
+    <div id="dropdown-arrow" class="dropdown-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="{{ url_for('static', filename='images/flag-%s.png' % get_locale()) }}"/>
+        <i class="fa fa-angle-down"></i>
+    </div>
+    <div class="dropdown-menu" aria-labelledby="dropdown-arrow">
+        {% for translation in list_translations() %}
+        <a class="dropdown-item" href="{{ url_lang(translation) }}">
+            <img src="{{ url_for('static', filename='images/flag-%s.png' % translation) }}"/>
+            <span>{{ translation.display_name.title() }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,228 @@
+{% set title = gettext('My Subscription') %}
+{% extends "layout.html" %}
+{% from "utils.html" import breadcrumb %}
+
+{% block content %}
+<main>
+{{ breadcrumb(title) }}
+
+<section class="section-heading-center no-margin-top small-margin-bottom">
+    <div class="container">
+        <h1>{{ title }}</h1>
+    </div>
+</section>
+
+<section class="no-margin-top">
+    <div class="container">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link {{ 'active' if active == 'deliveries' else '' }}" id="upcoming-deliveries-tab" data-toggle="tab" href="#upcoming-deliveries" role="tab" aria-controls="upcoming-deliveries" aria-selected="true">
+                    {{ gettext('Your upcoming deliveries') }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ 'active' if active == 'settings' else '' }}" id="subscription-settings-tab" data-toggle="tab" href="#subscription-settings" role="tab" aria-controls="subscription-settings" aria-selected="false">
+                    {{ gettext('Your subscription settings') }}
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade {{ 'show active' if active == 'deliveries' else '' }}" id="upcoming-deliveries" role="tabpanel" aria-labelledby="upcoming-deliveries-tab">
+                {% if allow_rush %}
+                <div class="row">
+                    <div class="col-md-2 col-lg">
+                        {{ form.rush_delivery(class='btn btn-primary mb-3', form='subscription_form') }}
+                    </div>
+                </div>
+                {% endif %}
+                {% for delivery in deliveries %}
+                <div class="delivery-row">
+                    <div class="row">
+                        <div class="col-6 col-md-3 col-xl-2">
+                            <div class="delivery-infos">
+                                <div class="date">
+                                    <div class="date-align">
+                                        <span class="day-number">{{ util.format_date(delivery.date, '%d') }}</span>
+                                        <div class="day-month-year-wrapper">
+                                            <span>{{ util.format_date(delivery.date, '%A') }}</span>
+                                            <span class="month-year">{{ util.format_date(delivery['date'], '%B, %Y') }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="street-city">
+                                    {{ delivery.address.street.splitlines()[0] }}<br>
+                                    {{ delivery.address.city }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="offset-1 offset-lg-0 col-5 col-sm-4 col-md-2 col-lg-2 col-xl-1">
+                            <div class="delivery-image">
+                                <noscript class="loading-lazy">
+                                    <img src="{{ util.url_for_product_image(delivery.product, size=90) }}" alt="{{ delivery.product.name }}" loading="lazy"/>
+                                </noscript>
+                            </div>
+                        </div>
+                        {% if delivery.sale %}
+                        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                            <div class="delivery-weight-price">
+                                <p>
+                                    <strong>{{ gettext('Net Weight:') }}</strong> 
+                                    {{ util.format_number(delivery.sale.total_weight, 2) }} kg
+                                </p>
+                                <p>
+                                    <strong>{{ gettext('Total:') }}</strong>
+                                    {{ util.format_currency(delivery.sale.total_amount, delivery.sale.currency) }}
+                                </p>
+                            </div>
+                        </div>
+                        {% if util.sale_modify_allowed(delivery.sale) or util.sale_cancel_allowed(delivery.sale) %}
+                        <div class="col-12 col-lg-3 col-xl">
+
+                                <form class="delivery-buttons" action="{{ url_for('sale_cancel', sale=delivery.sale, next=request_full_path()) }}" method="POST">
+                                    {% if util.sale_modify_allowed(delivery.sale) %}
+                                    <a href="{{ url_for('sale', sale=delivery.sale) }}" class="btn btn-outline-dark">{{ gettext('Edit this delivery') }}</a>
+                                    {% endif %}
+                                    {% if util.sale_cancel_allowed(delivery.sale) %}
+                                    <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                                    <button type="submit" class="btn btn-outline-dark" onclick="return confirm('{{ gettext('Are you sure to cancel this delivery?') }}')">{{ gettext('Skip this delivery') }}</button>
+                                    {% endif %}
+                                </form>
+
+                        </div>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="tab-pane fade {{ 'show active' if active == 'settings' else '' }}" id="subscription-settings" role="tabpanel" aria-labelledby="subscription-settings-tab">
+                <form method="POST" id="subscription_form">
+                    {{ form.hidden_tag() }}
+                    <div class="subscription-settings-header">
+                        <div class="row">
+                            <div class="col-12 col-lg">
+                                <div class="header-left">
+                                    <p>
+                                        {{ gettext('Your Subscription <strong>#%(number)s</strong>, started on %(start_date)s is <span class="state">%(state)s</span>.', number=subscription.rec_name, start_date=util.format_date(subscription.start_date), state=subscription.state_string) }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg">
+                                <div class="header-right">
+                                    {% if subscription.state == 'pause' and subscription.stripe_customer_payment %}
+                                    {{ form.run(class='btn btn-primary') }}
+                                    {% elif subscription.state == 'running' %}
+                                    {{ form.pause(class='btn btn-outline-dark') }}
+                                    {{ form.cancel(class='btn btn-outline-dark', onclick="return confirm('%s')" % gettext('Are you sure to cancel your subscription?')) }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="subscription-settings-form form-left">
+                                <div class="form-group">
+                                    {{ form.shipment_address.label }}
+                                    {{ form.shipment_address(class='custom-select') }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.shipment_address.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form.invoice_address.label }}
+                                    {{ form.invoice_address(class='custom-select') }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.invoice_address.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="btn-wrapper">
+                                    <a class="btn btn-link" href="{{ url_for('account_address', next=request_full_path()) }}">
+                                        {{ gettext('Add new address') }}
+                                    </a>
+                                </div>
+                                <div class="form-group">
+                                    {{ form.frequency.label }}
+                                    {{ form.frequency(class='custom-select') }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.frequency.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form.shipping_day.label }}
+                                    {{ form.shipping_day(class='custom-select') }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.shipping_day.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form.carrier.label }}
+                                    {{ form.carrier(class='custom-select') }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.carrier.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form.stripe_customer_payment.label }}
+                                    {{ form.stripe_customer_payment}}
+                                    <div class="invalid-feedback {{ 'd-block' if form.stripe_customer_payment.errors else '' }}">
+                                        {% for error in form.stripe_customer_payment.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="btn-wrapper">
+                                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#card-register">{{ gettext('Add New Card') }}</button>
+                                    {% if util.get_session_party().sepa_debit_allowed %}
+                                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#sepa-register">{{ gettext('Add New Bank Account') }}</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="subscription-settings-form form-right">
+                                <div class="form-group">
+                                    {{ form.box.label }}
+                                    {{ form.box(class='custom-select', style='font-family: monospace;') }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.carrier.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.save(class='btn btn-primary') }}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+{% endblock content %}
+
+{% block modals %}
+{% include "payment-modals.html" %}
+{% endblock modals %}
+
+{% block js %}
+{{ super() }}
+{% with payment_currency = subscription.company.currency %}
+{% include "payment-modals.js" %}
+{% endwith %}
+{% endblock js %}

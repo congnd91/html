@@ -1,0 +1,116 @@
+<div class="modal" tabindex="-1" role="dialog" id="card-register">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ gettext("Card register") }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="{{ gettext("Close") }}">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="card-register-form">
+                <div class="modal-body">
+                    <p>
+                    {{ gettext("By registering my card I authorise Coconnect Solutions GmbH to send instructions to the financial institution that issued my card to take payments from my card account in accordance with the terms of my agreement with you.") }}
+                    </p>
+                    <label for="card-element">
+                        {{ gettext('Credit or debit card') }}
+                    </label>
+                    <div id="card-element"></div>
+                    <div id="card-errors"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" data-submit-text="{{ gettext('Registering') }}">
+                        {{ gettext("Register") }}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% if party.sepa_debit_allowed %}
+<div class="modal" tabindex="-1" role="dialog" id="sepa-register">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ gettext("SEPA Direct Debit Mandate") }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="{{ gettext('Close') }}">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="sepa-register-form">
+                <div class="modal-body">
+                    <p>
+                    {{ gettext("By providing your IBAN and confirming this payment, you are authorizing Coconnect Solutions GmbH and Stripe, our payment service provider, to send instructions to your bank to debit your account and your bank to debit your account in accordance with those instructions. You are entitled to a refund from your bank under the terms and conditions of your agreement with your bank. A refund must be claimed within 8 weeks starting from the date on which your account was debited.") }}
+                    </p>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>{{ gettext("Name") }}</label>
+                                <input class="form-control" id="sepa-register-form-name" value="{{ party.name }}" required />
+                            </div>
+                            <div class="form-group">
+                                <label>{{ gettext("Account Number - IBAN") }}</label>
+                                <input class="form-control" id="sepa-register-form-iban" placeholder="DE623 7040 0440 5320 1300 1" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sepa-register-errors"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" data-submit-text="{{ gettext('Registering') }}">
+                        {{ gettext("Register") }}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endif %}
+<div class="modal" tabindex="-1" role="dialog" id="sofort-register">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ gettext("SOFORT") }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="{{ gettext("Close") }}">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="sofort-form">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>{{ gettext("Name") }}</label>
+                                <input id="sofort-name" class="form-control" value="{{ party.name }}"/>
+                            </div>
+                            <div class="form-group">
+                                <label>{{ gettext("Amount") }}</label>
+                                <div class="input-group">
+                                    <input id="sofort-amount" class="form-control text-right" type="number" step="0.01" min="0" required value="{{ deposit }}" {{ 'readonly' if deposit }} />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">€</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>{{ gettext("Country") }}</label>
+                                <select id="sofort-country" class="custom-select">
+                                    {% for country in util.get_sofort_countries() %}
+                                    <option value="{{ country.code }}" {{ 'selected' if country == default_country else '' }}>
+                                    {{ country.name }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit" data-submit-text="{{ gettext('Processing') }}">
+                            {{ gettext("Transfer by Sofort") }}
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

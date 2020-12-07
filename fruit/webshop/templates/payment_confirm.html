@@ -1,0 +1,60 @@
+{% set title = gettext('Confirm Payment') %}
+{% extends "layout-form.html" %}
+
+{% block form %}
+<form id="payment-confirm-form">
+    <p class="lead">
+    {% if payment.origin %}
+    You need to confirm your payment of {{ util.format_currency(payment.amount, payment.currency) }} for your order #{{ payment.origin.rec_name }}.
+    {% else %}
+    You need to confirm your payment of {{ util.format_currency(payment.amount, payment.currency) }}.
+    {% endif %}
+    </p>
+    <div id="card-errors"></div>
+    <button class="btn btn-primary btn-block" type="submit" data-submit-text="{{ gettext('Confirming') }}">
+        {{ gettext("Confirm") }}
+    </button>
+</form>
+<form class="mt-4" id="payment-cancel-form" method="POST" action="{{ url_for('payment_cancel', payment=payment) }}">
+    <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+    <button class="btn btn-outline-dark btn-block" type="submit" data-submit-text="{{ gettext('Canceling') }}">
+        {{ gettext("Cancel") }}
+    </button>
+</form>
+{% endblock form %}
+
+{% block js %}
+{{ super() }}
+<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+    var async = async || [];
+    async.push(function() {
+        'use strict';
+
+        var stripe = Stripe('{{ stripe_key }}', {
+            locale: '{{ get_locale() }}',
+        });
+        $('#payment-confirm-form').submit(function(event) {
+            event.preventDefault();
+            if ($(this).data('submitting')) {
+                return false;
+            }
+            var $buttons = $(this).find("*[type='submit']");
+            $buttons.attr('disabled', true).button('submitting');
+
+            stripe.handleCardPayment(
+                '{{ payment.stripe_payment_intent.client_secret }}',
+                {payment_method: '{{ payment.stripe_customer_payment_method }}'})
+                .then(function(result) {
+                    if (result.error) {
+                        var errorElement = document.getElementById('card-errors');
+                        errorElement.textContent = result.error.message;
+                        $buttons.attr('disabled', false).button('reset');
+                    } else {
+                        window.location = "{{  end_url }}";
+                    }
+                });
+        });
+    });
+</script>
+{% endblock js %}

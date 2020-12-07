@@ -1,0 +1,308 @@
+{% set phone = gettext('<a href="tel:+4920175899650">+49 201/75899650</a>') %}
+{% set open_hours = gettext('(9-13 and 14-18 ; Mon-Fri)') %}
+{% extends "base.html" %}
+{% block body %}
+{% block header %}
+<section class="nav-wrapper">
+    {% block topbar_marketing %}
+    {% for message in marketing_messages %}
+    {% set marketing_message_id = 'marketing-message-%s' % message['id'] %}
+    {% if not request.cookies.get(marketing_message_id) %}
+    <div class="topbar-marketing" id="{{ marketing_message_id }}">
+        <div class="container container-nav">
+            <div class="container-relative">
+                <p>
+                {{ message['content']|safe }}
+                </p>
+                <a href="#" class="btn-close" data-target="{{ marketing_message_id }}">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endblock topbar_marketing %}
+
+    {% block topbar %}
+    <div class="topbar">
+        <div class="container container-nav">
+            <div class="row">
+                <div class="topbar-left col col-lg-4">
+                    <p>
+                    <span>{{ gettext('Fruits for next week?') }}</span>
+                    {{ gettext('You still have <strong>%(closing_time)s</strong> to order.',
+                    closing_time=util.format_timedelta(util.sale_closing_timedelta())) }}
+                    </p>
+                </div>
+                <div class="topbar-center col-lg-4">
+                    <p>{{ gettext('Cultivate your Health') }}</p>
+                </div>
+                <div class="topbar-right col-auto col-lg-4">
+                    <p>{{ gettext('Tel') }} {{ phone }} {{ open_hours }}</p>
+                    {% include "dropdown-language.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock topbar %}
+
+    {% block navbar %}
+    <nav class="navbar navbar-expand-lg">
+        <div class="container container-nav">
+            <div class="row">
+                <!-- Navbar left -->
+                <div class="col-2 col-sm-3 col-md-4 navbar-left">
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <div id="dropdown-arrow" class="dropdown-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="arrow-wrapper">
+                                        <a class="nav-link" href="{{ url_for('category') }}">{{ gettext('Shop') }}</a>
+                                        <i class="fa fa-angle-down"></i>
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu" aria-labelledby="dropdown-arrow">
+                                    {% for category in categories %}
+                                    <a class="dropdown-item" href="{{ util.url_for_category(category=category['id']) }}">{{ category['name'] }}</a>
+                                    {% endfor %}
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{ url_for('category') }}">{{ gettext('All') }}</a>
+                                </div>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ url_for('subscribe') }}">{{ gettext('Subscribe') }}</a>
+                            </li>
+                            {#
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">{{ gettext('Our story') }}</a>
+                            </li>
+                            #}
+                        </ul>
+                    </div>
+                    <div class="burger-icon">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-navbar" aria-controls="top-navbar" aria-expanded="false" aria-label="{{ gettext('Toggle navigation') }}">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Navbar center -->
+                <div class="col-6 col-sm-6 col-md-4">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}"/>
+                    </a>
+                </div>
+                <!-- Navbar right -->
+                <div class="col-4 col-sm-3 col-md-4 static-col">
+                    <div class="navbar-alignment navbar-right">
+                        <input type="checkbox" id="search-mobile" class="d-none"/>
+                        <form class="form-inline navbar-form-search" method="GET" action="{{ url_for('category') }}">
+                            <input class="form-control" type="search" name="name" id="search-input" placeholder="{{ gettext('Search products...') }}" aria-label="{{ gettext('Search') }}" />
+                            <button class="btn-transparent">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                        <label for="search-mobile" class="mobile-search fa fa-search"></label>
+                        <div class="navbar-user-icon dropdown">
+                            <div id="dropdown-arrow" class="dropdown-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-o"></i>
+                            </div>
+                            <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="dropdown-arrow">
+                                {% if current_user and current_user.is_authenticated %}
+                                <a class="dropdown-item" href="{{ url_for('account') }}">{{ gettext('My Account') }}</a>
+                                <a class="dropdown-item" href="{{ url_for('subscription') }}">{{ gettext('My Subscription') }}</a>
+                                <a class="dropdown-item" href="{{ url_for('sales') }}">{{ gettext('My Orders') }}</a>
+                                <a class="dropdown-item" href="{{ url_for('invoices') }}">{{ gettext('My Invoices') }}</a>
+                                <a class="dropdown-item" href="{{ url_for('logout') }}">{{ gettext('Log out') }}</a>
+                                {% else %}
+                                <a class="dropdown-item" href="{{ url_for('login') }}">{{ gettext('Log in') }}</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% include "shopping_cart_navbar.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    {% endblock navbar %}
+    {% block notification %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="topbar-notification">
+        <div class="container container-nav">
+            <div class="container-relative">
+                {% for message in messages %}
+                <p><i class="fa fa-commenting-o text-mint pr-1"></i>{{ message | safe }}</p>
+                {% endfor %}
+                <a href="#" class="btn-close"><i class="fa fa-times"></i></a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+    {% endblock notification %}
+</section>
+{% endblock header %}
+
+{% block content %}
+{% endblock content %}
+
+{% block footer %}
+<footer>
+    <div class="container">
+        {% block footer_top %}
+        <div class="row">
+            <!-- Column 1 -->
+            <div class="footer-col col-sm-12 col-lg-3">
+                <div class="col-wrapper">
+                    <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}"/>
+                    <p>
+                        {{ gettext('We are a family owned company dedicated to help you cultivate your health!') }}<br>
+                        {{ gettext('We are Organic certified by Ecocert, DE-ÖKO-005.') }}
+                    </p>
+                    <img src="{{ url_for('static', filename='images/logo-bio.png') }}" alt="{{ gettext('Bio') }}"/>
+                    <img src="{{ url_for('static', filename='images/logo-bio-eu.png') }}" alt="{{ gettext('Bio Europe') }}"/>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <!-- Column 2 -->
+                    <div class="footer-col col-sm-4 col-lg-4">
+                        <h3>{{ gettext('Shop') }}</h3>
+                        <ul>
+                            {% for category in footer_categories[:4] %}
+                            <li><a href="{{ util.url_for_category(category=category['id']) }}">{{ category['name'] }}</a></li>
+                            {% endfor %}
+                            <li><a href="{{ url_for('subscribe') }}">{{ gettext('Join the subscription club') }}</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column 3 -->
+                    <div class="footer-col col-sm-4 col-lg-4">
+                        <h3>{{ gettext('Information') }}</h3>
+                        <ul>
+                            <li><a href="{{ url_for('index', _anchor='question-delivery') }}">{{ gettext('Delivery') }}</a></li>
+                            <li><a href="{{ gettext('//blog.jurassicfruit.com/knowledgebase_category/payment/') }}">{{ gettext('Payment') }}</a></li>
+                            <li><a href="{{ url_for('index', _anchor='accordion-faq') }}">{{ gettext('FAQ') }}</a></li>
+                            <li><a href="{{ gettext('//blog.jurassicfruit.com/our-story/') }}">{{ gettext('Our Story') }}</a></li>
+                            <li><a href="{{ gettext('//blog.jurassicfruit.com/en/') }}">{{ gettext('Blog') }}</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column 4 -->
+                    <div class="footer-col col-sm-4 col-lg-4">
+                        <h3>{{ gettext('Get in touch!') }}</h3>
+                        <p>
+                            {{ gettext('Call us') }}<br />
+                            {{ phone }}<br />
+                            {{ open_hours }}
+                        </p>
+                        <a class="email-us" href="mailto:{{ gettext("fruitlover@jurassicfruit.com") }}">{{ gettext('Email us') }}</a>
+                        <h3>{{ gettext('Follow us') }}</h3>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/jurassicfruit/">
+                                <i class="fa fa-facebook-f"></i>
+                            </a>
+                            <a href="https://twitter.com/JurassicFruit">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="https://www.youtube.com/c/jurassicfruit?sub_confirmation=1">
+                                <i class="fa fa-youtube"></i>
+                            </a>
+                            <a href="https://www.instagram.com/jurassicfruit/">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column 5 -->
+            <div class="footer-col col-sm-12 col-lg-3">
+                <div class="col-wrapper">
+                    <h3>{{ gettext('join our VIP list') }}</h3>
+                    <p>
+                    {{ gettext('Learn before everyone about our new products, special information and get exclusive offers:') }}
+                    </p>
+                    <form class="form-group" method="POST" action="{{ url_for('mailing_request_subscribe') }}">
+                        <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                        <input class="input-outline-grey form-control" type="email" name="email" placeholder="{{ gettext('Your email address') }}">
+                        <button class="btn btn-primary" type="submit">{{ gettext('Sign up') }}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endblock footer_top %}
+        {% block footer_bottom %}
+        <div class="row">
+            <div class="col-lg">
+                <div class="footer-bottom">
+                    <div class="row">
+                        <div class="col-lg-8 text-lg-left text-center py-3">
+                            <i class="fa fa-map-marker"></i>&nbsp;
+                            {{ gettext('Jurassic Fruit - Frischezentrum Essen - Lützowstr. 28 a - 45141 Essen - Deutschland') }}<br>
+                            &copy;&nbsp;{{ dt.datetime.today().year }} Jurassic Fruit |
+                            <a href="{{ gettext('//blog.jurassicfruit.com/legal/') }}">{{ gettext('Legal') }}</a> |
+                            <a href="{{ gettext('//blog.jurassicfruit.com/privacy-policy/') }}">{{ gettext('Privacy Policy') }}</a> |
+                            <a href="{{ gettext('//blog.jurassicfruit.com/terms-and-conditions/') }}">{{ gettext('Terms and Conditions') }}</a>
+                        </div>
+                        <div class="col-lg-4 d-flex align-items-center flex-lg-row flex-column justify-content-lg-end py-3">
+                            <noscript class="loading-lazy">
+                                <img class="payment-img" src="{{ url_for('static', filename='images/payment.png') }}" loading="lazy"/>
+                            </noscript>
+                            <div class="p-1">
+                                {% include "dropdown-language.html" %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock footer_bottom %}
+    </div>
+</footer>
+{% endblock footer %}
+
+{% block modals %}
+<div class="modal modal-quickview" id="modal-quickview" tabindex="-1" role="dialog" aria-labelledby="modal-quickview" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="{{ gettext('Close') }}">
+                    <span class="text-dark" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock modals %}
+
+{% block cart %}
+<!-- SHOPPING CART -->
+<div class="section-fixed {{ 'active' if request.args.get('showCart') | int else 'd-none' }}">
+    <aside class="shopping-cart {{ 'active' if request.args.get('showCart') | int else '' }}">
+        <div class="shopping-cart__header layout-left-middle-right">
+            <span>
+                <a href="{{ request_full_path({'showCart': 0}) }}">
+                    <i class="fa fa-chevron-left"></i>
+                    {{ gettext('Continue shopping') }}
+                </a>
+            </span>
+            <span>{{ gettext('My cart') }}</span>
+            <span>
+                <a class="btn-close" href="{{ request_full_path({'showCart': 0}) }}">
+                    <i class="fa fa-times"></i>
+                </a>
+            </span>
+        </div>
+        <div id="shopping_cart" data-load="{{ url_for('shopping_cart') }} .shopping-cart__content">
+            {% if request.args.get('showCart') %}
+            {% include "shopping_cart.html" %}
+            {% endif %}
+        </div>
+    </aside>
+</div>
+{% endblock cart %}
+{% endblock body %}

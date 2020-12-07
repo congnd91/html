@@ -1,0 +1,160 @@
+{% set card_title = gettext('Address') %}
+{% extends "checkout/card.html" %}
+{% block summary %}
+{% if order.shipment_address %}
+{{ gettext('Shipping:') }} {{ util.address_line(order.shipment_address) }}<br/>
+{% endif %}
+{% if order.invoice_address %}
+{{ gettext('Invoicing:') }} {{ util.address_line(order.invoice_address) }}
+{% endif %}
+{% endblock summary %}
+{% block body %}
+{% if form.shipment_address.choices and form.invoice_address.choices %}
+<form action="{{ url_for(request.endpoint, order=order, step=card, _anchor=card) }}" method="POST">
+    {{ form.csrf_token }}
+    <div class="row">
+        <div class="col-md-6">
+            {{ form.shipment_address.label(class='col-form-label') }}
+            <div class="form-align">
+                {{ form.shipment_address }}
+            </div>
+            <div class="invalid-feedback {{ 'd-block' if form.shipment_address.errors else '' }}">
+                {% for error in form.shipment_address.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{ form.invoice_address.label(class='col-form-label') }}
+            <div class="form-align">
+                {{ form.invoice_address }}
+                <div class="invalid-feedback {{ 'd-block' if form.invoice_address.errors else '' }}">
+                    {% for error in form.invoice_address.errors %}
+                    {{ error }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="checkout-links-wrapper">
+        <a class="checkout-link" href="{{ url_for('account_address', next=request_full_path()) }}">
+            {% if form.shipment_address.choices or form.shipment_address.invoice.choices %}
+            {{ gettext('Add a new address') }}
+            {% else %}
+            {{ gettext('Register an address') }}
+            {% endif %}
+        </a>
+    </div>
+    <div class="btns-wrapper">
+        <button type="submit" class="btn btn-primary" data-submit-text="{{ gettext('Saving') }}">
+            {{ gettext('Ship to the selected address') }}
+        </button>
+    </div>
+</form>
+{% else %}
+<form action="{{ url_for('account_address', shipment=1, next=url_for(request.endpoint, order=order, step=card, _anchor=card)) }}" method="POST">
+    {{ form.csrf_token }}
+    <div class="text-danger">
+        {% for field, messages in form.errors.items() %}
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            {{ form_new.party_name.label(class='col-form-label') }}
+        </div>
+        <div class="col-md-10">
+            {{ form_new.party_name(class='form-control') }}
+            <div class="invalid-feedback">
+                {% for error in form_new.party_name.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            {{ form_new.street.label(class='col-form-label') }}
+        </div>
+        <div class="col-md-10">
+            {{ form_new.street(class='form-control') }}
+            <div class="invalid-feedback">
+                {% for error in form_new.street.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            {{ form_new.zip.label(class='col-form-label') }}
+        </div>
+        <div class="col-md-4">
+            {{ form_new.zip(class='form-control', maxlength=9, style='width: 9em') }}
+            <div class="invalid-feedback">
+                {% for error in form_new.zip.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-2">
+            {{ form_new.city.label(class='col-form-label') }}
+        </div>
+        <div class="col-md-4">
+            {{ form_new.city(class='form-control', maxlength=30) }}
+            <div class="invalid-feedback">
+                {% for error in form_new.city.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row mb-double">
+        <div class="col-md-2">
+            {{ form_new.country.label(class='col-form-label') }}
+        </div>
+        <div class="col-md-4">
+            {{ form_new.country(class='custom-select') }}
+            <div class="invalid-feedback">
+                {% for error in form_new.country.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 offset-md-2">
+            <div class="custom-control custom-checkbox">
+                {{ form_new.delivery(class='custom-control-input') }}
+                {{ form_new.delivery.label(class='custom-control-label') }}
+                <div class="invalid-feedback">
+                    {% for error in form_new.delivery.errors %}
+                    {{ error }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 offset-md-2">
+            <div class="custom-control custom-checkbox">
+                {{ form_new.invoice(class='custom-control-input') }}
+                {{ form_new.invoice.label(class='custom-control-label') }}
+                <div class="invalid-feedback">
+                    {% for error in form_new.invoice.errors %}
+                    {{ error }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btns-wrapper">
+        <button type="submit" class="btn btn-primary" data-submit-text="{{ gettext('Registering') }}">
+            {{ gettext('Register this address') }}
+        </button>
+    </div>
+</form>
+{% endif %}
+{% endblock body %}

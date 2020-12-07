@@ -1,0 +1,268 @@
+{% set title = gettext('Fruit Subscription, Organic and Wild') %}
+{% set description = gettext('We are meant to eat Organic Fresh Fruits and Vegetables, aren\'t we? Get healthy and Save on each delivery: Subscribe on a Fruitbox!') %}
+{% extends "layout.html" %}
+{% from "utils.html" import breadcrumb, why_shop %}
+
+{% block content %}
+<main>
+{{ breadcrumb(title) }}
+
+<!-- JOIN THE SUBSCRIPTION CLUB -->
+<section class="no-margin">
+    <div class="container">
+        <div class="row row-center">
+            <div class="col-xl-10">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="row">
+                            <div class="col col-xl-11">
+                                <div class="item-img item-img-scaled" id="preview">
+                                    <picture>
+                                        <noscript class="loading-lazy">
+                                            <source srcset="{{ url_for('static', filename='images/subscription-350.jpg') }}" media="(max-width: 576px)"/>
+                                            <img src="{{ url_for('static', filename='images/subscription-800.jpg') }}" loading="lazy"/>
+                                        </noscript>
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-xl-11">
+                                <div class="thumbnail-wrapper">
+                                    <div class="row">
+                                        {% for box, _ in form.box.choices if box %}
+                                        <div class="col-2">
+                                            <div class="item-img" data-preview-id="preview" data-preview-img="{{ util.url_for_product_image(product=box, size=800) }}" data-preview-img-srcset="{{ util.url_for_product_image(product=box, size=350) }}"id="preview-{{ box }}">
+                                                <noscript class="loading-lazy">
+                                                    <img src="{{ util.url_for_product_image(product=box, size=90) }}" loading="lazy"/>
+                                                </noscript>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {#<div class="row">
+                            <div class="col">
+                                <div class="subscription-testimony">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <div class="subscription-testimony-img">
+                                                <img src="{{ url_for('static', filename='images/.png') }}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-10">
+                                            <div class="subscription-testimony-text">
+                                                <p>
+                                                    {{ gettext('I love the Subscription Club of Jurassic Fruit! I have a box with delicious surprise + my favorite coconut and mango that i enjoy with family every week. Amazing!') }}
+                                                </p>
+                                                <p>
+                                                    {{ gettext('<strong>%(name)s</strong> from %(place)s', name='Laura', place='Dusseldorf') }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>#}
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="subscription-boxes-wrapper">
+                            <form method="POST">
+                                <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                                <div class="row">
+                                    <div class="col">
+                                        <h2>{{ gettext('Join the subscription club') }}</h2>
+                                    </div>
+                                </div>
+                                <ul class="fa-ul">
+                                    <li>
+                                        <span class="fa-li">
+                                            <i class="fa fa-check"></i>
+                                        </span>
+                                        <p>
+                                        <span class="icon-label">{{ gettext('No obligation') }}</span>
+                                        {{ gettext('Change, pause or stop at anytime') }}
+                                        </p>
+                                    </li>
+                                    {% if costs %}
+                                    <li>
+                                        <span class="fa-li">
+                                            <i class="fa fa-check"></i>
+                                        </span>
+                                        <p>
+                                        <span class="icon-label">{{ gettext('Save on each delivery') }}</span>
+                                        {{ gettext('Pay <strong>only %(cost)s</strong> instead of %(base_cost)s of shipping cost for %(country)s', cost=util.format_currency(*costs['subscription']), base_cost=util.format_currency(*costs['no_subscription']), country=country.name) }}
+                                        </p>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                                <div class="form-group">
+                                    {{ form.frequency.label }}
+                                    {{ form.frequency(class='custom-select') }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.frequency.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form.box.label }}
+                                    {{ form.box(class='custom-select', style='font-family: monospace;') }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.box.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                    {% for box in util.get_boxes() %}
+                                    <div class="d-none box-description mt-3" id="box-description-{{ box.id }}">
+                                        {{ box.webshop_description|safe }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <p>
+                                    {{ gettext("Each box is <strong>100%% customizable</strong>,<br>meaning it's a snap to make it just right for your family") }}
+                                </p>
+                                <button type="submit" class="btn btn-primary" data-submit-text="{{ gettext('Subscribing') }}">
+                                    {{ gettext('Subscribe') }}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY SHOP -->
+<section class="no-margin-top">
+    <div class="container">
+        <div class="row row-center">
+            <div class="col-lg-10">
+                {{ why_shop(why) }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JOIN THE CLUB -->
+<section class="no-margin-top">
+    <div class="container">
+        {#
+        <h2 class="text-center">Join the club</h2>
+        <div class="subscription-gallery">
+            <div class="row">
+                <div class="col-lg col-md-4 col-6">
+                    <div class="item-img">
+                        <img src="images/picture_2.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg col-md-4 col-6">
+                    <div class="item-img">
+                        <img src="images/picture_3.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg col-md-4 col-6">
+                    <div class="item-img">
+                        <img src="images/picture_4.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg col-md-4 col-6">
+                    <div class="item-img">
+                        <img src="images/picture_5.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg col-md-4 col-6">
+                    <div class="item-img">
+                        <img src="images/picture_1.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg col-md-4 col-6">
+                    <div class="item-img">
+                        <img src="images/picture_6.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg col-md-4 col-6">
+                    <div class="item-img">
+                        <img src="images/picture_7.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        #}
+    </div>
+</section>
+
+<!-- WHY SUBSCRIBE? -->
+<section class="no-margin-top">
+    <div class="container">
+        <h2 class="text-center">{{ gettext('Why subscribe?') }}</h2>
+        <div class="why-subscribe-wrapper">
+            <div class="row">
+                <div class="offset-lg-2 col-lg-4 col-sm-6">
+                    <div class="text-wrapper">
+                        <h3>{{ gettext('Save time') }}</h3>
+                        <p>
+                            {{ gettext('You do not need anymore to spend time at shopping, all is done for you! You are informed of your content and delivery date by email before each of your upcoming delivery.') }}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="text-wrapper">
+                        <h3>{{ gettext('Stay totally free') }}</h3>
+                        <p>
+                            {{ gettext('Until the %(closing_day)s (%(closing_time)s) that precedes your delivery you can change your content as you like or even skip your delivery. You can also pause or cancel your subscription at anytime.', closing_day=util.closing_day(), closing_time=util.CLOSING_TIME.strftime('%H:%M')) }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-lg-2 col-lg-4 col-sm-6">
+                    <div class="text-wrapper">
+                        <h3>{{ gettext('Stay healthy over time') }}</h3>
+                        <p>
+                            {{ gettext('Receiving regularly a box of great fruits at home is the most pleasurable way many are choosing to turn healthy lifestyle into a habit.') }}
+                        </p>
+                    </div>
+                </div>
+                {% if costs %}
+                <div class="col-lg-4 col-sm-6">
+                    <div class="text-wrapper">
+                        <h3>{{ gettext('Save money') }}</h3>
+                        <p>
+                            {{ gettext('Pay only %(cost)s instead of %(base_cost)s of shipping costs for any standard delivery to %(country)s.', cost=util.format_currency(*costs['subscription']), base_cost=util.format_currency(*costs['no_subscription']), country=country.name) }}
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+{% endblock content %}
+
+{% block js %}
+{{ super() }}
+<script>
+    var async = async || [];
+    async.push(function() {
+        'use strict';
+
+        $('#box').change(function() {
+            var el = $(this);
+            if (el.val()) {
+                $('#preview-' + el.val()).click();
+            } else {
+                $('#preview').attr('src', '{{ url_for('static', filename='images/subscription-800.jpg') }}');
+            }
+            $('.box-description').addClass('d-none');
+            $('#box-description-' + el.val()).removeClass('d-none');
+        });
+        $('#box').change();
+    });
+</script>
+{% endblock js %}

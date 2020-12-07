@@ -1,0 +1,30 @@
+{% set expanded = step == card %}
+{% set edit = steps_list.index(card) <= steps_list.index(step) %}
+<div class="card {{ 'active' if expanded else '' }}" id="{{ card }}">
+    <div class="card-header">
+        <div class="card-number">
+            <span></span>
+        </div>
+        <div class="card-header-left">
+            <div class="card-title">
+                <h3>{{ card_title }}</h3>
+                {% if not expanded and edit %}
+                <a class="edit" href="{{ url_for(request.endpoint, order=order, step=card, _anchor=card) }}">
+                    {{ gettext('Edit') }}
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% if not expanded %}
+        <div class="card-header-right">
+            {% block summary %}{% endblock summary %}
+        </div>
+        {% endif %}
+    </div>
+    {% if expanded %}
+    <div class="card-body">
+        {% block body %}
+        {% endblock body %}
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,104 @@
+<div class="row">
+    <div class="col-12 col-lg-9">
+        <div class="product-filters-wrapper-left">
+            <div class="btn-group">
+                <div class="dropdown">
+                    <div class="btn btn-sorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>{{ gettext('Origin') }}</span>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        {% for country in countries %}
+                        <a class="dropdown-item" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(sale=order, category=category, made_in=country['id'], **shows), page=1)) }}">{{ country['rec_name'] }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group">
+                <div class="dropdown">
+                    <div class="btn btn-sorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>{{ gettext('Label') }}</span>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(sale=order, category=category, organic=1, **shows), page=1)) }}">{{ gettext('Bio') }}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group">
+                <div class="dropdown">
+                    <div class="btn btn-sorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>{{ gettext('Availability') }}</span>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(sale=order, category=category, available=1, **shows), page=1)) }}">{{ gettext('Available') }}</a>
+                        <a class="dropdown-item" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(sale=order, category=category, available=''), page=1)) }}">{{ gettext('Unavailable') }}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group">
+                <div class="dropdown">
+                    <div class="btn btn-sorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>{{ gettext('Season') }}</span>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(sale=order, category=category, season='', **shows), page=1)) }}">{{ gettext('Out') }}</a>
+                        <a class="dropdown-item" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(sale=order, category=category, season='low', **shows), page=1)) }}">{{ gettext('Low') }}</a>
+                        <a class="dropdown-item" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(sale=order, category=category, season='high', **shows), page=1)) }}">{{ gettext('High') }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-3">
+        <div class="product-filters-wrapper-right">
+            <div class="btn-group">
+                <div class="dropdown">
+                    <div class="btn btn-sorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>{{ gettext('Sort by') }}</span>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(sale=order, category=category, replace=True, order_by='name', **shows), page=1)) }}">{{ gettext("Name") }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="selected-filters">
+            <p>
+            {{ gettext('Selected filters:') }}
+            {% with clears = {} %}
+            {% for name, key, url_ in filters(sale=order, category=category) %}
+            <a class="btn btn-sorting" href="{{ url_ }}">{{ name }} x</a>
+            {{ clears.setdefault(key) or '' }}
+            {% endfor %}
+            <a href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(sale=order, category=category, **clears), page=1)) }}">
+                <u>{{ gettext('Clear all filters') }}</u>
+            </a>
+            {% endwith %}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="mobile-category-filters">
+    <div class="btn-group dropdown">
+        <div class="btn btn-sorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span>{{ util.category_name(category) }}</span>
+            <i class="fa fa-angle-down"></i>
+        </div>
+        <div class="dropdown-menu">
+            {% for cat in categories %}
+            <a class="dropdown-item" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(True, sale=order, category=cat['id'], **shows), page=1)) }}">{{ util.category_name(cat) }}</a>
+            {% endfor %}
+            <a class="dropdown-item" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(True, sale=order, category=None, **shows), page=1)) }}">{{ gettext('See all') }}</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+{% set title = gettext('Edit Phone') if id else gettext('Add Phone') %}
+{% set button = gettext('Save') if id else gettext('Add') %}
+{% set submit_text = gettext('Saving') if id else gettext('Adding') %}
+{% extends "layout-form.html" %}
+{% from "utils.html" import teltype %}
+
+{% block fields %}
+<div class="form-group">
+    {{ form.type(class='custom-select', placeholder=form.type.label.text) }}
+    <div class="invalid-feedback">
+        {% for error in form.type.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+<div class="form-group">
+    {{ form.value(class='form-control', data_teltype=form.type.id) }}
+    <div class="invalid-feedback">
+        {% for error in form.value.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+</div>
+<p class="small">
+{{ gettext('Your phone number is required by our carrier to guarantee the delivery of your order.') }}
+</p>
+<p class="small">
+{{ gettext('We respect your privacy and any of your private information will never be distributed to any third party without your consent.') }}
+</p>
+{% endblock fields %}
+
+{% block js %}
+{{ super() }}
+{{ teltype(countries) }}
+{% endblock js %}

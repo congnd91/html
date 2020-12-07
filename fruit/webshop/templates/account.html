@@ -1,0 +1,173 @@
+{% set title = gettext('My Account') %}
+{% extends "layout.html" %}
+{% from "utils.html" import breadcrumb %}
+
+{% block content %}
+<main>
+{{ breadcrumb(title) }}
+
+<section class="section-heading-center no-margin-top small-margin-bottom">
+    <div class="container">
+        <h1>{{ title }}</h1>
+    </div>
+</section>
+
+<!-- ACCOUNT -->
+<section class="section-account">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="item-box-wrapper col-left">
+                    <h3 id="login">{{ gettext('Login and security') }}</h3>
+                    <div class="item-box-spacing">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="fieldset-content fieldset-column">
+                                        <label>{{ gettext('Full name') }}</label>
+                                        <p>{{ party.name }}</p>
+                                        <label>{{ gettext('Nickname') }}</label>
+                                        <p>{{ party.nickname }}</p>
+                                        <label>{{ gettext('Email address') }}</label>
+                                        <p>{{ web_user.email }}</p>
+                                        <label>{{ gettext('Language') }}</label>
+                                        <p>{{ party.lang.name if party.lang else '-' }}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-auto">
+                                    <div class="btns-wrapper">
+                                        <a class="btn btn-light btn-link-grey" href="{{ url_for('change_password', next=request_full_path()) }}">{{ gettext('Change password') }}</a>
+                                        <a class="btn btn-light btn-link-grey" href="{{ url_for('account_user', next=request_full_path()) }}">{{ gettext('Edit') }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <h3 id="address">{{ gettext('Address book') }}</h3>
+                    <div class="item-box-spacing">
+                        {% for address in party.addresses %}
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="fieldset-content">
+                                        {% if address.country %}
+                                        <span class="country-code">{{ address.country.code }}</span>
+                                        {% endif %}
+                                        <p class="paragraph-wrapper">
+                                        {{ util.address_line(address) }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-auto">
+                                    <div class="btns-wrapper">
+                                        <form method="POST" action="{{ url_for('account_address_delete', address=address, next=request_full_path()) }}">
+                                            <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                                            <button class="btn btn-light btn-link-grey" type="submit" onclick="return confirm('{{ gettext('Are you sure to delete the address?') }}');" data-submit-text="{{ gettext('Deleting') }}">{{ gettext('Delete') }}</button>
+                                        </form>
+                                        <a class="btn btn-light btn-link-grey" href="{{ url_for('account_address', address=address, next=request_full_path()) }}">{{ gettext('Edit') }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        {% endfor %}
+                        <a class="add-new-link" href="{{ url_for('account_address', next=request_full_path()) }}">{{ gettext('Add New') }}</a>
+                    </div>
+                    <h3 id="phone">{{ gettext('Phone') }}</h3>
+                    <div class="item-box-spacing">
+                        {% for contact in party.contact_mechanisms %}
+                        {% if contact.type in ['phone', 'mobile'] %}
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="fieldset-content">
+                                        <span class="country-code">{{ util.tel_country_code(contact.value) }}</span>
+                                        <p class="paragraph-wrapper">
+                                            {{ util.tel_national_number(contact.value) }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="btns-wrapper">
+                                        <form method="POST" action="{{ url_for('account_contact_delete', contact=contact, next=request_full_path()) }}">
+                                            <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                                            <button class="btn btn-light btn-link-grey" type="submit" onclick="return confirm('{{ gettext('Are you sure to delete the number?') }}');" data-submit-text="{{ gettext('Deleting') }}">{{ gettext('Delete') }}</button>
+                                        </form>
+                                        <a class="btn btn-light btn-link-grey" href="{{ url_for('account_contact', contact=contact, next=request_full_path()) }}">{{ gettext('Edit') }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        {% endif %}
+                        {% endfor %}
+                        <a class="add-new-link" href="{{ url_for('account_contact', next=request_full_path()) }}">{{ gettext('Add new') }}</a>
+                    </div>
+                    <h3 id="payment">{{ gettext('Payment methods') }}</h3>
+                    <div class="item-box-spacing">
+                        {% for payment, name in payments %}
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="fieldset-content">
+                                        {{ util.StripeSourceWidget(name) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <form method="POST" action="{{ url_for('account_delete_payment', payment=payment, next=request_full_path()) }}">
+                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                        <div class="btns-wrapper">
+                                            <button class="btn btn-light btn-link-grey" type="submit" onclick="return confirm('{{ gettext('Are you sure to delete this payment method?\\nIf it is used on running orders, they will be canceled.') }}');" data-submit-text="{{ gettext('Deleting') }}">{{ gettext('Delete') }}</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </fieldset>
+                        {% endfor %}
+                        <div class="d-flex">
+                            <a class="add-new-link" data-toggle="modal" data-target="#card-register" href="#">{{ gettext('Add New Card') }}</a>
+                            {% if party.sepa_debit_allowed %}
+                            <a class="add-new-link" data-toggle="modal" data-target="#sepa-register" href="#">{{ gettext('Add New Bank Account') }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <h3 id="deposit">{{ gettext('Deposit') }}</h3>
+                    <div class="item-box-spacing">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p class="fieldset-content">
+                                    <span class="ticket">
+                                        Jurassic<br>Fruit
+                                    </span>
+                                        {{ util.format_currency(util.available_deposit(party), company.currency) }}
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="btns-wrapper">
+                                        <button class="btn btn-light btn-link-grey" data-toggle="modal" data-target="#sofort-register">{{ gettext('Load your deposit') }}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="item-box-wrapper col-right">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+{% endblock content %}
+
+{% block modals %}
+{% include "payment-modals.html" %}
+{% endblock modals %}
+
+{% block js %}
+{{ super() }}
+{% with payment_currency = company.currency %}
+{% include "payment-modals.js" %}
+{% endwith %}
+{% endblock js %}

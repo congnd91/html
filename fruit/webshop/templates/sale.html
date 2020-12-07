@@ -1,0 +1,246 @@
+{% set title = gettext('Edit Order #%(number)s', number=order.rec_name) if not order.is_subscription else gettext('Edit Delivery') %}
+{% extends "layout.html" %}
+{% from "utils.html" import product_stars, product_square, product_pricing, product_quantity, breadcrumb %}
+
+{% block content %}
+
+<main>
+
+{% if order.is_subscription %}
+{{ breadcrumb(title, [
+    (url_for('subscription'), gettext('My Subscription'))]) }}
+{% else %}
+{{ breadcrumb(title, [
+    (url_for('sales'), gettext('My Orders'))]) }}
+{% endif %}
+
+<section class="section-heading-center no-margin-top small-margin-bottom">
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <p><strong>({{ util.format_date(order.delivery_date) }})</strong></p>
+        <p>
+            <i class="fa fa-hourglass-half"></i>
+            {{ gettext('You can edit the content of this order until <strong>%(date)s.</strong>', date=util.format_date(util.sale_processing_date(order), '%A %d, %B %H:%M')) }}
+        </p>
+    </div>
+</section>
+
+<section class="small-margin-bottom">
+    <form class="form-inline-right" method="POST">
+        {{ form.csrf_token }}
+        <div class="container">
+            <div class="orders-filters-wrapper">
+                <div class="flex-wrapper">
+                    <div>
+
+                        <!-- Shipping address -->
+                        <div class="orders-filter">
+                            {{ form.shipment_address.label }}
+                            {{ form.shipment_address(class='custom-select') }}
+                            <div class="invalid-feedback {{ 'd-block' if form.shipment_address.errors else '' }}">
+                                {% for error in form.shipment_address.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <!-- Invoicing address -->
+                        <div class="orders-filter">
+                            {{ form.invoice_address.label }}
+                            {{ form.invoice_address(class='custom-select') }}
+                            <div class="invalid-feedback {{ 'd-block' if form.invoice_address.errors else '' }}">
+                                {% for error in form.invoice_address.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <!-- Carrier -->
+                        <div class="orders-filter">
+                            {{ form.carrier.label }}
+                            {{ form.carrier(class='custom-select') }}
+                            <div class="invalid-feedback {{ 'd-block' if form.carrier.errors else '' }}">
+                                {% for error in form.carrier.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <div class="product-row-result">
+                            <div class="result-border">
+                                <label>
+                                    {{ gettext('Total of the order') }}
+                                </label>
+                                <div class="product-price bolded">
+                                    {{ util.format_currency(order.total_amount, order.currency) }}
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary invisible" data-submit-on-change="1">{{ gettext('Update') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+<section class="no-margin">
+    <div class="container">
+        <div class="row row-orders">
+        {% for line in order.lines if not line.shipment_cost %}
+        {% set quantity_prices = util.get_all_sale_price(line.product, order.price_list)[1] %}
+        <div class="col-md-6 col-lg-12">
+            <div class="product-row-wrapper">
+                <div class="row">
+                    <div class="col-lg-1">
+                        <a href="{{ util.url_for_product(product=line.product) }}">
+                            <div class="item-img">
+                                <noscript class="loading-lazy">
+                                    <img src="{{ util.url_for_product_image(line.product, size=90) }}" loading="lazy"/>
+                                </noscript>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="product-row-name-wrapper">
+                            <h3 class="product-name">{{ line.product.name if line.product else line.description }}</h3>
+                            {{ product_stars(line.product) }}
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="product-row-squares-wrapper">
+                            {{ product_square(line.product) }}
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="product-row-pricing">
+                            {{ product_pricing(line.product, order.currency, line.total_unit_price, None, util) }}
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="product-row-reductions">
+                            <div class="reductions">
+                                {% for quantity, price, amount, percentage, reduction, second_price in quantity_prices %}
+                                {% if quantity > line.quantity %}
+                                <p>
+                                {{ gettext('<span class="product-reduction">%(percentage)i%%</span> from %(quantity)s %(uom)s', percentage=percentage * 100, quantity=quantity, uom=line.product.sale_uom.symbol) }}
+                                </p>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-auto">
+                        <div class="product-row-dropdown-wrapper">
+                            <form action="{{ url_for('sale_line', sale=order, line=line, next=request_full_path({'showModal': 0})) }}" method="POST">
+                                <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                                <div class="flex-wrapper">
+                                    <div class="product-row-dropdown">
+                                        {{ product_quantity(line.product, line.quantity, currency=order.currency, quantity_prices=quantity_prices, util=util) }}
+                                    </div>
+                                    <div class="unity unity--strong">{{ line.unit.symbol }}</div>
+                                </div>
+                                <button class="btn btn-link invisible" type="submit" data-submit-on-change="1">{{ gettext('Update') }}</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-auto order-lg-2">
+                        <div class="product-row-final-price">
+                            <strong>{{ util.format_currency(line.total_amount, order.currency) }}</strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 order-lg-1">
+                        <div class="product-row-remove">
+                            <form action="{{ url_for('sale_line', sale=order, line=line, next=request_full_path({'showModal': 0})) }}" method="POST">
+                                <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                                <input name="quantity" type="hidden" value="0"/>
+                                <div class="remove-wrapper">
+                                    <button class="btn btn-transparent d-none d-lg-block d-xl-none px-0" type="submit"><i class="fa fa-trash"></i></button>
+                                    <button class="btn btn-link d-lg-none d-xl-block" type="submit" data-submit-text="{{ gettext('Removing') }}">{{ gettext('Remove') }}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="small-margin-top">
+    <div class="container">
+        <div class="product-row-result">
+            <div class="result-left">
+                <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modalAddNewProducts">
+                    {{ gettext('+ Add new products') }}
+                </button>
+            </div>
+            <div class="result-right">
+                <div class="result-border">
+                    <label>{{ gettext('Total of the order') }}</label>
+                    <div class="product-price bolded">{{ util.format_currency(order.total_amount, order.currency) }}</div>
+                </div>
+                {% if order.state == 'draft' and not order.is_subscription %}
+                <div class="shopping-cart__submit">
+                    <form action="{{ url_for('checkout_sale', order=order) }}" method="POST">
+                        <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                        <button type="submit" class="btn btn-primary btn-block">{{ gettext('Checkout') }}</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+{% endblock content %}
+
+{% block modals %}
+{{ super() }}
+<div class="modal modal-products" id="modalAddNewProducts" tabindex="-1" role="dialog" aria-labelledby="modalAddNewProducts" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    {% with shows = {'showModal': 1} %}
+                    <div class="modal-products-filters">
+                    {% include "product_filters.html" %}
+                    </div>
+                    {% include "product_list.html" %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock modals %}
+
+{% block js %}
+{{ super() }}
+<script>
+    var async = async || [];
+    async.push(function() {
+        'use strict';
+        $('#modalAddNewProducts')
+            .on('show.bs.modal', function() {
+                setParameter('showModal', 1);
+            })
+            .on('hide.bs.modal', function() {
+                setParameter('showModal');
+            });
+        {% if request.args.get('showModal') | int %}
+        $('#modalAddNewProducts').modal('show');
+        {% endif %}
+    });
+</script>
+{% endblock js %}

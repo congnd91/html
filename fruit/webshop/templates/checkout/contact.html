@@ -1,0 +1,67 @@
+{% set card_title = gettext('Contact') %}
+{% extends "checkout/card.html" %}
+{% from "utils.html" import teltype %}
+{% block summary %}
+{{ current_user.name }} ({{ current_user.email }})
+{% endblock %}
+{% block body %}
+{% set phone = util.get_phone(order.party) %}
+{% if phone %}
+<form action="{{ url_for(request.endpoint, order=order, step=card, _anchor=card) }}" method="POST">
+    {{ form.csrf_token }}
+    <div class="row">
+        <div class="col-md-2">
+            <label>{{ gettext('Phone', for='phone') }}</label>
+        </div>
+        <div class="col-md">
+            <div class="fieldset-content" id="phone">
+                <span class="country-code">{{ util.tel_country_code(phone.value) }}</span>
+                {{ util.tel_national_number(phone.value) }}
+            </div>
+        </div>
+        <div class="col-md-auto">
+            <a href="{{ url_for('account_contact', contact=phone, next=request_full_path()) }}">
+                {{ gettext('Edit') }}
+            </a>
+        </div>
+    </div>
+    <div class="btns-wrapper">
+        <button type="submit" class="btn btn-primary" data-submit-text="{{ gettext('Saving') }}">
+            {{ gettext('Use this contact info') }}
+        </button>
+    </div>
+</form>
+{% else %}
+<form action="{{ url_for('account_contact', next=url_for(request.endpoint, order=order, step=card, _anchor=card)) }}" method="POST">
+    {{ form_new.csrf_token }}
+    <div class="row">
+        <div class="col-md-4">
+            {{ form_new.type(class='custom-select', placeholder=form_new.type.label.text) }}
+            <div class="invalid-feedback">
+                {% for error in form_new.type.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-8">
+            {{ form_new.value(class='form-control', data_teltype=form_new.type.id) }}
+            <div class="invalid-feedback">
+                {% for error in form_new.value.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="btns-wrapper">
+        <button type="submit" class="btn btn-primary" data-submit-text="{{ gettext('Registering') }}">
+            {{ gettext('Register') }}
+        </button>
+    </div>
+</form>
+{% endif %}
+{% endblock body %}
+
+{% block js %}
+{{ super() }}
+{{ teltype(countries) }}
+{% endblock js %}

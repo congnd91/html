@@ -1,0 +1,32 @@
+{% set title = gettext("Order confirmed") %}
+{% extends "layout-thank-you.html" %}
+{% block message %}
+<p class="thank-you-username">
+{{ gettext('Thank you for your order at Jurassic Fruit %(name)s!', name=current_user.name) }}
+</p>
+<div class="thank-you-order-infos-wrapper">
+    <p>
+    <strong>{{ gettext('Order number:') }}</strong>
+    #{{ order.rec_name }}
+    </p>
+    <p>
+    <strong>{{ gettext('Delivery address:') }}</strong>
+    {{ util.address_line(order.shipment_address) }}
+    </p>
+    {% if order.delivery_date %}
+    <p>
+    <strong>{{ gettext('Estimated delivery date:') }}</strong>
+    {{ util.format_date(order.delivery_date) }}
+    </p>
+    {% endif %}
+    {% if order.next_shipping_date %}
+    <p>
+    <strong>{{ gettext('Next shipping date:') }}</strong>
+    {{ util.format_date(order.next_shipping_date) }}
+    </p>
+    {% endif %}
+    <p class="thank-you-info-email">
+    {{ gettext('An email with all the details of your order has just been sent to: %(email)s', email=current_user.email) }}
+    </p>
+</div>
+{% endblock message %}

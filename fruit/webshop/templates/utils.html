@@ -1,0 +1,317 @@
+{% macro product_box(product, currency, price, reference_price, util, quantity_prices=None, order=None, add_next=None) %}
+<a href="{{ util.url_for_product(product=product) }}">
+    <div class="img-wrapper">
+        <picture>
+            <noscript class="loading-lazy">
+                <source srcset="{{ util.url_for_product_image(product, size=250) }}" media="(max-width: 576px)"/>
+                <img src="{{ util.url_for_product_image(product, size=350) }}" loading="lazy"/>
+            </noscript>
+        </picture>
+        <div class="product-img-content align-bottom">
+            <i class="product-like fa fa-heart-o"></i>
+            {% if not order %}
+            <button class="btn btn-quickview" data-toggle="modal" data-target="#modal-quickview" data-content="{{ url_for('product_modal', product=product, page=util.request_full_path({'showCart': 1})) }}">{{ gettext('Quick view') }}</button>
+            {% endif %}
+            {{ product_square(product) }}
+        </div>
+    </div>
+</a>
+<div class="product-info">
+    <h3 class="product-name">
+        <a href="{{ util.url_for_product(product=product) }}">{{ product.name }}</a>
+    </h3>
+    {{ product_stars(product) }}
+    {{ product_pricing(product, currency, price, reference_price, util) }}
+    {{ product_add_button(product, util=util, order=order, price=price, currency=currency, quantity_prices=quantity_prices, next=add_next) }}
+</div>
+{% endmacro %}
+
+{% macro product_pricing(product, currency, price, reference_price, util, vat=False) %}
+{% set reduction = reference_price and currency.round(reference_price) > currency.round(price) %}
+<div class="product-pricing">
+    {% if reduction %}
+    <span class="product-old-price">{{ util.format_currency(reference_price, currency) }}</span>
+    {% endif %}
+    <span class="product-price" data-product="{{ product.id }}">{{ util.format_currency(price, currency) }}</span>
+    <span class="unity">/{{ product.sale_uom.symbol }}</span>
+    {% if reduction %}
+    <span class="product-reduction" data-product="{{ product.id }}">{{ gettext("(-%(reduction)i%%)", reduction=(1 - price / reference_price) * 100) }}</span>
+    {% endif %}
+    {% if vat %}
+    <span class="product-vat">{{ gettext('Incl. VAT & excl. <a href="%(shipping_url)s">Shipping</a>', shipping_url=url_for('index', _anchor='answer-2')) }}</span>
+    {% endif %}
+    {% with second_price, second_uom_symbol = util.sale_second_price(price, product) %}
+    {% if second_price %}
+    <div class="product-second-price">
+    (<span class="product-second-price" data-product="{{ product.id }}">{{ util.format_currency(second_price, currency) }}</span>
+    <span class="unity">/{{ second_uom_symbol }}</span>)
+    </div>
+    {% endif %}
+    {% endwith %}
+</div>
+{% endmacro %}
+
+
+{% macro product_square(product, class_='') %}
+<ul class="product-img-squares {{ class_ }}">
+    {% if product.organic %}
+    <li class="green">
+        <img src="{{ url_for('static', filename='images/icon-bio-eu.jpg') }}" alt="{{ gettext('Bio Europe') }}" />
+        <span class="label">{{ gettext('Bio') }}</span>
+    </li>
+    {% endif %}
+    {#
+    <li class="yellow">
+        <span>RAW</span>
+        <span class="label"></span>
+    </li>
+    <li class="yellow">
+        <img src="{{ url_for('static', filename='images/artisan.png') }}" alt="{{ gettext('artisan') }}" />
+        <span class="label"></span>
+    </li>
+    <li class="yellow">
+        <span>%</span>
+        <span class="label"></span>
+    </li>
+    <li class="yellow">
+        <span>{{ gettext('NEW') }}</span>
+        <span class="label"></span>
+    </li>
+    #}
+</ul>
+{% endmacro %}
+
+
+{% macro product_stars(product, label=False) %}
+{#<div class="stars">
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    {% if label %}
+    <span class="reviews">{{ gettext('%(n)s reviews', n=0) }}</span>
+    {% endif %}
+</div>#}
+{% endmacro %}
+
+{% macro product_add_button(product, util, order=None, price=None, currency=None, quantity_prices=None, next=None) %}
+{% if not next %}
+{% set next = util.request_full_path({'showCart': 1}) if not order else util.request_full_path({'showModal': 1}) %}
+{% endif %}
+<form action="{{ url_for('sale_line', sale=order, next=next, _anchor=product.id) }}" {% if not order %} data-submit-ajax="refreshShoppingCart,openShoppingCart" {% endif %} method="POST">
+    <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+    <input name="product" type="hidden" value="{{ product.id }}"/>
+    <div class="product-form">
+        <div div class="flex-wrapper">
+            <div class="product-form-align">
+                {{ product_quantity(product, quantity=product.default_order_quantity or 1, currency=currency, quantity_prices=quantity_prices, util=util) }}
+                <div>
+                    <span class="dropdown-legend">
+                        {% if product.minimal_order_quantity and product.minimal_order_quantity > (product.default_order_quantity or 1) and util %}
+                        {{ gettext('mini %(quanity)s%(separator)s%(unit)s',
+                        quanity=util.format_number(product.minimal_order_quantity, product.sale_unit_digits),
+                        separator='×' if product.sale_uom.symbol[0] in '1234567890' else ' ',
+                        unit=product.sale_uom.symbol) }}
+                        {% else %}
+                        &nbsp;
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+            <div class="unity unity--strong">
+                {{ product.sale_uom.symbol }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" {{ 'disabled' if not product.available or product.available_quantity == 'out' else '' }} data-submit-text="{{ gettext('Adding') }}" data-update-cart="{{ util.product_data(product) }}" data-quantity-new="quantity" data-price="{{ price }}">
+            {% if not order %}
+            {{ gettext('Add to cart') }}
+            {% else %}
+            {{ gettext('Add to delivery') }}
+            {% endif %}
+        </button>
+    </div>
+</form>
+{% endmacro %}
+
+
+{% macro product_quantity(product, quantity=0, name='quantity', currency=None, quantity_prices=None, util=None) %}
+<div class="dropdown dropdown-quantity">
+    <input class="form-control" name="{{ name }}" type="number" value="{{ quantity }}" {% if product %} step="{{ 10**-product.sale_uom.digits }}" {% endif %} min="0" lang="{{ util.get_locale() if util else '' }}" data-default-quantity="{{ product and product.default_order_quantity or 1 }}" data-more-text="{{ gettext('Other quantity') }}" data-quantity-prices='{{ util.format_quantity_prices(quantity_prices, currency) | tojson }}' data-product="{{ product and product.id or -1 }}" autocomplete="off" required/>
+</div>
+{% endmacro %}
+
+
+{% macro item_summary(item, currency, util) %}
+<div class="product-line-preview">
+    <div class="vertical-flex-align">
+        <noscript class="loading-lazy">
+            <img class="item-img-medium" src="{{ util.url_for_product_image(item.product, size=90) }}" loading="lazy"/>
+        </noscript>
+        <div class="product-line-left">
+            <h3>{{ item.product.name if item.product else item.description }}</h3>
+            <div class="product-line-quantity">
+                <strong>{{ util.format_number(item.quantity, item.unit.digits) }}</strong>&nbsp;
+                <span class="unity unity--light">{{ item.unit.symbol }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="product-line-price-wrapper">
+        <span class="product-price">{{ util.format_currency(item.total_amount, currency) }}</span>
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro render_pagination(pagination, util) %}
+<nav class="pagination-wrapper mx-auto" aria-label="{{ gettext('Page Navigation') }}">
+    <ul class="pagination">
+        <li class="page-item {{ 'disabled' if not pagination.has_prev else '' }}">
+            <a class="page-link" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(page=pagination.page - 1, replace=True), **request.view_args)) if pagination.has_prev else '' }}"
+               aria-label="{{ gettext('Previous') }}">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        {% for page in pagination.iter_pages() %}
+        {% if page %}
+        <li class="page-item {{ 'active' if page == pagination.page else '' }}">
+            <a class="page-link" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(page=page, replace=True), **request.view_args)) }}">
+                {{ page }}
+                {% if page == pagination.page %}
+                <span class="sr-only">({{ gettext("current") }})</span>
+                {% endif %}
+            </a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">...</span>
+        </li>
+        {% endif %}
+        {% endfor %}
+        <li class="page-item {{ 'disabled' if not pagination.has_next else '' }}">
+            <a class="page-link" href="{{ url_for(request.endpoint, **util.dict_update(util.add_args(page=pagination.page + 1, replace=True), **request.view_args)) if pagination.has_next else '' }}"
+               aria-label="{{ gettext('Next') }}">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+  </ul>
+</nav>
+{% endmacro %}
+
+
+{% macro breadcrumb(page, path) %}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{{ url_for('index') }}">
+                    {{ gettext('Home') }}
+                </a>
+            </li>
+            {% for url, name in path %}
+            <li class="breadcrumb-item">
+                <a href="{{ url }}">
+                    {{ name }}
+                </a>
+            </li>
+            {% endfor %}
+            <li class="breadcrumb-item active" aria-current="page">{{ page }}</li>
+        </ol>
+    </nav>
+</div>
+{% endmacro %}
+
+
+{% macro teltype(countries) %}
+<script>
+    var async = async || [];
+    async.push(function() {
+        'use strict';
+
+        $('input[data-teltype]').each(function() {
+            var input = $(this);
+            var name = input.attr('name');
+            var teltype = $('#' + input.data('teltype'));
+            input.removeAttr('name');
+            input.intlTelInput({
+                initialCountry: 'DE',
+                placeholderNumberType: teltype.val() == 'mobile'?'MOBILE':'FIXED_LINE',
+                preferredCountries: {{ countries|tojson|safe }},
+                utilsScript: '{{ url_for('static', filename='js/intlTelInput/utils.js') }}',
+                hiddenInput: name,
+            });
+            input.on('keyup change blur', function() {
+                var input = $(this);
+                input.removeClass('is-invalid');
+                if ($.trim(input.val())) {
+                    if (!input.intlTelInput('isValidNumber')) {
+                        input.addClass('is-invalid');
+                    }
+                }
+            });
+            teltype.change(function() {
+                input.intlTelInput(
+                    "setPlaceholderNumberType",
+                    teltype.val() == 'mobile'?'MOBILE':'FIXED_LINE');
+            });
+        });
+    });
+</script>
+{% endmacro %}
+
+{% macro why_shop(items, title='h2', img_class='') %}
+<div class="item-why-shop">
+    {% if title %}
+    <{{ title }}>{{ gettext('Why shop at Jurassic Fruit?') }}</{{ title }}>
+    {% endif %}
+    <div class="row">
+        {% for img, text in items %}
+        <div class="col-12 col-sm-4 col-md">
+            <div class="text-center">
+                <img class="{{ img_class }}" src="{{ img }}" loading="lazy"/>
+            </div>
+            <p>
+            {{ text }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}
+
+{% macro background(name) %}
+<style>
+.background--{{ name }} {
+    background-image: url('{{ url_for('static', filename='images/%s.jpg' % name) }}');
+}
+
+@media (max-width: 800px) {
+    .background--{{ name }} {
+        background-image: url('{{ url_for('static', filename='images/%s-800.jpg' % name) }}');
+    }
+}
+
+@media (max-width: 400px) {
+    .background--{{ name }} {
+        background-image: url('{{ url_for('static', filename='images/%s-400.jpg' % name) }}');
+    }
+}
+</style>
+{% endmacro %}
+
+
+{% macro youtube(id) %}
+<div class="embed-responsive embed-responsive-16by9" data-video="//www.youtube.com/embed/{{ id }}?autoplay=1&rel=0">
+    <a href="//www.youtube.com/watch?v={{ id }}?rel=0">
+        <picture>
+            <noscript class="loading-lazy">
+                <source srcset="//img.youtube.com/vi/{{ id }}/default.jpg" media="(max-width: 120px)"/>
+                <source srcset="//img.youtube.com/vi/{{ id }}/mqdefault.jpg" media="(max-width: 320px)"/>
+                <source srcset="//img.youtube.com/vi/{{ id }}/sddefault.jpg" media="(max-width: 640px)"/>
+                <img class="embed-responsive-item" src="//img.youtube.com/vi/{{ id }}/maxresdefault.jpg" loading="lazy"/>
+            </noscript>
+        </picture>
+        <span class="btn-video"></span>
+    </a>
+</div>
+{% endmacro %}

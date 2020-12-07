@@ -1,0 +1,130 @@
+{% from "utils.html" import product_quantity, why_shop %}
+<div class="shopping-cart__content">
+    <table class="shopping-cart__lines">
+        {% if sale_lines %}
+        {% set quantity_prices = util.get_all_sale_line_prices(sale_lines, sale.price_list)[1] %}
+        {% for line in sale_lines %}
+        <tr>
+            <td>
+                {% if line.product %}
+                <a href="{{ util.url_for_product(product=line.product) }}">
+                    <img src="{{ util.url_for_product_image(line.product, size=90) }}" />
+                </a>
+                {% else %}
+                <img src="{{ url_for('static', filename='images/default-90.jpg') }}"/>
+                {% endif %}
+            </td>
+            <td>
+                <h3 class="product-name">
+                    {% if line.product %}
+                    <a href="{{ util.url_for_product(product=line.product) }}">
+                        {{ line.product.name }}
+                    </a>
+                    {% else %}
+                    {{ line.description }}
+                    {% endif %}
+                </h3>
+                <div class="product-form">
+                    <div class="flex-wrapper">
+                        <div class="product-form-align">
+                            <form action="{{ url_for('sale_line', sale=sale, line=line, next=request_full_path({'showCart': 1})) }}" method="POST" data-submit-ajax="refreshShoppingCart">
+                                <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                                {{ product_quantity(line.product, line.quantity, currency=sale.currency, quantity_prices=quantity_prices.get(line.product, []), util=util) }}
+                                <span class="unity unity--light">{{ line.unit.symbol }}</span>
+                                <button class="btn btn-link invisible" type="submit" data-submit-on-change="1" data-update-cart="{{ util.product_data(line.product) }}" data-quantity-new="quantity" data-quantity-old="{{ line.quantity }}" data-price="{{ line.total_amount|float / line.quantity }}">{{ gettext('Update') }}</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td class="shopping-cart__amount">
+                <form action="{{ url_for('sale_line', sale=sale, line=line, next=request_full_path({'showCart': 1})) }}" method="POST" data-submit-ajax="refreshShoppingCart">
+                    <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                    <input name="quantity" type="hidden" value="0"/>
+                    <button class="btn btn-link-grey btn-block" type="submit" name="" data-update-cart="{{ util.product_data(line.product) }}" data-quantity-new="quantity" data-quantity-old="{{ line.quantity }}" data-price="{{ line.total_amount|float / line.quantity }}">
+                        <i class="fa fa-times-circle"></i>
+                    </button>
+                    <div class="product-price">{{ util.format_currency(line.total_amount, sale.currency) }}</div>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">
+                <p><strong>{{ gettext('Hum... Your cart looks a little empty!') }}</strong></p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if loved_products %}
+        <tr>
+            <td colspan="3">
+                <table class="shopping-cart__loved-product">
+                    <tr>
+                        <th colspan="3">
+                            <h3 class="text-center">{{ gettext('You may like:') }}</h3>
+                        </th>
+                    </tr>
+                    {% for product in loved_products %}
+                    <tr>
+                        <td>
+                            <a href="{{ util.url_for_product(product=product) }}">
+                                <img src="{{ util.url_for_product_image(product, size=90) }}">
+                            </a>
+                        </td>
+                        <td>
+                            <h4 class="product-name">
+                                <a href="{{ util.url_for_product(product=product) }}">
+                                    {{ product.name }}
+                                </a>
+                            </h4>
+                            <div>
+                                <span class="product-price">{{ util.format_currency(util.get_sale_price(product), currency) }}</span>
+                                <span class="unity unity--light">{{ product.sale_uom.symbol }}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <form action="{{ url_for('sale_line', sale=sale, next=util.request_full_path({'showCart': 1})) }}" method="POST" data-submit-ajax="refreshShoppingCart">
+                                <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+                                <input name="product" type="hidden" value="{{ product.id }}"/>
+                                <button class="btn btn-primary" data-update-cart="{{ util.product_data(product) }}" data-price="{{ util.get_sale_price(product) }}">
+                                    <i class="fa fa-shopping-basket"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+        {% endif %}
+        {% if sale %}
+        <tr class="shopping-cart__total shopping-cart__total--first">
+            <th colspan="2" cols="total">
+                <h3>{{ gettext('Sub-total') }}</h3>
+                <p class="small mb-0">{{ gettext('Incl. VAT & excl. <a href="%(shipping_url)s">Shipping</a>', shipping_url=url_for('index', _anchor='answer-2')) }}</p>
+            </th>
+            <td id="total" class="text-right">
+                <strong class="text-nowrap">{{ util.format_currency(sale.sub_total, sale.currency) }}</strong>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2" cols="weight">
+                <h4 class="small">{{ gettext('Total weight') }}</h4>
+            </th>
+            <td id="weight" class="text-right">
+                <small class="text-nowrap">{{ util.format_number(sale.total_weight, 2) }} kg</small>
+            </td>
+        </tr>
+        {% endif %}
+    </table>
+    {% if sale %}
+    <div class="shopping-cart__submit">
+        <form action="{{ url_for('checkout_sale', order=sale) }}" method="POST">
+            <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+            <button type="submit" class="btn btn-primary btn-block">{{ gettext('Checkout') }}</button>
+        </form>
+    </div>
+    {% endif %}
+    {{ why_shop(why_short, title='', img_class='desaturate') }}
+</div>

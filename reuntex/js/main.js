@@ -58,6 +58,28 @@
 
 
 
+      //modal language
+      $('.social-section .language').click(function () {
+        $('body').addClass("open-language");
+      });
+      $('.language-content .close').click(function () {
+        $('body').removeClass("open-language");
+      });
+      $('.language-content p').click(function () {
+        $('body').removeClass("open-language");
+      });
+
+
+      $(".language-overlay").click(function () {
+        $('body').removeClass("open-language");
+      }).children().click(function (e) {
+        return false;
+      });
+
+
+
+
+
     }
     db.heroSlider = function () {
       var owl = $('.owl-hero');

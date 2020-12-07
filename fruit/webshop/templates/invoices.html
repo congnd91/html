@@ -1,0 +1,91 @@
+{% set title = gettext('My Invoices') %}
+{% extends "layout.html" %}
+{% from "utils.html" import render_pagination %}
+{% from "utils.html" import breadcrumb %}
+
+{% block content %}
+<main>
+{{ breadcrumb(title) }}
+
+<section class="section-heading-center no-margin-top small-margin-bottom">
+    <div class="container">
+        <h1>{{ title }}</h1>
+    </div>
+</section>
+
+<section class="no-margin-top" id="section-upcoming-deliveries">
+    <div class="container">
+        <div class="table-line">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="d-none d-lg-block">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <strong>{{ gettext('Number') }}</strong>
+                            </div>
+                            <div class="col-lg-3">
+                                <strong>{{ gettext('Date') }}</strong>
+                            </div>
+                            <div class="col-lg-3">
+                                <strong>{{ gettext('Amount') }}</strong>
+                            </div>
+                            <div class="col-lg-3">
+                                <strong>{{ gettext('Status') }}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+        {% for invoice in invoices %}
+        <div class="table-line" id="invoice-{{ invoice.id }}">
+            <div class="row align-items-center">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <p class="table-line-number">
+                                <span>
+                                    {% if invoice.total_amount < 0 %}
+                                    {{ gettext('Credit Note') }}
+                                    {% else %}
+                                    {{ gettext('Invoice') }}
+                                    {% endif %}
+                                    <strong>#{{ invoice.rec_name }}</strong>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3">
+                            <p>{{ util.format_date(invoice.invoice_date, '%A %d, %B') }}</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <p>
+                                <strong>{{ util.format_currency(invoice.total_amount, invoice.currency) }}</strong>
+                            </p>
+                        </div>
+                        <div class="col-lg-3">
+                            <p>
+                            {% if invoice.state == 'paid' %}
+                            {{ gettext("Paid") }}
+                            {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="table-line-align-right">
+                        <a href="{{ url_for('invoice_download', invoice=invoice) }}" class="btn btn-outline-dark">
+                            {{ gettext('Download PDF') }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row pagination-wrapper">
+            {{ render_pagination(pagination, util=util) }}
+        </div>
+    </div>
+</section>
+</main>
+{% endblock content %}

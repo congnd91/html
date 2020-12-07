@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>HTML Template</title>
+  <!-- Vender -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link href="css/tailwind.css" rel="stylesheet" />
+  <!-- Main CSS (SCSS Compile) -->
+  <link href="css/main.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-100">
+  <div class="page-loader">
+  </div>
+  <div class="h-screen bg-white overflow-hidden flex">
+    <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+    <div class="md:hidden -translate-x-full opacity-0" id="off-canvas">
+      <div class="fixed inset-0 z-40 flex  ">
+        <div class="fixed inset-0 " aria-hidden="true">
+          <div class="absolute inset-0 bg-gray-600 opacity-75"></div>
+        </div>
+        <div class="relative max-w-xs w-full bg-white pt-5 pb-4 flex-1 flex flex-col">
+          <div class="absolute top-0 right-0 -mr-12 pt-2">
+            <button class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" id="close-menu">
+              <span class="sr-only">Close sidebar</span>
+              <!-- Heroicon name: x -->
+              <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex-shrink-0 px-4 flex items-center">
+            <img class="h-8 w-auto" src="images/logo.png">
+          </div>
+          <div class="mt-5 flex-1 h-0 overflow-y-auto">
+            <nav class="flex-1 bg-white px-2 space-y-1">
+              <a href="#" class="group  rounded-md py-2 px-2 flex items-center text-sm font-medium text-gray-900 hover:text-gray-900 hover:bg-gray-100">
+                <!-- Heroicon name: home -->
+                <svg class="mr-3 h-6 w-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                Dashboard
+              </a>
+              <a href="#" class="group  bg-gray-100 rounded-md py-2 px-2 flex items-center text-sm font-medium text-secondary hover:text-gray-900 hover:bg-gray-50">
+                <!-- Heroicon name: users -->
+                <svg class="mr-3 h-6 w-6 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Video
+              </a>
+              <a href="#" class="group rounded-md py-2 px-2 flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">
+                <!-- Heroicon name: folder -->
+                <svg class="mr-3 h-6 w-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                Billing
+              </a>
+              <a href="#" class="group rounded-md py-2 px-2 flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">
+                <!-- Heroicon name: calendar -->
+                <svg class="mr-3 h-6 w-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                </svg>
+                Settings
+              </a>
+            </nav>
+          </div>
+        </div>
+        <div class="flex-shrink-0 w-14">
+          <!-- Dummy element to force sidebar to shrink to fit close icon -->
+        </div>
+      </div>
+    </div>
+    <!-- Static sidebar for desktop -->
+    <div class="hidden md:flex md:flex-shrink-0 bg-gray-100">
+      <div class="w-64 flex flex-col">
+        <!-- Sidebar component, swap this element with another sidebar if you like -->
+        <div class="border-r border-gray-200 pt-5 pb-4 flex flex-col flex-grow overflow-y-auto">
+          <div class="flex-shrink-0 px-4 flex items-center">
+            <img class="h-8 w-auto" src="images/logo.png">
+          </div>
+          <div class="flex-grow mt-5 flex flex-col">
+            <nav class="flex-1 px-2 space-y-1">
+              <a href="#" class="group  rounded-md py-2 px-2 flex items-center text-sm font-medium text-gray-900 hover:text-gray-900 hover:bg-gray-100">
+                <!-- Heroicon name: home -->
+                <svg class="mr-3 h-6 w-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                Dashboard
+              </a>
+              <a href="#" class="group  bg-gray-200 rounded-md py-2 px-2 flex items-center text-sm font-medium text-secondary hover:text-secondary-dark hover:bg-gray-200">
+                <!-- Heroicon name: users -->
+                <svg class="mr-3 h-6 w-6 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Video
+              </a>
+              <a href="#" class="group rounded-md py-2 px-2 flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">
+                <!-- Heroicon name: folder -->
+                <svg class="mr-3 h-6 w-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                Billing
+              </a>
+              <a href="#" class="group rounded-md py-2 px-2 flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">
+                <!-- Heroicon name: calendar -->
+                <svg class="mr-3 h-6 w-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                </svg>
+                Settings
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex-1 mx-auto w-0 flex flex-col">
+      <div>
+        <div class="px-8  shadow-sm">
+          <div class="relative z-10 flex-shrink-0 h-16 bg-white flex">
+            <button class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden" id="open-menu">
+              <span class="sr-only">Open sidebar</span>
+              <!-- Heroicon name: menu-alt-2 -->
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+              </svg>
+            </button>
+            <div class="flex-1 flex justify-between px-4 md:px-0">
+              <div class="flex-1 flex">
+              </div>
+              <div class="ml-4 flex items-center md:ml-6">
+                <!-- Profile dropdown -->
+                <div class="ml-3 relative">
+                  <div>
+                    <button class="max-w-xs flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary" id="user-menu" aria-haspopup="false">
+                      <span class="sr-only">Open user menu</span>
+                      <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                    </button>
+                  </div>
+                  <!--
+              Profile dropdown panel, show/hide based on dropdown state.
+              Entering: "transition ease-out duration-100"
+                From: "transform opacity-0 scale-95"
+                To: "transform opacity-100 scale-100"
+              Leaving: "transition ease-in duration-75"
+                From: "transform opacity-100 scale-100"
+                To: "transform opacity-0 scale-95"
+            -->
+                  <div class="transform opacity-0 scale-95 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                    <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+                    <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+                    <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <main class="flex-1 relative overflow-y-auto focus:outline-none" tabindex="0">
+        <div class="px-8">
+          <div class="py-6">
+            <div class="mb-4">
+              <div class="flex justify-between">
+                <div>
+                  <h1 class="text-2xl font-bold text-gray-900">Videos</h1>
+                </div>
+                <div><button type="button" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-pink-700 bg-pink-100 hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                    Upload video
+                  </button></div>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3  2xl:grid-cols-4 gap-8">
+              <div>
+                <div class="video-item">
+                  <div class="control">
+                    <span></span> <span></span> <span></span>
+                  </div>
+                  <div class="thumb">
+                    <img alt="" src="images/1.jpg">
+                    <div class="overlay">
+                      <div>
+                        <span class="text-xs text-white">20 sec - 100 views</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-4 px-4">
+                    <h3 class="text-base">Untitle video name
+                    </h3>
+                    <div class="">
+                      <span class="text-xs text-gray-400">2 day ago</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="video-item">
+                  <div class="control">
+                    <span></span> <span></span> <span></span>
+                  </div>
+                  <div class="thumb">
+                    <img alt="" src="images/2.jpg">
+                    <div class="overlay">
+                      <div>
+                        <span class="text-xs text-white">20 sec - 100 views</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-4 px-4">
+                    <h3 class="text-base">Title video here
+                    </h3>
+                    <div class="">
+                      <span class="text-xs text-gray-400">6 day ago</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="video-item">
+                  <div class="control">
+                    <span></span> <span></span> <span></span>
+                  </div>
+                  <div class="thumb">
+                    <img alt="" src="images/3.jpg">
+                    <div class="overlay">
+                      <div>
+                        <span class="text-xs text-white">20 sec - 100 views</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-4 px-4">
+                    <h3 class="text-base">Video caption text
+                    </h3>
+                    <div class="">
+                      <span class="text-xs text-gray-400">6 day ago</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="video-item">
+                  <div class="control">
+                    <span></span> <span></span> <span></span>
+                  </div>
+                  <div class="thumb">
+                    <img alt="" src="images/4.jpg">
+                    <div class="overlay">
+                      <div>
+                        <span class="text-xs text-white">20 sec - 100 views</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-4 px-4">
+                    <h3 class="text-base">Untitle video name
+                    </h3>
+                    <div class="">
+                      <span class="text-xs text-gray-400">6 day ago</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="video-item">
+                  <div class="control">
+                    <span></span> <span></span> <span></span>
+                  </div>
+                  <div class="thumb">
+                    <img alt="" src="images/1.jpg">
+                    <div class="overlay">
+                      <div>
+                        <span class="text-xs text-white">20 sec - 100 views</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-4 px-4">
+                    <h3 class="text-base">Untitle video name
+                    </h3>
+                    <div class="">
+                      <span class="text-xs text-gray-400">2 day ago</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="video-item">
+                  <div class="control">
+                    <span></span> <span></span> <span></span>
+                  </div>
+                  <div class="thumb">
+                    <img alt="" src="images/2.jpg">
+                    <div class="overlay">
+                      <div>
+                        <span class="text-xs text-white">20 sec - 100 views</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-4 px-4">
+                    <h3 class="text-base">Title video here
+                    </h3>
+                    <div class="">
+                      <span class="text-xs text-gray-400">6 day ago</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <!--scrip file-->
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.matchHeight.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

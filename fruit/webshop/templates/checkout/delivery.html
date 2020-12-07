@@ -1,0 +1,75 @@
+{% set card_title = gettext('Delivery') %}
+{% extends "checkout/card.html" %}
+{% block summary %}
+{{ order.carrier.rec_name }}<br/>
+{% if order.delivery_date %}
+{{ gettext('Estimated delivery date: %(date)s', date=util.format_date(order.delivery_date)) }}
+{% endif %}
+{% if order.next_shipping_date %}
+{{ gettext('Next shipping date: %(date)s', date=util.format_date(order.next_shipping_date)) }}
+{% endif %}
+{% endblock summary %}
+{% block body %}
+<form action="{{ url_for(request.endpoint, order=order, step=card, _anchor=card) }}" method="POST">
+    {{ form.csrf_token }}
+    <div class="row">
+        <div class="col-md-2">
+            {{ form.carrier.label(class='col-form-label') }}
+        </div>
+        <div class="col-md">
+            {{ form.carrier(data_submit_on_change='1', class='py-2') }}
+            <div class="invalid-feedback {{ 'd-block' if form.carrier.errors else '' }}">
+                {% for error in form.carrier.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            {{ form.shipping_day.label(class='col-form-label') }}
+        </div>
+        <div class="col-md">
+            {{ form.shipping_day(class='py-2') }}
+            <div class="invalid-feedback {{ 'd-block' if form.shipping_day.errors else '' }}">
+                {% for error in form.shipping_day.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+        {% if form.shipping_day.delivery_dates %}
+        <div class="col-md-2">
+            <label class="col-form-label" for="estimated_delivery">{{ gettext('Estimated delivery') }}</label>
+        </div>
+        <div class="col-md">
+            <input type="text" readonly class="form-control-plaintext" id="estimated_delivery" value="" data-choice-value="shipping_day" data-choice-val='{{ form.shipping_day.delivery_dates | tojson }}'>
+        </div>
+        {% endif %}
+    </div>
+    {% if form.shipping_day.warning_delay %}
+    <p class="d-empty-none bg-warning p-3" data-choice-value="shipping_day" data-choice-text='{{ form.shipping_day.warning_delay | tojson }}'></p>
+    {% endif %}
+    {% with guaranteed_carriers = form.guaranteed_carriers() %}
+    {% if guaranteed_carriers and order.carrier not in guaranteed_carriers %}
+    <p class="small">
+        {% if form.shipping_day.delivery_dates %}
+        {{ gettext('The delivery date given is an estimation but is not garanteed.') }}
+        {% endif %}
+        {% if guaranteed_carriers | length == 1 %}
+        {{ gettext('Please choose %(guaranteed_carrier)s if you want the delivery date to be garanteed.', guaranteed_carrier=guaranteed_carriers[0].carrier_product.name) }}
+        {% else %}
+        {{ gettext('Please choose one of %(guaranteed_carriers)s if you want the delivery date to be garanteed.', guaranteed_carriers=(guaranteed_carriers | map(attribute='carrier_product') | map(attribute='name') | join(', '))) }}
+        {% endif %}
+    </p>
+    {% endif %}
+    {% endwith %}
+    <p class="small">
+        {{ gettext('Please note that you are accountable for the reception of your order. In case of wrong address or absence of recipient, you must contact the carrier as soon as possible to arrange the delivery. No refund will be made for a problem related to the reception of the order.') }}
+    </p>
+    <div class="btns-wrapper">
+        <button type="submit" class="btn btn-primary" data-submit-text="{{ gettext('Saving') }}">
+            {{ gettext('Use these delivery information') }}
+        </button>
+    </div>
+</form>
+{% endblock body %}

@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block style %}
+{{ super() }}
+<style>
+html {
+    background-attachment: fixed;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+        url('{{ util.banner() }}');
+    background-size: cover;
+}
+@media (max-width: 800px) {
+    html {
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+            url('{{ util.banner(800) }}');
+    }
+}
+@media (max-width: 400px) {
+    html {
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+            url('{{ util.banner(400) }}');
+    }
+}
+body, main {
+    background-color: transparent;
+}
+</style>
+{% endblock style %}
+
+{% block content %}
+<main>
+    <section class="section-forms">
+        <div class="flex-wrapper">
+            <div class="form-wrapper">
+                <h1 class="text-white">{{ title }}</h1>
+                <div class="form-box">
+                    <div class="row">
+                        <div class="col">
+                            {% block form %}
+                            <form method="POST">
+                                {{ form.csrf_token }}
+                                {% block fields %}
+                                {% endblock fields %}
+                                {% block actions %}
+                                <div class="button-wrapper">
+                                    <button class="btn btn-primary" type="submit" data-submit-text="{{ submit_text }}">{{ button or title }}</button>
+                                </div>
+                                {% endblock actions %}
+                                {% block options %}
+                                {% endblock options %}
+                            </form>
+                            {% endblock form %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content %}
+
+{% block footer %}
+{% endblock %}
